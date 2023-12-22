@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>8.1. Simulation, Control, and Estimation using Pyomo &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.1. Simulation, Control, and Estimation using Pyomo &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Ftclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Ftclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1096,12 +1095,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="simulation-control-and-estimation-using-pyomo">
+  <div class="tex2jax_ignore mathjax_ignore section" id="simulation-control-and-estimation-using-pyomo">
 <h1><span class="section-number">8.1. </span>Simulation, Control, and Estimation using Pyomo<a class="headerlink" href="#simulation-control-and-estimation-using-pyomo" title="Permalink to this headline">#</a></h1>
-<section id="installations">
+<div class="section" id="installations">
 <h2><span class="section-number">8.1.1. </span>Installations<a class="headerlink" href="#installations" title="Permalink to this headline">#</a></h2>
 <p>The following instructions show how to download and install pyomo and the ipopt solver.  Execute the appropriate cell for your platform (if needed).</p>
-<section id="google-colab">
+<div class="section" id="google-colab">
 <h3><span class="section-number">8.1.1.1. </span>Google Colab<a class="headerlink" href="#google-colab" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1119,8 +1118,8 @@ unzip:  cannot find or open ipopt-linux64, ipopt-linux64.zip or ipopt-linux64.ZI
 </div>
 </div>
 </div>
-</section>
-<section id="macos">
+</div>
+<div class="section" id="macos">
 <h3><span class="section-number">8.1.1.2. </span>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1133,8 +1132,8 @@ unzip:  cannot find or open ipopt-linux64, ipopt-linux64.zip or ipopt-linux64.ZI
 </div>
 </div>
 </div>
-</section>
-<section id="windows-pc">
+</div>
+<div class="section" id="windows-pc">
 <h3><span class="section-number">8.1.1.3. </span>Windows PC<a class="headerlink" href="#windows-pc" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1144,16 +1143,16 @@ unzip:  cannot find or open ipopt-linux64, ipopt-linux64.zip or ipopt-linux64.ZI
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="process-information">
+</div>
+</div>
+<div class="section" id="process-information">
 <h2><span class="section-number">8.1.2. </span>Process Information<a class="headerlink" href="#process-information" title="Permalink to this headline">#</a></h2>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 C_p^H \frac{dT_H}{dt} &amp; = U_a (T_{amb} - T_H) + U_c (T_S - T_H) + P u(t) + d(t)\\
 C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H) 
 \end{align*}\]</div>
-<section id="process-parameter-values">
+<div class="section" id="process-parameter-values">
 <h3><span class="section-number">8.1.2.1. </span>Process Parameter Values<a class="headerlink" href="#process-parameter-values" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1167,8 +1166,8 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 </div>
 </div>
 </div>
-</section>
-<section id="process-inputs">
+</div>
+<div class="section" id="process-inputs">
 <h3><span class="section-number">8.1.2.2. </span>Process Inputs<a class="headerlink" href="#process-inputs" title="Permalink to this headline">#</a></h3>
 <p>The next cell defines some process inputs that will be used throughout the notebook to demonstrate aspects of process simulation, control, and estimation.  These are gathered in one place to make it easier to modify the notebook to test the response under different conditions. These functions are implemented using the <code class="docutils literal notranslate"><span class="pre">interp1d</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> library.</p>
 <div class="cell docutils container">
@@ -1222,9 +1221,9 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 <img alt="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_12_0.png" src="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_12_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="pyomo-simulation">
+</div>
+</div>
+<div class="section" id="pyomo-simulation">
 <h2><span class="section-number">8.1.3. </span>Pyomo Simulation<a class="headerlink" href="#pyomo-simulation" title="Permalink to this headline">#</a></h2>
 <p>Let’s see how well our initial guess at a control strategy will work for us.</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1310,8 +1309,8 @@ T_S(t_0) &amp; = T_{amb}
 <img alt="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_14_1.png" src="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_14_1.png" />
 </div>
 </div>
-</section>
-<section id="optimal-control-with-knowledge-of-disturbances">
+</div>
+<div class="section" id="optimal-control-with-knowledge-of-disturbances">
 <h2><span class="section-number">8.1.4. </span>Optimal Control with Knowledge of Disturbances<a class="headerlink" href="#optimal-control-with-knowledge-of-disturbances" title="Permalink to this headline">#</a></h2>
 <p>An optimal control policy minimizes the differences</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1436,7 +1435,7 @@ Wall time: 402 ms
 <img alt="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_16_1.png" src="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_16_1.png" />
 </div>
 </div>
-<section id="exercise">
+<div class="section" id="exercise">
 <h3><span class="section-number">8.1.4.1. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h3>
 <p>The optimal control computed above requires rapid changes in power level. In process systems where control action requires movement of a valve stem position, there are often limits on how fast the manipulated variable can change. Modify the model to include differential inequalities that limit the time rate of change of control.</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1445,9 +1444,9 @@ Wall time: 402 ms
 \frac{du}{dt} &amp; \geq -\dot{u}_{max}
 \end{align*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\dot{u}_{max}\)</span> is the maximum rate of change.</p>
-</section>
-</section>
-<section id="estimation-observation">
+</div>
+</div>
+<div class="section" id="estimation-observation">
 <h2><span class="section-number">8.1.5. </span>Estimation/Observation<a class="headerlink" href="#estimation-observation" title="Permalink to this headline">#</a></h2>
 <blockquote>
 <div><p>“… and now my watch begins …” ―The Night’s Watch oath, Game of Thrones</p>
@@ -1568,8 +1567,8 @@ Wall time: 326 ms
 <img alt="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_19_1.png" src="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_19_1.png" />
 </div>
 </div>
-</section>
-<section id="coding-the-observer-as-a-python-generator">
+</div>
+<div class="section" id="coding-the-observer-as-a-python-generator">
 <h2><span class="section-number">8.1.6. </span>Coding the Observer as a Python Generator<a class="headerlink" href="#coding-the-observer-as-a-python-generator" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1675,8 +1674,8 @@ Wall time: 6.29 s
 <img alt="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_22_1.png" src="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_22_1.png" />
 </div>
 </div>
-</section>
-<section id="coding-the-controller-as-a-python-generator">
+</div>
+<div class="section" id="coding-the-controller-as-a-python-generator">
 <h2><span class="section-number">8.1.7. </span>Coding the Controller as a Python Generator<a class="headerlink" href="#coding-the-controller-as-a-python-generator" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1746,8 +1745,8 @@ Wall time: 6.29 s
 <img alt="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_24_2.png" src="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_24_2.png" />
 </div>
 </div>
-</section>
-<section id="mpc-demonstration">
+</div>
+<div class="section" id="mpc-demonstration">
 <h2><span class="section-number">8.1.8. </span>MPC Demonstration<a class="headerlink" href="#mpc-demonstration" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1788,8 +1787,8 @@ Wall time: 6.29 s
 <img alt="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_26_2.png" src="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_26_2.png" />
 </div>
 </div>
-</section>
-<section id="to-be-removed">
+</div>
+<div class="section" id="to-be-removed">
 <h2><span class="section-number">8.1.9. </span>To be Removed<a class="headerlink" href="#to-be-removed" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1843,8 +1842,8 @@ Wall time: 6.29 s
 <img alt="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_28_0.png" src="../_images/07.01-Optimization-Control-and-Estimation-using-Pyomo_28_0.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1894,7 +1893,7 @@ Wall time: 6.29 s
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

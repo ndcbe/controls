@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>3.4. Relay Control &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.4. Relay Control &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/03.04-Relay-Control.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/03.04-Relay-Control.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/03.04-Relay-Control.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/03.04-Relay-Control.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03.04-Relay-Control.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03.04-Relay-Control.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -954,9 +953,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="relay-control">
+  <div class="tex2jax_ignore mathjax_ignore section" id="relay-control">
 <h1><span class="section-number">3.4. </span>Relay Control<a class="headerlink" href="#relay-control" title="Permalink to this headline">#</a></h1>
-<section id="relay-control-for-the-temperature-control-lab">
+<div class="section" id="relay-control-for-the-temperature-control-lab">
 <h2><span class="section-number">3.4.1. </span>Relay Control for the Temperature Control Lab<a class="headerlink" href="#relay-control-for-the-temperature-control-lab" title="Permalink to this headline">#</a></h2>
 <p>Relay control is perhaps the simplest form of feedback control that comes to mind for controlling common heaters. This is the on/off control familiar from home thermostats, air conditioners, and other devices where the manipulated variable is in either an “on” state or an “off” state.</p>
 <p>The following code implements relay control for temperature T1 on the Temperature Control Lab. At each time step <span class="math notranslate nohighlight">\(t_k\)</span>, the value of</p>
@@ -1007,8 +1006,8 @@ U_{k} &amp; = \begin{cases}
 <img alt="../_images/03.04-Relay-Control_2_2.png" src="../_images/03.04-Relay-Control_2_2.png" />
 </div>
 </div>
-</section>
-<section id="relay-control-with-deadzone-hysteresis-or-deadtime">
+</div>
+<div class="section" id="relay-control-with-deadzone-hysteresis-or-deadtime">
 <h2><span class="section-number">3.4.2. </span>Relay Control with Deadzone (Hysteresis) or Deadtime<a class="headerlink" href="#relay-control-with-deadzone-hysteresis-or-deadtime" title="Permalink to this headline">#</a></h2>
 <p>One of the issues with simple relay control is the potential for ‘chattering’ where the manipulated variable (in this case heater power) exhibits periods of rapid on-and-off switching. This can be caused by systems that are highly response to control inputs, or where sensor measurements carry significant noise.</p>
 <p>There are several simple and highly effective solutions to the problem of chattering.</p>
@@ -1086,8 +1085,8 @@ T^{SP} - d \leq T \leq T^{SP} + d
 <p><strong>Study Question:</strong> What is the effect of sample time on control performance? What happens if you make the controller sample time longer?</p>
 <p><strong>Study Question:</strong> In a new cell, create a modification of the script to include a change in setpoint from 40 deg C to 50 deg C at the 300 second mark. Run the experiment for at least 10 minutes to see the full effect.</p>
 <p><strong>Study Question:</strong> For a relay control with deadzone (also called hysteresis), try to sketch a graph of the manipulated variable <span class="math notranslate nohighlight">\(Q\)</span> as a function of the process variable <span class="math notranslate nohighlight">\(T\)</span>. Assume the setpoint is 50 and <span class="math notranslate nohighlight">\(d = 3\)</span>. Can you draw a unique function? Why not?</p>
-<hr></section>
-</section>
+<hr></div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1137,7 +1136,7 @@ T^{SP} - d \leq T \leq T^{SP} + d
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

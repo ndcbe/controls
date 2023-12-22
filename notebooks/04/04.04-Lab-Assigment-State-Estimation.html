@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>4.4. Lab Assignment 5: State Estimation &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.4. Lab Assignment 5: State Estimation &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/04/04.04-Lab-Assigment-State-Estimation.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/04/04.04-Lab-Assigment-State-Estimation.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/04/04.04-Lab-Assigment-State-Estimation.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/04/04.04-Lab-Assigment-State-Estimation.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/04/04.04-Lab-Assigment-State-Estimation.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/04/04.04-Lab-Assigment-State-Estimation.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -974,28 +973,28 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-assignment-5-state-estimation">
+  <div class="tex2jax_ignore mathjax_ignore section" id="lab-assignment-5-state-estimation">
 <h1><span class="section-number">4.4. </span>Lab Assignment 5: State Estimation<a class="headerlink" href="#lab-assignment-5-state-estimation" title="Permalink to this headline">#</a></h1>
 <p>Using the notes for Secion 4.2, the goal of this lab assignment is to build a state estimator for the Temperature Control Laboratory, then use it to achieve independent control of the two heater temperatures. The project will require updating the four state model your developed for Lab Assignment 2 described in Section 2.4.</p>
-<section id="step-1-estimate-model-parameters">
+<div class="section" id="step-1-estimate-model-parameters">
 <h2><span class="section-number">4.4.1. </span>Step 1. Estimate model parameters<a class="headerlink" href="#step-1-estimate-model-parameters" title="Permalink to this headline">#</a></h2>
 <p>Refer to exercise 3 from Lab Assignment 2. Write our the four state model of the Temperature Control Lab. If needed, perform the experiment described in the assignment to gather the data needed to fit all model parameters. Report the parameter values.</p>
-</section>
-<section id="step-2-create-state-space-model">
+</div>
+<div class="section" id="step-2-create-state-space-model">
 <h2><span class="section-number">4.4.2. </span>Step 2. Create state-space model<a class="headerlink" href="#step-2-create-state-space-model" title="Permalink to this headline">#</a></h2>
 <p>Using the matrix and vector formulation described in notebook 4.2, rewrite the equations for the four state model in state-space form. In a new python notebook, use the parameter values from Step 1 to numerically evaluate matrices <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B_u\)</span>, <span class="math notranslate nohighlight">\(B_d\)</span> and <span class="math notranslate nohighlight">\(d\)</span>.  Compute the eigenvalues (they should all be negative real numbers) of <span class="math notranslate nohighlight">\(A\)</span> and report the negative inverse of the eigenvalues as time constants.</p>
-</section>
-<section id="step-3-implement-a-state-estimator">
+</div>
+<div class="section" id="step-3-implement-a-state-estimator">
 <h2><span class="section-number">4.4.3. </span>Step 3. Implement a state estimator<a class="headerlink" href="#step-3-implement-a-state-estimator" title="Permalink to this headline">#</a></h2>
 <p>Implement a state estimate utilizing measurements T1 and T2, and inputs Q1 and Q2, to estimate the state. As an initial choice for matrix <span class="math notranslate nohighlight">\(L\)</span> use</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}L = \begin{bmatrix} 0.4 &amp; 0 \\ 0.2 &amp; 0 \\ 0 &amp; 0.4 \\ 0 &amp; 0.2 \end{bmatrix}\end{split}\]</div>
-</section>
-<section id="step-4-implement-relay-control-for-the-heater-temperatures-t1h-and-t2h">
+</div>
+<div class="section" id="step-4-implement-relay-control-for-the-heater-temperatures-t1h-and-t2h">
 <h2><span class="section-number">4.4.4. </span>Step 4. Implement relay control for the heater temperatures T1H and T2H<a class="headerlink" href="#step-4-implement-relay-control-for-the-heater-temperatures-t1h-and-t2h" title="Permalink to this headline">#</a></h2>
 <p>Using constant setpoints of 45 and 40 degrees, respectively, for temperatures <span class="math notranslate nohighlight">\(T_{1}\)</span> and <span class="math notranslate nohighlight">\(T_{2}\)</span>. At time t = 300, have the setpoints switch to 40 and 45 degrees, respectiviely. Show control performance over total of 600 seconds when using sensor measurements for relay control.  Replace the sensor measurements with observer estimates for heater temperatures <span class="math notranslate nohighlight">\(T_{H,1}\)</span> and <span class="math notranslate nohighlight">\(T_{H,2}\)</span> and repeat the test. What do you observe?</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1045,7 +1044,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

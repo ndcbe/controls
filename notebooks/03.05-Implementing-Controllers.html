@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>3.5. Implementing Controllers in Python &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.5. Implementing Controllers in Python &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/03.05-Implementing-Controllers.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/03.05-Implementing-Controllers.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/03.05-Implementing-Controllers.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/03.05-Implementing-Controllers.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03.05-Implementing-Controllers.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03.05-Implementing-Controllers.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1008,7 +1007,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="implementing-controllers-in-python">
+  <div class="tex2jax_ignore mathjax_ignore section" id="implementing-controllers-in-python">
 <h1><span class="section-number">3.5. </span>Implementing Controllers in Python<a class="headerlink" href="#implementing-controllers-in-python" title="Permalink to this headline">#</a></h1>
 <p>One of the challenges we will face is implementing complex control algorithms within the real-time event loop. Up to this point we have been doing the control calculations directly inside the event loop. This can work well for simple applications, like relay control for a single control variable. But for more complex algorithms and applications, this becomes completely unworkable. Placing the code for complex control algorithms directly in the event loop makes puts an undue burden on the coder to maintain all details of controller and system operation.</p>
 <p>What we seek are coding techniques that can encapusulate control algorithms into separate, self-contained blocks of code where they can be developed, tested, and deployed. This notebook introduces three techniques for implementing controllers in testable, modular fashion:</p>
@@ -1022,7 +1021,7 @@ title="Print to PDF"
 <p>Python generators provide a more flexible framework for implementing Python co-routines. Generators use the Python <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement to communication data to and from and co-routine. Generators may be a less familiar for many Python coders, but with just a few new keywords and concepts, generators provide a framework with wide range of coding applications. Python generators are a clear and concise way of implementing control algorithms.</p>
 <p>Finally, Python classes provide even more flexibility by allowing the use of object oriented programming. This is more overhead than is required from simple control algorithms, but are key to the robust implementation of more complex systems.</p>
 <p>This notebook demonstrates these three different approaches to controller implementation. A reader new to Python coding may wish to limit their attention to the first two, nested functions and generators, and leave the more involved aspects of object-oriented coding the Python classes for a later time.</p>
-<section id="the-problem-with-coding-controllers-as-simple-functions">
+<div class="section" id="the-problem-with-coding-controllers-as-simple-functions">
 <h2><span class="section-number">3.5.1. </span>The problem with coding controllers as simple functions<a class="headerlink" href="#the-problem-with-coding-controllers-as-simple-functions" title="Permalink to this headline">#</a></h2>
 <p>A function performing the duty of the controller does the calculations necessary to compute a new value of the manipulated variable, <span class="math notranslate nohighlight">\(MV_k\)</span>. For relay control with a deadzone, for example, the value of <span class="math notranslate nohighlight">\(MV_k\)</span> is given</p>
 <div class="math notranslate nohighlight">
@@ -1097,8 +1096,8 @@ MV_{k} &amp; = \begin{cases}
 <li><p>Any change to a controller implementation requires revision of the event loop, including possible changes to the information retained between updates.</p></li>
 </ul>
 <p>This tight couplineg of the controller implementation, information management, and process operation would present very difficult challenges for the design and maintenance of control systems.</p>
-</section>
-<section id="what-we-seek-in-a-controller-implementation">
+</div>
+<div class="section" id="what-we-seek-in-a-controller-implementation">
 <h2><span class="section-number">3.5.2. </span>What we seek in a controller implementation<a class="headerlink" href="#what-we-seek-in-a-controller-implementation" title="Permalink to this headline">#</a></h2>
 <p>What we seek in controller implementations are features facilitating the coding and maintenance of complex control systems and algorithms. Ideally, the code would “encapulate” the controllers such that:</p>
 <ul class="simple">
@@ -1107,10 +1106,10 @@ MV_{k} &amp; = \begin{cases}
 <li><p>Controllers algorithms can be changed without required modification of the event loop.</p></li>
 </ul>
 <p>By separating controller implementations from the event loop, we create a more flexible, maintainable, and testable framework for process control.</p>
-</section>
-<section id="implementing-relay-control-as-a-python-generator">
+</div>
+<div class="section" id="implementing-relay-control-as-a-python-generator">
 <h2><span class="section-number">3.5.3. </span>Implementing relay control as a Python generator<a class="headerlink" href="#implementing-relay-control-as-a-python-generator" title="Permalink to this headline">#</a></h2>
-<section id="what-is-a-python-generator">
+<div class="section" id="what-is-a-python-generator">
 <h3><span class="section-number">3.5.3.1. </span>What is a Python generator?<a class="headerlink" href="#what-is-a-python-generator" title="Permalink to this headline">#</a></h3>
 <p>To implement process control, we need functions that can receive new measurements of pocess variables and then return updated values for the manipulaed variables. Python generators creates functions which can return multiple values.</p>
 <p>Let’s break down what this means by starting with ordinary Python functions. Values are returned from Python functions with the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement. When the return statement is encountered the function is done. All local information is lost. The function starts from scratch each time it is called  retaining no information from prior use. Moreover, there is no way to communcate with the function after it is called.</p>
@@ -1140,8 +1139,8 @@ MV_{k} &amp; = \begin{cases}
 <li><p>The generator waits to restart execution. Execution is restarted when the next value is requested using the <code class="docutils literal notranslate"><span class="pre">next</span></code> function, or when a value is sent to the generator with <code class="docutils literal notranslate"><span class="pre">.send()</span></code>.</p></li>
 <li><p>The value sent to the generator is put into the <code class="docutils literal notranslate"><span class="pre">y</span></code>. This is can be any Python object.</p></li>
 </ul>
-</section>
-<section id="simple-examples-of-python-generators">
+</div>
+<div class="section" id="simple-examples-of-python-generators">
 <h3><span class="section-number">3.5.3.2. </span>Simple examples of Python generators<a class="headerlink" href="#simple-examples-of-python-generators" title="Permalink to this headline">#</a></h3>
 <p>Values are returned from generators with a <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement. But what makes a generator different is that operation can be restarted to produce values from more <code class="docutils literal notranslate"><span class="pre">yield</span></code> statements. (Functions are ‘one and done’, generators come back for another season.)</p>
 <p>Because generators can be called multiple times, there are some extra details involved with their use:</p>
@@ -1239,8 +1238,8 @@ for k in range(0, 2):
 </div>
 </div>
 </div>
-</section>
-<section id="sending-information-to-a-python-generator">
+</div>
+<div class="section" id="sending-information-to-a-python-generator">
 <h3><span class="section-number">3.5.3.3. </span>Sending information to a Python generator.<a class="headerlink" href="#sending-information-to-a-python-generator" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1323,8 +1322,8 @@ Rover says fetch 4
 </div>
 </div>
 </div>
-</section>
-<section id="coding-a-relay-controller-as-a-python-generator">
+</div>
+<div class="section" id="coding-a-relay-controller-as-a-python-generator">
 <h3><span class="section-number">3.5.3.4. </span>Coding a relay controller as a Python generator<a class="headerlink" href="#coding-a-relay-controller-as-a-python-generator" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1377,9 +1376,9 @@ Rover says fetch 4
 <img alt="../_images/03.05-Implementing-Controllers_31_2.png" src="../_images/03.05-Implementing-Controllers_31_2.png" />
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1429,7 +1428,7 @@ Rover says fetch 4
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

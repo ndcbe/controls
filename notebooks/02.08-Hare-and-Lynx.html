@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>2.8. Hare and Lynx Population Dynamics &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.8. Hare and Lynx Population Dynamics &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/02.08-Hare-and-Lynx.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/02.08-Hare-and-Lynx.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/02.08-Hare-and-Lynx.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/02.08-Hare-and-Lynx.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02.08-Hare-and-Lynx.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02.08-Hare-and-Lynx.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1156,13 +1155,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="hare-and-lynx-population-dynamics">
+  <div class="tex2jax_ignore mathjax_ignore section" id="hare-and-lynx-population-dynamics">
 <h1><span class="section-number">2.8. </span>Hare and Lynx Population Dynamics<a class="headerlink" href="#hare-and-lynx-population-dynamics" title="Permalink to this headline">#</a></h1>
-<section id="summary">
+<div class="section" id="summary">
 <h2><span class="section-number">2.8.1. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>This notebook provides an introduction to nonlinear dynamics using a well-known model for the preditor-prey interaction of Snowshoe Hare and Canadian Lynx. Topics include limit cycles, the existence of multiple steady states, and simple phase plane analysis using nullclines. This notebook can be displayed as a slide presentation.</p>
-</section>
-<section id="introduction">
+</div>
+<div class="section" id="introduction">
 <h2><span class="section-number">2.8.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Snowshoe_hare">Snowshoe hare</a> (<em>Lepus americanus</em>) are the primary food for the <a class="reference external" href="https://en.wikipedia.org/wiki/Canada_lynx">Canadian lynx</a> (<em>Lynx canadensis</em>) in the Northern boreal forests of North America. When hare are abundant, Lynx will eat hare about two every three days almost to the complete exclusion of other foods. As a consequence, the population dynamics of the two species are closely linked.</p>
 <table class="colwidths-auto table">
@@ -1184,8 +1183,8 @@ title="Print to PDF"
 <p><img alt="https://commons.wikimedia.org/wiki/File:Figure_45_06_01.jpg" src="https://upload.wikimedia.org/wikipedia/commons/1/16/Figure_45_06_01.jpg" /></p>
 <p>(CNX OpenStax <a class="reference external" href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Figure_45_06_01.jpg">via Wikimedia Commons</a>)</p>
 <p>The actual cause of the cycling is still a matter of scientific inquiry. Hypotheses include the inherent instability of the preditor-prey dynamics, the dynamics of a more complex food web, and the role of climate (see <a class="reference external" href="http://www.int-res.com/articles/feature/c034p083.pdf">Zhang, 2007</a>). The discussion in this notebook addresses the preditor-prey dynamics.</p>
-</section>
-<section id="historical-data">
+</div>
+<div class="section" id="historical-data">
 <h2><span class="section-number">2.8.3. </span>Historical Data<a class="headerlink" href="#historical-data" title="Permalink to this headline">#</a></h2>
 <p>A digitized version of the historical data is available from <a class="reference external" href="http://people.whitman.edu/~hundledr/courses/M250F03/M250.html">D. R. Hundley at Whitman College</a>. The following cell reads the data from the url, imports it into a pandas dataframe, and creates a plot.</p>
 <div class="cell docutils container">
@@ -1206,10 +1205,10 @@ title="Print to PDF"
 <img alt="../_images/02.08-Hare-and-Lynx_4_1.png" src="../_images/02.08-Hare-and-Lynx_4_1.png" />
 </div>
 </div>
-</section>
-<section id="population-dynamics">
+</div>
+<div class="section" id="population-dynamics">
 <h2><span class="section-number">2.8.4. </span>Population Dynamics<a class="headerlink" href="#population-dynamics" title="Permalink to this headline">#</a></h2>
-<section id="model-equations">
+<div class="section" id="model-equations">
 <h3><span class="section-number">2.8.4.1. </span>Model Equations<a class="headerlink" href="#model-equations" title="Permalink to this headline">#</a></h3>
 <p>The model equatons describe the time rate of change of the population densities of hare (<span class="math notranslate nohighlight">\(H\)</span>) and lynx (<span class="math notranslate nohighlight">\(L\)</span>). Each is the difference between the birth and death rate. The death rate of hare is coupled to the population density of lynx. The birth rate of lynx is a simple multiple of the death rate of hare.</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1217,8 +1216,8 @@ title="Print to PDF"
 \frac{dH}{dt} &amp; = \underbrace{rH\left(1-\frac{H}{k}\right)}_{\text{Hare Birth Rate}}-\underbrace{\frac{aHL}{c+H}}_{\text{Hare Death Rate}}\\
 \frac{dL}{dt} &amp; = \underbrace{a\frac{bHL}{c+H}}_{\text{Lynx Birth Rate}}-\underbrace{dL}_{\text{Lynx Death Rate}}
 \end{align*}\]</div>
-</section>
-<section id="parameter-values">
+</div>
+<div class="section" id="parameter-values">
 <h3><span class="section-number">2.8.4.2. </span>Parameter Values<a class="headerlink" href="#parameter-values" title="Permalink to this headline">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
@@ -1254,11 +1253,11 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="simulation-using-the-scipy-integrate-solve-ivp">
+</div>
+</div>
+<div class="section" id="simulation-using-the-scipy-integrate-solve-ivp">
 <h2><span class="section-number">2.8.5. </span>Simulation using the scipy.integrate.solve_ivp()<a class="headerlink" href="#simulation-using-the-scipy-integrate-solve-ivp" title="Permalink to this headline">#</a></h2>
-<section id="step-1-initialization">
+<div class="section" id="step-1-initialization">
 <h3><span class="section-number">2.8.5.1. </span>Step 1. Initialization<a class="headerlink" href="#step-1-initialization" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> library includes functions for integrating differential equations. Of these, the function <code class="docutils literal notranslate"><span class="pre">odeint</span></code> provides an easy-to-use general purpose algorithm well suited to this type of problem.</p>
 <div class="cell docutils container">
@@ -1270,8 +1269,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="step-2-establish-parameter-values">
+</div>
+<div class="section" id="step-2-establish-parameter-values">
 <h3><span class="section-number">2.8.5.2. </span>Step 2. Establish Parameter Values<a class="headerlink" href="#step-2-establish-parameter-values" title="Permalink to this headline">#</a></h3>
 <p>Set global default values for the parameters</p>
 <div class="cell docutils container">
@@ -1287,8 +1286,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="step-3-write-function-for-the-rhs-of-the-differential-equations">
+</div>
+<div class="section" id="step-3-write-function-for-the-rhs-of-the-differential-equations">
 <h3><span class="section-number">2.8.5.3. </span>Step 3.  Write function for the RHS of the Differential Equations<a class="headerlink" href="#step-3-write-function-for-the-rhs-of-the-differential-equations" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">deriv</span></code> is a function that returns a two element list containting values for the derivatives of <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(L\)</span>. The first argument is a two element list with values of <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(L\)</span>, followed by the current time <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1308,8 +1307,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="step-4-choose-time-grid-initial-conditions-and-integrate">
+</div>
+<div class="section" id="step-4-choose-time-grid-initial-conditions-and-integrate">
 <h3><span class="section-number">2.8.5.4. </span>Step 4. Choose Time Grid, Initial Conditions, and Integrate<a class="headerlink" href="#step-4-choose-time-grid-initial-conditions-and-integrate" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1322,8 +1321,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="step-5-visualize-and-analyze-the-solution">
+</div>
+<div class="section" id="step-5-visualize-and-analyze-the-solution">
 <h3><span class="section-number">2.8.5.5. </span>Step 5. Visualize and Analyze the Solution<a class="headerlink" href="#step-5-visualize-and-analyze-the-solution" title="Permalink to this headline">#</a></h3>
 <p>For this choice of parameters and initial conditions, the Hare/Lynx population exhibits sustained oscillations.</p>
 <div class="cell docutils container">
@@ -1339,9 +1338,9 @@ title="Print to PDF"
 <img alt="../_images/02.08-Hare-and-Lynx_18_1.png" src="../_images/02.08-Hare-and-Lynx_18_1.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="phase-plane">
+</div>
+</div>
+<div class="section" id="phase-plane">
 <h2><span class="section-number">2.8.6. </span>Phase Plane<a class="headerlink" href="#phase-plane" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">simulate_hare_lynx</span></code> consolidates all of the above steps into a single function that returns a DataFrame holding the results of a simulation. The only required argument is an initial condition for the hare and lynx populations. All other parameters, including the desired time grid, are optional arguments.</p>
 <div class="cell docutils container">
@@ -1390,8 +1389,8 @@ title="Print to PDF"
 <img alt="../_images/02.08-Hare-and-Lynx_23_1.png" src="../_images/02.08-Hare-and-Lynx_23_1.png" />
 </div>
 </div>
-</section>
-<section id="nullclines-finding-steady-states">
+</div>
+<div class="section" id="nullclines-finding-steady-states">
 <h2><span class="section-number">2.8.7. </span>Nullclines: Finding Steady States<a class="headerlink" href="#nullclines-finding-steady-states" title="Permalink to this headline">#</a></h2>
 <p>Nullclines are the points in the phase plane where the derivatives are equal to zero.</p>
 <p>The nullclines for hare are where</p>
@@ -1482,8 +1481,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="interactive-simulation">
+</div>
+<div class="section" id="interactive-simulation">
 <h2><span class="section-number">2.8.8. </span>Interactive Simulation<a class="headerlink" href="#interactive-simulation" title="Permalink to this headline">#</a></h2>
 <p>An additional function is created to encapsulate the entire process of solving the model and displaying the solution. The function takes arguments specifing the initial values of <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(L\)</span>, and a value of the parameter <span class="math notranslate nohighlight">\(a\)</span>.  These argument</p>
 <div class="cell docutils container">
@@ -1512,10 +1511,10 @@ title="Print to PDF"
 {"model_id": "d895fd4d493a40818c6e77ac675710e0", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-</section>
-<section id="stability-of-a-steady-state">
+</div>
+<div class="section" id="stability-of-a-steady-state">
 <h2><span class="section-number">2.8.9. </span>Stability of a Steady State<a class="headerlink" href="#stability-of-a-steady-state" title="Permalink to this headline">#</a></h2>
-<section id="unstable-focus">
+<div class="section" id="unstable-focus">
 <h3><span class="section-number">2.8.9.1. </span>1. Unstable Focus<a class="headerlink" href="#unstable-focus" title="Permalink to this headline">#</a></h3>
 <p>Any displacement from an unstable focus leads to a trajectory that spirals away from the steady state.</p>
 <div class="cell docutils container">
@@ -1528,8 +1527,8 @@ title="Print to PDF"
 <img alt="../_images/02.08-Hare-and-Lynx_39_0.png" src="../_images/02.08-Hare-and-Lynx_39_0.png" />
 </div>
 </div>
-</section>
-<section id="stable-focus">
+</div>
+<div class="section" id="stable-focus">
 <h3><span class="section-number">2.8.9.2. </span>2. Stable Focus<a class="headerlink" href="#stable-focus" title="Permalink to this headline">#</a></h3>
 <p>Small displacements from a stable focus results in trajectories that spiral back towards the steady state.</p>
 <div class="cell docutils container">
@@ -1542,8 +1541,8 @@ title="Print to PDF"
 <img alt="../_images/02.08-Hare-and-Lynx_41_0.png" src="../_images/02.08-Hare-and-Lynx_41_0.png" />
 </div>
 </div>
-</section>
-<section id="stable-and-unstable-nodes">
+</div>
+<div class="section" id="stable-and-unstable-nodes">
 <h3><span class="section-number">2.8.9.3. </span>3. Stable and Unstable Nodes<a class="headerlink" href="#stable-and-unstable-nodes" title="Permalink to this headline">#</a></h3>
 <p>Displacements from a steady state either move towards (stable) or away from (unstable) nodes without the spiral structure of a focus.</p>
 <div class="cell docutils container">
@@ -1556,9 +1555,9 @@ title="Print to PDF"
 <img alt="../_images/02.08-Hare-and-Lynx_43_0.png" src="../_images/02.08-Hare-and-Lynx_43_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="id1">
+</div>
+</div>
+<div class="section" id="id1">
 <h2><span class="section-number">2.8.10. </span>Summary<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Hope you enjoyed this brief introduction to the modeling of a small food web. This is a fascinating field with many important and unanswered questions. Recent examples in the research literature are <a class="reference external" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0108243">here</a> and <a class="reference external" href="http://science.sciencemag.org/content/320/5876/658">here</a>.</p>
 <p>What you should learn from this notebook:</p>
@@ -1569,12 +1568,12 @@ title="Print to PDF"
 <li><p>Solve systems for multiple steady states.</p></li>
 <li><p>Recognize limit cycles, steady-states, stable and unstable foci, stable and unstable nodes.</p></li>
 </ul>
-</section>
-<section id="suggested-exercise">
+</div>
+<div class="section" id="suggested-exercise">
 <h2><span class="section-number">2.8.11. </span>Suggested Exercise<a class="headerlink" href="#suggested-exercise" title="Permalink to this headline">#</a></h2>
 <p>Explore the impact of the parameter <span class="math notranslate nohighlight">\(a\)</span> on the nature of the solution. <span class="math notranslate nohighlight">\(a\)</span> is proporational to the success of the Lynx hunting the Hare.  What happens when the value is low?  high?  Can you see the transitions from conditions when the Lynx done’t survive, the emergence of a stable coexistence steady-state, and finally the emergence of a stable limit cycle?</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1624,7 +1623,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

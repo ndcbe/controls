@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>6.7. Project: Gompertz Model for Tumor Growth &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.7. Project: Gompertz Model for Tumor Growth &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/06.06-gompertz-model-project.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/06.06-gompertz-model-project.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/06.06-gompertz-model-project.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/06.06-gompertz-model-project.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/06.06-gompertz-model-project.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/06.06-gompertz-model-project.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -978,7 +977,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="project-gompertz-model-for-tumor-growth">
+  <div class="tex2jax_ignore mathjax_ignore section" id="project-gompertz-model-for-tumor-growth">
 <h1><span class="section-number">6.7. </span>Project: Gompertz Model for Tumor Growth<a class="headerlink" href="#project-gompertz-model-for-tumor-growth" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>4/19/2022.  Released to students</p></li>
@@ -997,7 +996,7 @@ title="Print to PDF"
 <blockquote>
 <div><p>Geng, C., Paganetti, H., &amp; Grassberger, C. (2017). Prediction of treatment response for combined chemo-and radiation therapy for non-small cell lung cancer patients using a bio-mathematical model. Scientific reports, 7(1), 1-12. <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5648928/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5648928/</a></p>
 </div></blockquote>
-<section id="problem-1-simulation-10-pts">
+<div class="section" id="problem-1-simulation-10-pts">
 <h2><span class="section-number">6.7.1. </span>Problem 1. Simulation (10 pts).<a class="headerlink" href="#problem-1-simulation-10-pts" title="Permalink to this headline">#</a></h2>
 <p>Staging is a step in the diagnostic process that accounts for a complex array of biomedical features to determine the current state of disease and to guide subsequent therapeutic decisions. For this project we will use tumor size as a measure of disease stage. The first problem examines the progress of the disease in the absence of any therapy.</p>
 <p>Given an initial tumor size at the detectable limit 0.3 cm, solve for the time for the disease to evolve to Stage 1, Stage 2, etc., as outlined in the table below. You may use any solution technique of your choice, such as root find or adding decision variables to the Pyomo model. Use parameter values <span class="math notranslate nohighlight">\(\rho = 0.02\)</span> and <span class="math notranslate nohighlight">\(K = 20.0\)</span></p>
@@ -1041,7 +1040,7 @@ title="Print to PDF"
 <li><p>(5 pts) execution of the strategy in code,</p></li>
 <li><p>(2 pts) the numerical solution.</p></li>
 </ol>
-<section id="your-solution">
+<div class="section" id="your-solution">
 <h3><span class="section-number">6.7.1.1. </span>Your Solution<a class="headerlink" href="#your-solution" title="Permalink to this headline">#</a></h3>
 <p>Place your comments here.</p>
 <p>Use the following Pyomo model as a starting point for your solution.</p>
@@ -1089,9 +1088,9 @@ title="Print to PDF"
 <img alt="../_images/06.06-gompertz-model-project_7_0.png" src="../_images/06.06-gompertz-model-project_7_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="problem-2-radiation-therapy-10pts">
+</div>
+</div>
+<div class="section" id="problem-2-radiation-therapy-10pts">
 <h2><span class="section-number">6.7.2. </span>Problem 2. Radiation Therapy (10pts)<a class="headerlink" href="#problem-2-radiation-therapy-10pts" title="Permalink to this headline">#</a></h2>
 <p>Radiation therapy is a widely use therapy intervention for many solid tumors. A model for the effect of radiation is given by</p>
 <div class="math notranslate nohighlight">
@@ -1179,8 +1178,8 @@ title="Print to PDF"
 <img alt="../_images/06.06-gompertz-model-project_11_1.png" src="../_images/06.06-gompertz-model-project_11_1.png" />
 </div>
 </div>
-</section>
-<section id="problem-3-combined-radiation-and-chemo-therapy-20-pts">
+</div>
+<div class="section" id="problem-3-combined-radiation-and-chemo-therapy-20-pts">
 <h2><span class="section-number">6.7.3. </span>Problem 3. Combined Radiation and Chemo Therapy (20 pts)<a class="headerlink" href="#problem-3-combined-radiation-and-chemo-therapy-20-pts" title="Permalink to this headline">#</a></h2>
 <p>Another common treatment is a combination of chemotherapy and radiation. The chemotherapy is incorporated in the model as</p>
 <div class="math notranslate nohighlight">
@@ -1268,8 +1267,8 @@ title="Print to PDF"
 <img alt="../_images/06.06-gompertz-model-project_14_1.png" src="../_images/06.06-gompertz-model-project_14_1.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1319,7 +1318,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

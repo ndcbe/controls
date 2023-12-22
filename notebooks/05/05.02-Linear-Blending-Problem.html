@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>5.2. Linear Blending Problems &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.2. Linear Blending Problems &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/05/05.02-Linear-Blending-Problem.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/05/05.02-Linear-Blending-Problem.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/05/05.02-Linear-Blending-Problem.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/05/05.02-Linear-Blending-Problem.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/05.02-Linear-Blending-Problem.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/05.02-Linear-Blending-Problem.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1228,10 +1227,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="linear-blending-problems">
+  <div class="tex2jax_ignore mathjax_ignore section" id="linear-blending-problems">
 <h1><span class="section-number">5.2. </span>Linear Blending Problems<a class="headerlink" href="#linear-blending-problems" title="Permalink to this headline">#</a></h1>
 <p>This notebook introduces material blending problems and outlines a multi-step procedure for developing and solving models using Pyomo.</p>
-<section id="learning-goals">
+<div class="section" id="learning-goals">
 <h2><span class="section-number">5.2.1. </span>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Linear Blending problems</p>
@@ -1262,12 +1261,12 @@ title="Print to PDF"
 </ul>
 </li>
 </ol>
-</section>
-<section id="problem-statement-jenchura-2017">
+</div>
+<div class="section" id="problem-statement-jenchura-2017">
 <h2><span class="section-number">5.2.2. </span>Problem Statement (Jenchura, 2017)<a class="headerlink" href="#problem-statement-jenchura-2017" title="Permalink to this headline">#</a></h2>
 <p>A brewery receives an order for 100 gallons that is at least 4% ABV (alchohol by volume) beer. The brewery has on hand beer A that is 4.5% ABV and costs \<span class="math notranslate nohighlight">\(0.32 per gallon to make, and beer B that is 3.7% ABV and costs \\\)</span>0.25 per gallon. Water (W) can also be used as a blending agent at a cost of \$0.05 per gallon. Find the minimum cost blend of A, B, and W that meets the customer requirements.</p>
-</section>
-<section id="analysis">
+</div>
+<div class="section" id="analysis">
 <h2><span class="section-number">5.2.3. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>
 <p>Before going futher, carefully read the problem description with the following questions in mind.</p>
 <ul class="simple">
@@ -1275,11 +1274,11 @@ title="Print to PDF"
 <li><p>What is the objective?</p></li>
 <li><p>What are the constraints?</p></li>
 </ul>
-<section id="decision-variables">
+<div class="section" id="decision-variables">
 <h3><span class="section-number">5.2.3.1. </span>Decision variables<a class="headerlink" href="#decision-variables" title="Permalink to this headline">#</a></h3>
 <p>The decision variables for this problem are the amounts of blending stocks “A”, “B”, and “W” to included in the final batch.  We can define a set of blending stocks <span class="math notranslate nohighlight">\(S\)</span>, and non-negative decision variables <span class="math notranslate nohighlight">\(x_s\)</span> that are indexed by the components in <span class="math notranslate nohighlight">\(S\)</span> that denote the amount of <span class="math notranslate nohighlight">\(s\)</span> included in the final batch.</p>
-</section>
-<section id="objective">
+</div>
+<div class="section" id="objective">
 <h3><span class="section-number">5.2.3.2. </span>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">#</a></h3>
 <p>If we designate the price of blending stock <span class="math notranslate nohighlight">\(s \in S\)</span> as <span class="math notranslate nohighlight">\(P_s\)</span>, the cost is</p>
 <div class="math notranslate nohighlight">
@@ -1289,18 +1288,18 @@ title="Print to PDF"
 \end{align}
 \]</div>
 <p>The objective is to minimize cost.</p>
-</section>
-<section id="constraints">
+</div>
+<div class="section" id="constraints">
 <h3><span class="section-number">5.2.3.3. </span>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">#</a></h3>
-<section id="order-volume">
+<div class="section" id="order-volume">
 <h4><span class="section-number">5.2.3.3.1. </span>Order Volume<a class="headerlink" href="#order-volume" title="Permalink to this headline">#</a></h4>
 <p>Let <span class="math notranslate nohighlight">\(V = 100\)</span> represent the desired volume of product and assume ideal mixing. Then</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 V &amp;  = \sum_{s\in S} x_s
 \end{align}\]</div>
-</section>
-<section id="alcohol-by-volume">
+</div>
+<div class="section" id="alcohol-by-volume">
 <h4><span class="section-number">5.2.3.3.2. </span>Alcohol by Volume<a class="headerlink" href="#alcohol-by-volume" title="Permalink to this headline">#</a></h4>
 <p>Let <span class="math notranslate nohighlight">\(C_s\)</span> denote the volume fraction of alcohol in blending stock <span class="math notranslate nohighlight">\(s\)</span>. Assuming ideal mixing, the total volume of of alchohol in the final product be</p>
 <div class="math notranslate nohighlight">
@@ -1312,12 +1311,12 @@ V &amp;  = \sum_{s\in S} x_s
 <div class="math notranslate nohighlight">
 \[\sum_{s\in S} (C_s - \bar{C}) x_s \geq 0\]</div>
 <p>There are other ways to write composition constraints, but this one is preferred because it isolates the product quality parameter, <span class="math notranslate nohighlight">\(\bar{C}\)</span>, in a single constraint.  This constraint has “one job to do”.</p>
-</section>
-</section>
-</section>
-<section id="solving-optimization-problems-with-pyomo">
+</div>
+</div>
+</div>
+<div class="section" id="solving-optimization-problems-with-pyomo">
 <h2><span class="section-number">5.2.4. </span>Solving optimization problems with Pyomo<a class="headerlink" href="#solving-optimization-problems-with-pyomo" title="Permalink to this headline">#</a></h2>
-<section id="step-1-coding-problem-data-as-a-pandas-dataframe">
+<div class="section" id="step-1-coding-problem-data-as-a-pandas-dataframe">
 <h3><span class="section-number">5.2.4.1. </span>Step 1. Coding Problem Data as a Pandas DataFrame<a class="headerlink" href="#step-1-coding-problem-data-as-a-pandas-dataframe" title="Permalink to this headline">#</a></h3>
 <p>The first step is to represent the problem data in a generic manner that could be extended to include additional blending components.  Here we use a Pandas dataframe of raw materials, each row representing a unique blending agent, and columns containing attributes of the blending components. This is consistent with “Tidy Data” principles.</p>
 <div class="cell docutils container">
@@ -1382,8 +1381,8 @@ V &amp;  = \sum_{s\in S} x_s
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="step-2-creating-a-model-instance">
+</div>
+<div class="section" id="step-2-creating-a-model-instance">
 <h3><span class="section-number">5.2.4.2. </span>Step 2. Creating a model instance<a class="headerlink" href="#step-2-creating-a-model-instance" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1396,8 +1395,8 @@ V &amp;  = \sum_{s\in S} x_s
 </div>
 </div>
 </div>
-</section>
-<section id="step-3-identifying-index-sets">
+</div>
+<div class="section" id="step-3-identifying-index-sets">
 <h3><span class="section-number">5.2.4.3. </span>Step 3. Identifying index sets<a class="headerlink" href="#step-3-identifying-index-sets" title="Permalink to this headline">#</a></h3>
 <p>The objectives and constraints encountered in optimization problems often include sums over a set of objects. In the case, we will need to create sums over the set of blending stocks. We will use these index sets to create decision variables and to express the sums that appear in the objective and constraints</p>
 <div class="cell docutils container">
@@ -1429,8 +1428,8 @@ W
 </div>
 </div>
 </div>
-</section>
-<section id="step-4-create-decision-variables">
+</div>
+<div class="section" id="step-4-create-decision-variables">
 <h3><span class="section-number">5.2.4.4. </span>Step 4. Create decision variables<a class="headerlink" href="#step-4-create-decision-variables" title="Permalink to this headline">#</a></h3>
 <p>Most real-world applications of optimization technologies involve many decision variables and constraints. It would be impractical to create unique identifiers for literally thousands of variables. For this reason, the <code class="docutils literal notranslate"><span class="pre">pyo.Var()</span></code> and other objects can create indexed sets of variables and constraints. Here is how it is done for the blending problem.</p>
 <div class="cell docutils container">
@@ -1440,8 +1439,8 @@ W
 </div>
 </div>
 </div>
-</section>
-<section id="step-4-objective-function">
+</div>
+<div class="section" id="step-4-objective-function">
 <h3><span class="section-number">5.2.4.5. </span>Step 4. Objective Function<a class="headerlink" href="#step-4-objective-function" title="Permalink to this headline">#</a></h3>
 <p>If we let subscript <span class="math notranslate nohighlight">\(d\)</span> denote a blending d from the set of blending components <span class="math notranslate nohighlight">\(C\)</span>, and denote the volume of <span class="math notranslate nohighlight">\(c\)</span> used in the blend as <span class="math notranslate nohighlight">\(x_c\)</span>, the cost of the blend is</p>
 <div class="math notranslate nohighlight">
@@ -1475,10 +1474,10 @@ cost : Size=1, Index=None, Active=True
 </div>
 </div>
 </div>
-</section>
-<section id="step-5-constraints">
+</div>
+<div class="section" id="step-5-constraints">
 <h3><span class="section-number">5.2.4.6. </span>Step 5. Constraints<a class="headerlink" href="#step-5-constraints" title="Permalink to this headline">#</a></h3>
-<section id="volume-constraint">
+<div class="section" id="volume-constraint">
 <h4><span class="section-number">5.2.4.6.1. </span>Volume Constraint<a class="headerlink" href="#volume-constraint" title="Permalink to this headline">#</a></h4>
 <p>The customer requirement is produce a total volume <span class="math notranslate nohighlight">\(V\)</span>. Assuming ideal solutions, the constraint is given by</p>
 <div class="math notranslate nohighlight">
@@ -1512,8 +1511,8 @@ volume : Size=1, Index=None, Active=True
 </div>
 </div>
 </div>
-</section>
-<section id="composition-constraint">
+</div>
+<div class="section" id="composition-constraint">
 <h4><span class="section-number">5.2.4.6.2. </span>Composition Constraint<a class="headerlink" href="#composition-constraint" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1541,9 +1540,9 @@ composition : Size=1, Index=None, Active=True
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="step-6-solve">
+</div>
+</div>
+<div class="section" id="step-6-solve">
 <h3><span class="section-number">5.2.4.7. </span>Step 6. Solve<a class="headerlink" href="#step-6-solve" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1655,8 +1654,8 @@ Solution:
 </div>
 </div>
 </div>
-</section>
-<section id="step-7-display-solution">
+</div>
+<div class="section" id="step-7-display-solution">
 <h3><span class="section-number">5.2.4.8. </span>Step 7. Display solution<a class="headerlink" href="#step-7-display-solution" title="Permalink to this headline">#</a></h3>
 <p>Following solution, the values of any Pyomo variable, expression, objective, or constraint can be accessed using the associated <code class="docutils literal notranslate"><span class="pre">value</span></code> property.</p>
 <div class="cell docutils container">
@@ -1735,9 +1734,9 @@ W:   0.00 gallons
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="parametric-studies">
+</div>
+</div>
+<div class="section" id="parametric-studies">
 <h2><span class="section-number">5.2.5. </span>Parametric Studies<a class="headerlink" href="#parametric-studies" title="Permalink to this headline">#</a></h2>
 <p>An important use of optimization models is to investigate how operations depend on critical parameters. For example, for this blending problem we may be interested in questions like:</p>
 <ul class="simple">
@@ -1747,7 +1746,7 @@ W:   0.00 gallons
 <li><p>What if we produce two products rather than one?</p></li>
 <li><p>How much would be pay for raw materials with different specifications</p></li>
 </ul>
-<section id="consolidating-the-model-into-a-single-function-to-create-and-solve-for-optimal-blend">
+<div class="section" id="consolidating-the-model-into-a-single-function-to-create-and-solve-for-optimal-blend">
 <h3><span class="section-number">5.2.5.1. </span>Consolidating the model into a single function to create and solve for optimal blend<a class="headerlink" href="#consolidating-the-model-into-a-single-function-to-create-and-solve-for-optimal-blend" title="Permalink to this headline">#</a></h3>
 <p>To enable parametric studies, our first step is to consolidate the model into a function that accepts problem data and reports an optimal solution.</p>
 <div class="cell docutils container">
@@ -1793,8 +1792,8 @@ W:   0.00 gallons
 </div>
 </div>
 </div>
-</section>
-<section id="how-to-use-the-optimization-model">
+</div>
+<div class="section" id="how-to-use-the-optimization-model">
 <h3><span class="section-number">5.2.5.2. </span>How to use the optimization model<a class="headerlink" href="#how-to-use-the-optimization-model" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1928,9 +1927,9 @@ W:   0.00 gallons
 <img alt="../../_images/05.02-Linear-Blending-Problem_33_4.png" src="../../_images/05.02-Linear-Blending-Problem_33_4.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="parametric-study">
+</div>
+</div>
+<div class="section" id="parametric-study">
 <h2><span class="section-number">5.2.6. </span>Parametric Study<a class="headerlink" href="#parametric-study" title="Permalink to this headline">#</a></h2>
 <p>The following cell uses the optimal blending model to compute the minimum cost and blending stocks to produce</p>
 <div class="cell docutils container">
@@ -1966,23 +1965,23 @@ W                       0.000   0.05
 <img alt="../../_images/05.02-Linear-Blending-Problem_35_3.png" src="../../_images/05.02-Linear-Blending-Problem_35_3.png" />
 </div>
 </div>
-</section>
-<section id="study-exercises">
+</div>
+<div class="section" id="study-exercises">
 <h2><span class="section-number">5.2.7. </span>Study Exercises<a class="headerlink" href="#study-exercises" title="Permalink to this headline">#</a></h2>
-<section id="exercise-1">
+<div class="section" id="exercise-1">
 <h3><span class="section-number">5.2.7.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h3>
 <p>An additional raw blending stock “C” becomes available with an abv of 4.2% at a cost of 28 cents per gallon. How does that change the optimal blend for a product volume of 100 gallons and an abv of 4.0%?</p>
-</section>
-<section id="exercise-2">
+</div>
+<div class="section" id="exercise-2">
 <h3><span class="section-number">5.2.7.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">#</a></h3>
 <p>Having decided to use “C” for the blended product, you later learn only 50 gallons of “C” are available. Modify the solution procedure to allow for limits on the amount of raw maaterial, and investigate the implications for the optimal blend of having only 50 gallons of “C” available, and assuming the amounts of the other components “A”, “B”, and “W” remain unlimited.</p>
-</section>
-<section id="exercise-3">
+</div>
+<div class="section" id="exercise-3">
 <h3><span class="section-number">5.2.7.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">#</a></h3>
 <p>An opportunity has developed to sell a second product with an abv of 3.8%. The first product is now labeled “X” with abv 4.0% and sells for \<span class="math notranslate nohighlight">\(1.25 per gallon, and the second product is designated &quot;Y&quot; and sells for \\\)</span>1.10 per gallon. You’ve also learned that all of your raw materials are limited to 50 gallons. What should your production plan be to maximize profits?</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -2032,7 +2031,7 @@ W                       0.000   0.05
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

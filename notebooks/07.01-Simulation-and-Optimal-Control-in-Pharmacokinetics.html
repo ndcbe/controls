@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>6.1. Simulation and Optimal Control in Pharmacokinetics &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.1. Simulation and Optimal Control in Pharmacokinetics &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -984,9 +983,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="simulation-and-optimal-control-in-pharmacokinetics">
+  <div class="tex2jax_ignore mathjax_ignore section" id="simulation-and-optimal-control-in-pharmacokinetics">
 <h1><span class="section-number">6.1. </span>Simulation and Optimal Control in Pharmacokinetics<a class="headerlink" href="#simulation-and-optimal-control-in-pharmacokinetics" title="Permalink to this headline">#</a></h1>
-<section id="installations-and-initialization">
+<div class="section" id="installations-and-initialization">
 <h2><span class="section-number">6.1.1. </span>Installations and Initialization<a class="headerlink" href="#installations-and-initialization" title="Permalink to this headline">#</a></h2>
 <p>Pyomo and ipopt are now preinstalled on <a class="reference external" href="https://colab.research.google.com/">Google Colaboratory</a>. On MacOS and Windows PC, a one-time installation of pyomo and ipopt is required. The following commands will perform the needed installation when using the Anaconda distribution of Python.</p>
 <div class="cell docutils container">
@@ -1013,8 +1012,8 @@ title="Print to PDF"
 !conda install -c conda-forge ipopt
 </pre></div>
 </div>
-</section>
-<section id="a-pharmacokinetics-example">
+</div>
+<div class="section" id="a-pharmacokinetics-example">
 <h2><span class="section-number">6.1.2. </span>A Pharmacokinetics Example<a class="headerlink" href="#a-pharmacokinetics-example" title="Permalink to this headline">#</a></h2>
 <p>Pharmacokinetics – the study of the drugs and other substances administered to a living organism – is a rich source of examples for simulation and optimization. Here we discuss a solution to a very simple problem.</p>
 <p>A patient is admitted to a clinic with a dangerous blood borne infection that needs to be treated with a specific antibiotic. The treatment requires a minimum therapeutic concentration of 20 mg/liter of blood, but, for safety reasons, should not exceed 40 mg/liter. The attending physician has established a target value of 25 mg/liter.  The antibiotic will be administered to the patient by continuous infusion over a 72 hour period using a pump capable of delivering up to 50 mg/hour.</p>
@@ -1026,8 +1025,8 @@ title="Print to PDF"
 V\frac{dC}{dt} &amp; = u(t) - k C
 \end{align*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(V\)</span> is compartment volume (e.g., blood is about 5 liters in an adult), and <span class="math notranslate nohighlight">\(kC\)</span> is the rate of elimination due to all sources, including metabolism and excretion. Based on an observed half-life in the blood of 8 hours, <span class="math notranslate nohighlight">\(k\)</span> has an estimated value of 0.625 liters/hour. Given this information, what administration policy would you recommend?</p>
-</section>
-<section id="simulation-of-fixed-infusion-rate-strategy">
+</div>
+<div class="section" id="simulation-of-fixed-infusion-rate-strategy">
 <h2><span class="section-number">6.1.3. </span>Simulation of Fixed Infusion Rate Strategy<a class="headerlink" href="#simulation-of-fixed-infusion-rate-strategy" title="Permalink to this headline">#</a></h2>
 <p>The first strategy we will investigate is constant infusion.  At steady-state, the pharmacokinetic model becomes</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1128,8 +1127,8 @@ V\frac{dC}{dt} &amp; = u(t) - k C
 </div>
 </div>
 </div>
-</section>
-<section id="optimizing-the-infusion-strategy">
+</div>
+<div class="section" id="optimizing-the-infusion-strategy">
 <h2><span class="section-number">6.1.4. </span>Optimizing the Infusion Strategy<a class="headerlink" href="#optimizing-the-infusion-strategy" title="Permalink to this headline">#</a></h2>
 <p>The simulation results show that a constant rate of infusion results in a prolonged period, more than twelve hours, where the antibiotic concentration is below the minimum therapuetic dose of 20 mg/liter. Can we find a better strategy?  In particular, can a time-varying strategy yield reduce the time needed to achieve the therapuetic level?</p>
 <p>For this case, we consider <span class="math notranslate nohighlight">\(u(t)\)</span> to be a time-varying infusion rate bounded by the capabilities of the infusion pump.</p>
@@ -1208,8 +1207,8 @@ V\frac{dC}{dt} &amp; = u(t) - k C
 </div>
 </div>
 <p>The result of this optimization is a much better therapy for the patient. Therapuetic levels of antibiotic are reach with 3 hours thereby leading to an earlier outcome and the possibility of an earlier recovery.</p>
-</section>
-<section id="alternative-objectives">
+</div>
+<div class="section" id="alternative-objectives">
 <h2><span class="section-number">6.1.5. </span>Alternative Objectives<a class="headerlink" href="#alternative-objectives" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1279,8 +1278,8 @@ V\frac{dC}{dt} &amp; = u(t) - k C
 </div>
 <!--NAVIGATION-->
 <p>&lt; <a class="reference external" href="http://nbviewer.jupyter.org/github/jckantor/CBE30338/blob/master/notebooks/07.00-Simulation-and-Optimal-Control.ipynb">Simulation and Optimal Control</a> | <span class="xref myst">Contents</span> | <a class="reference external" href="http://nbviewer.jupyter.org/github/jckantor/CBE30338/blob/master/notebooks/07.02-Soft-Landing-a-Rocket.ipynb">Soft Landing a Rocket</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/CBE30338/blob/master/notebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.ipynb"><img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://raw.githubusercontent.com/jckantor/CBE30338/master/notebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.ipynb"><img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1330,7 +1329,7 @@ V\frac{dC}{dt} &amp; = u(t) - k C
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

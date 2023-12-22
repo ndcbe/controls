@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>3.2. Setpoints &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2. Setpoints &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/03.02-Setpoints.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/03.02-Setpoints.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/03.02-Setpoints.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/03.02-Setpoints.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03.02-Setpoints.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03.02-Setpoints.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1012,10 +1011,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="setpoints">
+  <div class="tex2jax_ignore mathjax_ignore section" id="setpoints">
 <h1><span class="section-number">3.2. </span>Setpoints<a class="headerlink" href="#setpoints" title="Permalink to this headline">#</a></h1>
 <p>Setpoints are functions of time that establish target values for key control variables. This notebook describes typical nomenclature used in describing setpoint functions, and shows how to creatd setpoint functions in Python.</p>
-<section id="setpoint-profiles">
+<div class="section" id="setpoint-profiles">
 <h2><span class="section-number">3.2.1. </span>Setpoint profiles<a class="headerlink" href="#setpoint-profiles" title="Permalink to this headline">#</a></h2>
 <p>Example descriptions from commercial vendors:</p>
 <ul class="simple">
@@ -1074,12 +1073,12 @@ title="Print to PDF"
 <p><strong>Study Question:</strong> Classify all of the segments in the sample setpoint profile.</p>
 <p><strong>Study Question:</strong> What is the ramp rate of the first ramp in the example above.</p>
 <p><strong>Study Question:</strong> Modify the data in the above example to remove the step. Replace it with a single raamp from the initial condition to the soak period that begins at t=170 at a temperature of 170C.</p>
-<hr></section>
-<section id="creating-setpoint-functions">
+<hr></div>
+<div class="section" id="creating-setpoint-functions">
 <h2><span class="section-number">3.2.2. </span>Creating setpoint functions<a class="headerlink" href="#creating-setpoint-functions" title="Permalink to this headline">#</a></h2>
 <p>For feedback control we would like functions that return the value of a setpoint for any point in time. Functions are in the form <span class="math notranslate nohighlight">\(SP_1(t)\)</span> and <span class="math notranslate nohighlight">\(SP_2(t)\)</span>, for example, are straightfoward to use inside in control applications.</p>
 <p>In the section we show how to write a function that accepts points defining a piecewise linear setpoint profile, then produce a function to compute the setpoint for any point in time.</p>
-<section id="specifying-piecewise-linear-setpoint-profiles">
+<div class="section" id="specifying-piecewise-linear-setpoint-profiles">
 <h3><span class="section-number">3.2.2.1. </span>Specifying piecewise linear setpoint profiles<a class="headerlink" href="#specifying-piecewise-linear-setpoint-profiles" title="Permalink to this headline">#</a></h3>
 <p>Describiing the setpoint as a series of a step/ramp/soak periods naturally leads a piecewise linear function. The start and end of each line segment are spceified by (time, value) pairs. Ordering these points into a list provides a straightforward specification of the setpoint,</p>
 <p>Here we show the points for a typical setpoint.</p>
@@ -1117,8 +1116,8 @@ title="Print to PDF"
 <img alt="../_images/03.02-Setpoints_6_2.png" src="../_images/03.02-Setpoints_6_2.png" />
 </div>
 </div>
-</section>
-<section id="interpolation">
+</div>
+<div class="section" id="interpolation">
 <h3><span class="section-number">3.2.2.2. </span>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">#</a></h3>
 <p>Interpolation is a method to fill in points between known values of a function. Here we will use linear interpolation to create a continuous setpoint function given “breakpoint”.</p>
 <p>The Python standard libraries include</p>
@@ -1178,8 +1177,8 @@ title="Print to PDF"
 <img alt="../_images/03.02-Setpoints_10_1.png" src="../_images/03.02-Setpoints_10_1.png" />
 </div>
 </div>
-</section>
-<section id="a-functon-to-create-functions">
+</div>
+<div class="section" id="a-functon-to-create-functions">
 <h3><span class="section-number">3.2.2.3. </span>A functon to create functions<a class="headerlink" href="#a-functon-to-create-functions" title="Permalink to this headline">#</a></h3>
 <p>Python functions are frequently written to accept data, perform calculations, and return values. What may be less familiar is that functions can also return function. This is just what we neeed - a function that accepts a series of (time, value) pairs describing a setpoint profile, then returns a function that can be used to find values of the setpoint at any point in time.</p>
 <div class="cell docutils container">
@@ -1239,9 +1238,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="example-of-a-setpoint-function">
+</div>
+</div>
+<div class="section" id="example-of-a-setpoint-function">
 <h2><span class="section-number">3.2.3. </span>Example of a setpoint function<a class="headerlink" href="#example-of-a-setpoint-function" title="Permalink to this headline">#</a></h2>
 <p>The following example creates a setpoint function that produces setpoints corresponding the profile described in the introduction to this notebook.</p>
 <div class="cell docutils container">
@@ -1282,7 +1281,7 @@ title="Print to PDF"
 <img alt="../_images/03.02-Setpoints_20_0.png" src="../_images/03.02-Setpoints_20_0.png" />
 </div>
 </div>
-<section id="creating-multiple-setpoint-functions">
+<div class="section" id="creating-multiple-setpoint-functions">
 <h3><span class="section-number">3.2.3.1. </span>Creating multiple setpoint functions<a class="headerlink" href="#creating-multiple-setpoint-functions" title="Permalink to this headline">#</a></h3>
 <p>The next cell demonstrates the use of <code class="docutils literal notranslate"><span class="pre">create_setpoint_function</span></code> to create multiple independent setpoint functions.</p>
 <div class="cell docutils container">
@@ -1309,9 +1308,9 @@ title="Print to PDF"
 <img alt="../_images/03.02-Setpoints_22_1.png" src="../_images/03.02-Setpoints_22_1.png" />
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1361,7 +1360,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

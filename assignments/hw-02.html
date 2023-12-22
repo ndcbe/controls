@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Homework 2 &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 2 &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/assignments/hw-02.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/assignments/hw-02.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/assignments/hw-02.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/assignments/hw-02.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fassignments/hw-02.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fassignments/hw-02.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -984,9 +983,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="homework-2">
+  <div class="tex2jax_ignore mathjax_ignore section" id="homework-2">
 <h1>Homework 2<a class="headerlink" href="#homework-2" title="Permalink to this headline">#</a></h1>
-<section id="background-fourth-order-multi-input-multi-output-model">
+<div class="section" id="background-fourth-order-multi-input-multi-output-model">
 <h2>Background. Fourth-Order Multi-Input Multi-Output Model<a class="headerlink" href="#background-fourth-order-multi-input-multi-output-model" title="Permalink to this headline">#</a></h2>
 <p>The next step in the evolution of our model for the temperature control lab is to incorporate the both heater/sensor assemblies into a unified model. The base assumptions for this model are:</p>
 <ul class="simple">
@@ -1030,8 +1029,8 @@ T_2 &amp; = T_{S,2}
 \end{align}
 \end{split}\]</div>
 <p>You can use this model to answer the following questions.</p>
-</section>
-<section id="problem-1-convert-to-state-space">
+</div>
+<div class="section" id="problem-1-convert-to-state-space">
 <h2>Problem 1. Convert to State Space<a class="headerlink" href="#problem-1-convert-to-state-space" title="Permalink to this headline">#</a></h2>
 <p>Following the development above, we define state space inputs <span class="math notranslate nohighlight">\(u\)</span>, states <span class="math notranslate nohighlight">\(x\)</span>, and output measurements <span class="math notranslate nohighlight">\(y\)</span> as follows:</p>
 <div class="math notranslate nohighlight">
@@ -1055,8 +1054,8 @@ y &amp; = C x
 <p>You may do this analytical work by hand on paper and submit a scan as a separate .pdf file (You’re also welcome to submit your work as a math formatted notebook, but that is not required.)</p>
 <p><strong>(a)</strong> What are the dimensions of <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span>?</p>
 <p><strong>(b)</strong> Derive expressions for the matrices <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span>.</p>
-</section>
-<section id="problem-2-simulate-step-response-and-compare-to-data">
+</div>
+<div class="section" id="problem-2-simulate-step-response-and-compare-to-data">
 <h2>Problem 2. Simulate Step Response and Compare to Data<a class="headerlink" href="#problem-2-simulate-step-response-and-compare-to-data" title="Permalink to this headline">#</a></h2>
 <p>The next step in model fitting is create a simulation model for the new four-state model. Below is code that will read an experimental data set, perform a simulation for a specified choice of parameters, and plot the simulated and measured responses on the same chart.</p>
 <p><strong>(a)</strong> Change the import statement to import the data you collected for your device. Adjust parameters to match the conditions (i.e, <span class="math notranslate nohighlight">\(T_{amb}\)</span> and initial conditions) corresponding to your experimental data collection.</p>
@@ -1137,19 +1136,19 @@ y &amp; = C x
 <img alt="../_images/hw-02_5_1.png" src="../_images/hw-02_5_1.png" />
 </div>
 </div>
-</section>
-<section id="problem-3-state-space-simulation">
+</div>
+<div class="section" id="problem-3-state-space-simulation">
 <h2>Problem 3. State Space Simulation<a class="headerlink" href="#problem-3-state-space-simulation" title="Permalink to this headline">#</a></h2>
 <p>Consult Section 2.5.3 of the notes to guide your work.</p>
 <p><strong>(a)</strong> Add a cell to evaluate matrices <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span>, and print the matrices.</p>
 <p><strong>(b)</strong> Open a new cell below, and copy and paste the simulation from Problemm 2, and modify the code to perform the same simulation using the state space model and matrices you derived for Problemm 1.</p>
-</section>
-<section id="problem-4-least-squares">
+</div>
+<div class="section" id="problem-4-least-squares">
 <h2>Problem 4. Least Squares<a class="headerlink" href="#problem-4-least-squares" title="Permalink to this headline">#</a></h2>
 <p><strong>(a)</strong> Following Section 2.5.4, use least squares regression to fit the state space simulation model to your experimental data. Use the default loss function (i.e., normal least squares). Report the values of the adjustable parameters.</p>
 <p><strong>(b)</strong> Repeat part (a) using <code class="docutils literal notranslate"><span class="pre">soft_l1</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, and <code class="docutils literal notranslate"><span class="pre">cauchy</span></code> loss functions. In your engineering judgement, which loss function gives you the best result?  (There may be no single right answer).</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1199,7 +1198,7 @@ y &amp; = C x
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

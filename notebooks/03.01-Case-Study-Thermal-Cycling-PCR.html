@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>3.1. Case Study: Thermal Cycling for PCR &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.1. Case Study: Thermal Cycling for PCR &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/03.01-Case-Study-Thermal-Cycling-PCR.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/03.01-Case-Study-Thermal-Cycling-PCR.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/03.01-Case-Study-Thermal-Cycling-PCR.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/03.01-Case-Study-Thermal-Cycling-PCR.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03.01-Case-Study-Thermal-Cycling-PCR.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03.01-Case-Study-Thermal-Cycling-PCR.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -994,7 +993,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="case-study-thermal-cycling-for-pcr">
+  <div class="tex2jax_ignore mathjax_ignore section" id="case-study-thermal-cycling-for-pcr">
 <h1><span class="section-number">3.1. </span>Case Study: Thermal Cycling for PCR<a class="headerlink" href="#case-study-thermal-cycling-for-pcr" title="Permalink to this headline">#</a></h1>
 <p>The purpose of this notebook is to describe a technological challenge requiring the use of the feedback control for a satisfactory result. Here we consider performance requirements for a thermal cycling device used for diagnostic testing based on the polymerase chain reaction (PCR). These devices are used to exponentially “amplify” segments of DNA that may be present in biological samples. These devices are ubiquitous in modern biology laboraties and medical testing services.</p>
 <p>In this notebook we will review:</p>
@@ -1009,14 +1008,14 @@ title="Print to PDF"
 <li><p>Describe use the of feedback control as an enabling technology for laboratory and process systems.</p></li>
 <li><p>Develop control performance requirements for an application.</p></li>
 </ul>
-<section id="pre-reads">
+<div class="section" id="pre-reads">
 <h2><span class="section-number">3.1.1. </span>Pre-reads<a class="headerlink" href="#pre-reads" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://advanceddiagnostics.nd.edu/assets/382241/coronavirus_test_faq.pdf">Notre Dame Center for Advanced Diagnostics and Therapeutics</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?time_continue=1&amp;v=ALNZJhUOSMs&amp;feature=emb_logo">miniPCR Thermal Cycler</a></p></li>
 </ul>
-</section>
-<section id="coronavirus-diagnostics">
+</div>
+<div class="section" id="coronavirus-diagnostics">
 <h2><span class="section-number">3.1.2. </span>Coronavirus Diagnostics<a class="headerlink" href="#coronavirus-diagnostics" title="Permalink to this headline">#</a></h2>
 <p>COVID-19 is a respiratory tract infection by a specific species of coronavirus called SARS-CoV-2. Coronaviruses have a protein envelope characterized by club-shaped protrusions that give the impression of a corona when viewed with an electron microscope.</p>
 <p href="https://commons.wikimedia.org/wiki/File:Novel_Coronavirus_SARS-CoV-2.jpg#/media/File:Novel_Coronavirus_SARS-CoV-2.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Novel_Coronavirus_SARS-CoV-2.jpg/800px-Novel_Coronavirus_SARS-CoV-2.jpg" alt="Electron micrograph of SARS-CoV-2 virions with visible coronae"></a><br>By NIAID - <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/niaid/49534865371/">https://www.flickr.com/photos/niaid/49534865371/</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=87484997">Link</p>
@@ -1024,8 +1023,8 @@ title="Print to PDF"
 <p href="https://commons.wikimedia.org/wiki/File:Vaccines-08-00587-g002-A.png"><img width="512" alt="Vaccines-08-00587-g002-A" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Vaccines-08-00587-g002-A.png/512px-Vaccines-08-00587-g002-A.png"></p>
 <p><a class="reference external" href="https://commons.wikimedia.org/wiki/File:Vaccines-08-00587-g002-A.png">https://commons.wikimedia.org/wiki/File:Vaccines-08-00587-g002-A.png</a></p>
 <p>A coronavirus test begins with a swab of throat or nose. The swab is rinsed with a buffer solution to capture the host DNA and RNA, and the RNA of any virus that may be present. RNA is isolated from the solution and converted to DNA using a reverse transcriptase enzyme. The amount of DNA collected in this fashion is too small to analyze by conventional methods. So the first step in a diagnostic protocol is to amplify the amount of DNA using the polymerase chain reaction.</p>
-</section>
-<section id="polymerase-chain-reaction-pcr">
+</div>
+<div class="section" id="polymerase-chain-reaction-pcr">
 <h2><span class="section-number">3.1.3. </span>Polymerase Chain Reaction (PCR)<a class="headerlink" href="#polymerase-chain-reaction-pcr" title="Permalink to this headline">#</a></h2>
 <p>The polymerase chain reaction (PCR) is a technique used in molecular biology to take amplify small samples of DNA into quantities large enough to be detected using conventional analytical methods. The technique is described in the following videos.</p>
 <div class="cell docutils container">
@@ -1075,8 +1074,8 @@ title="Print to PDF"
 <li><p>Annealing at temperatures between 50 and 68 <span class="math notranslate nohighlight">\(^\circ\)</span>C. Primers bond to the single-stranded DNA.  The exact temperature depends on the length and content of the target sequence.</p></li>
 <li><p>Extension at ca. 72 <span class="math notranslate nohighlight">\(^\circ\)</span>C. Polymerase compliments the DNA, synthesizing strands that are of the target sequence</p></li>
 </ol>
-</section>
-<section id="examples-of-low-cost-and-open-source-pcr-thermal-cyclers">
+</div>
+<div class="section" id="examples-of-low-cost-and-open-source-pcr-thermal-cyclers">
 <h2><span class="section-number">3.1.4. </span>Examples of low-cost and open-source PCR thermal cyclers<a class="headerlink" href="#examples-of-low-cost-and-open-source-pcr-thermal-cyclers" title="Permalink to this headline">#</a></h2>
 <p>PCR thermal cyclers are a common piece of hardware in biology and medical testing laboratories. These devices automate the thermal cycle operation by providing users with convenient means of specifying parameters for a particular PCR test, and then executing that cycle to some specified degree of precision. Most commercial devices perform multiple from a few to several hundres tests at a time.</p>
 <p><img alt="" src="http://media.biocompare.com/m/37/Product/239450-400x300.jpg" /></p>
@@ -1103,14 +1102,14 @@ title="Print to PDF"
 ></iframe>
 </div></div>
 </div>
-</section>
-<section id="the-challenge-prototyping-a-control-system-for-a-pcr-thermal-cycler">
+</div>
+<div class="section" id="the-challenge-prototyping-a-control-system-for-a-pcr-thermal-cycler">
 <h2><span class="section-number">3.1.5. </span>The Challenge: Prototyping a Control System for a PCR Thermal Cycler<a class="headerlink" href="#the-challenge-prototyping-a-control-system-for-a-pcr-thermal-cycler" title="Permalink to this headline">#</a></h2>
 <p>With two heater/sensor assemblies, the temperature Control Lab provides a platform for developing and testing control strategies for a PCR thermal cycler.</p>
 <img width="500"  src="http://apmonitor.com/pdc/uploads/Main/tclab_front.jpg">
 <p>There are some differences. PCR thermal cyclers generally include thermoelectric coolers rather than rely solely on convective cooling, and generally have more “control authority” in the form of larger power inputs. So we will be limited in our ability to mimic higher performance devices. But for the purposes of prototyping, the Temperature Contol Lab offers an excellent platform for initial prototype.</p>
-</section>
-<section id="what-will-this-project-entail">
+</div>
+<div class="section" id="what-will-this-project-entail">
 <h2><span class="section-number">3.1.6. </span>What will this project entail?<a class="headerlink" href="#what-will-this-project-entail" title="Permalink to this headline">#</a></h2>
 <p><img alt="" src="../_images/B.01-FeedbackControlDiagram.png" /></p>
 <p>Consider the use of the Temperature Control Lab as a prototyping device for a PCR Thermal Cycling device. Discuss each of the following aspects of the control loop:</p>
@@ -1129,8 +1128,8 @@ title="Print to PDF"
 <li><p>How will we deal with the fact the CV’s are not the same as the PV’s?</p></li>
 <li><p>Describe some possible control algorithms that would allow you to track a setpoint.</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1180,7 +1179,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>5.3. Homework Assignment 2: Optimization &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.3. Homework Assignment 2: Optimization &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -97,7 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -738,7 +737,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/05/05.03-Homework_2.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/05/05.03-Homework_2.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -756,7 +755,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/05/05.03-Homework_2.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/05/05.03-Homework_2.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -799,7 +798,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -816,7 +815,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/05.03-Homework_2.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/05.03-Homework_2.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -976,7 +975,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="homework-assignment-2-optimization">
+  <div class="tex2jax_ignore mathjax_ignore section" id="homework-assignment-2-optimization">
 <h1><span class="section-number">5.3. </span>Homework Assignment 2: Optimization<a class="headerlink" href="#homework-assignment-2-optimization" title="Permalink to this headline">#</a></h1>
 <p>Homework assigment 4 is intended to develop your skills in creating linear programming models. The lecture notes (notebook 5.2) will provide with a starting point for the following exercises. The problem data has been changed to provide a more meaningful example for sensitivity analysis.</p>
 <p>You have been placed in charge of a metals reuse operation. A collection of raw materials are available with key parameters given in the following table.</p>
@@ -1179,7 +1178,7 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-<section id="exercise-1-getting-started">
+<div class="section" id="exercise-1-getting-started">
 <h2><span class="section-number">5.3.1. </span>Exercise 1. Getting Started<a class="headerlink" href="#exercise-1-getting-started" title="Permalink to this headline">#</a></h2>
 <p>Considering just the constraint on carbon content, adapt the <code class="docutils literal notranslate"><span class="pre">blend_beer</span></code> function from notebook 5.2 to find a minimum cost blend raw materials that yield 5000 kg of product with a carbon content between 2.0 and 3.0%. For this first exercise you can ignore the bounds on the available amount of each raw material.</p>
 <ul class="simple">
@@ -1201,11 +1200,11 @@ title="Print to PDF"
 <li><p>the composition of the blend with regard to the species carbon, copper and managanese.</p></li>
 </ul>
 <p>You may find it convenient to write a function for this purpose that can be used in the following exercise.</p>
-<section id="solution">
+<div class="section" id="solution">
 <h3><span class="section-number">5.3.1.1. </span>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
-</section>
-</section>
-<section id="exercise-2-incorporating-constraints">
+</div>
+</div>
+<div class="section" id="exercise-2-incorporating-constraints">
 <h2><span class="section-number">5.3.2. </span>Exercise 2. Incorporating Constraints<a class="headerlink" href="#exercise-2-incorporating-constraints" title="Permalink to this headline">#</a></h2>
 <p>We’ll continue this problem by incorporating all of the constraints. The constraiints include:</p>
 <ul class="simple">
@@ -1214,8 +1213,8 @@ title="Print to PDF"
 </ul>
 <p>The easiest way to proceed is to copy and paste <code class="docutils literal notranslate"><span class="pre">metal_blend</span></code> into a cell below, then add constraints one at a time until all have been incorporated.</p>
 <p>What is the minimum price you would need to charge in $/kg to produce 5,000 kg of requested product?</p>
-</section>
-<section id="exercise-3-sensitivity-analysis">
+</div>
+<div class="section" id="exercise-3-sensitivity-analysis">
 <h2><span class="section-number">5.3.3. </span>Exercise 3. Sensitivity Analysis<a class="headerlink" href="#exercise-3-sensitivity-analysis" title="Permalink to this headline">#</a></h2>
 <p>One of the important reasons to create optimization models is to understand the value of the raw materials that are available to you, and how to adjust operations to accomodate changing requirements. The is commonly referred to as <strong>sensitivity analysis</strong>.</p>
 <p>Using the functions you’ve created in above exercises, answer the following questions:</p>
@@ -1224,8 +1223,8 @@ title="Print to PDF"
 <li><p>Is there an upper limit on how much product your can provide to this customer? (Use trial and error. To the nearest 100 kg, find the maximum amount of product you can ship to the customer.) What is the unit cost now?</p></li>
 <li><p>After some negotiation, you and your customer settle on an order of 6,500 kg. Now you wish to negotiate with your suppliers for more raw material. How much money to you save for 1 additional kg of raw material “A”? Based on this, what price would you be willing to pay your supplier for additional “A”?</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1275,7 +1274,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

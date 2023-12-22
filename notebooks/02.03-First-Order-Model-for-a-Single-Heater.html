@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>2.3. First Order Model for a Single Heater &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.3. First Order Model for a Single Heater &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/02.03-First-Order-Model-for-a-Single-Heater.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/02.03-First-Order-Model-for-a-Single-Heater.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/02.03-First-Order-Model-for-a-Single-Heater.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/02.03-First-Order-Model-for-a-Single-Heater.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02.03-First-Order-Model-for-a-Single-Heater.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02.03-First-Order-Model-for-a-Single-Heater.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1112,10 +1111,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="first-order-model-for-a-single-heater">
+  <div class="tex2jax_ignore mathjax_ignore section" id="first-order-model-for-a-single-heater">
 <h1><span class="section-number">2.3. </span>First Order Model for a Single Heater<a class="headerlink" href="#first-order-model-for-a-single-heater" title="Permalink to this headline">#</a></h1>
 <p><img alt="Comsol model of Temperature Control Laboratory" src="../_images/arduino_comsol.png" /></p>
-<section id="learning-goals">
+<div class="section" id="learning-goals">
 <h2><span class="section-number">2.3.1. </span>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
 <p>Mathematical modeling is an integral part of process control. Process models come in many forms for different purposes, ranging from the barest of information about a process to sophisticated simulation involving millions of computational nodes.</p>
 <p>Our purpose here is to demonstrate simple approaches that provide with insight about the qualitative nature of process dynamics. We show how to construct simple models from first-principles understanding of the processes, and how to fit those models to experimental data.</p>
@@ -1125,10 +1124,10 @@ title="Print to PDF"
 <li><p>Relate this model to the previously enountered first-order linear systems</p></li>
 <li><p>Demonstrate how to estimate parameters from step test experiments.</p></li>
 </ul>
-</section>
-<section id="first-order-model-for-a-single-heater-sensor-assembly">
+</div>
+<div class="section" id="first-order-model-for-a-single-heater-sensor-assembly">
 <h2><span class="section-number">2.3.2. </span>First-order model for a single heater/sensor assembly<a class="headerlink" href="#first-order-model-for-a-single-heater-sensor-assembly" title="Permalink to this headline">#</a></h2>
-<section id="energy-balance">
+<div class="section" id="energy-balance">
 <h3><span class="section-number">2.3.2.1. </span>Energy Balance<a class="headerlink" href="#energy-balance" title="Permalink to this headline">#</a></h3>
 <p>We’ll be begin by developing a model for one of the heater/sensor assemblies located on the Temperature Control Laboratory. The basic outline of an energy balaance is given by</p>
 <div class="math notranslate nohighlight">
@@ -1146,8 +1145,8 @@ title="Print to PDF"
 <p class="admonition-title">Study Question</p>
 <p>What are the units of <span class="math notranslate nohighlight">\(C_p\)</span>?</p>
 </div>
-</section>
-<section id="energy-inflow">
+</div>
+<div class="section" id="energy-inflow">
 <h3><span class="section-number">2.3.2.2. </span>Energy inflow<a class="headerlink" href="#energy-inflow" title="Permalink to this headline">#</a></h3>
 <p>The flow of energy into into the heater/sensor assembly is controlled by variable <span class="math notranslate nohighlight">\(u_1\)</span>, the percentage of maximum available power to the heater. As a safety feature to protect both the user and the equipment, the maximum power available to the heater is implemented on the Arduino with a parameter <span class="math notranslate nohighlight">\(P_1\)</span> specified as an 8 bit integer value between 0 and 255. The actual power delivered to the heater is proportional to the product <span class="math notranslate nohighlight">\(P_1 u_1\)</span></p>
 <div class="math notranslate nohighlight">
@@ -1169,8 +1168,8 @@ title="Print to PDF"
 <p class="admonition-title">Study Question</p>
 <p>How would you determine <span class="math notranslate nohighlight">\(\alpha\)</span> experimentally? What equipment would you need in addition to that delivered with the Temperature Control Lab?</p>
 </div>
-</section>
-<section id="energy-outflow">
+</div>
+<div class="section" id="energy-outflow">
 <h3><span class="section-number">2.3.2.3. </span>Energy outflow<a class="headerlink" href="#energy-outflow" title="Permalink to this headline">#</a></h3>
 <p>Energy flows out of the assembly primarily through convective heat transfer to the surrounding environment. At the relatively low operating temperatures of the device, the amount of radiative heat transfer is neglible.</p>
 <div class="math notranslate nohighlight">
@@ -1188,8 +1187,8 @@ title="Print to PDF"
 <p class="admonition-title">Study Question</p>
 <p>How can you determine <span class="math notranslate nohighlight">\(T_{amb}\)</span> in experiments you do with the Temperature Control Lab?</p>
 </div>
-</section>
-<section id="unsteady-state-model">
+</div>
+<div class="section" id="unsteady-state-model">
 <h3><span class="section-number">2.3.2.4. </span>Unsteady State Model<a class="headerlink" href="#unsteady-state-model" title="Permalink to this headline">#</a></h3>
 <p>Putting these terms together in the energy balance yields a first-order model for the response of the heater/sensor assembly on the Temperature Control Laboratory.</p>
 <div class="math notranslate nohighlight">
@@ -1198,8 +1197,8 @@ title="Print to PDF"
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 \end{align}
 \end{split}\]</div>
-</section>
-<section id="steady-state-model">
+</div>
+<div class="section" id="steady-state-model">
 <h3><span class="section-number">2.3.2.5. </span>Steady State Model<a class="headerlink" href="#steady-state-model" title="Permalink to this headline">#</a></h3>
 <p>At steady-state</p>
 <div class="math notranslate nohighlight">
@@ -1207,9 +1206,9 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 <p>which gives an equation for the steady state temperature <span class="math notranslate nohighlight">\(\bar{T}_1\)</span> as a function the steady state input <span class="math notranslate nohighlight">\(\bar{u}_1\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\bar{T}_1 = T_{amb} + \frac{\alpha P_1}{U_a}\bar{u}_1\]</div>
-</section>
-</section>
-<section id="estimating-alpha">
+</div>
+</div>
+<div class="section" id="estimating-alpha">
 <h2><span class="section-number">2.3.3. </span>Estimating <span class="math notranslate nohighlight">\(\alpha\)</span><a class="headerlink" href="#estimating-alpha" title="Permalink to this headline">#</a></h2>
 <p>The parameter <span class="math notranslate nohighlight">\(\alpha\)</span> exhibits a mild temperature dependency due to the intrinisic properties of semiconductors. The following experiment sets to P1 to a value of 200 in the arbitrary units of the Arduino hardware, then sets U1 to 50%. The power delivered to the device is measured after reaching operating temperature.</p>
 <div class="cell docutils container">
@@ -1255,10 +1254,10 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 <p class="admonition-title">Study Question</p>
 <p>What is the maximum power that could be delivered to the heater/sensor assembly?</p>
 </div>
-</section>
-<section id="modeling-deviations-from-steady-state">
+</div>
+<div class="section" id="modeling-deviations-from-steady-state">
 <h2><span class="section-number">2.3.4. </span>Modeling Deviations from Steady State<a class="headerlink" href="#modeling-deviations-from-steady-state" title="Permalink to this headline">#</a></h2>
-<section id="steady-state">
+<div class="section" id="steady-state">
 <h3><span class="section-number">2.3.4.1. </span>Steady State<a class="headerlink" href="#steady-state" title="Permalink to this headline">#</a></h3>
 <p>We’ll begin our analysis by investigating the steady-state response of this system to a steady-state input <span class="math notranslate nohighlight">\(\bar{u}_{1}\)</span>.  At steady-state all variables are constant so <span class="math notranslate nohighlight">\(\frac{dT_1}{dt} = 0\)</span>, which leaves</p>
 <div class="math notranslate nohighlight">
@@ -1276,8 +1275,8 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 <p class="admonition-title">Study Question</p>
 <p>Using the results of this calculation, estimate the maximum acheivable temperature with this device.</p>
 </div>
-</section>
-<section id="deviation-variables">
+</div>
+<div class="section" id="deviation-variables">
 <h3><span class="section-number">2.3.4.2. </span>Deviation Variables<a class="headerlink" href="#deviation-variables" title="Permalink to this headline">#</a></h3>
 <p>In examining the response of the temperature control laboratory, we see the temperature is a deviation from ambient temperature, i.e.,</p>
 <div class="math notranslate nohighlight">
@@ -1314,8 +1313,8 @@ C_p\frac{dT_1'}{dt} &amp; = - U_aT_1' + \alpha P_1u_1
 <p class="admonition-title">Study Question</p>
 <p>Previously we estimated <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span> from steady-state measurements. Can <span class="math notranslate nohighlight">\(C_p\)</span> be estimated from steady-state measurements? Why or why not?</p>
 </div>
-</section>
-<section id="first-order-linear-differential-equations">
+</div>
+<div class="section" id="first-order-linear-differential-equations">
 <h3><span class="section-number">2.3.4.3. </span>First Order Linear Differential Equations<a class="headerlink" href="#first-order-linear-differential-equations" title="Permalink to this headline">#</a></h3>
 <p>A standard form for a single differential equation is</p>
 <div class="math notranslate nohighlight">
@@ -1323,7 +1322,7 @@ C_p\frac{dT_1'}{dt} &amp; = - U_aT_1' + \alpha P_1u_1
 \frac{dx}{dt} &amp; = ax + bu
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are model constants, <span class="math notranslate nohighlight">\(x\)</span> is the dependent variable, and <span class="math notranslate nohighlight">\(u\)</span> is an exogeneous input.</p>
-<section id="steady-state-response">
+<div class="section" id="steady-state-response">
 <h4><span class="section-number">2.3.4.3.1. </span>Steady State Response<a class="headerlink" href="#steady-state-response" title="Permalink to this headline">#</a></h4>
 <p>For a constant value <span class="math notranslate nohighlight">\(\bar{u}\)</span>, the steady state response <span class="math notranslate nohighlight">\(\bar{x}\)</span> is given by solution to the equation</p>
 <div class="math notranslate nohighlight">
@@ -1335,8 +1334,8 @@ C_p\frac{dT_1'}{dt} &amp; = - U_aT_1' + \alpha P_1u_1
 \[\begin{align}
 \bar{x} &amp; = -\frac{b}{a} \bar{u}
 \end{align}\]</div>
-</section>
-<section id="transient-response">
+</div>
+<div class="section" id="transient-response">
 <h4><span class="section-number">2.3.4.3.2. </span>Transient Response<a class="headerlink" href="#transient-response" title="Permalink to this headline">#</a></h4>
 <p>The transient response is given by</p>
 <div class="math notranslate nohighlight">
@@ -1344,8 +1343,8 @@ C_p\frac{dT_1'}{dt} &amp; = - U_aT_1' + \alpha P_1u_1
 x(t) &amp; = \bar{x} + \left[x(t_0) - \bar{x}\right] e^{a(t-t_0)}
 \end{align}\]</div>
 <p>which is an exact, analytical solution.</p>
-</section>
-<section id="apply-to-model-equation">
+</div>
+<div class="section" id="apply-to-model-equation">
 <h4><span class="section-number">2.3.4.3.3. </span>Apply to Model Equation<a class="headerlink" href="#apply-to-model-equation" title="Permalink to this headline">#</a></h4>
 <p>We now apply this textbook solution to the model equation. Comparing equations, we make the following identifications</p>
 <div class="math notranslate nohighlight">
@@ -1362,9 +1361,9 @@ u_1 \sim u
 x(t) = \bar{x} + \left[x(t_0) - \bar{x}\right] e^{a(t-t_0)} \qquad &amp; \Rightarrow \qquad
 T_1'(t) = \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1'(t_0) - \frac{\alpha P_1}{U_a}\bar{u}_{1}\right]e^{-\frac{U_a}{C_p}(t-t_0)}
 \end{align}\end{split}\]</div>
-</section>
-</section>
-<section id="plotting-the-analytical-solution">
+</div>
+</div>
+<div class="section" id="plotting-the-analytical-solution">
 <h3><span class="section-number">2.3.4.4. </span>Plotting the Analytical Solution<a class="headerlink" href="#plotting-the-analytical-solution" title="Permalink to this headline">#</a></h3>
 <p>The following cell demonstrates use of these results to plot the transient response for a particular choice of model parameters.</p>
 <p>The steady state analysis provided an estimate for the gross heat transfer coefficient <span class="math notranslate nohighlight">\(U_a\)</span>. Rerun this cell for different values of gross heat capacity <span class="math notranslate nohighlight">\(C_p\)</span>. Try to find a value that at least mimics the experimental response shown above.</p>
@@ -1405,9 +1404,9 @@ T_1'(t) = \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1'(t_0) - \frac{\alpha P_1
 <img alt="../_images/02.03-First-Order-Model-for-a-Single-Heater_30_0.png" src="../_images/02.03-First-Order-Model-for-a-Single-Heater_30_0.png" />
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1457,7 +1456,7 @@ T_1'(t) = \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1'(t_0) - \frac{\alpha P_1
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

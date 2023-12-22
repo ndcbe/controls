@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>4.2. Data/Process/Operational Historian &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.2. Data/Process/Operational Historian &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -97,7 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -738,7 +737,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/04/04.02-Process-Historians.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/04/04.02-Process-Historians.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -756,7 +755,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/04/04.02-Process-Historians.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/04/04.02-Process-Historians.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -799,7 +798,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -816,7 +815,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/04/04.02-Process-Historians.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/04/04.02-Process-Historians.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1120,11 +1119,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="data-process-operational-historian">
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-process-operational-historian">
 <h1><span class="section-number">4.2. </span>Data/Process/Operational Historian<a class="headerlink" href="#data-process-operational-historian" title="Permalink to this headline">#</a></h1>
-<section id="introduction">
+<div class="section" id="introduction">
 <h2><span class="section-number">4.2.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
-<section id="terminology">
+<div class="section" id="terminology">
 <h3><span class="section-number">4.2.1.1. </span>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>DCS</strong>: Distributed Control System</p></li>
@@ -1137,28 +1136,28 @@ title="Print to PDF"
 </li>
 <li><p><strong>[Data | Operational | Process] Historian</strong>: A time-series database used to store and access operational process data.</p></li>
 </ul>
-</section>
-<section id="major-vendors-of-data-historians">
+</div>
+<div class="section" id="major-vendors-of-data-historians">
 <h3><span class="section-number">4.2.1.2. </span>Major Vendors of Data Historians<a class="headerlink" href="#major-vendors-of-data-historians" title="Permalink to this headline">#</a></h3>
 <p>Data historians is about a $1B/year market globally, poised to grow much larger with the emerging <strong>Industrial Internet of Things (IIoT)</strong> market.</p>
 <ul class="simple">
 <li><p>GE, IBM, Hitachi-ABB, Rockwell Automation, Emerson, Honeywell, Siemens, AVEVA, OSIsoft, ICONICS, Yokogawa, PTC, Inductive Automation, Canary Labs, Open Automation Software, InfluxData, Progea, Kx Systems, SORBA, Savigent Software, Automsoft, LiveData Utilities, Industrial Video &amp; Control, Aspen Technology, and COPA-DATA</p></li>
 </ul>
-</section>
-<section id="example-osisoft-pi-system">
+</div>
+<div class="section" id="example-osisoft-pi-system">
 <h3><span class="section-number">4.2.1.3. </span>Example: OSIsoft PI System<a class="headerlink" href="#example-osisoft-pi-system" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>One of the market leaders is OSIsoft which markets their proprietary PI system. Founded in 1980, OSIsoft now has 1,400 employees and recently announced sale of the company for $5B to AVENA.</p></li>
 <li><p>The PI system is integrated suite of tools supporting the storage and retreival of process data in a time-series data base.</p></li>
 </ul>
 <p><img alt="" src="https://storage.googleapis.com/gweb-cloudblog-publish/images/GCP_deployment_scripts_for_PI_Core.max-1400x1400.jpg" /></p>
-</section>
-<section id="process-analytics">
+</div>
+<div class="section" id="process-analytics">
 <h3><span class="section-number">4.2.1.4. </span>Process Analytics<a class="headerlink" href="#process-analytics" title="Permalink to this headline">#</a></h3>
 <p>Process analytics refers to analytical tools that use the data historian to provide usable information about the underlying processes.</p>
-</section>
-</section>
-<section id="the-tclab-data-historian">
+</div>
+</div>
+<div class="section" id="the-tclab-data-historian">
 <h2><span class="section-number">4.2.2. </span>The tclab Data Historian<a class="headerlink" href="#the-tclab-data-historian" title="Permalink to this headline">#</a></h2>
 <p>The tclab Python library support the Temperature Control Lab includes a very basic and no-frills implementation of a time-series data base. The purposes of the data historian are to</p>
 <ul class="simple">
@@ -1172,9 +1171,9 @@ title="Print to PDF"
 <li><p>Data logging</p></li>
 <li><p>Acessing data</p></li>
 </ul>
-<section id="data-logging">
+<div class="section" id="data-logging">
 <h3><span class="section-number">4.2.2.1. </span>Data Logging<a class="headerlink" href="#data-logging" title="Permalink to this headline">#</a></h3>
-<section id="creating-a-log">
+<div class="section" id="creating-a-log">
 <h4><span class="section-number">4.2.2.1.1. </span>Creating a log<a class="headerlink" href="#creating-a-log" title="Permalink to this headline">#</a></h4>
 <p>An instance of a data historian is created by providing a list of data sources. An instance of a <code class="docutils literal notranslate"><span class="pre">lab</span></code> created by <code class="docutils literal notranslate"><span class="pre">TCLab()</span></code> provides a default list of sources in <code class="docutils literal notranslate"><span class="pre">lab.sources</span></code>.</p>
 <div class="cell docutils container">
@@ -1202,8 +1201,8 @@ title="Print to PDF"
 <img alt="../../_images/04.02-Process-Historians_9_2.png" src="../../_images/04.02-Process-Historians_9_2.png" />
 </div>
 </div>
-</section>
-<section id="accessing-data-using-columns-and-fields">
+</div>
+<div class="section" id="accessing-data-using-columns-and-fields">
 <h4><span class="section-number">4.2.2.1.2. </span>Accessing Data using <code class="docutils literal notranslate"><span class="pre">.columns</span></code> and <code class="docutils literal notranslate"><span class="pre">.fields</span></code><a class="headerlink" href="#accessing-data-using-columns-and-fields" title="Permalink to this headline">#</a></h4>
 <p>There are several approaches to accessing the data that has been recorded using the historian. Perhaps the most straightforward is to access the ‘tags’ with <code class="docutils literal notranslate"><span class="pre">h.columns</span></code> and to access the values with <code class="docutils literal notranslate"><span class="pre">h.fields</span></code> as shown here.</p>
 <div class="cell docutils container">
@@ -1237,8 +1236,8 @@ title="Print to PDF"
 <img alt="../../_images/04.02-Process-Historians_12_1.png" src="../../_images/04.02-Process-Historians_12_1.png" />
 </div>
 </div>
-</section>
-<section id="accessing-data-using-pandas">
+</div>
+<div class="section" id="accessing-data-using-pandas">
 <h4><span class="section-number">4.2.2.1.3. </span>Accessing Data using <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#accessing-data-using-pandas" title="Permalink to this headline">#</a></h4>
 <p>The Python <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library provides an enormous range of commonly tools for data analysis, it is among the most widely used libraries by data scientists. Data collected by the historian can be converted to a pandas data frame with one line of code.</p>
 <div class="cell docutils container">
@@ -1327,8 +1326,8 @@ title="Print to PDF"
 <img alt="../../_images/04.02-Process-Historians_14_2.png" src="../../_images/04.02-Process-Historians_14_2.png" />
 </div>
 </div>
-</section>
-<section id="specifying-additional-sources">
+</div>
+<div class="section" id="specifying-additional-sources">
 <h4><span class="section-number">4.2.2.1.4. </span>Specifying additional sources<a class="headerlink" href="#specifying-additional-sources" title="Permalink to this headline">#</a></h4>
 <p>As we develop increasingly complex control algorthms, we will wish to record additional data during the course of an experiment. This is done by specifying data sources. Each source is defined by a <code class="docutils literal notranslate"><span class="pre">(tag,</span> <span class="pre">fcn)</span></code> pair where <code class="docutils literal notranslate"><span class="pre">tag</span></code> is string label for data, and <code class="docutils literal notranslate"><span class="pre">fcn</span></code> is a function with no arguments that returns a current value. An example is</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Q1&#39;, lab.Q1]
@@ -1377,11 +1376,11 @@ TCLab Model disconnected successfully.
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="persistence">
+</div>
+</div>
+<div class="section" id="persistence">
 <h3><span class="section-number">4.2.2.2. </span>Persistence<a class="headerlink" href="#persistence" title="Permalink to this headline">#</a></h3>
-<section id="saving-to-a-file">
+<div class="section" id="saving-to-a-file">
 <h4><span class="section-number">4.2.2.2.1. </span>Saving to a file<a class="headerlink" href="#saving-to-a-file" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1607,10 +1606,10 @@ TCLab Model disconnected successfully.
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
-<section id="plotter">
+</div>
+</div>
+</div>
+<div class="section" id="plotter">
 <h2><span class="section-number">4.2.3. </span>Plotter<a class="headerlink" href="#plotter" title="Permalink to this headline">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Plotter</span></code> class provides a real-time graphical interface to an historian. It provides some simple facilities for</p>
 <div class="cell docutils container">
@@ -1690,8 +1689,8 @@ TCLab Model disconnected successfully.
 <img alt="../../_images/04.02-Process-Historians_30_1.png" src="../../_images/04.02-Process-Historians_30_1.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1741,7 +1740,7 @@ TCLab Model disconnected successfully.
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

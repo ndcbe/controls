@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>6.6. Gompertz Model &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.6. Gompertz Model &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/06.06a-gompertz-tumor-growth.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/06.06a-gompertz-tumor-growth.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/06.06a-gompertz-tumor-growth.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/06.06a-gompertz-tumor-growth.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/06.06a-gompertz-tumor-growth.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/06.06a-gompertz-tumor-growth.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1060,12 +1059,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="gompertz-model">
+  <div class="tex2jax_ignore mathjax_ignore section" id="gompertz-model">
 <h1><span class="section-number">6.6. </span>Gompertz Model<a class="headerlink" href="#gompertz-model" title="Permalink to this headline">#</a></h1>
 <p>In this notebook we will explore the application of optimization modeling to study this problem and gain insight on possible therapuetic strategies.</p>
-<section id="installing-pyomo-and-solvers">
+<div class="section" id="installing-pyomo-and-solvers">
 <h2><span class="section-number">6.6.1. </span>Installing Pyomo and solvers<a class="headerlink" href="#installing-pyomo-and-solvers" title="Permalink to this headline">#</a></h2>
-<section id="installation">
+<div class="section" id="installation">
 <h3><span class="section-number">6.6.1.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h3>
 <p>The <a class="reference external" href="https://idaes-pse.readthedocs.io/en/latest/tutorials/getting_started/index.html">IDAES Project</a> maintains a version of Pyomo and associated solvers. The following cells will install Pyomo and selected solvers from the IDAES project.</p>
 <div class="cell docutils container">
@@ -1093,8 +1092,8 @@ Library:  v3.2.0 20230203-1528 ubuntu2004-x86_64
 </div>
 </div>
 </div>
-</section>
-<section id="importing-pyomo-and-solvers">
+</div>
+<div class="section" id="importing-pyomo-and-solvers">
 <h3><span class="section-number">6.6.1.2. </span>Importing Pyomo and solvers<a class="headerlink" href="#importing-pyomo-and-solvers" title="Permalink to this headline">#</a></h3>
 <p>The following solvers are included in the IDAES distribution.</p>
 <table class="colwidths-auto table">
@@ -1157,9 +1156,9 @@ Library:  v3.2.0 20230203-1528 ubuntu2004-x86_64
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="simulating-tumor-growth">
+</div>
+</div>
+<div class="section" id="simulating-tumor-growth">
 <h2><span class="section-number">6.6.2. </span>Simulating Tumor Growth<a class="headerlink" href="#simulating-tumor-growth" title="Permalink to this headline">#</a></h2>
 <p>The well-known Gompertz model for tumor growth is given by</p>
 <div class="math notranslate nohighlight">
@@ -1245,8 +1244,8 @@ N(0) &amp; = N_0 &amp; \text{initial condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_7_0.png" src="../_images/06.06a-gompertz-tumor-growth_7_0.png" />
 </div>
 </div>
-</section>
-<section id="controlling-tumor-growth">
+</div>
+<div class="section" id="controlling-tumor-growth">
 <h2><span class="section-number">6.6.3. </span>Controlling Tumor Growth<a class="headerlink" href="#controlling-tumor-growth" title="Permalink to this headline">#</a></h2>
 <p>Cancer therapy can take different forms, including chemotheraphy and radiation therapy. The effect of therapy is modeled as</p>
 <div class="math notranslate nohighlight">
@@ -1333,8 +1332,8 @@ N(0) &amp; = N_0 &amp;&amp; \text{initial condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_10_0.png" src="../_images/06.06a-gompertz-tumor-growth_10_0.png" />
 </div>
 </div>
-</section>
-<section id="optimal-control-constant-u">
+</div>
+<div class="section" id="optimal-control-constant-u">
 <h2><span class="section-number">6.6.4. </span>Optimal Control: Constant <span class="math notranslate nohighlight">\(u\)</span><a class="headerlink" href="#optimal-control-constant-u" title="Permalink to this headline">#</a></h2>
 <p>Let’s design a constant rate of therapy to target a desired outcome <span class="math notranslate nohighlight">\(N_f\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -1403,8 +1402,8 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_12_0.png" src="../_images/06.06a-gompertz-tumor-growth_12_0.png" />
 </div>
 </div>
-</section>
-<section id="time-varying-u-t">
+</div>
+<div class="section" id="time-varying-u-t">
 <h2><span class="section-number">6.6.5. </span>Time-varying <span class="math notranslate nohighlight">\(u(t)\)</span><a class="headerlink" href="#time-varying-u-t" title="Permalink to this headline">#</a></h2>
 <p>What happens if we make <span class="math notranslate nohighlight">\(u(t)\)</span> time varying? The model becomes</p>
 <div class="math notranslate nohighlight">
@@ -1466,8 +1465,8 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_14_0.png" src="../_images/06.06a-gompertz-tumor-growth_14_0.png" />
 </div>
 </div>
-</section>
-<section id="measuring-total-dosage">
+</div>
+<div class="section" id="measuring-total-dosage">
 <h2><span class="section-number">6.6.6. </span>Measuring total dosage<a class="headerlink" href="#measuring-total-dosage" title="Permalink to this headline">#</a></h2>
 <p>Let’s try to minimize total dosage.</p>
 <div class="math notranslate nohighlight">
@@ -1528,8 +1527,8 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_16_0.png" src="../_images/06.06a-gompertz-tumor-growth_16_0.png" />
 </div>
 </div>
-</section>
-<section id="minimize-total-dosage">
+</div>
+<div class="section" id="minimize-total-dosage">
 <h2><span class="section-number">6.6.7. </span>Minimize total dosage<a class="headerlink" href="#minimize-total-dosage" title="Permalink to this headline">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\min \int_0^{t_f} u(t)\ dt\]</div>
@@ -1617,8 +1616,8 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_18_0.png" src="../_images/06.06a-gompertz-tumor-growth_18_0.png" />
 </div>
 </div>
-</section>
-<section id="radiation-therapy">
+</div>
+<div class="section" id="radiation-therapy">
 <h2><span class="section-number">6.6.8. </span>Radiation therapy<a class="headerlink" href="#radiation-therapy" title="Permalink to this headline">#</a></h2>
 <p>An unique property of radiation therapy is that effectiveness actually grows linear/quadratic function of dose rate. Here we model this as shown in the following model.</p>
 <div class="math notranslate nohighlight">
@@ -1703,16 +1702,16 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_21_0.png" src="../_images/06.06a-gompertz-tumor-growth_21_0.png" />
 </div>
 </div>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2><span class="section-number">6.6.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Think creatively about the objective function. From the patient’s perspective, what features are missing that might improve the quality of life during the treatment period? How could you incorporate them into the mathematical model? Try one.</p></li>
 <li><p>How can you create a tradeoff between long-term term objectives (i.e, keeping <span class="math notranslate nohighlight">\(N(t_f)\)</span> as small as possible) versus shorter term objectives?</p></li>
 <li><p>Suppose you believe the model and formulation, but are not sure if the parameters are right, or perhaps there are other factors that might disrupt therapy plan. How would you adapt the optimization model to stay current with the most recent data regarding the patient?</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1762,7 +1761,7 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>5.8. Recharging Strategy for an Electric Vehicle &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.8. Recharging Strategy for an Electric Vehicle &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/CBE30338-EV-Example.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/CBE30338-EV-Example.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/CBE30338-EV-Example.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/CBE30338-EV-Example.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2FCBE30338-EV-Example.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2FCBE30338-EV-Example.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1024,7 +1023,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="recharging-strategy-for-an-electric-vehicle">
+  <div class="tex2jax_ignore mathjax_ignore section" id="recharging-strategy-for-an-electric-vehicle">
 <h1><span class="section-number">5.8. </span>Recharging Strategy for an Electric Vehicle<a class="headerlink" href="#recharging-strategy-for-an-electric-vehicle" title="Permalink to this headline">#</a></h1>
 <p>Whether it is to visit family, take a sightseeing tour or call on business associates, planning a road trip is a familiar and routine task. Here we consider a road trip on a pre-determined route for which need to plan rest and recharging stops. This example demonstrates use of Pyomo disjunctions to model the decisions on where to stop.</p>
 <div class="cell docutils container">
@@ -1055,7 +1054,7 @@ installation and testing complete
 </div>
 </div>
 </div>
-<section id="problem-statement">
+<div class="section" id="problem-statement">
 <h2><span class="section-number">5.8.1. </span>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">#</a></h2>
 <p>The distances to the charging stations are measured relative to an arbitrary location. Given the current location <span class="math notranslate nohighlight">\(x\)</span>, battery charge <span class="math notranslate nohighlight">\(c\)</span>, and planning horizon <span class="math notranslate nohighlight">\(D\)</span>, the task is to plan a series of recharging and rest stops. The objective is to drive from location <span class="math notranslate nohighlight">\(x\)</span> to location <span class="math notranslate nohighlight">\(x + D\)</span> in as little time as possible subject to the following constraints:</p>
 <ul class="simple">
@@ -1070,8 +1069,8 @@ installation and testing complete
 <li><p>The batteries recharge at a constant rate determined by the charging station.</p></li>
 <li><p>Only consider stops at the recharging stations.</p></li>
 </ul>
-</section>
-<section id="charging-station-information">
+</div>
+<div class="section" id="charging-station-information">
 <h2><span class="section-number">5.8.2. </span>Charging Station Information<a class="headerlink" href="#charging-station-information" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1326,8 +1325,8 @@ installation and testing complete
   </div>
 </div></div>
 </div>
-</section>
-<section id="route-information">
+</div>
+<div class="section" id="route-information">
 <h2><span class="section-number">5.8.3. </span>Route Information<a class="headerlink" href="#route-information" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1366,8 +1365,8 @@ installation and testing complete
 <img alt="_images/CBE30338-EV-Example_6_0.png" src="_images/CBE30338-EV-Example_6_0.png" />
 </div>
 </div>
-</section>
-<section id="car-information">
+</div>
+<div class="section" id="car-information">
 <h2><span class="section-number">5.8.4. </span>Car Information<a class="headerlink" href="#car-information" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1388,8 +1387,8 @@ installation and testing complete
 </div>
 </div>
 </div>
-</section>
-<section id="model-development">
+</div>
+<div class="section" id="model-development">
 <h2><span class="section-number">5.8.5. </span>Model Development<a class="headerlink" href="#model-development" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1398,8 +1397,8 @@ installation and testing complete
 </div>
 </div>
 </div>
-</section>
-<section id="modeling">
+</div>
+<div class="section" id="modeling">
 <h2><span class="section-number">5.8.6. </span>Modeling<a class="headerlink" href="#modeling" title="Permalink to this headline">#</a></h2>
 <p>The problem statement identifies four state variables.</p>
 <ul class="simple">
@@ -1456,11 +1455,11 @@ t_i^{dep} = t_i^{arr}
 \end{bmatrix}&amp; \forall i \in I
 \end{align*}
 \end{split}\]</div>
-</section>
-<section id="pyomo-model">
+</div>
+<div class="section" id="pyomo-model">
 <h2><span class="section-number">5.8.7. </span>Pyomo Model<a class="headerlink" href="#pyomo-model" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h2><span class="section-number">5.8.8. </span>Model Development<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1803,15 +1802,15 @@ t_i^{dep} = t_i^{arr}
 <img alt="_images/CBE30338-EV-Example_15_0.png" src="_images/CBE30338-EV-Example_15_0.png" />
 </div>
 </div>
-</section>
-<section id="suggested-exercises">
+</div>
+<div class="section" id="suggested-exercises">
 <h2><span class="section-number">5.8.9. </span>Suggested Exercises<a class="headerlink" href="#suggested-exercises" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Does increasing the battery capacity <span class="math notranslate nohighlight">\(c^{max}\)</span> significantly reduce the time required to travel 2000 km? Explain what you observe.</p></li>
 <li><p>“The best-laid schemes of mice and men go oft awry” (Robert Burns, “To a Mouse”). Modify this model so that it can be used to update a plans in response to real-time measurements. How does the charging strategy change as a function of planning horizon <span class="math notranslate nohighlight">\(D\)</span>?</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1861,7 +1860,7 @@ t_i^{dep} = t_i^{arr}
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>5.1. Relay Control &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1. Relay Control &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/tclab/04.01-Relay-Control.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/tclab/04.01-Relay-Control.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/tclab/04.01-Relay-Control.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/tclab/04.01-Relay-Control.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Ftclab/04.01-Relay-Control.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Ftclab/04.01-Relay-Control.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -974,13 +973,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="relay-control">
+  <div class="tex2jax_ignore mathjax_ignore section" id="relay-control">
 <h1><span class="section-number">5.1. </span>Relay Control<a class="headerlink" href="#relay-control" title="Permalink to this headline">#</a></h1>
-<section id="simple-relay-control">
+<div class="section" id="simple-relay-control">
 <h2><span class="section-number">5.1.1. </span>Simple Relay Control<a class="headerlink" href="#simple-relay-control" title="Permalink to this headline">#</a></h2>
 <p>The following code implements relay control for temperature T1 on the Temperature Control Lab.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85c480d7-3e0c-4c57-8f40-4d808571d867">
-<span class="eqno">(5.10)<a class="headerlink" href="#equation-85c480d7-3e0c-4c57-8f40-4d808571d867" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b054277b-6a32-4ffd-937a-1fcb4aa2dcc0">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-b054277b-6a32-4ffd-937a-1fcb4aa2dcc0" title="Permalink to this equation">#</a></span>\[\begin{align}
 Q(t) &amp; = \begin{cases} 
     Q^{max} &amp;\text{if $T \leq T_{setpoint}$}\\
     0       &amp; \text{if $T \geq T_{setpoint}$}
@@ -1020,13 +1019,13 @@ Q(t) &amp; = \begin{cases}
 <img alt="../_images/04.01-Relay-Control_2_2.png" src="../_images/04.01-Relay-Control_2_2.png" />
 </div>
 </div>
-</section>
-<section id="relay-control-with-hysteresis">
+</div>
+<div class="section" id="relay-control-with-hysteresis">
 <h2><span class="section-number">5.1.2. </span>Relay Control with Hysteresis<a class="headerlink" href="#relay-control-with-hysteresis" title="Permalink to this headline">#</a></h2>
 <p>One of the issues with simple relay control is the potential for ‘chattering’, which are situations where the manipulated variable (in this case heater power) rapid on-and-off switching. This can be caused by systems that are highly response to control inputs or where the sensor measurements carry significant noise.</p>
 <p>The typical home thermostat used for furnace control incorporates a simple but highly effective solution to the chattering period. The idea is to intentially overshoot the setpoint. Then, after the control switches state, there will be at least a short period of time where no further control action should be necessary. The control algorithm can be written</p>
-<div class="amsmath math notranslate nohighlight" id="equation-562588d8-2343-4719-ad47-8403b8f7969c">
-<span class="eqno">(5.11)<a class="headerlink" href="#equation-562588d8-2343-4719-ad47-8403b8f7969c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5fe3691a-ae1b-4d09-a895-a3e9ec29819b">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-5fe3691a-ae1b-4d09-a895-a3e9ec29819b" title="Permalink to this equation">#</a></span>\[\begin{align}
 Q(t) &amp; = \begin{cases} 
     0       &amp; \text{if $T \geq T_{Setpoint} - \frac{d}{2}$}\\
     Q^{max} &amp;\text{if $T \leq T_{Setpoint} + \frac{d}{2}$}\\
@@ -1036,8 +1035,8 @@ Q(t) &amp; = \begin{cases}
 <p>where <span class="math notranslate nohighlight">\(d\)</span> is the <em>tolerance</em> or <em>hysteresis</em>. For home heating systems a typical value is in the range of 0.5 to 1 degree F. This image shows how hystersis was adjusted on a typical home thermostat in common usage in the late 20th century.</p>
 <p><a title="By Vincent de Groot - http://www.videgro.net (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY 2.5 (http://creativecommons.org/licenses/by/2.5)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AHoneywell_thermostat_open.jpg"><img width="512" alt="Honeywell thermostat open" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Honeywell_thermostat_open.jpg/512px-Honeywell_thermostat_open.jpg"/></a></p>
 <p>The furnance is turned on for temperatures below the range</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1f747be5-0880-4798-b502-69f7602d9102">
-<span class="eqno">(5.12)<a class="headerlink" href="#equation-1f747be5-0880-4798-b502-69f7602d9102" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ee5b3a5b-e1a4-48d8-a74b-b59945be2e8d">
+<span class="eqno">(5.12)<a class="headerlink" href="#equation-ee5b3a5b-e1a4-48d8-a74b-b59945be2e8d" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_{Setpoint} - \frac{d}{2} \leq T \leq T_{Setpoint} + \frac{d}{2}
 \end{align}\]</div>
 <p>and is turned for temperatures above the range. Within the range, however, the furnance may be on or off depending on what happened at the last decision point.</p>
@@ -1080,8 +1079,8 @@ T_{Setpoint} - \frac{d}{2} \leq T \leq T_{Setpoint} + \frac{d}{2}
 <img alt="../_images/04.01-Relay-Control_4_2.png" src="../_images/04.01-Relay-Control_4_2.png" />
 </div>
 </div>
-</section>
-<section id="multivariable-on-off-control">
+</div>
+<div class="section" id="multivariable-on-off-control">
 <h2><span class="section-number">5.1.3. </span>Multivariable On-Off Control<a class="headerlink" href="#multivariable-on-off-control" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1125,8 +1124,8 @@ T_{Setpoint} - \frac{d}{2} \leq T \leq T_{Setpoint} + \frac{d}{2}
 <img alt="../_images/04.01-Relay-Control_6_2.png" src="../_images/04.01-Relay-Control_6_2.png" />
 </div>
 </div>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2><span class="section-number">5.1.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Examining the closed-loop responses, it’s obvious that the heater is oversized for the purpose of control at 40 deg C.  Try other values for <span class="math notranslate nohighlight">\(Q^{\max}\)</span> to see if you can improve closed-loop performance.</p></li>
@@ -1134,8 +1133,8 @@ T_{Setpoint} - \frac{d}{2} \leq T \leq T_{Setpoint} + \frac{d}{2}
 <li><p>In a new cell, create a modification of the script to include a change in setpoint from 40 deg C to 50 deg C at the 300 second mark. Run the experiment for at least 10 minutes to see the full effect.</p></li>
 <li><p>For a relay control with hystersis, try to sketch a graph of <span class="math notranslate nohighlight">\(Q\)</span> as a function of <span class="math notranslate nohighlight">\(T\)</span> assuming <span class="math notranslate nohighlight">\(T_{Setpoint} = 50\)</span> and <span class="math notranslate nohighlight">\(h = 3\)</span>. Can you draw a unique function? Why not?</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1185,7 +1184,7 @@ T_{Setpoint} - \frac{d}{2} \leq T \leq T_{Setpoint} + \frac{d}{2}
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

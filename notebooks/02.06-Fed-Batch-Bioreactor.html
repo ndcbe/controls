@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>2.6. Fed-Batch Bioreactor &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.6. Fed-Batch Bioreactor &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/02.06-Fed-Batch-Bioreactor.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/02.06-Fed-Batch-Bioreactor.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/02.06-Fed-Batch-Bioreactor.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/02.06-Fed-Batch-Bioreactor.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02.06-Fed-Batch-Bioreactor.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02.06-Fed-Batch-Bioreactor.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -998,7 +997,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="fed-batch-bioreactor">
+  <div class="tex2jax_ignore mathjax_ignore section" id="fed-batch-bioreactor">
 <h1><span class="section-number">2.6. </span>Fed-Batch Bioreactor<a class="headerlink" href="#fed-batch-bioreactor" title="Permalink to this headline">#</a></h1>
 <p>Batch reactors are commonly used in the production of speciality chemicals, pharmaceuticals, and beverage and food products.</p>
 <p><img alt="" src="https://live.staticflickr.com/5129/5283264793_973c8f0bea_c.jpg" />
@@ -1014,7 +1013,7 @@ title="Print to PDF"
 <li><p>Model variable volume dilution effects.</p></li>
 <li><p>Simulate the response of the model using Python solvers for initial value problems.</p></li>
 </ul>
-<section id="modeling-tank-volume">
+<div class="section" id="modeling-tank-volume">
 <h2><span class="section-number">2.6.1. </span>Modeling Tank Volume<a class="headerlink" href="#modeling-tank-volume" title="Permalink to this headline">#</a></h2>
 <p>The volumetric inlet flowrate to a fed-batch reactor is <span class="math notranslate nohighlight">\(F(t)\)</span>. Assuming changes in specific volume due to mixing, the volume of liquid in the reactor is given by</p>
 <div class="math notranslate nohighlight">
@@ -1060,8 +1059,8 @@ title="Print to PDF"
 <img alt="../_images/02.06-Fed-Batch-Bioreactor_2_1.png" src="../_images/02.06-Fed-Batch-Bioreactor_2_1.png" />
 </div>
 </div>
-</section>
-<section id="modeling-substrate-composition">
+</div>
+<div class="section" id="modeling-substrate-composition">
 <h2><span class="section-number">2.6.2. </span>Modeling Substrate Composition<a class="headerlink" href="#modeling-substrate-composition" title="Permalink to this headline">#</a></h2>
 <p>The feed entering the tank carries important nutrients for the fermentation. Assume the substrate feed composition <span class="math notranslate nohighlight">\(S_f\)</span> is 10 grams/liter. Simulate the concentration in the fed-batch reactor.</p>
 <div class="math notranslate nohighlight">
@@ -1134,8 +1133,8 @@ title="Print to PDF"
 <img alt="../_images/02.06-Fed-Batch-Bioreactor_4_1.png" src="../_images/02.06-Fed-Batch-Bioreactor_4_1.png" />
 </div>
 </div>
-</section>
-<section id="modeling-biomass">
+</div>
+<div class="section" id="modeling-biomass">
 <h2><span class="section-number">2.6.3. </span>Modeling Biomass<a class="headerlink" href="#modeling-biomass" title="Permalink to this headline">#</a></h2>
 <p>Fermentation is process in which biomass consumes substrate to produce more biomass and by-products.</p>
 <div class="math notranslate nohighlight">
@@ -1221,7 +1220,7 @@ title="Print to PDF"
 <p>At this stage the model is not complete and will give implausible simulation results. But is still important to understand what the model is doing and why the simulation results do provide the results you may expect.</p>
 <p>Before going further with this notebook, run this notebook and experiment with different initial conditions for <span class="math notranslate nohighlight">\(X\)</span>. Choose small values and see what happens. Why are the results different than one might expect of a fed-batch bioreactor?</p>
 </div>
-<section id="substrate-modeling-revisited">
+<div class="section" id="substrate-modeling-revisited">
 <h3><span class="section-number">2.6.3.1. </span>Substrate Modeling, revisited<a class="headerlink" href="#substrate-modeling-revisited" title="Permalink to this headline">#</a></h3>
 <p>The growth of biomass consumes substrate which serves to limit the production of biomass.  Assume the substrate is consumed is proportion to the mass of new cells formed where <span class="math notranslate nohighlight">\(Y_{X/S}\)</span> is the yield coefficient for new cells.</p>
 <div class="math notranslate nohighlight">
@@ -1295,8 +1294,8 @@ title="Print to PDF"
 <img alt="../_images/02.06-Fed-Batch-Bioreactor_9_1.png" src="../_images/02.06-Fed-Batch-Bioreactor_9_1.png" />
 </div>
 </div>
-</section>
-<section id="product-modeling">
+</div>
+<div class="section" id="product-modeling">
 <h3><span class="section-number">2.6.3.2. </span>Product Modeling<a class="headerlink" href="#product-modeling" title="Permalink to this headline">#</a></h3>
 <p>At this stage this is just one last consideration, modeling of the product produced by the fed-batch fermenter. For this model, the product is assumed to be a by-product of cell growth</p>
 <div class="math notranslate nohighlight">
@@ -1371,9 +1370,9 @@ title="Print to PDF"
 <img alt="../_images/02.06-Fed-Batch-Bioreactor_11_1.png" src="../_images/02.06-Fed-Batch-Bioreactor_11_1.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="exercises-putting-the-simulation-model-to-work">
+</div>
+</div>
+<div class="section" id="exercises-putting-the-simulation-model-to-work">
 <h2><span class="section-number">2.6.4. </span>Exercises: Putting the Simulation Model to Work<a class="headerlink" href="#exercises-putting-the-simulation-model-to-work" title="Permalink to this headline">#</a></h2>
 <p>Simulation has many uses, among them is to gain insight into operating strategies.</p>
 <div class="admonition-exercise-1 admonition">
@@ -1391,8 +1390,8 @@ title="Print to PDF"
 \[\text{Productivity} = \frac{P \cdot V}{t_{turn-around} + t}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is time since start of the batch. Modify the dataframe to compute productivity as a function of <span class="math notranslate nohighlight">\(t\)</span>, and decide the optimal time to run the batch.</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1442,7 +1441,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

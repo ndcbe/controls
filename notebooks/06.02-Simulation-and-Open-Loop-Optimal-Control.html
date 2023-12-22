@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>6.3. Open-Loop Optimal Control &#8212; CBE 30338 Chemical Process Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.3. Open-Loop Optimal Control &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -99,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">CBE 30338 Chemical Process Control</h1>
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -740,7 +739,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jckantor/cbe30338-book/main?urlpath=lab/tree/notebooks/06.02-Simulation-and-Open-Loop-Optimal-Control.ipynb"
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/06.02-Simulation-and-Open-Loop-Optimal-Control.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -758,7 +757,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/jckantor/cbe30338-book/blob/main/notebooks/06.02-Simulation-and-Open-Loop-Optimal-Control.ipynb"
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/06.02-Simulation-and-Open-Loop-Optimal-Control.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -801,7 +800,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book"
+        <a href="https://github.com/ndcbe/controls"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -818,7 +817,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe30338-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/06.02-Simulation-and-Open-Loop-Optimal-Control.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/06.02-Simulation-and-Open-Loop-Optimal-Control.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1018,7 +1017,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="open-loop-optimal-control">
+  <div class="tex2jax_ignore mathjax_ignore section" id="open-loop-optimal-control">
 <h1><span class="section-number">6.3. </span>Open-Loop Optimal Control<a class="headerlink" href="#open-loop-optimal-control" title="Permalink to this headline">#</a></h1>
 <p>This notebook demonstrates the use of CVXPY for the simulation and computation of open-loop optimal control. The notebook includes a lab exercise.</p>
 <div class="cell docutils container">
@@ -1040,9 +1039,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="heater-model">
+<div class="section" id="heater-model">
 <h2><span class="section-number">6.3.1. </span>Heater Model<a class="headerlink" href="#heater-model" title="Permalink to this headline">#</a></h2>
-<section id="model">
+<div class="section" id="model">
 <h3><span class="section-number">6.3.1.1. </span>Model<a class="headerlink" href="#model" title="Permalink to this headline">#</a></h3>
 <p>We will use the two-state model for a single heater/sensor assembly for the calculations that follow.</p>
 <div class="math notranslate nohighlight">
@@ -1066,9 +1065,9 @@ C^S_p\frac{dT_{S}}{dt} &amp; = U_b(T_{H} - T_{S})
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="simulation">
+</div>
+</div>
+<div class="section" id="simulation">
 <h2><span class="section-number">6.3.2. </span>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">#</a></h2>
 <p>Let’s establish a goal of bringing the heater temperature to 60 deg C.  Let’s see how well an initial guess at a control strategy will work for us subject to initial conditions</p>
 <div class="math notranslate nohighlight">
@@ -1128,15 +1127,15 @@ T_S(t_0) &amp; = T_{amb}
 <img alt="../_images/06.02-Simulation-and-Open-Loop-Optimal-Control_7_0.png" src="../_images/06.02-Simulation-and-Open-Loop-Optimal-Control_7_0.png" />
 </div>
 </div>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2><span class="section-number">6.3.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>How well did our guess work? Try different guesses and find a value for <span class="math notranslate nohighlight">\(u\)</span> that results in a heater temperature close to the target of 60 deg C.</p></li>
 <li><p>What is the impact of simulation time? Is the value determine in question 1 an answer for the power required for a steady state of 60 deg C.</p></li>
 </ol>
-</section>
-<section id="control-to-a-target">
+</div>
+<div class="section" id="control-to-a-target">
 <h2><span class="section-number">6.3.4. </span>Control to a Target<a class="headerlink" href="#control-to-a-target" title="Permalink to this headline">#</a></h2>
 <p>How can we set a target value for <span class="math notranslate nohighlight">\(T_h\)</span>?</p>
 <p>What are the</p>
@@ -1199,8 +1198,8 @@ T_S(t_0) &amp; = T_{amb}
 <img alt="../_images/06.02-Simulation-and-Open-Loop-Optimal-Control_10_0.png" src="../_images/06.02-Simulation-and-Open-Loop-Optimal-Control_10_0.png" />
 </div>
 </div>
-</section>
-<section id="feedforward-optimal-control">
+</div>
+<div class="section" id="feedforward-optimal-control">
 <h2><span class="section-number">6.3.5. </span>Feedforward Optimal Control<a class="headerlink" href="#feedforward-optimal-control" title="Permalink to this headline">#</a></h2>
 <p>An optimal control policy minimizes the differences</p>
 <div class="math notranslate nohighlight">
@@ -1281,8 +1280,8 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)  \\
 <img alt="../_images/06.02-Simulation-and-Open-Loop-Optimal-Control_12_0.png" src="../_images/06.02-Simulation-and-Open-Loop-Optimal-Control_12_0.png" />
 </div>
 </div>
-</section>
-<section id="controlling-to-a-reference-tractory">
+</div>
+<div class="section" id="controlling-to-a-reference-tractory">
 <h2><span class="section-number">6.3.6. </span>Controlling to a Reference Tractory<a class="headerlink" href="#controlling-to-a-reference-tractory" title="Permalink to this headline">#</a></h2>
 <p>The reference trajectory is a sequence of ramp/soak intervals.  Python function <code class="docutils literal notranslate"><span class="pre">r(t)</span></code> uses <code class="docutils literal notranslate"><span class="pre">numpy.interp</span></code> to compute values of the reference trajectory at any point in time.</p>
 <div class="cell docutils container">
@@ -1314,8 +1313,8 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)  \\
 <img alt="../_images/06.02-Simulation-and-Open-Loop-Optimal-Control_14_0.png" src="../_images/06.02-Simulation-and-Open-Loop-Optimal-Control_14_0.png" />
 </div>
 </div>
-</section>
-<section id="the-control-problem">
+</div>
+<div class="section" id="the-control-problem">
 <h2><span class="section-number">6.3.7. </span>The Control Problem<a class="headerlink" href="#the-control-problem" title="Permalink to this headline">#</a></h2>
 <p>For the purposes of this notebook, the control problem is to find a control policy <span class="math notranslate nohighlight">\(u(t)\)</span> for the interval <span class="math notranslate nohighlight">\(0 \leq t \leq t_f\)</span> which causes the output <span class="math notranslate nohighlight">\(y(t)\)</span> to track a desired setpoint or reference tracjectory <span class="math notranslate nohighlight">\(r(t)\)</span>.</p>
 <div class="cell docutils container">
@@ -1392,8 +1391,8 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)  \\
 <p>where <span class="math notranslate nohighlight">\(\dot{u}_{max}\)</span> is the maximum rate of change. Add these rate constraints to the problem above. Specify that the maximum power cannot change more than  1% per second.</p>
 <p>How does that change the response?</p>
 <p><strong>Study Question:</strong> Change the objective so that the goal is to guide the heater (insteady of the sensor) temperature to the reference trajectory. How does the control policy change? Explain what you observe.</p>
-<hr></section>
-</section>
+<hr></div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1443,7 +1442,7 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)  \\
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Jeffrey Kantor<br/>
+    By Jeffrey Kantor and Alexander Dowling<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

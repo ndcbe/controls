@@ -21,4 +21,4 @@ Dynamic modeling, data analytics, optimization, and control are essential to mod
 
 ## How To Contribute
 
-Most of these materials were developed by [Prof. Jeffery Kantor](https://news.nd.edu/news/in-memoriam-jeffrey-kantor-former-vice-president-associate-provost-and-dean/). The repository is currently maintained by [Prof. Alexander Dowling](https://dowlinglab.nd.edu/) at [https://github.com/ndcbe/cbe30338-book](https://github.com/ndcbe/cbe30338-book).
+Most of these materials were developed by [Prof. Jeffery Kantor](https://news.nd.edu/news/in-memoriam-jeffrey-kantor-former-vice-president-associate-provost-and-dean/). The repository is currently maintained by [Prof. Alexander Dowling](https://dowlinglab.nd.edu/) at [https://github.com/ndcbe/controls](https://github.com/ndcbe/controls).
