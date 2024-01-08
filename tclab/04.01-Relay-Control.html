@@ -123,7 +123,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Syllabus.html">
-   CBE 30338/32338 Syllabus
+   Syllabus
   </a>
  </li>
  <li class="toctree-l1">
@@ -131,13 +131,6 @@ const thebe_selector_output = ".output, .cell_output"
    Schedule
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Assignments
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../assignments/assignments.html">
    Spring 2024 Assignments
@@ -999,8 +992,8 @@ title="Print to PDF"
 <section id="simple-relay-control">
 <h2><span class="section-number">5.1.1. </span>Simple Relay Control<a class="headerlink" href="#simple-relay-control" title="Permalink to this headline">#</a></h2>
 <p>The following code implements relay control for temperature T1 on the Temperature Control Lab.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e7cf962-cacc-49fe-a50b-82434ed37a60">
-<span class="eqno">(5.10)<a class="headerlink" href="#equation-4e7cf962-cacc-49fe-a50b-82434ed37a60" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d5fdb649-b83a-431b-b0fd-fcbfbe189027">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-d5fdb649-b83a-431b-b0fd-fcbfbe189027" title="Permalink to this equation">#</a></span>\[\begin{align}
 Q(t) &amp; = \begin{cases} 
     Q^{max} &amp;\text{if $T \leq T_{setpoint}$}\\
     0       &amp; \text{if $T \geq T_{setpoint}$}
@@ -1045,8 +1038,8 @@ Q(t) &amp; = \begin{cases}
 <h2><span class="section-number">5.1.2. </span>Relay Control with Hysteresis<a class="headerlink" href="#relay-control-with-hysteresis" title="Permalink to this headline">#</a></h2>
 <p>One of the issues with simple relay control is the potential for ‘chattering’, which are situations where the manipulated variable (in this case heater power) rapid on-and-off switching. This can be caused by systems that are highly response to control inputs or where the sensor measurements carry significant noise.</p>
 <p>The typical home thermostat used for furnace control incorporates a simple but highly effective solution to the chattering period. The idea is to intentially overshoot the setpoint. Then, after the control switches state, there will be at least a short period of time where no further control action should be necessary. The control algorithm can be written</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e4c8472-905b-4f65-a100-c701500f5ce8">
-<span class="eqno">(5.11)<a class="headerlink" href="#equation-1e4c8472-905b-4f65-a100-c701500f5ce8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-67865e4b-dfb9-48f6-930d-1e2ad16eb8c7">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-67865e4b-dfb9-48f6-930d-1e2ad16eb8c7" title="Permalink to this equation">#</a></span>\[\begin{align}
 Q(t) &amp; = \begin{cases} 
     0       &amp; \text{if $T \geq T_{Setpoint} - \frac{d}{2}$}\\
     Q^{max} &amp;\text{if $T \leq T_{Setpoint} + \frac{d}{2}$}\\
@@ -1056,8 +1049,8 @@ Q(t) &amp; = \begin{cases}
 <p>where <span class="math notranslate nohighlight">\(d\)</span> is the <em>tolerance</em> or <em>hysteresis</em>. For home heating systems a typical value is in the range of 0.5 to 1 degree F. This image shows how hystersis was adjusted on a typical home thermostat in common usage in the late 20th century.</p>
 <p><a title="By Vincent de Groot - http://www.videgro.net (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY 2.5 (http://creativecommons.org/licenses/by/2.5)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AHoneywell_thermostat_open.jpg"><img width="512" alt="Honeywell thermostat open" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Honeywell_thermostat_open.jpg/512px-Honeywell_thermostat_open.jpg"/></a></p>
 <p>The furnance is turned on for temperatures below the range</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1d3a571-0366-43f9-b7d6-5701c32c3328">
-<span class="eqno">(5.12)<a class="headerlink" href="#equation-a1d3a571-0366-43f9-b7d6-5701c32c3328" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-13e2b7d9-29f6-4006-9cab-86f1f50c3b58">
+<span class="eqno">(5.12)<a class="headerlink" href="#equation-13e2b7d9-29f6-4006-9cab-86f1f50c3b58" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_{Setpoint} - \frac{d}{2} \leq T \leq T_{Setpoint} + \frac{d}{2}
 \end{align}\]</div>
 <p>and is turned for temperatures above the range. Within the range, however, the furnance may be on or off depending on what happened at the last decision point.</p>

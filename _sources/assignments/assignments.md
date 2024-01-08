@@ -1,4 +1,4 @@
-# Spring 2024 Assignments
+# Assignments
 
 See the [class schedule](../Schedule.md) for deadlines.
 

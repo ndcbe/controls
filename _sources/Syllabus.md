@@ -1,8 +1,6 @@
-# CBE 30338/32338 Syllabus
+# Syllabus
 
-**Canvas link:** [SP23-CBE-30338-01 Chemical Process Control](https://canvas.nd.edu/courses/59411)
-
-## Course Description
+## CBE 30338 Data Analytics, Optimization, and Control Description
 
 CBE 30338 Chemical Process Control introduces students to the analysis and design of control systems for chemical and biochemical processes. Applications include chemical and biological reactors, separation processes, autonomous biomedical devices, and examples from other engineering disciplines. 
 
@@ -29,6 +27,9 @@ Students completing this course will be able to …
 * Apply the principles of modeling and control to novel applications
 
 ## Course Information
+
+
+**Canvas link:** [SP23-CBE-30338-01 Chemical Process Control](https://canvas.nd.edu/courses/59411)
 
 **Dates:** January 17 - May 3, 2023
 
