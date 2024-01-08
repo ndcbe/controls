@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>4.7. Observer Synthesis using Linear Matrix Inequalities &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -1009,10 +1030,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="observer-synthesis-using-linear-matrix-inequalities">
+  <section class="tex2jax_ignore mathjax_ignore" id="observer-synthesis-using-linear-matrix-inequalities">
 <h1><span class="section-number">4.7. </span>Observer Synthesis using Linear Matrix Inequalities<a class="headerlink" href="#observer-synthesis-using-linear-matrix-inequalities" title="Permalink to this headline">#</a></h1>
 <p>Note: This is an advanced topic</p>
-<div class="section" id="references">
+<section id="references">
 <h2><span class="section-number">4.7.1. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Charkabarty, Ankush. <a class="reference external" href="https://engineering.utsa.edu/ataha/wp-content/uploads/sites/38/2017/10/EE5243_Module10.pdf">“Guest Lecture: Exploiting Linear Matrix Inequalities In
@@ -1020,11 +1041,11 @@ Control Systems Design”</a>. (2015). Retrieved 29 March 2021.</p></li>
 <li><p>Boyd, Stephen, et al. <a class="reference external" href="https://web.stanford.edu/~boyd/lmibook/index.html">Linear matrix inequalities in system and control theory.</a> Society for industrial and applied mathematics, 1994.</p></li>
 <li><p>Caverly, Ryan James, and James Richard Forbes. <a class="reference external" href="https://arxiv.org/abs/1903.08599">“Lmi properties and applications in systems, stability, and control theory.”</a> arXiv preprint arXiv:1903.08599 (2019).</p></li>
 </ol>
-</div>
-<div class="section" id="model-parameters">
+</section>
+<section id="model-parameters">
 <h2><span class="section-number">4.7.2. </span>Model Parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">#</a></h2>
-</div>
-<div class="section" id="lyapunov-design">
+</section>
+<section id="lyapunov-design">
 <h2><span class="section-number">4.7.3. </span>Lyapunov Design<a class="headerlink" href="#lyapunov-design" title="Permalink to this headline">#</a></h2>
 <p>Assuming no modeling error and ignoring disturbance inputs, the observer dynamics are described by</p>
 <div class="math notranslate nohighlight">
@@ -1062,8 +1083,8 @@ Control Systems Design”</a>. (2015). Retrieved 29 March 2021.</p></li>
 <p>The first challenge is that the above relationship is homogeneous. In other words, for any scale factor <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>, if <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> satisfy the relationship then so do <span class="math notranslate nohighlight">\(\alpha P\)</span> and <span class="math notranslate nohighlight">\(\alpha Y\)</span> resulting in the same solution for <span class="math notranslate nohighlight">\(L\)</span>. Without loss of generality, we can specify a specific solution by adding the constraints</p>
 <div class="math notranslate nohighlight">
 \[P \succ I\]</div>
-</div>
-<div class="section" id="cvxpy">
+</section>
+<section id="cvxpy">
 <h2><span class="section-number">4.7.4. </span>CVXPY<a class="headerlink" href="#cvxpy" title="Permalink to this headline">#</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>!pip install cvxpy
 </pre></div>
@@ -1127,8 +1148,8 @@ Control Systems Design”</a>. (2015). Retrieved 29 March 2021.</p></li>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="cal-h-2-optimal-state-estimation">
+</section>
+<section id="cal-h-2-optimal-state-estimation">
 <h2><span class="section-number">4.7.5. </span><span class="math notranslate nohighlight">\(\cal{H}_2\)</span> Optimal State Estimation<a class="headerlink" href="#cal-h-2-optimal-state-estimation" title="Permalink to this headline">#</a></h2>
 <p>Let’s now consider performance metrics for the observer. In particular, we assume our system is of the form</p>
 <div class="math notranslate nohighlight">
@@ -1261,8 +1282,8 @@ Tr(Z) &amp; &lt; \nu
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="cal-h-infty-optimal-state-estimation">
+</section>
+<section id="cal-h-infty-optimal-state-estimation">
 <h2><span class="section-number">4.7.6. </span><span class="math notranslate nohighlight">\(\cal{H}_{\infty}\)</span> Optimal State Estimation<a class="headerlink" href="#cal-h-infty-optimal-state-estimation" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1316,8 +1337,8 @@ Tr(Z) &amp; &lt; \nu
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

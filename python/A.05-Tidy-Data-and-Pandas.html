@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tidy Data and Pandas &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -1165,7 +1186,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="tidy-data-and-pandas">
+  <section class="tex2jax_ignore mathjax_ignore" id="tidy-data-and-pandas">
 <h1>Tidy Data and Pandas<a class="headerlink" href="#tidy-data-and-pandas" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://pandas.pydata.org/"><strong>Pandas</strong></a> is, by far, the most widely used Python library for data wrangling and analysis. First released in 2009 for the financial services industry, pandas is now included in all major distributions of Python. It is the mainstay for data analysis in Python.</p>
 <p><strong>Tidy Data</strong> is a small set a of core principles to streamline analysis and coding by organizing data into tables with a simple and standardized structure. Tidy Data is highly intuitive and well suited to Pandas. Keeping data organized using “Tidy Data” principles means less time wrangling data, and results in short and clear Python code for analysis.</p>
@@ -1178,7 +1199,7 @@ title="Print to PDF"
 <li><p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/05/pandas-functions-13-most-important/">13 Most Important Pandas Functions for Data Science</a></p></li>
 <li><p><a class="reference external" href="https://towardsdatascience.com/advanced-pandas-plots-e2347a33d576">Create Stunning Visualizations With Pandas Dataframes in One Line of Code</a> Blog post describing more complex visualizations and libraries based on pandas dataframes.</p></li>
 </ul>
-<div class="section" id="tidy-data">
+<section id="tidy-data">
 <h2>Tidy Data<a class="headerlink" href="#tidy-data" title="Permalink to this headline">#</a></h2>
 <blockquote>
 <div><p>The KonMari Method™ is not a quick fix for a messy room or a once-in-a-while approach to tidying.
@@ -1197,11 +1218,11 @@ Figure Source: Figure 12.1 from R for Data Science (Hadley Wickham &amp; Garrett
 <p>This organization assigns meaning to the structure of the data file that greatly streamlines subsequent coding and analysis. By consistently using these principles you can reuse old code for new projects, quickly interpret data gathered by other members of a team, and more readily document your projects and reports.</p>
 <p>These assumptions are the basis for <a class="reference external" href="https://vita.had.co.nz/papers/tidy-data.pdf">“Tidy Data”</a> principles popularized by Hadley Wickham, and closely related to concepts underlying relational databases.  <a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005097">Hart, et al., provide excellent contrasting examples of tidy and messy data</a>.</p>
 <p>These notes below assume data is stored in data files organized using “Tiny Data” principles. If your data isn’t organized like this, the procedures described by <a class="reference external" href="https://vita.had.co.nz/papers/tidy-data.pdf">Wickham</a> will help you reorgnize your data for more efficient analysis.</p>
-</div>
-<div class="section" id="reading-tidy-data">
+</section>
+<section id="reading-tidy-data">
 <h2>Reading Tidy Data<a class="headerlink" href="#reading-tidy-data" title="Permalink to this headline">#</a></h2>
 <p>The first We proceed assuming data is organized by Tidy Data principles, each data set corresponding to an experiment or other clearly defined collection of observations.</p>
-<div class="section" id="from-csv-files">
+<section id="from-csv-files">
 <h3>From .csv files<a class="headerlink" href="#from-csv-files" title="Permalink to this headline">#</a></h3>
 <p>For files stored in <code class="docutils literal notranslate"><span class="pre">.csv</span></code> format, a pandas <strong>DataFrame</strong> object is created with the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"><code class="docutils literal notranslate"><span class="pre">read_csv(data_file)</span></code></a>. <code class="docutils literal notranslate"><span class="pre">data_file</span></code> is a string containing a url or the name of a local file. <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function has many optional arguments, but for simple cases the path to the data file is often enough to do the job.</p>
 <div class="cell docutils container">
@@ -1334,8 +1355,8 @@ Figure Source: Figure 12.1 from R for Data Science (Hadley Wickham &amp; Garrett
 <p>801 rows × 5 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="from-google-sheets">
+</section>
+<section id="from-google-sheets">
 <h3>From Google Sheets<a class="headerlink" href="#from-google-sheets" title="Permalink to this headline">#</a></h3>
 <p>Google sheets are a convenient to collect and share data. There is a complete API and libraries to enable full, authenticated, read/write access to Google Sheets.</p>
 <p>But if the data is not confidential and can be temporarilty published to the web for public access, then it takes just a few steps and one line of Python to read the data as pandas DataFrame.</p>
@@ -1702,8 +1723,8 @@ Figure Source: Figure 12.1 from R for Data Science (Hadley Wickham &amp; Garrett
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="from-python">
+</section>
+<section id="from-python">
 <h3>From Python<a class="headerlink" href="#from-python" title="Permalink to this headline">#</a></h3>
 <p>Pandas dataframes can be created directly in Python. Here we demonstrate use of a Python dictionary to create a dataframe with data for variables computed as numpy arrays.</p>
 <div class="cell docutils container">
@@ -1815,9 +1836,9 @@ Figure Source: Figure 12.1 from R for Data Science (Hadley Wickham &amp; Garrett
 <p>201 rows × 3 columns</p>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="accessing-data">
+</section>
+</section>
+<section id="accessing-data">
 <h2>Accessing Data<a class="headerlink" href="#accessing-data" title="Permalink to this headline">#</a></h2>
 <p>The core object in pandas is the <strong>DataFrame</strong>. For “Tidy Data”, a DataFrame will be collection of columns, each column containing observations of a single, unique variable. Each row is one observation of all variables.</p>
 <p>The <strong>index</strong> assigns a unique label to each row/observation.</p>
@@ -2080,11 +2101,11 @@ Name: 3, dtype: float64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="visualizing-data">
+</section>
+<section id="visualizing-data">
 <h2>Visualizing Data<a class="headerlink" href="#visualizing-data" title="Permalink to this headline">#</a></h2>
 <p>Pandas provides convenient tools for displaying data in tabular and graphical formats.</p>
-<div class="section" id="tabular-display">
+<section id="tabular-display">
 <h3>Tabular Display<a class="headerlink" href="#tabular-display" title="Permalink to this headline">#</a></h3>
 <p>The quickest way to display a dataframe as a table is with <code class="docutils literal notranslate"><span class="pre">display()</span></code>. Additional styling and formating options are available through a dataframe’s <code class="docutils literal notranslate"><span class="pre">.style</span></code> property.</p>
 <div class="cell docutils container">
@@ -2368,8 +2389,8 @@ Name: 3, dtype: float64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="plotting">
+</section>
+<section id="plotting">
 <h3>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">#</a></h3>
 <p>An extensive variety of plots can be constructed using a dataframe’s <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method. Many of the usual Matploblib plotting commands can be accessed through options passed to <code class="docutils literal notranslate"><span class="pre">.plot()</span></code>. For many routine applications, a single call of a dataframe’s <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method can replace many lines of Python code using Matplotlib.</p>
 <p>For example, to plot all observations for a single variable.</p>
@@ -2440,8 +2461,8 @@ Name: 3, dtype: float64
 <img alt="../_images/A.05-Tidy-Data-and-Pandas_35_1.png" src="../_images/A.05-Tidy-Data-and-Pandas_35_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="scatter-plots">
+</section>
+<section id="scatter-plots">
 <h3>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2456,8 +2477,8 @@ Name: 3, dtype: float64
 <img alt="../_images/A.05-Tidy-Data-and-Pandas_37_1.png" src="../_images/A.05-Tidy-Data-and-Pandas_37_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="statistical-plots">
+</section>
+<section id="statistical-plots">
 <h3>Statistical Plots<a class="headerlink" href="#statistical-plots" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2473,14 +2494,14 @@ Name: 3, dtype: float64
 <img alt="../_images/A.05-Tidy-Data-and-Pandas_39_1.png" src="../_images/A.05-Tidy-Data-and-Pandas_39_1.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="case-study-analysis-of-a-double-pipe-heat-exchanger">
+</section>
+</section>
+<section id="case-study-analysis-of-a-double-pipe-heat-exchanger">
 <h2>Case Study: Analysis of a Double Pipe Heat Exchanger<a class="headerlink" href="#case-study-analysis-of-a-double-pipe-heat-exchanger" title="Permalink to this headline">#</a></h2>
 <p>A stalwart of undergraduate chemical engineering laboratories is study of a double-pipe heat exchanger in counter-current flow. In this case, a student group collected multiple measurements of flow and temperature data from a heat exchanger with sensors configured as shown in the following diagram. (Note: The diagram shows co-current flow. The data was collected with the valves configured for counter-current flow of the hot stream.)</p>
 <p><img alt="" src="https://www.gunt.de/images/datasheet/1495/WL-315C-Comparison-of-various-heat-exchangers-gunt-1495-zeichnung_einzelheit_2.jpg" />
 Source: <a class="reference external" href="https://www.gunt.de/en/products/comparison-of-various-heat-exchangers/060.315C0/wl315c/glct-1:pa-148:pr-1495">Gunt WL315C Product Description</a></p>
-<div class="section" id="id1">
+<section id="id1">
 <h3>Tidy Data<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>The student group designed a series of experiments measuring the performance of the heat exchanger to high (H), medium (M), and low (L) flowrates for both the hot and cold streams — a total of nine flowrate combinations. For each combination they reported data for three repeated observations. <a class="reference external" href="https://docs.google.com/spreadsheets/d/1wuJq3B4z0tmTIsRpm5zZUP-PBBxT6OpuJKeBlQcQ4Z0/edit?usp=sharing">A portion of their data is available on Google Sheets</a>. From this data they intend to compute the overall heat transfer coefficient <span class="math notranslate nohighlight">\(UA\)</span>, and attempt to fit a regression model for the heat transfer coefficients as a function of the flowrates.</p>
 <p>A screenshot of the data collected by the students is given below.</p>
@@ -2501,8 +2522,8 @@ Source: <a class="reference external" href="https://www.gunt.de/en/products/comp
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="reading-data">
+</section>
+<section id="reading-data">
 <h3>Reading Data<a class="headerlink" href="#reading-data" title="Permalink to this headline">#</a></h3>
 <p>The raw data was copied to a new sheet in the same Google Sheets file, edited to conform with Tidy Data, and a link created using the procedures outlined above for reading data from Google Sheets. The data is read in the following cell.</p>
 <div class="cell docutils container">
@@ -2615,8 +2636,8 @@ Source: <a class="reference external" href="https://www.gunt.de/en/products/comp
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="energy-balances">
+</section>
+<section id="energy-balances">
 <h3>Energy Balances<a class="headerlink" href="#energy-balances" title="Permalink to this headline">#</a></h3>
 <p>The first step in this analysis is to verify the energy balance.</p>
 <div class="math notranslate nohighlight">
@@ -2809,8 +2830,8 @@ Q_c &amp; = \dot{q}_c \rho C_p (T_{c,out} - T_{c, in})
 <img alt="../_images/A.05-Tidy-Data-and-Pandas_45_2.png" src="../_images/A.05-Tidy-Data-and-Pandas_45_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="overall-heat-transfer-coefficient-ua">
+</section>
+<section id="overall-heat-transfer-coefficient-ua">
 <h3>Overall Heat Transfer Coefficient <span class="math notranslate nohighlight">\(UA\)</span><a class="headerlink" href="#overall-heat-transfer-coefficient-ua" title="Permalink to this headline">#</a></h3>
 <p>The performance of a counter-current heat exchanger is given the relationship</p>
 <div class="math notranslate nohighlight">
@@ -2845,8 +2866,8 @@ Q_c &amp; = \dot{q}_c \rho C_p (T_{c,out} - T_{c, in})
 <img alt="../_images/A.05-Tidy-Data-and-Pandas_47_1.png" src="../_images/A.05-Tidy-Data-and-Pandas_47_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="how-does-ua-depend-on-flowrates">
+</section>
+<section id="how-does-ua-depend-on-flowrates">
 <h3>How does <span class="math notranslate nohighlight">\(UA\)</span> depend on flowrates?<a class="headerlink" href="#how-does-ua-depend-on-flowrates" title="Permalink to this headline">#</a></h3>
 <p>The data clearly demonstrate that the heat transfer coefficient in the double pipe heat exchanger depends on flowrates of both the cold and hot liquid streams. We can see this by inspecting the data.</p>
 <div class="cell docutils container">
@@ -3218,8 +3239,8 @@ dtype: object
 <img alt="../_images/A.05-Tidy-Data-and-Pandas_53_1.png" src="../_images/A.05-Tidy-Data-and-Pandas_53_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="fitting-a-model-for-ua">
+</section>
+<section id="fitting-a-model-for-ua">
 <h3>Fitting a Model for <span class="math notranslate nohighlight">\(UA\)</span><a class="headerlink" href="#fitting-a-model-for-ua" title="Permalink to this headline">#</a></h3>
 <p>For a series of transport mechanisms, the overall heat transfer coefficient</p>
 <div class="math notranslate nohighlight">
@@ -3520,8 +3541,8 @@ Notes:
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="comparison-of-model-to-experimental-data">
+</section>
+<section id="comparison-of-model-to-experimental-data">
 <h3>Comparison of Model to Experimental Data<a class="headerlink" href="#comparison-of-model-to-experimental-data" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3537,14 +3558,14 @@ Notes:
 <img alt="../_images/A.05-Tidy-Data-and-Pandas_59_1.png" src="../_images/A.05-Tidy-Data-and-Pandas_59_1.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="concluding-remarks">
+</section>
+</section>
+<section id="concluding-remarks">
 <h2>Concluding Remarks<a class="headerlink" href="#concluding-remarks" title="Permalink to this headline">#</a></h2>
 <p>Learning Pandas and data analysis is like learning to ride a bicycle. Once you have the enough knowledge to get going, the next steps are about practice and learning by doing.</p>
 <p>This notobook provides basic knowledge to the use of pandas for data analysis for engineering applications. With Tidy Data principles, data analysis can be streamlined and intuitive. The next steps are to put these tools work on your data analaysis tasks, and explore other elements of the pandas library that can be useful in your work.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

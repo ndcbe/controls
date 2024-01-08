@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>3.6. Practical Proportional (P) and Proportional-Integral (PI) Control &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -1105,9 +1126,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="practical-proportional-p-and-proportional-integral-pi-control">
+  <section class="tex2jax_ignore mathjax_ignore" id="practical-proportional-p-and-proportional-integral-pi-control">
 <h1><span class="section-number">3.6. </span>Practical Proportional (P) and Proportional-Integral (PI) Control<a class="headerlink" href="#practical-proportional-p-and-proportional-integral-pi-control" title="Permalink to this headline">#</a></h1>
-<div class="section" id="learning-goals">
+<section id="learning-goals">
 <h2><span class="section-number">3.6.1. </span>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Explain terms in the equations for proportional control and proportional-integral control/</p></li>
@@ -1133,8 +1154,8 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="negative-feedback">
+</section>
+<section id="negative-feedback">
 <h2><span class="section-number">3.6.2. </span>Negative Feedback<a class="headerlink" href="#negative-feedback" title="Permalink to this headline">#</a></h2>
 <p><strong>Negative feedback</strong> is the core principle underpinning process control.  Negative feedback suppresses deviations from the setpoint. If the process variable grows above the setpoint then the manipulated variable is decreased. If the process variable falls below the setpoint then the manipulated variable is increased.</p>
 <p>If the system exhibits a negative-going response to a positive change in the manipulated variable, then the sign of the proportional gain must be negative to assure negative feedback control.</p>
@@ -1145,8 +1166,8 @@ title="Print to PDF"
 <p><strong>Study Question:</strong> Why are two feedback loops necessary in this biological system? Can you think of an analogy for temperature control of the Temperature Control Lab?</p>
 <p><strong>Study Question:</strong> For the glucose feedback loops diagrammed above, describe at least one physiological source disturbance for each.</p>
 <p><strong>Study Question:</strong> Describe a situation where you have witnessed positive feedback in an audio or visual system.</p>
-<hr></div>
-<div class="section" id="nomenclature">
+<hr></section>
+<section id="nomenclature">
 <h2><span class="section-number">3.6.3. </span>Nomenclature<a class="headerlink" href="#nomenclature" title="Permalink to this headline">#</a></h2>
 <p>In this notebook we will refer to control signals with a generic nomenclature common to the process control industry.</p>
 <p><img alt="" src="../_images/FeedbackControlDiagram.png" /></p>
@@ -1157,33 +1178,33 @@ title="Print to PDF"
 <li><p><strong>DV</strong>: Disturbance variables. All of the exogeneous inputs that can affect our system of interest.</p></li>
 <li><p><strong>SP</strong>: Setpoints. Desired values for the control variables.</p></li>
 </ul>
-</div>
-<div class="section" id="typical-p-id-diagram-for-pi-and-pid-control">
+</section>
+<section id="typical-p-id-diagram-for-pi-and-pid-control">
 <h2><span class="section-number">3.6.4. </span>Typical P&amp;ID Diagram for PI and PID control.<a class="headerlink" href="#typical-p-id-diagram-for-pi-and-pid-control" title="Permalink to this headline">#</a></h2>
 <p><img alt="" src="https://cdn.instrumentationtools.com/wp-content/uploads/2020/01/Identify-Process-Variables-in-PID.png" /></p>
-</div>
-<div class="section" id="time-out-for-engineering-history">
+</section>
+<section id="time-out-for-engineering-history">
 <h2><span class="section-number">3.6.5. </span>Time-Out for Engineering History<a class="headerlink" href="#time-out-for-engineering-history" title="Permalink to this headline">#</a></h2>
 <p>Proportional control, and its variations, have a long history of implementation in both ancient and modern technologies.</p>
-<div class="section" id="origins-of-pid-control">
+<section id="origins-of-pid-control">
 <h3><span class="section-number">3.6.5.1. </span>Origins of PID Control<a class="headerlink" href="#origins-of-pid-control" title="Permalink to this headline">#</a></h3>
-<div class="section" id="boulton-and-watt-steam-engine">
+<section id="boulton-and-watt-steam-engine">
 <h4><span class="section-number">3.6.5.1.1. </span>Boulton and Watt Steam Engine<a class="headerlink" href="#boulton-and-watt-steam-engine" title="Permalink to this headline">#</a></h4>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/SteamEngine_Boulton%26Watt_1784.png/1280px-SteamEngine_Boulton%26Watt_1784.png" /></p>
 <p><a class="reference external" href="https://youtu.be/B01LgS8S5C8?t=42">Video demonstrating how a mechanical governor works.</a></p>
-</div>
-<div class="section" id="ship-autopilot-first-pid-application">
+</section>
+<section id="ship-autopilot-first-pid-application">
 <h4><span class="section-number">3.6.5.1.2. </span>Ship Autopilot - First PID application<a class="headerlink" href="#ship-autopilot-first-pid-application" title="Permalink to this headline">#</a></h4>
 <p><img alt="" src="https://owaysonline.com/wp-content/uploads/Block-Diagram-of-Ships-Auto-Pilot.png" /></p>
-</div>
-</div>
-<div class="section" id="implementations">
+</section>
+</section>
+<section id="implementations">
 <h3><span class="section-number">3.6.5.2. </span>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">#</a></h3>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Nozzle_and_flapper_proportional_controller.png/1280px-Nozzle_and_flapper_proportional_controller.png" /></p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Smart_current_loop_positioner.png/1024px-Smart_current_loop_positioner.png?1645118511583" /></p>
 <p>A collection of <a class="reference external" href="https://www.amazon.com/pid-controller/s?k=pid+controller">PID controllers you can buy on Amazon</a> for home and commercial use:</p>
-</div>
-<div class="section" id="formulation-of-proportional-control">
+</section>
+<section id="formulation-of-proportional-control">
 <h3><span class="section-number">3.6.5.3. </span>Formulation of Proportional Control<a class="headerlink" href="#formulation-of-proportional-control" title="Permalink to this headline">#</a></h3>
 <p><strong>Proportional control</strong> adjusts the manipulated variable in proportion to the error between the setpoint and measured process variable.</p>
 <div class="math notranslate nohighlight">
@@ -1213,8 +1234,8 @@ MV_k &amp; = \bar{MV} - K_P e_k
 <li><p>set to zero.</p></li>
 </ul>
 <p>In subsequent notebooks we will see how <span class="math notranslate nohighlight">\(\bar{MV}\)</span> is used when building advanced control implementations.</p>
-</div>
-<div class="section" id="proportional-control-implementation">
+</section>
+<section id="proportional-control-implementation">
 <h3><span class="section-number">3.6.5.4. </span>Proportional Control Implementation<a class="headerlink" href="#proportional-control-implementation" title="Permalink to this headline">#</a></h3>
 <p>Using the Python <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement, n instance of a proportional controller is created by specifying the gain <span class="math notranslate nohighlight">\(K_P\)</span>, upper and lower bounds on the manipulated variable, and the offset value <span class="math notranslate nohighlight">\(\bar{MV}\)</span>.</p>
 <div class="cell docutils container">
@@ -1247,8 +1268,8 @@ MV_k &amp; = \bar{MV} - K_P e_k
 <p>The benefits of using the <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement is that we can use the same code to create multiple instances of controller, each with it’s own parameters and state. The communication between the main event loop and a controller instance is illustrated in this diagram:</p>
 <p><img alt="" src="https://jckantor.github.io/cbe30338-2021/figures/controller-coroutine.png" /></p>
 <p>The following cells demonstrate performance of the controller when subject to a step change in setpoint and a disturbance input.</p>
-</div>
-<div class="section" id="testing-setpoint-and-disturbance-reponses">
+</section>
+<section id="testing-setpoint-and-disturbance-reponses">
 <h3><span class="section-number">3.6.5.5. </span>Testing Setpoint and Disturbance Reponses<a class="headerlink" href="#testing-setpoint-and-disturbance-reponses" title="Permalink to this headline">#</a></h3>
 <p>We’ll test the controller using the following inputs:</p>
 <ul class="simple">
@@ -1326,8 +1347,8 @@ MV_k &amp; = \bar{MV} - K_P e_k
 <p>For systems without significant time delay and with properly chosen parameters, proportional control can achieve a fast response to changes in setpoint. Note, however, the steady state may be different than the desired setpoint, sometimes unacceptably different. This steady-state error a short-coming of purely proportional control.</p>
 <hr>
 <p><strong>Study Question:</strong> For this simulation, did the proportional control achieve the setpoint? Did proportional control reject the disturbance? How serious is the problem?</p>
-<hr></div>
-<div class="section" id="steady-state-offset">
+<hr></section>
+<section id="steady-state-offset">
 <h3><span class="section-number">3.6.5.6. </span>Steady-State Offset<a class="headerlink" href="#steady-state-offset" title="Permalink to this headline">#</a></h3>
 <p>Proportional-only control provides no assurance the the process variable will eventually acquire the setpoint. To see this, consider the proportional control law</p>
 <div class="math notranslate nohighlight">
@@ -1343,53 +1364,53 @@ MV_k &amp; = \bar{MV} - K_P e_k
 <p><strong>A persistent steady-state offset is most significant shortcoming of proportional-only control.</strong></p>
 <hr>
 <p><strong>Study Question:</strong> Test the simulation for values of <span class="math notranslate nohighlight">\(K_p\)</span> that are twice as large, and half as large as demonstrated above. What do you notice about the steady-state error between the desired setpoint and the measured process variable?</p>
-<hr></div>
-</div>
-<div class="section" id="proportional-integral-pi-control">
+<hr></section>
+</section>
+<section id="proportional-integral-pi-control">
 <h2><span class="section-number">3.6.6. </span>Proportional-Integral (PI) Control<a class="headerlink" href="#proportional-integral-pi-control" title="Permalink to this headline">#</a></h2>
-<div class="section" id="position-form">
+<section id="position-form">
 <h3><span class="section-number">3.6.6.1. </span>Position form<a class="headerlink" href="#position-form" title="Permalink to this headline">#</a></h3>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral control is defined by the relation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e388540-76c3-4428-9a23-6f4076fec862">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-1e388540-76c3-4428-9a23-6f4076fec862" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0aa2125f-0864-4aed-a66c-e2a10342b7be">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-0aa2125f-0864-4aed-a66c-e2a10342b7be" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV(t) &amp; = \bar{MV} - K_P\left(PV(t) - SP(t)\right) - K_I\int_{-\infty}^t (PV(t') - SP(t'))\,dt'
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ee9b0dc-5b6c-495d-b988-c7bc14d27b0c">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-1ee9b0dc-5b6c-495d-b988-c7bc14d27b0c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0e0282ab-ce82-478f-af3f-5e83deec96fc">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-0e0282ab-ce82-478f-af3f-5e83deec96fc" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV(t) &amp; = \bar{MV} - K_P e(t) - K_I\int_{-\infty}^t e(t') \,dt'
 \end{align}\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
 \[e(t) = PV(t) - SP(t)\]</div>
 <p>where <strong><span class="math notranslate nohighlight">\(K_P\)</span> is the proportional gain</strong> and <strong><span class="math notranslate nohighlight">\(K_I\)</span> is the integral gain</strong>. When implemented in discrete time with time steps of length <span class="math notranslate nohighlight">\(h\)</span>, the basic rule for proportional-integral control becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c8c560aa-a5f1-48da-9cda-87e326339dd1">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-c8c560aa-a5f1-48da-9cda-87e326339dd1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f2f93361-2a89-4501-b207-329121769bb2">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-f2f93361-2a89-4501-b207-329121769bb2" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \bar{MV} - K_P(PV_k - SP_k) - h K_I\sum_{j=0}^{j=k}(PV_j - SP_j)
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8c0ba3f6-4828-40af-a0e7-7295e0c439a9">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-8c0ba3f6-4828-40af-a0e7-7295e0c439a9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-61937df1-7eee-4a45-b439-5d90114f5b7e">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-61937df1-7eee-4a45-b439-5d90114f5b7e" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \bar{MV} - K_P e_k - h K_I\sum_{j=0}^{j=k}e_j
 \end{align}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40bd0ff3-7fb6-42fe-8b3c-09f3d1ccdf0a">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-40bd0ff3-7fb6-42fe-8b3c-09f3d1ccdf0a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-26180b92-b121-493e-babb-88cd81c52860">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-26180b92-b121-493e-babb-88cd81c52860" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = PV_k - SP_k
 \end{align}\]</div>
 <p>This is the so-called <strong>position form</strong> of PI control. The position form specifies the value (or “position”) of the manipulated variable stricly in terms of the current and past values of the <strong>error</strong> signal <span class="math notranslate nohighlight">\(e_k\)</span>. Note the sign convention: A positive error occurs when the process variable is greater than the setpoint. The position form of PI control is rarely used in practice.</p>
-</div>
-<div class="section" id="velocity-form">
+</section>
+<section id="velocity-form">
 <h3><span class="section-number">3.6.6.2. </span>Velocity form<a class="headerlink" href="#velocity-form" title="Permalink to this headline">#</a></h3>
 <p>A more common implementation of PI control is done by computing how much the manipulated variable changes at each time step, and incrementing the manipulated variable by that amount. Consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-978f9921-f571-4ed1-847f-cddaa16b87bb">
-<span class="eqno">(3.6)<a class="headerlink" href="#equation-978f9921-f571-4ed1-847f-cddaa16b87bb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6bf3df1e-9f2f-49f0-96ab-c958ddf06819">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-6bf3df1e-9f2f-49f0-96ab-c958ddf06819" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k-1} &amp; = \bar{MV} - K_p e_{k-1} - h K_i \sum_{j=0}^{k-1} e_{j} \\
 MV_{k} &amp; = \bar{MV} - K_p e_{k} - h K_i \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
 <p>Taking differences gives a formula for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to process measurements or changes in setpoint.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-299041f5-dcaa-4646-94a1-0504fbc6b17a">
-<span class="eqno">(3.7)<a class="headerlink" href="#equation-299041f5-dcaa-4646-94a1-0504fbc6b17a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c2037f3c-13bc-4f3e-b009-d53171fd8edb">
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-c2037f3c-13bc-4f3e-b009-d53171fd8edb" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - h K_i e_{k}
 \end{align}\]</div>
 <p>with <span class="math notranslate nohighlight">\(MV_0 = \bar{MV}\)</span>. Let’s see how this works.</p>
@@ -1460,13 +1481,13 @@ MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - h K_i e_{k}
 </div>
 </div>
 <p>As we can see from this example, an important practical property of proportonal-integral control is <strong>steady-state tracking of the setpoint.</strong> In other words, for a steaady setpoint <span class="math notranslate nohighlight">\(\bar{SP}\)</span>, at steady-state</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3c5a9b4d-ab67-45b7-bb36-f4d4227b2739">
-<span class="eqno">(3.8)<a class="headerlink" href="#equation-3c5a9b4d-ab67-45b7-bb36-f4d4227b2739" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dcc1936f-98c4-4fb6-94f5-2ee6c0fa3570">
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-dcc1936f-98c4-4fb6-94f5-2ee6c0fa3570" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lim_{k \rightarrow \infty} PV_k = \bar{SP}
 \end{align}\]</div>
 <p>To see why this is true, start with the velocity form of the proportional-integral controller</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ce3ac48-1f08-4b6b-a7e5-f61dd8a7a491">
-<span class="eqno">(3.9)<a class="headerlink" href="#equation-1ce3ac48-1f08-4b6b-a7e5-f61dd8a7a491" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8a6761a5-acdc-489f-b990-cea416c71a4b">
+<span class="eqno">(3.9)<a class="headerlink" href="#equation-8a6761a5-acdc-489f-b990-cea416c71a4b" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - h K_i e_{k}
 \end{align}\]</div>
 <p>At steady-state <span class="math notranslate nohighlight">\(MV_{k} = MV_{k-1}\)</span> and <span class="math notranslate nohighlight">\(e_{k} = e_{k-1}\)</span> leaving</p>
@@ -1480,9 +1501,9 @@ MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - h K_i e_{k}
 <li><p>Damping</p></li>
 <li><p>Time to acheive steady-state</p></li>
 </ul>
-<hr></div>
-</div>
-</div>
+<hr></section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

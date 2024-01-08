@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>3.8. Controller Tuning &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -1095,21 +1116,21 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="controller-tuning">
+  <section class="tex2jax_ignore mathjax_ignore" id="controller-tuning">
 <h1><span class="section-number">3.8. </span>Controller Tuning<a class="headerlink" href="#controller-tuning" title="Permalink to this headline">#</a></h1>
-<div class="section" id="learning-goals">
+<section id="learning-goals">
 <h2><span class="section-number">3.8.1. </span>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
 <p>Up to this point we have been discussing the theory and implementation of Proportional and Proportional-Integral control. The controllers have been specified with several parameters <span class="math notranslate nohighlight">\(K_p\)</span>, <span class="math notranslate nohighlight">\(K_I\)</span>, and the sampling time step. The purpose of this notebook is to describe methods for the practical determination of these parameters.</p>
-</div>
-<div class="section" id="versions-of-p-pi-and-pid-control">
+</section>
+<section id="versions-of-p-pi-and-pid-control">
 <h2><span class="section-number">3.8.2. </span>Versions of P, PI, and PID Control<a class="headerlink" href="#versions-of-p-pi-and-pid-control" title="Permalink to this headline">#</a></h2>
-<div class="section" id="error-signal">
+<section id="error-signal">
 <h3><span class="section-number">3.8.2.1. </span>Error Signal<a class="headerlink" href="#error-signal" title="Permalink to this headline">#</a></h3>
 <p>The error signal measures the difference</p>
 <div class="math notranslate nohighlight">
 \[e(t) = SP(t) - PV(t)\]</div>
-</div>
-<div class="section" id="idealized-textbook-pid-control">
+</section>
+<section id="idealized-textbook-pid-control">
 <h3><span class="section-number">3.8.2.2. </span>Idealized (Textbook) PID control<a class="headerlink" href="#idealized-textbook-pid-control" title="Permalink to this headline">#</a></h3>
 <p>Textbook equations, Position Form</p>
 <div class="math notranslate nohighlight">
@@ -1129,8 +1150,8 @@ title="Print to PDF"
 <li><p>Integral Control: Eliminates steady-state offset. Tends to slow-down and destablize control.</p></li>
 <li><p>Derivative Control: Mitigates fast changes in PV.  Not as important as P and PI for most process control applications.</p></li>
 </ul>
-</div>
-<div class="section" id="practical-pi-control">
+</section>
+<section id="practical-pi-control">
 <h3><span class="section-number">3.8.2.3. </span>Practical PI Control<a class="headerlink" href="#practical-pi-control" title="Permalink to this headline">#</a></h3>
 <p>Problems with textbook control:</p>
 <ol class="simple">
@@ -1161,14 +1182,14 @@ E_k &amp; = SP_k - PV_k &amp; \text{error} \\
 \\
 MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)) &amp; \text{limit MV to feasible values}
 \end{align*}\]</div>
-</div>
-</div>
-<div class="section" id="pi-control-for-temperature-control-lab">
+</section>
+</section>
+<section id="pi-control-for-temperature-control-lab">
 <h2><span class="section-number">3.8.3. </span>PI Control for Temperature Control Lab<a class="headerlink" href="#pi-control-for-temperature-control-lab" title="Permalink to this headline">#</a></h2>
 <p>The following sequence diagram shows the flow of information for one measure-compute-act-record cycle of the control system is shown in the following sequence diagram</p>
 <p><img alt="" src="../_images/sequence-PID-1.png" /></p>
-</div>
-<div class="section" id="pi-control-with-anti-reset-windup-and-bumpless-transfer">
+</section>
+<section id="pi-control-with-anti-reset-windup-and-bumpless-transfer">
 <h2><span class="section-number">3.8.4. </span>PI Control with anti-reset windup and bumpless transfer<a class="headerlink" href="#pi-control-with-anti-reset-windup-and-bumpless-transfer" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1187,8 +1208,8 @@ MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)) &amp; \text{limit MV to 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="event-loop-with-disturbance-variable-and-manual-control">
+</section>
+<section id="event-loop-with-disturbance-variable-and-manual-control">
 <h2><span class="section-number">3.8.5. </span>Event Loop with Disturbance Variable and Manual Control<a class="headerlink" href="#event-loop-with-disturbance-variable-and-manual-control" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1241,13 +1262,13 @@ MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)) &amp; \text{limit MV to 
 <img alt="../_images/03.08-Controller-Tuning_10_2.png" src="../_images/03.08-Controller-Tuning_10_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="empirical-tuning-rules">
+</section>
+<section id="empirical-tuning-rules">
 <h2><span class="section-number">3.8.6. </span>Empirical Tuning Rules<a class="headerlink" href="#empirical-tuning-rules" title="Permalink to this headline">#</a></h2>
 <p>There are a number of <strong>tuning rules</strong> in the literature that provide recommended values for the proportional gain <span class="math notranslate nohighlight">\(K_P\)</span>. These rules require process information obtained from testing.</p>
-<div class="section" id="tuning-rules-based-on-step-test-experiments">
+<section id="tuning-rules-based-on-step-test-experiments">
 <h3><span class="section-number">3.8.6.1. </span>Tuning Rules Based on Step Test Experiments<a class="headerlink" href="#tuning-rules-based-on-step-test-experiments" title="Permalink to this headline">#</a></h3>
-<div class="section" id="step-test-procedure">
+<section id="step-test-procedure">
 <h4><span class="section-number">3.8.6.1.1. </span>Step Test Procedure<a class="headerlink" href="#step-test-procedure" title="Permalink to this headline">#</a></h4>
 <ol class="simple">
 <li><p>Initialize experiment at a steady state. Confirm the process variable <span class="math notranslate nohighlight">\(PV\)</span> is at a constant value <span class="math notranslate nohighlight">\(PV_1\)</span>. Eliminate any disturbances that might affect the test outcome.</p></li>
@@ -1260,8 +1281,8 @@ MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)) &amp; \text{limit MV to 
 </ol>
 <div class="math notranslate nohighlight">
 \[ \Delta PV = PV_2 - PV_1 \]</div>
-</div>
-<div class="section" id="control-parameters">
+</section>
+<section id="control-parameters">
 <h4><span class="section-number">3.8.6.1.2. </span>Control Parameters<a class="headerlink" href="#control-parameters" title="Permalink to this headline">#</a></h4>
 <p>Using <span class="math notranslate nohighlight">\(PV(t)\)</span> and the following chart, compute values for a first-order plus dead-time model parameters for gain (<span class="math notranslate nohighlight">\(K\)</span>), process time constant (<span class="math notranslate nohighlight">\(\tau\)</span>), and dead-time (<span class="math notranslate nohighlight">\(\theta\)</span>).</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1295,20 +1316,20 @@ K &amp; = \frac{\Delta PV}{\Delta MV} &amp; \text{gain} \\
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="evaluate-control-performance">
+</section>
+<section id="evaluate-control-performance">
 <h4><span class="section-number">3.8.6.1.3. </span>Evaluate Control Performance<a class="headerlink" href="#evaluate-control-performance" title="Permalink to this headline">#</a></h4>
 <p>Tuning rules are developed based on acheiving some performance criteria. Typical criteria include measures liks</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9adb6a70-510c-4fbc-b011-f84966246c0f">
-<span class="eqno">(3.15)<a class="headerlink" href="#equation-9adb6a70-510c-4fbc-b011-f84966246c0f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d01f1c0e-29c5-4610-b3fd-52d175abe1ec">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-d01f1c0e-29c5-4610-b3fd-52d175abe1ec" title="Permalink to this equation">#</a></span>\[\begin{align}
 \text{IAE} &amp; = \int_0^{\infty} |e(t)|dt \qquad \text{Integral Absolute Error}\\
 \text{ISE} &amp; = \int_0^{\infty} |e(t)|^2dt \qquad \text{Integral Square Error}\\
 \text{ITAE} &amp; = \int_0^{\infty} t|e(t)|dt \qquad \text{Integral Time Absolute Error}\\
 \end{align}\]</div>
 <p>Among the best known and commonly used tuning rules are listed in the following table (also see Astrom and Murray, Chapter 11):</p>
-</div>
-</div>
-<div class="section" id="tuning-rules-based-on-closed-loop-testing">
+</section>
+</section>
+<section id="tuning-rules-based-on-closed-loop-testing">
 <h3><span class="section-number">3.8.6.2. </span>Tuning Rules based on Closed Loop Testing<a class="headerlink" href="#tuning-rules-based-on-closed-loop-testing" title="Permalink to this headline">#</a></h3>
 <p>For strong theoretical and practical reasons, closed-loop experiments can provide superior results for tuning P, PI, and PID controllers. The easiest closed-loop tuning experiment is to implement simple relay control. The following code cells demonstrate relay control suitable for the identification experiment.</p>
 <p>Experimental requirements:</p>
@@ -1400,9 +1421,9 @@ K &amp; = \frac{\Delta PV}{\Delta MV} &amp; \text{gain} \\
 <img alt="../_images/03.08-Controller-Tuning_16_2.png" src="../_images/03.08-Controller-Tuning_16_2.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="lab-assignment-5">
+</section>
+</section>
+<section id="lab-assignment-5">
 <h2><span class="section-number">3.8.7. </span>Lab Assignment 5<a class="headerlink" href="#lab-assignment-5" title="Permalink to this headline">#</a></h2>
 <p>You will test PI controllers tuned using Step Test experiment and a closed-loop Relay experiment. For testing, use the Chocolate tempering setpoint profile you developed for Lab Assignment 5.</p>
 <ol class="simple">
@@ -1416,8 +1437,8 @@ K &amp; = \frac{\Delta PV}{\Delta MV} &amp; \text{gain} \\
 </li>
 <li><p>Repeat the previous steps using closed-loop relay control to determine critical gain <span class="math notranslate nohighlight">\(K_c\)</span> and critical period <span class="math notranslate nohighlight">\(T_c\)</span>. Report the PI Control parameters and experimental verification for the Chocolate tempering setpoint.</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

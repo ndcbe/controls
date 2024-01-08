@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>6.7. Project: Gompertz Model for Tumor Growth &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -977,7 +998,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="project-gompertz-model-for-tumor-growth">
+  <section class="tex2jax_ignore mathjax_ignore" id="project-gompertz-model-for-tumor-growth">
 <h1><span class="section-number">6.7. </span>Project: Gompertz Model for Tumor Growth<a class="headerlink" href="#project-gompertz-model-for-tumor-growth" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>4/19/2022.  Released to students</p></li>
@@ -996,7 +1017,7 @@ title="Print to PDF"
 <blockquote>
 <div><p>Geng, C., Paganetti, H., &amp; Grassberger, C. (2017). Prediction of treatment response for combined chemo-and radiation therapy for non-small cell lung cancer patients using a bio-mathematical model. Scientific reports, 7(1), 1-12. <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5648928/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5648928/</a></p>
 </div></blockquote>
-<div class="section" id="problem-1-simulation-10-pts">
+<section id="problem-1-simulation-10-pts">
 <h2><span class="section-number">6.7.1. </span>Problem 1. Simulation (10 pts).<a class="headerlink" href="#problem-1-simulation-10-pts" title="Permalink to this headline">#</a></h2>
 <p>Staging is a step in the diagnostic process that accounts for a complex array of biomedical features to determine the current state of disease and to guide subsequent therapeutic decisions. For this project we will use tumor size as a measure of disease stage. The first problem examines the progress of the disease in the absence of any therapy.</p>
 <p>Given an initial tumor size at the detectable limit 0.3 cm, solve for the time for the disease to evolve to Stage 1, Stage 2, etc., as outlined in the table below. You may use any solution technique of your choice, such as root find or adding decision variables to the Pyomo model. Use parameter values <span class="math notranslate nohighlight">\(\rho = 0.02\)</span> and <span class="math notranslate nohighlight">\(K = 20.0\)</span></p>
@@ -1040,7 +1061,7 @@ title="Print to PDF"
 <li><p>(5 pts) execution of the strategy in code,</p></li>
 <li><p>(2 pts) the numerical solution.</p></li>
 </ol>
-<div class="section" id="your-solution">
+<section id="your-solution">
 <h3><span class="section-number">6.7.1.1. </span>Your Solution<a class="headerlink" href="#your-solution" title="Permalink to this headline">#</a></h3>
 <p>Place your comments here.</p>
 <p>Use the following Pyomo model as a starting point for your solution.</p>
@@ -1088,9 +1109,9 @@ title="Print to PDF"
 <img alt="../_images/06.06-gompertz-model-project_7_0.png" src="../_images/06.06-gompertz-model-project_7_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="problem-2-radiation-therapy-10pts">
+</section>
+</section>
+<section id="problem-2-radiation-therapy-10pts">
 <h2><span class="section-number">6.7.2. </span>Problem 2. Radiation Therapy (10pts)<a class="headerlink" href="#problem-2-radiation-therapy-10pts" title="Permalink to this headline">#</a></h2>
 <p>Radiation therapy is a widely use therapy intervention for many solid tumors. A model for the effect of radiation is given by</p>
 <div class="math notranslate nohighlight">
@@ -1178,8 +1199,8 @@ title="Print to PDF"
 <img alt="../_images/06.06-gompertz-model-project_11_1.png" src="../_images/06.06-gompertz-model-project_11_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="problem-3-combined-radiation-and-chemo-therapy-20-pts">
+</section>
+<section id="problem-3-combined-radiation-and-chemo-therapy-20-pts">
 <h2><span class="section-number">6.7.3. </span>Problem 3. Combined Radiation and Chemo Therapy (20 pts)<a class="headerlink" href="#problem-3-combined-radiation-and-chemo-therapy-20-pts" title="Permalink to this headline">#</a></h2>
 <p>Another common treatment is a combination of chemotherapy and radiation. The chemotherapy is incorporated in the model as</p>
 <div class="math notranslate nohighlight">
@@ -1267,8 +1288,8 @@ title="Print to PDF"
 <img alt="../_images/06.06-gompertz-model-project_14_1.png" src="../_images/06.06-gompertz-model-project_14_1.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

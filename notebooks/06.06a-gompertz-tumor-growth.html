@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>6.6. Gompertz Model &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -1059,12 +1080,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="gompertz-model">
+  <section class="tex2jax_ignore mathjax_ignore" id="gompertz-model">
 <h1><span class="section-number">6.6. </span>Gompertz Model<a class="headerlink" href="#gompertz-model" title="Permalink to this headline">#</a></h1>
 <p>In this notebook we will explore the application of optimization modeling to study this problem and gain insight on possible therapuetic strategies.</p>
-<div class="section" id="installing-pyomo-and-solvers">
+<section id="installing-pyomo-and-solvers">
 <h2><span class="section-number">6.6.1. </span>Installing Pyomo and solvers<a class="headerlink" href="#installing-pyomo-and-solvers" title="Permalink to this headline">#</a></h2>
-<div class="section" id="installation">
+<section id="installation">
 <h3><span class="section-number">6.6.1.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h3>
 <p>The <a class="reference external" href="https://idaes-pse.readthedocs.io/en/latest/tutorials/getting_started/index.html">IDAES Project</a> maintains a version of Pyomo and associated solvers. The following cells will install Pyomo and selected solvers from the IDAES project.</p>
 <div class="cell docutils container">
@@ -1092,8 +1113,8 @@ Library:  v3.2.0 20230203-1528 ubuntu2004-x86_64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="importing-pyomo-and-solvers">
+</section>
+<section id="importing-pyomo-and-solvers">
 <h3><span class="section-number">6.6.1.2. </span>Importing Pyomo and solvers<a class="headerlink" href="#importing-pyomo-and-solvers" title="Permalink to this headline">#</a></h3>
 <p>The following solvers are included in the IDAES distribution.</p>
 <table class="colwidths-auto table">
@@ -1156,9 +1177,9 @@ Library:  v3.2.0 20230203-1528 ubuntu2004-x86_64
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="simulating-tumor-growth">
+</section>
+</section>
+<section id="simulating-tumor-growth">
 <h2><span class="section-number">6.6.2. </span>Simulating Tumor Growth<a class="headerlink" href="#simulating-tumor-growth" title="Permalink to this headline">#</a></h2>
 <p>The well-known Gompertz model for tumor growth is given by</p>
 <div class="math notranslate nohighlight">
@@ -1244,8 +1265,8 @@ N(0) &amp; = N_0 &amp; \text{initial condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_7_0.png" src="../_images/06.06a-gompertz-tumor-growth_7_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="controlling-tumor-growth">
+</section>
+<section id="controlling-tumor-growth">
 <h2><span class="section-number">6.6.3. </span>Controlling Tumor Growth<a class="headerlink" href="#controlling-tumor-growth" title="Permalink to this headline">#</a></h2>
 <p>Cancer therapy can take different forms, including chemotheraphy and radiation therapy. The effect of therapy is modeled as</p>
 <div class="math notranslate nohighlight">
@@ -1332,8 +1353,8 @@ N(0) &amp; = N_0 &amp;&amp; \text{initial condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_10_0.png" src="../_images/06.06a-gompertz-tumor-growth_10_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="optimal-control-constant-u">
+</section>
+<section id="optimal-control-constant-u">
 <h2><span class="section-number">6.6.4. </span>Optimal Control: Constant <span class="math notranslate nohighlight">\(u\)</span><a class="headerlink" href="#optimal-control-constant-u" title="Permalink to this headline">#</a></h2>
 <p>Let’s design a constant rate of therapy to target a desired outcome <span class="math notranslate nohighlight">\(N_f\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -1402,8 +1423,8 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_12_0.png" src="../_images/06.06a-gompertz-tumor-growth_12_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="time-varying-u-t">
+</section>
+<section id="time-varying-u-t">
 <h2><span class="section-number">6.6.5. </span>Time-varying <span class="math notranslate nohighlight">\(u(t)\)</span><a class="headerlink" href="#time-varying-u-t" title="Permalink to this headline">#</a></h2>
 <p>What happens if we make <span class="math notranslate nohighlight">\(u(t)\)</span> time varying? The model becomes</p>
 <div class="math notranslate nohighlight">
@@ -1465,8 +1486,8 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_14_0.png" src="../_images/06.06a-gompertz-tumor-growth_14_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="measuring-total-dosage">
+</section>
+<section id="measuring-total-dosage">
 <h2><span class="section-number">6.6.6. </span>Measuring total dosage<a class="headerlink" href="#measuring-total-dosage" title="Permalink to this headline">#</a></h2>
 <p>Let’s try to minimize total dosage.</p>
 <div class="math notranslate nohighlight">
@@ -1527,8 +1548,8 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_16_0.png" src="../_images/06.06a-gompertz-tumor-growth_16_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="minimize-total-dosage">
+</section>
+<section id="minimize-total-dosage">
 <h2><span class="section-number">6.6.7. </span>Minimize total dosage<a class="headerlink" href="#minimize-total-dosage" title="Permalink to this headline">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\min \int_0^{t_f} u(t)\ dt\]</div>
@@ -1616,8 +1637,8 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_18_0.png" src="../_images/06.06a-gompertz-tumor-growth_18_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="radiation-therapy">
+</section>
+<section id="radiation-therapy">
 <h2><span class="section-number">6.6.8. </span>Radiation therapy<a class="headerlink" href="#radiation-therapy" title="Permalink to this headline">#</a></h2>
 <p>An unique property of radiation therapy is that effectiveness actually grows linear/quadratic function of dose rate. Here we model this as shown in the following model.</p>
 <div class="math notranslate nohighlight">
@@ -1702,16 +1723,16 @@ N(t_f) &amp; = N_f &amp;&amp; \text{final condition} \\
 <img alt="../_images/06.06a-gompertz-tumor-growth_21_0.png" src="../_images/06.06a-gompertz-tumor-growth_21_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="exercises">
+</section>
+<section id="exercises">
 <h2><span class="section-number">6.6.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Think creatively about the objective function. From the patient’s perspective, what features are missing that might improve the quality of life during the treatment period? How could you incorporate them into the mathematical model? Try one.</p></li>
 <li><p>How can you create a tradeoff between long-term term objectives (i.e, keeping <span class="math notranslate nohighlight">\(N(t_f)\)</span> as small as possible) versus shorter term objectives?</p></li>
 <li><p>Suppose you believe the model and formulation, but are not sure if the parameters are right, or perhaps there are other factors that might disrupt therapy plan. How would you adapt the optimization model to stay current with the most recent data regarding the patient?</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

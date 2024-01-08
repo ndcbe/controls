@@ -1,132 +1,86 @@
-# CBE 30338/32338 Schedule
+# Schedule
 
-## Locations
+## Assignment Deadlines
 
-| | | | 
-| :-- | :-- | :-- |
-| Classes | Tues/Thurs 12:30 - 1:45 PM | 129 DeBartolo Hall
-| Labs    | Section 1: Fri 11:35 AM - 12:25 PM <br> Section 2: Fri 12:50 PM - 1:40 PM | A68 Fitzpatrick Hall
-| Virtual Office Hours | Wed 2:00 PM - 3:30 PM <br> or by appointment | [Zoom](https://notredame.zoom.us/j/93569381181?pwd=Uk5EeUM2TU9OdDFMR0xiRlk4MUo1UT09)
-| In-person Office Hours | by appointment | 257 Nieuwland Hall | 
+Assignments are due at 10 pm via Gradescope unless otherwise directed.
 
+| Deadline    | Description |
+| ----------- | ----------- |
+| Friday, January 19 | [Order Temperature Control Lab](https://www.amazon.com/TCLab-Temperature-Control-Lab/dp/B07GMFWMRY) (no submission required) |
+| Thursday, January 25 | [](./assignments/Homework-1.ipynb) |
+| Thursday, February 1 | [](./assignments/Lab-1-Step-Testing.ipynb) |
+| Thursday, February 8 | [](./assignments/Lab-2-Relay-Control.ipynb) |
+| Thursday, February 22 | [](./assignments/Lab-3-Model-Identification.ipynb) |
+| Friday, March 8 | [](./assignments/Lab-4-PI-Control.ipynb) |
+| Thursday, March 21| Homework 2: Optimization in Pyomo |
+| Friday, March 22 | Project Proposals (team submission) |
+| Thursday, April 4 | **In-Class Exam** (no Gradescope submission) |
+| Monday, April 8 | [](./assignments/Lab-5-Open-Loop-Optimization.ipynb) |
+| Friday, April 19 | Lab 6: Model Predictive Control |
+| Tuesday, April 23 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
+| Thursday, April 25 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
+| Final Exam Day | Project Reports/Notebooks Due (team submission) |
 
-## Assignments
+## Labratory Sessions
 
-All submissions should be directed to Canvas.
+Fridays from 11:35 am - 12:25 pm (session 1) and 12:50 pm - 1:40 pm (session 2) in A68 Fitzpatrick Hall.
 
-| Deadline | Description |
-| :-- | :-- |
-| Fri, Jan 20 | [Order Temperature Control Lab](https://www.amazon.com/TCLab-Temperature-Control-Lab/dp/B07GMFWMRY) <br> (no submission required) |
-| Mon, Jan 30 | [Homework 1](assignments/hw-01.ipynb)
-| Thur, Feb 2 | [Lab Assignment 1](https://jckantor.github.io/cbe30338-book/tclab/01.02-first-order-model-for-a-single-heater.html)
-<!-- | Tues, Mar 21 | Project Proposal -->
-<!-- | Wed, Mar 29 <br> Wed, Apr 5 | Project Reviews -->
-<!-- | Tues, Apr 11 | Project Progress Report -->
-<!-- | Thur, May 11 | Final Project Report -->
+| Date     | Description |
+| ----------- | ----------- |
+| Friday, January 19 | Installing Python and Hardware Demonstration |
+| Friday, January 26 | [](./assignments/Lab-1-Step-Testing.ipynb) |
+| Friday, February 2 | [](./assignments/Lab-2-Relay-Control.ipynb) |
+| Friday, February 9 | [](./assignments/Lab-3-Model-Identification.ipynb)
+| Friday, February 16 | Office Hours |
+| Friday, February 23 | [](./assignments/Lab-4-PI-Control.ipynb)
+| Friday, March 1 | Office Hours |
+| Friday, March 8 | Office Hours |
+| Friday, March 15 | Spring Break |
+| Friday, March 22 | [](./assignments/Lab-5-Open-Loop-Optimization.ipynb) |
+| Friday, March 29 | Good Friday |
+| Friday, April 5 | Office Hours |
+| Friday, April 12 | Lab 6: Model Predictive Control |
+| Friday, April 19 | Office Hours |
 
-## Completed
+## Class Meetings
 
-| Day | Activity | Materials |
-|:-- |:-- |:-- |
-|
-| **Week 1**
-| Tue, Jan 17 | Class: Course organization and Introduction to Process Control | Syllabus <br> Schedule <br> Section 1.1 & 1.2 |
-| Wed, Jan 18 | Office Hours 
-| Thur, Jan 19 | Class: Modeling Case Study: Pharmacokinetics  | Section 2.1 <br> [Homework 1](assignments/hw-01.ipynb) |
-| Fri, Jan 20 | -- *no lab* --
-|
-| **Week 2**
-| Tue, Jan 24 | Class: First Order Linear Systems | Section 2.2
-| Wed, Jan 25 | Office Hours 
-| Thur, Jan 26 | Class: Introduction to the Temperature Control Laboratory | [Section 2.3](https://jckantor.github.io/cbe30338-book/notebooks/02.03-First-Order-Model-for-a-Single-Heater.html) 
-| Fri, Jan 27 | Lab 1: Fitting a First Order Model | [Lab Assignment 1](https://jckantor.github.io/cbe30338-book/tclab/01.02-first-order-model-for-a-single-heater.html)
-|
-| **Week 3**
-| Tue, Jan 31 | Class: Fitting a Model to Data | [Section 2.4](https://jckantor.github.io/cbe30338-book/notebooks/02.04-Fitting-a-Model-to-Data.html)
-| Wed, Feb 1 | Office Hours
-| Thur, Feb 2 | Class: Second and Higher Order Systems | [Section 2.5](https://jckantor.github.io/cbe30338-book/notebooks/02.05-Second-Order.html)
-| Fri, Feb 3 | Lab 2: Higher Order Model Identification| Lab Assignment 2
+Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 
-
-## Planned
-
-Planned activities are subject to change. Assignment deadlines will be added as they are assigned.
-
-| Day | Activity | Materials |
-|:-- |:-- |:-- |
-|
-| **Week 4**
-| Tue, Feb 7 | Class: Fitting Higher Order Models | Section 2.5  
-| Wed, Feb 8 | Office Hours
-| Thur, Feb 9 | Class: Reactor Modeling | Sections 2.6 and 2.7 <br> HW Assignment 2
-| Feb 10 | Lab 3: Feedback Control | Lab Assignment 3
-|
-| **Week 5**
-| Tue, Feb 14  | Class: Setpoints, Disturbances, Servo and Regulation Problems
-| Wed, Feb 15 | Office Hours
-| Thur, Feb 16 | Class: P, PI, and PID Control, and Tuning
-| Fri, Feb 17 | -- *no lab: JPW Weekend* --
-|
-| **Week 6**
-| Tue, Feb 21 | Class: Bumpless Transfer and Integral Windup
-| Wed, Feb 22 | Office Hours
-| Thur, Feb 23 | Class: Cascade Control
-| Fri, Feb 24 | Lab 4: State Space Model Identification | Lab Assignment 4
-|
-| **Week 7**
-| Tue, Feb 28 | Class: Historians, Open Loop Estimation
-| Wed, Mar 1 | Office Hours
-| Thur, Mar 2 | Class: Observers and State Estimation 
-| Fri, Mar 3 | Lab 5 | Lab Assignment 5
-|
-| **Week 8**
-| Tue, Mar 7 | Class: Anomoly Detection | Final Project Assigned
-| Wed, Mar 8 | Office Hours
-| Thur, Mar 9 | Class: Environmental and Medical Applications of State Estimation
-| Fri, Mar 3 | -- *no lab: Spring Break* --
-|
-| | **Spring Break**
-|
-| **Week 9**
-| Tue, Mar 21 | Class: Linear Production Models
-| Wed, Mar 22 | Office Hours: Project Reviews
-| Thur, Mar 23 | Class: Linear Blending Problems
-| Fri, Mar 24 | Lab 6
-|
-| **Week 10**
-| Tue, Mar 28 | Class: Static Operability
-| Wed, Mar 29 | Office Hours: Project Reviews
-| Thur, Mar 30 | Class: Dynamic Optimization
-| Fri, Mar 31 | Lab 7 
-|
-| **Week 11**
-| Tue, Apr 4 | Class: Simulation and Open-Loop Optimal Control
-| Wed, Apr 5 | Office Hours: Project Reviews
-| Thur, Apr 6 | Class: Predictive Control
-| Fri, Apr 7 | -- *no lab: Good Friday* --
-|
-| **Week 12**
-| Tue, Apr 11 | Class: Implementing Predictive Control
-| Wed, Apr 12 | Office Hours
-| Thur, Apr 13 | Class: Predictive Control Case Study
-| Fri, Apr 14 | Lab: Project Review Time
-|
-| **Week 13**
-| Tue, Apr 18 | Class: Agent Based Models
-| Wed, Apr 19 | Office Hours
-| Thur, Apr 20 | Class: Queuing and Batch Chemical Processes
-| Fri, Apr 21 | Lab: Project Review Time
-|
-| **Week 14**
-| Tue, Apr 25 | Class: 
-| Wed, Apr 26 | Office Hours
-| Thur, Apr 27 | Class: Student Project Presentations
-| Fri, Apr 28 | -- *no lab* --
-|
-| **Week 15**
-| Tue, May 2 | Class: Student Project Presentations
-| Wed, May 3 | Office Hours
-|
-| **Week 16**
-| Thur, May 11 | **Final Exam: 10:30 AM - 12:30 PM**
-
+| Main Topic(s) | Supplemental Material |
+| ----------- | ----------- |
+| **Tuesday, January 16** | **Welcome** |
+| [](./notebooks/01.00-What-is-Process-Control.md) | [](./Schedule.md) |
+| [](./notebooks/01.01-What-is-Feedback.ipynb) | [](./Syllabus.md) |
+| [](./notebooks/01.02-Elements-of-Feedback-Control.ipynb) | [](./python/A.00-Python-Tutorials.md) |
+| **Thursday, January 18** | **CBE 20258 Review** |
+| [](./assignments/Homework-1.ipynb) | [Python](https://ndcbe.github.io/data-and-computing/notebooks/01/Python-Primer.html) |
+| | [Solving Nonlinear Equations](https://ndcbe.github.io/data-and-computing/notebooks/06/nonlinear_systems.html) |
+| | [Numeric Integration](https://ndcbe.github.io/data-and-computing/notebooks/07/integration.html) |
+| | [Error Propagation](https://ndcbe.github.io/data-and-computing/notebooks/12/uncertainty.html) |
+| | [Nonlinear Regression](https://ndcbe.github.io/data-and-computing/notebooks/15/advanced_regression.html) |
+| **Tuesday, January 23** | **Modeling: Linear Systems** |
+| **Thursday, January 25** | **Introduction Temperature Control Lab** |
+| **Tuesday, January 30** | **Modeling: Pharmacokinetics** |
+| **Thursday, February 1** | **Modeling: Second Order Systems** |
+| **Tuesday, February 6** | **Modeling: Temperature Control Lab** |
+| **Thursday, February 8** | **Catch-up or Model-baesd Design of Experiments** |
+| **Tuesday, February 13** | **Modeling: Reactor System** |
+| **Thursday, February 15** | **Setpoints, Disturbances, Servo and Regulation Problems**|
+| **Tuesday, February 20** | **P, PI, and PID Control** |
+| **Thursday, February 22** | **Stability Analysis** |
+| **Tuesday, February 27** | **PID Tuning** |
+| **Thursday, February 29** | **PID Implementation Details** |
+| **Tuesday, March 5** | **Optimization Modeling in Pyomo** |
+| **Thursday, March 7** | **Linear Programming Examples** |
+| **Tuesday, March 19** | **Nonlinear and Dynamic Optimization** |
+| **Thursday, March 21** | **Simulation and Open-Loop Control** |
+| **Tuesday, March 26** | **Model Predictive Control** |
+| **Thursday, March 28** | **Implementing Model Predictive Control** |
+| Tuesday, April 2 | Review Session |
+| Thursday, April 4 | Midterm Exam (in-class) |
+| Tuesday, April 9 | Project Consulations (in-class) |
+| Thursday, April 11 | Project Consulations (in-class) |
+| Tuesday, April 16 | Project Consulations (in-class) |
+| Thursday, April 18 | Project Consulations (in-class) |
+| Tuesday, April 23 | Project Presentations (in-class) |
+| Thursday, April 25 | Project Presentations (in-class) |

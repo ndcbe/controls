@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2.1. One Compartment Pharmacokinetics &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -1111,17 +1132,17 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="one-compartment-pharmacokinetics">
+  <section class="tex2jax_ignore mathjax_ignore" id="one-compartment-pharmacokinetics">
 <h1><span class="section-number">2.1. </span>One Compartment Pharmacokinetics<a class="headerlink" href="#one-compartment-pharmacokinetics" title="Permalink to this headline">#</a></h1>
 <p><strong>Pharmacokinetics</strong> is a branch of pharmacology that studies the fate of chemical species in living organisms. The diverse range of applications includes administration of drugs and anesthesia in humans. This notebook describes a one compartment model for pharmacokinetics, and shows how the model can be used to determine strategies for the intravenous administration of an antimicrobial drug.</p>
-<div class="section" id="learning-goals">
+<section id="learning-goals">
 <h2><span class="section-number">2.1.1. </span>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
 <p>The notebook demonstrates use of a single, linear, first-order differential equation in the general form</p>
 <div class="math notranslate nohighlight">
 \[\frac{dx}{dt} = a x + b u\]</div>
 <p>to describe the dynamic response of a one-compartment model for a pharmacokinetics. The state is the concentration of an antimicrobrial in blood plasma. The input is a rate of intraveneous administration. The demonstrated analysis and simulation coding techniques can be used in a wide range of process applications.</p>
-</div>
-<div class="section" id="antimicrobials">
+</section>
+<section id="antimicrobials">
 <h2><span class="section-number">2.1.2. </span>Antimicrobials<a class="headerlink" href="#antimicrobials" title="Permalink to this headline">#</a></h2>
 <p>Antimicrobials are compounds that kill or slow the spread of micro-organisms. A large class of antimicrobials is used for disinfecting or sanitizing surfaces external to the body. Here we are considering antimicrobials that can be administered intravenously to treat bacterial infections. Examples include cephalosporins, flouroquinolones, penicillin, and others.</p>
 <p>Let’s consider the administration of an antimicrobial to a patient. Let <span class="math notranslate nohighlight">\(C(t)\)</span> refers to the concentration of the antibiotic in blood plasma in units of [mg/L or <span class="math notranslate nohighlight">\(\mu\)</span>g/mL]. There are two concentration levels of interest in the medical use of an antimicrobial:</p>
@@ -1131,8 +1152,8 @@ title="Print to PDF"
 <li><p><strong>Minimum Bactricidal Concentration (MBC)</strong> The lowest concentration of the antimicrobrial that prevents the growth of the microorganism after subculture to antimicrobrial-free media. MBC is generally the concentration needed “kill” the microorganism.</p></li>
 </ul>
 <p>To treat an infection, it is necessary to achieve <span class="math notranslate nohighlight">\(C(t) \geq \text{MBC}\)</span> for a sufficiently long period of time.  Extended exposure to an antimicrobrial at levels below MBC leads to <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4378521/">antimicrobrial resistance</a>.</p>
-</div>
-<div class="section" id="why-model">
+</section>
+<section id="why-model">
 <h2><span class="section-number">2.1.3. </span>Why Model?<a class="headerlink" href="#why-model" title="Permalink to this headline">#</a></h2>
 <p>In research and development, a <strong>mathematical model forms a testable hypothesis</strong> of one’s understanding of a system. The model can guide the design of experiments to validate or falsify the assumptions incorporated in the model.</p>
 <p>In the context of control systems, a <strong>model can answer operating questions</strong>. In pharmacokinetic applications, the operational questions include:</p>
@@ -1159,8 +1180,8 @@ title="Print to PDF"
 </ul>
 </li>
 </ol>
-</div>
-<div class="section" id="one-compartment-pharmacokinetic-model">
+</section>
+<section id="one-compartment-pharmacokinetic-model">
 <h2><span class="section-number">2.1.4. </span>One-Compartment Pharmacokinetic Model<a class="headerlink" href="#one-compartment-pharmacokinetic-model" title="Permalink to this headline">#</a></h2>
 <p>A one-compartment pharmacokinetic model assumes the antimicrobial is distributed in a single compartment of the body with constant plasma volume <span class="math notranslate nohighlight">\(V\)</span>. The plasma blood volume <span class="math notranslate nohighlight">\(V\)</span> can be estimated as follows. First estimate the total blood volume (TBV) in liters where</p>
 <div class="math notranslate nohighlight">
@@ -1191,8 +1212,8 @@ V =  \text{TBV}\times (1 - \text{Hct})
 <div class="math notranslate nohighlight">
 \[V \frac{dC}{dt} = u(t) - Q C(t)\]</div>
 <p>This model is characterized by two parameters, the plasma volume <span class="math notranslate nohighlight">\(V\)</span> and the clearance rate <span class="math notranslate nohighlight">\(Q\)</span>.</p>
-</div>
-<div class="section" id="a-sample-problem-statement">
+</section>
+<section id="a-sample-problem-statement">
 <h2><span class="section-number">2.1.5. </span>A Sample Problem Statement<a class="headerlink" href="#a-sample-problem-statement" title="Permalink to this headline">#</a></h2>
 <p>Assume the minimum inhibitory concentration (MIC) of a microorganism to a antimicrobial is 5 mg/liter, and the minimum bactricidal concentration (MBC) is 8 mg/liter. Assume the plasma volume <span class="math notranslate nohighlight">\(V\)</span> is 4 liters with a clearance rate <span class="math notranslate nohighlight">\(Q\)</span> of 0.5 liters/hour.</p>
 <p>An initial intravenous antimicrobial dose of 64 mg in a plasma volume of 4 liters gives an initial plasma concentration <span class="math notranslate nohighlight">\(C_{initial}\)</span> of 16 mg/liter.</p>
@@ -1200,10 +1221,10 @@ V =  \text{TBV}\times (1 - \text{Hct})
 <li><p>How long will the concentration <span class="math notranslate nohighlight">\(C(t)\)</span> stay above MBC?</p></li>
 <li><p>How long with will <span class="math notranslate nohighlight">\(C(t)\)</span> stay above MIC?</p></li>
 </ul>
-</div>
-<div class="section" id="simulation-from-a-known-initial-condition">
+</section>
+<section id="simulation-from-a-known-initial-condition">
 <h2><span class="section-number">2.1.6. </span>Simulation from a Known Initial Condition<a class="headerlink" href="#simulation-from-a-known-initial-condition" title="Permalink to this headline">#</a></h2>
-<div class="section" id="solution-strategy">
+<section id="solution-strategy">
 <h3><span class="section-number">2.1.6.1. </span>Solution Strategy<a class="headerlink" href="#solution-strategy" title="Permalink to this headline">#</a></h3>
 <p>The questions raised in the problem statement can be answered through simulation. Given the model parameters in the problem statement, the task is to simulate the response and determine when certain events are encountered.</p>
 <p>We could solve this two different ways:</p>
@@ -1212,8 +1233,8 @@ V =  \text{TBV}\times (1 - \text{Hct})
 <li><p>Numerical solution. The are many computational alternatives for solving systems of one or more differential equations. In this case there is the extra consideration of finding when certain events take place. As will be shown below, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html">integrate.solve_ivp</a> from the <a class="reference external" href="https://scipy.org/">SciPy</a> library is well suited to these tasks.</p></li>
 </ol>
 <p>Below we will develop a numerical solution step-by-step, then consolidate these steps into a single cell that can be extended to more complex applications.</p>
-</div>
-<div class="section" id="step-1-import-libraries">
+</section>
+<section id="step-1-import-libraries">
 <h3><span class="section-number">2.1.6.2. </span>Step 1. Import libraries<a class="headerlink" href="#step-1-import-libraries" title="Permalink to this headline">#</a></h3>
 <p>For this first simulation we compute the response of the one compartment model due starting with an initial condition <span class="math notranslate nohighlight">\(C_{initial}\)</span>, and assuming input <span class="math notranslate nohighlight">\(u(t) = 0\)</span>. We will use the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html"><code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></a> function for solving differential equations from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> library. We will save plots to subdirectories for later reference.</p>
 <p>The first steps to a solution are:</p>
@@ -1233,8 +1254,8 @@ V =  \text{TBV}\times (1 - \text{Hct})
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="step-2-enter-parameter-values">
+</section>
+<section id="step-2-enter-parameter-values">
 <h3><span class="section-number">2.1.6.3. </span>Step 2. Enter Parameter Values<a class="headerlink" href="#step-2-enter-parameter-values" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1248,8 +1269,8 @@ V =  \text{TBV}\times (1 - \text{Hct})
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="step-3-write-the-differential-equation-in-standard-form">
+</section>
+<section id="step-3-write-the-differential-equation-in-standard-form">
 <h3><span class="section-number">2.1.6.4. </span>Step 3. Write the differential equation in standard form<a class="headerlink" href="#step-3-write-the-differential-equation-in-standard-form" title="Permalink to this headline">#</a></h3>
 <p>The most commonly used solvers for systems of differential equations require a function evaluating the right hand sides of the differential equations when written in a standard form</p>
 <div class="math notranslate nohighlight">
@@ -1266,8 +1287,8 @@ V =  \text{TBV}\times (1 - \text{Hct})
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="step-4-solution">
+</section>
+<section id="step-4-solution">
 <h3><span class="section-number">2.1.6.5. </span>Step 4. Solution<a class="headerlink" href="#step-4-solution" title="Permalink to this headline">#</a></h3>
 <p>The problem statement seeks information about specific events. The Python function <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html">scipy.integrate.solve_ivp</a> provides a means of tracking events, such as the crossing a value treshhold. Here we will use this capability to find precise answers to when the concentration falls below the MBC and MIC levels.</p>
 <div class="cell docutils container">
@@ -1321,8 +1342,8 @@ V =  \text{TBV}\times (1 - \text{Hct})
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="step-5-visualization">
+</section>
+<section id="step-5-visualization">
 <h3><span class="section-number">2.1.6.6. </span>Step 5. Visualization<a class="headerlink" href="#step-5-visualization" title="Permalink to this headline">#</a></h3>
 <p>We wish to determine when the plasma concentration <span class="math notranslate nohighlight">\(C(t)\)</span> falls below the MIC and MBC thresholds. We can get an estimate by examing a plot of these concentrations as a function of time. The following code cell presents a function to create a plot from the <code class="docutils literal notranslate"><span class="pre">soln</span></code> object ajd saves the plot to a file for later comparison.</p>
 <div class="cell docutils container">
@@ -1351,9 +1372,9 @@ V =  \text{TBV}\times (1 - \text{Hct})
 <img alt="../_images/02.01-One-Compartment-Pharmacokinetics_17_0.png" src="../_images/02.01-One-Compartment-Pharmacokinetics_17_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="finding-events-in-a-simulation">
+</section>
+</section>
+<section id="finding-events-in-a-simulation">
 <h2><span class="section-number">2.1.7. </span>Finding Events in a Simulation<a class="headerlink" href="#finding-events-in-a-simulation" title="Permalink to this headline">#</a></h2>
 <p>At this point we have a complete simulation. But we  don’t yet have a numerical answer to the question of when the concentration of the antimicrobial in the blood plasma falls below the MIC and MBC threshold values.</p>
 <p>Locating events is a common task for simulation studies. Events might include</p>
@@ -1466,8 +1487,8 @@ V =  \text{TBV}\times (1 - \text{Hct})
 <img alt="../_images/02.01-One-Compartment-Pharmacokinetics_25_1.png" src="../_images/02.01-One-Compartment-Pharmacokinetics_25_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="simulation-using-a-time-dependent-input">
+</section>
+<section id="simulation-using-a-time-dependent-input">
 <h2><span class="section-number">2.1.8. </span>Simulation using a Time-Dependent Input<a class="headerlink" href="#simulation-using-a-time-dependent-input" title="Permalink to this headline">#</a></h2>
 <p>Let’s compare the results we saved earlier to a typical experimental result <span id="id1">[<a class="reference internal" href="09.00-Bibliography.html#id14" title="Matthew E Levison and Julie H Levison. Pharmacokinetics and pharmacodynamics of antibacterial agents. Infect Dis Clin North Am, 23(4):791–815, Dec 2009. doi:10.1016/j.idc.2009.06.008.">Levison and Levison, 2009</a>]</span>.</p>
 <table class="colwidths-auto table">
@@ -1593,15 +1614,15 @@ U/ \delta t \qquad \mbox{for } 0 \leq t \leq \delta t \\
 </tbody>
 </table>
 <p>While it isn’t perfect, this is a closer facsimile of actual physiological response.</p>
-</div>
-<div class="section" id="periodic-dosing">
+</section>
+<section id="periodic-dosing">
 <h2><span class="section-number">2.1.9. </span>Periodic Dosing<a class="headerlink" href="#periodic-dosing" title="Permalink to this headline">#</a></h2>
-<div class="section" id="problem-statement">
+<section id="problem-statement">
 <h3><span class="section-number">2.1.9.1. </span>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">#</a></h3>
 <p>The minimum inhibitory concentration (MIC) of a particular organism to an antibiotic is 5 mg/liter, the minimum bactricidal concentration (MBC) is 8 mg/liter. Assume the plasma volume <span class="math notranslate nohighlight">\(V\)</span> is 4 liters with a clearance rate <span class="math notranslate nohighlight">\(Q\)</span> of 0.5 liters/hour.</p>
 <p>Design an antibiotic therapy to keep the plasma concentration above the MIC level for a period of 96 hours.</p>
-</div>
-<div class="section" id="solution">
+</section>
+<section id="solution">
 <h3><span class="section-number">2.1.9.2. </span>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
 <p>We consider the case of repetitive dosing where a new dose is administered every <span class="math notranslate nohighlight">\(t_{dose}\)</span> hours. A simple Python “trick” for this calculation is the <code class="docutils literal notranslate"><span class="pre">%</span></code> operator which returns the remainder following division. This is a useful tool whenever you need to functions that repeat in time.</p>
 <div class="cell docutils container">
@@ -1761,9 +1782,9 @@ U/ \delta t \qquad \mbox{for } 0 \leq t \leq \delta t \\
 <img alt="../_images/02.01-One-Compartment-Pharmacokinetics_43_0.png" src="../_images/02.01-One-Compartment-Pharmacokinetics_43_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

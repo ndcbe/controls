@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>6.5. Implementing Predictive Control &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -1085,10 +1106,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="implementing-predictive-control">
+  <section class="tex2jax_ignore mathjax_ignore" id="implementing-predictive-control">
 <h1><span class="section-number">6.5. </span>Implementing Predictive Control<a class="headerlink" href="#implementing-predictive-control" title="Permalink to this headline">#</a></h1>
 <p>The goal of this notebook is to demonstrate an implementation of predictive control.</p>
-<div class="section" id="model">
+<section id="model">
 <h2><span class="section-number">6.5.1. </span>Model<a class="headerlink" href="#model" title="Permalink to this headline">#</a></h2>
 <p>Once agaiin will use the two-state model for a single heater/sensor assembly to demonstrate the key elements of this notebook.</p>
 <div class="math notranslate nohighlight">
@@ -1150,8 +1171,8 @@ C = \begin{bmatrix} 0 &amp; 1 \end{bmatrix}\end{split}\]</div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="control-objective">
+</section>
+<section id="control-objective">
 <h2><span class="section-number">6.5.2. </span>Control Objective<a class="headerlink" href="#control-objective" title="Permalink to this headline">#</a></h2>
 <p>An optimal control policy minimizes the differences</p>
 <div class="math notranslate nohighlight">
@@ -1186,8 +1207,8 @@ T_S(t_0) &amp; = T_{amb}(0)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="assumptions-need-to-use-optimization-for-real-time-feedback">
+</section>
+<section id="assumptions-need-to-use-optimization-for-real-time-feedback">
 <h2><span class="section-number">6.5.3. </span>Assumptions Need to Use Optimization for Real-Time Feedback<a class="headerlink" href="#assumptions-need-to-use-optimization-for-real-time-feedback" title="Permalink to this headline">#</a></h2>
 <p>Predictive control is a strategy that uses optimization for feedback control. The basic concept is to solve an optimization problem at every time step utilizing all of the information available up to that point in time. <strong>The key assumptions</strong> are:</p>
 <ol class="simple">
@@ -1196,12 +1217,12 @@ T_S(t_0) &amp; = T_{amb}(0)
 <li><p>The state at the current time is available from a state estimator.</p></li>
 </ol>
 <p>Assumptions 1 and 2 are obviously very strong statements about the future. But in the absence of additional information, these assumptions are about the best we can expect.</p>
-</div>
-<div class="section" id="bare-bones-event-loop">
+</section>
+<section id="bare-bones-event-loop">
 <h2><span class="section-number">6.5.4. </span>Bare Bones Event Loop<a class="headerlink" href="#bare-bones-event-loop" title="Permalink to this headline">#</a></h2>
 <p>Borrowing from notebook 4.6, we start the process of implementing predictive control by starting with an implementation of a simpler strategy (relay control) that includes a state observer. With that framework in place, we will show what modifications are need to implement predictive control.</p>
 <p><em>Note: This code has been cut and pasted from earlier notebooks, but with some edits for brevity and clarity.</em></p>
-<div class="section" id="relay-control">
+<section id="relay-control">
 <h3><span class="section-number">6.5.4.1. </span>Relay Control<a class="headerlink" href="#relay-control" title="Permalink to this headline">#</a></h3>
 <p>The relay controller is an instance of a Python generator that is sent values of the setpoint and process variable, and yields values for a manipulated variable. Each instance of the relay controller is initialized with minimum and maximum values of the manipulated variable. Later we will be replacing the relay control with a predictive control.</p>
 <div class="cell docutils container">
@@ -1218,8 +1239,8 @@ T_S(t_0) &amp; = T_{amb}(0)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="observer">
+</section>
+<section id="observer">
 <h3><span class="section-number">6.5.4.2. </span>Observer<a class="headerlink" href="#observer" title="Permalink to this headline">#</a></h3>
 <p>Given current values of the manipulated input, the sensor measurement, and estimated disturbance sent from the event loop, the observer updates the state estimate</p>
 <div class="cell docutils container">
@@ -1283,9 +1304,9 @@ T_S(t_0) &amp; = T_{amb}(0)
 <img alt="../_images/06.04-Implementing-Predictive-Control_11_2.png" src="../_images/06.04-Implementing-Predictive-Control_11_2.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="feedforward-optimization">
+</section>
+</section>
+<section id="feedforward-optimization">
 <h2><span class="section-number">6.5.5. </span>Feedforward Optimization<a class="headerlink" href="#feedforward-optimization" title="Permalink to this headline">#</a></h2>
 <p>As a preliminary step, we first create a CVXPY model that that computes a feedforward control policy given values for the setpoint <span class="math notranslate nohighlight">\(SP\)</span>, disturbance <span class="math notranslate nohighlight">\(T_{amb}\)</span>, and the current state. This code was cut-and-pasted from a previous notebook, with modifications to use the values <code class="docutils literal notranslate"><span class="pre">SP</span></code> and <code class="docutils literal notranslate"><span class="pre">Tamb</span></code> defined in this notebook.</p>
 <div class="cell docutils container">
@@ -1334,7 +1355,7 @@ T_S(t_0) &amp; = T_{amb}(0)
 <img alt="../_images/06.04-Implementing-Predictive-Control_13_0.png" src="../_images/06.04-Implementing-Predictive-Control_13_0.png" />
 </div>
 </div>
-<div class="section" id="a-predictive-controller">
+<section id="a-predictive-controller">
 <h3><span class="section-number">6.5.5.1. </span>A Predictive Controller<a class="headerlink" href="#a-predictive-controller" title="Permalink to this headline">#</a></h3>
 <p>The next step is to encapsulate the feedforward control computation into a generator that can be run from the event loop each time new information becomes available.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">warm_start</span></code> option tells CVXPY to use results from the prior soluton to update the current solution. Not every solver offers this feature, but when they do it can often lead to a signficant speedup of the computations.</p>
@@ -1367,9 +1388,9 @@ T_S(t_0) &amp; = T_{amb}(0)
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="testing-the-predictive-controller">
+</section>
+</section>
+<section id="testing-the-predictive-controller">
 <h2><span class="section-number">6.5.6. </span>Testing the Predictive Controller<a class="headerlink" href="#testing-the-predictive-controller" title="Permalink to this headline">#</a></h2>
 <p>Let’s put the predictive controller to work. Note that the speedup factor the simulation has been changed. This is needed to accomodate the far more intensive calculations that are taking place at each time step.</p>
 <div class="cell docutils container">
@@ -1415,10 +1436,10 @@ T_S(t_0) &amp; = T_{amb}(0)
 </div>
 <hr>
 <p><strong>Study Question:</strong> Compare the closed-loop response of the simulation where the control policy is continually updated to the previous feedforward control calculation. List a few ways they are the similar?  List a few ways they are different.</p>
-<hr></div>
-<div class="section" id="lab-assignment-9">
+<hr></section>
+<section id="lab-assignment-9">
 <h2><span class="section-number">6.5.7. </span>Lab Assignment 9<a class="headerlink" href="#lab-assignment-9" title="Permalink to this headline">#</a></h2>
-<div class="section" id="exercise-1-improving-the-predictive-controller">
+<section id="exercise-1-improving-the-predictive-controller">
 <h3><span class="section-number">6.5.7.1. </span>Exercise 1. Improving the Predictive Controller<a class="headerlink" href="#exercise-1-improving-the-predictive-controller" title="Permalink to this headline">#</a></h3>
 <p>While we appear to have a working controller, there are some problems revealed by the simulation that need to be fixed before attempting to to use this on real hardware. The major issues are:</p>
 <ul class="simple">
@@ -1510,8 +1531,8 @@ T_S(t_0) &amp; = T_{amb}(0)
 <img alt="../_images/06.04-Implementing-Predictive-Control_22_2.png" src="../_images/06.04-Implementing-Predictive-Control_22_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="exercise-2-predictive-control-of-the-four-state-model">
+</section>
+<section id="exercise-2-predictive-control-of-the-four-state-model">
 <h3><span class="section-number">6.5.7.2. </span>Exercise 2. Predictive control of the four state model.<a class="headerlink" href="#exercise-2-predictive-control-of-the-four-state-model" title="Permalink to this headline">#</a></h3>
 <p>Using the results of the first exercise, now modify the your code to accomodate the complete four state model of the TCLab hardware.</p>
 <ol class="simple">
@@ -1519,18 +1540,18 @@ T_S(t_0) &amp; = T_{amb}(0)
 <li><p>Modify the code to control the heater temperatures to those same setpoints. Do you need to modify your controller tuning?</p></li>
 </ol>
 <p>For this exercise, you only need to show the final simulation result.</p>
-</div>
-<div class="section" id="exercise-3-putting-it-all-together">
+</section>
+<section id="exercise-3-putting-it-all-together">
 <h3><span class="section-number">6.5.7.3. </span>Exercise 3. Putting it all together.<a class="headerlink" href="#exercise-3-putting-it-all-together" title="Permalink to this headline">#</a></h3>
 <p>For the final exercise, apply the results of Exercise 2 to your actual device hardware. Run the experiment for at least 600 seconds. How did you do?</p>
-</div>
-<div class="section" id="exercise-4-do-something-nice-for-yourself">
+</section>
+<section id="exercise-4-do-something-nice-for-yourself">
 <h3><span class="section-number">6.5.7.4. </span>Exercise 4. Do something nice for yourself.<a class="headerlink" href="#exercise-4-do-something-nice-for-yourself" title="Permalink to this headline">#</a></h3>
 <p>Congratulations on your newly minted expertise! If you got this far, then you have successfully implemented multivariable model predictive control on real hardware. That’s an outstanding accomplishment for any engineer, and gives you the conceptual and practical framework to understand many of the contemporary applications of advanced process control.</p>
 <p>If you want validation, just Google “Model predictive control of” and add a topic of interest to you.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

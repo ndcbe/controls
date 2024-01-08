@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>6.2. Open and Closed Loop Estimation &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -1017,7 +1038,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="open-and-closed-loop-estimation">
+  <section class="tex2jax_ignore mathjax_ignore" id="open-and-closed-loop-estimation">
 <h1><span class="section-number">6.2. </span>Open and Closed Loop Estimation<a class="headerlink" href="#open-and-closed-loop-estimation" title="Permalink to this headline">#</a></h1>
 <p>This notebook outlines three experiments to be performed using the TCLab hardware. This first cell imports necessary libraries, defines a relay control as a Python generator, and a temperature setpoint corresponding to a ramp/soak cycle.</p>
 <div class="cell docutils container">
@@ -1052,13 +1073,13 @@ title="Print to PDF"
 <img alt="../_images/05.01-Open-and-Closed-Loop-Estimation_1_0.png" src="../_images/05.01-Open-and-Closed-Loop-Estimation_1_0.png" />
 </div>
 </div>
-<div class="section" id="experiment-1-open-loop-state-estimation-and-relay-control">
+<section id="experiment-1-open-loop-state-estimation-and-relay-control">
 <h2><span class="section-number">6.2.1. </span>Experiment 1. Open-Loop State Estimation and Relay Control<a class="headerlink" href="#experiment-1-open-loop-state-estimation-and-relay-control" title="Permalink to this headline">#</a></h2>
 <p>In this first experiment, use a closed loop estimator and relay control to cause the heater to track a desired temperature setpoint. Perform the following tasks:</p>
 <p><strong>a.</strong>) This code was cut and paste from Thursday’s lecture. Adjust the setup to interface with the lab device rather than simuation. Modify the parameters to reflect the model you previously fit to the TCLab hardware.</p>
 <p><strong>b.</strong>) When you run the experiment, keep the Arduino/TCLab device carefully shielded from any air currents. For example, you might use the plastic lab kit as a shield.</p>
 <p><strong>c.</strong>) Describe what you see. Does the controller track the setpoint?  Does the controller reject disturbances?  Explain why this system displays the behavior you’re seeing.</p>
-<div class="section" id="open-loop-estimation">
+<section id="open-loop-estimation">
 <h3><span class="section-number">6.2.1.1. </span>Open Loop Estimation<a class="headerlink" href="#open-loop-estimation" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1100,8 +1121,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="event-loop">
+</section>
+<section id="event-loop">
 <h3><span class="section-number">6.2.1.2. </span>Event Loop<a class="headerlink" href="#event-loop" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1143,9 +1164,9 @@ title="Print to PDF"
 <img alt="../_images/05.01-Open-and-Closed-Loop-Estimation_6_2.png" src="../_images/05.01-Open-and-Closed-Loop-Estimation_6_2.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="experiment-2-closed-loop-state-estimation-and-relay-control">
+</section>
+</section>
+<section id="experiment-2-closed-loop-state-estimation-and-relay-control">
 <h2><span class="section-number">6.2.2. </span>Experiment 2. Closed-Loop State Estimation and Relay Control<a class="headerlink" href="#experiment-2-closed-loop-state-estimation-and-relay-control" title="Permalink to this headline">#</a></h2>
 <p>In the second experiment, use a closed loop estimator and relay control to cause the heater to track a desired temperature setpoint.</p>
 <p>Before performing the experiment, you will need to determine suitable values for the observer gain <span class="math notranslate nohighlight">\(L\)</span>.  <span class="math notranslate nohighlight">\(L\)</span> is a matrix consisting of two rows and one column.  You need to choose the values in <span class="math notranslate nohighlight">\(L\)</span> such that <span class="math notranslate nohighlight">\(A-LC\)</span> is stable and has acceptable time constants. For this experiment we will use a pole placement technique to determine <span class="math notranslate nohighlight">\(L\)</span>.</p>
@@ -1155,7 +1176,7 @@ L &amp; = \begin{bmatrix} ? \\ ? \end{bmatrix}
 \end{align*}\]</div>
 <p><strong>a.</strong>) Before starting the experiment, compute the eigenvalues and corresponding time constants of <span class="math notranslate nohighlight">\(A\)</span> and of <span class="math notranslate nohighlight">\(A-LC\)</span>.</p>
 <p><strong>b.</strong>) Then repeat the same tasks for Experiment 1, but this time use a closed-loop estimator. In your answers, be sure to describe how the results of this experiment differ from the first, and explain why.</p>
-<div class="section" id="review-of-closed-loop-estimation">
+<section id="review-of-closed-loop-estimation">
 <h3><span class="section-number">6.2.2.1. </span>Review of Closed Loop Estimation<a class="headerlink" href="#review-of-closed-loop-estimation" title="Permalink to this headline">#</a></h3>
 <p>Examining the results, we see the predicted heater temperature appears to track the desired setpoint, but the sensor temperature is off the mark. This could be due several factors, most likely model error.</p>
 <p>Process</p>
@@ -1195,8 +1216,8 @@ y - \hat{y} &amp; = C x + Du - C\hat{x} - Du \\
 \frac{de}{dt} &amp; = (A - LC) e
 \end{align*}\]</div>
 <p>The choice of <span class="math notranslate nohighlight">\(L\)</span> determines observer performance.</p>
-</div>
-<div class="section" id="choosing-l">
+</section>
+<section id="choosing-l">
 <h3><span class="section-number">6.2.2.2. </span>Choosing <span class="math notranslate nohighlight">\(L\)</span><a class="headerlink" href="#choosing-l" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1329,13 +1350,13 @@ y - \hat{y} &amp; = C x + Du - C\hat{x} - Du \\
 <img alt="../_images/05.01-Open-and-Closed-Loop-Estimation_14_2.png" src="../_images/05.01-Open-and-Closed-Loop-Estimation_14_2.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="question">
+</section>
+</section>
+<section id="question">
 <h2><span class="section-number">6.2.3. </span>Question<a class="headerlink" href="#question" title="Permalink to this headline">#</a></h2>
 <p>Be sure to review the code given above to understand how this code is working. Then, in the cells below, implement a proportional controller with a proportional control gain Kp = 0.8. Test the controller in simulation mode.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

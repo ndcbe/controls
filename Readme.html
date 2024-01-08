@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>CBE 30338 Data Analytics, Optimization, and Control &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -124,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -135,8 +136,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -145,13 +146,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -865,8 +886,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-contribute">
-   How To Contribute
+  <a class="reference internal nav-link" href="#installing-conda">
+   Installing Conda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contact-us">
+   Contact Us
   </a>
  </li>
 </ul>
@@ -899,8 +925,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-contribute">
-   How To Contribute
+  <a class="reference internal nav-link" href="#installing-conda">
+   Installing Conda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contact-us">
+   Contact Us
   </a>
  </li>
 </ul>
@@ -913,14 +944,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="cbe-30338-data-analytics-optimization-and-control">
+  <section class="tex2jax_ignore mathjax_ignore" id="cbe-30338-data-analytics-optimization-and-control">
 <h1>CBE 30338 Data Analytics, Optimization, and Control<a class="headerlink" href="#cbe-30338-data-analytics-optimization-and-control" title="Permalink to this headline">#</a></h1>
 <p>This is a collection of class materials for CBE 303338 Data Analytics, Optimization, and Control taught at the University of Notre Dame.</p>
-<div class="section" id="course-description">
+<section id="course-description">
 <h2>Course Description<a class="headerlink" href="#course-description" title="Permalink to this headline">#</a></h2>
 <p>Dynamic modeling, data analytics, optimization, and control are essential to modern chemical technologies that enable precision medicine, sustainable energy, semiconductors, access to clean water, and beyond. In CBE 30338, students combine their knowledge of chemical engineering fundamentals (e.g., thermodynamics, transport, kinetics) and data analytics to develop dynamic models of diverse chemical technologies and processes. These models enable the design and optimization of control systems that use feedback to reject disturbances and drive systems to steady-state setpoints. CBE 30338 combines state-space modeling with modern computational and statistical methods to cover industrially relevant topics such as model predictive control, parameter estimation, and optimization. Students master techniques in hands-on experiments and a final semester project.</p>
-</div>
-<div class="section" id="course-outline">
+</section>
+<section id="course-outline">
 <h2>Course Outline<a class="headerlink" href="#course-outline" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -955,11 +986,32 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="how-to-contribute">
-<h2>How To Contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="installing-conda">
+<h2>Installing Conda<a class="headerlink" href="#installing-conda" title="Permalink to this headline">#</a></h2>
+<p>Start Here:</p>
+<ul class="simple">
+<li><p>Install anaconda: <a class="reference external" href="https://www.anaconda.com/">https://www.anaconda.com/</a></p></li>
+<li><p>Create new conda environment: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">controls</span> <span class="pre">python=3.10</span></code></p></li>
+<li><p>Activate new environemnt: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">controls</span></code></p></li>
+</ul>
+<p>Extra Steps for Website Contributors (e.g., instructor, TAs):</p>
+<ul class="simple">
+<li><p>Install Jupyter Book (may take a while, solve may freeze a few times): <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">jupyter-book</span></code></p></li>
+<li><p>Install GHP Import (for publishing with GitHub pages): <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">ghp-import</span></code></p></li>
+</ul>
+<p>Students:</p>
+<ul class="simple">
+<li><p>Install Jupyter Lab: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">jupyterlab</span></code></p></li>
+<li><p>Install Pandas, Numpy, and Matplotlib: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">anaconda</span> <span class="pre">pandas</span> <span class="pre">numpy</span> <span class="pre">matplotlib</span> <span class="pre">scipy</span></code></p></li>
+<li><p>Install IDAES-PSE (which includes pyomo): <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">IDAES-PSE</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">idaes-pse</span></code></p></li>
+<li><p>Install tclab: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tclab</span></code></p></li>
+</ul>
+</section>
+<section id="contact-us">
+<h2>Contact Us<a class="headerlink" href="#contact-us" title="Permalink to this headline">#</a></h2>
 <p>Most of these materials were developed by <a class="reference external" href="https://news.nd.edu/news/in-memoriam-jeffrey-kantor-former-vice-president-associate-provost-and-dean/">Prof. Jeffery Kantor</a>. The repository is currently maintained by <a class="reference external" href="https://dowlinglab.nd.edu/">Prof. Alexander Dowling</a> at <a class="reference external" href="https://github.com/ndcbe/controls">https://github.com/ndcbe/controls</a>.</p>
-</div>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -970,7 +1022,7 @@ title="Print to PDF"
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

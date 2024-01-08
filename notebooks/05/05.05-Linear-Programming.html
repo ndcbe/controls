@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>5.5. Linear Programming &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -953,7 +974,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="linear-programming">
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-programming">
 <h1><span class="section-number">5.5. </span>Linear Programming<a class="headerlink" href="#linear-programming" title="Permalink to this headline">#</a></h1>
 <p>Linear programming is the minimization (or maximization) of a linear objective subject to linear constraints. There are several widely adopted schemes for representing linear programming problems. Here we adopt a scheme corresponding where the linear objective is written in terms of decision variables <span class="math notranslate nohighlight">\(x_1, x_2, \ldots, x_N\)</span> as</p>
 <div class="math notranslate nohighlight">
@@ -971,7 +992,7 @@ x_i  \geq 0 &amp; \qquad i=1,\ldots,N\quad\mbox{lower bounds on decision variabl
 \sum_{j=1}^N a^{eq}_{ij}x_j = b^{eq}_i &amp; \qquad i=1,\ldots,M_{eq}\quad\mbox{equality constraints}\\
 \end{align}
 \end{split}\]</div>
-<div class="section" id="matrix-vector-format">
+<section id="matrix-vector-format">
 <h2><span class="section-number">5.5.1. </span>Matrix/Vector format<a class="headerlink" href="#matrix-vector-format" title="Permalink to this headline">#</a></h2>
 <p>The notation can be simplified by adopting a matrix/vector formulation where</p>
 <div class="math notranslate nohighlight">
@@ -989,8 +1010,8 @@ A_{eq} x = b_{eq}
 \end{align}
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(A_{ub}, b_{ub}\)</span>, and <span class="math notranslate nohighlight">\(A_{eq}, b_{eq}\)</span>, are vectors and matrices of coefficients constructed from the linear expressions given above.</p>
-</div>
-<div class="section" id="example-19-3-refinery-blending-problem">
+</section>
+<section id="example-19-3-refinery-blending-problem">
 <h2><span class="section-number">5.5.2. </span>Example 19.3: Refinery Blending Problem<a class="headerlink" href="#example-19-3-refinery-blending-problem" title="Permalink to this headline">#</a></h2>
 <p>The decision variables are</p>
 <table class="colwidths-auto table">
@@ -1140,8 +1161,8 @@ x[ 6] =  2001.0 bbl/day
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

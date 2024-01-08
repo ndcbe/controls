@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2.1. Step Testing &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -125,7 +126,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -136,8 +137,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -146,13 +147,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -985,7 +1006,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="step-testing">
+  <section class="tex2jax_ignore mathjax_ignore" id="step-testing">
 <h1><span class="section-number">2.1. </span>Step Testing<a class="headerlink" href="#step-testing" title="Permalink to this headline">#</a></h1>
 <p>This notebook guides you through the steps necessary to perform a simple step test of a heater/sensor unit on the Temperature Contnrol Lab.</p>
 <p>Download this notebook to your laptop, then run these cells to capture step test data.</p>
@@ -999,9 +1020,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="executing-the-step-test">
+<section id="executing-the-step-test">
 <h2><span class="section-number">2.1.1. </span>Executing the Step Test<a class="headerlink" href="#executing-the-step-test" title="Permalink to this headline">#</a></h2>
-<div class="section" id="verify-an-initial-steady-state">
+<section id="verify-an-initial-steady-state">
 <h3><span class="section-number">2.1.1.1. </span>Verify an Initial Steady State<a class="headerlink" href="#verify-an-initial-steady-state" title="Permalink to this headline">#</a></h3>
 <p><strong>Don’t start a step test without first letting the device come to an initial steady state!</strong></p>
 <p>A step test assumes the system is initially at steady state. In the case of the Temperature Control Lab, the initial steady with no power input would be room temperature. It generally takes 10 minutes or more to reach steady state. We’ll do a measurement to confirm the initial temperature. Repeat this until you are sure you are at an initial steady state.</p>
@@ -1023,8 +1044,8 @@ TCLab disconnected successfully.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="conduct-the-experiment">
+</section>
+<section id="conduct-the-experiment">
 <h3><span class="section-number">2.1.1.2. </span>Conduct the Experiment<a class="headerlink" href="#conduct-the-experiment" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1076,8 +1097,8 @@ TCLab disconnected successfully.
 <img alt="../_images/01.01-step-testing_5_3.png" src="../_images/01.01-step-testing_5_3.png" />
 </div>
 </div>
-</div>
-<div class="section" id="verify-the-experimental-data">
+</section>
+<section id="verify-the-experimental-data">
 <h3><span class="section-number">2.1.1.3. </span>Verify the Experimental Data<a class="headerlink" href="#verify-the-experimental-data" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1086,8 +1107,8 @@ TCLab disconnected successfully.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="verify-the-data-file">
+</section>
+<section id="verify-the-data-file">
 <h3><span class="section-number">2.1.1.4. </span>Verify the Data File<a class="headerlink" href="#verify-the-data-file" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1260,9 +1281,9 @@ TCLab disconnected successfully.
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

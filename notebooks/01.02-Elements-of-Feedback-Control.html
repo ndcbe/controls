@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>1.2. Elements of Process Control &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -125,7 +126,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -136,8 +137,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -146,13 +147,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -1029,13 +1050,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="elements-of-process-control">
+  <section class="tex2jax_ignore mathjax_ignore" id="elements-of-process-control">
 <h1><span class="section-number">1.2. </span>Elements of Process Control<a class="headerlink" href="#elements-of-process-control" title="Permalink to this headline">#</a></h1>
-<div class="section" id="feedback-control">
+<section id="feedback-control">
 <h2><span class="section-number">1.2.1. </span>Feedback Control<a class="headerlink" href="#feedback-control" title="Permalink to this headline">#</a></h2>
 <p><img alt="" src="../_images/FeedbackControlDiagram.png" /></p>
-</div>
-<div class="section" id="system-variables">
+</section>
+<section id="system-variables">
 <h2><span class="section-number">1.2.2. </span>System Variables<a class="headerlink" href="#system-variables" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>DV: Disturbance Variables</strong>: External variables that impose changes on the system under study.</p></li>
@@ -1045,15 +1066,15 @@ title="Print to PDF"
 <li><p><strong>SP: Setpoint Variables</strong>: Desired values for the controlled variables.</p></li>
 <li><p><strong>Diagnostics</strong>: Control system outputs indicating the internal state or condition of the process or controller.</p></li>
 </ul>
-</div>
-<div class="section" id="controllers">
+</section>
+<section id="controllers">
 <h2><span class="section-number">1.2.3. </span>Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">#</a></h2>
 <p><img alt="" src="../_images/PID_controllers.jpg" /></p>
-</div>
-<div class="section" id="sensors">
+</section>
+<section id="sensors">
 <h2><span class="section-number">1.2.4. </span>Sensors<a class="headerlink" href="#sensors" title="Permalink to this headline">#</a></h2>
 <p>There are only two methods to determine if a process is operating properly. The most direct method is to directly measure the variables of interest. If you’re trying to control the temperature of a process stream, then a direct measurement of temperature is likely the most effective</p>
-<div class="section" id="the-big-four">
+<section id="the-big-four">
 <h3><span class="section-number">1.2.4.1. </span>The “Big Four”<a class="headerlink" href="#the-big-four" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Thermocouples</p></li>
@@ -1068,34 +1089,34 @@ title="Print to PDF"
 <p><img alt="" src="../_images/pressure.jpg" /></p>
 <p>Level</p>
 <p>Flow</p>
-</div>
-<div class="section" id="a-cast-of-thousands">
+</section>
+<section id="a-cast-of-thousands">
 <h3><span class="section-number">1.2.4.2. </span>A “Cast of Thousands”<a class="headerlink" href="#a-cast-of-thousands" title="Permalink to this headline">#</a></h3>
 <p>Position</p>
 <p>Composition</p>
 <p>Humidity</p>
 <p>Accelerators</p>
 <p>Magnetic field</p>
-</div>
-</div>
-<div class="section" id="actuators">
+</section>
+</section>
+<section id="actuators">
 <h2><span class="section-number">1.2.5. </span>Actuators<a class="headerlink" href="#actuators" title="Permalink to this headline">#</a></h2>
-<div class="section" id="control-valves">
+<section id="control-valves">
 <h3><span class="section-number">1.2.5.1. </span>Control Valves<a class="headerlink" href="#control-valves" title="Permalink to this headline">#</a></h3>
 <p>Solenoid Valves (On/Off)</p>
 <p><img alt="" src="../_images/solenoid_valve.jpg" /></p>
 <p>Proportional Control Valves</p>
 <p><img alt="" src="../_images/control_valve.jpg" /></p>
-</div>
-<div class="section" id="pumps">
+</section>
+<section id="pumps">
 <h3><span class="section-number">1.2.5.2. </span>Pumps<a class="headerlink" href="#pumps" title="Permalink to this headline">#</a></h3>
 <p><img alt="" src="../_images/pump2.jpg" /></p>
 <p><img alt="" src="../_images/pump.jpg" /></p>
 <p>Heaters</p>
 <p>Positioners/Motors/Servos</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2.2. Lab Assignment 1: Step Test of a First-Order System &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -987,7 +1008,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="lab-assignment-1-step-test-of-a-first-order-system">
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-assignment-1-step-test-of-a-first-order-system">
 <h1><span class="section-number">2.2. </span>Lab Assignment 1: Step Test of a First-Order System<a class="headerlink" href="#lab-assignment-1-step-test-of-a-first-order-system" title="Permalink to this headline">#</a></h1>
 <p>This notebook outlines a process for fitting a first-order model of a heater/sensor assembly to data taken during a step test. The learning goals for this notebook are:</p>
 <ul class="simple">
@@ -998,13 +1019,13 @@ title="Print to PDF"
 <li><p>Understand the relationship of model parameters to gain and time constant.</p></li>
 <li><p>Determine if a first-order model provides an adequate description of the observed response.</p></li>
 </ul>
-<div class="section" id="background-and-starter-code">
+<section id="background-and-starter-code">
 <h2><span class="section-number">2.2.1. </span>Background and Starter Code<a class="headerlink" href="#background-and-starter-code" title="Permalink to this headline">#</a></h2>
-<div class="section" id="first-order-lumped-model-for-heater-sensor-device">
+<section id="first-order-lumped-model-for-heater-sensor-device">
 <h3><span class="section-number">2.2.1.1. </span>First-order lumped model for heater/sensor device.<a class="headerlink" href="#first-order-lumped-model-for-heater-sensor-device" title="Permalink to this headline">#</a></h3>
 <p>We have previously developed a first-order model for one heater/sensor pair on the temperature control lab device.  An energy balance gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40d64143-2ab7-4135-84f1-15fbf077f2b8">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-40d64143-2ab7-4135-84f1-15fbf077f2b8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-45eef1fe-7ec8-4a21-9d8c-e60ac8b8c3ac">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-45eef1fe-7ec8-4a21-9d8c-e60ac8b8c3ac" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T_1\)</span> is the average temperature of heater/sensor one, <span class="math notranslate nohighlight">\(T_{amb}\)</span> is the ambient temperature of the surroundings. The unknown parameters are the heat capacity <span class="math notranslate nohighlight">\(C_p\)</span> and the heat transfer coefficient <span class="math notranslate nohighlight">\(U_a\)</span>.</p>
@@ -1017,8 +1038,8 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 <p>For example, if <span class="math notranslate nohighlight">\(P_1 = 255\)</span> and <span class="math notranslate nohighlight">\(u_1 = 100\)</span>, then the total applied power is</p>
 <div class="math notranslate nohighlight">
 \[\alpha_1 P_1 u_1 = 0.16 \times 200 \times 50 = 4080\ \text{milliwatts} = 4.08\ \text{watts}\]</div>
-</div>
-<div class="section" id="reading-previously-saved-experimental-data">
+</section>
+<section id="reading-previously-saved-experimental-data">
 <h3><span class="section-number">2.2.1.2. </span>Reading previously saved experimental data<a class="headerlink" href="#reading-previously-saved-experimental-data" title="Permalink to this headline">#</a></h3>
 <p>A step test was performed where the temperature control laboratory was initially at steady state at ambient temperature. The heater range <span class="math notranslate nohighlight">\(P_1\)</span> was set to 200, then  heater 1 was set to 50% of full range with <span class="math notranslate nohighlight">\(\bar{u}_1 = 50\)</span>. Temperatures <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> were recorded for 800 seconds. The has been saved to the course Github repository where it can be located with the url</p>
 <p><span class="xref myst">https://raw.githubusercontent.com/jckantor/CBE30338-book/main/tclab/data/tclab-data.csv</span></p>
@@ -1189,8 +1210,8 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 <img alt="../_images/01.02-first-order-model-for-a-single-heater_6_2.png" src="../_images/01.02-first-order-model-for-a-single-heater_6_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="analytical-solution-for-a-step-test">
+</section>
+<section id="analytical-solution-for-a-step-test">
 <h3><span class="section-number">2.2.1.3. </span>Analytical Solution for a Step Test<a class="headerlink" href="#analytical-solution-for-a-step-test" title="Permalink to this headline">#</a></h3>
 <p>The goal of this assignment is to fit a first-order model to the step test. The strategy we use will be use an analytical solution for a first-order model subject to a step change in the input. Then, by trail-and-error, find a set of model parameters that provide a good fit to the experimental data.</p>
 <p>We start with a first-order model written in gain/time-constant form</p>
@@ -1241,9 +1262,9 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 <img alt="../_images/01.02-first-order-model-for-a-single-heater_8_0.png" src="../_images/01.02-first-order-model-for-a-single-heater_8_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="lab-assignment">
+</section>
+</section>
+<section id="lab-assignment">
 <h2><span class="section-number">2.2.2. </span>Lab Assignment<a class="headerlink" href="#lab-assignment" title="Permalink to this headline">#</a></h2>
 <p>The lab assignment is to conduct a step test of the Temperature Control Lab, and then to fit the results to a first order model of a heater/sensor assembly.</p>
 <div class="admonition-task-1 admonition">
@@ -1297,8 +1318,8 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 <li><p>Is is possible to estimate <span class="math notranslate nohighlight">\(C_p\)</span> from a steady state experiment?</p></li>
 </ul>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>5.9. Pooling and Blending &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -993,7 +1014,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="pooling-and-blending">
+  <section class="tex2jax_ignore mathjax_ignore" id="pooling-and-blending">
 <h1><span class="section-number">5.9. </span>Pooling and Blending<a class="headerlink" href="#pooling-and-blending" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1006,7 +1027,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="bibliographic-notes">
+<section id="bibliographic-notes">
 <h2><span class="section-number">5.9.1. </span>Bibliographic Notes<a class="headerlink" href="#bibliographic-notes" title="Permalink to this headline">#</a></h2>
 <p>The pooling and blending is a large scale and high value problem in the process and refining industries. The prototypical examples are the pooling and blending crude oils to meet the feed stock constraints of refineries, and the pooling of refinery products for pipeline delivery to distribution facilities where products are blended for retail sale.</p>
 <p>Haverly (1978) is a commonly cited small benchmark problem for the pooling and blending of sulfurous fuels.</p>
@@ -1029,8 +1050,8 @@ title="Print to PDF"
 <div><p>Ceccon, F., &amp; Misener, R. (2022). Solving the pooling problem at scale with extensible solver GALINI. Computers &amp; Chemical Engineering, 107660. <a class="reference external" href="https://arxiv.org/pdf/2105.01687.pdf">https://arxiv.org/pdf/2105.01687.pdf</a></p>
 </div></blockquote>
 <p>Applications for pooling and blending are probably underappreciated. In particular, what role might pooling and blending problems have in projects like the World Food Programme (WFP)?</p>
-</div>
-<div class="section" id="example-pooling-milk-for-wholesale-blending-and-distribution">
+</section>
+<section id="example-pooling-milk-for-wholesale-blending-and-distribution">
 <h2><span class="section-number">5.9.2. </span>Example: Pooling Milk for Wholesale Blending and Distribution<a class="headerlink" href="#example-pooling-milk-for-wholesale-blending-and-distribution" title="Permalink to this headline">#</a></h2>
 <p>A bulk distributor supplies several customers with deliveries of raw milk purchased from local farms. The deliveries may be blended to meet the minimum required milk fat content specified by each customer.</p>
 <p>The distributor has found lower cost sources of raw milk from several farms located a long distance away. The distant farms produce grades of milk that may be blended with local sources. The distributor, however, has just one truck available to transport raw milk from the distant farms to the blending facility. Therefore any milk purchased from the distant farms would be pooled for transport to the blending station.</p>
@@ -1198,8 +1219,8 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="option-1-business-as-usual">
+</section>
+<section id="option-1-business-as-usual">
 <h2><span class="section-number">5.9.3. </span>Option 1. Business as usual<a class="headerlink" href="#option-1-business-as-usual" title="Permalink to this headline">#</a></h2>
 <p>Business as usual for the milk distributor is to blend supplies from the two local farms to meet customer requirements. Let <span class="math notranslate nohighlight">\(L\)</span> designate the set of local suppliers, and let <span class="math notranslate nohighlight">\(C\)</span> designate the set of customers. The decision variable <span class="math notranslate nohighlight">\(x_{l, c}\)</span> is the amount of milk from local supplier <span class="math notranslate nohighlight">\(l\in L\)</span> mixed into the blend for customer <span class="math notranslate nohighlight">\(c\in C\)</span>.</p>
 <p>The distributor’s objectives is to maximize profit</p>
@@ -1333,8 +1354,8 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="option-2-buy-an-additional-truck">
+</section>
+<section id="option-2-buy-an-additional-truck">
 <h2><span class="section-number">5.9.4. </span>Option 2. Buy an additional truck<a class="headerlink" href="#option-2-buy-an-additional-truck" title="Permalink to this headline">#</a></h2>
 <p>The current profit earned is 58,200 using only local suppliers. Before considering pooling, however, the distributor may wish to know the maximum profit potential that could be earned if the remote suppliers could be blended as if they were local suppliers. This would require acquiring and operating a separate transport for each remote supplier, so it is worth knowing if the additional profit earned would justify the additional expense.</p>
 <p>The model used above applies by extending the set of suppliers to include both local and remote farms. The required changes are noted in the cell below.</p>
@@ -1456,8 +1477,8 @@ title="Print to PDF"
 </div></div></div>
 </div>
 <p>The calculations show that purchasing raw milk from the remote farms can significantly increases profits. The blending plan, however, requires transporting 4,618 units of raw milk from farms C, and additional 3,882 units of raw milk from farm C.  The plan does not allow pooling these sources prior to transport, otherwise they would somehow need to be “unblended” to meet the minimum quality requirement for customer A.</p>
-</div>
-<div class="section" id="option-3-pool-delivery-from-remote-farms">
+</section>
+<section id="option-3-pool-delivery-from-remote-farms">
 <h2><span class="section-number">5.9.5. </span>Option 3. Pool delivery from remote farms<a class="headerlink" href="#option-3-pool-delivery-from-remote-farms" title="Permalink to this headline">#</a></h2>
 <p>Analysis of the first two options shows there is significant additional profit to be earned by purchasing raw milk from the remote farms. But the option requires acquiring and operating an additional truck to keep the materials separate for later blending. Blending at the remote location is also not an option because that plan, too, would require separate transport.</p>
 <p>The natural question is whether the one existing truck could transport a pool of raw milk from remote farms C and D that could be blended with raw milk from local farms A and B to meet customer requirements. The profit potential may be reduced due to pooling, but it may still be a better option than adding additional operating expense.</p>
@@ -1584,15 +1605,15 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exercise">
+</section>
+<section id="exercise">
 <h2><span class="section-number">5.9.6. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Rather than scan values of <span class="math notranslate nohighlight">\(f\)</span> to look for an optimum, revise the Pyomo model to find the optimum value. This will be a nonlinear optimization, and a challenging one at that.  Try using ‘gurobi_direct’ and ‘ipopt’ solvers to find a solution. Did you find a solver that could solve this nonlinear problem?</p></li>
 <li><p>The above analysis assumed unlimited transport. The truck turns out to have a limit of 4,000 units of milk. Write the mathematical constraint necessary to introduce that limit into the model. Then add that constraint to the Pyomo model and discuss the impact on profit.</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

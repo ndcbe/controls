@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2.5. Second Order Model &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -973,7 +994,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="second-order-model">
+  <section class="tex2jax_ignore mathjax_ignore" id="second-order-model">
 <h1><span class="section-number">2.5. </span>Second Order Model<a class="headerlink" href="#second-order-model" title="Permalink to this headline">#</a></h1>
 <p>In this notebook we will fit a higher-order state space model to the step test data. The learning goals for this notebook are to</p>
 <ul class="simple">
@@ -982,7 +1003,7 @@ title="Print to PDF"
 <li><p>Simulate the step response of state space models</p></li>
 <li><p>Fit a model to step test data using multiple fitting criteria.</p></li>
 </ul>
-<div class="section" id="example-step-test-data">
+<section id="example-step-test-data">
 <h2><span class="section-number">2.5.1. </span>Example: Step Test Data<a class="headerlink" href="#example-step-test-data" title="Permalink to this headline">#</a></h2>
 <p>Using a Temperature Control Lab device initially at steady state at ambient room temperature, the following device settings were used to induce a step response in <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span>.</p>
 <table class="colwidths-auto table">
@@ -1102,8 +1123,8 @@ title="Print to PDF"
 <img alt="../_images/02.05-Second-Order_4_2.png" src="../_images/02.05-Second-Order_4_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="two-state-model">
+</section>
+<section id="two-state-model">
 <h2><span class="section-number">2.5.2. </span>Two-State Model<a class="headerlink" href="#two-state-model" title="Permalink to this headline">#</a></h2>
 <p>For this model we no longer assume  the heater and sensor are at the same temperature. To account for differing temperatures, we introduce <span class="math notranslate nohighlight">\(T_{H,1}\)</span> to denote the temperature of heater one and <span class="math notranslate nohighlight">\(T_{S,1}\)</span> to denote the temperature of the corresponding sensor. We further assume the sensor exchanges heat only with the heater, and heat transfer to the surroundings is dominated by the heat sink attached to the heater.</p>
 <p>This motivates a model</p>
@@ -1308,8 +1329,8 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
 <img alt="../_images/02.05-Second-Order_9_1.png" src="../_images/02.05-Second-Order_9_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="state-space-model">
+</section>
+<section id="state-space-model">
 <h2><span class="section-number">2.5.3. </span>State Space Model<a class="headerlink" href="#state-space-model" title="Permalink to this headline">#</a></h2>
 <p>Our two-state model for the temperature control lab is given by</p>
 <div class="math notranslate nohighlight">
@@ -1591,8 +1612,8 @@ C=array([[0, 1]])
 <img alt="../_images/02.05-Second-Order_15_1.png" src="../_images/02.05-Second-Order_15_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="least-squares-model-fitting">
+</section>
+<section id="least-squares-model-fitting">
 <h2><span class="section-number">2.5.4. </span>“Least Squares” Model Fitting<a class="headerlink" href="#least-squares-model-fitting" title="Permalink to this headline">#</a></h2>
 <p>Fitting a model to data is a basic task in engineering, science, business, and a foundation of modern data sciences. For engineers the goal is to validate hypotheses about how a device works, then to enable simulation and design. In the data science model fitting may be almost completely empirical using black box models to develop predictive models of complex systems.</p>
 <p>In this case we wish to find values for a small number of parameters that cause a model to replicate a measured response. One common measure of fit is the sum of sum of squares of residual difference between the model and data. For residuals modeled as independent and identically distributed random variables from a Gaussian distribution, minimizing the sum of squares has a strong theoretical foundation. So strong, in fact, the term “least squares” has become synonomous with model fitting and regression.</p>
@@ -1702,8 +1723,8 @@ C=array([[0, 1]])
 <li><p>How much of difference does it make it estimated model parameters?</p></li>
 </ol>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

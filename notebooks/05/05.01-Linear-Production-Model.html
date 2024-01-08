@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>5.1. Linear Production Model &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -127,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../Schedule.html">
-   CBE 30338/32338 Schedule
+   Schedule
   </a>
  </li>
 </ul>
@@ -138,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../assignments/00-assignments.html">
-   CBE 30338 Assignments
+  <a class="reference internal" href="../../assignments/assignments.html">
+   Spring 2024 Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,13 +149,33 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../assignments/hw-01.html">
-     Homework 1
+    <a class="reference internal" href="../../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../assignments/hw-02.html">
-     Homework 2
+    <a class="reference internal" href="../../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
     </a>
    </li>
   </ul>
@@ -1109,7 +1130,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="linear-production-model">
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-production-model">
 <h1><span class="section-number">5.1. </span>Linear Production Model<a class="headerlink" href="#linear-production-model" title="Permalink to this headline">#</a></h1>
 <p>This notebook demonstrates the use of linear programming to maximize profit for a simple model of a multiproduct production facility. The notebook uses <a class="reference external" href="http://www.pyomo.org/">Pyomo</a> to represent the model.</p>
 <div class="cell docutils container">
@@ -1123,10 +1144,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="learning-goals">
+<section id="learning-goals">
 <h2><span class="section-number">5.1.1. </span>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
 <p>This notebook introduces core concepts in the application of optimization techniques using a simple production planning problem.</p>
-<div class="section" id="optimization">
+<section id="optimization">
 <h3><span class="section-number">5.1.1.1. </span>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">#</a></h3>
 <p><strong>Optimization</strong> is a the process of finding a “best” solution to a problem with multiple degrees of freedom. The components of an optimization problem are:</p>
 <ul class="simple">
@@ -1134,8 +1155,8 @@ title="Print to PDF"
 <li><p><strong>Constraints</strong>: Equations or inequalities the determine the set of possible solutions to a problem. There can be many constraints in a optimization problem.</p></li>
 <li><p><strong>Objective</strong>: A function of the decision variables that is to be either minimized or maximized. There is one optimization objective.</p></li>
 </ul>
-</div>
-<div class="section" id="modeling-for-optimization">
+</section>
+<section id="modeling-for-optimization">
 <h3><span class="section-number">5.1.1.2. </span>Modeling for Optimization<a class="headerlink" href="#modeling-for-optimization" title="Permalink to this headline">#</a></h3>
 <p><strong>Modeling</strong> for optimization is the process of creating a mathematical description of an optimization problem.</p>
 <p><strong>Algebraic Modeling Languages (AML)</strong> are a software systems for specifying and computing solutions to optimization problems. The are many examples of AML’s in current use. AML are <strong>descriptive</strong>, not procedural. They are used to specify the problem, a numerical solution is found in a separate step using a <strong>solver</strong>.</p>
@@ -1148,8 +1169,8 @@ title="Print to PDF"
 <li><p>An objective is specified with a Python function that returns an expression. An objective can be either minimized or maximized. A function is designated as an objective with the <code class="docutils literal notranslate"><span class="pre">model.Objective(sense=pyo.minimize)</span></code> or <code class="docutils literal notranslate"><span class="pre">model.Objective(sense=pyo.maximize)</span></code> decorator.</p></li>
 </ul>
 <p><strong>Decorators</strong> are a Python feature used to modify a function. Pyomo uses decorators to designate constraints, objectives, and several types of optimization objects that will be introduced in subsequent notebooks. You can think of it as a way of tagging functions with a special purpose. Decorators are implemented in Python as functions that process other functions, but those details are not needed for Pyomo modeling.</p>
-</div>
-<div class="section" id="solving-optimization-problems">
+</section>
+<section id="solving-optimization-problems">
 <h3><span class="section-number">5.1.1.3. </span>Solving Optimization Problems<a class="headerlink" href="#solving-optimization-problems" title="Permalink to this headline">#</a></h3>
 <p><strong>Linear Programming</strong>: Optimization models are catorgized by their mathematical features. Solving problems with a one linear objective and multiple linear constraints is called <strong>Linear Programming (LP)</strong>. The problem below is a linear programming problem.</p>
 <p><strong>Solvers</strong>: Linear programming has an enormous range of applications in business, logistics, and large scale planning problems involving up to millions of decision variables. The first practical algorithms were developed in the 1940’s in the course of solving planning problems for the US Army Air Force. Since then, providing solvers for large scale linear programming has become a highly competitive commercial business. The commercial leaders are:</p>
@@ -1159,8 +1180,8 @@ title="Print to PDF"
 <li><p><strong>FICO Xpress</strong>  Started in 1983 as an LP solver for PCs. Currently owned by FICO. Fast, robust, and many features beyond linear programming.</p></li>
 </ul>
 <p>There are many, many other solvers from open-source projects, or specialized for specific applications.</p>
-</div>
-<div class="section" id="additional-terminology">
+</section>
+<section id="additional-terminology">
 <h3><span class="section-number">5.1.1.4. </span>Additional Terminology<a class="headerlink" href="#additional-terminology" title="Permalink to this headline">#</a></h3>
 <p>Regarding solutions:</p>
 <ul class="simple">
@@ -1176,9 +1197,9 @@ title="Print to PDF"
 <li><p><strong>Feasible Region</strong> The set of all feasible solutions.</p></li>
 <li><p><strong>Unbounded Problem</strong>: A problem that admits a feasible solution with unbounded value for the objective.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="example-production-plan-for-a-single-product-plant">
+</section>
+</section>
+<section id="example-production-plan-for-a-single-product-plant">
 <h2><span class="section-number">5.1.2. </span>Example: Production Plan for a Single Product Plant<a class="headerlink" href="#example-production-plan-for-a-single-product-plant" title="Permalink to this headline">#</a></h2>
 <p>Suppose you are thinking about starting up a business to produce Product X. You have determined there is a market for X of up to 40 units per week at a price of $270 each. The production of each unit requires $100 of raw materials, 1 hour of type A labor, and 2 hours of type B labor. You have an unlimited amount of raw material available to you, but only 80 hours per week of labor A at a cost of $50/hour, and 100 hours per week of labor B at a cost of $40 per hour. Ignoring all other expenses, what is the maximum weekly profit?</p>
 <p>To get started on this problem, we sketch a flow diagram illustrating the flow of raw materials and labor through the production plant.</p>
@@ -1201,7 +1222,7 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\max \mbox{Profit} = $40 \mbox{ per unit} \times 40 \mbox{ units per week} = \$1600 \mbox{ per week}\]</div>
 <p>What we conclude is that market demand is the ‘most constraining constraint.’ Once we’ve made that deduction, the rest is a straightforward problem that can be solved by inspection.</p>
-<div class="section" id="mathematical-model">
+<section id="mathematical-model">
 <h3><span class="section-number">5.1.2.1. </span>Mathematical Model<a class="headerlink" href="#mathematical-model" title="Permalink to this headline">#</a></h3>
 <p>Even though this example has a straightforward solution, it is useful to consider how it can be represented mathematically, and solved using typical tools for linear programming.</p>
 <p>The mathematical representation consists of a single non-negative decision variable, <span class="math notranslate nohighlight">\(x\)</span>, an objective function, and a set of linear constraints.  Here we include all constraints even though we know only one of them – the most ‘constraining constraint’ – will be active.</p>
@@ -1214,16 +1235,16 @@ x &amp; \leq 80  &amp; \mbox{labor A constraint} \\
 2\ x &amp; \leq 100 &amp; \mbox{labor B constraint}
 \end{align}\end{split}\]</div>
 <p>All of these constraints must be satisfied, therefore the demand constraint is the ‘most constrainting’. Again, the maximum value of <span class="math notranslate nohighlight">\(x\)</span> is 40, so the maximum profit is <span class="math notranslate nohighlight">\(\$ 40 \times 40 = \$1,600\)</span>.</p>
-</div>
-<div class="section" id="exercises">
+</section>
+<section id="exercises">
 <h3><span class="section-number">5.1.2.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>Suppose the demand could be increased to 50 units per month. What would be the increased profits?  What if the demand increased to 60 units per month?  How much would you be willing to pay for your marketing department for the increased demand?</p></li>
 <li><p>Increase the cost of LaborB. At what point is it no longer financially viable to run the plant?</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="production-plan-product-y">
+</section>
+</section>
+<section id="production-plan-product-y">
 <h2><span class="section-number">5.1.3. </span>Production Plan: Product Y<a class="headerlink" href="#production-plan-product-y" title="Permalink to this headline">#</a></h2>
 <p>Your marketing department has developed plans for a new product called Y. The product sells at a price of \<span class="math notranslate nohighlight">\(210 each, and they expect that you can sell all that you can make. It's also cheaper to make, requiring only \\\)</span>90 in raw materials, 1 hour of Labor type A at \<span class="math notranslate nohighlight">\(50 per hour, and 1 hour of Labor B at \\\)</span>40 per hour. What is the potential weekly profit?</p>
 <p><img alt="LP_ProductY.png" src="../../_images/LP_ProductY.png" /></p>
@@ -1250,15 +1271,15 @@ y &amp; \leq 80  &amp; \mbox{labor A constraint} \\
 y &amp; \leq 100 &amp; \mbox{labor B constraint}
 \end{align}\end{split}\]</div>
 <p>Compared to product X, we can manufacture and sell up 80 units per week for a total profit of $2,400. This is very welcome news.</p>
-<div class="section" id="id1">
+<section id="id1">
 <h3><span class="section-number">5.1.3.1. </span>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>What is the limiting resource?  That is, which of the two types of labor limits the capacity of your plant to produce more units of Y?</p></li>
 <li><p>What rate would you be willing to pay for the additional labor necessary to increase the production of Y?</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="production-plan-mixed-product-strategy">
+</section>
+</section>
+<section id="production-plan-mixed-product-strategy">
 <h2><span class="section-number">5.1.4. </span>Production Plan: Mixed Product Strategy<a class="headerlink" href="#production-plan-mixed-product-strategy" title="Permalink to this headline">#</a></h2>
 <p>So far we have learned that we can make \<span class="math notranslate nohighlight">\(1,600 per week by manufacturing product X, and \\\)</span>2,400 per week manufacturing product Y.  Is it possible to do even better?</p>
 <p>To answer this question, we consider the possibilty of manufacturing both products in the same plant. The marketing department assures us that product Y will not affect the sales of product X.  So the same constraints hold as before, but now we have two decision variables, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
@@ -1272,8 +1293,8 @@ x &amp; \leq 40  &amp; \mbox{demand constraint} \\
 x + y &amp; \leq 80  &amp; \mbox{labor A constraint} \\
 2x + y &amp; \leq 100 &amp; \mbox{labor B constraint}
 \end{align}\end{split}\]</div>
-</div>
-<div class="section" id="solution-using-pyomo">
+</section>
+<section id="solution-using-pyomo">
 <h2><span class="section-number">5.1.5. </span>Solution using Pyomo<a class="headerlink" href="#solution-using-pyomo" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1324,8 +1345,8 @@ y =  60.0
 </div>
 </div>
 <p>The mixed product strategy earns more profit than either of the single product srategies. Does this surprise you?  Before going further, try to explain why it is possible for a mixed product strategy to earn more profit than either of the possible single product strategies.</p>
-</div>
-<div class="section" id="what-are-the-active-constraints">
+</section>
+<section id="what-are-the-active-constraints">
 <h2><span class="section-number">5.1.6. </span>What are the active constraints?<a class="headerlink" href="#what-are-the-active-constraints" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1386,8 +1407,8 @@ y =  60.0
 <img alt="../../_images/05.01-Linear-Production-Model_25_0.png" src="../../_images/05.01-Linear-Production-Model_25_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="what-is-the-incremental-value-of-labor">
+</section>
+<section id="what-is-the-incremental-value-of-labor">
 <h2><span class="section-number">5.1.7. </span>What is the incremental value of labor?<a class="headerlink" href="#what-is-the-incremental-value-of-labor" title="Permalink to this headline">#</a></h2>
 <p>The optimal solution is found at the intersection of constraints corresponding to Labor A and Labor B.  These are the <strong>active constraints</strong>. Adding additional labor of either type will increase the profit.  By contrast, the demand constraint for product X is inactive at the optimum, therefore attempting to increase demand for product X would be wasted effort.</p>
 <p>This leaves the important question of how much the profit will increase if additional resources are available. Let’s see what happens if one additional hour of Labor A is available.</p>
@@ -1445,22 +1466,22 @@ y =  62.0
 </div>
 </div>
 <p>An additional hour of Labor A increases the profit by 0 dollars. The base cost of 50 dollars per hour for Labor A is included in the objective function. Therefore we should be willing to pay up to 50 + 20 = 70 dollars per hour for additional Labor A.</p>
-<div class="section" id="exercise">
+<section id="exercise">
 <h3><span class="section-number">5.1.7.1. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>What is the incremental value of Labor B?</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="theory-of-constraints">
+</section>
+</section>
+<section id="theory-of-constraints">
 <h2><span class="section-number">5.1.8. </span>Theory of Constraints<a class="headerlink" href="#theory-of-constraints" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>For <span class="math notranslate nohighlight">\(n\)</span> decisions you should expect to find <span class="math notranslate nohighlight">\(n\)</span> ‘active’ constraints.</p></li>
 <li><p>Each inactive constraint has an associated ‘slack.’  The associated resources have no incremental value.</p></li>
 <li><p>Each active constraint has an associated ‘shadow price’.  This is additional value of additional resources.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
