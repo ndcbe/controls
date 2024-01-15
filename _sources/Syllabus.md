@@ -1,8 +1,8 @@
 # Syllabus
 
-## CBE 30338 Data Analytics, Optimization, and Control Description
+## CBE 30338 Description
 
-CBE 30338 Chemical Process Control introduces students to the analysis and design of control systems for chemical and biochemical processes. Applications include chemical and biological reactors, separation processes, autonomous biomedical devices, and examples from other engineering disciplines. 
+**CBE 30338 Data Analytics, Optimization, and Control** introduces students to the analysis and design of control systems for chemical and biochemical processes. Applications include chemical and biological reactors, separation processes, autonomous biomedical devices, and examples from other engineering disciplines. 
 
 The major topics of the course are
 
@@ -14,38 +14,31 @@ The major topics of the course are
 
 Python and hands-on control experiments are integrated into the course. 
 
-The lab sessions (CBE 32338) provide opportunities for hands-on coding and experimentation using the Temperature Control Laboratory. Students purchase their own copy of the device from [Amazon](https://www.amazon.com/TCLab-Temperature-Control-Lab/dp/B07GMFWMRY) or apmonitor.com. 
+The lab sessions (CBE 32338) provide opportunities for hands-on coding and experimentation using the [Temperature Control Laboratory](./tclab/00.00-tclab.md). In leu of a textbook, students should purchase their own device from [Amazon](https://www.amazon.com/TCLab-Temperature-Control-Lab/dp/B07GMFWMRY) or [apmonitor.com](https://apmonitor.com/pdc/index.php/Main/PurchaseLabKit). 
 
 ## Learning Objectives
 
-Students completing this course will be able to …
+Students completing this course will be able to:
 
 * Identify process models and fit the models to data
-* Design and implement advanced PID control
+* Design and implement feedback (e.g., advanced PID) control
 * Manipulate time series data and extract process information
 * Create and solve steady-state optimization models
 * Apply the principles of modeling and control to novel applications
 
 ## Course Information
 
+**Canvas link:** [SP24-CBE-30338-01 Data Analytics, Optimization, and Control](https://canvas.nd.edu/courses/82955)
 
-**Canvas link:** [SP23-CBE-30338-01 Chemical Process Control](https://canvas.nd.edu/courses/59411)
+**Dates:** January 16 - April 30, 2024
 
-**Dates:** January 17 - May 3, 2023
+**Class:** CBE 30338 Tuesday and  Thursdays, 9:15 - 10:45 am, DeBartolo 136
 
-**Section:** CBE 30338-01 Tuesday and  Thursdays, 12:30 - 1:45 pm, DeBartolo 129
-
-**Virtual Office Hours:** Wednesdays, 2:00 PM - 3:30 pm. The password-protected Zoom links for scheduled virtual office hours is [https://notredame.zoom.us/j/93569381181?pwd=Uk5EeUM2TU9OdDFMR0xiRlk4MUo1UT09](https://notredame.zoom.us/j/93569381181?pwd=Uk5EeUM2TU9OdDFMR0xiRlk4MUo1UT09). If you can't make the scheduled time, send me an email with some times convenient for you and I will send you a Zoom invitation.
-
-**Lab/Tutorial Sections:**  You must be registered for one of these lab/tutorial sections.
+**Lab/Tutorial:**  You must be registered for one of these lab/tutorial sections.
 * CBE 32338-01 Friday, 11:35 am - 12:25 pm, Fitzpatrick A68
 * CBE 32338-02 Friday, 12:50 am - 1:40 pm, Fitzpatrick A68
 
 Seating in A68 is limited. Pleae attend the lab session for which you are registered.
-
-**Final Exam:** Thursday, May 11 10:30 AM - 12:30 PM
-
-**Assignments, Grades, and Other Course Information**: [Canvas](https://canvas.nd.edu/courses/59411)
 
 **Prerequisites:** This course assumes knowledge of modeling and analysis with differential equations, procedural programming in Python, mass and energy balances. Students taking this course will normally have completed
 
@@ -60,37 +53,62 @@ Students without this background should contact the instructor before registerin
 2. A laptop/desktop computer with USB-A port, or a USB-C port and a USB-C to USB-A converter.
 3. An up-to-date installation of the [Anaconda Individual Edition](https://www.anaconda.com/products/individual)  for Python programming. **Follow the instructions [here](https://appdividend.com/2020/05/12/how-to-update-anaconda-upgrade-anaconda-navigator/) to update an older installation.**
 
-## Instructor Information
+## Instructor and Teaching Assistants
 
-**Instructor:** Jeffrey Kantor (he/him/his)
+```{list-table}
+:header-rows: 1
+:widths: 20 20 20 20 20
 
-**Email:** jeff
+* - [Prof. Alex Dowling](https://dowlinglab.nd.edu/people/professor-alexander-w-dowling/)
+  - [Maddie Watson](https://dowlinglab.nd.edu/people/madelynn-watson/)
+  - [Hailey Lynch](https://dowlinglab.nd.edu/people/hailey-lynch/)
+  - [Molly Dougher](https://dowlinglab.nd.edu/people/molly-dougher/)
+  - [Zhicheng Lu](https://dowlinglab.nd.edu/people/zhicheng-lu/)
+* - ![](https://dowlinglab.nd.edu/assets/320333/200x200/dowling_alex_sq.jpg)
+  - ![](https://dowlinglab.nd.edu/assets/477606/200x200/senior_composite.png)
+  - ![](https://dowlinglab.nd.edu/assets/497694/200x200/img_3436.jpg)
+  - ![](https://dowlinglab.nd.edu/assets/496713/200x200/img_2112_3.jpeg)
+  - ![](https://dowlinglab.nd.edu/assets/552006/200x200/zhicheng.jpg)
+* - Primary Instructor
+  - Lead TA
+  - Senior TA
+  - Senior TA
+  - TA
+* - Wednesdays, 2 - 3pm, 369 NSH
+  - Thursdays, 2 - 3pm, 366 NSH
+  - (same)
+  - (same)
+  - (same)
+```
+Office hours are lists in the last row. TAs share office hours.
 
-**Office:** 257 Nieuwland Hall
+<!---
 
-The best way to reach me is by email. Thanks to telemarketers, I no longer answer phone calls from unknown numbers. If you'd like to chat, the best options are virtual office hours (see above), or send some times convenient to you and I'll get back to you with an office appointment or zoom invitation.
+|  | [Ms. Maddie Watson](https://dowlinglab.nd.edu/people/madelynn-watson/) | [Ms. Hailey Lynch](https://dowlinglab.nd.edu/people/hailey-lynch/) | [Ms. Molly Dougher](https://dowlinglab.nd.edu/people/molly-dougher/) | [Mr. Zhicheng Lu](https://dowlinglab.nd.edu/people/zhicheng-lu/) |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+|  | Lead TA | Senior TA | Senior TA | TA |
 
-## Teaching Assistants
 
-Teaching assistants assist with 
+ | Wednesdays, 2 - 3pm, 369 NSH | Span <td colspan=4> Thursdays, 2 - 3pm, 366 NSH |
 
-* Instruction during the Friday lab sessions.
-* Questions regarding Python coding
-* Questions regarding the content homework and assignments.
-* Prepare solutions to homework assignments.
-* Assist with grading assignments and quizzes.
+| ![](https://dowlinglab.nd.edu/assets/320333/200x200/dowling_alex_sq.jpg) |  | ![](https://dowlinglab.nd.edu/assets/497694/200x200/img_3436.jpg) | ![](https://dowlinglab.nd.edu/assets/496713/200x200/img_2112_3.jpeg) | ![](https://dowlinglab.nd.edu/assets/552006/200x200/zhicheng.jpg) | --->
 
-| Teaching Assistant | Email
-| :----------------- | :----
-| Tran Khanh Phuong Cao | tcao2
-| Hailey Lynch       | hlynch
-| Wilson Raney       | wraney
+## Discussion Board (Canvas) and Email Correspondance
+
+* Post your questions to the **discussion board in Canvas**
+* Instructor only: adowling@nd.edu, ''CBE 30338'' in the subject, private official matters (e.g., excused absence, testing accommodations)
+
+We encourage you to post all your questions, including your mathematical models, pseudocode, and code screenshots, to the public **discussion board in Canvas**. We are doing this for a few reasons:
+1. As professionals, you'll need to be comfortable asking questions in front of a team. We want to cultivate a positive and friendly learning environment where everyone can practice this skill during the semester.
+2. By answering questions in the public discussion board, everyone in the class can access the same information.
+3. We would like to cultivate a learning community with peer instruction; as professionals, you must answer your peers' questions.
+4. Many scientific software have online discussion boards to ask technical questions and report bugs. Using the **discussion board in Canvas** will help you develop comfort in asking questions this way.
 
 ## Required Materials
 
 Required notes and materials for the course are available at the Github/web repositories 
 
-* [jckantor/cbe30338-book](https://jckantor.github.io/cbe30338-book) 
+* [ndcbe/controls](https://ndcbe.github.io/controls/Readme.html) 
 * [jckantor/TCLab](https://github.com/jckantor/TCLab)
 
 Additional material will be taken from:
@@ -106,93 +124,104 @@ Additional supplementary materials related to process control will be distribute
 * [BYU Process Dynamics and Control course website](http://apmonitor.com/pdc/index.php/Main/HomePage)
 * [Resourcium](https://resourcium.org/)
 
-## Grading Criteria
+## Assessment and Grades
 
-### Class Participation
+Grades for CBE 30338 and CBE 32338 are consolidated into a single grade assigned to CBE 30338. There is no separate grade or credit assigned for CBE 32338.
 
-You are expected to attend all class sessions.  If you miss class for an official University excused function, please find notes for that lecture, do the  reading, and avail yourself of office hours to catch up on the missed material.
+Grades are based on a weighted assessment of performance in the following categories:
+
+* Class Participation and Professionalism: 5\%
+* Assignments: 50\%
+* Exam: 25\%
+* Group Project: 20\%
+
+### Class Participation and Professionalism 
+
+You are expected to attend and actively participate in all class sessions.  If you miss class for an official University excused function, please find notes for that lecture, do the  reading, and avail yourself of office hours to catch up on the missed material.
 
 Class sessions will include opportunities to respond to instructor questions and other active learning exercises. All interactions will be civil, respectful, and inclusive. If you have any concerns about classroom dynamics, please feel free to speak with the instructor.
 
-### Homework Assignments
+### Assignments
 
-Weekly homework assignments are typically released on Tuesday and due before class the following Tuesday.  There will be no homework for the weeks including  Junior Parents’ Weekend,  Easter, and the final weeks when the semester project is underway.
+Homework and labratory assignments are critical to developing the skills needed to succeed in the course and in the major. Accordingly, assignments are a required element of the course. Missing assignments will be scored as zero. Three or more missed assignments will result in an incomplete for the course. Group study is encouraged, but the submitted work must be your own. Students must be able to explain all of their submitted work.
 
-Homework assignments are critical to developing the skills needed to succeed in the course and in the major. Accordingly, assignments are a required element of the course. Missing assignments will be scored as zero. Three or more missed assignments will result in an incomplete for the course. Group study is encouraged, but the submitted work must be your own. Students must be able to explain all of their submitted work.
+Please see our [semester schedule](./Schedule.md) for a listing of assignments and deadlines.
 
-### Laboratory Assignments
+### Exam
 
-Laboratory assignments will be assigned in advance of each laboratory session and due the following Friday. 
-
-### Quizzes
-
-There will be one timed quiz following completion of each of the major units of the course. The quizzes will be conducted on-line outside of regularly scheduled class time.
+There will be one in-class exam on Thursday, April 4. The exam will be open book but without access to a computer or the internet. Students who take notes on a tablet should sit in the front rows during the exam and will be monitored by the teaching team. Tablets may only be used to access your notes, i.e., internet and other connectivity must be disabled.
 
 ### Final Project
 
-The final project for CBE 30338 is in-depth exploration of a control problem of your choice. You will work in groups (at least three, no more than four, no exceptions), select a problem of interest, and develop an analysis or control design using the skills you learned in this course.  The essential elements of the project are:
+The final project for CBE 30338 is in-depth exploration of a dynamic modeling, optimization, or control problem of your choice. You will work in groups (at least three, no more than four, no exceptions), select a problem of interest, and develop an analysis or control design using the skills you learned in this course.  The essential elements of the project are:
 
 * **Preliminary reports** consisting of a problem statement, a meeting with the instructor to review the project, and a progress report.
 
 * A **Group presentation** to the class.
 
 * A **Final Report** that includes at least one executable demonstration of your project. The executable element might consist of a Python/Jupyter notebook, a simulation prepared in an industry standard format, or video of experiment or hardware demonstration.
- 
-## Grading
 
-Grades for CBE 30338 and CBE 32338 are consolidated into a single grade assigned to CBE 30338. There is no separate grade or credit assigned for CBE 32338.
+### Grading Standards
 
-Grades are based on an assessment of performance in four major categories of work: individual homework assignments, quizzes, and laboratory assignments, and the group final project. The lowest homework, quiz, and laboratory assignment will be dropped. 
+All computer code must be commented. No exceptions.
 
-<!--
-Students with a score of 95% or more of the total available points will earn an A for the course. Students with a score of 85% or higher will earn at least a B for the course. Detailed breakpoints for grades will be determined at the end of the semester.
+All graphs must have labeled axes with UNITS. Likewise, all final answers need UNITS and should be rounded to the appropriate number of significant digits.
 
+Be sure to answer the questions asked in the assignment. When discussing results, only report the appropriate number of significant figures.
 
-| Category                     | Points per Item | Qty  | Drop | Available Points |
-| ---------------------------- | --------------- | ---- | ---- | ---------- |
-| Homework Assignments         | 10              | 6    | 1    | 50         |
-| Laboratory Assignments       | 10              | 7    | 1    | 60         |
-| Quizzes                      | 20              | 4    | 1    | 80         |
-| Project - Proposal           | 20              | 1    |      | 10         |
-| Project - Instructor Meeting | 10              | 1    |      | 20         |
-| Project - Progress Report    | 20              | 1    |      | 20         |
-| Project - Presentation       | 20              | 1    |      | 20         |
-| Project - Final Report       | 30              | 1    |      | 30         |
-| **Total Available Points**   |                 |      |      | 390        |
+**Formatting**: Your submission should include neatly written code with extensive comments, well-labeled graphs, and answers to any discussion questions. Your project submissions should be professionally formatted, like a laboratory report. Your response to discussion questions and code comments MUST be written in your own words. Please see [coding standards](https://ndcbe.github.io/data-and-computing/notebooks/01/Pseudocode.html#python-and-commenting-guidelines).
 
-Note: The total number of homework assignments may change, there may be a few more or a few less. Therefore the maximum number of points available in the course may vary.
+**Project:** This will be graded in-depth (unlike the homework). Be sure to triple check the Python code and plotting formatting standards. We expect [publication-quality plots](https://ndcbe.github.io/data-and-computing/notebooks/01/Publication-Quality-Figures.html) for this project.
 
--->
+**Pseudocode:** Man assignments require you to write brief pseudocode. We will learn how to do this during the first week of the semester. Your pseudocode needs to reflect all your solution's main steps and logic. You do not need to rewrite your pseudocode if your final solution has different main steps or logic. Instead, you should update your pseudocode with a few notes showing the change. Rewriting the pseudocode is helpful if you find a logical mistake but get stuck making modifications. Prof. Dowling has been programming in Python for 20 years. He writes pseudocode, and so do other professional software developers.
 
-## Collaboration Policy and Honor Code
+### Regrade Requests
 
-**The following material is quoted and adapted from CBE 20258, with permission.**
+We will undoubtedly make some mistakes during grading. Regrades to correct these mistakes will be considered for **up to ONE week after assignment grades are posted online**. 
 
-You are permitted (and encouraged) to discuss solution approaches to the weekly homework assignments with classmates, however there is to be no wholesale copying or paraphrasing of code, solutions, or written discussions. You are encouraged to ask questions, including posting pseudocode or code screenshots, on the discussion board on Canvas. Likewise, you may use any material posted by the instructors or your classmates in the discussion board on Canvas that you understand. 
+Submit your regrade requests in writing via Gradescope. Please include a 1-3 sentence explanation of the grading mistake. We will not consider adjustments to the grading point distribution.
 
-* Copying of code from classmates or the discussion board that you do not understand is not permitted. This policy is meant to facilitate collaboration while ensuring everyone in the class has the same access. 
+All regrade requests will result in a reevaluation of the entire assignment. For rubric selection mistakes in Gradescope, we will recheck all rubric selections. For more substantial regrade requests, the grader may reexamine the whole problem (including all subparts) and possibly the entire assignment.
 
-* Students MAY NOT use old HW files and solutions for the homework assignments: if you cannot do the problems for homework, you will not be able to do them on the exams either.
+### Late Policy
 
-* Materials from ChatGPT must be cited. Python or other code generated ChatGPT must be clearly commented, even if it includes additions or other alterations you made. You are always responsible for understanding all code included in your submission.
+The following policy will apply to all assignments (homework, projects, etc.):
+* Up to 1 hour late: grace period with no penalty
+* 1 hour to 24 hours late: 10% penalty of total available points
+* 24 to 48 hours late: 20% penalty of total available points
+* 48 to 72 hours: 30% penalty of total available points
+* Beyond 72 hours: assignment not accepted
+
+If there is an extenuating circumstance, please email the instructor with ``CBE 30338'' in the subject. Please send your requests for extensions at least 24 hours before the deadline (unless your specific circumstance prevents this). Please briefly explain the extenuating circumstance when requesting an extension and propose an alternate deadline.
+
+## Honor Code
+
+### Collaboration Policy
+
+You are permitted (and encouraged) to discuss solution approaches to the weekly homework assignments with classmates. However, there must be no wholesale copying or paraphrasing of code, solutions, or written discussions. You are strongly encouraged to ask questions, including posting pseudocode or code screenshots, on the discussion board on Canvas. Likewise, you may use any material posted by the instructors or your classmates in the discussion board on Canvas that you understand. Copying code from classmates or the discussion board, you do not understand is prohibited. This policy facilitates collaboration while ensuring everyone in the class has the same access. Students MAY NOT use old files and solutions for the homework assignments: you must do the problems for homework to be able to do them on the exams too.
 
 *As a guiding principle, if you are not comfortable explaining your solution strategy to an instructor or TA, you should not turn in the work as your own.*
 
-Your work may be electronically tested for plagiarized content. For example, Vocareum and Gradescope have sophisticated capabilities to detect highly similar code (i.e., plagiarism for computer code) while distinguishing from provided templates. Plagiarism is a serious offense and will result in severe consequences per University, College, and Department Honor Code procedures.
+Your work may be electronically tested for plagiarized content. For example, Gradescope can detect highly similar code (i.e., plagiarism for computer code) while distinguishing from provided templates. Plagiarism is a serious offense and will have severe consequences per University, College, and Department procedures.
 
-To remove ambiguity, the following is a non-exhaustive list of collaborative scenarios that are PERMITTED under the above policies:
+To remove ambiguity, the following is a non-exhaustive list of collaborative scenarios that are **PERMITTED** under the above policies:
+* You work with a group of classmates to write pseudocode together. Each group member participates at least once (e.g., asks a question). One person in the group takes a picture and emails it to everyone. Then each person rewrites the pseudocode on their own for the homework submission. You rewrite the comments in your own words (to be more evident). You also decide to replace a `while` loop with a `for` loop. The collaboration policy permits this because the work is your own. You made a clear intellectual contribution.
+* You are working on a homework assignment and get stuck on an error message. After consulting the class notes and Google for 5 minutes, you post a screenshot of your code and the error message to Canvas. A classmate posts some alternate code that fixes your error. You replied by thanking the student and asking for clarification on why the alternate code works and your approach was wrong. Your post leads to a good discussion, with the instructor explaining a concept and clearing up your confusion. The solution you turn in includes the changes suggested by your classmates. The collaboration policy permits this because you are comfortable explaining your solution strategy, including why the proposed modification was necessary to fix the error.
+* You are working on the homework assignment closer to the deadline than you would like to admit. You get stuck on an error message but quickly find a discussion thread on Canvas. You read through the suggestions from your classmates and the instructor. The post answers your significant questions, and the proposed fix works! You adopt it into your code and add a comment acknowledging your classmates on Canvas for help. You still have a minor question about if there is an alternate way to solve the problem, so you post on Canvas and continue with the assignment. The collaboration policy permits this because you made a good faith effort to understand the proposed solution. Even though you have an outstanding minor doubt, you sought help from the TAs, instructor, and classmates. You also acknowledged the source (Canvas discussion) for the code you used and thus are not presenting it as your own.  
 
+The following is a non-exhaustive list of collaborative scenarios that are **PROHIBITED** under the above policies:
+* You are working on your homework alone in the library, but two tables away, there is a group of your classmates. They work through the pseudocode on a whiteboard and do not erase it after leaving. You take a picture “just in case”. You later get stuck and frustrated. You end up copying line by line most of their pseudocode and turn this in. You have some doubts about the approach but ran out of time. The collaboration policy prohibits this because the work is not your own. Moreover, you would be unable to explain your solution approach to the TA or instructor confidently.
+* It is late at night, you are frustrated with syntax errors, and you cannot get one of the homework problems to work. You find a screenshot on Canvas of code from a classmate and an associated discussion. Desperate to finish the assignment, you adapt your code to follow the screenshot. To keep it simple, you copy line-by-line, do not change variable names, and copy some comments but skip others. You end up submitting code that looks almost identical to your classmate. You remember the instructor keeps emphasizing the comments should be in our own words to show that you understand the solution. You decide to go to bed and add those comments in the morning. You oversleep and submit the code without any comments or acknowledgments from your classmates. The collaboration policy prohibits this because you submitted work that is not your own. You should have acknowledged sources, and you can not confidently explain the solution procedure to the instructor or TA.
+* You have no prior programming experience and feel like you are falling behind. You suspect the homework takes you three times as long as your classmates. You conclude the only way you can keep up is to do the homework with a partner. They do half the assignment, and you do the other half. You then exchange solutions. The person who completes each problem then explains the answer to the partner. Each person changes the comments, adds some extra white spaces, and changes a few variable names to ensure the solutions are not identical. The collaboration policy prohibits this because each person did not make an honest effort to solve every problem on their own. Although each person either explained or had the solutions presented to them, they likely need help to defend all of their solutions to the TA or instructor. 
 
-* You work with a group of classmate to write pseudocode together. Each person in the group participates at least once (e.g., asks a question). One person in the group takes a picture and emails it to everyone. Then each person rewrites the pseudocode on their own for the homework submission. You rewrite the comments in your own words (to be more clear). You also decide to replace a while loop with a for loop. This is permitted by the collaboration policy because the work is your own. You made a clear intellectual contribution.
+### Artificial Intelligence Policy
 
-* You are working on a homework assignment and get stuck on an error message. After consulting the class notes and Google for 5 minutes, you post a screenshot of your code and the error message to Canvas. A classmate posts some alternate code that fixes your error. You reply by thanking the student and asking for clarification on why the alternate code works and your approach was wrong. This leads to a good discussion, with the instructor explaining a concept and clearing up your confusion. The solution you turn in includes the changes suggested by your classmates. This is permitted by the collaboration policy because you are comfortable explaining your solution strategy, including why the proposed modification was necessary to fix the error.
+TODO: add policy
 
-* You are working on the homework assignment a little closer to the deadline than you would like to admit. You get stuck on an error message, but quickly find a discussion thread on Canvas. You read through the suggestions from your classmates and the instructor. The post answers your major questions and the proposed fix works! You adopt it into your code and add a comment acknowledging your classmates on Canvas for help. You still have a minor question about if there is an alternate way to solve the problem, so you post on Canvas and continue with the assignment. This is permitted by the collaboration policy because you made a good faith effort to understand the proposed solution. Even though you have an outstanding minor doubt, you sought out help from the TAs, instructor, and classmates. You also acknowledged the source (Canvas discussion) for the code you used, and thus are not presenting it as your own.
+## Inclusiveness, Mental Health, and Disabilities
 
-The following is a non-exhaustive list of collaborative scenarios that are PROHIBITED under the above policies:
+The University of Notre Dame is committed to social justice. We share that commitment and strive to maintain a positive learning environment based on open communication, mutual respect, and non-discrimination. In this class, we will not discriminate on the basis of race, sex, age, economic class, disability, veteran status, religion, sexual orientation, color, or national origin. Any suggestions as to how to further such a positive and open environment will be appreciated and given serious consideration.
 
-* You are working on your homework alone in the library but two tables away there is a group of your classmates. They work through the pseudocode on a white board and do not erase it after leaving. You take a picture “just in case”. You later get stuck and frustrated. You end up copying a majority of their pseudocode, line by line, and turn this in. You have some doubts about the approach, but ran out of time. This is prohibited by the collaboration policy because the work is not your own. Moreover, you would be unable to explain your solution approach with confidence to the TA or instructor.
+Diminished mental health can interfere with optimal academic performance. The source of symptoms might be related to your coursework; if so, please speak with us. However, problems with other parts of your life can also decrease academic performance. The University Counseling Center (UCC) provides cost-free and confidential mental health services to help you manage personal challenges threatening your emotional or academic well-being. Remember, getting help is a smart and courageous thing to do — for yourself and for those who care about you. For more resources, please see ucc.nd.edu. The UCC is located on the third floor of Saint Liam Hall Phone: 574-631-7336. Hours: Monday-Friday 8:30am – 5:00pm. Urgent Crisis Line 24/7. 
 
-* It is late at night, you are frustrated with syntax errors, and you just cannot get one of the homework problems to work. You find a screenshot on Canvas of code from a classmate and an associated discussion. Desperate to finish the assignment, you start adapting your code to follow the screenshot. To keep it simple, you copy line-by-line, do not change variable names, and copy some comments but skip others. You end up submitted code that looks almost identical to your classmate. You remember the instructor keeps emphasizing the comments should be in our own words to show that you understand the solution. We decide to go to bed and add those comments in the morning. You oversleep and submit code without any comments or acknowledgments of your classmates. This is prohibited by the collaboration policy because you submitted work that is not your own. You did not acknowledge sources, and you can not explain with confidence the solution procedure to the instructor or TA.
-
-* You have no prior programming experience and feel like you are falling behind. You feel like the homework takes you three times as long as your classmates. You conclude the only way you can keep up is to do the homework with a partner. They do half the assignment and you do the other half. You then exchange solutions. The person who completed each problem then explains the solution to the partner. Each person changes the comments, adds some extra white spaces, and changes a few variable names to ensure the solutions are not identical. This is prohibited by the collaboration policy because each person did not make an honest effort to solve every problem on their own. Although each person either explained or had the solutions explained to them, they likely cannot defend all of their solutions on their own to the TA or instructor.
+Any student who has a documented disability and is registered with Disability Services should speak with the professor as soon as possible regarding accommodations. Students who are not registered should contact the [Office of Disability Services](https://sarabeadisabilityservices.nd.edu/). 
