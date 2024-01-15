@@ -82,17 +82,6 @@ Students without this background should contact the instructor before registerin
 ```
 Office hours are lists in the last row. TAs share office hours.
 
-<!---
-
-|  | [Ms. Maddie Watson](https://dowlinglab.nd.edu/people/madelynn-watson/) | [Ms. Hailey Lynch](https://dowlinglab.nd.edu/people/hailey-lynch/) | [Ms. Molly Dougher](https://dowlinglab.nd.edu/people/molly-dougher/) | [Mr. Zhicheng Lu](https://dowlinglab.nd.edu/people/zhicheng-lu/) |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-|  | Lead TA | Senior TA | Senior TA | TA |
-
-
- | Wednesdays, 2 - 3pm, 369 NSH | Span <td colspan=4> Thursdays, 2 - 3pm, 366 NSH |
-
-| ![](https://dowlinglab.nd.edu/assets/320333/200x200/dowling_alex_sq.jpg) |  | ![](https://dowlinglab.nd.edu/assets/497694/200x200/img_3436.jpg) | ![](https://dowlinglab.nd.edu/assets/496713/200x200/img_2112_3.jpeg) | ![](https://dowlinglab.nd.edu/assets/552006/200x200/zhicheng.jpg) | --->
-
 ## Discussion Board (Canvas) and Email Correspondance
 
 * Post your questions to the **discussion board in Canvas**
@@ -196,11 +185,12 @@ If there is an extenuating circumstance, please email the instructor with ``CBE 
 
 ## Honor Code
 
+*As a guiding principle, if you are not comfortable explaining your solution strategy to an instructor or TA, you should not turn in the work as your own.*
+
+
 ### Collaboration Policy
 
 You are permitted (and encouraged) to discuss solution approaches to the weekly homework assignments with classmates. However, there must be no wholesale copying or paraphrasing of code, solutions, or written discussions. You are strongly encouraged to ask questions, including posting pseudocode or code screenshots, on the discussion board on Canvas. Likewise, you may use any material posted by the instructors or your classmates in the discussion board on Canvas that you understand. Copying code from classmates or the discussion board, you do not understand is prohibited. This policy facilitates collaboration while ensuring everyone in the class has the same access. Students MAY NOT use old files and solutions for the homework assignments: you must do the problems for homework to be able to do them on the exams too.
-
-*As a guiding principle, if you are not comfortable explaining your solution strategy to an instructor or TA, you should not turn in the work as your own.*
 
 Your work may be electronically tested for plagiarized content. For example, Gradescope can detect highly similar code (i.e., plagiarism for computer code) while distinguishing from provided templates. Plagiarism is a serious offense and will have severe consequences per University, College, and Department procedures.
 
@@ -216,7 +206,13 @@ The following is a non-exhaustive list of collaborative scenarios that are **PRO
 
 ### Artificial Intelligence Policy
 
-TODO: add policy
+Please review the university-wide [Generative AI Policy for Students](https://honorcode.nd.edu/generative-ai-policy-for-students-august-2023/) distributed via email in August 2023. We will adopt the following additional policies for CBE 30338:
+* Anyone who uses Generative AI tools (e.g., Copilot, ChatCPT) must add a discloser statement at the end of their assignment submissions. In this disclosure statement, you must describe which Generative AI tool you used and how you used it. For example, many professional scientists and engineers find these technologies especially helpful for refining the quality of plots generated in Python.
+* Many practicing scientists and engineers find [Copilot](https://copilot.microsoft.com/), which is available in [Visual Studio Code](https://visualstudio.microsoft.com/github-copilot/, more helpful and reliable than [ChatGPT](https://chat.openai.com). However, ChatGPT and Copilot occasionally generate code with incorrect logic or calculations. You should critically examine any code from Generative AI tools, collaborators, and class examples.
+* As described above, you must comment all code in your assignments. Furthermore, students must write comments in their own words. This ensures that anyone who uses Generative AI for help still practices interpreting the code. In other words, everyone who passes CBE 30338 should be able to perform calculations and explain the underlying logic in code.
+* Students are expected to use descriptive variable names; sometimes, Generative AI tools suggest generic variable names.
+* Students are responsible for understanding all code they submit, especially if they collaborate with another student or use Generative AI. The class exam will be individual and without access to Generative AI tools.
+* Answers to discussion questions, which often critically interpret results or connect calculations with concepts from class, must be written in your own words. You should use tools like [Grammarly](https://www.grammarly.com) to improve spelling, grammar, sentence structure, and conciseness. But you must perform the critical analysis on your own.
 
 ## Inclusiveness, Mental Health, and Disabilities
 

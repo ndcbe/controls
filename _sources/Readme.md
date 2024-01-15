@@ -11,32 +11,32 @@ Dynamic modeling, data analytics, optimization, and control are essential to mod
 | Weeks | Unit |
 | :--: | :-- |
 | 1 | Introductions to the Course and TC Lab |
-| 1 - 4 | Modeling |
-| 5 - 6 | Feedback Control |
-| 7 - 8 | Process Analytics |
-| 9 - 10 | Optimization |
-| 11 - 12 | Predictive Control |
-| 13 | Discrete Event Systems |
+| 1 - 4 | Dynamic Modeling and Data Analytics |
+| 5 - 7 | Feedback Control |
+| 7 - 9 | Computational Optimization |
+| 10 - 11 | Predictive Control |
+| 12 - 13 | Team Project Workshops |
 | 14 | Student Project Presentations |
 
-## Installing Conda
+## Software Instructions
+
+Students will use their personal laptop computers to complete labratory and homework assignments. Below are instructions 
 
 Start Here:
 * Install anaconda: https://www.anaconda.com/
 * Create new conda environment: `conda create -n controls python=3.10`
 * Activate new environemnt: `conda activate controls`
 
-Extra Steps for Website Contributors (e.g., instructor, TAs):
+Extra Steps for Website Contributors (e.g., instructor, TAs, students please skip):
 * Install Jupyter Book (may take a while, solve may freeze a few times): `conda install -c conda-forge jupyter-book`
 * Install GHP Import (for publishing with GitHub pages): `conda install -c conda-forge ghp-import`
 
-Students:
+Everyone (students resume here after "Start Here" steps are complete):
 * Install Jupyter Lab: `conda install -c conda-forge jupyterlab`
 * Install Pandas, Numpy, and Matplotlib: `conda install -c anaconda pandas numpy matplotlib scipy`
 * Install IDAES-PSE (which includes pyomo): `conda install -c IDAES-PSE -c conda-forge idaes-pse`
+* Install optimization solvers: `idaes get-extensions`
 * Install tclab: `pip install tclab`
-
-
 
 ## Contact Us
 

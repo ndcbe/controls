@@ -1,60 +1,48 @@
 
-
 <!DOCTYPE html>
 
-
-<html lang="en" data-content_root="" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>2.4. Fitting a Model to Experimental Data &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
+    
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-  
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -64,104 +52,61 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/02.04-Fitting-a-Model-to-Data';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.5. Second Order Model" href="02.05-Second-Order.html" />
     <link rel="prev" title="2.3. First Order Model for a Single Heater" href="02.03-First-Order-Model-for-a-Single-Heater.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="../search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-
-  
-
-<a class="navbar-brand logo" href="../Readme.html">
-  
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -170,412 +115,1026 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Information
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Syllabus.html">Syllabus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Schedule.html">Schedule</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../assignments/assignments.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Schedule.html">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/assignments.html">
+   Assignments
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
-</li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topical Materials</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topical Materials
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="01.00-What-is-Process-Control.html">1. What is Process Control?</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="01.01-What-is-Feedback.html">1.1. What is Feedback?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01.02-Elements-of-Feedback-Control.html">1.2. Elements of Process Control</a></li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01.00-What-is-Process-Control.html">
+   1. What is Process Control?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01.01-What-is-Feedback.html">
+     1.1. What is Feedback?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01.02-Elements-of-Feedback-Control.html">
+     1.2. Elements of Process Control
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="02.00-Process-Modeling.html">
+   2. Process Modeling
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="02.01-One-Compartment-Pharmacokinetics.html">
+     2.1. One Compartment Pharmacokinetics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02.02-Properties-of-Scalar-First-Order-Linear-Systems.html">
+     2.2. First-Order Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02.03-First-Order-Model-for-a-Single-Heater.html">
+     2.3. First Order Model for a Single Heater
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.4. Fitting a Model to Experimental Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02.05-Second-Order.html">
+     2.5. Second Order Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02.06-Fed-Batch-Bioreactor.html">
+     2.6. Fed-Batch Bioreactor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02.07-Exothermic-CSTR.html">
+     2.7. Exothermic Continuous Stirred Tank Reactor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02.08-Hare-and-Lynx.html">
+     2.8. Hare and Lynx Population Dynamics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02.09-Study-Guide.html">
+     2.9. Study Guide
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="03.00-Feedback-Control.html">
+   3. Feedback Control
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03.01-Case-Study-Thermal-Cycling-PCR.html">
+     3.1. Case Study: Thermal Cycling for PCR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03.02-Setpoints.html">
+     3.2. Setpoints
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03.03-Setpoints-Thermal-Cycler.html">
+     3.3. Case Study: PCR Thermal Cycler Protocols
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03.04-Relay-Control.html">
+     3.4. Relay Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03.05-Implementing-Controllers.html">
+     3.5. Implementing Controllers in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03.06-Proportional-Integral-Control.html">
+     3.6. Practical Proportional (P) and Proportional-Integral (PI) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03.07-Integral-Windup-and-Bumpless-Transfer.html">
+     3.7. Integral Windup and Bumpless Transfer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03.08-Controller-Tuning.html">
+     3.8. Controller Tuning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04/04.00-Process-Analytics.html">
+   4. Process Analytics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04/04.01-Learning-Goals.html">
+     4.1. Learning Goals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04/04.02-Process-Historians.html">
+     4.2. Data/Process/Operational Historian
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04/04.03-State-Estimation.html">
+     4.3. State Estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04/04.04-Lab-Assigment-State-Estimation.html">
+     4.4. Lab Assignment 5: State Estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04/04.05-Anomaly-Detection.html">
+     4.5. Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04/04.06-Lab-Assignment-Anomaly-Detection.html">
+     4.6. Lab Assignment 6: Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04/04.07-Observer-Synthesis-LMI.html">
+     4.7. Observer Synthesis using Linear Matrix Inequalities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04/04.08-Envrironmental-Application.html">
+     4.8. Application of Luenberger Observers to Environmental Modeling of Rivers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04/04.09-Study-Questions.html">
+     4.9. Study Questions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="05/05.00-Optimization.html">
+   5. Optimization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05/05.01-Linear-Production-Model.html">
+     5.1. Linear Production Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05/05.02-Linear-Blending-Problem.html">
+     5.2. Linear Blending Problems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05/05.03-Homework_2.html">
+     5.3. Homework Assignment 2: Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05/05.04-Gasoline-Blending.html">
+     5.4. Gasoline Blending
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05/05.05-Linear-Programming.html">
+     5.5. Linear Programming
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05/05.06-Design-of-a-Cold-Weather-Fuel.html">
+     5.6. Design of a Cold Weather Fuel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05/05.99-Pyomo-Examples.html">
+     5.7. Pyomo Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CBE30338-EV-Example.html">
+     5.8. Recharging Strategy for an Electric Vehicle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="milk-pooling.html">
+     5.9. Pooling and Blending
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="06.00-Predictive-Control.html">
+   6. Predictive Control
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html">
+     6.1. Simulation and Optimal Control in Pharmacokinetics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06.01-Static-Operability.html">
+     6.2. Static Operability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06.02-Simulation-and-Open-Loop-Optimal-Control.html">
+     6.3. Open-Loop Optimal Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06.03-Predictive-Control.html">
+     6.4. Predictive Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06.04-Implementing-Predictive-Control.html">
+     6.5. Implementing Predictive Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06.06a-gompertz-tumor-growth.html">
+     6.6. Gompertz Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06.06-gompertz-model-project.html">
+     6.7. Project: Gompertz Model for Tumor Growth
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06.07-time-as-decision-variable.html">
+     6.8. Time as a Decision Variable
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="08.00-Projects.html">
+   7. Projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08.01-Project-Ideas.html">
+     7.1. Project Ideas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.00-Bibliography.html">
+   8. References
+  </a>
+ </li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="02.00-Process-Modeling.html">2. Process Modeling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="02.01-One-Compartment-Pharmacokinetics.html">2.1. One Compartment Pharmacokinetics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.02-Properties-of-Scalar-First-Order-Linear-Systems.html">2.2. First-Order Linear Systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.03-First-Order-Model-for-a-Single-Heater.html">2.3. First Order Model for a Single Heater</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4. Fitting a Model to Experimental Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.05-Second-Order.html">2.5. Second Order Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.07-Exothermic-CSTR.html">2.7. Exothermic Continuous Stirred Tank Reactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.08-Hare-and-Lynx.html">2.8. Hare and Lynx Population Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.09-Study-Guide.html">2.9. Study Guide</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="03.01-Case-Study-Thermal-Cycling-PCR.html">3.1. Case Study: Thermal Cycling for PCR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.02-Setpoints.html">3.2. Setpoints</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.03-Setpoints-Thermal-Cycler.html">3.3. Case Study: PCR Thermal Cycler Protocols</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.04-Relay-Control.html">3.4. Relay Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.08-Controller-Tuning.html">3.8. Controller Tuning</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="04/04.01-Learning-Goals.html">4.1. Learning Goals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04/04.02-Process-Historians.html">4.2. Data/Process/Operational Historian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04/04.03-State-Estimation.html">4.3. State Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04/04.04-Lab-Assigment-State-Estimation.html">4.4. Lab Assignment 5: State Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04/04.05-Anomaly-Detection.html">4.5. Anomaly Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04/04.06-Lab-Assignment-Anomaly-Detection.html">4.6. Lab Assignment 6: Anomaly Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04/04.07-Observer-Synthesis-LMI.html">4.7. Observer Synthesis using Linear Matrix Inequalities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04/04.08-Envrironmental-Application.html">4.8. Application of Luenberger Observers to Environmental Modeling of Rivers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04/04.09-Study-Questions.html">4.9. Study Questions</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="05/05.00-Optimization.html">5. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="05/05.01-Linear-Production-Model.html">5.1. Linear Production Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05/05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05/05.03-Homework_2.html">5.3. Homework Assignment 2: Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05/05.04-Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05/05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05/05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05/05.99-Pyomo-Examples.html">5.7. Pyomo Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../CBE30338-EV-Example.html">5.8. Recharging Strategy for an Electric Vehicle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="milk-pooling.html">5.9. Pooling and Blending</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="06.00-Predictive-Control.html">6. Predictive Control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html">6.1. Simulation and Optimal Control in Pharmacokinetics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.01-Static-Operability.html">6.2. Static Operability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.02-Simulation-and-Open-Loop-Optimal-Control.html">6.3. Open-Loop Optimal Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.03-Predictive-Control.html">6.4. Predictive Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.04-Implementing-Predictive-Control.html">6.5. Implementing Predictive Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.06a-gompertz-tumor-growth.html">6.6. Gompertz Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="09.00-Bibliography.html">8. References</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Laboratory</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Control Laboratory
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/00.00-tclab.html">1. The Temperature Control Laboratory</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/00.01-setting-up-tclab.html">1.1. Setting up TCLab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/00.02-troubleshooting-tclab.html">1.2. Testing and Troubleshooting TCLab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/00.03-using-tclab.html">1.3. Python Coding for TCLab</a></li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tclab/00.00-tclab.html">
+   1. The Temperature Control Laboratory
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/00.01-setting-up-tclab.html">
+     1.1. Setting up TCLab
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/00.02-troubleshooting-tclab.html">
+     1.2. Testing and Troubleshooting TCLab
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/00.03-using-tclab.html">
+     1.3. Python Coding for TCLab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tclab/01.00-step-testing.html">
+   2. Step Testing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/01.01-step-testing.html">
+     2.1. Step Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/01.02-first-order-model-for-a-single-heater.html">
+     2.2. Lab Assignment 1: Step Test of a First-Order System
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tclab/02.00-Empirical-Model-Identification.html">
+   3. Empirical Model Identification
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/02.02-Fitting-Step-Test-Data-to-Empirical-Models.html">
+     3.1. Fitting Step Test Data to Empirical Models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tclab/03.00-Estimating-Model-Parameters.html">
+   4. Estimating Model Parameters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/03.10-TCLab-Lab-2-Model-Indentification.html">
+     4.1. Assignment: Model Identification
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tclab/04.00-Feedback-Control.html">
+   5. Feedback Control
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/04.01-Relay-Control.html">
+     5.1. Relay Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/04.02-Lab-Assignment-Relay-Control.html">
+     5.2. Lab Assignment 4: Relay Control
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tclab/05.00-State-Estimation.html">
+   6. State Estimation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/05.01-Open-and-Closed-Loop-Estimation.html">
+     6.2. Open and Closed Loop Estimation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tclab/06.00-Optimal-Control.html">
+   7. Optimization
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tclab/07.00-Predictive-Control-and-Real-Time-Optimization.html">
+   8. Predictive Control and Real Time Optimization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.html">
+     8.1. Simulation, Control, and Estimation using Pyomo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tclab/07.02-Optimization-Control-and-Estimation-using-Pyomo-With-Windows-ipopt.html">
+     8.2. Simulation, Control, and Estimation using Pyomo
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/01.00-step-testing.html">2. Step Testing</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/01.01-step-testing.html">2.1. Step Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/01.02-first-order-model-for-a-single-heater.html">2.2. Lab Assignment 1: Step Test of a First-Order System</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/02.00-Empirical-Model-Identification.html">3. Empirical Model Identification</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/02.02-Fitting-Step-Test-Data-to-Empirical-Models.html">3.1. Fitting Step Test Data to Empirical Models</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/03.00-Estimating-Model-Parameters.html">4. Estimating Model Parameters</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/03.10-TCLab-Lab-2-Model-Indentification.html">4.1. Assignment: Model Identification</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/04.00-Feedback-Control.html">5. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/04.01-Relay-Control.html">5.1. Relay Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/04.02-Lab-Assignment-Relay-Control.html">5.2. Lab Assignment 4: Relay Control</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/05.00-State-Estimation.html">6. State Estimation</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/05.01-Open-and-Closed-Loop-Estimation.html">6.2. Open and Closed Loop Estimation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tclab/06.00-Optimal-Control.html">7. Optimization</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/07.00-Predictive-Control-and-Real-Time-Optimization.html">8. Predictive Control and Real Time Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.html">8.1. Simulation, Control, and Estimation using Pyomo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tclab/07.02-Optimization-Control-and-Estimation-using-Pyomo-With-Windows-ipopt.html">8.2. Simulation, Control, and Estimation using Pyomo</a></li>
-</ul>
-</li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Tutorials</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Python Tutorials
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../python/A.00-Python-Tutorials.html">Python Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../python/A.05-Tidy-Data-and-Pandas.html">Tidy Data and Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python/A.10-Coding-Controllers-with-Python-Generators.html">Coding Controllers with Python Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python/A.11-Modular-Approach-to-Simulation-using-Python-Generators.html">Modular Simulation using Python Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python/A.30-Animation-in-Jupyter-Notebooks.html">Animation in Jupyter Notebooks</a></li>
-</ul>
-</li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python/A.00-Python-Tutorials.html">
+   Python Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python/A.05-Tidy-Data-and-Pandas.html">
+     Tidy Data and Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python/A.10-Coding-Controllers-with-Python-Generators.html">
+     Coding Controllers with Python Generators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python/A.11-Modular-Approach-to-Simulation-using-Python-Generators.html">
+     Modular Simulation using Python Generators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python/A.30-Animation-in-Jupyter-Notebooks.html">
+     Animation in Jupyter Notebooks
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
 </nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
     </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+    <div id="rtd-footer-container"></div>
+</div>
 
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
+          
 
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
-    </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
 
 
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/02.04-Fitting-a-Model-to-Data.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onColab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/02.04-Fitting-a-Model-to-Data.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/02.04-Fitting-a-Model-to-Data.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="btn__text-container">Colab</span>
+<span class="headerbtn__text-container">Colab</span>
 </a>
-</li>
+
+      </li>
       
-  </ul>
+    </ul>
+  </div>
 </div>
-
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/ndcbe/controls" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02.04-Fitting-a-Model-to-Data.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="../_sources/notebooks/02.04-Fitting-a-Model-to-Data.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
   </button>
-`);
-</script>
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ndcbe/controls"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
   
-</div>
-</div>
-              
-              
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fitting a Model to Experimental Data</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-fit-mathematical-models-to-data">2.4.1. Why do we fit mathematical models to data?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-test-data">2.4.2. Step Test Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">2.4.3. Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-differential-equations">2.4.3.1. First Order Linear Differential Equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-state-response">2.4.3.2. Steady State Response</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-response">2.4.3.3. Transient Response</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-model-equation">2.4.3.3.1. Apply to Model Equation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-fit">2.4.4. Plot a fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-the-fit">2.4.5. Improving the fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-the-fit">2.4.6. Measuring the Fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-the-impact-of-the-highly-improbable">2.4.7. An Aside: “The Impact of the Highly Improbable”</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-or-normal-distribution">2.4.7.1. Gaussian (or Normal) Distribution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heavy-tail-distributions">2.4.7.2. Heavy Tail Distributions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-rare-events-may-not-be-so-rare-avoid-overfitting-extreme-values">2.4.7.3. Conclusion: Rare events may not be so rare. Avoid overfitting extreme values!</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-a-best-fit">2.4.8. Finding a best fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">2.4.9. Exercises</a></li>
-</ul>
-            </nav>
-        </div>
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02.04-Fitting-a-Model-to-Data.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/02.04-Fitting-a-Model-to-Data.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-              
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-do-we-fit-mathematical-models-to-data">
+   2.4.1. Why do we fit mathematical models to data?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-test-data">
+   2.4.2. Step Test Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model">
+   2.4.3. Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-order-linear-differential-equations">
+     2.4.3.1. First Order Linear Differential Equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#steady-state-response">
+     2.4.3.2. Steady State Response
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transient-response">
+     2.4.3.3. Transient Response
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#apply-to-model-equation">
+       2.4.3.3.1. Apply to Model Equation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-a-fit">
+   2.4.4. Plot a fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#improving-the-fit">
+   2.4.5. Improving the fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-the-fit">
+   2.4.6. Measuring the Fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-aside-the-impact-of-the-highly-improbable">
+   2.4.7. An Aside: “The Impact of the Highly Improbable”
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian-or-normal-distribution">
+     2.4.7.1. Gaussian (or Normal) Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heavy-tail-distributions">
+     2.4.7.2. Heavy Tail Distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion-rare-events-may-not-be-so-rare-avoid-overfitting-extreme-values">
+     2.4.7.3. Conclusion: Rare events may not be so rare. Avoid overfitting extreme values!
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-a-best-fit">
+   2.4.8. Finding a best fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   2.4.9. Exercises
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Fitting a Model to Experimental Data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-do-we-fit-mathematical-models-to-data">
+   2.4.1. Why do we fit mathematical models to data?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-test-data">
+   2.4.2. Step Test Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model">
+   2.4.3. Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-order-linear-differential-equations">
+     2.4.3.1. First Order Linear Differential Equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#steady-state-response">
+     2.4.3.2. Steady State Response
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transient-response">
+     2.4.3.3. Transient Response
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#apply-to-model-equation">
+       2.4.3.3.1. Apply to Model Equation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-a-fit">
+   2.4.4. Plot a fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#improving-the-fit">
+   2.4.5. Improving the fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-the-fit">
+   2.4.6. Measuring the Fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-aside-the-impact-of-the-highly-improbable">
+   2.4.7. An Aside: “The Impact of the Highly Improbable”
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian-or-normal-distribution">
+     2.4.7.1. Gaussian (or Normal) Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heavy-tail-distributions">
+     2.4.7.2. Heavy Tail Distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion-rare-events-may-not-be-so-rare-avoid-overfitting-extreme-values">
+     2.4.7.3. Conclusion: Rare events may not be so rare. Avoid overfitting extreme values!
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-a-best-fit">
+   2.4.8. Finding a best fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   2.4.9. Exercises
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
+              <div>
+                
   <section class="tex2jax_ignore mathjax_ignore" id="fitting-a-model-to-experimental-data">
-<h1><span class="section-number">2.4. </span>Fitting a Model to Experimental Data<a class="headerlink" href="#fitting-a-model-to-experimental-data" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.4. </span>Fitting a Model to Experimental Data<a class="headerlink" href="#fitting-a-model-to-experimental-data" title="Permalink to this headline">#</a></h1>
 <p><strong>Learning Goals</strong></p>
 <ul class="simple">
 <li><p>This notebook demonstrates how to ‘tuning’ a model (i.e., find model parameters) to fit experimental data.</p></li>
 </ul>
 <section id="why-do-we-fit-mathematical-models-to-data">
-<h2><span class="section-number">2.4.1. </span>Why do we fit mathematical models to data?<a class="headerlink" href="#why-do-we-fit-mathematical-models-to-data" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
+<h2><span class="section-number">2.4.1. </span>Why do we fit mathematical models to data?<a class="headerlink" href="#why-do-we-fit-mathematical-models-to-data" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
 <li><p><strong>Test our understanding of a chemical or biological process.</strong> Karl Popper (1902-1994) was a philosopher of science who proposed empirical falsification as the foundation of the scientific method. A hypothesis can never be proven, but it can be falsified by empirical measurement. A mathematical model is a quantitative hypothesis for how a chemical or biological process behaves. Fitting a model to experimental data provides an opportunity to falsify a hypothesis.</p></li>
 <li><p><strong>Use the model for process analysis and rational design.</strong></p></li>
 <li><p><strong>Make quantitative predictions of system response.</strong> This is how we will be using models for process control … that is to use models to solve for inputs that achieve a desired behavior.</p></li>
 </ol>
 </section>
 <section id="step-test-data">
-<h2><span class="section-number">2.4.2. </span>Step Test Data<a class="headerlink" href="#step-test-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.2. </span>Step Test Data<a class="headerlink" href="#step-test-data" title="Permalink to this headline">#</a></h2>
 <p><strong>Starting at steady state</strong>, record the response of a system to a step change in a manipulable input. In this case, we impose a step input of 50% power to the first heater of the temperature control lab, with P1 = 200.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -774,18 +1333,18 @@ document.write(`
 <span class="ne">AttributeError</span>: &#39;numpy.ndarray&#39; object has no attribute &#39;plot&#39;
 </pre></div>
 </div>
-<img alt="../_images/61e599b91220f3de2572d36a476a11677fd4f224a0e0444178c47c8d4a0c84df.png" src="../_images/61e599b91220f3de2572d36a476a11677fd4f224a0e0444178c47c8d4a0c84df.png" />
+<img alt="../_images/02.04-Fitting-a-Model-to-Data_4_3.png" src="../_images/02.04-Fitting-a-Model-to-Data_4_3.png" />
 </div>
 </div>
 </section>
 <section id="model">
-<h2><span class="section-number">2.4.3. </span>Model<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.3. </span>Model<a class="headerlink" href="#model" title="Permalink to this headline">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1
 \end{align}\]</div>
 <section id="first-order-linear-differential-equations">
-<h3><span class="section-number">2.4.3.1. </span>First Order Linear Differential Equations<a class="headerlink" href="#first-order-linear-differential-equations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.3.1. </span>First Order Linear Differential Equations<a class="headerlink" href="#first-order-linear-differential-equations" title="Permalink to this headline">#</a></h3>
 <p>Manipulation will bring this model into a commonly used standard form</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -799,7 +1358,7 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1
 <p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are model constants, <span class="math notranslate nohighlight">\(x\)</span> is the dependent variable, <span class="math notranslate nohighlight">\(x\)</span> is the state variable, and <span class="math notranslate nohighlight">\(u\)</span> is the manipulable input.</p>
 </section>
 <section id="steady-state-response">
-<h3><span class="section-number">2.4.3.2. </span>Steady State Response<a class="headerlink" href="#steady-state-response" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.3.2. </span>Steady State Response<a class="headerlink" href="#steady-state-response" title="Permalink to this headline">#</a></h3>
 <p>For a constant value <span class="math notranslate nohighlight">\(\bar{u}\)</span>, the steady state response <span class="math notranslate nohighlight">\(\bar{x}\)</span> is given by solution to the equation</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -812,7 +1371,7 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1
 \end{align}\]</div>
 </section>
 <section id="transient-response">
-<h3><span class="section-number">2.4.3.3. </span>Transient Response<a class="headerlink" href="#transient-response" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.3.3. </span>Transient Response<a class="headerlink" href="#transient-response" title="Permalink to this headline">#</a></h3>
 <p>The transient response is given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -820,7 +1379,7 @@ x(t) &amp; = \bar{x} + \left[x(t_0) - \bar{x}\right] e^{a(t-t_0)}
 \end{align}\]</div>
 <p>which is an exact, analytical solution.</p>
 <section id="apply-to-model-equation">
-<h4><span class="section-number">2.4.3.3.1. </span>Apply to Model Equation<a class="headerlink" href="#apply-to-model-equation" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">2.4.3.3.1. </span>Apply to Model Equation<a class="headerlink" href="#apply-to-model-equation" title="Permalink to this headline">#</a></h4>
 <p>We now apply this textbook solution to the model equation. Comparing equations, we make the following identifications</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -842,7 +1401,7 @@ T_1(t) = T_{amb} + \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1(t_0) - T_{amb} 
 </section>
 </section>
 <section id="plot-a-fit">
-<h2><span class="section-number">2.4.4. </span>Plot a fit<a class="headerlink" href="#plot-a-fit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.4. </span>Plot a fit<a class="headerlink" href="#plot-a-fit" title="Permalink to this headline">#</a></h2>
 <p>Let’s try a guess fit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -882,12 +1441,12 @@ T_1(t) = T_{amb} + \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1(t_0) - T_{amb} 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/94210fe94c90513796ca58b2cc0502356e54ad46bb6a0a48a07be24b3b774a51.png" src="../_images/94210fe94c90513796ca58b2cc0502356e54ad46bb6a0a48a07be24b3b774a51.png" />
+<img alt="../_images/02.04-Fitting-a-Model-to-Data_11_0.png" src="../_images/02.04-Fitting-a-Model-to-Data_11_0.png" />
 </div>
 </div>
 </section>
 <section id="improving-the-fit">
-<h2><span class="section-number">2.4.5. </span>Improving the fit<a class="headerlink" href="#improving-the-fit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.5. </span>Improving the fit<a class="headerlink" href="#improving-the-fit" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -926,13 +1485,13 @@ T_1(t) = T_{amb} + \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1(t_0) - T_{amb} 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b8938b8c3a3a874276949fd78f0c28b724c15656feee6a443d39d0ca5078b4a1.png" src="../_images/b8938b8c3a3a874276949fd78f0c28b724c15656feee6a443d39d0ca5078b4a1.png" />
+<img alt="../_images/02.04-Fitting-a-Model-to-Data_13_0.png" src="../_images/02.04-Fitting-a-Model-to-Data_13_0.png" />
 </div>
 </div>
 <p>How do you handle an initial condition different from <span class="math notranslate nohighlight">\(T_{amb}\)</span>?</p>
 </section>
 <section id="measuring-the-fit">
-<h2><span class="section-number">2.4.6. </span>Measuring the Fit<a class="headerlink" href="#measuring-the-fit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.6. </span>Measuring the Fit<a class="headerlink" href="#measuring-the-fit" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Sum of Squares</p></li>
 </ul>
@@ -1029,27 +1588,27 @@ T_1(t) = T_{amb} + \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1(t_0) - T_{amb} 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>434.7646349068996
 </pre></div>
 </div>
-<img alt="../_images/29fa60d28aa514df8d8a734a6daac58048ceb6c31d920c217518f5d84e20b979.png" src="../_images/29fa60d28aa514df8d8a734a6daac58048ceb6c31d920c217518f5d84e20b979.png" />
+<img alt="../_images/02.04-Fitting-a-Model-to-Data_16_1.png" src="../_images/02.04-Fitting-a-Model-to-Data_16_1.png" />
 </div>
 </div>
 </section>
 <section id="an-aside-the-impact-of-the-highly-improbable">
-<h2><span class="section-number">2.4.7. </span>An Aside: “The Impact of the Highly Improbable”<a class="headerlink" href="#an-aside-the-impact-of-the-highly-improbable" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.7. </span>An Aside: “The Impact of the Highly Improbable”<a class="headerlink" href="#an-aside-the-impact-of-the-highly-improbable" title="Permalink to this headline">#</a></h2>
 <section id="gaussian-or-normal-distribution">
-<h3><span class="section-number">2.4.7.1. </span>Gaussian (or Normal) Distribution<a class="headerlink" href="#gaussian-or-normal-distribution" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.7.1. </span>Gaussian (or Normal) Distribution<a class="headerlink" href="#gaussian-or-normal-distribution" title="Permalink to this headline">#</a></h3>
 <p><img alt="" src="https://sphweb.bumc.bu.edu/otlt/MPH-Modules/PH717-QuantCore/PH717-Module6-RandomError/Normal%20Distribution%20deviations.png" /></p>
 </section>
 <section id="heavy-tail-distributions">
-<h3><span class="section-number">2.4.7.2. </span>Heavy Tail Distributions<a class="headerlink" href="#heavy-tail-distributions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.7.2. </span>Heavy Tail Distributions<a class="headerlink" href="#heavy-tail-distributions" title="Permalink to this headline">#</a></h3>
 <p><img alt="" src="http://www.bitsofscience.org/wordpress-3.0.1/wordpress/wp-content/uploads//extreme-weather-gaussian.jpg" /></p>
 <p><img alt="" src="https://i.stack.imgur.com/OZctU.png" /></p>
 </section>
 <section id="conclusion-rare-events-may-not-be-so-rare-avoid-overfitting-extreme-values">
-<h3><span class="section-number">2.4.7.3. </span>Conclusion: Rare events may not be so rare. Avoid overfitting extreme values!<a class="headerlink" href="#conclusion-rare-events-may-not-be-so-rare-avoid-overfitting-extreme-values" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.7.3. </span>Conclusion: Rare events may not be so rare. Avoid overfitting extreme values!<a class="headerlink" href="#conclusion-rare-events-may-not-be-so-rare-avoid-overfitting-extreme-values" title="Permalink to this headline">#</a></h3>
 </section>
 </section>
 <section id="finding-a-best-fit">
-<h2><span class="section-number">2.4.8. </span>Finding a best fit<a class="headerlink" href="#finding-a-best-fit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.8. </span>Finding a best fit<a class="headerlink" href="#finding-a-best-fit" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fmin</span>
@@ -1068,7 +1627,7 @@ T_1(t) = T_{amb} + \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1(t_0) - T_{amb} 
 [0.04800523 8.72034542]
 </pre></div>
 </div>
-<img alt="../_images/b4c703a41513cccb780d5e478ce851181cd1e12732067a7240a9e65b7b3b8573.png" src="../_images/b4c703a41513cccb780d5e478ce851181cd1e12732067a7240a9e65b7b3b8573.png" />
+<img alt="../_images/02.04-Fitting-a-Model-to-Data_19_1.png" src="../_images/02.04-Fitting-a-Model-to-Data_19_1.png" />
 </div>
 </div>
 <p>Let’s fit a model to the data.</p>
@@ -1118,12 +1677,12 @@ T_1(t) = T_{amb} + \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1(t_0) - T_{amb} 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/38ad4d76a441e944f761e295fcdcd73894f41b85ca69291ba86e2cea7b33458b.png" src="../_images/38ad4d76a441e944f761e295fcdcd73894f41b85ca69291ba86e2cea7b33458b.png" />
+<img alt="../_images/02.04-Fitting-a-Model-to-Data_22_0.png" src="../_images/02.04-Fitting-a-Model-to-Data_22_0.png" />
 </div>
 </div>
 <div class="admonition-study-question admonition">
 <p class="admonition-title">Study Question</p>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>By trial and error using the <code class="docutils literal notranslate"><span class="pre">compare()</span></code> function defined above, tetermine values for <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(C_p\)</span> that yield a good fit of the model to the data.</p></li>
 <li><p>Are you able to remove all systematic error? If not, why not?</p></li>
 <li><p>The sum of absolute errors is shown on the chart. Try to find values of <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(C_p\)</span> that minimize this error criterion. In your opinion, is that the best choice of model parameters? Why or why not?</p></li>
@@ -1133,8 +1692,8 @@ T_1(t) = T_{amb} + \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1(t_0) - T_{amb} 
 </div>
 </section>
 <section id="exercises">
-<h2><span class="section-number">2.4.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
+<h2><span class="section-number">2.4.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
 <li><p>This notebook attempted to fit a first-order model of a heater/sensor assembly to experimental data. In the course of the fit, estimates were derived for parameters <span class="math notranslate nohighlight">\(\alpha\)</span>, P1, <span class="math notranslate nohighlight">\(U_a\)</span>, and <span class="math notranslate nohighlight">\(C_p\)</span>. From these parameter values, estimate a time constant.</p></li>
 <li><p>Apply the techniques outlined in Section 2.2 for the estimation of time constants from experimental data. How does that value compare to the calculation in the first question?</p></li>
 <li><p>It’s not always possible to wait for a system to reach steady state. Create a new function, <code class="docutils literal notranslate"><span class="pre">compare3</span></code>, that introduces a third unknown parameter representing an initial condition different for <span class="math notranslate nohighlight">\(T'_1(0)\)</span> that is different from zero.</p></li>
@@ -1154,7 +1713,7 @@ T_1(t) = T_{amb} + \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1(t_0) - T_{amb} 
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -1162,123 +1721,50 @@ T_1(t) = T_{amb} + \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1(t_0) - T_{amb} 
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="02.03-First-Order-Model-for-a-Single-Heater.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.3. </span>First Order Model for a Single Heater</p>
-      </div>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="02.03-First-Order-Model-for-a-Single-Heater.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2.3. </span>First Order Model for a Single Heater</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="02.05-Second-Order.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="02.05-Second-Order.html" title="next page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">2.5. </span>Second Order Model</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-fit-mathematical-models-to-data">2.4.1. Why do we fit mathematical models to data?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-test-data">2.4.2. Step Test Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">2.4.3. Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-differential-equations">2.4.3.1. First Order Linear Differential Equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-state-response">2.4.3.2. Steady State Response</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-response">2.4.3.3. Transient Response</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-model-equation">2.4.3.3.1. Apply to Model Equation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-fit">2.4.4. Plot a fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-the-fit">2.4.5. Improving the fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-the-fit">2.4.6. Measuring the Fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-the-impact-of-the-highly-improbable">2.4.7. An Aside: “The Impact of the Highly Improbable”</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-or-normal-distribution">2.4.7.1. Gaussian (or Normal) Distribution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heavy-tail-distributions">2.4.7.2. Heavy Tail Distributions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-rare-events-may-not-be-so-rare-avoid-overfitting-extreme-values">2.4.7.3. Conclusion: Rare events may not be so rare. Avoid overfitting extreme values!</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-a-best-fit">2.4.8. Finding a best fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">2.4.9. Exercises</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Jeffrey Kantor and Alexander Dowling
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
+            </footer>
+        </div>
     </div>
-  </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jeffrey Kantor and Alexander Dowling<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  <footer class="bd-footer">
-  </footer>
+
   </body>
 </html>

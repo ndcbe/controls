@@ -1,60 +1,48 @@
 
-
 <!DOCTYPE html>
 
-
-<html lang="en" data-content_root="" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>5.1. Linear Production Model &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
+    
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-  
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -64,104 +52,61 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/05/05.01-Linear-Production-Model';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="5.2. Linear Blending Problems" href="05.02-Linear-Blending-Problem.html" />
     <link rel="prev" title="5. Optimization" href="05.00-Optimization.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="../../search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-
-  
-
-<a class="navbar-brand logo" href="../../Readme.html">
-  
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CBE 30338 Data Analytics, Optimization, and Control</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -170,417 +115,1033 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Information
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../Syllabus.html">Syllabus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Schedule.html">Schedule</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../assignments/assignments.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Schedule.html">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../assignments/assignments.html">
+   Assignments
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Homework-1.html">
+     Homework 1: Computing and Data Analysis Review
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-1-Step-Testing.html">
+     Lab 1: Step Test of a First-Order System
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-2-Relay-Control.html">
+     Lab 2: Relay (On-Off) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-3-Model-Identification.html">
+     Lab 3: Model Identification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-4-PI-Control.html">
+     Lab 4: PI Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/Lab-5-Open-Loop-Optimization.html">
+     Lab 5: Open Loop Optimization
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
-</li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topical Materials</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topical Materials
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../01.00-What-is-Process-Control.html">1. What is Process Control?</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../01.01-What-is-Feedback.html">1.1. What is Feedback?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01.02-Elements-of-Feedback-Control.html">1.2. Elements of Process Control</a></li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01.00-What-is-Process-Control.html">
+   1. What is Process Control?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01.01-What-is-Feedback.html">
+     1.1. What is Feedback?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01.02-Elements-of-Feedback-Control.html">
+     1.2. Elements of Process Control
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02.00-Process-Modeling.html">
+   2. Process Modeling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02.01-One-Compartment-Pharmacokinetics.html">
+     2.1. One Compartment Pharmacokinetics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02.02-Properties-of-Scalar-First-Order-Linear-Systems.html">
+     2.2. First-Order Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02.03-First-Order-Model-for-a-Single-Heater.html">
+     2.3. First Order Model for a Single Heater
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02.04-Fitting-a-Model-to-Data.html">
+     2.4. Fitting a Model to Experimental Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02.05-Second-Order.html">
+     2.5. Second Order Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02.06-Fed-Batch-Bioreactor.html">
+     2.6. Fed-Batch Bioreactor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02.07-Exothermic-CSTR.html">
+     2.7. Exothermic Continuous Stirred Tank Reactor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02.08-Hare-and-Lynx.html">
+     2.8. Hare and Lynx Population Dynamics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02.09-Study-Guide.html">
+     2.9. Study Guide
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03.00-Feedback-Control.html">
+   3. Feedback Control
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03.01-Case-Study-Thermal-Cycling-PCR.html">
+     3.1. Case Study: Thermal Cycling for PCR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03.02-Setpoints.html">
+     3.2. Setpoints
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03.03-Setpoints-Thermal-Cycler.html">
+     3.3. Case Study: PCR Thermal Cycler Protocols
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03.04-Relay-Control.html">
+     3.4. Relay Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03.05-Implementing-Controllers.html">
+     3.5. Implementing Controllers in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03.06-Proportional-Integral-Control.html">
+     3.6. Practical Proportional (P) and Proportional-Integral (PI) Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03.07-Integral-Windup-and-Bumpless-Transfer.html">
+     3.7. Integral Windup and Bumpless Transfer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03.08-Controller-Tuning.html">
+     3.8. Controller Tuning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/04.00-Process-Analytics.html">
+   4. Process Analytics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/04.01-Learning-Goals.html">
+     4.1. Learning Goals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/04.02-Process-Historians.html">
+     4.2. Data/Process/Operational Historian
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/04.03-State-Estimation.html">
+     4.3. State Estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/04.04-Lab-Assigment-State-Estimation.html">
+     4.4. Lab Assignment 5: State Estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/04.05-Anomaly-Detection.html">
+     4.5. Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/04.06-Lab-Assignment-Anomaly-Detection.html">
+     4.6. Lab Assignment 6: Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/04.07-Observer-Synthesis-LMI.html">
+     4.7. Observer Synthesis using Linear Matrix Inequalities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/04.08-Envrironmental-Application.html">
+     4.8. Application of Luenberger Observers to Environmental Modeling of Rivers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/04.09-Study-Questions.html">
+     4.9. Study Questions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="05.00-Optimization.html">
+   5. Optimization
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.1. Linear Production Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05.02-Linear-Blending-Problem.html">
+     5.2. Linear Blending Problems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05.03-Homework_2.html">
+     5.3. Homework Assignment 2: Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05.04-Gasoline-Blending.html">
+     5.4. Gasoline Blending
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05.05-Linear-Programming.html">
+     5.5. Linear Programming
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05.06-Design-of-a-Cold-Weather-Fuel.html">
+     5.6. Design of a Cold Weather Fuel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05.99-Pyomo-Examples.html">
+     5.7. Pyomo Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../CBE30338-EV-Example.html">
+     5.8. Recharging Strategy for an Electric Vehicle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../milk-pooling.html">
+     5.9. Pooling and Blending
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06.00-Predictive-Control.html">
+   6. Predictive Control
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html">
+     6.1. Simulation and Optimal Control in Pharmacokinetics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06.01-Static-Operability.html">
+     6.2. Static Operability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06.02-Simulation-and-Open-Loop-Optimal-Control.html">
+     6.3. Open-Loop Optimal Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06.03-Predictive-Control.html">
+     6.4. Predictive Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06.04-Implementing-Predictive-Control.html">
+     6.5. Implementing Predictive Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06.06a-gompertz-tumor-growth.html">
+     6.6. Gompertz Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06.06-gompertz-model-project.html">
+     6.7. Project: Gompertz Model for Tumor Growth
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06.07-time-as-decision-variable.html">
+     6.8. Time as a Decision Variable
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08.00-Projects.html">
+   7. Projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08.01-Project-Ideas.html">
+     7.1. Project Ideas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09.00-Bibliography.html">
+   8. References
+  </a>
+ </li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02.00-Process-Modeling.html">2. Process Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02.01-One-Compartment-Pharmacokinetics.html">2.1. One Compartment Pharmacokinetics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.02-Properties-of-Scalar-First-Order-Linear-Systems.html">2.2. First-Order Linear Systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.03-First-Order-Model-for-a-Single-Heater.html">2.3. First Order Model for a Single Heater</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.05-Second-Order.html">2.5. Second Order Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.07-Exothermic-CSTR.html">2.7. Exothermic Continuous Stirred Tank Reactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.08-Hare-and-Lynx.html">2.8. Hare and Lynx Population Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.09-Study-Guide.html">2.9. Study Guide</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03.01-Case-Study-Thermal-Cycling-PCR.html">3.1. Case Study: Thermal Cycling for PCR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03.02-Setpoints.html">3.2. Setpoints</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03.03-Setpoints-Thermal-Cycler.html">3.3. Case Study: PCR Thermal Cycler Protocols</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03.04-Relay-Control.html">3.4. Relay Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03.08-Controller-Tuning.html">3.8. Controller Tuning</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04/04.01-Learning-Goals.html">4.1. Learning Goals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04/04.02-Process-Historians.html">4.2. Data/Process/Operational Historian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04/04.03-State-Estimation.html">4.3. State Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04/04.04-Lab-Assigment-State-Estimation.html">4.4. Lab Assignment 5: State Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04/04.05-Anomaly-Detection.html">4.5. Anomaly Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04/04.06-Lab-Assignment-Anomaly-Detection.html">4.6. Lab Assignment 6: Anomaly Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04/04.07-Observer-Synthesis-LMI.html">4.7. Observer Synthesis using Linear Matrix Inequalities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04/04.08-Envrironmental-Application.html">4.8. Application of Luenberger Observers to Environmental Modeling of Rivers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04/04.09-Study-Questions.html">4.9. Study Questions</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="05.00-Optimization.html">5. Optimization</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1. Linear Production Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.03-Homework_2.html">5.3. Homework Assignment 2: Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.04-Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.99-Pyomo-Examples.html">5.7. Pyomo Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../CBE30338-EV-Example.html">5.8. Recharging Strategy for an Electric Vehicle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../milk-pooling.html">5.9. Pooling and Blending</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../06.00-Predictive-Control.html">6. Predictive Control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html">6.1. Simulation and Optimal Control in Pharmacokinetics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../06.01-Static-Operability.html">6.2. Static Operability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../06.02-Simulation-and-Open-Loop-Optimal-Control.html">6.3. Open-Loop Optimal Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../06.03-Predictive-Control.html">6.4. Predictive Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../06.04-Implementing-Predictive-Control.html">6.5. Implementing Predictive Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../06.06a-gompertz-tumor-growth.html">6.6. Gompertz Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../09.00-Bibliography.html">8. References</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Laboratory</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Control Laboratory
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/00.00-tclab.html">1. The Temperature Control Laboratory</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/00.01-setting-up-tclab.html">1.1. Setting up TCLab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/00.02-troubleshooting-tclab.html">1.2. Testing and Troubleshooting TCLab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/00.03-using-tclab.html">1.3. Python Coding for TCLab</a></li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tclab/00.00-tclab.html">
+   1. The Temperature Control Laboratory
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/00.01-setting-up-tclab.html">
+     1.1. Setting up TCLab
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/00.02-troubleshooting-tclab.html">
+     1.2. Testing and Troubleshooting TCLab
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/00.03-using-tclab.html">
+     1.3. Python Coding for TCLab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tclab/01.00-step-testing.html">
+   2. Step Testing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/01.01-step-testing.html">
+     2.1. Step Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/01.02-first-order-model-for-a-single-heater.html">
+     2.2. Lab Assignment 1: Step Test of a First-Order System
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tclab/02.00-Empirical-Model-Identification.html">
+   3. Empirical Model Identification
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/02.02-Fitting-Step-Test-Data-to-Empirical-Models.html">
+     3.1. Fitting Step Test Data to Empirical Models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tclab/03.00-Estimating-Model-Parameters.html">
+   4. Estimating Model Parameters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/03.10-TCLab-Lab-2-Model-Indentification.html">
+     4.1. Assignment: Model Identification
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tclab/04.00-Feedback-Control.html">
+   5. Feedback Control
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/04.01-Relay-Control.html">
+     5.1. Relay Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/04.02-Lab-Assignment-Relay-Control.html">
+     5.2. Lab Assignment 4: Relay Control
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tclab/05.00-State-Estimation.html">
+   6. State Estimation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/05.01-Open-and-Closed-Loop-Estimation.html">
+     6.2. Open and Closed Loop Estimation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tclab/06.00-Optimal-Control.html">
+   7. Optimization
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tclab/07.00-Predictive-Control-and-Real-Time-Optimization.html">
+   8. Predictive Control and Real Time Optimization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.html">
+     8.1. Simulation, Control, and Estimation using Pyomo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tclab/07.02-Optimization-Control-and-Estimation-using-Pyomo-With-Windows-ipopt.html">
+     8.2. Simulation, Control, and Estimation using Pyomo
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/01.00-step-testing.html">2. Step Testing</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/01.01-step-testing.html">2.1. Step Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/01.02-first-order-model-for-a-single-heater.html">2.2. Lab Assignment 1: Step Test of a First-Order System</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/02.00-Empirical-Model-Identification.html">3. Empirical Model Identification</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/02.02-Fitting-Step-Test-Data-to-Empirical-Models.html">3.1. Fitting Step Test Data to Empirical Models</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/03.00-Estimating-Model-Parameters.html">4. Estimating Model Parameters</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/03.10-TCLab-Lab-2-Model-Indentification.html">4.1. Assignment: Model Identification</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/04.00-Feedback-Control.html">5. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/04.01-Relay-Control.html">5.1. Relay Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/04.02-Lab-Assignment-Relay-Control.html">5.2. Lab Assignment 4: Relay Control</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/05.00-State-Estimation.html">6. State Estimation</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/05.01-Open-and-Closed-Loop-Estimation.html">6.2. Open and Closed Loop Estimation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../tclab/06.00-Optimal-Control.html">7. Optimization</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/07.00-Predictive-Control-and-Real-Time-Optimization.html">8. Predictive Control and Real Time Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.html">8.1. Simulation, Control, and Estimation using Pyomo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tclab/07.02-Optimization-Control-and-Estimation-using-Pyomo-With-Windows-ipopt.html">8.2. Simulation, Control, and Estimation using Pyomo</a></li>
-</ul>
-</li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Tutorials</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Python Tutorials
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../python/A.00-Python-Tutorials.html">Python Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../python/A.05-Tidy-Data-and-Pandas.html">Tidy Data and Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../python/A.10-Coding-Controllers-with-Python-Generators.html">Coding Controllers with Python Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../python/A.11-Modular-Approach-to-Simulation-using-Python-Generators.html">Modular Simulation using Python Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../python/A.30-Animation-in-Jupyter-Notebooks.html">Animation in Jupyter Notebooks</a></li>
-</ul>
-</li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../python/A.00-Python-Tutorials.html">
+   Python Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python/A.05-Tidy-Data-and-Pandas.html">
+     Tidy Data and Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python/A.10-Coding-Controllers-with-Python-Generators.html">
+     Coding Controllers with Python Generators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python/A.11-Modular-Approach-to-Simulation-using-Python-Generators.html">
+     Modular Simulation using Python Generators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python/A.30-Animation-in-Jupyter-Notebooks.html">
+     Animation in Jupyter Notebooks
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
 </nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
     </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+    <div id="rtd-footer-container"></div>
+</div>
 
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
+          
 
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
-    </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
 
 
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/05/05.01-Linear-Production-Model.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onColab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ndcbe/controls/main?urlpath=lab/tree/notebooks/05/05.01-Linear-Production-Model.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/05/05.01-Linear-Production-Model.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="btn__text-container">Colab</span>
+<span class="headerbtn__text-container">Colab</span>
 </a>
-</li>
+
+      </li>
       
-  </ul>
+    </ul>
+  </div>
 </div>
-
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/ndcbe/controls" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/05.01-Linear-Production-Model.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="../../_sources/notebooks/05/05.01-Linear-Production-Model.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
   </button>
-`);
-</script>
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ndcbe/controls"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
   
-</div>
-</div>
-              
-              
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Linear Production Model</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">5.1.1. Learning Goals</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">5.1.1.1. Optimization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-for-optimization">5.1.1.2. Modeling for Optimization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-optimization-problems">5.1.1.3. Solving Optimization Problems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-terminology">5.1.1.4. Additional Terminology</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-production-plan-for-a-single-product-plant">5.1.2. Example: Production Plan for a Single Product Plant</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-model">5.1.2.1. Mathematical Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">5.1.2.2. Exercises</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-plan-product-y">5.1.3. Production Plan: Product Y</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.1.3.1. Exercises</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-plan-mixed-product-strategy">5.1.4. Production Plan: Mixed Product Strategy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-using-pyomo">5.1.5. Solution using Pyomo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-active-constraints">5.1.6. What are the active constraints?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-incremental-value-of-labor">5.1.7. What is the incremental value of labor?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">5.1.7.1. Exercise</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-of-constraints">5.1.8. Theory of Constraints</a></li>
-</ul>
-            </nav>
-        </div>
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/05.01-Linear-Production-Model.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/05/05.01-Linear-Production-Model.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-              
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-goals">
+   5.1.1. Learning Goals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimization">
+     5.1.1.1. Optimization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modeling-for-optimization">
+     5.1.1.2. Modeling for Optimization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-optimization-problems">
+     5.1.1.3. Solving Optimization Problems
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additional-terminology">
+     5.1.1.4. Additional Terminology
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-production-plan-for-a-single-product-plant">
+   5.1.2. Example: Production Plan for a Single Product Plant
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematical-model">
+     5.1.2.1. Mathematical Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercises">
+     5.1.2.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#production-plan-product-y">
+   5.1.3. Production Plan: Product Y
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     5.1.3.1. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#production-plan-mixed-product-strategy">
+   5.1.4. Production Plan: Mixed Product Strategy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution-using-pyomo">
+   5.1.5. Solution using Pyomo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-are-the-active-constraints">
+   5.1.6. What are the active constraints?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-incremental-value-of-labor">
+   5.1.7. What is the incremental value of labor?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise">
+     5.1.7.1. Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory-of-constraints">
+   5.1.8. Theory of Constraints
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Linear Production Model</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-goals">
+   5.1.1. Learning Goals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimization">
+     5.1.1.1. Optimization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modeling-for-optimization">
+     5.1.1.2. Modeling for Optimization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-optimization-problems">
+     5.1.1.3. Solving Optimization Problems
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additional-terminology">
+     5.1.1.4. Additional Terminology
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-production-plan-for-a-single-product-plant">
+   5.1.2. Example: Production Plan for a Single Product Plant
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematical-model">
+     5.1.2.1. Mathematical Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercises">
+     5.1.2.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#production-plan-product-y">
+   5.1.3. Production Plan: Product Y
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     5.1.3.1. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#production-plan-mixed-product-strategy">
+   5.1.4. Production Plan: Mixed Product Strategy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution-using-pyomo">
+   5.1.5. Solution using Pyomo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-are-the-active-constraints">
+   5.1.6. What are the active constraints?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-incremental-value-of-labor">
+   5.1.7. What is the incremental value of labor?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise">
+     5.1.7.1. Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory-of-constraints">
+   5.1.8. Theory of Constraints
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
+              <div>
+                
   <section class="tex2jax_ignore mathjax_ignore" id="linear-production-model">
-<h1><span class="section-number">5.1. </span>Linear Production Model<a class="headerlink" href="#linear-production-model" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5.1. </span>Linear Production Model<a class="headerlink" href="#linear-production-model" title="Permalink to this headline">#</a></h1>
 <p>This notebook demonstrates the use of linear programming to maximize profit for a simple model of a multiproduct production facility. The notebook uses <a class="reference external" href="http://www.pyomo.org/">Pyomo</a> to represent the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install Pyomo and solvers for Google Colab</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="k">if</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
-    <span class="o">!</span>wget<span class="w"> </span>-N<span class="w"> </span>-q<span class="w"> </span>https://raw.githubusercontent.com/jckantor/MO-book/main/tools/install_on_colab.py<span class="w"> </span>
+    <span class="o">!</span>wget -N -q https://raw.githubusercontent.com/jckantor/MO-book/main/tools/install_on_colab.py 
     <span class="o">%</span><span class="k">run</span> install_on_colab.py
 </pre></div>
 </div>
 </div>
 </div>
 <section id="learning-goals">
-<h2><span class="section-number">5.1.1. </span>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1.1. </span>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
 <p>This notebook introduces core concepts in the application of optimization techniques using a simple production planning problem.</p>
 <section id="optimization">
-<h3><span class="section-number">5.1.1.1. </span>Optimization<a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.1.1. </span>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">#</a></h3>
 <p><strong>Optimization</strong> is a the process of finding a “best” solution to a problem with multiple degrees of freedom. The components of an optimization problem are:</p>
 <ul class="simple">
 <li><p><strong>Decision Variables</strong>: The degrees of freedom associated with a particular application. Examples might include how much of each raw material to use in a blended product, the value of a manipulated variable in feedback control, or the timing and sequencing of batch operations.</p></li>
@@ -589,7 +1150,7 @@ document.write(`
 </ul>
 </section>
 <section id="modeling-for-optimization">
-<h3><span class="section-number">5.1.1.2. </span>Modeling for Optimization<a class="headerlink" href="#modeling-for-optimization" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.1.2. </span>Modeling for Optimization<a class="headerlink" href="#modeling-for-optimization" title="Permalink to this headline">#</a></h3>
 <p><strong>Modeling</strong> for optimization is the process of creating a mathematical description of an optimization problem.</p>
 <p><strong>Algebraic Modeling Languages (AML)</strong> are a software systems for specifying and computing solutions to optimization problems. The are many examples of AML’s in current use. AML are <strong>descriptive</strong>, not procedural. They are used to specify the problem, a numerical solution is found in a separate step using a <strong>solver</strong>.</p>
 <p><strong>Pyomo</strong> is a fully featured AML embedded in Python that is well suited to modeling optimization problems for process systems. This notebook demonstrates key steps in creating a Pyomo model for a simple application.</p>
@@ -603,7 +1164,7 @@ document.write(`
 <p><strong>Decorators</strong> are a Python feature used to modify a function. Pyomo uses decorators to designate constraints, objectives, and several types of optimization objects that will be introduced in subsequent notebooks. You can think of it as a way of tagging functions with a special purpose. Decorators are implemented in Python as functions that process other functions, but those details are not needed for Pyomo modeling.</p>
 </section>
 <section id="solving-optimization-problems">
-<h3><span class="section-number">5.1.1.3. </span>Solving Optimization Problems<a class="headerlink" href="#solving-optimization-problems" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.1.3. </span>Solving Optimization Problems<a class="headerlink" href="#solving-optimization-problems" title="Permalink to this headline">#</a></h3>
 <p><strong>Linear Programming</strong>: Optimization models are catorgized by their mathematical features. Solving problems with a one linear objective and multiple linear constraints is called <strong>Linear Programming (LP)</strong>. The problem below is a linear programming problem.</p>
 <p><strong>Solvers</strong>: Linear programming has an enormous range of applications in business, logistics, and large scale planning problems involving up to millions of decision variables. The first practical algorithms were developed in the 1940’s in the course of solving planning problems for the US Army Air Force. Since then, providing solvers for large scale linear programming has become a highly competitive commercial business. The commercial leaders are:</p>
 <ul class="simple">
@@ -614,7 +1175,7 @@ document.write(`
 <p>There are many, many other solvers from open-source projects, or specialized for specific applications.</p>
 </section>
 <section id="additional-terminology">
-<h3><span class="section-number">5.1.1.4. </span>Additional Terminology<a class="headerlink" href="#additional-terminology" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.1.4. </span>Additional Terminology<a class="headerlink" href="#additional-terminology" title="Permalink to this headline">#</a></h3>
 <p>Regarding solutions:</p>
 <ul class="simple">
 <li><p><strong>Feasible Solution</strong>: Any value of the decisions variables that satisfy all constraints.</p></li>
@@ -632,7 +1193,7 @@ document.write(`
 </section>
 </section>
 <section id="example-production-plan-for-a-single-product-plant">
-<h2><span class="section-number">5.1.2. </span>Example: Production Plan for a Single Product Plant<a class="headerlink" href="#example-production-plan-for-a-single-product-plant" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1.2. </span>Example: Production Plan for a Single Product Plant<a class="headerlink" href="#example-production-plan-for-a-single-product-plant" title="Permalink to this headline">#</a></h2>
 <p>Suppose you are thinking about starting up a business to produce Product X. You have determined there is a market for X of up to 40 units per week at a price of $270 each. The production of each unit requires $100 of raw materials, 1 hour of type A labor, and 2 hours of type B labor. You have an unlimited amount of raw material available to you, but only 80 hours per week of labor A at a cost of $50/hour, and 100 hours per week of labor B at a cost of $40 per hour. Ignoring all other expenses, what is the maximum weekly profit?</p>
 <p>To get started on this problem, we sketch a flow diagram illustrating the flow of raw materials and labor through the production plant.</p>
 <p><img alt="LP_ProductX.png" src="../../_images/LP_ProductX.png" /></p>
@@ -655,7 +1216,7 @@ document.write(`
 \[\max \mbox{Profit} = $40 \mbox{ per unit} \times 40 \mbox{ units per week} = \$1600 \mbox{ per week}\]</div>
 <p>What we conclude is that market demand is the ‘most constraining constraint.’ Once we’ve made that deduction, the rest is a straightforward problem that can be solved by inspection.</p>
 <section id="mathematical-model">
-<h3><span class="section-number">5.1.2.1. </span>Mathematical Model<a class="headerlink" href="#mathematical-model" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.2.1. </span>Mathematical Model<a class="headerlink" href="#mathematical-model" title="Permalink to this headline">#</a></h3>
 <p>Even though this example has a straightforward solution, it is useful to consider how it can be represented mathematically, and solved using typical tools for linear programming.</p>
 <p>The mathematical representation consists of a single non-negative decision variable, <span class="math notranslate nohighlight">\(x\)</span>, an objective function, and a set of linear constraints.  Here we include all constraints even though we know only one of them – the most ‘constraining constraint’ – will be active.</p>
 <div class="math notranslate nohighlight">
@@ -669,15 +1230,15 @@ x &amp; \leq 80  &amp; \mbox{labor A constraint} \\
 <p>All of these constraints must be satisfied, therefore the demand constraint is the ‘most constrainting’. Again, the maximum value of <span class="math notranslate nohighlight">\(x\)</span> is 40, so the maximum profit is <span class="math notranslate nohighlight">\(\$ 40 \times 40 = \$1,600\)</span>.</p>
 </section>
 <section id="exercises">
-<h3><span class="section-number">5.1.2.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
+<h3><span class="section-number">5.1.2.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
 <li><p>Suppose the demand could be increased to 50 units per month. What would be the increased profits?  What if the demand increased to 60 units per month?  How much would you be willing to pay for your marketing department for the increased demand?</p></li>
 <li><p>Increase the cost of LaborB. At what point is it no longer financially viable to run the plant?</p></li>
 </ol>
 </section>
 </section>
 <section id="production-plan-product-y">
-<h2><span class="section-number">5.1.3. </span>Production Plan: Product Y<a class="headerlink" href="#production-plan-product-y" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1.3. </span>Production Plan: Product Y<a class="headerlink" href="#production-plan-product-y" title="Permalink to this headline">#</a></h2>
 <p>Your marketing department has developed plans for a new product called Y. The product sells at a price of \<span class="math notranslate nohighlight">\(210 each, and they expect that you can sell all that you can make. It's also cheaper to make, requiring only \\\)</span>90 in raw materials, 1 hour of Labor type A at \<span class="math notranslate nohighlight">\(50 per hour, and 1 hour of Labor B at \\\)</span>40 per hour. What is the potential weekly profit?</p>
 <p><img alt="LP_ProductY.png" src="../../_images/LP_ProductY.png" /></p>
 <p>The analysis proceeds in the same form as Product X. In this case the revenue is given by</p>
@@ -704,15 +1265,15 @@ y &amp; \leq 100 &amp; \mbox{labor B constraint}
 \end{align}\end{split}\]</div>
 <p>Compared to product X, we can manufacture and sell up 80 units per week for a total profit of $2,400. This is very welcome news.</p>
 <section id="id1">
-<h3><span class="section-number">5.1.3.1. </span>Exercises<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
+<h3><span class="section-number">5.1.3.1. </span>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
 <li><p>What is the limiting resource?  That is, which of the two types of labor limits the capacity of your plant to produce more units of Y?</p></li>
 <li><p>What rate would you be willing to pay for the additional labor necessary to increase the production of Y?</p></li>
 </ol>
 </section>
 </section>
 <section id="production-plan-mixed-product-strategy">
-<h2><span class="section-number">5.1.4. </span>Production Plan: Mixed Product Strategy<a class="headerlink" href="#production-plan-mixed-product-strategy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1.4. </span>Production Plan: Mixed Product Strategy<a class="headerlink" href="#production-plan-mixed-product-strategy" title="Permalink to this headline">#</a></h2>
 <p>So far we have learned that we can make \<span class="math notranslate nohighlight">\(1,600 per week by manufacturing product X, and \\\)</span>2,400 per week manufacturing product Y.  Is it possible to do even better?</p>
 <p>To answer this question, we consider the possibilty of manufacturing both products in the same plant. The marketing department assures us that product Y will not affect the sales of product X.  So the same constraints hold as before, but now we have two decision variables, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p><img alt="LP_ProductXY.png" src="../../_images/LP_ProductXY.png" /></p>
@@ -727,7 +1288,7 @@ x + y &amp; \leq 80  &amp; \mbox{labor A constraint} \\
 \end{align}\end{split}\]</div>
 </section>
 <section id="solution-using-pyomo">
-<h2><span class="section-number">5.1.5. </span>Solution using Pyomo<a class="headerlink" href="#solution-using-pyomo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1.5. </span>Solution using Pyomo<a class="headerlink" href="#solution-using-pyomo" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyomo.environ</span> <span class="k">as</span> <span class="nn">pyo</span>
@@ -779,7 +1340,7 @@ y =  60.0
 <p>The mixed product strategy earns more profit than either of the single product srategies. Does this surprise you?  Before going further, try to explain why it is possible for a mixed product strategy to earn more profit than either of the possible single product strategies.</p>
 </section>
 <section id="what-are-the-active-constraints">
-<h2><span class="section-number">5.1.6. </span>What are the active constraints?<a class="headerlink" href="#what-are-the-active-constraints" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1.6. </span>What are the active constraints?<a class="headerlink" href="#what-are-the-active-constraints" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -836,12 +1397,12 @@ y =  60.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/850d4d9b12d34ac135e2a0fcf16e10022f1f1f5f4f8153969cc1ca818e4e6fd0.png" src="../../_images/850d4d9b12d34ac135e2a0fcf16e10022f1f1f5f4f8153969cc1ca818e4e6fd0.png" />
+<img alt="../../_images/05.01-Linear-Production-Model_25_0.png" src="../../_images/05.01-Linear-Production-Model_25_0.png" />
 </div>
 </div>
 </section>
 <section id="what-is-the-incremental-value-of-labor">
-<h2><span class="section-number">5.1.7. </span>What is the incremental value of labor?<a class="headerlink" href="#what-is-the-incremental-value-of-labor" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1.7. </span>What is the incremental value of labor?<a class="headerlink" href="#what-is-the-incremental-value-of-labor" title="Permalink to this headline">#</a></h2>
 <p>The optimal solution is found at the intersection of constraints corresponding to Labor A and Labor B.  These are the <strong>active constraints</strong>. Adding additional labor of either type will increase the profit.  By contrast, the demand constraint for product X is inactive at the optimum, therefore attempting to increase demand for product X would be wasted effort.</p>
 <p>This leaves the important question of how much the profit will increase if additional resources are available. Let’s see what happens if one additional hour of Labor A is available.</p>
 <p>For this analysis, we repackage the Pyomo model into a Python function that accepts values for the available resources (i.e, demand, labor A, and labor B). This packaging makes it easy to do sensitivity studies, like this one, where parameters in the problem are adjusted to determine their impact on the optimal response.</p>
@@ -899,14 +1460,14 @@ y =  62.0
 </div>
 <p>An additional hour of Labor A increases the profit by 0 dollars. The base cost of 50 dollars per hour for Labor A is included in the objective function. Therefore we should be willing to pay up to 50 + 20 = 70 dollars per hour for additional Labor A.</p>
 <section id="exercise">
-<h3><span class="section-number">5.1.7.1. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
+<h3><span class="section-number">5.1.7.1. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
 <li><p>What is the incremental value of Labor B?</p></li>
 </ol>
 </section>
 </section>
 <section id="theory-of-constraints">
-<h2><span class="section-number">5.1.8. </span>Theory of Constraints<a class="headerlink" href="#theory-of-constraints" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1.8. </span>Theory of Constraints<a class="headerlink" href="#theory-of-constraints" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>For <span class="math notranslate nohighlight">\(n\)</span> decisions you should expect to find <span class="math notranslate nohighlight">\(n\)</span> ‘active’ constraints.</p></li>
 <li><p>Each inactive constraint has an associated ‘slack.’  The associated resources have no incremental value.</p></li>
@@ -927,7 +1488,7 @@ y =  62.0
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./notebooks/05"
         },
         predefinedOutput: true
@@ -935,125 +1496,50 @@ y =  62.0
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="05.00-Optimization.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Optimization</p>
-      </div>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="05.00-Optimization.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5. </span>Optimization</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="05.02-Linear-Blending-Problem.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="05.02-Linear-Blending-Problem.html" title="next page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">5.2. </span>Linear Blending Problems</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">5.1.1. Learning Goals</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">5.1.1.1. Optimization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-for-optimization">5.1.1.2. Modeling for Optimization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-optimization-problems">5.1.1.3. Solving Optimization Problems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-terminology">5.1.1.4. Additional Terminology</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-production-plan-for-a-single-product-plant">5.1.2. Example: Production Plan for a Single Product Plant</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-model">5.1.2.1. Mathematical Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">5.1.2.2. Exercises</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-plan-product-y">5.1.3. Production Plan: Product Y</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.1.3.1. Exercises</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-plan-mixed-product-strategy">5.1.4. Production Plan: Mixed Product Strategy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-using-pyomo">5.1.5. Solution using Pyomo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-active-constraints">5.1.6. What are the active constraints?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-incremental-value-of-labor">5.1.7. What is the incremental value of labor?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">5.1.7.1. Exercise</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-of-constraints">5.1.8. Theory of Constraints</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Jeffrey Kantor and Alexander Dowling
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
+            </footer>
+        </div>
     </div>
-  </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jeffrey Kantor and Alexander Dowling<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  <footer class="bd-footer">
-  </footer>
+
   </body>
 </html>
