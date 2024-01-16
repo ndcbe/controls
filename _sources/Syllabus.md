@@ -130,6 +130,14 @@ You are expected to attend and actively participate in all class sessions.  If y
 
 Class sessions will include opportunities to respond to instructor questions and other active learning exercises. All interactions will be civil, respectful, and inclusive. If you have any concerns about classroom dynamics, please feel free to speak with the instructor.
 
+At the end of the semester, the instructor will assign grades for class participation and professionalism at their discretion. Students who are good class citizens, i.e., actively engage in class and lab activities, work well with peers, and ask and answer questions on the Canvas discussion board, will receive full marks. In contrast, the following may result in a reduced grade:
+- Unprofessional behavior toward peers, instructors, teaching assistants, or others in the campus community. (This may also result in other disciplinary action per university policies.)
+- Repeatedly sending emails to the instructor or TAs on topics that should be addressed in the Canvas Discussion board.
+- Not actively participating in class or lab activities.
+- Missing significant numbers of class sessions without an excuse recognized by the university.
+- Arriving late to class as this causes a distrubtion.
+
+
 ### Assignments
 
 Homework and labratory assignments are critical to developing the skills needed to succeed in the course and in the major. Accordingly, assignments are a required element of the course. Missing assignments will be scored as zero. Three or more missed assignments will result in an incomplete for the course. Group study is encouraged, but the submitted work must be your own. Students must be able to explain all of their submitted work.
