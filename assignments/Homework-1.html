@@ -1063,8 +1063,8 @@ title="Print to PDF"
 </section>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
-<p>This homework problem is inspired, in part, by a <a class="reference external" href="https://www.wired.com/2011/12/cannon-balls-size-matters/">Wired blog post</a> analyzing an incident with a cannonball on the popular show myth busters.</p>
-<p>Consider <span class="math notranslate nohighlight">\(n\)</span> iron cannonballs of mass 12 lb (5.44 kg) fired at unknown angles <span class="math notranslate nohighlight">\(\theta_i\)</span> (where <span class="math notranslate nohighlight">\(i \in \{1,...,n\}\)</span>) with initial velocities of <span class="math notranslate nohighlight">\(v_0\)</span> = 100 m/s. The drag on the cannonball is <span class="math notranslate nohighlight">\(F_D = 1/2 \rho C_D A v |v|\)</span> where <span class="math notranslate nohighlight">\(\rho\)</span> is the density of air, <span class="math notranslate nohighlight">\(C_D\)</span> is the coefficient of drag, and <span class="math notranslate nohighlight">\(A\)</span> is the cross sectional area of the cannonball. We can lump these parameters together into a single unknown coefficient <span class="math notranslate nohighlight">\(\bar{C}_D\)</span>:</p>
+<p>This homework problem is inspired, in part, by a <a class="reference external" href="https://www.wired.com/2011/12/cannon-balls-size-matters/">Wired blog post</a> analyzing an incident with a cannonball on the popular show Myth Busters.</p>
+<p>Consider <span class="math notranslate nohighlight">\(n\)</span> iron cannonballs of mass 12 lb (5.44 kg) fired at unknown angles <span class="math notranslate nohighlight">\(\theta_i\)</span> (where <span class="math notranslate nohighlight">\(i \in \{1,...,n\}\)</span>) with unknown initial velocities <span class="math notranslate nohighlight">\(v_{0,i}\)</span>. The drag on the cannonball is <span class="math notranslate nohighlight">\(F_D = 1/2 \rho C_D A v |v|\)</span> where <span class="math notranslate nohighlight">\(\rho\)</span> is the density of air, <span class="math notranslate nohighlight">\(C_D\)</span> is the coefficient of drag, and <span class="math notranslate nohighlight">\(A\)</span> is the cross sectional area of the cannonball. We can lump these parameters together into a single unknown coefficient <span class="math notranslate nohighlight">\(\bar{C}_D\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{equation}
 F_D = \bar{C}_d v |v|
@@ -1097,13 +1097,17 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 <td><p>529</p></td>
 <td><p>77</p></td>
 </tr>
+<tr class="row-even"><td><p>15.3</p></td>
+<td><p>616</p></td>
+<td><p>76</p></td>
+</tr>
 </tbody>
 </table>
 <p>Given these data, our ultimate goals are:</p>
 <ul class="simple">
 <li><p>Build a mathematical model</p></li>
-<li><p>Estimate <span class="math notranslate nohighlight">\(\theta_i\)</span> and <span class="math notranslate nohighlight">\(\bar{C}_D\)</span></p></li>
-<li><p>Predict the distance traveled and impact velocity of a cannonball shot at a new angle with uncertainty</p></li>
+<li><p>Estimate <span class="math notranslate nohighlight">\(\theta_i\)</span>, <span class="math notranslate nohighlight">\(v_{0,i}\)</span> and <span class="math notranslate nohighlight">\(\bar{C}_D\)</span></p></li>
+<li><p>Predict the distance traveled and impact velocity of a cannonball shot at a new angle and initial velocity with uncertainty</p></li>
 </ul>
 <p>We will assume the location and velocity measurements are corrupted with normally distributed noise with a standard derviations of 5% and 20% of the measured values. When we do regression, we need to account for the fact that the velocity estimates (based on crater size) have greater uncertainty.</p>
 </section>
@@ -1201,7 +1205,7 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 </section>
 <section id="exercise-4">
 <h2>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this headline">#</a></h2>
-<p>Perform nonlinear regression to estimate <span class="math notranslate nohighlight">\(\theta_1\)</span>, …, <span class="math notranslate nohighlight">\(\theta_n\)</span>, <span class="math notranslate nohighlight">\(\bar{C}_D\)</span>. Report the estimate parameters. Include plots to compare the model predictions and experiment data.</p>
+<p>Perform nonlinear regression to estimate <span class="math notranslate nohighlight">\(\theta_1\)</span>, …, <span class="math notranslate nohighlight">\(\theta_n\)</span>, <span class="math notranslate nohighlight">\(\bar{C}_D\)</span>, <span class="math notranslate nohighlight">\(v_{0,1}\)</span>, …, <span class="math notranslate nohighlight">\(v_{0,n}\)</span>. Report the estimate parameters with a reasonable number of significant digits. Include plots to compare the model predictions and experiment data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">least_squares</span>
@@ -1303,9 +1307,9 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 </div>
 </div>
 <p>Interpret your uncertianty estimate in a few sentences.</p>
-<p><strong>Answer</strong>:</p>
+<p><em>Answer</em>:</p>
 <p>In a few sentences, describe and justify your choice of uncertainty quantification method. In other words, what are the pros and cons of the selected method and why it is a reasonable choice for this problem.</p>
-<p><strong>Answer</strong>:</p>
+<p><em>Answer</em>:</p>
 </section>
 <section id="exercise-6">
 <h2>Exercise 6<a class="headerlink" href="#exercise-6" title="Permalink to this headline">#</a></h2>
@@ -1320,7 +1324,7 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 </section>
 <section id="exercise-7">
 <h2>Exercise 7<a class="headerlink" href="#exercise-7" title="Permalink to this headline">#</a></h2>
-<p>Quantify and interpret the uncertainty in your prediction (distance, time, velocity) from the previous exercise. Assume you can specify the firing angle and initial velocity with uncertainties of 1 degree and 2 m/s, respectively. You also have some uncertainty in your estimate of <span class="math notranslate nohighlight">\(C_D\)</span> (quantified above). <em>Hint</em>: Calculate the covariance matrix and correlation matrix for the predicted displacement and impact velocity. How do these results compare to the measurement uncertainty?</p>
+<p>Quantify and interpret the uncertainty in your prediction (distance, time, velocity) from the previous exercise. Assume you can specify the firing angle and initial velocity with uncertainties of 1 degree and 2 m/s, respectively. You also have some uncertainty in your estimate of <span class="math notranslate nohighlight">\(C_D\)</span> (quantified above). <em>Hint</em>: Calculate the covariance matrix and correlation matrix for the predicted displacement and impact velocity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your solution here</span>
@@ -1328,6 +1332,8 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 </div>
 </div>
 </div>
+<p>Please interpret the uncertainty in your predictions. How do these results compare to the measurement uncertainty?</p>
+<p><em>Answer</em>:</p>
 </section>
 <section id="submission-instructions">
 <h2>Submission Instructions<a class="headerlink" href="#submission-instructions" title="Permalink to this headline">#</a></h2>
