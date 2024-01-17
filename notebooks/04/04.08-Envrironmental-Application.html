@@ -973,29 +973,29 @@ title="Print to PDF"
 <section id="model">
 <h2><span class="section-number">4.8.1. </span>Model<a class="headerlink" href="#model" title="Permalink to this headline">#</a></h2>
 <p>The Streeter-Phelps model for oxygen in a river or stream is given by the pair of linear differential equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e7a134fc-e1ce-46c9-aa95-625515e18902">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-e7a134fc-e1ce-46c9-aa95-625515e18902" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5d06a802-cbf3-49a2-b1a4-503066307633">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-5d06a802-cbf3-49a2-b1a4-503066307633" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx_1}{dt} &amp; = -\frac{k_1}{U} x_2 + \frac{k_2}{U}(D_s - x_1) \\
 \frac{dx_2}{dt} &amp; = -\frac{k_1}{U} x_2
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x_1\)</span> is dissolved oxygen (DO) and <span class="math notranslate nohighlight">\(x_2\)</span> is biological oxygen demand (BOD).  Rate constant <span class="math notranslate nohighlight">\(k_1\)</span> is the BOD removal rate, <span class="math notranslate nohighlight">\(k_2\)</span> is the re-areation rate, and <span class="math notranslate nohighlight">\(D_s\)</span> is the oxygen saturation level which, for this problem, is a disturbance variable. No manipulations to this system are possible.</p>
 <p>For environmental monitoring, dissolved oxygen can be measured in the field with a low-cost sensor. BOD, however, cannot be measured in the field.</p>
 <p>Our standard model for a state-space system is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ef5db23-3de6-4613-8a07-3408475c8d2f">
-<span class="eqno">(4.5)<a class="headerlink" href="#equation-6ef5db23-3de6-4613-8a07-3408475c8d2f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ea94b822-91bc-4336-83c0-9dcf5037598a">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-ea94b822-91bc-4336-83c0-9dcf5037598a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt} &amp; = A x + B_d d + B_u u\\
 y &amp; = C x
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> contains the states, <span class="math notranslate nohighlight">\(d\)</span> contains the disturbances, and <span class="math notranslate nohighlight">\(u\)</span> contains the manipulable inputs.</p>
 <p>Parameter values are <span class="math notranslate nohighlight">\(k_1 = 0.3\ \text{day}^{-1}\)</span>, <span class="math notranslate nohighlight">\(k_2 = 0.06\ \text{day}^{-1}\)</span>, and <span class="math notranslate nohighlight">\(U = 1\)</span>. A typical value of Ds = 16 mg/liter. For these values the state space model becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e127180-1422-4d59-a31d-9d577d38c045">
-<span class="eqno">(4.6)<a class="headerlink" href="#equation-4e127180-1422-4d59-a31d-9d577d38c045" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6ac83cab-97f6-41c9-8621-adfadd2cbde0">
+<span class="eqno">(4.6)<a class="headerlink" href="#equation-6ac83cab-97f6-41c9-8621-adfadd2cbde0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt} &amp; = A x + B_d d + B_u u\\
 y &amp; = C x
 \end{align}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-81d6a668-15ea-48e6-ae02-c9faa24c989e">
-<span class="eqno">(4.7)<a class="headerlink" href="#equation-81d6a668-15ea-48e6-ae02-c9faa24c989e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7dacae53-c446-46fa-bcb1-3877f58911f0">
+<span class="eqno">(4.7)<a class="headerlink" href="#equation-7dacae53-c446-46fa-bcb1-3877f58911f0" title="Permalink to this equation">#</a></span>\[\begin{align}
 A &amp; = \begin{bmatrix} -0.06 &amp; -0.3 \\0 &amp; -0.3\end{bmatrix}
 \qquad
 B_d = \begin{bmatrix} 0.06 \\ 0 \end{bmatrix} \\
@@ -1005,8 +1005,8 @@ C &amp; = \begin{bmatrix} 1 &amp; 0 \end{bmatrix}
 <ul class="simple">
 <li><p><strong>Model Prediction:</strong> Use the model to update the state to the next time step, i.e., <span class="math notranslate nohighlight">\(\hat{x}_{k-1} \rightarrow \hat{x}_{k}^{pred}\)</span> with the equation</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-5c1cd5a1-93b9-47aa-a555-ef804a2b47b3">
-<span class="eqno">(4.8)<a class="headerlink" href="#equation-5c1cd5a1-93b9-47aa-a555-ef804a2b47b3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-89a7c562-ab3c-43c3-ad8c-ca0f73bfe593">
+<span class="eqno">(4.8)<a class="headerlink" href="#equation-89a7c562-ab3c-43c3-ad8c-ca0f73bfe593" title="Permalink to this equation">#</a></span>\[\begin{align}
 \hat{x}_k^{pred} &amp; = \hat{x}_{k-1} + (t_k - t_{k-1}) ( A \hat{x}_{k-1} + B_u u_{k-1} + B_d \hat{d}_{k-1}) \\
 \hat{y}_k^{pred} &amp; = C \hat{x}_k^{pred}
 \end{align}\]</div>

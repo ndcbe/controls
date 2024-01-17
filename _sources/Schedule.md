@@ -20,6 +20,7 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Friday, April 19 | Lab 6: Model Predictive Control |
 | Tuesday, April 23 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
 | Thursday, April 25 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
+| Tuesday, April 30 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
 | Final Exam Day | Project Reports/Notebooks Due (team submission) |
 
 ## Labratory Sessions
