@@ -1008,25 +1008,25 @@ title="Print to PDF"
 <h2>Implementation of a simple PI controller<a class="headerlink" href="#implementation-of-a-simple-pi-controller" title="Permalink to this headline">#</a></h2>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the equation</p>
 <p>TODO: Make consistent with rest of website. Check sign convention.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31990c8c-6672-4f2c-9b74-0b7395e0e15c">
-<span class="eqno">(2)<a class="headerlink" href="#equation-31990c8c-6672-4f2c-9b74-0b7395e0e15c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8009c9df-a6bc-4a06-85a7-a0583f1bfe94">
+<span class="eqno">(2)<a class="headerlink" href="#equation-8009c9df-a6bc-4a06-85a7-a0583f1bfe94" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV &amp; = \bar{MV} + k_p\left(SP - PV\right) + k_i \int_0^t \left(SP-PV)\right)dt
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(k_p\)</span> and <span class="math notranslate nohighlight">\(k_i\)</span> are the proportional and integral coefficients, respectively. The value <span class="math notranslate nohighlight">\(\bar{MV}\)</span> is a nominal or initial value of the manipulated variable.</p>
 <p>The actual implementation of PI control is normally done by computing how much the <span class="math notranslate nohighlight">\(MV\)</span> should change at each time step. Defining the error at time <span class="math notranslate nohighlight">\(k\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-db94b0a8-9eee-4ff8-95f9-ec4cf9f1cf32">
-<span class="eqno">(3)<a class="headerlink" href="#equation-db94b0a8-9eee-4ff8-95f9-ec4cf9f1cf32" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e5daa207-4955-4154-8705-b98673f94b04">
+<span class="eqno">(3)<a class="headerlink" href="#equation-e5daa207-4955-4154-8705-b98673f94b04" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k
 \end{align}\]</div>
 <p>then consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6891d114-69d7-4bec-8e4c-49904e0b40c6">
-<span class="eqno">(4)<a class="headerlink" href="#equation-6891d114-69d7-4bec-8e4c-49904e0b40c6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fcfc0a31-ad59-48dd-bd45-c8b65eb9560c">
+<span class="eqno">(4)<a class="headerlink" href="#equation-fcfc0a31-ad59-48dd-bd45-c8b65eb9560c" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k-1} &amp; = \bar{MV} + k_p e_{k-1} + k_i \sum_{j=0}^{k-1} e_{j} \\
 MV_{k} &amp; = \bar{MV} + k_p e_{k} + k_i \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
 <p>Taking differences gives a practical formula for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to measurements</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d17eaa62-392e-4ff3-a840-1a6f015f57e0">
-<span class="eqno">(5)<a class="headerlink" href="#equation-d17eaa62-392e-4ff3-a840-1a6f015f57e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5d0e1ffa-a459-4e56-9faf-8d3c3895eeca">
+<span class="eqno">(5)<a class="headerlink" href="#equation-5d0e1ffa-a459-4e56-9faf-8d3c3895eeca" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + k_p(e_{k} - e_{k-1}) + k_i e_{k}
 \end{align}\]</div>
 <p>The following code defines a Python object that implements this algorithm.</p>

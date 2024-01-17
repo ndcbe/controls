@@ -120,9 +120,9 @@ Grades for CBE 30338 and CBE 32338 are consolidated into a single grade assigned
 Grades are based on a weighted assessment of performance in the following categories:
 
 * Class Participation and Professionalism: 5\%
-* Assignments: 50\%
+* Assignments: 45\%
 * Exam: 25\%
-* Group Project: 20\%
+* Group Project: 25\%
 
 ### Class Participation and Professionalism 
 
@@ -132,7 +132,8 @@ Class sessions will include opportunities to respond to instructor questions and
 
 At the end of the semester, the instructor will assign grades for class participation and professionalism at their discretion. Students who are good class citizens, i.e., actively engage in class and lab activities, work well with peers, and ask and answer questions on the Canvas discussion board, will receive full marks. In contrast, the following may result in a reduced grade:
 - Unprofessional behavior toward peers, instructors, teaching assistants, or others in the campus community. (This may also result in other disciplinary action per university policies.)
-- Repeatedly sending emails to the instructor or TAs on topics that should be addressed in the Canvas Discussion board.
+- Repeatedly sending emails to the instructor or TAs on topics that should be addressed in the Canvas Discussion board (e.g., assignment help, class policy questions).
+- Repeatdely sending emails without "CBE 30338" in the subject.
 - Not actively participating in class or lab activities.
 - Missing significant numbers of class sessions without an excuse recognized by the university.
 - Arriving late to class as this causes a distrubtion.
@@ -210,7 +211,7 @@ To remove ambiguity, the following is a non-exhaustive list of collaborative sce
 The following is a non-exhaustive list of collaborative scenarios that are **PROHIBITED** under the above policies:
 * You are working on your homework alone in the library, but two tables away, there is a group of your classmates. They work through the pseudocode on a whiteboard and do not erase it after leaving. You take a picture “just in case”. You later get stuck and frustrated. You end up copying line by line most of their pseudocode and turn this in. You have some doubts about the approach but ran out of time. The collaboration policy prohibits this because the work is not your own. Moreover, you would be unable to explain your solution approach to the TA or instructor confidently.
 * It is late at night, you are frustrated with syntax errors, and you cannot get one of the homework problems to work. You find a screenshot on Canvas of code from a classmate and an associated discussion. Desperate to finish the assignment, you adapt your code to follow the screenshot. To keep it simple, you copy line-by-line, do not change variable names, and copy some comments but skip others. You end up submitting code that looks almost identical to your classmate. You remember the instructor keeps emphasizing the comments should be in our own words to show that you understand the solution. You decide to go to bed and add those comments in the morning. You oversleep and submit the code without any comments or acknowledgments from your classmates. The collaboration policy prohibits this because you submitted work that is not your own. You should have acknowledged sources, and you can not confidently explain the solution procedure to the instructor or TA.
-* You have no prior programming experience and feel like you are falling behind. You suspect the homework takes you three times as long as your classmates. You conclude the only way you can keep up is to do the homework with a partner. They do half the assignment, and you do the other half. You then exchange solutions. The person who completes each problem then explains the answer to the partner. Each person changes the comments, adds some extra white spaces, and changes a few variable names to ensure the solutions are not identical. The collaboration policy prohibits this because each person did not make an honest effort to solve every problem on their own. Although each person either explained or had the solutions presented to them, they likely need help to defend all of their solutions to the TA or instructor. 
+* You have no prior programming experience before college and feel like you are falling behind. You suspect the homework takes you three times as long as your classmates. You conclude the only way you can keep up is to do the homework with a partner. They do half the assignment, and you do the other half. You then exchange solutions. The person who completes each problem then explains the answer to the partner. Each person changes the comments, adds some extra white spaces, and changes a few variable names to ensure the solutions are not identical. The collaboration policy prohibits this because each person did not make an honest effort to solve every problem on their own. Although each person either explained or had the solutions presented to them, they likely need help to defend all of their solutions to the TA or instructor. 
 
 ### Artificial Intelligence Policy
 
