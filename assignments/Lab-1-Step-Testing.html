@@ -924,6 +924,11 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perform-a-step-test">
+     Perform a Step Test
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#first-order-lumped-model-for-heater-sensor-device">
      First-order lumped model for heater/sensor device.
     </a>
@@ -985,6 +990,11 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perform-a-step-test">
+     Perform a Step Test
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#first-order-lumped-model-for-heater-sensor-device">
      First-order lumped model for heater/sensor device.
     </a>
@@ -1044,11 +1054,44 @@ title="Print to PDF"
 </ul>
 <section id="background-and-starter-code">
 <h2>Background and Starter Code<a class="headerlink" href="#background-and-starter-code" title="Permalink to this headline">#</a></h2>
+<section id="perform-a-step-test">
+<h3>Perform a Step Test<a class="headerlink" href="#perform-a-step-test" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span>
+
+<span class="c1"># experimental parameters</span>
+<span class="n">P1</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">Q1</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">tfinal</span> <span class="o">=</span> <span class="mi">600</span>
+
+<span class="c1"># perform experiment</span>
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">P1</span> <span class="o">=</span> <span class="n">P1</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">Q1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">):</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save results</span>
+<span class="n">my_file</span> <span class="o">=</span> <span class="s2">&quot;data.csv&quot;</span>
+<span class="n">h</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="first-order-lumped-model-for-heater-sensor-device">
 <h3>First-order lumped model for heater/sensor device.<a class="headerlink" href="#first-order-lumped-model-for-heater-sensor-device" title="Permalink to this headline">#</a></h3>
 <p>We have previously developed a first-order model for one heater/sensor pair on the temperature control lab device.  An energy balance gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb1c5ef4-ca7e-42c9-b5d7-69e5f352a022">
-<span class="eqno">(1)<a class="headerlink" href="#equation-cb1c5ef4-ca7e-42c9-b5d7-69e5f352a022" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-41144fae-ba05-42ed-ae68-765998c49aa8">
+<span class="eqno">(1)<a class="headerlink" href="#equation-41144fae-ba05-42ed-ae68-765998c49aa8" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T_1\)</span> is the average temperature of heater/sensor one, <span class="math notranslate nohighlight">\(T_{amb}\)</span> is the ambient temperature of the surroundings. The unknown parameters are the heat capacity <span class="math notranslate nohighlight">\(C_p\)</span> and the heat transfer coefficient <span class="math notranslate nohighlight">\(U_a\)</span>.</p>
