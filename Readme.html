@@ -495,7 +495,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-outline">Course Outline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-instructions">Software Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-installation-instructions">Software Installation Instructions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact-us">Contact Us</a></li>
 </ul>
             </nav>
@@ -548,12 +548,14 @@ document.write(`
 </tbody>
 </table>
 </section>
-<section id="software-instructions">
-<h2>Software Instructions<a class="headerlink" href="#software-instructions" title="Permalink to this heading">#</a></h2>
+<section id="software-installation-instructions">
+<h2>Software Installation Instructions<a class="headerlink" href="#software-installation-instructions" title="Permalink to this heading">#</a></h2>
 <p>Students will use their personal laptop computers to complete labratory and homework assignments. Below are instructions</p>
 <p>Start Here:</p>
 <ul class="simple">
 <li><p>Install anaconda: <a class="reference external" href="https://www.anaconda.com/">https://www.anaconda.com/</a></p></li>
+<li><p>Windows users: in the Start menu, search search for “Anaconda prompt”. Open it and copy-paste-run the commands below</p></li>
+<li><p>Mac users: press command + space, then search for “terminal”. Open it and copy-paste-run the commands below</p></li>
 <li><p>Create new conda environment: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">controls</span> <span class="pre">python=3.10</span></code></p></li>
 <li><p>Activate new environemnt: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">controls</span></code></p></li>
 </ul>
@@ -565,10 +567,18 @@ document.write(`
 <p>Everyone (students resume here after “Start Here” steps are complete):</p>
 <ul class="simple">
 <li><p>Install Jupyter Lab: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">jupyterlab</span></code></p></li>
+<li><p>Needed to switch kernels in Jupyter Lab: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">nb_conda_kernels</span></code></p></li>
 <li><p>Install Pandas, Numpy, and Matplotlib: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">anaconda</span> <span class="pre">pandas</span> <span class="pre">numpy</span> <span class="pre">matplotlib</span> <span class="pre">scipy</span></code></p></li>
 <li><p>Install IDAES-PSE (which includes pyomo): <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">IDAES-PSE</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">idaes-pse</span></code></p></li>
 <li><p>Install optimization solvers: <code class="docutils literal notranslate"><span class="pre">idaes</span> <span class="pre">get-extensions</span></code></p></li>
 <li><p>Install tclab: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tclab</span></code></p></li>
+</ul>
+<p>To run Python, in either the Acaconda prompty (Windows) or terminal (Mac):</p>
+<ul class="simple">
+<li><p>Activate our environment: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">controls</span></code></p></li>
+<li><p>Launch Jupyter lab: <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code></p></li>
+<li><p>In the upper right corner, click on “Kernel” and change to “controls”</p></li>
+<li><p>You are now ready to test the TCLab hardware!</p></li>
 </ul>
 </section>
 <section id="contact-us">
@@ -641,7 +651,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-outline">Course Outline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-instructions">Software Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-installation-instructions">Software Installation Instructions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact-us">Contact Us</a></li>
 </ul>
   </nav></div>

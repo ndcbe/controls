@@ -7,7 +7,6 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Deadline    | Description |
 | ----------- | ----------- |
 | Friday, January 19 | [Order Temperature Control Lab](https://www.amazon.com/TCLab-Temperature-Control-Lab/dp/B07GMFWMRY) (no submission required) |
-| Monday, January 22 | [Class Policies Quiz](https://canvas.nd.edu/courses/82955/quizzes/48657) (opens after Friday lab, submit via Canvas) |
 | Thursday, January 25 | [](./assignments/Homework-1.ipynb) |
 | Thursday, February 1 | [](./assignments/Lab-1-Step-Testing.ipynb) |
 | Thursday, February 8 | [](./assignments/Lab-2-Relay-Control.ipynb) |
@@ -20,7 +19,6 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Friday, April 19 | Lab 6: Model Predictive Control |
 | Tuesday, April 23 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
 | Thursday, April 25 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
-| Tuesday, April 30 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
 | Final Exam Day | Project Reports/Notebooks Due (team submission) |
 
 ## Labratory Sessions
