@@ -7,6 +7,7 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Deadline    | Description |
 | ----------- | ----------- |
 | Friday, January 19 | [Order Temperature Control Lab](https://www.amazon.com/TCLab-Temperature-Control-Lab/dp/B07GMFWMRY) (no submission required) |
+| Monday, January 22 | [Class Policies Quiz](https://canvas.nd.edu/courses/82955/quizzes/48657) (opens after Friday lab, submit via Canvas) |
 | Thursday, January 25 | [](./assignments/Homework-1.ipynb) |
 | Thursday, February 1 | [](./assignments/Lab-1-Step-Testing.ipynb) |
 | Thursday, February 8 | [](./assignments/Lab-2-Relay-Control.ipynb) |
@@ -19,6 +20,7 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Friday, April 19 | Lab 6: Model Predictive Control |
 | Tuesday, April 23 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
 | Thursday, April 25 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
+| Tuesday, April 30 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
 | Final Exam Day | Project Reports/Notebooks Due (team submission) |
 
 ## Labratory Sessions
@@ -59,11 +61,18 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | | [Error Propagation](https://ndcbe.github.io/data-and-computing/notebooks/12/uncertainty.html) |
 | | [Nonlinear Regression](https://ndcbe.github.io/data-and-computing/notebooks/15/advanced_regression.html) |
 | **Tuesday, January 23** | **Modeling: Linear Systems** |
-| **Thursday, January 25** | **Introduction Temperature Control Lab** |
-| **Tuesday, January 30** | **Modeling: Pharmacokinetics** |
-| **Thursday, February 1** | **Modeling: Second Order Systems** |
-| **Tuesday, February 6** | **Modeling: Temperature Control Lab** |
-| **Thursday, February 8** | **Catch-up or Model-baesd Design of Experiments** |
+| [](./notebooks/02.01-One-Compartment-Pharmacokinetics.ipynb) | |
+| **Thursday, January 25** | **Modeling: Linear Systems** |
+| [](./notebooks/02.02-Properties-of-Scalar-First-Order-Linear-Systems.ipynb) | |
+| **Tuesday, January 30** | **Modeling: Temperature Control Lab** |
+| [](./notebooks/02.03-First-Order-Model-for-a-Single-Heater.ipynb) | [](./notebooks/02.04-Fitting-a-Model-to-Data.ipynb) |
+| **Thursday, February 1** | **Relay Control** |
+| [](./tclab/04.01-Relay-Control.ipynb) | Get started on next class |
+| **Tuesday, February 6** | **Modeling: Second Order Systems** |
+| [](./notebooks/02.05-Second-Order.ipynb) | [](./notebooks/02.07-Exothermic-CSTR.ipynb) |
+| [](./notebooks/02.06-Fed-Batch-Bioreactor.ipynb) | [](./notebooks/02.08-Hare-and-Lynx.ipynb) |
+| **Thursday, February 8** | **Modeling: Temperature Control Lab** |
+| [](./assignments/Lab-3-Model-Identification.ipynb) | |
 | **Tuesday, February 13** | **Modeling: Reactor System** |
 | **Thursday, February 15** | **Setpoints, Disturbances, Servo and Regulation Problems**|
 | **Tuesday, February 20** | **P, PI, and PID Control** |

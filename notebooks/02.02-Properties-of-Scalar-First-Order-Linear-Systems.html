@@ -729,7 +729,7 @@ document.write(`
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(a &lt; 0\)</span>: <strong>exponential decay</strong> to zero.</p></li>
 <li><p><span class="math notranslate nohighlight">\(a = 0\)</span>: x(t) <strong>constant</strong> with a value <span class="math notranslate nohighlight">\(x(t_0)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(a &gt; 0\)</span>: <strong>exponential increase</strong> to either <span class="math notranslate nohighlight">\(+\infty\)</span> or <span class="math notranslate nohighlight">\(-\infty\)</span>, depending on the sign of <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(a &gt; 0\)</span>: <strong>exponential increase</strong> to either <span class="math notranslate nohighlight">\(+\infty\)</span> or <span class="math notranslate nohighlight">\(-\infty\)</span>, depending on the sign of <span class="math notranslate nohighlight">\(x_0\)</span>.</p></li>
 </ul>
 <div class="admonition-example-cont admonition">
 <p class="admonition-title">Example (cont.)</p>
@@ -1025,7 +1025,7 @@ z(t) &amp; = 1 - \frac{x(t)}{x(t_0)} \\
 <p>as you might expect from the definition of gain and step inputs.</p>
 <div class="admonition-example-cont admonition">
 <p class="admonition-title">Example (cont.)</p>
-<p>Continuing the car example, consider a step input to the throttle position of 75%. First, sketch the expected response of the car speed. What is the half-life, and what is the car speed at that point? What is the car speed at 1, 2, and 3 time constants?  What is the steady-state car speed?</p>
+<p>Continuing the car example, consider a step input from steady-state at 25% throttle to 75% throttle (see previous example box). First, sketch the expected response of the car speed. What is the half-life, and what is the car speed at that point? What is the car speed at 1, 2, and 3 time constants?  What is the steady-state car speed?</p>
 <p>After doing a manual sketch, write a Python code to produce a plot of the car speed as a result of step change in throttle position.</p>
 </div>
 <div class="cell docutils container">
@@ -1078,7 +1078,7 @@ z(t) &amp; = 1 - \frac{x(t)}{x(t_0)} \\
 \tau &amp; = -1/a \\
 K &amp; = - \frac{b}{a}
 \end{align*}\end{split}\]</div>
-<p>Obviously, once <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(tau\)</span> are estimated, values for <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are easily computed. But sometimes it is more transparent simply to write the linear system using <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(\tau\)</span> directly, as</p>
+<p>Obviously, once <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(\tau\)</span> are estimated, values for <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are easily computed. But sometimes it is more transparent simply to write the linear system using <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(\tau\)</span> directly, as</p>
 <div class="math notranslate nohighlight">
 \[\fbox{$\tau\frac{dx}{dt} = -x + K u$}\]</div>
 <p>What is useful about this form is that the gain and time constant are immediately known from coefficients in the model.</p>
@@ -1094,7 +1094,7 @@ K &amp; = - \frac{b}{a}
 <p class="admonition-title">Exercise 2</p>
 <p>A recent paper demonstrated the use of engineered proteins to create a luminescent biosensor for the detection of the COVID-19 virus. The step response of the biosensor is shown in the chart at the center of this figure.</p>
 <p><img alt="" src="../_images/Yeh2021_biosensor.png" /></p>
-<p>Assume a first-order model would be used to describe the dynamics. What is the corresponding time constant? How much time should be allowed for the meaasurement to reach 95% of the steady-state response?</p>
+<p>Assume a first-order model would be used to describe the dynamics. What is the corresponding time constant? How much time should be allowed for the measurement to reach 95% of the steady-state response?</p>
 </div>
 <div class="admonition-exercise-3 admonition">
 <p class="admonition-title">Exercise 3</p>

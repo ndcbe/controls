@@ -598,8 +598,8 @@ document.write(`
 <section id="first-order-lumped-model-for-heater-sensor-device">
 <h3>First-order lumped model for heater/sensor device.<a class="headerlink" href="#first-order-lumped-model-for-heater-sensor-device" title="Permalink to this heading">#</a></h3>
 <p>We have previously developed a first-order model for one heater/sensor pair on the temperature control lab device.  An energy balance gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e8ed7956-e697-4057-b5ad-fd27b8b4224f">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e8ed7956-e697-4057-b5ad-fd27b8b4224f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-02d935c5-d02d-4014-a256-548f59b3e61f">
+<span class="eqno">(1)<a class="headerlink" href="#equation-02d935c5-d02d-4014-a256-548f59b3e61f" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T_1\)</span> is the average temperature of heater/sensor one, <span class="math notranslate nohighlight">\(T_{amb}\)</span> is the ambient temperature of the surroundings. The unknown parameters are the heat capacity <span class="math notranslate nohighlight">\(C_p\)</span> and the heat transfer coefficient <span class="math notranslate nohighlight">\(U_a\)</span>.</p>
@@ -628,7 +628,7 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 
 <span class="c1"># file location</span>
 <span class="n">github_repo</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/ndcbe/controls/main/&quot;</span>
-<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;tclhttps://raw.githubusercontent.com/ndcbe/controls/main/notebooks/data/tclab-data.csv&quot;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;tclab/data/tclab-data.csv&quot;</span>
 <span class="n">url</span> <span class="o">=</span> <span class="n">github_repo</span> <span class="o">+</span> <span class="n">file_path</span>
 
 <span class="c1"># read file</span>
