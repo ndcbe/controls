@@ -75,12 +75,12 @@ Students without this background should contact the instructor before registerin
   - Senior TA
   - TA
 * - Wednesdays, 2 - 3pm, 369 NSH
-  - Thursdays, 2 - 3pm, 366 NSH
+  - Thursdays, 2 - 3pm, 252 NSH $^\dagger$
   - (same)
   - (same)
   - (same)
 ```
-Office hours are lists in the last row. TAs share office hours.
+Office hours are lists in the last row. TAs share office hours. $^\dagger$ TA office hours will be held in 366 NSH on March 28, 2023. 
 
 ## Discussion Board (Canvas) and Email Correspondance
 
