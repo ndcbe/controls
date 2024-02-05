@@ -206,9 +206,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02.05-Second-Order.html">2.5. Second Order Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.07-Exothermic-CSTR.html">2.7. Exothermic Continuous Stirred Tank Reactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.08-Hare-and-Lynx.html">2.8. Hare and Lynx Population Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02.09-Study-Guide.html">2.9. Study Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.09-Study-Guide.html">2.10. Study Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -669,14 +670,14 @@ document.write(`
 <section id="heater-sensor-model">
 <h2><span class="section-number">4.3.3. </span>Heater/Sensor Model<a class="headerlink" href="#heater-sensor-model" title="Permalink to this heading">#</a></h2>
 <p>In chapter two we explored various models for describing the response of the heater/sensor assemblies to heater inputs. For heater/sensor assembly 1 we developed the following model</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9d125ff8-8949-4835-a2b7-378911895f4f">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-9d125ff8-8949-4835-a2b7-378911895f4f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0916d165-4f07-4b76-8469-5ec3fcfdc3e6">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-0916d165-4f07-4b76-8469-5ec3fcfdc3e6" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT_{H,1}}{dt} &amp; = U_a(T_{amb} - T_{H,1}) + U_b(T_{S,1} - T_{H,1}) + \alpha P_1 u_1\\
 C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1}) 
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(C^H_p\)</span> and <span class="math notranslate nohighlight">\(C^S_p\)</span> are the gross heat capacities of the heater and sensor, respectively, <span class="math notranslate nohighlight">\(U_a\)</span> is the heat transfer coefficient characterizing the exchange of heat with the surroundings, and <span class="math notranslate nohighlight">\(U_b\)</span> is a heat transfer coefficient between the heater and sensor.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d658f637-140f-4bc4-aa4b-efb9fcdeba00">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-d658f637-140f-4bc4-aa4b-efb9fcdeba00" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d9242161-507f-4e34-9adb-29a6b76279be">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-d9242161-507f-4e34-9adb-29a6b76279be" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT_{H,1}}{dt} &amp; = -\frac{U_a+U_b}{C^H_p}T_{H,1} + \frac{U_b}{C^H_p}T_{S,1} + \frac{\alpha P_1}{C^H_p}u_1 + \frac{U_a}{C^H_p}T_{amb}\\
 \frac{dT_{S,1}}{dt} &amp; = \frac{U_b}{C^S_p}(T_{H,1} - T_{S,1}) 
 \end{align}\]</div>
@@ -687,8 +688,8 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
 <section id="converting-to-a-state-space-model">
 <h2><span class="section-number">4.3.4. </span>Converting to a State-Space Model<a class="headerlink" href="#converting-to-a-state-space-model" title="Permalink to this heading">#</a></h2>
 <p>The same model can be written in a <strong>state-space</strong> matrix/vector format:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f95a3e63-993c-41d3-b55b-0fedd58ff184">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-f95a3e63-993c-41d3-b55b-0fedd58ff184" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-af087b9b-8fd5-4857-87f0-0c0881602206">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-af087b9b-8fd5-4857-87f0-0c0881602206" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt} &amp; = A x + B_u u + B_d d \\
 y &amp; = C x
 \end{align}\]</div>

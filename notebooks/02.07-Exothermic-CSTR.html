@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.7. Exothermic Continuous Stirred Tank Reactor &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+    <title>2.8. Exothermic Continuous Stirred Tank Reactor &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/02.07-Exothermic-CSTR';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.8. Hare and Lynx Population Dynamics" href="02.08-Hare-and-Lynx.html" />
-    <link rel="prev" title="2.6. Fed-Batch Bioreactor" href="02.06-Fed-Batch-Bioreactor.html" />
+    <link rel="next" title="2.9. Hare and Lynx Population Dynamics" href="02.08-Hare-and-Lynx.html" />
+    <link rel="prev" title="2.7. Characteristics of Second Order Systems" href="02-spring-mass-damper.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -206,9 +206,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02.05-Second-Order.html">2.5. Second Order Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.7. Exothermic Continuous Stirred Tank Reactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.08-Hare-and-Lynx.html">2.8. Hare and Lynx Population Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.09-Study-Guide.html">2.9. Study Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.09-Study-Guide.html">2.10. Study Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -535,14 +536,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">2.7.1. Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-kinetics">2.7.2. Reaction Kinetics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-equations-and-parameter-values">2.7.3. Model Equations and Parameter Values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-cooling-temperature">2.7.4. Effect of Cooling Temperature</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.7.5. Interactive Simulation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines">2.7.6. Nullclines</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane-analysis">2.7.7. Phase Plane Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercises">2.7.8. Suggested Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">2.8.1. Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-kinetics">2.8.2. Reaction Kinetics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-equations-and-parameter-values">2.8.3. Model Equations and Parameter Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-cooling-temperature">2.8.4. Effect of Cooling Temperature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.8.5. Interactive Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines">2.8.6. Nullclines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane-analysis">2.8.7. Phase Plane Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercises">2.8.8. Suggested Exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -555,15 +556,15 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exothermic-continuous-stirred-tank-reactor">
-<h1><span class="section-number">2.7. </span>Exothermic Continuous Stirred Tank Reactor<a class="headerlink" href="#exothermic-continuous-stirred-tank-reactor" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.8. </span>Exothermic Continuous Stirred Tank Reactor<a class="headerlink" href="#exothermic-continuous-stirred-tank-reactor" title="Permalink to this heading">#</a></h1>
 <section id="description">
-<h2><span class="section-number">2.7.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.8.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
 <p>This example is intended as an introduction to the nonlinear dynamics of an exothermic continuous stirred-tank reactor. The example has been studied by countless researchers and students since the pioneering work of Amundson and Aris in the 1950’s. The particular formulation and parameter values described below are taken from example 2.5 from Seborg, Edgar, Mellichamp and Doyle (SEMD).</p>
 <p><img alt="Exothermic Reactor" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Agitated_vessel.svg/500px-Agitated_vessel.svg.png" /></p>
 <p>(Diagram By <a class="reference external" href="https://commons.wikimedia.org/wiki/User:Daniele_Pugliesi">Daniele Pugliesi</a> - Own work, <a class="reference external" href="http://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=6915706">Link</a>)</p>
 </section>
 <section id="reaction-kinetics">
-<h2><span class="section-number">2.7.2. </span>Reaction Kinetics<a class="headerlink" href="#reaction-kinetics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.8.2. </span>Reaction Kinetics<a class="headerlink" href="#reaction-kinetics" title="Permalink to this heading">#</a></h2>
 <p>We assume the kinetics are dominated by a single first order reaction</p>
 <div class="math notranslate nohighlight">
 \[A \xrightarrow{kc_A}{} \text{Products}\]</div>
@@ -604,7 +605,7 @@ document.write(`
 <p>This graph shows the reaction rate changes by six orders of magnitude over the range of possible operating temperatures. Because an exothermic reaction releases heat faster at higher temperatures, there is a positive feedback that can potentially result in unstable process behavior.</p>
 </section>
 <section id="model-equations-and-parameter-values">
-<h2><span class="section-number">2.7.3. </span>Model Equations and Parameter Values<a class="headerlink" href="#model-equations-and-parameter-values" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.8.3. </span>Model Equations and Parameter Values<a class="headerlink" href="#model-equations-and-parameter-values" title="Permalink to this heading">#</a></h2>
 <p>The model consists of mole and energy balances on the contents of the well-mixed reactor.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -787,7 +788,7 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </section>
 <section id="effect-of-cooling-temperature">
-<h2><span class="section-number">2.7.4. </span>Effect of Cooling Temperature<a class="headerlink" href="#effect-of-cooling-temperature" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.8.4. </span>Effect of Cooling Temperature<a class="headerlink" href="#effect-of-cooling-temperature" title="Permalink to this heading">#</a></h2>
 <p>The primary means of controlling the reactoris through temperature of the cooling water jacket. The next calculations explore the effect of plus or minus change of 5 K in cooling water temperature on reactor behavior. These simulations reproduce the behavior shown in Example 2.5 SEMD.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -813,7 +814,7 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </section>
 <section id="interactive-simulation">
-<h2><span class="section-number">2.7.5. </span>Interactive Simulation<a class="headerlink" href="#interactive-simulation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.8.5. </span>Interactive Simulation<a class="headerlink" href="#interactive-simulation" title="Permalink to this heading">#</a></h2>
 <p>Executing the following cell provides an interactive tool for exploring the relationship of cooling temperature with reactor behavior.  Use it to observe a thermal runaway, sustained osciallations, and low and high conversion steady states.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -854,7 +855,7 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </section>
 <section id="nullclines">
-<h2><span class="section-number">2.7.6. </span>Nullclines<a class="headerlink" href="#nullclines" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.8.6. </span>Nullclines<a class="headerlink" href="#nullclines" title="Permalink to this heading">#</a></h2>
 <p>The nullclines of two first-order differential equations are points in the phase plane for which one or the other of the two derivatives are zero.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -903,7 +904,7 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </section>
 <section id="phase-plane-analysis">
-<h2><span class="section-number">2.7.7. </span>Phase Plane Analysis<a class="headerlink" href="#phase-plane-analysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.8.7. </span>Phase Plane Analysis<a class="headerlink" href="#phase-plane-analysis" title="Permalink to this heading">#</a></h2>
 <p>The final analysis is display the simulation in both time and phase plane coordinates. The following cell produces a</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -948,7 +949,7 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </section>
 <section id="suggested-exercises">
-<h2><span class="section-number">2.7.8. </span>Suggested Exercises<a class="headerlink" href="#suggested-exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.8.8. </span>Suggested Exercises<a class="headerlink" href="#suggested-exercises" title="Permalink to this heading">#</a></h2>
 <p><strong>1.</strong> Using the interactive simulation, adjust the cooling temperature over the range of values from 290K to 310K, identify the cooling water temperatures at which you observe a qualitative difference in system behavior. Try to identify the following behaviors:</p>
 <ul class="simple">
 <li><p>Stable steady state</p></li>
@@ -991,12 +992,12 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02.06-Fed-Batch-Bioreactor.html"
+       href="02-spring-mass-damper.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.6. </span>Fed-Batch Bioreactor</p>
+        <p class="prev-next-title"><span class="section-number">2.7. </span>Characteristics of Second Order Systems</p>
       </div>
     </a>
     <a class="right-next"
@@ -1004,7 +1005,7 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.8. </span>Hare and Lynx Population Dynamics</p>
+        <p class="prev-next-title"><span class="section-number">2.9. </span>Hare and Lynx Population Dynamics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1024,14 +1025,14 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">2.7.1. Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-kinetics">2.7.2. Reaction Kinetics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-equations-and-parameter-values">2.7.3. Model Equations and Parameter Values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-cooling-temperature">2.7.4. Effect of Cooling Temperature</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.7.5. Interactive Simulation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines">2.7.6. Nullclines</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane-analysis">2.7.7. Phase Plane Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercises">2.7.8. Suggested Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">2.8.1. Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-kinetics">2.8.2. Reaction Kinetics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-equations-and-parameter-values">2.8.3. Model Equations and Parameter Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-cooling-temperature">2.8.4. Effect of Cooling Temperature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.8.5. Interactive Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines">2.8.6. Nullclines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane-analysis">2.8.7. Phase Plane Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercises">2.8.8. Suggested Exercises</a></li>
 </ul>
   </nav></div>
 

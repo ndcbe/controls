@@ -206,9 +206,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02.05-Second-Order.html">2.5. Second Order Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.07-Exothermic-CSTR.html">2.7. Exothermic Continuous Stirred Tank Reactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.08-Hare-and-Lynx.html">2.8. Hare and Lynx Population Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.09-Study-Guide.html">2.9. Study Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.09-Study-Guide.html">2.10. Study Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="03.00-Feedback-Control.html">3. Feedback Control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -671,13 +672,13 @@ document.write(`
 <section id="pi-control">
 <h2><span class="section-number">3.7.4. </span>PI Control<a class="headerlink" href="#pi-control" title="Permalink to this heading">#</a></h2>
 <p>Proportional-Integral (PI) Control in velocity form is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-39483b80-ef8f-4185-a0e5-561ca2730b6b">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-39483b80-ef8f-4185-a0e5-561ca2730b6b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e7f27c80-2a40-4d7e-9471-5ee72d2f9fbf">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-e7f27c80-2a40-4d7e-9471-5ee72d2f9fbf" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = MV_{k-1} - K_P (e_{k} - e_{k-1}) - \delta t K_I e_k
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(MV_0= \bar{MV}\)</span> is the initial value, and the error <span class="math notranslate nohighlight">\(e_k\)</span> is the difference between the process variable and setpoint, and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29993566-1a20-4b2d-b795-dae12ba1654d">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-29993566-1a20-4b2d-b795-dae12ba1654d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-84bb6cab-ff5a-47f1-9234-ee8c5e5ce01a">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-84bb6cab-ff5a-47f1-9234-ee8c5e5ce01a" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = PV_k - SP_k \\
 \end{align}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
@@ -789,8 +790,8 @@ e_k &amp; = PV_k - SP_k \\
 </div>
 <hr class="docutils" />
 <p><strong>Study Question:</strong> Examine the results of this experiment. The PI velocity algorithm is given by an equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1bc35283-16ef-4fc4-94d7-833979e08228">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-1bc35283-16ef-4fc4-94d7-833979e08228" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-17cff0a6-9757-466e-aec8-e531e8223955">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-17cff0a6-9757-466e-aec8-e531e8223955" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - \delta t K_i e_{k}
 \end{align}\]</div>
 <p>Looking at the period from 0 to 100 seconds, is this equation describing what is actually happening? Is it possible for <span class="math notranslate nohighlight">\(MV\)</span> to be different from the actual input applied to the device?</p>
@@ -1047,13 +1048,13 @@ TCLab Model disconnected successfully.
 </ul>
 <section id="id1">
 <h3><span class="section-number">3.7.7.1. </span>Bumpless Transfer<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-ab85c01b-aa75-4d22-adc4-2513ced8078e">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-ab85c01b-aa75-4d22-adc4-2513ced8078e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a257c8f1-144c-4f65-9987-bd4aa2522226">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-a257c8f1-144c-4f65-9987-bd4aa2522226" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = PV_k - SP_k \\
 \hat{MV}_{k} &amp; = MV_{k-1} - K_p(PV_{k} - PV_{k-1}) - \delta t K_i e_{k} 
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-1851cfd8-2248-4395-b0b1-42261a9724d9">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-1851cfd8-2248-4395-b0b1-42261a9724d9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b8247f6b-24be-4c81-bfff-e2c2821c1ed7">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-b8247f6b-24be-4c81-bfff-e2c2821c1ed7" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
 \end{align}\]</div>
 <div class="cell docutils container">

@@ -204,9 +204,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/02.05-Second-Order.html">2.5. Second Order Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.07-Exothermic-CSTR.html">2.7. Exothermic Continuous Stirred Tank Reactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.08-Hare-and-Lynx.html">2.8. Hare and Lynx Population Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.09-Study-Guide.html">2.9. Study Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.09-Study-Guide.html">2.10. Study Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -560,25 +561,25 @@ document.write(`
 <h2>Implementation of a simple PI controller<a class="headerlink" href="#implementation-of-a-simple-pi-controller" title="Permalink to this heading">#</a></h2>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the equation</p>
 <p>TODO: Make consistent with rest of website. Check sign convention.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f6708f1f-aff6-4665-905c-534ee6c20099">
-<span class="eqno">(2)<a class="headerlink" href="#equation-f6708f1f-aff6-4665-905c-534ee6c20099" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-54346705-ca50-4ea1-be63-fcf082f413f4">
+<span class="eqno">(2)<a class="headerlink" href="#equation-54346705-ca50-4ea1-be63-fcf082f413f4" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV &amp; = \bar{MV} + k_p\left(SP - PV\right) + k_i \int_0^t \left(SP-PV)\right)dt
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(k_p\)</span> and <span class="math notranslate nohighlight">\(k_i\)</span> are the proportional and integral coefficients, respectively. The value <span class="math notranslate nohighlight">\(\bar{MV}\)</span> is a nominal or initial value of the manipulated variable.</p>
 <p>The actual implementation of PI control is normally done by computing how much the <span class="math notranslate nohighlight">\(MV\)</span> should change at each time step. Defining the error at time <span class="math notranslate nohighlight">\(k\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f94d0564-879d-4530-87c6-e86265913df9">
-<span class="eqno">(3)<a class="headerlink" href="#equation-f94d0564-879d-4530-87c6-e86265913df9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-acc5806c-c236-4809-ac1a-957e8d89f5fd">
+<span class="eqno">(3)<a class="headerlink" href="#equation-acc5806c-c236-4809-ac1a-957e8d89f5fd" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k
 \end{align}\]</div>
 <p>then consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5c22605e-76e9-428e-b15f-4fe53559dd70">
-<span class="eqno">(4)<a class="headerlink" href="#equation-5c22605e-76e9-428e-b15f-4fe53559dd70" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f317eb4b-bc55-4983-a3ab-4796775f7a84">
+<span class="eqno">(4)<a class="headerlink" href="#equation-f317eb4b-bc55-4983-a3ab-4796775f7a84" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k-1} &amp; = \bar{MV} + k_p e_{k-1} + k_i \sum_{j=0}^{k-1} e_{j} \\
 MV_{k} &amp; = \bar{MV} + k_p e_{k} + k_i \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
 <p>Taking differences gives a practical formula for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to measurements</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f2c931b1-5e9e-4033-be61-4309619129b1">
-<span class="eqno">(5)<a class="headerlink" href="#equation-f2c931b1-5e9e-4033-be61-4309619129b1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e924b705-2b37-4c5b-93cc-0301da5bfe17">
+<span class="eqno">(5)<a class="headerlink" href="#equation-e924b705-2b37-4c5b-93cc-0301da5bfe17" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + k_p(e_{k} - e_{k-1}) + k_i e_{k}
 \end{align}\]</div>
 <p>The following code defines a Python object that implements this algorithm.</p>

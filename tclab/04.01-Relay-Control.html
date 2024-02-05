@@ -206,9 +206,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/02.05-Second-Order.html">2.5. Second Order Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.07-Exothermic-CSTR.html">2.7. Exothermic Continuous Stirred Tank Reactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.08-Hare-and-Lynx.html">2.8. Hare and Lynx Population Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.09-Study-Guide.html">2.9. Study Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.09-Study-Guide.html">2.10. Study Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -555,8 +556,8 @@ document.write(`
 <section id="simple-relay-control">
 <h2><span class="section-number">5.1.1. </span>Simple Relay Control<a class="headerlink" href="#simple-relay-control" title="Permalink to this heading">#</a></h2>
 <p>The following code implements relay control for temperature T1 on the Temperature Control Lab.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-94ebb4b6-219f-46b2-b51e-81c26a0e518c">
-<span class="eqno">(5.10)<a class="headerlink" href="#equation-94ebb4b6-219f-46b2-b51e-81c26a0e518c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-08651960-5878-496f-97bd-61460d6621b1">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-08651960-5878-496f-97bd-61460d6621b1" title="Permalink to this equation">#</a></span>\[\begin{align}
 Q(t) &amp; = \begin{cases} 
     Q^{max} &amp;\text{if $T \leq T_{setpoint}$}\\
     0       &amp; \text{if $T \geq T_{setpoint}$}
@@ -601,8 +602,8 @@ Q(t) &amp; = \begin{cases}
 <h2><span class="section-number">5.1.2. </span>Relay Control with Hysteresis<a class="headerlink" href="#relay-control-with-hysteresis" title="Permalink to this heading">#</a></h2>
 <p>One of the issues with simple relay control is the potential for ‘chattering’, which are situations where the manipulated variable (in this case heater power) rapid on-and-off switching. This can be caused by systems that are highly response to control inputs or where the sensor measurements carry significant noise.</p>
 <p>The typical home thermostat used for furnace control incorporates a simple but highly effective solution to the chattering period. The idea is to intentially overshoot the setpoint. Then, after the control switches state, there will be at least a short period of time where no further control action should be necessary. The control algorithm can be written</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5dbb5377-7888-423a-bf87-a29d7538e42c">
-<span class="eqno">(5.11)<a class="headerlink" href="#equation-5dbb5377-7888-423a-bf87-a29d7538e42c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5223726e-fd50-4837-9096-a85e8571c453">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-5223726e-fd50-4837-9096-a85e8571c453" title="Permalink to this equation">#</a></span>\[\begin{align}
 Q(t) &amp; = \begin{cases} 
     0       &amp; \text{if $T \geq T_{Setpoint} - \frac{d}{2}$}\\
     Q^{max} &amp;\text{if $T \leq T_{Setpoint} + \frac{d}{2}$}\\
@@ -612,8 +613,8 @@ Q(t) &amp; = \begin{cases}
 <p>where <span class="math notranslate nohighlight">\(d\)</span> is the <em>tolerance</em> or <em>hysteresis</em>. For home heating systems a typical value is in the range of 0.5 to 1 degree F. This image shows how hystersis was adjusted on a typical home thermostat in common usage in the late 20th century.</p>
 <p><a title="By Vincent de Groot - http://www.videgro.net (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY 2.5 (http://creativecommons.org/licenses/by/2.5)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AHoneywell_thermostat_open.jpg"><img width="512" alt="Honeywell thermostat open" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Honeywell_thermostat_open.jpg/512px-Honeywell_thermostat_open.jpg"/></a></p>
 <p>The furnance is turned on for temperatures below the range</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b14005e-9212-467a-8df3-1d79cb2d3213">
-<span class="eqno">(5.12)<a class="headerlink" href="#equation-5b14005e-9212-467a-8df3-1d79cb2d3213" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8f8df91c-0b89-4967-8f56-8862cf933cc5">
+<span class="eqno">(5.12)<a class="headerlink" href="#equation-8f8df91c-0b89-4967-8f56-8862cf933cc5" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_{Setpoint} - \frac{d}{2} \leq T \leq T_{Setpoint} + \frac{d}{2}
 \end{align}\]</div>
 <p>and is turned for temperatures above the range. Within the range, however, the furnance may be on or off depending on what happened at the last decision point.</p>

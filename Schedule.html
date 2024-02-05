@@ -204,9 +204,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="notebooks/02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/02.05-Second-Order.html">2.5. Second Order Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/02.07-Exothermic-CSTR.html">2.7. Exothermic Continuous Stirred Tank Reactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/02.08-Hare-and-Lynx.html">2.8. Hare and Lynx Population Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/02.09-Study-Guide.html">2.9. Study Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/02.09-Study-Guide.html">2.10. Study Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="notebooks/03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -704,8 +705,8 @@ document.write(`
 <tr class="row-odd"><td><p><strong>Tuesday, February 6</strong></p></td>
 <td><p><strong>Modeling: Second Order Systems</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="notebooks/02.07-Exothermic-CSTR.html"><span class="doc std std-doc">Exothermic Continuous Stirred Tank Reactor</span></a></p></td>
-<td><p><a class="reference internal" href="notebooks/02.08-Hare-and-Lynx.html"><span class="doc std std-doc">Hare and Lynx Population Dynamics</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="notebooks/02-spring-mass-damper.html"><span class="doc std std-doc">Characteristics of Second Order Systems</span></a></p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Thursday, February 8</strong></p></td>
 <td><p><strong>Modeling: Temperature Control Lab</strong></p></td>
@@ -714,63 +715,66 @@ document.write(`
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Tuesday, February 13</strong></p></td>
-<td><p><strong>Modeling: Reactor System</strong></p></td>
+<td><p><strong>Modeling: More Dynamical Systems</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Thursday, February 15</strong></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="notebooks/02.07-Exothermic-CSTR.html"><span class="doc std std-doc">Exothermic Continuous Stirred Tank Reactor</span></a></p></td>
+<td><p><a class="reference internal" href="notebooks/02.08-Hare-and-Lynx.html"><span class="doc std std-doc">Hare and Lynx Population Dynamics</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Thursday, February 15</strong></p></td>
 <td><p><strong>Setpoints, Disturbances, Servo and Regulation Problems</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Tuesday, February 20</strong></p></td>
+<tr class="row-even"><td><p><strong>Tuesday, February 20</strong></p></td>
 <td><p><strong>P, PI, and PID Control</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Thursday, February 22</strong></p></td>
+<tr class="row-odd"><td><p><strong>Thursday, February 22</strong></p></td>
 <td><p><strong>Stability Analysis</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Tuesday, February 27</strong></p></td>
+<tr class="row-even"><td><p><strong>Tuesday, February 27</strong></p></td>
 <td><p><strong>PID Tuning</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Thursday, February 29</strong></p></td>
+<tr class="row-odd"><td><p><strong>Thursday, February 29</strong></p></td>
 <td><p><strong>PID Implementation Details</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Tuesday, March 5</strong></p></td>
+<tr class="row-even"><td><p><strong>Tuesday, March 5</strong></p></td>
 <td><p><strong>Optimization Modeling in Pyomo</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Thursday, March 7</strong></p></td>
+<tr class="row-odd"><td><p><strong>Thursday, March 7</strong></p></td>
 <td><p><strong>Linear Programming Examples</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Tuesday, March 19</strong></p></td>
+<tr class="row-even"><td><p><strong>Tuesday, March 19</strong></p></td>
 <td><p><strong>Nonlinear and Dynamic Optimization</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Thursday, March 21</strong></p></td>
+<tr class="row-odd"><td><p><strong>Thursday, March 21</strong></p></td>
 <td><p><strong>Simulation and Open-Loop Control</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Tuesday, March 26</strong></p></td>
+<tr class="row-even"><td><p><strong>Tuesday, March 26</strong></p></td>
 <td><p><strong>Model Predictive Control</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Thursday, March 28</strong></p></td>
+<tr class="row-odd"><td><p><strong>Thursday, March 28</strong></p></td>
 <td><p><strong>Implementing Model Predictive Control</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p>Tuesday, April 2</p></td>
+<tr class="row-even"><td><p>Tuesday, April 2</p></td>
 <td><p>Review Session</p></td>
 </tr>
-<tr class="row-even"><td><p>Thursday, April 4</p></td>
+<tr class="row-odd"><td><p>Thursday, April 4</p></td>
 <td><p>Midterm Exam (in-class)</p></td>
 </tr>
-<tr class="row-odd"><td><p>Tuesday, April 9</p></td>
+<tr class="row-even"><td><p>Tuesday, April 9</p></td>
 <td><p>Project Consulations (in-class)</p></td>
 </tr>
-<tr class="row-even"><td><p>Thursday, April 11</p></td>
+<tr class="row-odd"><td><p>Thursday, April 11</p></td>
 <td><p>Project Consulations (in-class)</p></td>
 </tr>
-<tr class="row-odd"><td><p>Tuesday, April 16</p></td>
+<tr class="row-even"><td><p>Tuesday, April 16</p></td>
 <td><p>Project Consulations (in-class)</p></td>
 </tr>
-<tr class="row-even"><td><p>Thursday, April 18</p></td>
+<tr class="row-odd"><td><p>Thursday, April 18</p></td>
 <td><p>Project Consulations (in-class)</p></td>
 </tr>
-<tr class="row-odd"><td><p>Tuesday, April 23</p></td>
+<tr class="row-even"><td><p>Tuesday, April 23</p></td>
 <td><p>Project Presentations (in-class)</p></td>
 </tr>
-<tr class="row-even"><td><p>Thursday, April 25</p></td>
+<tr class="row-odd"><td><p>Thursday, April 25</p></td>
 <td><p>Project Presentations (in-class)</p></td>
 </tr>
 </tbody>

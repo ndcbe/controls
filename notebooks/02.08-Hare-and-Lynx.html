@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.8. Hare and Lynx Population Dynamics &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+    <title>2.9. Hare and Lynx Population Dynamics &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/02.08-Hare-and-Lynx';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.9. Study Guide" href="02.09-Study-Guide.html" />
-    <link rel="prev" title="2.7. Exothermic Continuous Stirred Tank Reactor" href="02.07-Exothermic-CSTR.html" />
+    <link rel="next" title="2.10. Study Guide" href="02.09-Study-Guide.html" />
+    <link rel="prev" title="2.8. Exothermic Continuous Stirred Tank Reactor" href="02.07-Exothermic-CSTR.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -206,9 +206,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02.05-Second-Order.html">2.5. Second Order Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.07-Exothermic-CSTR.html">2.7. Exothermic Continuous Stirred Tank Reactor</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.8. Hare and Lynx Population Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.09-Study-Guide.html">2.9. Study Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.09-Study-Guide.html">2.10. Study Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -535,33 +536,33 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.8.1. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.8.2. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-data">2.8.3. Historical Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population-dynamics">2.8.4. Population Dynamics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-equations">2.8.4.1. Model Equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-values">2.8.4.2. Parameter Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.9.1. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.9.2. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-data">2.9.3. Historical Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population-dynamics">2.9.4. Population Dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-equations">2.9.4.1. Model Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-values">2.9.4.2. Parameter Values</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-using-the-scipy-integrate-solve-ivp">2.8.5. Simulation using the scipy.integrate.solve_ivp()</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-initialization">2.8.5.1. Step 1. Initialization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-establish-parameter-values">2.8.5.2. Step 2. Establish Parameter Values</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-write-function-for-the-rhs-of-the-differential-equations">2.8.5.3. Step 3.  Write function for the RHS of the Differential Equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-choose-time-grid-initial-conditions-and-integrate">2.8.5.4. Step 4. Choose Time Grid, Initial Conditions, and Integrate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-visualize-and-analyze-the-solution">2.8.5.5. Step 5. Visualize and Analyze the Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-using-the-scipy-integrate-solve-ivp">2.9.5. Simulation using the scipy.integrate.solve_ivp()</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-initialization">2.9.5.1. Step 1. Initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-establish-parameter-values">2.9.5.2. Step 2. Establish Parameter Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-write-function-for-the-rhs-of-the-differential-equations">2.9.5.3. Step 3.  Write function for the RHS of the Differential Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-choose-time-grid-initial-conditions-and-integrate">2.9.5.4. Step 4. Choose Time Grid, Initial Conditions, and Integrate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-visualize-and-analyze-the-solution">2.9.5.5. Step 5. Visualize and Analyze the Solution</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane">2.8.6. Phase Plane</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines-finding-steady-states">2.8.7. Nullclines: Finding Steady States</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.8.8. Interactive Simulation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-a-steady-state">2.8.9. Stability of a Steady State</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unstable-focus">2.8.9.1. 1. Unstable Focus</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-focus">2.8.9.2. 2. Stable Focus</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-and-unstable-nodes">2.8.9.3. 3. Stable and Unstable Nodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane">2.9.6. Phase Plane</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines-finding-steady-states">2.9.7. Nullclines: Finding Steady States</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.9.8. Interactive Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-a-steady-state">2.9.9. Stability of a Steady State</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unstable-focus">2.9.9.1. 1. Unstable Focus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-focus">2.9.9.2. 2. Stable Focus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-and-unstable-nodes">2.9.9.3. 3. Stable and Unstable Nodes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.8.10. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercise">2.8.11. Suggested Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.9.10. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercise">2.9.11. Suggested Exercise</a></li>
 </ul>
             </nav>
         </div>
@@ -574,13 +575,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hare-and-lynx-population-dynamics">
-<h1><span class="section-number">2.8. </span>Hare and Lynx Population Dynamics<a class="headerlink" href="#hare-and-lynx-population-dynamics" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.9. </span>Hare and Lynx Population Dynamics<a class="headerlink" href="#hare-and-lynx-population-dynamics" title="Permalink to this heading">#</a></h1>
 <section id="summary">
-<h2><span class="section-number">2.8.1. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.1. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>This notebook provides an introduction to nonlinear dynamics using a well-known model for the preditor-prey interaction of Snowshoe Hare and Canadian Lynx. Topics include limit cycles, the existence of multiple steady states, and simple phase plane analysis using nullclines. This notebook can be displayed as a slide presentation.</p>
 </section>
 <section id="introduction">
-<h2><span class="section-number">2.8.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Snowshoe_hare">Snowshoe hare</a> (<em>Lepus americanus</em>) are the primary food for the <a class="reference external" href="https://en.wikipedia.org/wiki/Canada_lynx">Canadian lynx</a> (<em>Lynx canadensis</em>) in the Northern boreal forests of North America. When hare are abundant, Lynx will eat hare about two every three days almost to the complete exclusion of other foods. As a consequence, the population dynamics of the two species are closely linked.</p>
 <table class="table">
 <thead>
@@ -603,7 +604,7 @@ document.write(`
 <p>The actual cause of the cycling is still a matter of scientific inquiry. Hypotheses include the inherent instability of the preditor-prey dynamics, the dynamics of a more complex food web, and the role of climate (see <a class="reference external" href="http://www.int-res.com/articles/feature/c034p083.pdf">Zhang, 2007</a>). The discussion in this notebook addresses the preditor-prey dynamics.</p>
 </section>
 <section id="historical-data">
-<h2><span class="section-number">2.8.3. </span>Historical Data<a class="headerlink" href="#historical-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.3. </span>Historical Data<a class="headerlink" href="#historical-data" title="Permalink to this heading">#</a></h2>
 <p>A digitized version of the historical data is available from <a class="reference external" href="http://people.whitman.edu/~hundledr/courses/M250F03/M250.html">D. R. Hundley at Whitman College</a>. The following cell reads the data from the url, imports it into a pandas dataframe, and creates a plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -625,9 +626,9 @@ document.write(`
 </div>
 </section>
 <section id="population-dynamics">
-<h2><span class="section-number">2.8.4. </span>Population Dynamics<a class="headerlink" href="#population-dynamics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.4. </span>Population Dynamics<a class="headerlink" href="#population-dynamics" title="Permalink to this heading">#</a></h2>
 <section id="model-equations">
-<h3><span class="section-number">2.8.4.1. </span>Model Equations<a class="headerlink" href="#model-equations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.9.4.1. </span>Model Equations<a class="headerlink" href="#model-equations" title="Permalink to this heading">#</a></h3>
 <p>The model equatons describe the time rate of change of the population densities of hare (<span class="math notranslate nohighlight">\(H\)</span>) and lynx (<span class="math notranslate nohighlight">\(L\)</span>). Each is the difference between the birth and death rate. The death rate of hare is coupled to the population density of lynx. The birth rate of lynx is a simple multiple of the death rate of hare.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -636,7 +637,7 @@ document.write(`
 \end{align*}\]</div>
 </section>
 <section id="parameter-values">
-<h3><span class="section-number">2.8.4.2. </span>Parameter Values<a class="headerlink" href="#parameter-values" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.9.4.2. </span>Parameter Values<a class="headerlink" href="#parameter-values" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
@@ -674,9 +675,9 @@ document.write(`
 </section>
 </section>
 <section id="simulation-using-the-scipy-integrate-solve-ivp">
-<h2><span class="section-number">2.8.5. </span>Simulation using the scipy.integrate.solve_ivp()<a class="headerlink" href="#simulation-using-the-scipy-integrate-solve-ivp" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.5. </span>Simulation using the scipy.integrate.solve_ivp()<a class="headerlink" href="#simulation-using-the-scipy-integrate-solve-ivp" title="Permalink to this heading">#</a></h2>
 <section id="step-1-initialization">
-<h3><span class="section-number">2.8.5.1. </span>Step 1. Initialization<a class="headerlink" href="#step-1-initialization" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.9.5.1. </span>Step 1. Initialization<a class="headerlink" href="#step-1-initialization" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> library includes functions for integrating differential equations. Of these, the function <code class="docutils literal notranslate"><span class="pre">odeint</span></code> provides an easy-to-use general purpose algorithm well suited to this type of problem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -689,7 +690,7 @@ document.write(`
 </div>
 </section>
 <section id="step-2-establish-parameter-values">
-<h3><span class="section-number">2.8.5.2. </span>Step 2. Establish Parameter Values<a class="headerlink" href="#step-2-establish-parameter-values" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.9.5.2. </span>Step 2. Establish Parameter Values<a class="headerlink" href="#step-2-establish-parameter-values" title="Permalink to this heading">#</a></h3>
 <p>Set global default values for the parameters</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -706,7 +707,7 @@ document.write(`
 </div>
 </section>
 <section id="step-3-write-function-for-the-rhs-of-the-differential-equations">
-<h3><span class="section-number">2.8.5.3. </span>Step 3.  Write function for the RHS of the Differential Equations<a class="headerlink" href="#step-3-write-function-for-the-rhs-of-the-differential-equations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.9.5.3. </span>Step 3.  Write function for the RHS of the Differential Equations<a class="headerlink" href="#step-3-write-function-for-the-rhs-of-the-differential-equations" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">deriv</span></code> is a function that returns a two element list containting values for the derivatives of <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(L\)</span>. The first argument is a two element list with values of <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(L\)</span>, followed by the current time <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -727,7 +728,7 @@ document.write(`
 </div>
 </section>
 <section id="step-4-choose-time-grid-initial-conditions-and-integrate">
-<h3><span class="section-number">2.8.5.4. </span>Step 4. Choose Time Grid, Initial Conditions, and Integrate<a class="headerlink" href="#step-4-choose-time-grid-initial-conditions-and-integrate" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.9.5.4. </span>Step 4. Choose Time Grid, Initial Conditions, and Integrate<a class="headerlink" href="#step-4-choose-time-grid-initial-conditions-and-integrate" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># perform simulation</span>
@@ -741,7 +742,7 @@ document.write(`
 </div>
 </section>
 <section id="step-5-visualize-and-analyze-the-solution">
-<h3><span class="section-number">2.8.5.5. </span>Step 5. Visualize and Analyze the Solution<a class="headerlink" href="#step-5-visualize-and-analyze-the-solution" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.9.5.5. </span>Step 5. Visualize and Analyze the Solution<a class="headerlink" href="#step-5-visualize-and-analyze-the-solution" title="Permalink to this heading">#</a></h3>
 <p>For this choice of parameters and initial conditions, the Hare/Lynx population exhibits sustained oscillations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -759,7 +760,7 @@ document.write(`
 </section>
 </section>
 <section id="phase-plane">
-<h2><span class="section-number">2.8.6. </span>Phase Plane<a class="headerlink" href="#phase-plane" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.6. </span>Phase Plane<a class="headerlink" href="#phase-plane" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">simulate_hare_lynx</span></code> consolidates all of the above steps into a single function that returns a DataFrame holding the results of a simulation. The only required argument is an initial condition for the hare and lynx populations. All other parameters, including the desired time grid, are optional arguments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -809,7 +810,7 @@ document.write(`
 </div>
 </section>
 <section id="nullclines-finding-steady-states">
-<h2><span class="section-number">2.8.7. </span>Nullclines: Finding Steady States<a class="headerlink" href="#nullclines-finding-steady-states" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.7. </span>Nullclines: Finding Steady States<a class="headerlink" href="#nullclines-finding-steady-states" title="Permalink to this heading">#</a></h2>
 <p>Nullclines are the points in the phase plane where the derivatives are equal to zero.</p>
 <p>The nullclines for hare are where</p>
 <div class="math notranslate nohighlight">
@@ -899,7 +900,7 @@ document.write(`
 </div>
 </section>
 <section id="interactive-simulation">
-<h2><span class="section-number">2.8.8. </span>Interactive Simulation<a class="headerlink" href="#interactive-simulation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.8. </span>Interactive Simulation<a class="headerlink" href="#interactive-simulation" title="Permalink to this heading">#</a></h2>
 <p>An additional function is created to encapsulate the entire process of solving the model and displaying the solution. The function takes arguments specifing the initial values of <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(L\)</span>, and a value of the parameter <span class="math notranslate nohighlight">\(a\)</span>.  These argument</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -927,9 +928,9 @@ document.write(`
 </div>
 </section>
 <section id="stability-of-a-steady-state">
-<h2><span class="section-number">2.8.9. </span>Stability of a Steady State<a class="headerlink" href="#stability-of-a-steady-state" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.9. </span>Stability of a Steady State<a class="headerlink" href="#stability-of-a-steady-state" title="Permalink to this heading">#</a></h2>
 <section id="unstable-focus">
-<h3><span class="section-number">2.8.9.1. </span>1. Unstable Focus<a class="headerlink" href="#unstable-focus" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.9.9.1. </span>1. Unstable Focus<a class="headerlink" href="#unstable-focus" title="Permalink to this heading">#</a></h3>
 <p>Any displacement from an unstable focus leads to a trajectory that spirals away from the steady state.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -943,7 +944,7 @@ document.write(`
 </div>
 </section>
 <section id="stable-focus">
-<h3><span class="section-number">2.8.9.2. </span>2. Stable Focus<a class="headerlink" href="#stable-focus" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.9.9.2. </span>2. Stable Focus<a class="headerlink" href="#stable-focus" title="Permalink to this heading">#</a></h3>
 <p>Small displacements from a stable focus results in trajectories that spiral back towards the steady state.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -957,7 +958,7 @@ document.write(`
 </div>
 </section>
 <section id="stable-and-unstable-nodes">
-<h3><span class="section-number">2.8.9.3. </span>3. Stable and Unstable Nodes<a class="headerlink" href="#stable-and-unstable-nodes" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.9.9.3. </span>3. Stable and Unstable Nodes<a class="headerlink" href="#stable-and-unstable-nodes" title="Permalink to this heading">#</a></h3>
 <p>Displacements from a steady state either move towards (stable) or away from (unstable) nodes without the spiral structure of a focus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -972,7 +973,7 @@ document.write(`
 </section>
 </section>
 <section id="id1">
-<h2><span class="section-number">2.8.10. </span>Summary<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.10. </span>Summary<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Hope you enjoyed this brief introduction to the modeling of a small food web. This is a fascinating field with many important and unanswered questions. Recent examples in the research literature are <a class="reference external" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0108243">here</a> and <a class="reference external" href="http://science.sciencemag.org/content/320/5876/658">here</a>.</p>
 <p>What you should learn from this notebook:</p>
 <ul class="simple">
@@ -984,7 +985,7 @@ document.write(`
 </ul>
 </section>
 <section id="suggested-exercise">
-<h2><span class="section-number">2.8.11. </span>Suggested Exercise<a class="headerlink" href="#suggested-exercise" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9.11. </span>Suggested Exercise<a class="headerlink" href="#suggested-exercise" title="Permalink to this heading">#</a></h2>
 <p>Explore the impact of the parameter <span class="math notranslate nohighlight">\(a\)</span> on the nature of the solution. <span class="math notranslate nohighlight">\(a\)</span> is proporational to the success of the Lynx hunting the Hare.  What happens when the value is low?  high?  Can you see the transitions from conditions when the Lynx done’t survive, the emergence of a stable coexistence steady-state, and finally the emergence of a stable limit cycle?</p>
 </section>
 </section>
@@ -1025,7 +1026,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.7. </span>Exothermic Continuous Stirred Tank Reactor</p>
+        <p class="prev-next-title"><span class="section-number">2.8. </span>Exothermic Continuous Stirred Tank Reactor</p>
       </div>
     </a>
     <a class="right-next"
@@ -1033,7 +1034,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.9. </span>Study Guide</p>
+        <p class="prev-next-title"><span class="section-number">2.10. </span>Study Guide</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1053,33 +1054,33 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.8.1. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.8.2. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-data">2.8.3. Historical Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population-dynamics">2.8.4. Population Dynamics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-equations">2.8.4.1. Model Equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-values">2.8.4.2. Parameter Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.9.1. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.9.2. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-data">2.9.3. Historical Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population-dynamics">2.9.4. Population Dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-equations">2.9.4.1. Model Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-values">2.9.4.2. Parameter Values</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-using-the-scipy-integrate-solve-ivp">2.8.5. Simulation using the scipy.integrate.solve_ivp()</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-initialization">2.8.5.1. Step 1. Initialization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-establish-parameter-values">2.8.5.2. Step 2. Establish Parameter Values</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-write-function-for-the-rhs-of-the-differential-equations">2.8.5.3. Step 3.  Write function for the RHS of the Differential Equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-choose-time-grid-initial-conditions-and-integrate">2.8.5.4. Step 4. Choose Time Grid, Initial Conditions, and Integrate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-visualize-and-analyze-the-solution">2.8.5.5. Step 5. Visualize and Analyze the Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-using-the-scipy-integrate-solve-ivp">2.9.5. Simulation using the scipy.integrate.solve_ivp()</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-initialization">2.9.5.1. Step 1. Initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-establish-parameter-values">2.9.5.2. Step 2. Establish Parameter Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-write-function-for-the-rhs-of-the-differential-equations">2.9.5.3. Step 3.  Write function for the RHS of the Differential Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-choose-time-grid-initial-conditions-and-integrate">2.9.5.4. Step 4. Choose Time Grid, Initial Conditions, and Integrate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-visualize-and-analyze-the-solution">2.9.5.5. Step 5. Visualize and Analyze the Solution</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane">2.8.6. Phase Plane</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines-finding-steady-states">2.8.7. Nullclines: Finding Steady States</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.8.8. Interactive Simulation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-a-steady-state">2.8.9. Stability of a Steady State</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unstable-focus">2.8.9.1. 1. Unstable Focus</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-focus">2.8.9.2. 2. Stable Focus</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-and-unstable-nodes">2.8.9.3. 3. Stable and Unstable Nodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane">2.9.6. Phase Plane</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines-finding-steady-states">2.9.7. Nullclines: Finding Steady States</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.9.8. Interactive Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-a-steady-state">2.9.9. Stability of a Steady State</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unstable-focus">2.9.9.1. 1. Unstable Focus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-focus">2.9.9.2. 2. Stable Focus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-and-unstable-nodes">2.9.9.3. 3. Stable and Unstable Nodes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.8.10. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercise">2.8.11. Suggested Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.9.10. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercise">2.9.11. Suggested Exercise</a></li>
 </ul>
   </nav></div>
 
