@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
 
@@ -121,12 +121,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <header>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
   
+  </header>
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -565,7 +573,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="characteristics-of-second-order-systems">
 <h1><span class="section-number">2.7. </span>Characteristics of Second Order Systems<a class="headerlink" href="#characteristics-of-second-order-systems" title="Permalink to this heading">#</a></h1>
@@ -1267,7 +1275,17 @@ eignvalues= [-2.12765957+14.43048933j -2.12765957-14.43048933j]
 \[
 \mathbf{x}(t) = \left[\mathbf{M} e^{\mathbf{\Lambda t}} \mathbf{M}^-1 \right] \mathbf{x}(0)
 \]</div>
-<p>where the columns of <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> and the eigenvectors of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and the diagonal of <span class="math notranslate nohighlight">\(\Lambda\)</span> are the eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>:</p>
+<p>where the columns of <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> and the eigenvectors (<span class="math notranslate nohighlight">\(\mathbf{v}_1\)</span>, …, <span class="math notranslate nohighlight">\(\mathbf{v}_n\)</span>) of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and the diagonal of <span class="math notranslate nohighlight">\(\Lambda\)</span> are the eigenvalues (<span class="math notranslate nohighlight">\(\lambda_1\)</span>, …, <span class="math notranslate nohighlight">\(\lambda_n\)</span>) of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{M} = \begin{bmatrix} v_1 &amp; v_2 &amp; \cdots &amp; v_n \end{bmatrix}, \qquad \Lambda = 
+\begin{bmatrix} \lambda_1 &amp; 0 &amp; \dots &amp; 0 \\
+0 &amp; \lambda_1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; \lambda_n
+\end{bmatrix}
+\end{split}\]</div>
+<p>Because <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagnol matrix, the matrix exponential simplies:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 e^{\mathbf{\Lambda t}} = 
@@ -1278,7 +1296,7 @@ e^{\lambda_1 t} &amp; 0 &amp; \cdots &amp; 0 \\
 0 &amp; 0 &amp; \cdots &amp; e^{\lambda_n t}
 \end{bmatrix}
 \end{split}\]</div>
-<p>The situation is more nuanced if the eigenvalues are not distinct. Nevertheless, we will press on.</p>
+<p>The situation is more nuanced if the eigenvalues are not distinct. Nevertheless, this gives the general idea and we will press on.</p>
 <p>How does this related to our interpretation of the eigenvalues in the spring-mass-damper example above?</p>
 <p>Recall <strong>Euluer’s formula</strong>:</p>
 <div class="math notranslate nohighlight">
@@ -1289,7 +1307,7 @@ e^{x + i y} = e^{x}(\cos y + i \sin y)
 <div class="math notranslate nohighlight">
 \[\cos y = \frac{e^{i y} + e^{-iy}}{2}, \qquad \sin y = \frac{e^{i y} - e^{i y}}{2 i}\]</div>
 <div class="math notranslate nohighlight">
-\[\cosh y = \frac{e^{y} + e^{-y}}{2}, \qquad \sinh y = \frac{e^{y} - e^{y}}{2 i}\]</div>
+\[\cosh y = \frac{e^{y} + e^{-y}}{2}, \qquad \sinh y = \frac{e^{y} - e^{-y}}{2}\]</div>
 <p>If the eigenvalues are real and the imaginary component is zero, i.e., <span class="math notranslate nohighlight">\(y = 0\)</span> in Euler’s formula, then the solution does not oscillate and constains a hyperbolic cosine and hyperbolic sine. Take a minute to review the analytic solution for the overdamped system (<span class="math notranslate nohighlight">\(\zeta &gt; 1\)</span>).</p>
 <p>If the eigenvalues include a non-zero imaginary component, then the solution includes a sine or cosine and oscillates. Take a minute to review the analytic solution for the underdamped system <span class="math notranslate nohighlight">\(\zeta &lt; 1\)</span>.</p>
 <p>It is possible for a large system (<span class="math notranslate nohighlight">\(n &gt; 2\)</span>) to have some eigenvalues that are overdamped and some that are underdamped. Recall our second order system has two eigenvalues and imaginary eigenvalues come in conjugate pairs. This means for a second order system, both eigenvalues have either a non-zero or zero imaginary component.</p>
@@ -1297,7 +1315,7 @@ e^{x + i y} = e^{x}(\cos y + i \sin y)
 <section id="simulation-with-scipy-signal">
 <h3><span class="section-number">2.7.3.2. </span>Simulation with <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code><a class="headerlink" href="#simulation-with-scipy-signal" title="Permalink to this heading">#</a></h3>
 <p>The good news is that <code class="docutils literal notranslate"><span class="pre">scipy</span></code> has a functions to model and simulate LTI systems. This means you do not need to explicitly code up the analytic solution of eigendecomposition above.</p>
-<p>Let’s define the spring-mass-damper system as a state-space model.</p>
+<p>Let’s define the spring-mass-damper system as a state-space model. We will use the <code class="docutils literal notranslate"><span class="pre">StateSpace</span></code> function in <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code>, which takes the matrices <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> as arguments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">StateSpace</span><span class="p">,</span> <span class="n">lsim</span><span class="p">,</span> <span class="n">bode</span>
@@ -1336,23 +1354,36 @@ dt: None
 </div>
 </div>
 </div>
-<p>Next, let’s simulate the step response of a driver getting into the car.</p>
+<p>Next, let’s simulate the step response of a driver getting into the car. We will use the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.lsim.html"><code class="docutils literal notranslate"><span class="pre">lsim</span></code> function</a> from <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code> which takes as arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sys</span></code> which is a LTI system, e.g., created using <code class="docutils literal notranslate"><span class="pre">StateSpace</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code> which is the time point, which must be evenly spaced. We use <code class="docutils literal notranslate"><span class="pre">numpy.linspace</span></code> to create this time grid.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">U</span></code> which is the control grid defined for the time grid <code class="docutils literal notranslate"><span class="pre">T</span></code>. By default, <code class="docutils literal notranslate"><span class="pre">lsim</span></code> with linearly interpolate <code class="docutils literal notranslate"><span class="pre">U</span></code>. Another option is zero-order hold, which means a piecewise constant signal for <code class="docutils literal notranslate"><span class="pre">U</span></code>, i.e., a sequence of steps.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X0</span></code> which are the initial conditions for the states.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># m/s</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define initial conditions</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># m/s</span>
       <span class="mi">0</span><span class="p">]</span> <span class="c1"># m</span>
 
+<span class="c1"># Define the time vector</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Calculate the input signal on the time grid</span>
 <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">driver_mass</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="c1"># N</span>
 
+<span class="c1"># Plot the input signal</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Force (N)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Driver getting in&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
+<span class="c1"># Simulate the system using scipy.signal.lsim</span>
 <span class="n">t_</span><span class="p">,</span> <span class="n">yout</span><span class="p">,</span> <span class="n">xout</span> <span class="o">=</span> <span class="n">lsim</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="n">u</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">X0</span><span class="o">=</span><span class="n">x0</span><span class="p">)</span>
 
+<span class="c1"># Plot the output signal</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_</span><span class="p">,</span><span class="n">yout</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Displacement (cm)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
@@ -1403,7 +1434,7 @@ dt: None
     <span class="n">x0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># m/s</span>
         <span class="mi">0</span><span class="p">]</span> <span class="c1"># m</span>
 
-    <span class="c1"># Simulate linear system</span>
+    <span class="c1"># Simulate linear system with scipy.signal.lsim</span>
     <span class="n">t_</span><span class="p">,</span> <span class="n">yout</span><span class="p">,</span> <span class="n">xout</span> <span class="o">=</span> <span class="n">lsim</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="n">u</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">X0</span><span class="o">=</span><span class="n">x0</span><span class="p">)</span>
 
     <span class="c1"># Create plot</span>
@@ -1453,18 +1484,21 @@ y(t) = y_0 \sin(\omega t + \psi)
 <p>We will use <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code> to construct Bode plots. In a “classical controls class”, students often learn how to <a class="reference external" href="https://en.wikipedia.org/wiki/Bode_plot">draw Bode plots</a> by hand!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">,</span> <span class="n">mag</span><span class="p">,</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform Bode analysis using the StateSpace model stored in `sy`</span>
+<span class="n">w</span><span class="p">,</span> <span class="n">mag</span><span class="p">,</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
 
+<span class="c1"># Plot the magnitude of the output signal as a function of input signal frequency</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">mag</span><span class="p">)</span>    <span class="c1"># Bode magnitude plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (rad/s)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Magnitude (dB)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Input Frequency (rad/s)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Output Magnitude (dB)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
+<span class="c1"># Plot the phase shift of the output signal as a function of input signal frequency</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">phase</span><span class="p">)</span>  <span class="c1"># Bode phase plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (rad/s)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Phase Shift (degrees)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">phase</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Input Frequency (rad/s)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Output Phase Shift (degrees)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1562,6 +1596,7 @@ y(t) = y_0 \sin(\omega t + \psi)
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1644,8 +1679,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
   <footer class="bd-footer">
   </footer>
