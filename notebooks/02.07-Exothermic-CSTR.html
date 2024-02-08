@@ -543,7 +543,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.8.5. Interactive Simulation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines">2.8.6. Nullclines</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane-analysis">2.8.7. Phase Plane Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercises">2.8.8. Suggested Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activities">2.8.8. Activities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis">2.8.9. Stability analysis</a></li>
 </ul>
             </nav>
         </div>
@@ -578,7 +579,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="c1">#import seaborn as sns</span>
 
 <span class="c1"># Arrehnius parameters</span>
 <span class="n">Ea</span> <span class="o">=</span> <span class="mi">72750</span>     <span class="c1"># activation energy J/gmol</span>
@@ -596,10 +597,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Absolute Temperature [K]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Absolute Temperature [K]&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/714893d24f67e58f9ecaa96f7be0992298e56e6a48b4edc3b33a5e805a00ff20.png" src="../_images/714893d24f67e58f9ecaa96f7be0992298e56e6a48b4edc3b33a5e805a00ff20.png" />
+<img alt="../_images/e2ef5c947251f2b21e928ece105560cc6b2f6e61b769eda15be9ed2c6faa5041.png" src="../_images/e2ef5c947251f2b21e928ece105560cc6b2f6e61b769eda15be9ed2c6faa5041.png" />
 </div>
 </div>
 <p>This graph shows the reaction rate changes by six orders of magnitude over the range of possible operating temperatures. Because an exothermic reaction releases heat faster at higher temperatures, there is a positive feedback that can potentially result in unstable process behavior.</p>
@@ -778,12 +779,12 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&lt;AxesSubplot: title={&#39;center&#39;: &#39;Concentration&#39;}, xlabel=&#39;Time&#39;&gt;,
-       &lt;AxesSubplot: title={&#39;center&#39;: &#39;Temperature&#39;}, xlabel=&#39;Time&#39;&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&lt;Axes: title={&#39;center&#39;: &#39;Concentration&#39;}, xlabel=&#39;Time&#39;&gt;,
+       &lt;Axes: title={&#39;center&#39;: &#39;Temperature&#39;}, xlabel=&#39;Time&#39;&gt;],
       dtype=object)
 </pre></div>
 </div>
-<img alt="../_images/68c4868975bb1f94cfddbfcf2f1480992d38097163c9dd692e75336664b48255.png" src="../_images/68c4868975bb1f94cfddbfcf2f1480992d38097163c9dd692e75336664b48255.png" />
+<img alt="../_images/9cd80965d6a8fb90dda05c18c2d9dc98bb9216d10581146879ce50f3dbffe3be.png" src="../_images/9cd80965d6a8fb90dda05c18c2d9dc98bb9216d10581146879ce50f3dbffe3be.png" />
 </div>
 </div>
 </section>
@@ -809,7 +810,7 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c044e36b79bc00b4f78fbf5b6b4df7baf1ac804be6758fb6812ef9d91fb9b44a.png" src="../_images/c044e36b79bc00b4f78fbf5b6b4df7baf1ac804be6758fb6812ef9d91fb9b44a.png" />
+<img alt="../_images/9cb8e99b11e3c1a6dd1c96f434240fa37e84202ef0aa23e1a5b50e7cd1168ba4.png" src="../_images/9cb8e99b11e3c1a6dd1c96f434240fa37e84202ef0aa23e1a5b50e7cd1168ba4.png" />
 </div>
 </div>
 </section>
@@ -819,8 +820,10 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="c1"># Install and uncomment these two packages to run the interactive widget</span>
+<span class="c1"># from ipywidgets import interact</span>
+<span class="c1"># from IPython.display import display</span>
 
 <span class="c1"># initial simulation</span>
 <span class="n">t_final</span> <span class="o">=</span> <span class="mf">10.0</span>
@@ -845,13 +848,16 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">get_texts</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Tc</span><span class="p">))</span>
     <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
-<span class="c1"># interactive widget</span>
-<span class="n">interact</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">T_cooling</span> <span class="o">=</span> <span class="p">(</span><span class="mf">290.0</span><span class="p">,</span> <span class="mf">310.0</span><span class="p">),</span> <span class="n">c_initial</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">T_initial</span> <span class="o">=</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">));</span>
+<span class="c1"># uncomment the line below to run the interactive widget</span>
+<span class="c1"># interact(sim, T_cooling = (290.0, 310.0), c_initial = (0.0, 1.0, 0.01), T_initial = (300, 400));</span>
+
+<span class="n">sim</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "af36bf47cb98422d901fbbe78b6b03b8", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/f5b8c971f5dee32ea1169e1ffa88e6f3b4a6e4330a59bb9c5d381d57555d3e10.png" src="../_images/f5b8c971f5dee32ea1169e1ffa88e6f3b4a6e4330a59bb9c5d381d57555d3e10.png" />
+</div>
 </div>
 </section>
 <section id="nullclines">
@@ -899,13 +905,13 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/242b5320c37634999478e1bdb72aca8da558a6f86bd48087ebbbb883cd173747.png" src="../_images/242b5320c37634999478e1bdb72aca8da558a6f86bd48087ebbbb883cd173747.png" />
+<img alt="../_images/6fcb3eafb778035f1bbf0bcb51fe72c7a3f144af2233b3ebc25703051e435e3c.png" src="../_images/6fcb3eafb778035f1bbf0bcb51fe72c7a3f144af2233b3ebc25703051e435e3c.png" />
 </div>
 </div>
 </section>
 <section id="phase-plane-analysis">
 <h2><span class="section-number">2.8.7. </span>Phase Plane Analysis<a class="headerlink" href="#phase-plane-analysis" title="Permalink to this heading">#</a></h2>
-<p>The final analysis is display the simulation in both time and phase plane coordinates. The following cell produces a</p>
+<p>The final analysis is display the simulation in both time and phase plane coordinates. The red circle is the initial point.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up figure window and axes</span>
@@ -940,24 +946,87 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
     <span class="n">ax3</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">])</span>
     <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
-<span class="n">interact</span><span class="p">(</span><span class="n">plot_phase</span><span class="p">,</span> <span class="n">T_cooling</span> <span class="o">=</span> <span class="p">(</span><span class="mf">290.0</span><span class="p">,</span> <span class="mf">310.0</span><span class="p">),</span> <span class="n">c_initial</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">T_initial</span> <span class="o">=</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">));</span>
+<span class="c1"># Uncomment the line below to run the interactive widget</span>
+<span class="c1"># interact(plot_phase, T_cooling = (290.0, 310.0), c_initial = (0.0, 1.0, 0.01), T_initial = (300, 400));</span>
+    
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">290.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">350.</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b2d2b8dd828f4dfdbbc424e49bab0e5e", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/dd01ac95a7c2a74f5326a89cb459b13c70bfeb66ff061c2bea411e0b8669d56b.png" src="../_images/dd01ac95a7c2a74f5326a89cb459b13c70bfeb66ff061c2bea411e0b8669d56b.png" />
+</div>
 </div>
 </section>
-<section id="suggested-exercises">
-<h2><span class="section-number">2.8.8. </span>Suggested Exercises<a class="headerlink" href="#suggested-exercises" title="Permalink to this heading">#</a></h2>
-<p><strong>1.</strong> Using the interactive simulation, adjust the cooling temperature over the range of values from 290K to 310K, identify the cooling water temperatures at which you observe a qualitative difference in system behavior. Try to identify the following behaviors:</p>
+<section id="activities">
+<h2><span class="section-number">2.8.8. </span>Activities<a class="headerlink" href="#activities" title="Permalink to this heading">#</a></h2>
+<p><strong>1.</strong> Adjust the cooling temperature over the range of values from 290K to 310K, identify the cooling water temperatures at which you observe a qualitative difference in system behavior. Try to identify the following behaviors:</p>
 <ul class="simple">
 <li><p>Stable steady state</p></li>
 <li><p>Oscillatory steady state</p></li>
 <li><p>The onset of a thermal runaway condition</p></li>
 </ul>
-<p><strong>2.</strong> Repeat the exercise using the phase plane simulation. Describe the underlying behaviors in light of the nullclines.</p>
-<p><strong>3.</strong> Assume the reactor is start up with a tank of reactant feed with a concentration <span class="math notranslate nohighlight">\(c_A = 1\)</span>. What is the maximum initial temperature that would avoid thermal runaway during reactor startup?</p>
+<p>Describe the behavior using the nullclines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># stable steady state operation</span>
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">290.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">350.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dd01ac95a7c2a74f5326a89cb459b13c70bfeb66ff061c2bea411e0b8669d56b.png" src="../_images/dd01ac95a7c2a74f5326a89cb459b13c70bfeb66ff061c2bea411e0b8669d56b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># oscillatory steady state operation</span>
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">305.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">350.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/165baf88189b3a3f3504ccb6b5c4d72d4f292c2ee3a7da45df9054079de6b655.png" src="../_images/165baf88189b3a3f3504ccb6b5c4d72d4f292c2ee3a7da45df9054079de6b655.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># onset of thermal runaway</span>
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">304.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">300.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/be74ee928821b04728280fe666bce809d653e58a785b71e7e7bbcba10bc36ba1.png" src="../_images/be74ee928821b04728280fe666bce809d653e58a785b71e7e7bbcba10bc36ba1.png" />
+</div>
+</div>
+<p><strong>2.</strong> Assume the reactor is start up with a tank of reactant feed with a concentration <span class="math notranslate nohighlight">\(c_A = 1\)</span>. What is the maximum initial temperature that would avoid thermal runaway during reactor startup?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># no thermal runaway</span>
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">290.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">341.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0142577487f8175c5cef55d264af5d25de96cccab192996adfed35b5ae02b645.png" src="../_images/0142577487f8175c5cef55d264af5d25de96cccab192996adfed35b5ae02b645.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># with thermal runaway</span>
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">290.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">342.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6618a0971f14962493937a32ca789f3d9227ed64865059861b79199b27be1d70.png" src="../_images/6618a0971f14962493937a32ca789f3d9227ed64865059861b79199b27be1d70.png" />
+</div>
+</div>
+</section>
+<section id="stability-analysis">
+<h2><span class="section-number">2.8.9. </span>Stability analysis<a class="headerlink" href="#stability-analysis" title="Permalink to this heading">#</a></h2>
+<p>Let’s examine the eigenvalues of some of the steady-state conditions.</p>
 </section>
 </section>
 
@@ -1032,7 +1101,8 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.8.5. Interactive Simulation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines">2.8.6. Nullclines</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane-analysis">2.8.7. Phase Plane Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercises">2.8.8. Suggested Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activities">2.8.8. Activities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis">2.8.9. Stability analysis</a></li>
 </ul>
   </nav></div>
 

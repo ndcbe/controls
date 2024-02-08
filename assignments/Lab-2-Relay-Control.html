@@ -537,6 +537,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-simple-relay-control">Exercise 1. Simple Relay Control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-tempering-chocolate">Exercise 2. Tempering Chocolate</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a></li>
 </ul>
             </nav>
         </div>
@@ -563,7 +564,7 @@ document.write(`
 <li><p>Simultaneous control of sensor temperatures T<span class="math notranslate nohighlight">\(_1\)</span> and T<span class="math notranslate nohighlight">\(_2\)</span> to setpoints 35 and 40 °C, respectively. The setpoints return to 25 °C at  t = 300.</p></li>
 <li><p>Use a tolerance value <span class="math notranslate nohighlight">\(d\)</span> of 0.5 °C.</p></li>
 <li><p>Set the minimum and maximum values of the heater to 0 and 100%, respectively. lab.P1 and lab.P2 should be left at their default values.</p></li>
-<li><p>Show the results of an experiment in which the setpoints are adjusted as</p></li>
+<li><p>Show the results of an experiment in which the setpoints are adjusted accordingly.</p></li>
 </ul>
 <p>Some started code is include below.</p>
 <div class="cell docutils container">
@@ -750,6 +751,17 @@ document.write(`
 <p><em>Answer</em>:</p>
 <p><strong>Disturbance Variable(s)</strong>:</p>
 <p><em>Answer</em>:</p>
+<p>How can we reduce the oscillations in these experiments? Propose at least one idea and provide reasoning for why it could work.</p>
+<p><em>Answer</em>:</p>
+</section>
+<section id="common-mistakes">
+<h2>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Not using the correct kernel (for the controls environment with TCLab installed)</p></li>
+<li><p>Not setting up controller #2 (This includes assigning T2 and Q2 in the simulation code)</p></li>
+<li><p>When switching to connected=True most got errors if they did not restart the kernel and clear all the cells output</p></li>
+<li><p>Trying to create their own linear interpolation function, need to use np.interp</p></li>
+</ol>
 </section>
 </section>
 
@@ -820,6 +832,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-simple-relay-control">Exercise 1. Simple Relay Control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-tempering-chocolate">Exercise 2. Tempering Chocolate</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a></li>
 </ul>
   </nav></div>
 

@@ -535,6 +535,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">Procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-lab-exercise">Pre-lab Exercise</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-step-tests-and-data-collection">Exercise 1. Step Tests and Data Collection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-verify-operation">Step 1. Verify operation.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-check-for-steady-state">Step 2.  Check for steady state</a></li>
@@ -570,6 +571,14 @@ document.write(`
 </ul>
 <ol class="arabic simple" start="3">
 <li><p>Submit your completed lab notebook via Gradescope.</p></li>
+</ol>
+</section>
+<section id="pre-lab-exercise">
+<h2>Pre-lab Exercise<a class="headerlink" href="#pre-lab-exercise" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Read through the entirety of the assignment before coming to lab.</p></li>
+<li><p>Write pseudocode for estimating the model parameters <strong>with uncertainty</strong> in Exercise 3.</p></li>
+<li><p>Bring pseudocode to lab on a piece of paper or a tablet. The instructor and TAs will likely ask to see this as a starting point for debugging.</p></li>
 </ol>
 </section>
 <section id="exercise-1-step-tests-and-data-collection">
@@ -612,7 +621,7 @@ document.write(`
 </section>
 <section id="step-3-step-test">
 <h3>Step 3. Step Test<a class="headerlink" href="#step-3-step-test" title="Permalink to this heading">#</a></h3>
-<p>The step test consists of turning one heater one at 50% power and recording temperature data for at least 800 seconds. Copy the code from Step 2 into the following cell. Then modify as needed to accomplish the step test with P1 at 200 and using 50% of maximum power.</p>
+<p>The step test consists of turning one heater one at 50% power and recording temperature data for at least 900 seconds. Copy the code from Step 2 into the following cell. Then modify as needed to accomplish the step test with P1 at 200 and using 50% of maximum power.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your solution here</span>
@@ -641,7 +650,7 @@ document.write(`
 
 <span class="c1"># Set to True to overwrite the file. Default is False</span>
 <span class="c1"># to safeguard against accidentally rerunning this cell.</span>
-<span class="n">overwrite_file</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">overwrite_file</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">overwrite_file</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="o">+</span><span class="n">data_file</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span><span class="n">data_file</span> <span class="o">+</span> <span class="s1">&#39; already exisits. Either choose a new filename or set overwrite_file = True.&#39;</span><span class="p">)</span>
@@ -817,9 +826,7 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>What are the time constants for the heater and sensor? Do you see any relationship between these time constants and what you found for the first-order model?</p></li>
-</ol>
+<p><strong>Discussion Question:</strong> What are the time constants for the heater and sensor?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate and print model parameters with uncertainty</span>
@@ -838,7 +845,7 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
 </div>
 </div>
 </div>
-<p>Do you see any relationship between the heater and sensors time constants and what you found for the first-order model?</p>
+<p><strong>Discussion Question:</strong> Do you see any relationship between the heater and sensor time constants and what you found for the first-order model?</p>
 <p><em>Answer</em>:</p>
 </section>
 </section>
@@ -908,6 +915,7 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">Procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-lab-exercise">Pre-lab Exercise</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-step-tests-and-data-collection">Exercise 1. Step Tests and Data Collection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-verify-operation">Step 1. Verify operation.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-check-for-steady-state">Step 2.  Check for steady state</a></li>
