@@ -808,31 +808,31 @@ MV_k &amp; = \bar{MV} - K_P e_k
 <section id="position-form">
 <h3><span class="section-number">3.6.6.1. </span>Position form<a class="headerlink" href="#position-form" title="Permalink to this heading">#</a></h3>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral control is defined by the relation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-55526599-c2da-47e4-b6aa-56fc8c906552">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-55526599-c2da-47e4-b6aa-56fc8c906552" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dc094b78-fee2-420f-a8aa-0c9cb368c6a1">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-dc094b78-fee2-420f-a8aa-0c9cb368c6a1" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV(t) &amp; = \bar{MV} - K_P\left(PV(t) - SP(t)\right) - K_I\int_{-\infty}^t (PV(t') - SP(t'))\,dt'
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6718712f-7faf-49fc-901b-d18cd1f5e251">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-6718712f-7faf-49fc-901b-d18cd1f5e251" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2b2e9284-4912-4b25-88fa-3ad819981cb8">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-2b2e9284-4912-4b25-88fa-3ad819981cb8" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV(t) &amp; = \bar{MV} - K_P e(t) - K_I\int_{-\infty}^t e(t') \,dt'
 \end{align}\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
 \[e(t) = PV(t) - SP(t)\]</div>
 <p>where <strong><span class="math notranslate nohighlight">\(K_P\)</span> is the proportional gain</strong> and <strong><span class="math notranslate nohighlight">\(K_I\)</span> is the integral gain</strong>. When implemented in discrete time with time steps of length <span class="math notranslate nohighlight">\(h\)</span>, the basic rule for proportional-integral control becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2cfafc21-500b-4701-af10-32945baa3f65">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-2cfafc21-500b-4701-af10-32945baa3f65" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-63131b03-9105-4063-970f-ae6727613222">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-63131b03-9105-4063-970f-ae6727613222" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \bar{MV} - K_P(PV_k - SP_k) - h K_I\sum_{j=0}^{j=k}(PV_j - SP_j)
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87f1c439-ed35-466a-ae31-e1294bfd3d14">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-87f1c439-ed35-466a-ae31-e1294bfd3d14" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5c438789-c789-4c64-ae64-a2c252bbfe1f">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-5c438789-c789-4c64-ae64-a2c252bbfe1f" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \bar{MV} - K_P e_k - h K_I\sum_{j=0}^{j=k}e_j
 \end{align}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c45a327-35f2-4a01-98a8-283515af4185">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-9c45a327-35f2-4a01-98a8-283515af4185" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-08d2f205-bc32-48e6-8b18-cb7b050078fa">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-08d2f205-bc32-48e6-8b18-cb7b050078fa" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = PV_k - SP_k
 \end{align}\]</div>
 <p>This is the so-called <strong>position form</strong> of PI control. The position form specifies the value (or “position”) of the manipulated variable stricly in terms of the current and past values of the <strong>error</strong> signal <span class="math notranslate nohighlight">\(e_k\)</span>. Note the sign convention: A positive error occurs when the process variable is greater than the setpoint. The position form of PI control is rarely used in practice.</p>
@@ -840,14 +840,14 @@ e_k &amp; = PV_k - SP_k
 <section id="velocity-form">
 <h3><span class="section-number">3.6.6.2. </span>Velocity form<a class="headerlink" href="#velocity-form" title="Permalink to this heading">#</a></h3>
 <p>A more common implementation of PI control is done by computing how much the manipulated variable changes at each time step, and incrementing the manipulated variable by that amount. Consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53fdd441-fc88-4291-8b42-7b8e15ba5e95">
-<span class="eqno">(3.6)<a class="headerlink" href="#equation-53fdd441-fc88-4291-8b42-7b8e15ba5e95" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5797d785-e219-453b-9ec3-cbb4e7d11562">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-5797d785-e219-453b-9ec3-cbb4e7d11562" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k-1} &amp; = \bar{MV} - K_p e_{k-1} - h K_i \sum_{j=0}^{k-1} e_{j} \\
 MV_{k} &amp; = \bar{MV} - K_p e_{k} - h K_i \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
 <p>Taking differences gives a formula for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to process measurements or changes in setpoint.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-51f1cb2c-af6d-4a62-87a2-96f98044fc48">
-<span class="eqno">(3.7)<a class="headerlink" href="#equation-51f1cb2c-af6d-4a62-87a2-96f98044fc48" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-96fb8d25-3e85-4c0f-8e37-3ee5c51a4f62">
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-96fb8d25-3e85-4c0f-8e37-3ee5c51a4f62" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - h K_i e_{k}
 \end{align}\]</div>
 <p>with <span class="math notranslate nohighlight">\(MV_0 = \bar{MV}\)</span>. Let’s see how this works.</p>
@@ -918,13 +918,13 @@ MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - h K_i e_{k}
 </div>
 </div>
 <p>As we can see from this example, an important practical property of proportonal-integral control is <strong>steady-state tracking of the setpoint.</strong> In other words, for a steaady setpoint <span class="math notranslate nohighlight">\(\bar{SP}\)</span>, at steady-state</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f619bc9b-51f6-4f86-986a-14f4a39fb95e">
-<span class="eqno">(3.8)<a class="headerlink" href="#equation-f619bc9b-51f6-4f86-986a-14f4a39fb95e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0e94928a-0323-4cff-9bf8-137a8497b611">
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-0e94928a-0323-4cff-9bf8-137a8497b611" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lim_{k \rightarrow \infty} PV_k = \bar{SP}
 \end{align}\]</div>
 <p>To see why this is true, start with the velocity form of the proportional-integral controller</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c90b510-460c-4449-b727-8aec616fcd5b">
-<span class="eqno">(3.9)<a class="headerlink" href="#equation-0c90b510-460c-4449-b727-8aec616fcd5b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f0f92dd9-ccfb-4311-bd2f-cd442c18827d">
+<span class="eqno">(3.9)<a class="headerlink" href="#equation-f0f92dd9-ccfb-4311-bd2f-cd442c18827d" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - h K_i e_{k}
 \end{align}\]</div>
 <p>At steady-state <span class="math notranslate nohighlight">\(MV_{k} = MV_{k-1}\)</span> and <span class="math notranslate nohighlight">\(e_{k} = e_{k-1}\)</span> leaving</p>
