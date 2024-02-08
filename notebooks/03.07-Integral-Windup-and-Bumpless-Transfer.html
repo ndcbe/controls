@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -81,7 +81,6 @@ const thebe_selector_output = ".output, .cell_output"
   <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -121,20 +120,15 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <header>
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
-  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -672,13 +666,13 @@ document.write(`
 <section id="pi-control">
 <h2><span class="section-number">3.7.4. </span>PI Control<a class="headerlink" href="#pi-control" title="Permalink to this heading">#</a></h2>
 <p>Proportional-Integral (PI) Control in velocity form is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5d54bf0-914e-4b8a-884e-42c63a702572">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-b5d54bf0-914e-4b8a-884e-42c63a702572" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-93399550-d558-412b-adf5-446428f65264">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-93399550-d558-412b-adf5-446428f65264" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = MV_{k-1} - K_P (e_{k} - e_{k-1}) - \delta t K_I e_k
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(MV_0= \bar{MV}\)</span> is the initial value, and the error <span class="math notranslate nohighlight">\(e_k\)</span> is the difference between the process variable and setpoint, and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6717db2-70fd-475b-baa5-a13ba749fe02">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-e6717db2-70fd-475b-baa5-a13ba749fe02" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ae775747-ac8c-4723-a88e-3301e325fb16">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-ae775747-ac8c-4723-a88e-3301e325fb16" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = PV_k - SP_k \\
 \end{align}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
@@ -790,8 +784,8 @@ e_k &amp; = PV_k - SP_k \\
 </div>
 <hr class="docutils" />
 <p><strong>Study Question:</strong> Examine the results of this experiment. The PI velocity algorithm is given by an equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed650aa4-6964-4479-aa6b-89bc93a29bc0">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-ed650aa4-6964-4479-aa6b-89bc93a29bc0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-683249b0-96f8-4d0b-bd1d-a70687235dcd">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-683249b0-96f8-4d0b-bd1d-a70687235dcd" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - \delta t K_i e_{k}
 \end{align}\]</div>
 <p>Looking at the period from 0 to 100 seconds, is this equation describing what is actually happening? Is it possible for <span class="math notranslate nohighlight">\(MV\)</span> to be different from the actual input applied to the device?</p>
@@ -1048,13 +1042,13 @@ TCLab Model disconnected successfully.
 </ul>
 <section id="id1">
 <h3><span class="section-number">3.7.7.1. </span>Bumpless Transfer<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-de804f47-9df3-4782-b454-e66e8367bb64">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-de804f47-9df3-4782-b454-e66e8367bb64" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d587a484-9344-480e-8891-bf505796fc2c">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-d587a484-9344-480e-8891-bf505796fc2c" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = PV_k - SP_k \\
 \hat{MV}_{k} &amp; = MV_{k-1} - K_p(PV_{k} - PV_{k-1}) - \delta t K_i e_{k} 
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-df0cfcea-1b1f-4064-80fe-b7486cf0bfb8">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-df0cfcea-1b1f-4064-80fe-b7486cf0bfb8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f4bbf535-261c-4398-a0de-3aec3cdeb393">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-f4bbf535-261c-4398-a0de-3aec3cdeb393" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -1215,8 +1209,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
