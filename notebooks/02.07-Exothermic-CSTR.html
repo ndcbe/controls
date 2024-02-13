@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -81,6 +81,7 @@ const thebe_selector_output = ".output, .cell_output"
   <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,15 +121,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <header>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
-    </header>
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
   
+  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -537,7 +543,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.8.5. Interactive Simulation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines">2.8.6. Nullclines</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane-analysis">2.8.7. Phase Plane Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercises">2.8.8. Suggested Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activities">2.8.8. Activities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-states">2.8.9. Steady-States</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis">2.8.10. Stability analysis</a></li>
 </ul>
             </nav>
         </div>
@@ -572,7 +580,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="c1">#import seaborn as sns</span>
 
 <span class="c1"># Arrehnius parameters</span>
 <span class="n">Ea</span> <span class="o">=</span> <span class="mi">72750</span>     <span class="c1"># activation energy J/gmol</span>
@@ -590,10 +598,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Absolute Temperature [K]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Absolute Temperature [K]&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/714893d24f67e58f9ecaa96f7be0992298e56e6a48b4edc3b33a5e805a00ff20.png" src="../_images/714893d24f67e58f9ecaa96f7be0992298e56e6a48b4edc3b33a5e805a00ff20.png" />
+<img alt="../_images/e2ef5c947251f2b21e928ece105560cc6b2f6e61b769eda15be9ed2c6faa5041.png" src="../_images/e2ef5c947251f2b21e928ece105560cc6b2f6e61b769eda15be9ed2c6faa5041.png" />
 </div>
 </div>
 <p>This graph shows the reaction rate changes by six orders of magnitude over the range of possible operating temperatures. Because an exothermic reaction releases heat faster at higher temperatures, there is a positive feedback that can potentially result in unstable process behavior.</p>
@@ -772,12 +780,12 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&lt;AxesSubplot: title={&#39;center&#39;: &#39;Concentration&#39;}, xlabel=&#39;Time&#39;&gt;,
-       &lt;AxesSubplot: title={&#39;center&#39;: &#39;Temperature&#39;}, xlabel=&#39;Time&#39;&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&lt;Axes: title={&#39;center&#39;: &#39;Concentration&#39;}, xlabel=&#39;Time&#39;&gt;,
+       &lt;Axes: title={&#39;center&#39;: &#39;Temperature&#39;}, xlabel=&#39;Time&#39;&gt;],
       dtype=object)
 </pre></div>
 </div>
-<img alt="../_images/68c4868975bb1f94cfddbfcf2f1480992d38097163c9dd692e75336664b48255.png" src="../_images/68c4868975bb1f94cfddbfcf2f1480992d38097163c9dd692e75336664b48255.png" />
+<img alt="../_images/9cd80965d6a8fb90dda05c18c2d9dc98bb9216d10581146879ce50f3dbffe3be.png" src="../_images/9cd80965d6a8fb90dda05c18c2d9dc98bb9216d10581146879ce50f3dbffe3be.png" />
 </div>
 </div>
 </section>
@@ -803,7 +811,7 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c044e36b79bc00b4f78fbf5b6b4df7baf1ac804be6758fb6812ef9d91fb9b44a.png" src="../_images/c044e36b79bc00b4f78fbf5b6b4df7baf1ac804be6758fb6812ef9d91fb9b44a.png" />
+<img alt="../_images/9cb8e99b11e3c1a6dd1c96f434240fa37e84202ef0aa23e1a5b50e7cd1168ba4.png" src="../_images/9cb8e99b11e3c1a6dd1c96f434240fa37e84202ef0aa23e1a5b50e7cd1168ba4.png" />
 </div>
 </div>
 </section>
@@ -813,8 +821,10 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="c1"># Install and uncomment these two packages to run the interactive widget</span>
+<span class="c1"># from ipywidgets import interact</span>
+<span class="c1"># from IPython.display import display</span>
 
 <span class="c1"># initial simulation</span>
 <span class="n">t_final</span> <span class="o">=</span> <span class="mf">10.0</span>
@@ -839,13 +849,16 @@ V\frac{dc_A}{dt} &amp; = q(c_{A,f} - c_A) - Vk(T)c_A \\
     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">get_texts</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Tc</span><span class="p">))</span>
     <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
-<span class="c1"># interactive widget</span>
-<span class="n">interact</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">T_cooling</span> <span class="o">=</span> <span class="p">(</span><span class="mf">290.0</span><span class="p">,</span> <span class="mf">310.0</span><span class="p">),</span> <span class="n">c_initial</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">T_initial</span> <span class="o">=</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">));</span>
+<span class="c1"># uncomment the line below to run the interactive widget</span>
+<span class="c1"># interact(sim, T_cooling = (290.0, 310.0), c_initial = (0.0, 1.0, 0.01), T_initial = (300, 400));</span>
+
+<span class="n">sim</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "af36bf47cb98422d901fbbe78b6b03b8", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/f5b8c971f5dee32ea1169e1ffa88e6f3b4a6e4330a59bb9c5d381d57555d3e10.png" src="../_images/f5b8c971f5dee32ea1169e1ffa88e6f3b4a6e4330a59bb9c5d381d57555d3e10.png" />
+</div>
 </div>
 </section>
 <section id="nullclines">
@@ -893,13 +906,13 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/242b5320c37634999478e1bdb72aca8da558a6f86bd48087ebbbb883cd173747.png" src="../_images/242b5320c37634999478e1bdb72aca8da558a6f86bd48087ebbbb883cd173747.png" />
+<img alt="../_images/6fcb3eafb778035f1bbf0bcb51fe72c7a3f144af2233b3ebc25703051e435e3c.png" src="../_images/6fcb3eafb778035f1bbf0bcb51fe72c7a3f144af2233b3ebc25703051e435e3c.png" />
 </div>
 </div>
 </section>
 <section id="phase-plane-analysis">
 <h2><span class="section-number">2.8.7. </span>Phase Plane Analysis<a class="headerlink" href="#phase-plane-analysis" title="Permalink to this heading">#</a></h2>
-<p>The final analysis is display the simulation in both time and phase plane coordinates. The following cell produces a</p>
+<p>The final analysis is display the simulation in both time and phase plane coordinates. The red circle is the initial point.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up figure window and axes</span>
@@ -934,24 +947,277 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
     <span class="n">ax3</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">])</span>
     <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
-<span class="n">interact</span><span class="p">(</span><span class="n">plot_phase</span><span class="p">,</span> <span class="n">T_cooling</span> <span class="o">=</span> <span class="p">(</span><span class="mf">290.0</span><span class="p">,</span> <span class="mf">310.0</span><span class="p">),</span> <span class="n">c_initial</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">T_initial</span> <span class="o">=</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">));</span>
+<span class="c1"># Uncomment the line below to run the interactive widget</span>
+<span class="c1"># interact(plot_phase, T_cooling = (290.0, 310.0), c_initial = (0.0, 1.0, 0.01), T_initial = (300, 400));</span>
+    
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">290.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">350.</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b2d2b8dd828f4dfdbbc424e49bab0e5e", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/dd01ac95a7c2a74f5326a89cb459b13c70bfeb66ff061c2bea411e0b8669d56b.png" src="../_images/dd01ac95a7c2a74f5326a89cb459b13c70bfeb66ff061c2bea411e0b8669d56b.png" />
+</div>
 </div>
 </section>
-<section id="suggested-exercises">
-<h2><span class="section-number">2.8.8. </span>Suggested Exercises<a class="headerlink" href="#suggested-exercises" title="Permalink to this heading">#</a></h2>
-<p><strong>1.</strong> Using the interactive simulation, adjust the cooling temperature over the range of values from 290K to 310K, identify the cooling water temperatures at which you observe a qualitative difference in system behavior. Try to identify the following behaviors:</p>
+<section id="activities">
+<h2><span class="section-number">2.8.8. </span>Activities<a class="headerlink" href="#activities" title="Permalink to this heading">#</a></h2>
+<p><strong>1.</strong> Adjust the cooling temperature over the range of values from 290K to 310K, identify the cooling water temperatures at which you observe a qualitative difference in system behavior. Try to identify the following behaviors:</p>
 <ul class="simple">
 <li><p>Stable steady state</p></li>
 <li><p>Oscillatory steady state</p></li>
 <li><p>The onset of a thermal runaway condition</p></li>
 </ul>
-<p><strong>2.</strong> Repeat the exercise using the phase plane simulation. Describe the underlying behaviors in light of the nullclines.</p>
-<p><strong>3.</strong> Assume the reactor is start up with a tank of reactant feed with a concentration <span class="math notranslate nohighlight">\(c_A = 1\)</span>. What is the maximum initial temperature that would avoid thermal runaway during reactor startup?</p>
+<p>Describe the behavior using the nullclines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># stable steady state operation</span>
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">290.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">350.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dd01ac95a7c2a74f5326a89cb459b13c70bfeb66ff061c2bea411e0b8669d56b.png" src="../_images/dd01ac95a7c2a74f5326a89cb459b13c70bfeb66ff061c2bea411e0b8669d56b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># oscillatory steady state operation</span>
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">305.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">350.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/165baf88189b3a3f3504ccb6b5c4d72d4f292c2ee3a7da45df9054079de6b655.png" src="../_images/165baf88189b3a3f3504ccb6b5c4d72d4f292c2ee3a7da45df9054079de6b655.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># onset of thermal runaway</span>
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">304.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">300.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/be74ee928821b04728280fe666bce809d653e58a785b71e7e7bbcba10bc36ba1.png" src="../_images/be74ee928821b04728280fe666bce809d653e58a785b71e7e7bbcba10bc36ba1.png" />
+</div>
+</div>
+<p><strong>2.</strong> Assume the reactor is start up with a tank of reactant feed with a concentration <span class="math notranslate nohighlight">\(c_A = 1\)</span>. What is the maximum initial temperature that would avoid thermal runaway during reactor startup?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># no thermal runaway</span>
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">290.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">341.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0142577487f8175c5cef55d264af5d25de96cccab192996adfed35b5ae02b645.png" src="../_images/0142577487f8175c5cef55d264af5d25de96cccab192996adfed35b5ae02b645.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># with thermal runaway</span>
+<span class="n">plot_phase</span><span class="p">(</span><span class="n">T_cooling</span><span class="o">=</span><span class="mf">290.</span><span class="p">,</span> <span class="n">c_initial</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">T_initial</span><span class="o">=</span><span class="mf">342.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6618a0971f14962493937a32ca789f3d9227ed64865059861b79199b27be1d70.png" src="../_images/6618a0971f14962493937a32ca789f3d9227ed64865059861b79199b27be1d70.png" />
+</div>
+</div>
+</section>
+<section id="steady-states">
+<h2><span class="section-number">2.8.9. </span>Steady-States<a class="headerlink" href="#steady-states" title="Permalink to this heading">#</a></h2>
+<p>Let’s now numerically compute the steady-state reactor concentration and temperature as a function of the coolant temperature.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to evaluate RHS of ODEs</span>
+<span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="mf">310.</span><span class="p">):</span>
+    <span class="n">cA</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="c1"># Arrhenius rate expression</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Ea</span><span class="o">/</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="p">))</span>
+
+    <span class="c1"># Concentration derivative</span>
+    <span class="n">dcAdt</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span><span class="o">/</span><span class="n">V</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">cAf</span> <span class="o">-</span> <span class="n">cA</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span><span class="o">*</span><span class="n">cA</span>
+
+    <span class="c1"># Temperature derivative</span>
+    <span class="n">dTdt</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span><span class="o">/</span><span class="n">V</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Tf</span> <span class="o">-</span> <span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">dHr</span><span class="o">/</span><span class="n">rho</span><span class="o">/</span><span class="n">Cp</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">cA</span> <span class="o">+</span> <span class="p">(</span><span class="n">UA</span><span class="o">/</span><span class="n">V</span><span class="o">/</span><span class="n">rho</span><span class="o">/</span><span class="n">Cp</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Tc</span><span class="o">-</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dcAdt</span><span class="p">,</span> <span class="n">dTdt</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">root</span>
+<span class="c1"># Test calculation for steady-state at one coolant temperature</span>
+<span class="n">ode_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y_</span> <span class="p">:</span> <span class="n">deriv</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="mf">300.</span><span class="p">)</span>
+<span class="n">sln</span> <span class="o">=</span> <span class="n">root</span><span class="p">(</span><span class="n">ode_func</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">350.</span><span class="p">])</span>
+<span class="n">y_bar</span> <span class="o">=</span> <span class="n">sln</span><span class="o">.</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cA = &quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">y_bar</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;mol/L&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T = &quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">y_bar</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;K&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Allocation arrays to store results</span>
+<span class="n">Tc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">290</span><span class="p">,</span> <span class="mi">310</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">Tc</span><span class="p">)</span>
+<span class="n">ca</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">Tc</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">Ti</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Tc</span><span class="p">):</span>
+    <span class="c1"># Define new lambda function using the current value of Tc</span>
+    <span class="n">ode_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y_</span> <span class="p">:</span> <span class="n">deriv</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="n">Ti</span><span class="p">)</span>
+
+    <span class="n">y_default</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">310.</span><span class="p">]</span>
+    <span class="n">y_fail</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">370.</span><span class="p">]</span>
+
+    <span class="c1"># Set initial guess for fsolve</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Use previous solution as initial guess</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="n">ca</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Default initial guess for first Tc value</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="n">y_default</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">sln</span> <span class="o">=</span> <span class="n">root</span><span class="p">(</span><span class="n">ode_func</span><span class="p">,</span> <span class="n">y0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sln</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to converge at Tc = &quot;</span><span class="p">,</span> <span class="n">Ti</span><span class="p">,</span><span class="s2">&quot;, trying with failsafe initial guess&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Try again with default initial guess</span>
+        <span class="n">sln</span> <span class="o">=</span> <span class="n">root</span><span class="p">(</span><span class="n">ode_func</span><span class="p">,</span> <span class="n">y_fail</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sln</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to converge at Tc = &quot;</span><span class="p">,</span> <span class="n">Ti</span><span class="p">,</span><span class="s2">&quot; with failsafe initial guess&quot;</span><span class="p">)</span>
+        
+    <span class="n">ca</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sln</span><span class="o">.</span><span class="n">x</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Coolant temperature (K)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Reactor temperature (K)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">ca</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Coolant temperature (K)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Reactor concentration (mol/L)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="stability-analysis">
+<h2><span class="section-number">2.8.10. </span>Stability analysis<a class="headerlink" href="#stability-analysis" title="Permalink to this heading">#</a></h2>
+<p>Let’s examine the eigenvalues of some of the steady-state conditions.</p>
+<p>First, we will assemble a linear approximation to our ODE system using <a class="reference external" href="https://ndcbe.github.io/data-and-computing/notebooks/06/Newton-Raphson-Methods-for-Systems-of-Equations.html?#finite-difference-to-approximate-the-jacobian-matrix">finite difference code from CBE 20258</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Jacobian</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">delta</span> <span class="o">=</span> <span class="mf">1.0e-7</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Approximate Jacobian using forward finite difference</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        f: vector-valued function</span>
+<span class="sd">        x: point to build approximation J(x) around</span>
+<span class="sd">        delta: finite difference step size</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        J: square Jacobian matrix (approximation)</span>
+
+<span class="sd">    Reference: CBE 20258, Notre Dame</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Determine size</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span>
+    
+    <span class="c1">#Evaluate function f at x</span>
+    <span class="n">fx</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#only need to evaluate this once</span>
+    
+    <span class="c1"># Make sure f is square (no. inputs = no. outputs)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">N</span> <span class="o">==</span> <span class="n">fx</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="s2">&quot;Your problem is not square!&quot;</span>
+    <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fx = &quot;</span><span class="p">,</span><span class="n">fx</span><span class="p">)</span>
+    
+    
+    <span class="c1"># Allocate empty matrix</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+
+    <span class="n">idelta</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">delta</span> <span class="c1">#division is slower than multiplication</span>
+    <span class="n">x_perturbed</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1">#copy x to add delta</span>
+    
+    <span class="c1"># Loop over elements of x and columns of J</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="c1"># Perturb (apply step) to element i of x</span>
+        <span class="n">x_perturbed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">delta</span>
+        
+        <span class="c1"># Approximate column in Jacobian</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x_perturbed</span><span class="p">)</span> <span class="o">-</span> <span class="n">fx</span><span class="p">)</span> <span class="o">*</span> <span class="n">idelta</span>
+        
+        <span class="c1"># Reset element of x</span>
+        <span class="n">x_perturbed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="c1"># Save results</span>
+        <span class="n">J</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">col</span>
+    <span class="c1"># end for loop</span>
+    <span class="k">return</span> <span class="n">J</span>
+
+<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="n">ca</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">ode_jac</span> <span class="o">=</span> <span class="n">Jacobian</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span> <span class="p">:</span> <span class="n">deriv</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="n">Tc</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A approximation = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">ode_jac</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A approximation = 
+ [[-1.05041791e+00 -4.29658087e-03]
+ [ 1.05476802e+01 -2.19318466e+00]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we will loop over the above calculated steady-states. At each steady-state, will will assemble the linearization and then compute the eigenvalues.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform sensitivity analysis of eigenvalues to Tc</span>
+
+<span class="n">evals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">Tc</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span><span class="n">dtype</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Tc</span><span class="p">)):</span>
+
+    <span class="c1"># Construct Jacobian</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="n">ca</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">ode_jac</span> <span class="o">=</span> <span class="n">Jacobian</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span> <span class="p">:</span> <span class="n">deriv</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="n">Tc</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y0</span><span class="p">))</span>
+
+    <span class="c1"># Compute eigenvalues</span>
+    <span class="n">evals</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">ode_jac</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">evals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;real($\lambda_1$)&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">evals</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;real($\lambda_2$)&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Real&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Coolant Temperature (K)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Linearized Stability Analysis&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">evals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;imag($\lambda_1$)&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">evals</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;imag($\lambda_2$)&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Imaginary&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/92057acc948d08695e8eeb5b64b450d1d89bf736f6d6853b6f194a9b4efae920.png" src="../_images/92057acc948d08695e8eeb5b64b450d1d89bf736f6d6853b6f194a9b4efae920.png" />
+</div>
+</div>
+<p>Compare this plot to the analysis of our second order system (mass-spring-damper example). Nonlinear systems such as this simple exothermic reactor a much more complicated! This is why control systems as so important in chemical engineering.</p>
 </section>
 </section>
 
@@ -1026,7 +1292,9 @@ V\frac{dc_A}{dt} &amp; = 0 = q(c_{A,f} - c_A) - Vk(T)c_A \\
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-simulation">2.8.5. Interactive Simulation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullclines">2.8.6. Nullclines</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-plane-analysis">2.8.7. Phase Plane Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-exercises">2.8.8. Suggested Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activities">2.8.8. Activities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-states">2.8.9. Steady-States</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis">2.8.10. Stability analysis</a></li>
 </ul>
   </nav></div>
 
@@ -1075,8 +1343,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
   <footer class="bd-footer">
   </footer>
