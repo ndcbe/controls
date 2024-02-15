@@ -71,12 +71,16 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | [](./notebooks/02.05-Second-Order.ipynb) | [](./notebooks/02.04-Fitting-a-Model-to-Data.ipynb) |
 | **Tuesday, February 6** | **Modeling: Second Order Systems** |
 | [](./notebooks/02-spring-mass-damper.ipynb) | |
-| **Thursday, February 8** | **Modeling: Temperature Control Lab** |
-| [](./assignments/Lab-3-Model-Identification.ipynb) | |
-| **Tuesday, February 13** | **Modeling: More Dynamical Systems** |
-| [](./notebooks/02.07-Exothermic-CSTR.ipynb) | [](./notebooks/02.08-Hare-and-Lynx.ipynb) |
-| **Thursday, February 15** | **Setpoints, Disturbances, Servo and Regulation Problems**|
-| **Tuesday, February 20** | **P, PI, and PID Control** |
+| **Thursday, February 8** | **Modeling: Second Order Systems** |
+| [](./notebooks/02-spring-mass-damper.ipynb) | [](./assignments/Lab-3-Model-Identification.ipynb) |
+| **Tuesday, February 13** | **Nonlinear Modeling: Exothermic CSTR** |
+| [](./notebooks/02.07-Exothermic-CSTR.ipynb) |  |
+| **Thursday, February 15** | **Nonlinear Modeling: Hare and Lynx, Introduction of Feedback**|
+| [](./notebooks/02.08-Hare-and-Lynx.ipynb) | [](./notebooks/02.09-Study-Guide.ipynb) |
+| [](./notebooks/03.00-Feedback-Control.md) | [](./notebooks/03.03-Setpoints-Thermal-Cycler.ipynb) |
+| [](./notebooks/03.01-Case-Study-Thermal-Cycling-PCR.ipynb) | [](./notebooks/03.04-Relay-Control.ipynb) |
+| [](./notebooks/03.02-Setpoints.ipynb) | [](./notebooks/03.05-Implementing-Controllers.ipynb) |
+| **Tuesday, February 20** | **Feedback Control: P, PI, and PID** |
 | **Thursday, February 22** | **Stability Analysis** |
 | **Tuesday, February 27** | **PID Tuning** |
 | **Thursday, February 29** | **PID Implementation Details** |
