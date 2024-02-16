@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.8. Analysis of Proportional Only Controller &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+    <title>3.9. Analysis of Proportional-Integral Controller &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
   
   
   
@@ -64,11 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03.08-P-Controller-Analysis';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03.09-PI-Controller-Analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.9. Analysis of Proportional-Integral Controller" href="03.09-PI-Controller-Analysis.html" />
-    <link rel="prev" title="3.7. Integral Windup and Bumpless Transfer" href="03.07-Integral-Windup-and-Bumpless-Transfer.html" />
+    <link rel="next" title="4. Process Analytics" href="04/04.00-Process-Analytics.html" />
+    <link rel="prev" title="3.8. Analysis of Proportional Only Controller" href="03.08-P-Controller-Analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -220,8 +220,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.8. Analysis of Proportional Only Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.9. Analysis of Proportional-Integral Controller</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -365,7 +365,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/03.08-P-Controller-Analysis.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/03.09-PI-Controller-Analysis.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -413,7 +413,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03.08-P-Controller-Analysis.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03.09-PI-Controller-Analysis.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -443,7 +443,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/notebooks/03.08-P-Controller-Analysis.ipynb" target="_blank"
+      <li><a href="../_sources/notebooks/03.09-PI-Controller-Analysis.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -527,7 +527,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Analysis of Proportional Only Controller</h1>
+    <h1>Analysis of Proportional-Integral Controller</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -537,19 +537,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.8.1. Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-model">3.8.2. Mathematical Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-state-control-signal">3.8.3. Steady State Control Signal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporational-control-law">3.8.4. Proporational Control Law</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-loop-dynamics">3.8.5. Closed-Loop Dynamics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-simulation">3.8.6. Numeric Simulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#original-model-open-loop">3.8.6.1. Original Model: Open Loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-model-open-loop">3.8.6.2. New Model: Open Loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-model-closed-loop">3.8.6.3. New Model: Closed Loop</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis">3.8.7. Stability Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-performance-with-tc-lab">3.8.8. Simulate Performance with TC Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.9.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporational-integral-control-law">3.9.2. Proporational-Integral Control Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-loop-dynamics">3.9.3. Closed-Loop Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-simulation">3.9.4. Numeric Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis">3.9.5. Stability Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-performance-with-tc-lab">3.9.6. Simulate Performance with TC Lab</a></li>
 </ul>
             </nav>
         </div>
@@ -561,137 +554,67 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="analysis-of-proportional-only-controller">
-<h1><span class="section-number">3.8. </span>Analysis of Proportional Only Controller<a class="headerlink" href="#analysis-of-proportional-only-controller" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="analysis-of-proportional-integral-controller">
+<h1><span class="section-number">3.9. </span>Analysis of Proportional-Integral Controller<a class="headerlink" href="#analysis-of-proportional-integral-controller" title="Permalink to this heading">#</a></h1>
 <section id="learning-objectives">
-<h2><span class="section-number">3.8.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.9.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <p>In this notebook, we will use a mathematical model for the TCLab to design and analyze a PI controller.</p>
 <p>After studying this notebook and completing the activities, you will be able to:</p>
 <ul class="simple">
-<li><p>Agument dynamic system model with proportional (P) feedback control law to predict closed loop dynamics</p></li>
+<li><p>Agument dynamic system model with PI feedback control law to predict closed loop dynamics</p></li>
 <li><p>Analyze stability of a (linear) system</p></li>
 <li><p>Perform senstivity analysis to tune controller</p></li>
 </ul>
-</section>
-<section id="mathematical-model">
-<h2><span class="section-number">3.8.2. </span>Mathematical Model<a class="headerlink" href="#mathematical-model" title="Permalink to this heading">#</a></h2>
+<p>First review the <a class="reference internal" href="03.08-P-Controller-Analysis.html"><span class="doc std std-doc">proportional only controller notes</span></a> for modeling details.</p>
 <p>TODO: Update sign convention for e, bar for steady-state</p>
-<p>Recall the following second order model for the heater and sensor:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
-C^H_p\frac{dT_{H,1}}{dt} &amp; = U_a(T_{amb} - T_{H,1}) + U_b(T_{S,1} - T_{H,1}) + \alpha P_1 u_1\\
-C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1}) 
-\end{align}
-\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(T_{H,1}\)</span> is the heater temperature, <span class="math notranslate nohighlight">\(T_{S,1}\)</span> is the sensor temperature, and <span class="math notranslate nohighlight">\(T_{amb}\)</span> is the ambient temperature (all in °C). We previously estimated the following:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(U_a = 0.0261 \pm 0.0001\)</span> (Watt/°C) is the heat transfer coefficient between the heater and ambient environment</p></li>
-<li><p><span class="math notranslate nohighlight">\(U_b = 0.0222 \pm 0.0045\)</span> (Watt/°C) is the heat transfer coefficient between the heater and sensor</p></li>
-<li><p><span class="math notranslate nohighlight">\(C_{p}^{H} = 1.335 \pm 0.215\)</span> (J/°C) is the heat capacity of the heater</p></li>
-<li><p><span class="math notranslate nohighlight">\(C_{p}^{S} = 1.328 \pm 0.051\)</span> (J/°C) is the heat capacity of the sensor</p></li>
-<li><p><span class="math notranslate nohighlight">\(\alpha = 0.00016 \)</span> (Watt/Watt) is the heat delivered, this is a conversion factor</p></li>
-<li><p><span class="math notranslate nohighlight">\(P_1 = 100\)</span> (Watt) is the maximum power of the heater</p></li>
-<li><p><span class="math notranslate nohighlight">\(u_1 \in [0,1]\)</span> (Watt/Watt) is the control signal</p></li>
-</ul>
 </section>
-<section id="steady-state-control-signal">
-<h2><span class="section-number">3.8.3. </span>Steady State Control Signal<a class="headerlink" href="#steady-state-control-signal" title="Permalink to this heading">#</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(T_{set}\)</span> be the set point (target) temperature.</p>
-<p>What control signal <span class="math notranslate nohighlight">\(u_1^{*}\)</span> is required to maintain the steady state if <span class="math notranslate nohighlight">\(T_{H,1} = T_{set}\)</span>? We start by making the substitution and setting the time derivatives to zero:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
-0 &amp; = U_a(T_{amb} - T_{set}) + U_b(T_{S,1} - T_{set}) + \alpha P_1 u^{*}_1\\
-0 &amp; = U_b(T_{set} - T_{S,1}) 
-\end{align}
-\end{split}\]</div>
-<p>From the second equation, we see <span class="math notranslate nohighlight">\(T_{S,1} = T_{amb}\)</span>, which makes sense. Let’s substitute this expression into the first equation and rearrange:</p>
-<div class="math notranslate nohighlight">
-\[
-u^{*}_1 = \frac{ - U_a(T_{amb} - T_{set})}{\alpha P_1}
-\]</div>
-</section>
-<section id="proporational-control-law">
-<h2><span class="section-number">3.8.4. </span>Proporational Control Law<a class="headerlink" href="#proporational-control-law" title="Permalink to this heading">#</a></h2>
+<section id="proporational-integral-control-law">
+<h2><span class="section-number">3.9.2. </span>Proporational-Integral Control Law<a class="headerlink" href="#proporational-integral-control-law" title="Permalink to this heading">#</a></h2>
 <p>We will consider the proporational control law:</p>
 <div class="math notranslate nohighlight">
 \[
-u_{1} = u^*_{1} - K_p (T_{S,1}-T_{set})
+u_{1} = u^*_{1} - K_p (T_{S,1}-T_{set}) - K_i \int_{0}^{t} (T_{S,1}(t) - T_{set}) dt
 \]</div>
-<p>Here, <span class="math notranslate nohighlight">\(K_p &gt; 0\)</span> is the proportional gain and <span class="math notranslate nohighlight">\(T_{S,1}-T_{set}\)</span> is the tracking error. If the temperature of the sensor is less than the set point, i.e., <span class="math notranslate nohighlight">\(T_{S,1} &lt; T_{set}\)</span>, then the control signal is greater than the heat input required to maintain steady state, i.e., <span class="math notranslate nohighlight">\(u_{1} &gt; u^*_{1}\)</span>.</p>
-<p>How can we tune <span class="math notranslate nohighlight">\(K_p\)</span>? How does our choice of <span class="math notranslate nohighlight">\(K_p\)</span> impact the closed loop dynamics of the system?</p>
+<p>Here, <span class="math notranslate nohighlight">\(K_p &gt; 0\)</span> is the proportional gain, <span class="math notranslate nohighlight">\(K_i &gt; 0\)</span> is the integral gain, and <span class="math notranslate nohighlight">\(T_{S,1}-T_{set}\)</span> is the tracking error.</p>
 </section>
 <section id="closed-loop-dynamics">
-<h2><span class="section-number">3.8.5. </span>Closed-Loop Dynamics<a class="headerlink" href="#closed-loop-dynamics" title="Permalink to this heading">#</a></h2>
-<p>For convience, let’s define the temperatures as differences with repect to the set point:</p>
+<h2><span class="section-number">3.9.3. </span>Closed-Loop Dynamics<a class="headerlink" href="#closed-loop-dynamics" title="Permalink to this heading">#</a></h2>
+<p>How can we model the integral in the control law? Let’s add a new state to our model for the integral:
+$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-62a202e3-8dff-4144-91fe-5a11aa515543">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-62a202e3-8dff-4144-91fe-5a11aa515543" title="Permalink to this equation">#</a></span>\[\begin{align}
+C^H_p\frac{dT^*_{H,1}}{dt} &amp; = -U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) - \alpha P_1 K_p T^*_{S,1} - \alpha P_1 K_i I\\
+C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) \\
+\frac{dI}{dt} &amp;= T^{*}_{S,1}
+\end{align}\]</div>
 <div class="math notranslate nohighlight">
-\[\begin{split} \begin{align}
-T^*_{H,1} &amp;= T_{H,1} - T_{set} \\
-T^*_{S,1} &amp;= T_{S,1} - T_{set} \\
-T^*_{amb} &amp;= T_{amb} - T_{set}
-\end{align}
-\end{split}\]</div>
-<p>We can now rewrite our dynamic model in terms of these temperatures. Because <span class="math notranslate nohighlight">\(T_{set}\)</span> is a constant, <span class="math notranslate nohighlight">\(\frac{dT_i}{dt} = \frac{dT^{*}_i}{dt}\)</span> where subscript <span class="math notranslate nohighlight">\(i\)</span> is short hand for the subscripts <span class="math notranslate nohighlight">\(_{H,1}\)</span>, <span class="math notranslate nohighlight">\(_{S,1}\)</span> and <span class="math notranslate nohighlight">\(_{amb}\)</span>. Likewise, our model also has temperature differences, such as</p>
+\[Let's collect similar terms:\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-63349189-6167-47b7-82ee-7900b34eb3d1">
+<span class="eqno">(3.16)<a class="headerlink" href="#equation-63349189-6167-47b7-82ee-7900b34eb3d1" title="Permalink to this equation">#</a></span>\[\begin{align}
+\frac{dT^*_{H,1}}{dt} &amp; = \left(-\frac{U_a + U_b}{C^H_p} \right)  T^*_{H,1} + \left(\frac{U_b - \alpha P_1 K_p}{C_p^H} \right) T^*_{S,1} + \left(\frac{- \alpha P_1 K_I}{C_p^H} \right) I  \\
+\frac{dT^*_{S,1}}{dt} &amp; = \left(\frac{U_b}{C_p^S} \right) T^*_{H,1} + \left(-\frac{U_b}{C_p^S} \right) T^*_{S,1} \\
+\frac{dI}{dt} &amp;= T^{*}_{S,1}
+\end{align}\]</div>
 <div class="math notranslate nohighlight">
-\[T_{amb} - T_{H,1} = (T_{amb} - T_{set}) - (T_{H,1} - T_{set}) = T^*_{amb} - T^*_{H,1}\]</div>
-<p>Putting this all together gives:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
-C^H_p\frac{dT^*_{H,1}}{dt} &amp; = U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 u_1\\
-C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) 
-\end{align}
-\end{split}\]</div>
-<p>Let’s write the steady state control signal in terms of the offset temperature:</p>
-<div class="math notranslate nohighlight">
-\[
-u^{*}_1 = \frac{ - U_a(T_{amb} - T_{set})}{\alpha P_1} = \frac{ - U_a T^*_{amb}}{\alpha P_1}
-\]</div>
-<p>And substitute into our first differential equation:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
-C^H_p\frac{dT^*_{H,1}}{dt} &amp;= U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 \left(u^*_{1} - K_p T^*_{S,1} \right) \\
-&amp;= U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) - U_a T^*_{amb} - \alpha P_1 K_p T^*_{S,1}
-\end{align}
-\end{split}\]</div>
-<p>Notice the <span class="math notranslate nohighlight">\(T^{*}_{amb}\)</span> term cancels! We are left with the following system of differential equations:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
-C^H_p\frac{dT^*_{H,1}}{dt} &amp; = -U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) - \alpha P_1 K_p T^*_{S,1}\\
-C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) 
-\end{align}
-\end{split}\]</div>
-<p>Let’s collect similar terms:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
-\frac{dT^*_{H,1}}{dt} &amp; = \left(-\frac{U_a + U_b}{C^H_p} \right)  T^*_{H,1} + \left(\frac{U_b - \alpha P_1 K_p}{C_p^H} \right) T^*_{S,1} \\
-\frac{dT^*_{S,1}}{dt} &amp; = \left(\frac{U_b}{C_p^S} \right) T^*_{H,1} + \left(-\frac{U_b}{C_p^S} \right) T^*_{S,1} 
-\end{align}
-\end{split}\]</div>
-<p>Finally, we can write this as a linear differential equation in matrix form:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
-\frac{d}{dt}\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x} &amp; = 
-\underbrace{\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} \\ \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p}\end{bmatrix}}_\mathbf{A} 
-\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x} \\
+\[Finally, we can write this as a linear differential equation in matrix form:\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-45194fb7-3353-4e84-962c-f99e3592cd02">
+<span class="eqno">(3.17)<a class="headerlink" href="#equation-45194fb7-3353-4e84-962c-f99e3592cd02" title="Permalink to this equation">#</a></span>\[\begin{align}
+\frac{d}{dt}\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \\ I \end{bmatrix}}_\mathbf{x} &amp; = 
+\underbrace{\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} &amp; \frac{- \alpha P_1 K_i}{C^H_p} \\ 
+\frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p} &amp; 0 \\
+0 &amp; 1 &amp; 0 \end{bmatrix}}_\mathbf{A} 
+\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \\ I \end{bmatrix}}_\mathbf{x} \\
 \\
 \underbrace{\begin{bmatrix} T^*_{S,1}\end{bmatrix}}_\mathbf{y} &amp; = 
-\underbrace{\begin{bmatrix}0 &amp; 1 \end{bmatrix}}_\mathbf{C} 
-\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x}
-\end{align}
-\end{split}\]</div>
+\underbrace{\begin{bmatrix}0 &amp; 1 &amp; 0 \end{bmatrix}}_\mathbf{C} 
+\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \\ I \end{bmatrix}}_\mathbf{x}
+\end{align}\]</div>
+<p>$$</p>
 <p>This system describes the closed loop dynamics. Take a few minutes to compare to the model for <a class="reference internal" href="02.05-Second-Order.html"><span class="doc std std-doc">open loop dynamics</span></a>. Notice the above model does not include <span class="math notranslate nohighlight">\(u\)</span> or <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> because the control law is embedded in the closed loop model.</p>
 </section>
 <section id="numeric-simulation">
-<h2><span class="section-number">3.8.6. </span>Numeric Simulation<a class="headerlink" href="#numeric-simulation" title="Permalink to this heading">#</a></h2>
-<p>Let’s simulate the above system two ways to verify our math is correct.</p>
-<section id="original-model-open-loop">
-<h3><span class="section-number">3.8.6.1. </span>Original Model: Open Loop<a class="headerlink" href="#original-model-open-loop" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">3.9.4. </span>Numeric Simulation<a class="headerlink" href="#numeric-simulation" title="Permalink to this heading">#</a></h2>
+<p>Let’s simulate the closed loop response.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -714,113 +637,67 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <span class="n">t_step</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">t_expt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">t_final</span><span class="p">,</span><span class="n">t_step</span><span class="p">)</span>
 
-<span class="c1"># model solution</span>
-<span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="c1"># right hand side of differential equation</span>
-    <span class="n">T1H</span><span class="p">,</span> <span class="n">T1S</span> <span class="o">=</span> <span class="n">y</span>
-    <span class="n">dT1H</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">*</span><span class="n">T1H</span> <span class="o">+</span> <span class="n">Ub</span><span class="o">*</span><span class="n">T1S</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="o">*</span><span class="n">U1</span> <span class="o">+</span> <span class="n">Ua</span><span class="o">*</span><span class="n">T_amb</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span>
-    <span class="n">dT1S</span> <span class="o">=</span> <span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">T1H</span> <span class="o">-</span> <span class="n">T1S</span><span class="p">)</span><span class="o">/</span><span class="n">CpS</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">dT1H</span><span class="p">,</span> <span class="n">dT1S</span><span class="p">]</span>
 
-<span class="c1"># numerical integrate</span>
-<span class="n">soln_original</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">t_expt</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">t_expt</span><span class="p">)],</span> <span class="p">[</span><span class="n">T_amb</span><span class="p">,</span> <span class="n">T_amb</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_expt</span><span class="p">)</span>
+<span class="n">T_set</span> <span class="o">=</span> <span class="mi">50</span>
 
-<span class="c1"># plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">soln_original</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">soln_original</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;T1H&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">soln_original</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">soln_original</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;T1S&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [second]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [° C]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/172a17d9b2d01958f267eb864f1652bf443e07f6921342de1e8ccfe3ded190be.png" src="../_images/172a17d9b2d01958f267eb864f1652bf443e07f6921342de1e8ccfe3ded190be.png" />
-</div>
-</div>
-<p>Compare this plot to our model identification lab. This is a simulation of a step response.</p>
-</section>
-<section id="new-model-open-loop">
-<h3><span class="section-number">3.8.6.2. </span>New Model: Open Loop<a class="headerlink" href="#new-model-open-loop" title="Permalink to this heading">#</a></h3>
-<p>Now let’s simulate the new model. We’ll set <span class="math notranslate nohighlight">\(K_p = 0\)</span> to turn off the controller (no gain).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulate_response</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">simulate_response</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">Ki</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">A_PI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">,</span> <span class="p">(</span><span class="n">Ub</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="o">*</span><span class="n">Kp</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">,</span> <span class="o">-</span><span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="o">*</span><span class="n">Ki</span><span class="o">/</span><span class="n">CpH</span><span class="p">],</span> 
+                <span class="p">[</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">,</span> <span class="o">-</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 
-    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">,</span> <span class="p">(</span><span class="n">Ub</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="o">*</span><span class="n">Kp</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">],</span> 
-                <span class="p">[</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">,</span> <span class="o">-</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">]])</span>
-    <span class="n">T_set</span> <span class="o">=</span> <span class="mi">50</span>
 
     <span class="c1"># model solution</span>
-    <span class="k">def</span> <span class="nf">closed_loop</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">A</span> <span class="o">@</span> <span class="n">y</span>
-    <span class="n">soln_P</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">closed_loop</span><span class="p">,</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">t_expt</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">t_expt</span><span class="p">)],</span> <span class="p">[</span><span class="n">T_amb</span> <span class="o">-</span> <span class="n">T_set</span><span class="p">,</span> <span class="n">T_amb</span><span class="o">-</span><span class="n">T_set</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_expt</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">deriv3</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">A_PI</span> <span class="o">@</span> <span class="n">y</span>
+    <span class="n">soln_P</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">deriv3</span><span class="p">,</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">t_expt</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">t_expt</span><span class="p">)],</span> <span class="p">[</span><span class="n">T_amb</span> <span class="o">-</span> <span class="n">T_set</span><span class="p">,</span> <span class="n">T_amb</span><span class="o">-</span><span class="n">T_set</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_expt</span><span class="p">)</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">soln_P</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">soln_P</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">T_set</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;T1H&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">soln_P</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">soln_P</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">T_set</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;T1S&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;$K_p$ = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">Kp</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [second]&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [° C]&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">soln_P</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">soln_P</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">T_set</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$T_{H,1}$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">soln_P</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">soln_P</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">T_set</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$T_{S,1}$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time [seconds]&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [° C]&#39;</span><span class="p">)</span>
+
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">soln_P</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">soln_P</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;integral&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;integral&#39;</span><span class="p">)</span>
+
+    <span class="c1">#fig.legend([&#39;T1H&#39;,&#39;T1S&#39;,&#39;integral&#39;])</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">simulate_response</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">simulate_response</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">Ki</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/709a76902e735669ab6d485fea72343b3ca103920446bf13a333ae8b9a4c7c2c.png" src="../_images/709a76902e735669ab6d485fea72343b3ca103920446bf13a333ae8b9a4c7c2c.png" />
-</div>
-</div>
-<p>This matches our original model. We did not make a math mistake!</p>
-</section>
-<section id="new-model-closed-loop">
-<h3><span class="section-number">3.8.6.3. </span>New Model: Closed Loop<a class="headerlink" href="#new-model-closed-loop" title="Permalink to this heading">#</a></h3>
-<p>Now let’s look at the closed loop response for a few different Kp values.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulate_response</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/da701fa54d8674437d057aa5d13b1006ddee1617892a22e01651575969458953.png" src="../_images/da701fa54d8674437d057aa5d13b1006ddee1617892a22e01651575969458953.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulate_response</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/afa421ca399945c119470a3f6e4a87c920b6b666d7f79c6a19b62696dcc0eae5.png" src="../_images/afa421ca399945c119470a3f6e4a87c920b6b666d7f79c6a19b62696dcc0eae5.png" />
+<img alt="../_images/c00f0c241bd720ccd881c5a8c7ccd809a281e23f6dc472e41d07a159aedd69f2.png" src="../_images/c00f0c241bd720ccd881c5a8c7ccd809a281e23f6dc472e41d07a159aedd69f2.png" />
 </div>
 </div>
 <p>Perform a simple sensitivity analysis and answer the following discussion questions:</p>
 <ul class="simple">
 <li><p>What happens with small and large <span class="math notranslate nohighlight">\(K_p\)</span> values? Does the solution overshoot or undershoot? How long does it take to reach the set point?</p></li>
-<li><p>Can you find the value of <span class="math notranslate nohighlight">\(K_p\)</span> that is the transition between overshoot and undershoot?</p></li>
+<li><p>What happens with small and large <span class="math notranslate nohighlight">\(K_i\)</span> values?</p></li>
 </ul>
 </section>
-</section>
 <section id="stability-analysis">
-<h2><span class="section-number">3.8.7. </span>Stability Analysis<a class="headerlink" href="#stability-analysis" title="Permalink to this heading">#</a></h2>
-<p>We will now perform a more sophisticated analysis to understand how the choice of <span class="math notranslate nohighlight">\(K_p\)</span> impacts the closed loop dynamics. Specifcally, we’ll inspect the eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
+<h2><span class="section-number">3.9.5. </span>Stability Analysis<a class="headerlink" href="#stability-analysis" title="Permalink to this heading">#</a></h2>
+<p>Let’s inspect the eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eigendecomposition analysis</span>
 <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eig</span>
 
-<span class="k">def</span> <span class="nf">calc_eig</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">calc_eig</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span><span class="n">Ki</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 
-    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">,</span> <span class="p">(</span><span class="n">Ub</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="o">*</span><span class="n">Kp</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">],</span> 
-              <span class="p">[</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">,</span> <span class="o">-</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">]])</span>
+    <span class="n">A_PI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">,</span> <span class="p">(</span><span class="n">Ub</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="o">*</span><span class="n">Kp</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">,</span> <span class="o">-</span><span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="o">*</span><span class="n">Ki</span><span class="o">/</span><span class="n">CpH</span><span class="p">],</span> 
+                <span class="p">[</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">,</span> <span class="o">-</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
     
-    <span class="n">w</span><span class="p">,</span> <span class="n">vl</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">vl</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">A_PI</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)):</span>
@@ -829,38 +706,22 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 
     <span class="k">return</span> <span class="n">w</span>
 
-<span class="n">calc_eig</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">calc_eig</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span><span class="n">Ki</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.04522741496569595+0j)
-Eigenvector 0 = [-0.86264796  0.5058048 ] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.03764573038129279+0j)
+Eigenvector 0 = [-0.04704547  0.03757743 -0.99818568] 
 
-Eigenvalue 1 = (-0.007669227785082447+0j)
-Eigenvector 1 = [-0.47598497 -0.87945342] 
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.04522741+0.j, -0.00766923+0.j])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc_eig</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.0264483213753892+0.04038353802879882j)
-Eigenvector 0 = [ 0.92769638+0.j         -0.08746124-0.36294622j] 
+Eigenvalue 1 = (-0.009845188625015502+0j)
+Eigenvector 1 = [-0.00404676 -0.00984463  0.99994335] 
 
-Eigenvalue 1 = (-0.0264483213753892-0.04038353802879882j)
-Eigenvector 1 = [ 0.92769638-0.j         -0.08746124+0.36294622j] 
+Eigenvalue 2 = (-0.005405723744470089+0j)
+Eigenvector 2 = [-0.0036576  -0.00540561  0.9999787 ] 
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.02644832+0.04038354j, -0.02644832-0.04038354j])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.03764573+0.j, -0.00984519+0.j, -0.00540572+0.j])
 </pre></div>
 </div>
 </div>
@@ -875,62 +736,96 @@ Eigenvector 1 = [ 0.92769638-0.j         -0.08746124+0.36294622j]
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Kp_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Kp_range</span><span class="p">)</span>
-<span class="n">eig_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="n">Ki_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">xv</span><span class="p">,</span> <span class="n">yv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">Kp_range</span><span class="p">,</span> <span class="n">Ki_range</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">kp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Kp_range</span><span class="p">):</span>
-    <span class="n">eig_values</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">calc_eig</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:]</span>
+<span class="c1"># store eigenvalues in 3D array</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ki_range</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">Kp_range</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ki_range</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">Kp_range</span><span class="p">))</span>
+<span class="n">ev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">s3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="n">positive_real_eig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="n">nonzero_imag_eig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Kp_range</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">eig_values</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$K_p$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;real($\lambda_i$)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$\lambda_1$&#39;</span><span class="p">,</span><span class="s1">&#39;$\lambda_2$&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ki_range</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Kp_range</span><span class="p">)):</span>
+        <span class="n">ev</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">calc_eig</span><span class="p">(</span><span class="n">xv</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">yv</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:]</span>
+        <span class="n">positive_real_eig</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">ev</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:])</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mf">1E-9</span><span class="p">)</span>
+        <span class="n">nonzero_imag_eig</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">ev</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:]))</span> <span class="o">&gt;=</span> <span class="mf">1E-9</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Kp_range</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">eig_values</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$K_p$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;imag($\lambda_i$)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$\lambda_1$&#39;</span><span class="p">,</span><span class="s1">&#39;$\lambda_2$&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_figheight</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_figwidth</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+
+<span class="n">scale</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">CS</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span><span class="n">yv</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">ev</span><span class="p">[:,:,</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">scale</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_box_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;real($\lambda_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;$)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;log$_</span><span class="si">{10}</span><span class="s1">$($K_i$)&#39;</span><span class="p">)</span>
+
+    <span class="n">CS</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span><span class="n">yv</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">ev</span><span class="p">[:,:,</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">scale</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_box_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;imag($\lambda_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;$)&#39;</span><span class="p">)</span>
+    
+
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$K_p$&#39;</span><span class="p">)</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$K_p$&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f85a28605dc487f9207b57daf32b3ac186d8a183a660aa4534dd583b856f06d5.png" src="../_images/f85a28605dc487f9207b57daf32b3ac186d8a183a660aa4534dd583b856f06d5.png" />
-<img alt="../_images/b5a9cde9eeefefb7f52296dede0682eb79d0083b342096b15326f5322378dcdc.png" src="../_images/b5a9cde9eeefefb7f52296dede0682eb79d0083b342096b15326f5322378dcdc.png" />
+<img alt="../_images/0f03d29eabed4cfb528e6c37dd7ba826a86390681e6e14fc90d17edb6a4b3ad1.png" src="../_images/0f03d29eabed4cfb528e6c37dd7ba826a86390681e6e14fc90d17edb6a4b3ad1.png" />
 </div>
 </div>
-<p>Interpret the plots above to find the value of <span class="math notranslate nohighlight">\(K_p\)</span> that is the transition from undershooting (no oscillations) and overshooting (with oscillations).</p>
+<p>These six subplots show how the real (right) and imaginary (left) components of the three eigenvalues (rows) change as a function of <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span>. While these plots are informative, they are a little difficult to interpret.</p>
+<p>The code below plots the number of positive real eigenvalue componenets (left) and nonzero imaginary eigenvalue components (right). Yellow regions are 2 and blue regions are 0. Thus, choosing <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span> values in the blue region on the left ensures the controller is stable. Likewise, selecting the blue region on the right ensures no oscillations. The exact region of these transitions depends on our assumptions about the mathematical model (and measurement noise). We are hoping the model is good enough to use this plot as a guideline for tuning the controller.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### BEGIN SOLUTION</span>
-<span class="n">calc_eig</span><span class="p">(</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1">### END SOLUTION</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_box_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span><span class="n">yv</span><span class="p">,</span><span class="n">positive_real_eig</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1">#cbar = plt.colorbar(cs)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$K_p$&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;log$_</span><span class="si">{10}</span><span class="s1">$($K_i$)&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Positive Real Eig.&#39;</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_box_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span><span class="n">yv</span><span class="p">,</span><span class="n">nonzero_imag_eig</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1">#cbar = plt.colorbar(cs)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$K_p$&#39;</span><span class="p">)</span>
+<span class="c1">#axs[1].set_ylabel(&#39;log$_{10}$($K_i$)&#39;)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Nonzero Imag. Eig.&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.02992049758398236+0j)
-Eigenvector 0 = [-0.61982077  0.78474341] 
-
-Eigenvalue 1 = (-0.022976145166796035+0j)
-Eigenvector 1 = [ 0.35065447 -0.93650491] 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.0299205 +0.j, -0.02297615+0.j])
-</pre></div>
-</div>
+<img alt="../_images/f85a9b8d5994dc31b5575785baba2a4e32eb328ffd3d2f51fcee0afa3727c055.png" src="../_images/f85a9b8d5994dc31b5575785baba2a4e32eb328ffd3d2f51fcee0afa3727c055.png" />
 </div>
 </div>
 </section>
 <section id="simulate-performance-with-tc-lab">
-<h2><span class="section-number">3.8.8. </span>Simulate Performance with TC Lab<a class="headerlink" href="#simulate-performance-with-tc-lab" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.9.6. </span>Simulate Performance with TC Lab<a class="headerlink" href="#simulate-performance-with-tc-lab" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">MV_bar</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Basic proportional only controller</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PI_naive</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">Ki</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">MV_bar</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">antiwindup</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Basic proportional-integral controller </span>
 
 <span class="sd">    Arguments:</span>
 <span class="sd">        Kp: proportional gain</span>
@@ -944,11 +839,21 @@ Eigenvector 1 = [ 0.35065447 -0.93650491]
     <span class="c1"># Initialize with MV_bar</span>
     <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span>
 
+    <span class="c1"># Initialize integral</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Set limits for integral windup protection</span>
+    <span class="n">I_max</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">I_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
+
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span>
+        <span class="n">t_step</span><span class="p">,</span> <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span>
         <span class="n">e</span> <span class="o">=</span> <span class="n">PV</span> <span class="o">-</span> <span class="n">SP</span> <span class="c1"># calculate error</span>
-        <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span> <span class="o">-</span> <span class="n">Kp</span><span class="o">*</span><span class="n">e</span> <span class="c1"># apply control law</span>
-        <span class="n">MV</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">MV_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">MV_max</span><span class="p">,</span> <span class="n">MV</span><span class="p">))</span> <span class="c1"># Apply upper and lower bounds</span>
+        <span class="n">I</span> <span class="o">+=</span> <span class="n">t_step</span><span class="o">*</span><span class="n">e</span> <span class="c1"># apply integral</span>
+        <span class="k">if</span> <span class="n">antiwindup</span><span class="p">:</span>
+            <span class="n">I</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">I_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">I_max</span><span class="p">,</span> <span class="n">I</span><span class="p">))</span> <span class="c1"># Apply bounds to prevent integral wind-up</span>
+        <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span> <span class="o">-</span> <span class="n">Kp</span><span class="o">*</span><span class="n">e</span> <span class="o">-</span> <span class="n">Ki</span><span class="o">*</span><span class="n">I</span> <span class="c1"># Apply control law</span>
+        <span class="n">MV</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">MV_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">MV_max</span><span class="p">,</span> <span class="n">MV</span><span class="p">))</span> <span class="c1"># Apply manipulated variable upper and lower bounds</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span>
@@ -963,7 +868,7 @@ Eigenvector 1 = [ 0.35065447 -0.93650491]
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MV_bar =&quot;</span><span class="p">,</span><span class="n">u_star</span><span class="p">)</span>
 
 <span class="c1"># create control loop</span>
-<span class="n">controller1</span> <span class="o">=</span> <span class="n">P_only</span><span class="p">(</span><span class="n">MV_bar</span><span class="o">=</span><span class="n">u_star</span><span class="p">)</span>
+<span class="n">controller1</span> <span class="o">=</span> <span class="n">PI_naive</span><span class="p">(</span><span class="n">MV_bar</span><span class="o">=</span><span class="n">u_star</span><span class="p">)</span>
 <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
@@ -972,18 +877,18 @@ Eigenvector 1 = [ 0.35065447 -0.93650491]
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
         <span class="n">PV</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span>                                     <span class="c1"># measure the the process variable</span>
         <span class="n">MV</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">U1</span>                                     <span class="c1"># get manipulated variable</span>
-        <span class="n">MV</span> <span class="o">=</span> <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span><span class="p">])</span>             <span class="c1"># P control to determine the MV</span>
+        <span class="n">MV</span> <span class="o">=</span> <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="n">t_step</span><span class="p">,</span> <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span><span class="p">])</span>     <span class="c1"># PI control to determine the MV</span>
         <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">MV</span><span class="p">)</span>                                      <span class="c1"># set the heater power</span>
         <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>                                      <span class="c1"># log data</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cfa86ed1a52c9f9326b9457dae972ac13ca3dca4251ddda38c94c83e60161e9b.png" src="../_images/cfa86ed1a52c9f9326b9457dae972ac13ca3dca4251ddda38c94c83e60161e9b.png" />
+<img alt="../_images/f7282d5216e832ee54c2ea7fec33d1c300e68798dbb32655d79c78c5bd11f417.png" src="../_images/f7282d5216e832ee54c2ea7fec33d1c300e68798dbb32655d79c78c5bd11f417.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
 </pre></div>
 </div>
-<img alt="../_images/cfa86ed1a52c9f9326b9457dae972ac13ca3dca4251ddda38c94c83e60161e9b.png" src="../_images/cfa86ed1a52c9f9326b9457dae972ac13ca3dca4251ddda38c94c83e60161e9b.png" />
+<img alt="../_images/f7282d5216e832ee54c2ea7fec33d1c300e68798dbb32655d79c78c5bd11f417.png" src="../_images/f7282d5216e832ee54c2ea7fec33d1c300e68798dbb32655d79c78c5bd11f417.png" />
 </div>
 </div>
 </section>
@@ -1020,20 +925,20 @@ Eigenvector 1 = [ 0.35065447 -0.93650491]
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="03.07-Integral-Windup-and-Bumpless-Transfer.html"
+       href="03.08-P-Controller-Analysis.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.7. </span>Integral Windup and Bumpless Transfer</p>
+        <p class="prev-next-title"><span class="section-number">3.8. </span>Analysis of Proportional Only Controller</p>
       </div>
     </a>
     <a class="right-next"
-       href="03.09-PI-Controller-Analysis.html"
+       href="04/04.00-Process-Analytics.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.9. </span>Analysis of Proportional-Integral Controller</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Process Analytics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1053,19 +958,12 @@ Eigenvector 1 = [ 0.35065447 -0.93650491]
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.8.1. Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-model">3.8.2. Mathematical Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-state-control-signal">3.8.3. Steady State Control Signal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporational-control-law">3.8.4. Proporational Control Law</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-loop-dynamics">3.8.5. Closed-Loop Dynamics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-simulation">3.8.6. Numeric Simulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#original-model-open-loop">3.8.6.1. Original Model: Open Loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-model-open-loop">3.8.6.2. New Model: Open Loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-model-closed-loop">3.8.6.3. New Model: Closed Loop</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis">3.8.7. Stability Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-performance-with-tc-lab">3.8.8. Simulate Performance with TC Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.9.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporational-integral-control-law">3.9.2. Proporational-Integral Control Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-loop-dynamics">3.9.3. Closed-Loop Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-simulation">3.9.4. Numeric Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis">3.9.5. Stability Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-performance-with-tc-lab">3.9.6. Simulate Performance with TC Lab</a></li>
 </ul>
   </nav></div>
 
