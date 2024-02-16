@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03.07-Integral-Windup-and-Bumpless-Transfer';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.8. Controller Tuning" href="03.08-Controller-Tuning.html" />
+    <link rel="next" title="3.8. Analysis of Proportional Only Controller" href="03-TCLab-P-Controller-Analysis.html" />
     <link rel="prev" title="3.6. Practical Proportional (P) and Proportional-Integral (PI) Control" href="03.06-Proportional-Integral-Control.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -220,7 +220,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.08-Controller-Tuning.html">3.8. Controller Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-TCLab-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-TCLab-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.08-Controller-Tuning.html">3.10. Controller Tuning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -672,13 +674,13 @@ document.write(`
 <section id="pi-control">
 <h2><span class="section-number">3.7.4. </span>PI Control<a class="headerlink" href="#pi-control" title="Permalink to this heading">#</a></h2>
 <p>Proportional-Integral (PI) Control in velocity form is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8a984c9e-c17d-452f-bd00-6ec1113bb174">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-8a984c9e-c17d-452f-bd00-6ec1113bb174" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9c36aded-c9e4-4f17-99cc-dae6aab408cd">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-9c36aded-c9e4-4f17-99cc-dae6aab408cd" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = MV_{k-1} - K_P (e_{k} - e_{k-1}) - \delta t K_I e_k
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(MV_0= \bar{MV}\)</span> is the initial value, and the error <span class="math notranslate nohighlight">\(e_k\)</span> is the difference between the process variable and setpoint, and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-64f7a16d-1daf-456d-a085-553d9af80e04">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-64f7a16d-1daf-456d-a085-553d9af80e04" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7bc9be62-722d-4c2b-ad33-047a92911b85">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-7bc9be62-722d-4c2b-ad33-047a92911b85" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = PV_k - SP_k \\
 \end{align}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
@@ -790,8 +792,8 @@ e_k &amp; = PV_k - SP_k \\
 </div>
 <hr class="docutils" />
 <p><strong>Study Question:</strong> Examine the results of this experiment. The PI velocity algorithm is given by an equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb419813-b6f6-45dd-bdbd-12a368546e45">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-cb419813-b6f6-45dd-bdbd-12a368546e45" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-85f8d7c4-bf8b-4285-9d3c-7017500e72b3">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-85f8d7c4-bf8b-4285-9d3c-7017500e72b3" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - \delta t K_i e_{k}
 \end{align}\]</div>
 <p>Looking at the period from 0 to 100 seconds, is this equation describing what is actually happening? Is it possible for <span class="math notranslate nohighlight">\(MV\)</span> to be different from the actual input applied to the device?</p>
@@ -1048,13 +1050,13 @@ TCLab Model disconnected successfully.
 </ul>
 <section id="id1">
 <h3><span class="section-number">3.7.7.1. </span>Bumpless Transfer<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-414ee695-1ebb-4e75-b71e-775bd2223cb5">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-414ee695-1ebb-4e75-b71e-775bd2223cb5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-52c1a0d2-46dc-45f4-a7d9-56197783ac54">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-52c1a0d2-46dc-45f4-a7d9-56197783ac54" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = PV_k - SP_k \\
 \hat{MV}_{k} &amp; = MV_{k-1} - K_p(PV_{k} - PV_{k-1}) - \delta t K_i e_{k} 
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-6e4e2b45-7c69-4c67-9f01-452ff5cdc85b">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-6e4e2b45-7c69-4c67-9f01-452ff5cdc85b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a0b63d75-aca4-49f5-8d3f-b30f450fcec4">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-a0b63d75-aca4-49f5-8d3f-b30f450fcec4" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -1128,11 +1130,11 @@ MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
       </div>
     </a>
     <a class="right-next"
-       href="03.08-Controller-Tuning.html"
+       href="03-TCLab-P-Controller-Analysis.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.8. </span>Controller Tuning</p>
+        <p class="prev-next-title"><span class="section-number">3.8. </span>Analysis of Proportional Only Controller</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -81,9 +81,14 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | [](./notebooks/03.01-Case-Study-Thermal-Cycling-PCR.ipynb) | [](./notebooks/03.04-Relay-Control.ipynb) |
 | [](./notebooks/03.02-Setpoints.ipynb) | [](./notebooks/03.05-Implementing-Controllers.ipynb) |
 | **Tuesday, February 20** | **Feedback Control: P, PI, and PID** |
-| **Thursday, February 22** | **Stability Analysis** |
-| **Tuesday, February 27** | **PID Tuning** |
-| **Thursday, February 29** | **PID Implementation Details** |
+| [](./notebooks/03.06-Proportional-Integral-Control.ipynb) | |
+| **Thursday, February 22** | **PI Implementation Details** |
+| [](./notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.ipynb) | |
+| **Tuesday, February 27** | **PI Stability Analysis** |
+| [](./notebooks/03-TCLab-P-Controller-Analysis.ipynb) |
+| [](./notebooks/03-TCLab-PI-Controller-Analysis.ipynb) |
+| **Thursday, February 29** | **PID Tuning** |
+| [](./notebooks/03.08-Controller-Tuning.ipynb) | |
 | **Tuesday, March 5** | **Optimization Modeling in Pyomo** |
 | **Thursday, March 7** | **Linear Programming Examples** |
 | **Tuesday, March 19** | **Nonlinear and Dynamic Optimization** |

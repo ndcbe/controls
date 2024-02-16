@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.8. Controller Tuning &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+    <title>3.10. Controller Tuning &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
   
   
   
@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Process Analytics" href="04/04.00-Process-Analytics.html" />
-    <link rel="prev" title="3.7. Integral Windup and Bumpless Transfer" href="03.07-Integral-Windup-and-Bumpless-Transfer.html" />
+    <link rel="prev" title="3.9. Analysis of Proportional-Integral Controller" href="03-TCLab-PI-Controller-Analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -220,7 +220,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.8. Controller Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-TCLab-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-TCLab-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.10. Controller Tuning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -536,27 +538,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">3.8.1. Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versions-of-p-pi-and-pid-control">3.8.2. Versions of P, PI, and PID Control</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-signal">3.8.2.1. Error Signal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#idealized-textbook-pid-control">3.8.2.2. Idealized (Textbook) PID control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-pi-control">3.8.2.3. Practical PI Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">3.10.1. Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versions-of-p-pi-and-pid-control">3.10.2. Versions of P, PI, and PID Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-signal">3.10.2.1. Error Signal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#idealized-textbook-pid-control">3.10.2.2. Idealized (Textbook) PID control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-pi-control">3.10.2.3. Practical PI Control</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-control-for-temperature-control-lab">3.8.3. PI Control for Temperature Control Lab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-control-with-anti-reset-windup-and-bumpless-transfer">3.8.4. PI Control with anti-reset windup and bumpless transfer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-loop-with-disturbance-variable-and-manual-control">3.8.5. Event Loop with Disturbance Variable and Manual Control</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-tuning-rules">3.8.6. Empirical Tuning Rules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-rules-based-on-step-test-experiments">3.8.6.1. Tuning Rules Based on Step Test Experiments</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-test-procedure">3.8.6.1.1. Step Test Procedure</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-parameters">3.8.6.1.2. Control Parameters</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-control-performance">3.8.6.1.3. Evaluate Control Performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-control-for-temperature-control-lab">3.10.3. PI Control for Temperature Control Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-control-with-anti-reset-windup-and-bumpless-transfer">3.10.4. PI Control with anti-reset windup and bumpless transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-loop-with-disturbance-variable-and-manual-control">3.10.5. Event Loop with Disturbance Variable and Manual Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-tuning-rules">3.10.6. Empirical Tuning Rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-rules-based-on-step-test-experiments">3.10.6.1. Tuning Rules Based on Step Test Experiments</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-test-procedure">3.10.6.1.1. Step Test Procedure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-parameters">3.10.6.1.2. Control Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-control-performance">3.10.6.1.3. Evaluate Control Performance</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-rules-based-on-closed-loop-testing">3.8.6.2. Tuning Rules based on Closed Loop Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-rules-based-on-closed-loop-testing">3.10.6.2. Tuning Rules based on Closed Loop Testing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-assignment-5">3.8.7. Lab Assignment 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-assignment-5">3.10.7. Lab Assignment 5</a></li>
 </ul>
             </nav>
         </div>
@@ -569,21 +571,21 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="controller-tuning">
-<h1><span class="section-number">3.8. </span>Controller Tuning<a class="headerlink" href="#controller-tuning" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3.10. </span>Controller Tuning<a class="headerlink" href="#controller-tuning" title="Permalink to this heading">#</a></h1>
 <section id="learning-goals">
-<h2><span class="section-number">3.8.1. </span>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.10.1. </span>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <p>Up to this point we have been discussing the theory and implementation of Proportional and Proportional-Integral control. The controllers have been specified with several parameters <span class="math notranslate nohighlight">\(K_p\)</span>, <span class="math notranslate nohighlight">\(K_I\)</span>, and the sampling time step. The purpose of this notebook is to describe methods for the practical determination of these parameters.</p>
 </section>
 <section id="versions-of-p-pi-and-pid-control">
-<h2><span class="section-number">3.8.2. </span>Versions of P, PI, and PID Control<a class="headerlink" href="#versions-of-p-pi-and-pid-control" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.10.2. </span>Versions of P, PI, and PID Control<a class="headerlink" href="#versions-of-p-pi-and-pid-control" title="Permalink to this heading">#</a></h2>
 <section id="error-signal">
-<h3><span class="section-number">3.8.2.1. </span>Error Signal<a class="headerlink" href="#error-signal" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.10.2.1. </span>Error Signal<a class="headerlink" href="#error-signal" title="Permalink to this heading">#</a></h3>
 <p>The error signal measures the difference</p>
 <div class="math notranslate nohighlight">
 \[e(t) = SP(t) - PV(t)\]</div>
 </section>
 <section id="idealized-textbook-pid-control">
-<h3><span class="section-number">3.8.2.2. </span>Idealized (Textbook) PID control<a class="headerlink" href="#idealized-textbook-pid-control" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.10.2.2. </span>Idealized (Textbook) PID control<a class="headerlink" href="#idealized-textbook-pid-control" title="Permalink to this heading">#</a></h3>
 <p>Textbook equations, Position Form</p>
 <div class="math notranslate nohighlight">
 \[MV = \bar{MV} + \underbrace{K_P (SP - PV)}_{\text{proportional}} 
@@ -604,7 +606,7 @@ document.write(`
 </ul>
 </section>
 <section id="practical-pi-control">
-<h3><span class="section-number">3.8.2.3. </span>Practical PI Control<a class="headerlink" href="#practical-pi-control" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.10.2.3. </span>Practical PI Control<a class="headerlink" href="#practical-pi-control" title="Permalink to this heading">#</a></h3>
 <p>Problems with textbook control:</p>
 <ol class="arabic simple">
 <li><p>Position Form: How to choose <span class="math notranslate nohighlight">\(\bar{MV}\)</span>?</p></li>
@@ -637,12 +639,12 @@ MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)) &amp; \text{limit MV to 
 </section>
 </section>
 <section id="pi-control-for-temperature-control-lab">
-<h2><span class="section-number">3.8.3. </span>PI Control for Temperature Control Lab<a class="headerlink" href="#pi-control-for-temperature-control-lab" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.10.3. </span>PI Control for Temperature Control Lab<a class="headerlink" href="#pi-control-for-temperature-control-lab" title="Permalink to this heading">#</a></h2>
 <p>The following sequence diagram shows the flow of information for one measure-compute-act-record cycle of the control system is shown in the following sequence diagram</p>
 <p><img alt="" src="../_images/sequence-PID-1.png" /></p>
 </section>
 <section id="pi-control-with-anti-reset-windup-and-bumpless-transfer">
-<h2><span class="section-number">3.8.4. </span>PI Control with anti-reset windup and bumpless transfer<a class="headerlink" href="#pi-control-with-anti-reset-windup-and-bumpless-transfer" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.10.4. </span>PI Control with anti-reset windup and bumpless transfer<a class="headerlink" href="#pi-control-with-anti-reset-windup-and-bumpless-transfer" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add anti-integral windup feature.</span>
@@ -662,7 +664,7 @@ MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)) &amp; \text{limit MV to 
 </div>
 </section>
 <section id="event-loop-with-disturbance-variable-and-manual-control">
-<h2><span class="section-number">3.8.5. </span>Event Loop with Disturbance Variable and Manual Control<a class="headerlink" href="#event-loop-with-disturbance-variable-and-manual-control" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.10.5. </span>Event Loop with Disturbance Variable and Manual Control<a class="headerlink" href="#event-loop-with-disturbance-variable-and-manual-control" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
@@ -716,12 +718,12 @@ MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)) &amp; \text{limit MV to 
 </div>
 </section>
 <section id="empirical-tuning-rules">
-<h2><span class="section-number">3.8.6. </span>Empirical Tuning Rules<a class="headerlink" href="#empirical-tuning-rules" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.10.6. </span>Empirical Tuning Rules<a class="headerlink" href="#empirical-tuning-rules" title="Permalink to this heading">#</a></h2>
 <p>There are a number of <strong>tuning rules</strong> in the literature that provide recommended values for the proportional gain <span class="math notranslate nohighlight">\(K_P\)</span>. These rules require process information obtained from testing.</p>
 <section id="tuning-rules-based-on-step-test-experiments">
-<h3><span class="section-number">3.8.6.1. </span>Tuning Rules Based on Step Test Experiments<a class="headerlink" href="#tuning-rules-based-on-step-test-experiments" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.10.6.1. </span>Tuning Rules Based on Step Test Experiments<a class="headerlink" href="#tuning-rules-based-on-step-test-experiments" title="Permalink to this heading">#</a></h3>
 <section id="step-test-procedure">
-<h4><span class="section-number">3.8.6.1.1. </span>Step Test Procedure<a class="headerlink" href="#step-test-procedure" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">3.10.6.1.1. </span>Step Test Procedure<a class="headerlink" href="#step-test-procedure" title="Permalink to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Initialize experiment at a steady state. Confirm the process variable <span class="math notranslate nohighlight">\(PV\)</span> is at a constant value <span class="math notranslate nohighlight">\(PV_1\)</span>. Eliminate any disturbances that might affect the test outcome.</p></li>
 <li><p>Make a step change in the manipulated variable <span class="math notranslate nohighlight">\(MV_1 \rightarrow MV_2\)</span></p></li>
@@ -735,7 +737,7 @@ MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)) &amp; \text{limit MV to 
 \[ \Delta PV = PV_2 - PV_1 \]</div>
 </section>
 <section id="control-parameters">
-<h4><span class="section-number">3.8.6.1.2. </span>Control Parameters<a class="headerlink" href="#control-parameters" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">3.10.6.1.2. </span>Control Parameters<a class="headerlink" href="#control-parameters" title="Permalink to this heading">#</a></h4>
 <p>Using <span class="math notranslate nohighlight">\(PV(t)\)</span> and the following chart, compute values for a first-order plus dead-time model parameters for gain (<span class="math notranslate nohighlight">\(K\)</span>), process time constant (<span class="math notranslate nohighlight">\(\tau\)</span>), and dead-time (<span class="math notranslate nohighlight">\(\theta\)</span>).</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -770,10 +772,10 @@ K &amp; = \frac{\Delta PV}{\Delta MV} &amp; \text{gain} \\
 </table>
 </section>
 <section id="evaluate-control-performance">
-<h4><span class="section-number">3.8.6.1.3. </span>Evaluate Control Performance<a class="headerlink" href="#evaluate-control-performance" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">3.10.6.1.3. </span>Evaluate Control Performance<a class="headerlink" href="#evaluate-control-performance" title="Permalink to this heading">#</a></h4>
 <p>Tuning rules are developed based on acheiving some performance criteria. Typical criteria include measures liks</p>
-<div class="amsmath math notranslate nohighlight" id="equation-062cd3ad-301c-4306-82f7-dd6185920ce5">
-<span class="eqno">(3.15)<a class="headerlink" href="#equation-062cd3ad-301c-4306-82f7-dd6185920ce5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-87bec1d3-7dd0-4f43-b143-c6b5660035e0">
+<span class="eqno">(3.18)<a class="headerlink" href="#equation-87bec1d3-7dd0-4f43-b143-c6b5660035e0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \text{IAE} &amp; = \int_0^{\infty} |e(t)|dt \qquad \text{Integral Absolute Error}\\
 \text{ISE} &amp; = \int_0^{\infty} |e(t)|^2dt \qquad \text{Integral Square Error}\\
 \text{ITAE} &amp; = \int_0^{\infty} t|e(t)|dt \qquad \text{Integral Time Absolute Error}\\
@@ -782,7 +784,7 @@ K &amp; = \frac{\Delta PV}{\Delta MV} &amp; \text{gain} \\
 </section>
 </section>
 <section id="tuning-rules-based-on-closed-loop-testing">
-<h3><span class="section-number">3.8.6.2. </span>Tuning Rules based on Closed Loop Testing<a class="headerlink" href="#tuning-rules-based-on-closed-loop-testing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.10.6.2. </span>Tuning Rules based on Closed Loop Testing<a class="headerlink" href="#tuning-rules-based-on-closed-loop-testing" title="Permalink to this heading">#</a></h3>
 <p>For strong theoretical and practical reasons, closed-loop experiments can provide superior results for tuning P, PI, and PID controllers. The easiest closed-loop tuning experiment is to implement simple relay control. The following code cells demonstrate relay control suitable for the identification experiment.</p>
 <p>Experimental requirements:</p>
 <ol class="arabic simple">
@@ -876,7 +878,7 @@ K &amp; = \frac{\Delta PV}{\Delta MV} &amp; \text{gain} \\
 </section>
 </section>
 <section id="lab-assignment-5">
-<h2><span class="section-number">3.8.7. </span>Lab Assignment 5<a class="headerlink" href="#lab-assignment-5" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.10.7. </span>Lab Assignment 5<a class="headerlink" href="#lab-assignment-5" title="Permalink to this heading">#</a></h2>
 <p>You will test PI controllers tuned using Step Test experiment and a closed-loop Relay experiment. For testing, use the Chocolate tempering setpoint profile you developed for Lab Assignment 5.</p>
 <ol class="arabic simple">
 <li><p>Perform the Step Test experiment desribed above. Report the following results.</p>
@@ -923,12 +925,12 @@ K &amp; = \frac{\Delta PV}{\Delta MV} &amp; \text{gain} \\
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="03.07-Integral-Windup-and-Bumpless-Transfer.html"
+       href="03-TCLab-PI-Controller-Analysis.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.7. </span>Integral Windup and Bumpless Transfer</p>
+        <p class="prev-next-title"><span class="section-number">3.9. </span>Analysis of Proportional-Integral Controller</p>
       </div>
     </a>
     <a class="right-next"
@@ -956,27 +958,27 @@ K &amp; = \frac{\Delta PV}{\Delta MV} &amp; \text{gain} \\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">3.8.1. Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versions-of-p-pi-and-pid-control">3.8.2. Versions of P, PI, and PID Control</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-signal">3.8.2.1. Error Signal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#idealized-textbook-pid-control">3.8.2.2. Idealized (Textbook) PID control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-pi-control">3.8.2.3. Practical PI Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">3.10.1. Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versions-of-p-pi-and-pid-control">3.10.2. Versions of P, PI, and PID Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-signal">3.10.2.1. Error Signal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#idealized-textbook-pid-control">3.10.2.2. Idealized (Textbook) PID control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-pi-control">3.10.2.3. Practical PI Control</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-control-for-temperature-control-lab">3.8.3. PI Control for Temperature Control Lab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-control-with-anti-reset-windup-and-bumpless-transfer">3.8.4. PI Control with anti-reset windup and bumpless transfer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-loop-with-disturbance-variable-and-manual-control">3.8.5. Event Loop with Disturbance Variable and Manual Control</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-tuning-rules">3.8.6. Empirical Tuning Rules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-rules-based-on-step-test-experiments">3.8.6.1. Tuning Rules Based on Step Test Experiments</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-test-procedure">3.8.6.1.1. Step Test Procedure</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-parameters">3.8.6.1.2. Control Parameters</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-control-performance">3.8.6.1.3. Evaluate Control Performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-control-for-temperature-control-lab">3.10.3. PI Control for Temperature Control Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-control-with-anti-reset-windup-and-bumpless-transfer">3.10.4. PI Control with anti-reset windup and bumpless transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-loop-with-disturbance-variable-and-manual-control">3.10.5. Event Loop with Disturbance Variable and Manual Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-tuning-rules">3.10.6. Empirical Tuning Rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-rules-based-on-step-test-experiments">3.10.6.1. Tuning Rules Based on Step Test Experiments</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-test-procedure">3.10.6.1.1. Step Test Procedure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-parameters">3.10.6.1.2. Control Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-control-performance">3.10.6.1.3. Evaluate Control Performance</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-rules-based-on-closed-loop-testing">3.8.6.2. Tuning Rules based on Closed Loop Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-rules-based-on-closed-loop-testing">3.10.6.2. Tuning Rules based on Closed Loop Testing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-assignment-5">3.8.7. Lab Assignment 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-assignment-5">3.10.7. Lab Assignment 5</a></li>
 </ul>
   </nav></div>
 
