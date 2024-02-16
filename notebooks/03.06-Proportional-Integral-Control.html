@@ -220,9 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03-TCLab-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03-TCLab-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.08-Controller-Tuning.html">3.10. Controller Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -697,8 +695,19 @@ MV_k &amp; = \bar{MV} + K_P e_k
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># proportional control</span>
 <span class="k">def</span> <span class="nf">P</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">MV_bar</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Simulate a proportional controller.</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        Kp: the proportional gain</span>
+<span class="sd">        MV_bar: the bias/offset</span>
+
+<span class="sd">    Usage:</span>
+<span class="sd">        proportional = P(Kp, MV_bar)</span>
+<span class="sd">        next(proportional)</span>
+<span class="sd">        MV = proportional.send((SP, PV))</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     
-    <span class="c1"># initialize MV ... must do this so the first use returns a useful value</span>
+    <span class="c1"># initialize MV with bias/offset</span>
     <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span>
     
     <span class="c1"># run indefinitely</span>
@@ -707,7 +716,7 @@ MV_k &amp; = \bar{MV} + K_P e_k
         <span class="c1"># limit the manipulated variable to the feasible range of values</span>
         <span class="n">MV</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">MV</span><span class="p">))</span>
         
-        <span class="c1"># yield MV to calling program. Then pause and wait for updates to SP aand PV</span>
+        <span class="c1"># yield MV to calling program. Then pause and wait for updates to SP and PV</span>
         <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span>
         
         <span class="c1"># compute error signal</span>
@@ -807,10 +816,10 @@ MV_k &amp; = \bar{MV} + K_P e_k
 <h3><span class="section-number">3.6.5.6. </span>Steady-State Offset<a class="headerlink" href="#steady-state-offset" title="Permalink to this heading">#</a></h3>
 <p>Proportional-only control provides no assurance the the process variable will eventually acquire the setpoint. To see this, consider the proportional control law</p>
 <div class="math notranslate nohighlight">
-\[MV_k = \bar{MV} - K_P e_k\]</div>
+\[MV_k = \bar{MV} + K_P e_k\]</div>
 <p>in the limit <span class="math notranslate nohighlight">\(k\rightarrow\infty\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[e_{\infty} = \frac{\bar{MV} - MV_{\infty}}{K_P}\]</div>
+\[e_{\infty} = \frac{MV_{\infty} - \bar{MV}}{K_P}\]</div>
 <p>The error <span class="math notranslate nohighlight">\(e_\infty\)</span> expresses the steady-state difference between a process variable and it setpoint. With proportional control, the only options to reduce steady-state offset are</p>
 <ol class="arabic simple">
 <li><p>Increase <span class="math notranslate nohighlight">\(K_P\)</span>. This leads to increasing oscillations and relay-like behavior of the manipulated variable.</p></li>
@@ -826,47 +835,47 @@ MV_k &amp; = \bar{MV} + K_P e_k
 <section id="position-form">
 <h3><span class="section-number">3.6.6.1. </span>Position form<a class="headerlink" href="#position-form" title="Permalink to this heading">#</a></h3>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral control is defined by the relation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e91a669a-0278-4c47-bdb5-070a785063dc">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-e91a669a-0278-4c47-bdb5-070a785063dc" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV(t) &amp; = \bar{MV} - K_P\left(PV(t) - SP(t)\right) - K_I\int_{-\infty}^t (PV(t') - SP(t'))\,dt' \\
-&amp; = \bar{MV} + K_P\left(SP(t) - PV(t)\right) + K_I\int_{-\infty}^t (SP(t') - PV(t'))\,dt'
+<div class="amsmath math notranslate nohighlight" id="equation-3ecbc947-4edb-422a-a134-9c3951eda65c">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-3ecbc947-4edb-422a-a134-9c3951eda65c" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV(t) &amp; = \bar{MV} - K_P\left(PV(t) - SP(t)\right) - K_I\int_{0}^t (PV(t') - SP(t'))\,dt' \\
+&amp; = \bar{MV} + K_P\left(SP(t) - PV(t)\right) + K_I\int_{0}^t (SP(t') - PV(t'))\,dt'
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-99940c6f-3338-40fb-9e91-cc73d97ae235">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-99940c6f-3338-40fb-9e91-cc73d97ae235" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV(t) &amp; = \bar{MV} + K_P e(t) + K_I\int_{-\infty}^t e(t') \,dt'
+<div class="amsmath math notranslate nohighlight" id="equation-46299b49-a2df-4cad-b856-344c0dbae3e0">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-46299b49-a2df-4cad-b856-344c0dbae3e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV(t) &amp; = \bar{MV} + K_P e(t) + K_I\int_{0}^t e(t') \,dt'
 \end{align}\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
 \[e(t) = SP(t) - PV(t)\]</div>
 <p>where <strong><span class="math notranslate nohighlight">\(K_P\)</span> is the proportional gain</strong> and <strong><span class="math notranslate nohighlight">\(K_I\)</span> is the integral gain</strong>. When implemented in discrete time with time steps of length <span class="math notranslate nohighlight">\(h\)</span>, the basic rule for proportional-integral control becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-36595617-606c-4edd-b869-1aa458a81a4b">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-36595617-606c-4edd-b869-1aa458a81a4b" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV_k &amp; = \bar{MV} - K_P(PV_k - SP_k) - h K_I\sum_{j=0}^{j=k}(PV_j - SP_j)
+<div class="amsmath math notranslate nohighlight" id="equation-ab495e03-9874-4e36-85b6-3476ec5c5295">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-ab495e03-9874-4e36-85b6-3476ec5c5295" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV_k &amp; = \bar{MV} + K_P(SP_k - PV_k) + h K_I\sum_{j=0}^{j=k}(SP_j - PV_j)
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-684aaee9-a591-443a-b8ab-6f6aca098e58">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-684aaee9-a591-443a-b8ab-6f6aca098e58" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV_k &amp; = \bar{MV} - K_P e_k - h K_I\sum_{j=0}^{j=k}e_j
+<div class="amsmath math notranslate nohighlight" id="equation-39d1f187-6006-40a2-b795-d012cf9f6d77">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-39d1f187-6006-40a2-b795-d012cf9f6d77" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV_k &amp; = \bar{MV} + K_P e_k + h K_I\sum_{j=0}^{j=k}e_j
 \end{align}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-683e007b-ba36-479e-ad2e-a12c25d5c665">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-683e007b-ba36-479e-ad2e-a12c25d5c665" title="Permalink to this equation">#</a></span>\[\begin{align}
-e_k &amp; = PV_k - SP_k
+<div class="amsmath math notranslate nohighlight" id="equation-6ce5d794-7c46-4411-8535-9821dbea7f6e">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-6ce5d794-7c46-4411-8535-9821dbea7f6e" title="Permalink to this equation">#</a></span>\[\begin{align}
+e_k &amp; = SP_k - PV_k
 \end{align}\]</div>
 <p>This is the so-called <strong>position form</strong> of PI control. The position form specifies the value (or “position”) of the manipulated variable stricly in terms of the current and past values of the <strong>error</strong> signal <span class="math notranslate nohighlight">\(e_k\)</span>. Note the sign convention: A positive error occurs when the process variable is greater than the setpoint. The position form of PI control is rarely used in practice.</p>
 </section>
 <section id="velocity-form">
 <h3><span class="section-number">3.6.6.2. </span>Velocity form<a class="headerlink" href="#velocity-form" title="Permalink to this heading">#</a></h3>
 <p>A more common implementation of PI control is done by computing how much the manipulated variable changes at each time step, and incrementing the manipulated variable by that amount. Consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e10f6854-2f63-4b24-8c5b-a5b0c50e5530">
-<span class="eqno">(3.6)<a class="headerlink" href="#equation-e10f6854-2f63-4b24-8c5b-a5b0c50e5530" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1363e984-1c7a-4a71-89d1-4deaa3a0abe2">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-1363e984-1c7a-4a71-89d1-4deaa3a0abe2" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k-1} &amp; = \bar{MV} + K_p e_{k-1} + h K_i \sum_{j=0}^{k-1} e_{j} \\
 MV_{k} &amp; = \bar{MV} + K_p e_{k} + h K_i \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
 <p>Taking differences gives a formula for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to process measurements or changes in setpoint.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4175932c-0ef1-4279-86c1-192edf5e8f03">
-<span class="eqno">(3.7)<a class="headerlink" href="#equation-4175932c-0ef1-4279-86c1-192edf5e8f03" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3186f5d1-9850-4650-b5eb-7bf78a6ddb1b">
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-3186f5d1-9850-4650-b5eb-7bf78a6ddb1b" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + K_p(e_{k} - e_{k-1}) + h K_i e_{k}
 \end{align}\]</div>
 <p>with <span class="math notranslate nohighlight">\(MV_0 = \bar{MV}\)</span>. Let’s see how this works.</p>
@@ -983,14 +992,14 @@ MV_{k} &amp; = MV_{k-1} + K_p(e_{k} - e_{k-1}) + h K_i e_{k}
 </div>
 </div>
 <p>As we can see from this example, an important practical property of proportonal-integral control is <strong>steady-state tracking of the setpoint.</strong> In other words, for a steaady setpoint <span class="math notranslate nohighlight">\(\bar{SP}\)</span>, at steady-state</p>
-<div class="amsmath math notranslate nohighlight" id="equation-33621775-38c1-48a3-a702-b54711277d7c">
-<span class="eqno">(3.8)<a class="headerlink" href="#equation-33621775-38c1-48a3-a702-b54711277d7c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-eb19e4a7-2a1f-4581-9964-1f24cbad66a1">
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-eb19e4a7-2a1f-4581-9964-1f24cbad66a1" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lim_{k \rightarrow \infty} PV_k = \bar{SP}
 \end{align}\]</div>
 <p>To see why this is true, start with the velocity form of the proportional-integral controller</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78953a34-1e96-4958-b223-51b52a557c7d">
-<span class="eqno">(3.9)<a class="headerlink" href="#equation-78953a34-1e96-4958-b223-51b52a557c7d" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV_{k} &amp; = MV_{k-1} - K_p(e_{k} + e_{k-1}) + h K_i e_{k}
+<div class="amsmath math notranslate nohighlight" id="equation-45d802c9-6f3c-435e-8d8e-2014d76dc905">
+<span class="eqno">(3.9)<a class="headerlink" href="#equation-45d802c9-6f3c-435e-8d8e-2014d76dc905" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV_{k} &amp; = MV_{k-1} + K_p(e_{k} - e_{k-1}) + h K_i e_{k}
 \end{align}\]</div>
 <p>At steady-state <span class="math notranslate nohighlight">\(MV_{k} = MV_{k-1}\)</span> and <span class="math notranslate nohighlight">\(e_{k} = e_{k-1}\)</span> leaving</p>
 <div class="math notranslate nohighlight">

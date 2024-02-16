@@ -220,9 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03-TCLab-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03-TCLab-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.08-Controller-Tuning.html">3.10. Controller Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -572,8 +570,8 @@ document.write(`
 <section id="first-order-lumped-model-for-heater-sensor-device">
 <h3><span class="section-number">2.2.1.1. </span>First-order lumped model for heater/sensor device.<a class="headerlink" href="#first-order-lumped-model-for-heater-sensor-device" title="Permalink to this heading">#</a></h3>
 <p>We have previously developed a first-order model for one heater/sensor pair on the temperature control lab device.  An energy balance gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3d07e6b9-f83d-45a9-8687-99ea8733717a">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-3d07e6b9-f83d-45a9-8687-99ea8733717a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-436f3583-7b35-4042-b521-fcc38e420446">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-436f3583-7b35-4042-b521-fcc38e420446" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T_1\)</span> is the average temperature of heater/sensor one, <span class="math notranslate nohighlight">\(T_{amb}\)</span> is the ambient temperature of the surroundings. The unknown parameters are the heat capacity <span class="math notranslate nohighlight">\(C_p\)</span> and the heat transfer coefficient <span class="math notranslate nohighlight">\(U_a\)</span>.</p>
