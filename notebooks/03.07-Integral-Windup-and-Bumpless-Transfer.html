@@ -222,6 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.7. Integral Windup and Bumpless Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -673,13 +674,13 @@ document.write(`
 <section id="pi-control">
 <h2><span class="section-number">3.7.4. </span>PI Control<a class="headerlink" href="#pi-control" title="Permalink to this heading">#</a></h2>
 <p>Proportional-Integral (PI) Control in velocity form is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3b0dee97-de6f-40d6-a5e8-614d002877ad">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-3b0dee97-de6f-40d6-a5e8-614d002877ad" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0c2c3a3b-cdc9-411f-8293-5951f1873dda">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-0c2c3a3b-cdc9-411f-8293-5951f1873dda" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = MV_{k-1} - K_P (e_{k} - e_{k-1}) - \delta t K_I e_k
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(MV_0= \bar{MV}\)</span> is the initial value, and the error <span class="math notranslate nohighlight">\(e_k\)</span> is the difference between the process variable and setpoint, and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e2305144-720a-4ccc-a459-619e14553e3b">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-e2305144-720a-4ccc-a459-619e14553e3b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-80d9c300-2150-4e31-82f4-08cbb7c432ab">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-80d9c300-2150-4e31-82f4-08cbb7c432ab" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = PV_k - SP_k \\
 \end{align}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
@@ -791,8 +792,8 @@ e_k &amp; = PV_k - SP_k \\
 </div>
 <hr class="docutils" />
 <p><strong>Study Question:</strong> Examine the results of this experiment. The PI velocity algorithm is given by an equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b1ffa359-8def-4e89-af08-caf20d6c6c24">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-b1ffa359-8def-4e89-af08-caf20d6c6c24" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8b22e41f-b380-489a-b9c0-957c3a7efd46">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-8b22e41f-b380-489a-b9c0-957c3a7efd46" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - \delta t K_i e_{k}
 \end{align}\]</div>
 <p>Looking at the period from 0 to 100 seconds, is this equation describing what is actually happening? Is it possible for <span class="math notranslate nohighlight">\(MV\)</span> to be different from the actual input applied to the device?</p>
@@ -1049,13 +1050,13 @@ TCLab Model disconnected successfully.
 </ul>
 <section id="id1">
 <h3><span class="section-number">3.7.7.1. </span>Bumpless Transfer<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-d51841d7-6fdd-4e14-99cf-7aee0c12544d">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-d51841d7-6fdd-4e14-99cf-7aee0c12544d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ea34cd84-59ee-4e8a-b116-b532a740d1fa">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-ea34cd84-59ee-4e8a-b116-b532a740d1fa" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = PV_k - SP_k \\
 \hat{MV}_{k} &amp; = MV_{k-1} - K_p(PV_{k} - PV_{k-1}) - \delta t K_i e_{k} 
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-f758ead5-0b21-4052-bf3c-e10655e768c4">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-f758ead5-0b21-4052-bf3c-e10655e768c4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-520da053-0490-4b72-b75a-a6cb49fbae98">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-520da053-0490-4b72-b75a-a6cb49fbae98" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
 \end{align}\]</div>
 <div class="cell docutils container">

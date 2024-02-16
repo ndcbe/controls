@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03.09-PI-Controller-Analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Process Analytics" href="04/04.00-Process-Analytics.html" />
+    <link rel="next" title="3.10. Controller Tuning" href="03.10-Controller-Tuning.html" />
     <link rel="prev" title="3.8. Analysis of Proportional Only Controller" href="03.08-P-Controller-Analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -222,6 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -581,24 +582,24 @@ u_{1} = u^*_{1} - K_p (T_{S,1}-T_{set}) - K_i \int_{0}^{t} (T_{S,1}(t) - T_{set}
 <h2><span class="section-number">3.9.3. </span>Closed-Loop Dynamics<a class="headerlink" href="#closed-loop-dynamics" title="Permalink to this heading">#</a></h2>
 <p>How can we model the integral in the control law? Let’s add a new state to our model for the integral:
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-62a202e3-8dff-4144-91fe-5a11aa515543">
-<span class="eqno">(3.15)<a class="headerlink" href="#equation-62a202e3-8dff-4144-91fe-5a11aa515543" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3cb1f7c7-7a9e-46ba-8db2-50eb251183e5">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-3cb1f7c7-7a9e-46ba-8db2-50eb251183e5" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = -U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) - \alpha P_1 K_p T^*_{S,1} - \alpha P_1 K_i I\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) \\
 \frac{dI}{dt} &amp;= T^{*}_{S,1}
 \end{align}\]</div>
 <div class="math notranslate nohighlight">
 \[Let's collect similar terms:\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-63349189-6167-47b7-82ee-7900b34eb3d1">
-<span class="eqno">(3.16)<a class="headerlink" href="#equation-63349189-6167-47b7-82ee-7900b34eb3d1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fba62d39-4cf1-4bcd-8402-ca85e8da32ab">
+<span class="eqno">(3.16)<a class="headerlink" href="#equation-fba62d39-4cf1-4bcd-8402-ca85e8da32ab" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT^*_{H,1}}{dt} &amp; = \left(-\frac{U_a + U_b}{C^H_p} \right)  T^*_{H,1} + \left(\frac{U_b - \alpha P_1 K_p}{C_p^H} \right) T^*_{S,1} + \left(\frac{- \alpha P_1 K_I}{C_p^H} \right) I  \\
 \frac{dT^*_{S,1}}{dt} &amp; = \left(\frac{U_b}{C_p^S} \right) T^*_{H,1} + \left(-\frac{U_b}{C_p^S} \right) T^*_{S,1} \\
 \frac{dI}{dt} &amp;= T^{*}_{S,1}
 \end{align}\]</div>
 <div class="math notranslate nohighlight">
 \[Finally, we can write this as a linear differential equation in matrix form:\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-45194fb7-3353-4e84-962c-f99e3592cd02">
-<span class="eqno">(3.17)<a class="headerlink" href="#equation-45194fb7-3353-4e84-962c-f99e3592cd02" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d234937e-9eaa-404c-b949-51ffe452410f">
+<span class="eqno">(3.17)<a class="headerlink" href="#equation-d234937e-9eaa-404c-b949-51ffe452410f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d}{dt}\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \\ I \end{bmatrix}}_\mathbf{x} &amp; = 
 \underbrace{\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} &amp; \frac{- \alpha P_1 K_i}{C^H_p} \\ 
 \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p} &amp; 0 \\
@@ -934,11 +935,11 @@ Eigenvector 2 = [-0.0036576  -0.00540561  0.9999787 ]
       </div>
     </a>
     <a class="right-next"
-       href="04/04.00-Process-Analytics.html"
+       href="03.10-Controller-Tuning.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Process Analytics</p>
+        <p class="prev-next-title"><span class="section-number">3.10. </span>Controller Tuning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
