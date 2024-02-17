@@ -541,12 +541,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anti-reset-windup-complete">3.7.6.3. Anti-Reset Windup: Complete</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-to-auto-transition-bumpless-transfer">3.7.7. Manual to Auto Transition: Bumpless Transfer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bumpless-transfer">3.7.8. Bumpless Transfer</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.7.8.1. Bumpless Transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-to-auto-transition-bumpless-transfer">3.7.7. Manual to Auto Transition: Bumpless Transfer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-case-study">3.7.7.1. Motivating Case Study</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bumpless-transfer">3.7.7.2. Bumpless Transfer</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#take-away-messages">3.7.9. Take Away Messages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#take-away-messages">3.7.8. Take Away Messages</a></li>
 </ul>
             </nav>
         </div>
@@ -668,13 +668,13 @@ document.write(`
 <section id="basic-pi-control">
 <h2><span class="section-number">3.7.4. </span>Basic PI Control<a class="headerlink" href="#basic-pi-control" title="Permalink to this heading">#</a></h2>
 <p>Proportional-Integral (PI) Control in velocity form is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-130f1317-14fb-4965-9119-d2ac35ba4922">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-130f1317-14fb-4965-9119-d2ac35ba4922" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-95869ec0-0282-460c-9859-1f4235e6ec97">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-95869ec0-0282-460c-9859-1f4235e6ec97" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = MV_{k-1} + K_P (e_{k} - e_{k-1}) + \delta t K_I e_k
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(MV_0= \bar{MV}\)</span> is the initial value, and the error <span class="math notranslate nohighlight">\(e_k\)</span> is the difference between the process variable and setpoint, and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d13434ea-8c3b-4c74-99f7-11c4c826a209">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-d13434ea-8c3b-4c74-99f7-11c4c826a209" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f3ee37eb-22f7-4249-95f0-69c40b2add13">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-f3ee37eb-22f7-4249-95f0-69c40b2add13" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k \\
 \end{align}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
@@ -847,8 +847,8 @@ e_k &amp; = SP_k - PV_k \\
 </div>
 <hr class="docutils" />
 <p><strong>Discussion Question:</strong> Examine the results of this experiment. The PI velocity algorithm is given by an equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c01668f4-0388-4e3b-bd4f-fae0a72f199b">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-c01668f4-0388-4e3b-bd4f-fae0a72f199b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-78402c6a-d2fc-4535-bc70-9d2af8d91792">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-78402c6a-d2fc-4535-bc70-9d2af8d91792" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + K_p(e_{k} + e_{k-1}) + \delta t K_i e_{k}
 \end{align}\]</div>
 <p>Looking at the period from 0 to 100 seconds, is this equation describing what is actually happening? Is it possible for <span class="math notranslate nohighlight">\(MV\)</span> to be different from the actual input applied to the device?</p>
@@ -1158,6 +1158,8 @@ TCLab Model disconnected successfully.
 <section id="manual-to-auto-transition-bumpless-transfer">
 <h2><span class="section-number">3.7.7. </span>Manual to Auto Transition: Bumpless Transfer<a class="headerlink" href="#manual-to-auto-transition-bumpless-transfer" title="Permalink to this heading">#</a></h2>
 <p>Manual operation can be implemented by specifying the manipulated variable. We will implement this by specifying a function that specifies values of manipulated variable whenever manual conteol is in effect.</p>
+<section id="motivating-case-study">
+<h3><span class="section-number">3.7.7.1. </span>Motivating Case Study<a class="headerlink" href="#motivating-case-study" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
@@ -1244,20 +1246,18 @@ TCLab Model disconnected successfully.
 </div>
 </section>
 <section id="bumpless-transfer">
-<h2><span class="section-number">3.7.8. </span>Bumpless Transfer<a class="headerlink" href="#bumpless-transfer" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">3.7.7.2. </span>Bumpless Transfer<a class="headerlink" href="#bumpless-transfer" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Remove setpoint from proportional term</p></li>
 <li><p>Only the integral control term incorporates the setpoint.</p></li>
 </ul>
-<section id="id1">
-<h3><span class="section-number">3.7.8.1. </span>Bumpless Transfer<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-64cc5750-79de-45c0-a078-3c7334db8e12">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-64cc5750-79de-45c0-a078-3c7334db8e12" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4d5a5998-422a-4ec5-98d8-7c10e81ed93b">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-4d5a5998-422a-4ec5-98d8-7c10e81ed93b" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k \\
 \hat{MV}_{k} &amp; = MV_{k-1} + K_p(-PV_{k} + PV_{k-1}) + \delta t K_i e_{k} 
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-02ff6506-14ac-4ddc-a267-e9233120cd62">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-02ff6506-14ac-4ddc-a267-e9233120cd62" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a2b06142-7448-4566-8633-f8596e08bba9">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-a2b06142-7448-4566-8633-f8596e08bba9" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -1317,7 +1317,7 @@ MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
 </section>
 </section>
 <section id="take-away-messages">
-<h2><span class="section-number">3.7.9. </span>Take Away Messages<a class="headerlink" href="#take-away-messages" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.7.8. </span>Take Away Messages<a class="headerlink" href="#take-away-messages" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Anti-windup prevents MV from saturating due to the integral term. It also uses measurements of the manipulated variable (in case the actuator gets stuck!)</p></li>
 <li><p>Bumpless prevents big spikes when turning on the controller or large setpoint changes.</p></li>
@@ -1400,12 +1400,12 @@ MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anti-reset-windup-complete">3.7.6.3. Anti-Reset Windup: Complete</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-to-auto-transition-bumpless-transfer">3.7.7. Manual to Auto Transition: Bumpless Transfer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bumpless-transfer">3.7.8. Bumpless Transfer</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.7.8.1. Bumpless Transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-to-auto-transition-bumpless-transfer">3.7.7. Manual to Auto Transition: Bumpless Transfer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-case-study">3.7.7.1. Motivating Case Study</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bumpless-transfer">3.7.7.2. Bumpless Transfer</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#take-away-messages">3.7.9. Take Away Messages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#take-away-messages">3.7.8. Take Away Messages</a></li>
 </ul>
   </nav></div>
 

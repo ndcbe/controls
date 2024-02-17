@@ -801,8 +801,8 @@ document.write(`
 <section id="objective">
 <h3><span class="section-number">5.4.4.1. </span>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h3>
 <p>The objective is maximize profit, which is the difference between product revenue and stream costs.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-27868a13-7ee5-4f62-afed-81cd59c3b8f6">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-27868a13-7ee5-4f62-afed-81cd59c3b8f6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-53499185-de01-4853-90d3-118ff9fae933">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-53499185-de01-4853-90d3-118ff9fae933" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mbox{profit} &amp; = \max_{x_{s,p}}\left( \sum_{p\in P} \text{Price}_p \sum_{s\in S} x_{s,p}
 - \sum_{s\in S} \text{Cost}_s \sum_{p\in P} x_{s,p}\right) \\
 &amp; = \max_{x_{s,p}}\left(\sum_{p\in P}\sum_{s\in S}x_{s,p}(\text{Price}_p - \text{Cost}_s)\right)
@@ -812,23 +812,23 @@ document.write(`
 <h3><span class="section-number">5.4.4.2. </span>Raw Materials<a class="headerlink" href="#raw-materials" title="Permalink to this heading">#</a></h3>
 <p>The first constraints in any blending problem are normally the limits on available raw materials. Letting $\text{</p>
 <p>The blending constraint for octane can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6395e593-e016-4e62-891e-96b62ecf28a4">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-6395e593-e016-4e62-891e-96b62ecf28a4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-53561afa-e0f0-4150-9725-d388e4d77c14">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-53561afa-e0f0-4150-9725-d388e4d77c14" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{\sum_{s \in S} x_{s,p} \mbox{Octane}_s}{\sum_{s \in S} x_{s,p}} &amp; \geq \mbox{Octane}_p &amp; \forall p \in P
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mbox{Octane}_s\)</span> refers to the octane rating of stream <span class="math notranslate nohighlight">\(s\)</span>, whereas <span class="math notranslate nohighlight">\(\mbox{Octane}_p\)</span> refers to the octane rating of product <span class="math notranslate nohighlight">\(p\)</span>. Multiplying through by the denominator, and consolidating terms gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77f9aef4-b5b7-40f9-adcc-9d56905d8e35">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-77f9aef4-b5b7-40f9-adcc-9d56905d8e35" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cb55ce42-7f67-46df-b81a-0e2fa232791a">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-cb55ce42-7f67-46df-b81a-0e2fa232791a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\mbox{Octane}_s - \mbox{Octane}_p\right) &amp; \geq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>The same assumptions and development apply to the benzene constraint</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc777302-a2fe-49af-9621-246d61b73cf1">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-cc777302-a2fe-49af-9621-246d61b73cf1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-32bd94ff-efc0-4b14-a464-855a858b73a5">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-32bd94ff-efc0-4b14-a464-855a858b73a5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\mbox{Benzene}_s - \mbox{Benzene}_p\right) &amp; \leq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>Reid vapor pressure, however, follows a somewhat different mixing rule.  For the Reid vapor pressure we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10ce782a-e177-4306-9119-bf99c3e38a9d">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-10ce782a-e177-4306-9119-bf99c3e38a9d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-af65c21a-5a06-4f9a-9f78-100347667be3">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-af65c21a-5a06-4f9a-9f78-100347667be3" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\mbox{RVP}_s^{1.25} - \mbox{RVP}_{min,p}^{1.25}\right) &amp; \geq  0 &amp; \forall p \in P \\
 \sum_{s \in S} x_{s,p}\left(\mbox{RVP}_s^{1.25} - \mbox{RVP}_{max,p}^{1.25}\right) &amp; \leq  0 &amp; \forall p \in P
 \end{align}\]</div>
