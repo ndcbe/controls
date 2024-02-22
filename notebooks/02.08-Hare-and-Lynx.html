@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,10 +78,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +121,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -212,9 +214,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.08-Controller-Tuning.html">3.8. Controller Tuning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -566,7 +566,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hare-and-lynx-population-dynamics">
 <h1><span class="section-number">2.9. </span>Hare and Lynx Population Dynamics<a class="headerlink" href="#hare-and-lynx-population-dynamics" title="Permalink to this heading">#</a></h1>
@@ -607,15 +607,15 @@ document.write(`
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://people.whitman.edu/~hundledr/courses/M250F03/LynxHare.txt&#39;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;Hare&quot;</span><span class="p">,</span> <span class="s2">&quot;Lynx&quot;</span><span class="p">]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Population (thousands)&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Lynx and Hare Populations in Canada (1845-1903)&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Lynx and Hare Populations in Canada (1845-1903)&#39;}, xlabel=&#39;Year&#39;, ylabel=&#39;Population (thousands)&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Year&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/72d300eeeadba2a99080d0bdff2856aefda524ed02f666c6ba58ad20ba3e3f07.png" src="../_images/72d300eeeadba2a99080d0bdff2856aefda524ed02f666c6ba58ad20ba3e3f07.png" />
+<img alt="../_images/d2f5606c8957437db21ba3e8a9a55f8f09fbe54f07bb811d16ec71ff9022c5c5.png" src="../_images/d2f5606c8957437db21ba3e8a9a55f8f09fbe54f07bb811d16ec71ff9022c5c5.png" />
 </div>
 </div>
 </section>
@@ -666,13 +666,6 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p><strong>Activities</strong>:</p>
-<ol class="arabic simple">
-<li><p>What are the units of the model parameters?</p></li>
-<li><p>What happens to the hare population if there are no predictors, i.e., <span class="math notranslate nohighlight">\(L=0\)</span>? In other words, what are the steady-states of the system.</p></li>
-<li><p>What happens to the lynx population if there is no food, i.e., <span class="math notranslate nohighlight">\(H=0\)</span>?</p></li>
-</ol>
-<p>These exploratory questions, which we can/should answer with pencil and paper, help us build intutition about the model.</p>
 </section>
 </section>
 <section id="simulation-using-the-scipy-integrate-solve-ivp">
@@ -747,15 +740,15 @@ document.write(`
 <p>For this choice of parameters and initial conditions, the Hare/Lynx population exhibits sustained oscillations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Hare/Lynx Population Dynamics&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Population (thousands)&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Hare/Lynx Population Dynamics&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Hare/Lynx Population Dynamics&#39;}, xlabel=&#39;Year&#39;, ylabel=&#39;Population (thousands)&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: title={&#39;center&#39;: &#39;Hare/Lynx Population Dynamics&#39;}, xlabel=&#39;Year&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/913613b60d53790bef5d6653f0fa8ff99e4428e678cbfa82613a39118af88604.png" src="../_images/913613b60d53790bef5d6653f0fa8ff99e4428e678cbfa82613a39118af88604.png" />
+<img alt="../_images/93d4dc142a7f6c8ec42df6ef2cfc3789d21679e1db38b875b72ff3fe4691f34c.png" src="../_images/93d4dc142a7f6c8ec42df6ef2cfc3789d21679e1db38b875b72ff3fe4691f34c.png" />
 </div>
 </div>
 </section>
@@ -784,30 +777,29 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IC</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">simulate_hare_lynx</span><span class="p">(</span><span class="n">IC</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Population (thousands)&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Hare/Lynx Population Dynamics&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (years)&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Hare/Lynx Population Dynamics&#39;}, xlabel=&#39;Time (years)&#39;, ylabel=&#39;Population (thousands)&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Time&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/457ac57fa13879291103d8e8d0b2c39ea8a53cd0320c00fb1c02958bdb3d1bfc.png" src="../_images/457ac57fa13879291103d8e8d0b2c39ea8a53cd0320c00fb1c02958bdb3d1bfc.png" />
+<img alt="../_images/f50a4cfcd4fb646929d1810567162c048a1d827911489b342b034740b2022813.png" src="../_images/f50a4cfcd4fb646929d1810567162c048a1d827911489b342b034740b2022813.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Hare&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Lynx&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Hare Population (thousands)&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Lynx Population (thousands)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Population Dynamics&quot;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Hare&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Lynx&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Hare&quot;</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Lynx&quot;</span><span class="p">],</span> <span class="s2">&quot;b.&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x135424580&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x183cb1940&gt;]
 </pre></div>
 </div>
-<img alt="../_images/7071201bac6be815383640d6f2c36d2ab5347b072db722565cfb2c7e5a8e00e1.png" src="../_images/7071201bac6be815383640d6f2c36d2ab5347b072db722565cfb2c7e5a8e00e1.png" />
+<img alt="../_images/60123c12092087e0af5800fc00bbc064e37fc524acdebfe88e256ebc37b7e76d.png" src="../_images/60123c12092087e0af5800fc00bbc064e37fc524acdebfe88e256ebc37b7e76d.png" />
 </div>
 </div>
 </section>
@@ -853,14 +845,14 @@ document.write(`
     <span class="c1"># steady states</span>
     <span class="n">Hss</span> <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="n">d</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span>
     <span class="n">Lss</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Hss</span><span class="o">/</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">Hss</span><span class="p">)</span><span class="o">/</span><span class="n">a</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">Hss</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Lss</span><span class="p">],</span> <span class="s1">&#39;rs&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">Hss</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Lss</span><span class="p">],</span> <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
     <span class="c1"># format plot</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hare Population (thousands)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Lynx Population (thousands)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;dH/dt = 0&#39;</span><span class="p">,</span><span class="s1">&#39;dL/dt = 0&#39;</span><span class="p">],</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hare&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Lynx&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;dH/dt = 0&#39;</span><span class="p">,</span><span class="s1">&#39;dL/dt = 0&#39;</span><span class="p">])</span>  
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -879,18 +871,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ff9c1c3f983868938b55fe2eda25c025ae04985ae04b7067edf2b1146912a33b.png" src="../_images/ff9c1c3f983868938b55fe2eda25c025ae04985ae04b7067edf2b1146912a33b.png" />
+<img alt="../_images/ddc041c59a4cfa83d0d63da75815bbde957979b075107b68d2955744ffa271cd.png" src="../_images/ddc041c59a4cfa83d0d63da75815bbde957979b075107b68d2955744ffa271cd.png" />
 </div>
 </div>
 <p>Visualization of the nullclines give us some insight into how the Hare and Lynx populations depend on the model parameters. Here we look at how the nullclines depend on the Hare/Lynx predation rate <span class="math notranslate nohighlight">\(a\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
-<span class="c1"># You may need to install ipywidgets using one of the following commands:</span>
-<span class="c1"># conda install -c conda-forge ipywidgets (in the terminal)</span>
-<span class="c1"># OR</span>
-<span class="c1"># !pip install ipywidgets (on Colab)</span>
-
 
 <span class="k">def</span> <span class="nf">sim</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mf">3.2</span><span class="p">):</span>
     <span class="n">plot_nullclines</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
@@ -900,7 +887,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "20615e89302a4b0294ee962cf0e7a9b8", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.sim(a=3.2)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a8705f1f0f5d4718bfa761e3c81f4673", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.sim(a=3.2)&gt;
 </pre></div>
 </div>
 </div>
@@ -914,7 +901,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hare_lynx</span><span class="p">(</span><span class="n">H</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">3.2</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">simulate_hare_lynx</span><span class="p">([</span><span class="n">H</span><span class="p">,</span> <span class="n">L</span><span class="p">],</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (years)&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Population (thousands)&quot;</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Hare&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Lynx&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">plot_nullclines</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Hare&quot;</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Lynx&quot;</span><span class="p">],</span> <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -931,7 +918,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "20846c94fe2a433eb1220849985d620e", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d895fd4d493a40818c6e77ac675710e0", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="stability-of-a-steady-state">
@@ -946,7 +933,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bcb7e61f3ead4240347dd12f00853cce6b1c932e689346cb7f50c8a1e1c16788.png" src="../_images/bcb7e61f3ead4240347dd12f00853cce6b1c932e689346cb7f50c8a1e1c16788.png" />
+<img alt="../_images/9d645a21257cd8c438b695ee5b03a21e56988aa6c7e1f765cacebbc21af5adc0.png" src="../_images/9d645a21257cd8c438b695ee5b03a21e56988aa6c7e1f765cacebbc21af5adc0.png" />
 </div>
 </div>
 </section>
@@ -960,7 +947,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/88bfb798c5e04c24c9f7118811d32b21a2adfc202d162de8e4b4fba6dc95e16a.png" src="../_images/88bfb798c5e04c24c9f7118811d32b21a2adfc202d162de8e4b4fba6dc95e16a.png" />
+<img alt="../_images/355baac54a2beeda0ef856cfffb70e6a4ae8aa32e7f0c58fe101e691e4ec8938.png" src="../_images/355baac54a2beeda0ef856cfffb70e6a4ae8aa32e7f0c58fe101e691e4ec8938.png" />
 </div>
 </div>
 </section>
@@ -974,7 +961,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0d112dc95d9523b796c67f6e6a2f3e601cdd379fc1d527bddafd29d30b3e16aa.png" src="../_images/0d112dc95d9523b796c67f6e6a2f3e601cdd379fc1d527bddafd29d30b3e16aa.png" />
+<img alt="../_images/4d6949cef894ec10d7b1517e5ba69cf6c3da4cf32d304a6f81031f9b2a54308e.png" src="../_images/4d6949cef894ec10d7b1517e5ba69cf6c3da4cf32d304a6f81031f9b2a54308e.png" />
 </div>
 </div>
 </section>
@@ -993,11 +980,7 @@ document.write(`
 </section>
 <section id="suggested-exercise">
 <h2><span class="section-number">2.9.11. </span>Suggested Exercise<a class="headerlink" href="#suggested-exercise" title="Permalink to this heading">#</a></h2>
-<p>Explore the impact of the parameter <span class="math notranslate nohighlight">\(a\)</span> on the nature of the solution. <span class="math notranslate nohighlight">\(a\)</span> is proporational to the success of the Lynx hunting the Hare.</p>
-<ol class="arabic simple">
-<li><p>What happens when the value is low?  high?  Can you see the transitions from conditions when the Lynx done’t survive, the emergence of a stable coexistence steady-state, and finally the emergence of a stable limit cycle?</p></li>
-<li><p>For each of the three steady-states (intersections of nullclines), calculate and interpret the eigenvalues. Next, perform a sensntivity analysis of the eigenvalues when varying <span class="math notranslate nohighlight">\(a\)</span>, similar to previous examples. Does this match the interactive analysis above?</p></li>
-</ol>
+<p>Explore the impact of the parameter <span class="math notranslate nohighlight">\(a\)</span> on the nature of the solution. <span class="math notranslate nohighlight">\(a\)</span> is proporational to the success of the Lynx hunting the Hare.  What happens when the value is low?  high?  Can you see the transitions from conditions when the Lynx done’t survive, the emergence of a stable coexistence steady-state, and finally the emergence of a stable limit cycle?</p>
 </section>
 </section>
 
@@ -1057,6 +1040,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1139,8 +1123,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

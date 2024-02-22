@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,10 +78,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +121,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -212,9 +214,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.08-Controller-Tuning.html">3.8. Controller Tuning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -561,7 +561,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="practical-proportional-p-and-proportional-integral-pi-control">
 <h1><span class="section-number">3.6. </span>Practical Proportional (P) and Proportional-Integral (PI) Control<a class="headerlink" href="#practical-proportional-p-and-proportional-integral-pi-control" title="Permalink to this heading">#</a></h1>
@@ -607,6 +607,7 @@ document.write(`
 <section id="nomenclature">
 <h2><span class="section-number">3.6.3. </span>Nomenclature<a class="headerlink" href="#nomenclature" title="Permalink to this heading">#</a></h2>
 <p>In this notebook we will refer to control signals with a generic nomenclature common to the process control industry.</p>
+<p><img alt="" src="../_images/FeedbackControlDiagram.png" /></p>
 <ul class="simple">
 <li><p><strong>CV</strong>: Control variables. A variable that is the subject of control. For example, a product composition.</p></li>
 <li><p><strong>PV</strong>: Process variables. A variable that can be measured. Sometimes the same as the control variable, often different but closely related to a CV.  For example, pressure or temperature of a binary mixture at phase equilibrium may be a proxy for composition.</p></li>
@@ -614,32 +615,10 @@ document.write(`
 <li><p><strong>DV</strong>: Disturbance variables. All of the exogeneous inputs that can affect our system of interest.</p></li>
 <li><p><strong>SP</strong>: Setpoints. Desired values for the control variables.</p></li>
 </ul>
-<p><img alt="" src="../_images/FeedbackControlDiagram.png" /></p>
-<p>Textbook PID (position form):</p>
-<div class="math notranslate nohighlight">
-\[MV(t) = \bar{MV} + \underbrace{K_P (SP(t) - PV(t))}_{\text{proportional}} 
-    + \underbrace{K_I \int^t_0 (SP(t') - PV(t')) dt'}_{\text{integral}}
-    + \underbrace{K_D \frac{d}{dt}(SP(t)-PV(t))}_{\text{derivative}}\]</div>
-<p>Expressed with error signal <span class="math notranslate nohighlight">\(e(t) = SP(t) - PV(t)\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[MV = \bar{MV} + \underbrace{K_P e(t)}_{\text{proportional}} 
-    + \underbrace{K_I \int^t_0 e(t') dt'}_{\text{integral}}
-    + \underbrace{K_D \frac{d}{dt}e(t)}_{\text{derivative}}\]</div>
-<p>The <a class="reference external" href="https://www.northeastern.edu/landherr/stem-comics/science-comic-pid-controls/">excellent cartoon</a> explains the P, I, and D terms as different boxing styles.</p>
 </section>
 <section id="typical-p-id-diagram-for-pi-and-pid-control">
 <h2><span class="section-number">3.6.4. </span>Typical P&amp;ID Diagram for PI and PID control.<a class="headerlink" href="#typical-p-id-diagram-for-pi-and-pid-control" title="Permalink to this heading">#</a></h2>
 <p><img alt="" src="https://cdn.instrumentationtools.com/wp-content/uploads/2020/01/Identify-Process-Variables-in-PID.png" /></p>
-<p>Source: <a class="reference external" href="https://instrumentationtools.com/identify-process-variables-in-pid/">Instrumentation Tools.com</a></p>
-<p><img alt="" src="https://blog.opticontrols.com/wp-content/uploads/2012/08/LevelVsFlowControl.png" /></p>
-<p>Source: <a class="reference external" href="https://blog.opticontrols.com/archives/872">OptiControl</a></p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hHKB773qDno?si=7N_pmzC1foe1nOXj" title="YouTube video: How to Read P&ID Drawing - A Complete Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<p>Suggested Software and Tutorials:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.lucidchart.com/pages/tutorial/p-and-id">What are P&amp;IDs</a></p></li>
-<li><p><a class="reference external" href="https://www.lucidchart.com/pages/how-to-draw-p-and-id-diagram">How to draw a P&amp;ID</a></p></li>
-<li><p><a class="reference external" href="https://www.lucidchart.com/pages/how-to-draw-p-and-id-diagram">P&amp;ID Symbols and Notation</a></p></li>
-</ul>
 </section>
 <section id="time-out-for-engineering-history">
 <h2><span class="section-number">3.6.5. </span>Time-Out for Engineering History<a class="headerlink" href="#time-out-for-engineering-history" title="Permalink to this heading">#</a></h2>
@@ -666,23 +645,23 @@ document.write(`
 <h3><span class="section-number">3.6.5.3. </span>Formulation of Proportional Control<a class="headerlink" href="#formulation-of-proportional-control" title="Permalink to this heading">#</a></h3>
 <p><strong>Proportional control</strong> adjusts the manipulated variable in proportion to the error between the setpoint and measured process variable.</p>
 <div class="math notranslate nohighlight">
-\[MV(t) = \bar{MV} - K_P(PV(t) - SP(t)) = \bar{MV} + K_P(SP(t) - PV(t))\]</div>
+\[MV(t) = \bar{MV} - K_P(PV(t) - SP(t))\]</div>
 <p>When measurements and actions take place at discrete points in time</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-MV_k &amp; = \bar{MV} - K_P(PV_k - SP_k) = \bar{MV} + K_P(SP_k - PV_k)
+MV_k &amp; = \bar{MV} - K_P(PV_k - SP_k)
 \end{align}\]</div>
 <p>The constant of proportionality, <span class="math notranslate nohighlight">\(K_p\)</span>, is called the <strong>proportional control gain</strong>. The <strong>error signal</strong> is the difference between the the measured process variable and setpoint,</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-e_k &amp; = SP_k - PV_k
+e_k &amp; = PV_k - SP_k
 \end{align}\]</div>
 <p>for which the proportional control becomes</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-MV_k &amp; = \bar{MV} + K_P e_k
+MV_k &amp; = \bar{MV} - K_P e_k
 \end{align}\]</div>
-<p>This is <strong>negative feedback control</strong> because if <span class="math notranslate nohighlight">\(e_k &gt; 0\)</span>, then the process variable is less than the setpoint, <span class="math notranslate nohighlight">\(PV_k &lt; SP_k\)</span>, and the control action <span class="math notranslate nohighlight">\(MV_k\)</span> is positive. Thus is the control action is in the opposite direction of the deviation.</p>
+<p>The negative sign results in <strong>negative feedback control</strong>.</p>
 <p>The constant term <span class="math notranslate nohighlight">\(\bar{MV}\)</span> is called the <strong>bias</strong>, <strong>offset</strong>, or <strong>null</strong> value of the manipulated variable. It is an initial estimate of the value of the manipulated variable required to maintain the desired setpoint. The estimate can be determined in several ways:</p>
 <ul class="simple">
 <li><p>manual adjustment of the manipulated variable followed by a transition to automatic control,</p></li>
@@ -700,19 +679,8 @@ MV_k &amp; = \bar{MV} + K_P e_k
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># proportional control</span>
 <span class="k">def</span> <span class="nf">P</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">MV_bar</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39; Simulate a proportional controller.</span>
-<span class="sd">    </span>
-<span class="sd">    Arguments:</span>
-<span class="sd">        Kp: the proportional gain</span>
-<span class="sd">        MV_bar: the bias/offset</span>
-
-<span class="sd">    Usage:</span>
-<span class="sd">        proportional = P(Kp, MV_bar)</span>
-<span class="sd">        next(proportional)</span>
-<span class="sd">        MV = proportional.send((SP, PV))</span>
-<span class="sd">    &#39;&#39;&#39;</span>
     
-    <span class="c1"># initialize MV with bias/offset</span>
+    <span class="c1"># initialize MV ... must do this so the first use returns a useful value</span>
     <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span>
     
     <span class="c1"># run indefinitely</span>
@@ -721,14 +689,14 @@ MV_k &amp; = \bar{MV} + K_P e_k
         <span class="c1"># limit the manipulated variable to the feasible range of values</span>
         <span class="n">MV</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">MV</span><span class="p">))</span>
         
-        <span class="c1"># yield MV to calling program. Then pause and wait for updates to SP and PV</span>
+        <span class="c1"># yield MV to calling program. Then pause and wait for updates to SP aand PV</span>
         <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span>
         
         <span class="c1"># compute error signal</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">SP</span> <span class="o">-</span> <span class="n">PV</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">PV</span> <span class="o">-</span> <span class="n">SP</span>
         
         <span class="c1"># compute new value of the manipulated variable</span>
-        <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span> <span class="o">+</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">e</span>
+        <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span> <span class="o">-</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">e</span>
         
 </pre></div>
 </div>
@@ -806,11 +774,11 @@ MV_k &amp; = \bar{MV} + K_P e_k
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/42a46795964e577bc93b16adcaa1ab0e601c776d93f95acedf86aa0f3415131d.png" src="../_images/42a46795964e577bc93b16adcaa1ab0e601c776d93f95acedf86aa0f3415131d.png" />
+<img alt="../_images/75761235f404a8574e60a5c7cd2623a3ec1543530261d16435c894aa07e9946b.png" src="../_images/75761235f404a8574e60a5c7cd2623a3ec1543530261d16435c894aa07e9946b.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
 </pre></div>
 </div>
-<img alt="../_images/42a46795964e577bc93b16adcaa1ab0e601c776d93f95acedf86aa0f3415131d.png" src="../_images/42a46795964e577bc93b16adcaa1ab0e601c776d93f95acedf86aa0f3415131d.png" />
+<img alt="../_images/75761235f404a8574e60a5c7cd2623a3ec1543530261d16435c894aa07e9946b.png" src="../_images/75761235f404a8574e60a5c7cd2623a3ec1543530261d16435c894aa07e9946b.png" />
 </div>
 </div>
 <p>For systems without significant time delay and with properly chosen parameters, proportional control can achieve a fast response to changes in setpoint. Note, however, the steady state may be different than the desired setpoint, sometimes unacceptably different. This steady-state error a short-coming of purely proportional control.</p>
@@ -821,10 +789,10 @@ MV_k &amp; = \bar{MV} + K_P e_k
 <h3><span class="section-number">3.6.5.6. </span>Steady-State Offset<a class="headerlink" href="#steady-state-offset" title="Permalink to this heading">#</a></h3>
 <p>Proportional-only control provides no assurance the the process variable will eventually acquire the setpoint. To see this, consider the proportional control law</p>
 <div class="math notranslate nohighlight">
-\[MV_k = \bar{MV} + K_P e_k\]</div>
+\[MV_k = \bar{MV} - K_P e_k\]</div>
 <p>in the limit <span class="math notranslate nohighlight">\(k\rightarrow\infty\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[e_{\infty} = \frac{MV_{\infty} - \bar{MV}}{K_P}\]</div>
+\[e_{\infty} = \frac{\bar{MV} - MV_{\infty}}{K_P}\]</div>
 <p>The error <span class="math notranslate nohighlight">\(e_\infty\)</span> expresses the steady-state difference between a process variable and it setpoint. With proportional control, the only options to reduce steady-state offset are</p>
 <ol class="arabic simple">
 <li><p>Increase <span class="math notranslate nohighlight">\(K_P\)</span>. This leads to increasing oscillations and relay-like behavior of the manipulated variable.</p></li>
@@ -840,89 +808,59 @@ MV_k &amp; = \bar{MV} + K_P e_k
 <section id="position-form">
 <h3><span class="section-number">3.6.6.1. </span>Position form<a class="headerlink" href="#position-form" title="Permalink to this heading">#</a></h3>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral control is defined by the relation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca483d26-6f56-491c-a8ff-64823f46024c">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-ca483d26-6f56-491c-a8ff-64823f46024c" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV(t) &amp; = \bar{MV} - K_P\left(PV(t) - SP(t)\right) - K_I\int_{0}^t (PV(t') - SP(t'))\,dt' \\
-&amp; = \bar{MV} + K_P\left(SP(t) - PV(t)\right) + K_I\int_{0}^t (SP(t') - PV(t'))\,dt'
+<div class="amsmath math notranslate nohighlight" id="equation-5bd8e270-1cb6-4920-8913-7e2dce9044b9">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-5bd8e270-1cb6-4920-8913-7e2dce9044b9" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV(t) &amp; = \bar{MV} - K_P\left(PV(t) - SP(t)\right) - K_I\int_{-\infty}^t (PV(t') - SP(t'))\,dt'
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0d30d84-d0f6-42a8-b7d5-c5d0a58dfa04">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-b0d30d84-d0f6-42a8-b7d5-c5d0a58dfa04" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV(t) &amp; = \bar{MV} + K_P e(t) + K_I\int_{0}^t e(t') \,dt'
+<div class="amsmath math notranslate nohighlight" id="equation-05d85653-8307-47bf-b3fd-5ea53db7c3a6">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-05d85653-8307-47bf-b3fd-5ea53db7c3a6" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV(t) &amp; = \bar{MV} - K_P e(t) - K_I\int_{-\infty}^t e(t') \,dt'
 \end{align}\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
-\[e(t) = SP(t) - PV(t)\]</div>
+\[e(t) = PV(t) - SP(t)\]</div>
 <p>where <strong><span class="math notranslate nohighlight">\(K_P\)</span> is the proportional gain</strong> and <strong><span class="math notranslate nohighlight">\(K_I\)</span> is the integral gain</strong>. When implemented in discrete time with time steps of length <span class="math notranslate nohighlight">\(h\)</span>, the basic rule for proportional-integral control becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1fc1c56-6809-453d-aa37-6efe42eb0867">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-a1fc1c56-6809-453d-aa37-6efe42eb0867" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV_k &amp; = \bar{MV} + K_P(SP_k - PV_k) + h K_I\sum_{j=0}^{j=k}(SP_j - PV_j)
+<div class="amsmath math notranslate nohighlight" id="equation-c91d6520-eee5-45a9-88d6-5753bbf3db7a">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-c91d6520-eee5-45a9-88d6-5753bbf3db7a" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV_k &amp; = \bar{MV} - K_P(PV_k - SP_k) - h K_I\sum_{j=0}^{j=k}(PV_j - SP_j)
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a70d5884-94da-485a-98d5-cf3a91e02908">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-a70d5884-94da-485a-98d5-cf3a91e02908" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV_k &amp; = \bar{MV} + K_P e_k + h K_I\sum_{j=0}^{j=k}e_j
+<div class="amsmath math notranslate nohighlight" id="equation-2242898b-10f6-4c5c-85d7-dfe3dbb24c0b">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-2242898b-10f6-4c5c-85d7-dfe3dbb24c0b" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV_k &amp; = \bar{MV} - K_P e_k - h K_I\sum_{j=0}^{j=k}e_j
 \end{align}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1baba35c-7d4d-4de8-b30a-624f7e1caef9">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-1baba35c-7d4d-4de8-b30a-624f7e1caef9" title="Permalink to this equation">#</a></span>\[\begin{align}
-e_k &amp; = SP_k - PV_k
+<div class="amsmath math notranslate nohighlight" id="equation-977e49ed-1dc8-43da-a97a-11dcfdc13815">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-977e49ed-1dc8-43da-a97a-11dcfdc13815" title="Permalink to this equation">#</a></span>\[\begin{align}
+e_k &amp; = PV_k - SP_k
 \end{align}\]</div>
 <p>This is the so-called <strong>position form</strong> of PI control. The position form specifies the value (or “position”) of the manipulated variable stricly in terms of the current and past values of the <strong>error</strong> signal <span class="math notranslate nohighlight">\(e_k\)</span>. Note the sign convention: A positive error occurs when the process variable is greater than the setpoint. The position form of PI control is rarely used in practice.</p>
 </section>
 <section id="velocity-form">
 <h3><span class="section-number">3.6.6.2. </span>Velocity form<a class="headerlink" href="#velocity-form" title="Permalink to this heading">#</a></h3>
 <p>A more common implementation of PI control is done by computing how much the manipulated variable changes at each time step, and incrementing the manipulated variable by that amount. Consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2423ae34-827f-440b-a986-e8d2930a994d">
-<span class="eqno">(3.6)<a class="headerlink" href="#equation-2423ae34-827f-440b-a986-e8d2930a994d" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV_{k-1} &amp; = \bar{MV} + K_p e_{k-1} + h K_i \sum_{j=0}^{k-1} e_{j} \\
-MV_{k} &amp; = \bar{MV} + K_p e_{k} + h K_i \sum_{j=0}^{k} e_{j}
+<div class="amsmath math notranslate nohighlight" id="equation-70fb575a-ebd2-4041-bcff-6b0683762bef">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-70fb575a-ebd2-4041-bcff-6b0683762bef" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV_{k-1} &amp; = \bar{MV} - K_p e_{k-1} - h K_i \sum_{j=0}^{k-1} e_{j} \\
+MV_{k} &amp; = \bar{MV} - K_p e_{k} - h K_i \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
 <p>Taking differences gives a formula for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to process measurements or changes in setpoint.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-908423ec-4f4f-4a5c-9db8-87d2f0e919b7">
-<span class="eqno">(3.7)<a class="headerlink" href="#equation-908423ec-4f4f-4a5c-9db8-87d2f0e919b7" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV_{k} &amp; = MV_{k-1} + K_p(e_{k} - e_{k-1}) + h K_i e_{k}
+<div class="amsmath math notranslate nohighlight" id="equation-868fdaed-85d1-404c-95d7-a169ef247f16">
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-868fdaed-85d1-404c-95d7-a169ef247f16" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - h K_i e_{k}
 \end{align}\]</div>
 <p>with <span class="math notranslate nohighlight">\(MV_0 = \bar{MV}\)</span>. Let’s see how this works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PI</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">Ki</span><span class="p">,</span> <span class="n">MV_bar</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39; Simulate a simple discrete time proportional-integral controller.</span>
-<span class="sd">    </span>
-<span class="sd">    Arguments:</span>
-<span class="sd">        Kp: proportional gain</span>
-<span class="sd">        Ki: integral gain</span>
-<span class="sd">        MV_bar: bias (default = 0)</span>
-
-<span class="sd">    Usage:</span>
-<span class="sd">        controller = PI(Kp, Ki, MV_bar)</span>
-<span class="sd">        MV = next(controller)</span>
-<span class="sd">        MV = controller.send((SP, PV))</span>
-
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="c1"># initialize MV</span>
     <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span>
-
-    <span class="c1"># initialize the error</span>
     <span class="n">e_prev</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="c1"># run indefinitely</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-
-        <span class="c1"># yield MV to calling program. Then pause and wait for updates to SP aand PV</span>
         <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span>
-
-        <span class="c1"># calculate the error</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">SP</span> <span class="o">-</span> <span class="n">PV</span>
-
-        <span class="c1"># calculate the manipulated variable (velocity form of the PI controller)</span>
-        <span class="n">MV</span> <span class="o">=</span> <span class="n">MV</span> <span class="o">+</span> <span class="n">Kp</span><span class="o">*</span><span class="p">(</span><span class="n">e</span> <span class="o">-</span> <span class="n">e_prev</span><span class="p">)</span> <span class="o">+</span> <span class="n">t_step</span><span class="o">*</span><span class="n">Ki</span><span class="o">*</span><span class="n">e</span>
-
-        <span class="c1"># limit MV to the range 0 to 100</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">PV</span> <span class="o">-</span> <span class="n">SP</span>
+        <span class="n">MV</span> <span class="o">=</span> <span class="n">MV</span> <span class="o">-</span> <span class="n">Kp</span><span class="o">*</span><span class="p">(</span><span class="n">e</span> <span class="o">-</span> <span class="n">e_prev</span><span class="p">)</span> <span class="o">-</span> <span class="n">t_step</span><span class="o">*</span><span class="n">Ki</span><span class="o">*</span><span class="n">e</span>
         <span class="n">MV</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">MV</span><span class="p">))</span>
-
-        <span class="c1"># remember the error for the next time through the loop</span>
         <span class="n">e_prev</span> <span class="o">=</span> <span class="n">e</span>
         
 </pre></div>
@@ -934,23 +872,18 @@ MV_{k} &amp; = MV_{k-1} + K_p(e_{k} - e_{k-1}) + h K_i e_{k}
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
 <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">speedup</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="c1"># Setpoint function for heater 1</span>
 <span class="k">def</span> <span class="nf">SP</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">40</span> <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="mi">20</span> <span class="k">else</span> <span class="mi">25</span>
 
-<span class="c1"># Disturance signal (heater 2)</span>
 <span class="k">def</span> <span class="nf">DV</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">100</span> <span class="k">if</span> <span class="n">t</span><span class="o">&gt;=</span> <span class="mi">200</span> <span class="k">else</span> <span class="mi">0</span>
 
-<span class="c1"># Create a controller instance</span>
 <span class="n">controller</span> <span class="o">=</span> <span class="n">PI</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
 
-<span class="c1"># Simulation duration and sampling time (seconds)</span>
 <span class="n">t_final</span> <span class="o">=</span> <span class="mi">600</span>
 <span class="n">t_step</span> <span class="o">=</span> <span class="mi">2</span>
 
 <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-    <span class="c1"># Initialize historian and plotter</span>
     <span class="n">sources</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span>
                <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">),</span>
                <span class="p">(</span><span class="s2">&quot;DV&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">),</span>
@@ -959,52 +892,40 @@ MV_{k} &amp; = MV_{k-1} + K_p(e_{k} - e_{k-1}) + h K_i e_{k}
     <span class="n">layout</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;SP1&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Q1&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;DV&quot;</span><span class="p">]]</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
     
-    <span class="c1"># set the heater power limits (recall 255 is maximum power)</span>
+    <span class="c1"># initialize manipulated variable</span>
     <span class="n">lab</span><span class="o">.</span><span class="n">P1</span> <span class="o">=</span> <span class="mi">200</span>
     <span class="n">lab</span><span class="o">.</span><span class="n">P2</span> <span class="o">=</span> <span class="mi">200</span>
     
-    <span class="c1"># Call the controller the first time</span>
     <span class="n">U1</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">controller</span><span class="p">)</span>
-    <span class="c1"># Implement the first control action</span>
     <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">U1</span><span class="p">)</span>
 
-    <span class="c1"># loop over time</span>
+    <span class="c1"># event loop</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">t_final</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
-
-        <span class="c1"># get measurement of process variable T1</span>
         <span class="n">T1</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span>
-
-        <span class="c1"># send current setpoint and PV to controller</span>
         <span class="n">U1</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">send</span><span class="p">((</span><span class="n">SP</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">T1</span><span class="p">))</span>
-
-        <span class="c1"># Implement the control action</span>
         <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">U1</span><span class="p">)</span>
-
-        <span class="c1"># Apply the disturbance</span>
         <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">(</span><span class="n">DV</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-
-        <span class="c1"># Update the historian and plot</span>
         <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>    
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f43544a9f22a7940207b8761aea97fa9d220750126ff0812f896313edf008bb0.png" src="../_images/f43544a9f22a7940207b8761aea97fa9d220750126ff0812f896313edf008bb0.png" />
+<img alt="../_images/f4128efe299fb7e27707221d80d8859abe7dab178a84085e61ddf14b4a97965f.png" src="../_images/f4128efe299fb7e27707221d80d8859abe7dab178a84085e61ddf14b4a97965f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
 </pre></div>
 </div>
-<img alt="../_images/f43544a9f22a7940207b8761aea97fa9d220750126ff0812f896313edf008bb0.png" src="../_images/f43544a9f22a7940207b8761aea97fa9d220750126ff0812f896313edf008bb0.png" />
+<img alt="../_images/f4128efe299fb7e27707221d80d8859abe7dab178a84085e61ddf14b4a97965f.png" src="../_images/f4128efe299fb7e27707221d80d8859abe7dab178a84085e61ddf14b4a97965f.png" />
 </div>
 </div>
 <p>As we can see from this example, an important practical property of proportonal-integral control is <strong>steady-state tracking of the setpoint.</strong> In other words, for a steaady setpoint <span class="math notranslate nohighlight">\(\bar{SP}\)</span>, at steady-state</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1769a019-4807-4483-9a45-cc4c13440c30">
-<span class="eqno">(3.8)<a class="headerlink" href="#equation-1769a019-4807-4483-9a45-cc4c13440c30" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bc892ab6-1d3c-40ae-b7a9-6dd428b9d8f6">
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-bc892ab6-1d3c-40ae-b7a9-6dd428b9d8f6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lim_{k \rightarrow \infty} PV_k = \bar{SP}
 \end{align}\]</div>
 <p>To see why this is true, start with the velocity form of the proportional-integral controller</p>
-<div class="amsmath math notranslate nohighlight" id="equation-69883e01-9aa5-4d8c-8a98-6dfa0b5a76b6">
-<span class="eqno">(3.9)<a class="headerlink" href="#equation-69883e01-9aa5-4d8c-8a98-6dfa0b5a76b6" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV_{k} &amp; = MV_{k-1} + K_p(e_{k} - e_{k-1}) + h K_i e_{k}
+<div class="amsmath math notranslate nohighlight" id="equation-b5b87c97-fe64-4810-877f-8e761f92c210">
+<span class="eqno">(3.9)<a class="headerlink" href="#equation-b5b87c97-fe64-4810-877f-8e761f92c210" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV_{k} &amp; = MV_{k-1} - K_p(e_{k} - e_{k-1}) - h K_i e_{k}
 \end{align}\]</div>
 <p>At steady-state <span class="math notranslate nohighlight">\(MV_{k} = MV_{k-1}\)</span> and <span class="math notranslate nohighlight">\(e_{k} = e_{k-1}\)</span> leaving</p>
 <div class="math notranslate nohighlight">
@@ -1077,6 +998,7 @@ MV_{k} &amp; = MV_{k-1} + K_p(e_{k} - e_{k-1}) + h K_i e_{k}
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1154,8 +1076,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

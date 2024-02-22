@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -76,10 +76,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -210,9 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="notebooks/03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/03.08-Controller-Tuning.html">3.8. Controller Tuning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="notebooks/04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -509,7 +509,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="schedule">
 <h1>Schedule<a class="headerlink" href="#schedule" title="Permalink to this heading">#</a></h1>
@@ -703,99 +703,72 @@ document.write(`
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Thursday, February 8</strong></p></td>
-<td><p><strong>Modeling: Second Order Systems</strong></p></td>
+<td><p><strong>Modeling: Temperature Control Lab</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="notebooks/02-spring-mass-damper.html"><span class="doc std std-doc">Characteristics of Second Order Systems</span></a></p></td>
-<td><p><a class="reference internal" href="assignments/Lab-3-Model-Identification.html"><span class="doc std std-doc">Lab 3: Model Identification</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="assignments/Lab-3-Model-Identification.html"><span class="doc std std-doc">Lab 3: Model Identification</span></a></p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Tuesday, February 13</strong></p></td>
-<td><p><strong>Nonlinear Modeling: Exothermic CSTR</strong></p></td>
+<td><p><strong>Modeling: More Dynamical Systems</strong></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="notebooks/02.07-Exothermic-CSTR.html"><span class="doc std std-doc">Exothermic Continuous Stirred Tank Reactor</span></a></p></td>
-<td><p></p></td>
+<td><p><a class="reference internal" href="notebooks/02.08-Hare-and-Lynx.html"><span class="doc std std-doc">Hare and Lynx Population Dynamics</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Thursday, February 15</strong></p></td>
-<td><p><strong>Nonlinear Modeling: Hare and Lynx, Introduction of Feedback</strong></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="notebooks/02.08-Hare-and-Lynx.html"><span class="doc std std-doc">Hare and Lynx Population Dynamics</span></a></p></td>
-<td><p><a class="reference internal" href="notebooks/02.09-Study-Guide.html"><span class="doc std std-doc">Study Guide</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="notebooks/03.00-Feedback-Control.html"><span class="doc std std-doc">Feedback Control</span></a></p></td>
-<td><p><a class="reference internal" href="notebooks/03.03-Setpoints-Thermal-Cycler.html"><span class="doc std std-doc">Case Study: PCR Thermal Cycler Protocols</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="notebooks/03.01-Case-Study-Thermal-Cycling-PCR.html"><span class="doc std std-doc">Case Study: Thermal Cycling for PCR</span></a></p></td>
-<td><p><a class="reference internal" href="notebooks/03.04-Relay-Control.html"><span class="doc std std-doc">Relay Control</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="notebooks/03.02-Setpoints.html"><span class="doc std std-doc">Setpoints</span></a></p></td>
-<td><p><a class="reference internal" href="notebooks/03.05-Implementing-Controllers.html"><span class="doc std std-doc">Implementing Controllers in Python</span></a></p></td>
+<td><p><strong>Setpoints, Disturbances, Servo and Regulation Problems</strong></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Tuesday, February 20</strong></p></td>
-<td><p><strong>Feedback Control: P, PI, and PID</strong></p></td>
+<td><p><strong>P, PI, and PID Control</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="notebooks/03.06-Proportional-Integral-Control.html"><span class="doc std std-doc">Practical Proportional (P) and Proportional-Integral (PI) Control</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Thursday, February 22</strong></p></td>
-<td><p><strong>PI Implementation Details</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.html"><span class="doc std std-doc">Integral Windup and Bumpless Transfer</span></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><strong>Thursday, February 22</strong></p></td>
+<td><p><strong>Stability Analysis</strong></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Tuesday, February 27</strong></p></td>
-<td><p><strong>PI Stability Analysis</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="xref myst"></span></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><span class="xref myst"></span></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Thursday, February 29</strong></p></td>
 <td><p><strong>PID Tuning</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><span class="xref myst"></span></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><strong>Thursday, February 29</strong></p></td>
+<td><p><strong>PID Implementation Details</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Tuesday, March 5</strong></p></td>
+<tr class="row-even"><td><p><strong>Tuesday, March 5</strong></p></td>
 <td><p><strong>Optimization Modeling in Pyomo</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Thursday, March 7</strong></p></td>
+<tr class="row-odd"><td><p><strong>Thursday, March 7</strong></p></td>
 <td><p><strong>Linear Programming Examples</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Tuesday, March 19</strong></p></td>
+<tr class="row-even"><td><p><strong>Tuesday, March 19</strong></p></td>
 <td><p><strong>Nonlinear and Dynamic Optimization</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Thursday, March 21</strong></p></td>
+<tr class="row-odd"><td><p><strong>Thursday, March 21</strong></p></td>
 <td><p><strong>Simulation and Open-Loop Control</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Tuesday, March 26</strong></p></td>
+<tr class="row-even"><td><p><strong>Tuesday, March 26</strong></p></td>
 <td><p><strong>Model Predictive Control</strong></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Thursday, March 28</strong></p></td>
+<tr class="row-odd"><td><p><strong>Thursday, March 28</strong></p></td>
 <td><p><strong>Implementing Model Predictive Control</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p>Tuesday, April 2</p></td>
+<tr class="row-even"><td><p>Tuesday, April 2</p></td>
 <td><p>Review Session</p></td>
 </tr>
-<tr class="row-even"><td><p>Thursday, April 4</p></td>
+<tr class="row-odd"><td><p>Thursday, April 4</p></td>
 <td><p>Midterm Exam (in-class)</p></td>
 </tr>
-<tr class="row-odd"><td><p>Tuesday, April 9</p></td>
+<tr class="row-even"><td><p>Tuesday, April 9</p></td>
 <td><p>Project Consulations (in-class)</p></td>
 </tr>
-<tr class="row-even"><td><p>Thursday, April 11</p></td>
+<tr class="row-odd"><td><p>Thursday, April 11</p></td>
 <td><p>Project Consulations (in-class)</p></td>
 </tr>
-<tr class="row-odd"><td><p>Tuesday, April 16</p></td>
+<tr class="row-even"><td><p>Tuesday, April 16</p></td>
 <td><p>Project Consulations (in-class)</p></td>
 </tr>
-<tr class="row-even"><td><p>Thursday, April 18</p></td>
+<tr class="row-odd"><td><p>Thursday, April 18</p></td>
 <td><p>Project Consulations (in-class)</p></td>
 </tr>
-<tr class="row-odd"><td><p>Tuesday, April 23</p></td>
+<tr class="row-even"><td><p>Tuesday, April 23</p></td>
 <td><p>Project Presentations (in-class)</p></td>
 </tr>
-<tr class="row-even"><td><p>Thursday, April 25</p></td>
+<tr class="row-odd"><td><p>Thursday, April 25</p></td>
 <td><p>Project Presentations (in-class)</p></td>
 </tr>
 </tbody>
@@ -860,6 +833,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -917,8 +891,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
