@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,9 +78,10 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -121,14 +122,11 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -214,7 +212,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.08-Controller-Tuning.html">3.8. Controller Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -530,14 +530,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-a-simple-pi-controller">Implementation of a Simple PI Controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-a-simple-pi-controller">Implementation of a simple PI controller</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-tune-the-pi-control-for-the-temperature-control-lab">Exercise 1. Tune the PI control for the Temperature Control Lab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-hardware-testing-the-pi-controller">Exercise 2. Hardware testing the PI controller</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-improved-pi-control">Exercise 3. Improved PI Control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excercise-4-chocolate-tempering-revisited">Excercise 4. Chocolate Tempering Revisited</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-stability-analysis-revisited">Exercise 5. Stability Analysis Revisited</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-simulate-a-disturbance">Exercise 6. Simulate a Disturbance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations">Declarations</a></li>
 </ul>
             </nav>
         </div>
@@ -547,79 +544,55 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-4-pi-control">
 <h1>Lab 4: PI Control<a class="headerlink" href="#lab-4-pi-control" title="Permalink to this heading">#</a></h1>
-<p>This lab assignment introduces the use of propotional-integral (PI) control for the temperature control laboratory. In this assignment, you will:</p>
+<p>This lab assignment introduces the use of PID control for the temperature control laboratory. In this assignment you will be</p>
 <ul class="simple">
 <li><p>testing a simple implementation of PI control</p></li>
-<li><p>identifying issues with the simple implementation</p></li>
-<li><p>test a more sophisticate PI control implementation</p></li>
-<li><p>analyze the results and answer discussion questions</p></li>
+<li><p>identifying issues that have to be addressed for a more practical implementation</p></li>
 </ul>
 <section id="implementation-of-a-simple-pi-controller">
-<h2>Implementation of a Simple PI Controller<a class="headerlink" href="#implementation-of-a-simple-pi-controller" title="Permalink to this heading">#</a></h2>
+<h2>Implementation of a simple PI controller<a class="headerlink" href="#implementation-of-a-simple-pi-controller" title="Permalink to this heading">#</a></h2>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8ea21526-c1d6-4b8d-9242-56200ab0ed5b">
-<span class="eqno">(2)<a class="headerlink" href="#equation-8ea21526-c1d6-4b8d-9242-56200ab0ed5b" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV(t) &amp; = \bar{MV} + K_P\left(SP(t) - PV(t)\right) + K_I \int_0^t \left(SP(t')-PV(t')\right)dt'
+<p>TODO: Make consistent with rest of website. Check sign convention.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6d12db0f-57ad-4e1e-9164-ce722646fd97">
+<span class="eqno">(2)<a class="headerlink" href="#equation-6d12db0f-57ad-4e1e-9164-ce722646fd97" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV &amp; = \bar{MV} + k_p\left(SP - PV\right) + k_i \int_0^t \left(SP-PV)\right)dt
 \end{align}\]</div>
-<p>where <span class="math notranslate nohighlight">\(K_P\)</span> and <span class="math notranslate nohighlight">\(K_I\)</span> are the proportional and integral coefficients, respectively. The value <span class="math notranslate nohighlight">\(\bar{MV}\)</span> is a nominal or initial value of the manipulated variable.</p>
+<p>where <span class="math notranslate nohighlight">\(k_p\)</span> and <span class="math notranslate nohighlight">\(k_i\)</span> are the proportional and integral coefficients, respectively. The value <span class="math notranslate nohighlight">\(\bar{MV}\)</span> is a nominal or initial value of the manipulated variable.</p>
 <p>The actual implementation of PI control is normally done by computing how much the <span class="math notranslate nohighlight">\(MV\)</span> should change at each time step. Defining the error at time <span class="math notranslate nohighlight">\(k\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-160f242b-4176-4c04-a402-338a41ce0eb9">
-<span class="eqno">(3)<a class="headerlink" href="#equation-160f242b-4176-4c04-a402-338a41ce0eb9" title="Permalink to this equation">#</a></span>\[\begin{align}
-e_k &amp; =  SP_k - PV_k
+<div class="amsmath math notranslate nohighlight" id="equation-fb42e864-c909-4af2-b48b-4441833a0d67">
+<span class="eqno">(3)<a class="headerlink" href="#equation-fb42e864-c909-4af2-b48b-4441833a0d67" title="Permalink to this equation">#</a></span>\[\begin{align}
+e_k &amp; = SP_k - PV_k
 \end{align}\]</div>
 <p>then consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bb7aa149-68a1-4413-8108-71b79849cd72">
-<span class="eqno">(4)<a class="headerlink" href="#equation-bb7aa149-68a1-4413-8108-71b79849cd72" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV_{k-1} &amp; = \bar{MV} + K_P e_{k-1} + h K_I \sum_{j=0}^{k-1} e_{j} \\
-MV_{k} &amp; = \bar{MV} + K_P e_{k} + h K_I \sum_{j=0}^{k} e_{j}
+<div class="amsmath math notranslate nohighlight" id="equation-087e20f2-29a2-4335-8107-d570ffbfc0e6">
+<span class="eqno">(4)<a class="headerlink" href="#equation-087e20f2-29a2-4335-8107-d570ffbfc0e6" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV_{k-1} &amp; = \bar{MV} + k_p e_{k-1} + k_i \sum_{j=0}^{k-1} e_{j} \\
+MV_{k} &amp; = \bar{MV} + k_p e_{k} + k_i \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
-<p>Taking differences gives a practical formula (velocity form) for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to measurements</p>
-<div class="amsmath math notranslate nohighlight" id="equation-93b37ec1-abd8-45b7-95d9-4f8bc1dce690">
-<span class="eqno">(5)<a class="headerlink" href="#equation-93b37ec1-abd8-45b7-95d9-4f8bc1dce690" title="Permalink to this equation">#</a></span>\[\begin{align}
-MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
+<p>Taking differences gives a practical formula for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to measurements</p>
+<div class="amsmath math notranslate nohighlight" id="equation-03a3e832-3764-4865-954d-f22a30062849">
+<span class="eqno">(5)<a class="headerlink" href="#equation-03a3e832-3764-4865-954d-f22a30062849" title="Permalink to this equation">#</a></span>\[\begin{align}
+MV_{k} &amp; = MV_{k-1} + k_p(e_{k} - e_{k-1}) + k_i e_{k}
 \end{align}\]</div>
 <p>The following code defines a Python object that implements this algorithm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PI</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ki</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">MV_bar</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39; Simple proportion-integral controller</span>
-
-<span class="sd">    Arguments:</span>
-<span class="sd">        Kp: proportional gain</span>
-<span class="sd">        Ki: integral gain</span>
-<span class="sd">        MV_bar: bias</span>
-<span class="sd">    </span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="c1"># Initialize MV with bias</span>
     <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span>
-
-    <span class="c1"># Initialize previous error as zero</span>
     <span class="n">e_prev</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="c1"># Define upper and lower bounds for MV (useful for later in this lab)</span>
     <span class="n">MV_min</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">MV_max</span> <span class="o">=</span> <span class="mi">100</span>
-
-    <span class="c1"># Infinite loop for the controller</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="c1"># Yield MV and wait for new t_step, SP, and PV</span>
-        <span class="n">t_step</span><span class="p">,</span> <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span>
-
-        <span class="c1"># Calculate error</span>
+        <span class="n">t_step</span><span class="p">,</span> <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span>
+        <span class="c1">#e = PV - SP # Calculate error</span>
         <span class="n">e</span> <span class="o">=</span> <span class="n">SP</span> <span class="o">-</span> <span class="n">PV</span>
-
-        <span class="c1"># Apply the velocity form of the PI controller</span>
+        <span class="c1">#MV += -Kp*(e - e_prev) - t_step*Ki*e # Apply PI formula</span>
         <span class="n">MV</span> <span class="o">+=</span> <span class="n">Kp</span><span class="o">*</span><span class="p">(</span><span class="n">e</span> <span class="o">-</span> <span class="n">e_prev</span><span class="p">)</span> <span class="o">+</span> <span class="n">t_step</span><span class="o">*</span><span class="n">Ki</span><span class="o">*</span><span class="n">e</span>
-
-        <span class="c1"># Apply upper and lower bounds</span>
-        <span class="c1"># ** disabled for this simple controller, important later **</span>
-        <span class="c1"># MV = max(MV_min, min(MV_max, MV)) # Apply upper and lower bounds</span>
-
-        <span class="c1"># Store the current error for the next iteration</span>
+        <span class="n">MV</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">MV_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">MV_max</span><span class="p">,</span> <span class="n">MV</span><span class="p">))</span> <span class="c1"># Apply upper and lower bounds</span>
         <span class="n">e_prev</span> <span class="o">=</span> <span class="n">e</span>
 </pre></div>
 </div>
@@ -628,7 +601,7 @@ MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
 </section>
 <section id="exercise-1-tune-the-pi-control-for-the-temperature-control-lab">
 <h2>Exercise 1. Tune the PI control for the Temperature Control Lab<a class="headerlink" href="#exercise-1-tune-the-pi-control-for-the-temperature-control-lab" title="Permalink to this heading">#</a></h2>
-<p>The following cell provides an initial implementation of PI control for heater T1.  This is setup for testing with the off-line simulation mode of tclab.  Experiment with the simulation to find appropriate values for <span class="math notranslate nohighlight">\(K_P\)</span> and <span class="math notranslate nohighlight">\(K_I\)</span>. Your design goal is to achieve the setpoint and stay within a zone of +/- 2 degrees as quickly as possible.</p>
+<p>The following cell provides an initial implementation of PI control for heater T1.  This is setup for testing with the off-line simulation mode of tclab.  Experiment with the simulation to find appropriate values for <span class="math notranslate nohighlight">\(k_p\)</span> and <span class="math notranslate nohighlight">\(k_i\)</span>. Your design goal is to achieve the setpoint and stay within a zone of +/- 2 degrees as quickly as possible.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -639,51 +612,25 @@ MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suggestion: set to &quot;if False:&quot; after you have completed this </span>
-<span class="c1"># exercise to prevent yourself from accidently overwriting your results.</span>
-<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">speedup</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
 
-    <span class="c1"># Debug this code with connected=False</span>
-    <span class="c1"># Once you are happy with the code, proceed to the next exercise</span>
-    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">speedup</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">SP</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># deg C</span>
+<span class="n">tfinal</span> <span class="o">=</span> <span class="mi">600</span> <span class="c1"># seconds</span>
+<span class="n">t_step</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># seconds</span>
 
-    <span class="c1"># Set point</span>
-    <span class="n">SP</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># deg C</span>
+<span class="c1"># create control loop</span>
+<span class="n">controller1</span> <span class="o">=</span> <span class="n">PI</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">Ki</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> 
+<span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
-    <span class="c1"># Total time</span>
-    <span class="n">tfinal</span> <span class="o">=</span> <span class="mi">600</span> <span class="c1"># seconds</span>
-
-    <span class="c1"># Time step</span>
-    <span class="n">t_step</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># seconds</span>
-
-    <span class="c1"># Create and intialize the PI controller</span>
-    <span class="n">controller1</span> <span class="o">=</span> <span class="n">PI</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">Ki</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> 
-    <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-
-    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-        <span class="c1"># Create the historian and plotter</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
-
-        <span class="c1"># Loop over time</span>
-        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
-
-            <span class="c1"># measure the the process variable</span>
-            <span class="n">PV</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span>
-
-            <span class="c1"># send the current time, set point, and process variable to the controller</span>
-            <span class="c1"># compute the control action</span>
-            <span class="n">MV</span> <span class="o">=</span> <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="n">t_step</span><span class="p">,</span> <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">])</span>
-
-            <span class="c1"># set the heat power (acutate)</span>
-            <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">MV</span><span class="p">)</span>
-
-            <span class="c1"># Log the data                                      </span>
-            <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-
-        <span class="c1"># This saves the results in case you accidently overwrite the experiment</span>
-        <span class="c1"># After runnng this exercise, please find and save this csv flie</span>
-        <span class="n">h</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;lab4-ex1.csv&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
+        <span class="n">PV</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span>                                     <span class="c1"># measure the the process variable</span>
+        <span class="n">MV</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">U1</span>                                     <span class="c1"># get manipulated variable</span>
+        <span class="n">MV</span> <span class="o">=</span> <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="n">t_step</span><span class="p">,</span> <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span><span class="p">])</span>     <span class="c1"># PI control to determine the MV</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">MV</span><span class="p">)</span>                                      <span class="c1"># set the heater power</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>                                      <span class="c1"># log data</span>
 </pre></div>
 </div>
 </div>
@@ -692,93 +639,27 @@ MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
 <section id="exercise-2-hardware-testing-the-pi-controller">
 <h2>Exercise 2. Hardware testing the PI controller<a class="headerlink" href="#exercise-2-hardware-testing-the-pi-controller" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Copy and paste the above code into the cell below. Connect the code to the tclab hardware by changing <code class="docutils literal notranslate"><span class="pre">connected=True</span></code>.  Adjust the experiment horizon to 1200 seconds to provide plenty of time for testing.</p></li>
-<li><p>Test your controller.</p></li>
-<li><p>After the controller has achieved the setpoint, introduce a disturbance. An example of a disturbance would be to increase air flow around the device (e.g., fan with a piece of paper), or to touch the heater with something thermally conductive (be careful, don’t use your finger. 50 deg C is hot enough to burn your skin.)</p></li>
+<li><p>Copy and paste the above code into the cell below. Connect the code to the tclab hardware by changing ‘connected’ to ‘True’.  Adjust the experiment horizon to 1200 seconds to provide plenty of time for testing.</p></li>
+<li><p>Test your controller.  Does the performance match the simulation?</p></li>
+<li><p>After the controller has achieved the setpoint, introduce a disturbance. An example of a disturbance would be to increase air flow around the device, or to touch the heater with something thermally conductive (be careful, don’t use your finger. 50 deg C is hot enough to burn your skin.)</p></li>
+<li><p>Add a text cell below, and comment on your results. Do you see any shortcomings in this control implementation?</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suggestion: set to False after you have completed this </span>
-<span class="c1"># exercise to prevent yourself from accidently overwriting your results.</span>
-<span class="k">if</span> <span class="kc">True</span><span class="p">:</span> 
-
-    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1"># Add your solution here</span>
-
-    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-        <span class="c1"># Create the historian and plotter</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
-        <span class="c1"># Add your solution here</span>
-
-        <span class="c1"># This saves the results in case you accidently overwrite the experiment</span>
-        <span class="c1"># After runnng this exercise, please find and save this csv flie</span>
-        <span class="n">h</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;lab4-ex2.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your solution here</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Discribe the distrubance you introduced. Note the time you introduced the distrubance. Is the distrubance visible in the data?</strong></p>
-<p><strong>Does the performance match the simulation (Exercise 1)?</strong></p>
-<p><em>Answer</em>:</p>
-<p><strong>Do you see any shortcomings in this control implementation with the naive “textbook” PI control? Please refer to specific aspects of your data to support your discussion.</strong></p>
-<p><em>Answer</em>:</p>
+<p>Write your comments in this cell.</p>
 </section>
 <section id="exercise-3-improved-pi-control">
 <h2>Exercise 3. Improved PI Control<a class="headerlink" href="#exercise-3-improved-pi-control" title="Permalink to this heading">#</a></h2>
 <p>Now implmement the most <a class="reference internal" href="../notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.html"><span class="doc std std-doc">practical version of the PI controller</span></a>. You may optionally use the trick above to simulate the system to debug and then try it on your hardware.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional: test your implementation here using connected=False and speedup=20 (or similar)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>Test your controller with the TCLab hardware. <strong>Be sure to wait until your TCLab cools to room temperature before starting.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that the device is at steady state </span>
-<span class="c1"># length of check</span>
-<span class="n">tfinal</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1"># seconds</span>
-
-<span class="c1"># perform experiment</span>
-<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-    <span class="c1"># No power to either heater</span>
-    <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">lab</span><span class="o">.</span><span class="n">U2</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="c1"># Initialize plotter and historian</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
-
-    <span class="c1"># Loop over time</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">):</span>
-        
-        <span class="c1"># Take measurements and update plots</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PI_Bumpless</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ki</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">MV_bar</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39; Improved PI controller with:</span>
-<span class="sd">        - Two anti-integral windup protections</span>
-<span class="sd">        - Bumpless transition from manual to automatic control</span>
-<span class="sd">    </span>
-<span class="sd">    Arguments:</span>
-<span class="sd">        Kp: proportional gain</span>
-<span class="sd">        Ki: integral gain</span>
-<span class="sd">        MV_bar: bias</span>
-
-<span class="sd">    Usage:</span>
-<span class="sd">        controller = PI_Bumpless(Kp, Ki, MV_bar)</span>
-<span class="sd">        controller.send(None)</span>
-<span class="sd">        MV = controller.send([t_step, SP, PV, MV])</span>
-
-<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span>
     <span class="n">PV_prev</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">MV_min</span> <span class="o">=</span> <span class="mi">0</span>
@@ -787,229 +668,22 @@ MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
         <span class="n">t_step</span><span class="p">,</span> <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span>
         <span class="c1"># Add your solution here</span>
         <span class="n">PV_prev</span> <span class="o">=</span> <span class="n">PV</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suggestion: set to False after you&#39;ve completed this exercise to prevent yourself from accidently overwriting your results.</span>
-<span class="k">if</span> <span class="kc">True</span><span class="p">:</span> 
 
-    <span class="c1"># Add your solution here</span>
-    
-        <span class="c1"># This saves the results in case you accidently overwrite the experiment</span>
-        <span class="c1"># After runnng this exercise, please find and save this csv flie</span>
-        <span class="n">h</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;lab4-ex3.csv&quot;</span><span class="p">)</span>
+<span class="c1"># Add your solution here</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>How do your results compare to the simple PI controller? Does this make sense? Use the mathematical formula for both controllers in your explanation.</strong></p>
-<p><em>Answer</em>:</p>
 </section>
 <section id="excercise-4-chocolate-tempering-revisited">
 <h2>Excercise 4. Chocolate Tempering Revisited<a class="headerlink" href="#excercise-4-chocolate-tempering-revisited" title="Permalink to this heading">#</a></h2>
-<p>Revisit the chocolate tempering example described in Lab 2 (<a class="reference external" href="https://ndcbe.github.io/controls/assignments/Lab-2-Relay-Control.html">https://ndcbe.github.io/controls/assignments/Lab-2-Relay-Control.html</a>). Implement this heating curve using PI control. <strong>Be sure to wait until your TCLab cools to room temperature before starting.</strong></p>
-<p><img alt="" src="https://d29hmqxeker05q.cloudfront.net/eyJidWNrZXQiOiJpbWFnZXMuY2tiay5jb20iLCJrZXkiOiJpbWFnZXMvY2hvYzI0NDE0YzA0czAwMXNzMDAxc3NzMDA0ZzAxLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjo2NTEsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwianBlZyI6eyJxdWFsaXR5Ijo5MCwicHJvZ3Jlc3NpdmUiOnRydWV9fX0=" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional: test your implementation here using connected=False and speedup=20 (or similar)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your solution here</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that the device is at steady state </span>
-<span class="c1"># experimental parameters</span>
-<span class="n">tfinal</span> <span class="o">=</span> <span class="mi">30</span>
-
-<span class="c1"># perform experiment</span>
-<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-    <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">lab</span><span class="o">.</span><span class="n">U2</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">):</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suggestion: set to False after you&#39;ve completed this exercise to prevent yourself from accidently overwriting your results.</span>
-<span class="k">if</span> <span class="kc">True</span><span class="p">:</span> 
-    <span class="c1"># Add your solution here</span>
-            
-        <span class="c1"># This saves the results in case you accidently overwrite the experiment</span>
-        <span class="c1"># After runnng this exercise, please find and save this csv flie</span>
-        <span class="n">h</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;lab4-ex4.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>How do your results compare to the chocolate tempering curve using relay control? Does this make sense?</strong></p>
-<p><em>Answer</em>:</p>
-</section>
-<section id="exercise-5-stability-analysis-revisited">
-<h2>Exercise 5. Stability Analysis Revisited<a class="headerlink" href="#exercise-5-stability-analysis-revisited" title="Permalink to this heading">#</a></h2>
-<p>Repeat the stability analysis for the PI controller that was performed in the notes (<a class="reference external" href="https://ndcbe.github.io/controls/notebooks/03.09-PI-Controller-Analysis.html">https://ndcbe.github.io/controls/notebooks/03.09-PI-Controller-Analysis.html</a>). Identify values of Kp and Ki for (a) no oscillations and (b) with oscillations. Include a justification for these values in the Markdown cells. Make and reference plots in your justification.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eig</span>
-
-<span class="c1"># instructions:</span>
-<span class="c1"># 1. update the parameters to match your TCLab device</span>
-<span class="c1"># 2. moodify with code from our lecture</span>
-
-<span class="c1"># parameters</span>
-<span class="n">T_amb</span> <span class="o">=</span> <span class="mi">21</span> <span class="c1"># deg C &lt;-- update based on your experimental data above</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.00016</span> <span class="c1"># watts / (units P1 * percent U1)</span>
-<span class="n">P1</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># P1 units</span>
-<span class="n">U1</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># steady state value of u1 (percent)</span>
-
-<span class="c1"># fitted model parameters</span>
-<span class="c1"># adjust using your values from Lab 3</span>
-<span class="n">Ua</span> <span class="o">=</span> <span class="mf">0.0261</span> <span class="c1"># watts/deg C</span>
-<span class="n">Ub</span> <span class="o">=</span> <span class="mf">0.0222</span> <span class="c1"># watts/deg C</span>
-<span class="n">CpH</span> <span class="o">=</span> <span class="mf">1.335</span> <span class="c1"># joules/deg C</span>
-<span class="n">CpS</span> <span class="o">=</span> <span class="mf">1.328</span> <span class="c1"># joules/deg C</span>
-
-
-<span class="k">def</span> <span class="nf">calc_eig</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span><span class="n">Ki</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39; Calculate the eigenvalues of the PI controller</span>
-
-<span class="sd">    Arguments:</span>
-<span class="sd">        Kp: proportional gain</span>
-<span class="sd">        Ki: integral gain</span>
-<span class="sd">        verbose: print the eigenvalues and eigenvectors</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        w: vector of eigenvalues (complex numbers)</span>
-<span class="sd">    </span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create plots to analyze the stability using eigenvalues and eigenvectors</span>
-
-<span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Analysis: Using the plot, identify values for <span class="math notranslate nohighlight">\(K_P\)</span> and <span class="math notranslate nohighlight">\(K_I\)</span> that (1) overshoot and oscillate (underdamped) and (b) do not oscillate (overdamped).</strong></p>
-<p><strong>Overdamped</strong>: <span class="math notranslate nohighlight">\(K_P = \)</span>, <span class="math notranslate nohighlight">\(K_I= \)</span> (from plot)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Overdamped</span>
-<span class="c1">#  Compute and print the eigenvalues and eigenvectors here</span>
-
-<span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Justify</strong> why these Kp and Ki values are <strong>overdamped</strong>. Refer to the plot and the eigenvalues/eigenvectors printed above.</p>
-<p><em>Answer</em>:</p>
-<p><strong>Underdamped</strong>: <span class="math notranslate nohighlight">\(K_P = \)</span>, <span class="math notranslate nohighlight">\(K_I= \)</span> (from plot).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Underdamped</span>
-<span class="c1"># Compute and print the eigenvalues and eigenvectors here</span>
-
-<span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Justify</strong> why these Kp and Ki values are <strong>underdamped</strong>. Refer to the plot and the eigenvalues/eigenvectors printed above.</p>
-<p><em>Answer</em>:</p>
-</section>
-<section id="exercise-6-simulate-a-disturbance">
-<h2>Exercise 6. Simulate a Disturbance<a class="headerlink" href="#exercise-6-simulate-a-disturbance" title="Permalink to this heading">#</a></h2>
-<p>Using your both sets of controller gains from Exercise 5, simulate the system using a test case similar to class (<a class="reference external" href="https://ndcbe.github.io/controls/notebooks/03.06-Proportional-Integral-Control.html">https://ndcbe.github.io/controls/notebooks/03.06-Proportional-Integral-Control.html</a>).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">SP</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    This function defines the setpoint for T1 as: </span>
-<span class="sd">        SP is 25 degC for t &lt;= 20 seconds</span>
-<span class="sd">        SP is 40 degC for t &gt; 20 seconds </span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="c1"># Add your solution here</span>
-
-<span class="k">def</span> <span class="nf">DV</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    This function uses heat 2 as a disurbance:</span>
-<span class="sd">        DV is 0% for t &lt;= 200 seconds</span>
-<span class="sd">        DV is 100% for t &gt; 200 seconds</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulate_system</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span><span class="n">Ki</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39; Define function to simulate Exercise 6</span>
-
-<span class="sd">    Arguments:</span>
-<span class="sd">        Kp: proportional gain</span>
-<span class="sd">        Ki: integral gain</span>
-
-<span class="sd">    Action:</span>
-<span class="sd">        Simulate the TCLab and creates plots</span>
-<span class="sd">    </span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="c1"># Create the TCLab object</span>
-    <span class="c1"># you may use connected=False for debugging</span>
-    <span class="c1"># but you need to conduct a real experiment for the final submission</span>
-    <span class="c1"># TCLab = setup(connected=False, speedup=60)</span>
-    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Underdamped system</span>
-
-<span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Overdamped system</span>
-
-<span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>How does the controller perform? Compare the eigenvalue analysis.</strong></p>
-<p><em>Answer</em>:</p>
-</section>
-<section id="declarations">
-<h2>Declarations<a class="headerlink" href="#declarations" title="Permalink to this heading">#</a></h2>
-<p><strong>Collaboration</strong>: If you worked with any classmates, please give their names here. Describe the nature of the collaboration.</p>
-<p><strong>Generative AI</strong>: If you used any Generative AI tools, please elaborate here.</p>
 </section>
 </section>
 
@@ -1070,21 +744,17 @@ MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-a-simple-pi-controller">Implementation of a Simple PI Controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-a-simple-pi-controller">Implementation of a simple PI controller</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-tune-the-pi-control-for-the-temperature-control-lab">Exercise 1. Tune the PI control for the Temperature Control Lab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-hardware-testing-the-pi-controller">Exercise 2. Hardware testing the PI controller</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-improved-pi-control">Exercise 3. Improved PI Control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excercise-4-chocolate-tempering-revisited">Excercise 4. Chocolate Tempering Revisited</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-stability-analysis-revisited">Exercise 5. Stability Analysis Revisited</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-simulate-a-disturbance">Exercise 6. Simulate a Disturbance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations">Declarations</a></li>
 </ul>
   </nav></div>
 
@@ -1133,8 +803,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
