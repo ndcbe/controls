@@ -574,24 +574,24 @@ u_{1} = u^*_{1} - K_p (T_{S,1}-T_{set}) - K_i \int_{0}^{t} (T_{S,1}(t) - T_{set}
 <h2><span class="section-number">3.9.3. </span>Closed-Loop Dynamics<a class="headerlink" href="#closed-loop-dynamics" title="Permalink to this heading">#</a></h2>
 <p>How can we model the integral in the control law? Let’s add a new state to our model for the integral:
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-84c260f6-f612-4723-82d7-383249d5c4ad">
-<span class="eqno">(3.15)<a class="headerlink" href="#equation-84c260f6-f612-4723-82d7-383249d5c4ad" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d61099ec-a344-4746-a487-1dff74de4e59">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-d61099ec-a344-4746-a487-1dff74de4e59" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = -U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) - \alpha P_1 K_p T^*_{S,1} - \alpha P_1 K_i I\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) \\
 \frac{dI}{dt} &amp;= T^{*}_{S,1}
 \end{align}\]</div>
 <div class="math notranslate nohighlight">
 \[Let's collect similar terms:\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-1e7bd951-6132-43da-91c6-975f7644bb1f">
-<span class="eqno">(3.16)<a class="headerlink" href="#equation-1e7bd951-6132-43da-91c6-975f7644bb1f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2d692a6b-dfce-4df6-9a92-39b7eef3ae11">
+<span class="eqno">(3.16)<a class="headerlink" href="#equation-2d692a6b-dfce-4df6-9a92-39b7eef3ae11" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT^*_{H,1}}{dt} &amp; = \left(-\frac{U_a + U_b}{C^H_p} \right)  T^*_{H,1} + \left(\frac{U_b - \alpha P_1 K_p}{C_p^H} \right) T^*_{S,1} + \left(\frac{- \alpha P_1 K_I}{C_p^H} \right) I  \\
 \frac{dT^*_{S,1}}{dt} &amp; = \left(\frac{U_b}{C_p^S} \right) T^*_{H,1} + \left(-\frac{U_b}{C_p^S} \right) T^*_{S,1} \\
 \frac{dI}{dt} &amp;= T^{*}_{S,1}
 \end{align}\]</div>
 <div class="math notranslate nohighlight">
 \[Finally, we can write this as a linear differential equation in matrix form:\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-fd282fbd-0ed3-4bb9-878c-05eb5eecf92a">
-<span class="eqno">(3.17)<a class="headerlink" href="#equation-fd282fbd-0ed3-4bb9-878c-05eb5eecf92a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d02a8aac-190c-43c7-b6ff-052674c0401a">
+<span class="eqno">(3.17)<a class="headerlink" href="#equation-d02a8aac-190c-43c7-b6ff-052674c0401a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d}{dt}\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \\ I \end{bmatrix}}_\mathbf{x} &amp; = 
 \underbrace{\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} &amp; \frac{- \alpha P_1 K_i}{C^H_p} \\ 
 \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p} &amp; 0 \\
