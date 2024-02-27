@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -81,6 +81,7 @@ const thebe_selector_output = ".output, .cell_output"
   <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,15 +121,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <header>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
-    </header>
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
   
+  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -546,9 +552,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis-numerical">3.8.7. Stability Analysis: Numerical</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis-analytical">3.8.8. Stability Analysis: Analytical</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-performance-with-tc-lab">3.8.9. Simulate Performance with TC Lab</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modest-k-p">3.8.9.1. Modest <span class="math notranslate nohighlight">\(K_p\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-k-p">3.8.9.2. Large <span class="math notranslate nohighlight">\(K_p\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">3.8.9.3. Discussion:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-k-p">3.8.9.1. Small <span class="math notranslate nohighlight">\(K_p\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moderate-k-p">3.8.9.2. Moderate <span class="math notranslate nohighlight">\(K_P\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-k-p">3.8.9.3. Large <span class="math notranslate nohighlight">\(K_P\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">3.8.9.4. Discussion:</a></li>
 </ul>
 </li>
 </ul>
@@ -708,14 +715,23 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <span class="c1"># parameters</span>
 <span class="n">T_amb</span> <span class="o">=</span> <span class="mi">21</span> <span class="c1"># deg C</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.00016</span> <span class="c1"># watts / (units P1 * percent U1)</span>
-<span class="n">P1</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># P1 units (arbitrary units)</span>
-<span class="n">U1</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># steady state value of u1 (percent)</span>
+<span class="n">P1</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># P1 units (arbitrary units)</span>
+<span class="n">U1</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># steady state value of u1 (percent), used for step test</span>
+<span class="n">T_set</span> <span class="o">=</span> <span class="mi">40</span> <span class="c1"># setpoint (deg C)</span>
 
-<span class="c1"># fiited parameters (see previous lab)</span>
-<span class="n">Ua</span> <span class="o">=</span> <span class="mf">0.0261</span> <span class="c1"># watts/deg C</span>
-<span class="n">Ub</span> <span class="o">=</span> <span class="mf">0.0222</span> <span class="c1"># watts/deg C</span>
-<span class="n">CpH</span> <span class="o">=</span> <span class="mf">1.335</span> <span class="c1"># joules/deg C</span>
-<span class="n">CpS</span> <span class="o">=</span> <span class="mf">1.328</span> <span class="c1"># joules/deg C</span>
+<span class="c1"># fitted parameters (see previous lab) for hardware</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Ua = 0.0261 # watts/deg C</span>
+<span class="sd">Ub = 0.0222 # watts/deg C</span>
+<span class="sd">CpH = 1.335 # joules/deg C</span>
+<span class="sd">CpS = 1.328 # joules/deg C</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># fitted parameters (repeat Lab 3) for TCLab digital twin</span>
+<span class="n">Ua</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1"># watts/deg C</span>
+<span class="n">Ub</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1"># watts/deg C</span>
+<span class="n">CpH</span> <span class="o">=</span> <span class="mf">5.0</span> <span class="c1"># joules/deg C</span>
+<span class="n">CpS</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># joules/deg C</span>
 
 <span class="n">t_final</span> <span class="o">=</span> <span class="mi">800</span>
 <span class="n">t_step</span> <span class="o">=</span> <span class="mi">1</span>
@@ -744,7 +760,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dd9e7777ce20f3f61f47559c0010e08c3a9e5680bbd744539a6c9f84dbc24105.png" src="../_images/dd9e7777ce20f3f61f47559c0010e08c3a9e5680bbd744539a6c9f84dbc24105.png" />
+<img alt="../_images/21467b7a4301fdc6a7c268d136f8c4e9e2c7129907848e993eeefdc9f53d27bc.png" src="../_images/21467b7a4301fdc6a7c268d136f8c4e9e2c7129907848e993eeefdc9f53d27bc.png" />
 </div>
 </div>
 <p>Compare this plot to our model identification lab. This is a simulation of a step response.</p>
@@ -755,10 +771,26 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulate_response</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Simulate the dynamic response of the system to a step change </span>
+<span class="sd">    using proportional control with gain Kp.</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        Kp: the proportional control gain</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Actions:</span>
+<span class="sd">        Plots the response of the system</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This assumes u_bar =&quot;</span><span class="p">,</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">T_set</span> <span class="o">-</span> <span class="n">T_amb</span><span class="p">)</span><span class="o">/</span><span class="n">alpha</span><span class="o">/</span><span class="n">P1</span><span class="p">,</span><span class="s2">&quot;%&quot;</span><span class="p">)</span>
 
     <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">,</span> <span class="p">(</span><span class="n">Ub</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="o">*</span><span class="n">Kp</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">],</span> 
                 <span class="p">[</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">,</span> <span class="o">-</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">]])</span>
-    <span class="n">T_set</span> <span class="o">=</span> <span class="mi">50</span>
+
 
     <span class="c1"># model solution</span>
     <span class="k">def</span> <span class="nf">closed_loop</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -779,10 +811,14 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/35cf683c22d60011e304af39253cf815ffce938be90c22243e3653ee9c63c6d9.png" src="../_images/35cf683c22d60011e304af39253cf815ffce938be90c22243e3653ee9c63c6d9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This assumes u_bar = 29.6875 %
+</pre></div>
+</div>
+<img alt="../_images/21356edd4eb215d2e9abf98d1d0a0807384aface4447578718d695c9df04c8b3.png" src="../_images/21356edd4eb215d2e9abf98d1d0a0807384aface4447578718d695c9df04c8b3.png" />
 </div>
 </div>
-<p>This matches our original model. We did not make a math mistake!</p>
+<p>Question: Why does our simulation approach <span class="math notranslate nohighlight">\(T_{set}\)</span>?</p>
+<p>Answer: We used <span class="math notranslate nohighlight">\(T_{set}\)</span> to calculate <span class="math notranslate nohighlight">\(\bar{u}\)</span>. This was important to get the <span class="math notranslate nohighlight">\(T_{amb}\)</span> terms to cancel in the derivation above.</p>
 </section>
 <section id="new-model-closed-loop">
 <h3><span class="section-number">3.8.6.3. </span>New Model: Closed Loop<a class="headerlink" href="#new-model-closed-loop" title="Permalink to this heading">#</a></h3>
@@ -794,7 +830,10 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/75103041a02897dd6cedf2499a7bba4fea76feb68947c96011478742fddcc56e.png" src="../_images/75103041a02897dd6cedf2499a7bba4fea76feb68947c96011478742fddcc56e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This assumes u_bar = 29.6875 %
+</pre></div>
+</div>
+<img alt="../_images/49ea48a626ecc6c08a82e6ae45dc38b9abad2956a00c789edfda7a212f2cd75e.png" src="../_images/49ea48a626ecc6c08a82e6ae45dc38b9abad2956a00c789edfda7a212f2cd75e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -804,7 +843,10 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0718a85e286f3c87566e558db7fc4f08f4ee8834d450804e15811771cd5a915a.png" src="../_images/0718a85e286f3c87566e558db7fc4f08f4ee8834d450804e15811771cd5a915a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This assumes u_bar = 29.6875 %
+</pre></div>
+</div>
+<img alt="../_images/827450448457ffd5f33336218e2e7f4167270bdee5b2f157bf3461f50dda9ab8.png" src="../_images/827450448457ffd5f33336218e2e7f4167270bdee5b2f157bf3461f50dda9ab8.png" />
 </div>
 </div>
 <p>Perform a simple sensitivity analysis and answer the following discussion questions:</p>
@@ -841,14 +883,14 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.04522741496569595+0j)
-Eigenvector 0 = [-0.86264796  0.5058048 ] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.008675106837823632+0j)
+Eigenvector 0 = [0.63706969 0.77080621] 
 
-Eigenvalue 1 = (-0.007669227785082444+0j)
-Eigenvector 1 = [-0.47598497 -0.87945342] 
+Eigenvalue 1 = (-0.06132489316217637+0j)
+Eigenvector 1 = [-0.22090244  0.97529591] 
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.04522741+0.j, -0.00766923+0.j])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.00867511+0.j, -0.06132489+0.j])
 </pre></div>
 </div>
 </div>
@@ -860,14 +902,14 @@ Eigenvector 1 = [-0.47598497 -0.87945342]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.026448321375389196+0.04038353802879882j)
-Eigenvector 0 = [ 0.92769638+0.j         -0.08746124-0.36294622j] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.034999999999999996+0.04974937185533099j)
+Eigenvector 0 = [0.72057669+0.j         0.20016019-0.66385626j] 
 
-Eigenvalue 1 = (-0.026448321375389196-0.04038353802879882j)
-Eigenvector 1 = [ 0.92769638-0.j         -0.08746124+0.36294622j] 
+Eigenvalue 1 = (-0.034999999999999996-0.04974937185533099j)
+Eigenvector 1 = [0.72057669-0.j         0.20016019+0.66385626j] 
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.02644832+0.04038354j, -0.02644832-0.04038354j])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.035+0.04974937j, -0.035-0.04974937j])
 </pre></div>
 </div>
 </div>
@@ -905,28 +947,28 @@ Eigenvector 1 = [ 0.92769638-0.j         -0.08746124+0.36294622j]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2c66aab163c496e1b3dd7f45f8430e74c5b1d0e69f9be6d936eeb1ecdf58ad3f.png" src="../_images/2c66aab163c496e1b3dd7f45f8430e74c5b1d0e69f9be6d936eeb1ecdf58ad3f.png" />
-<img alt="../_images/74cc43acd54287959a09fcfec30706948465dc2d0bf8015159b17f91d7d0cd27.png" src="../_images/74cc43acd54287959a09fcfec30706948465dc2d0bf8015159b17f91d7d0cd27.png" />
+<img alt="../_images/7d39bf9690810d0741f37083d0c539e484f28deb5b7195f995fedd4d01e13e64.png" src="../_images/7d39bf9690810d0741f37083d0c539e484f28deb5b7195f995fedd4d01e13e64.png" />
+<img alt="../_images/db392b18b574b5fdc18b39a3b66edf0b49b4551251800d623e3f84000b730752.png" src="../_images/db392b18b574b5fdc18b39a3b66edf0b49b4551251800d623e3f84000b730752.png" />
 </div>
 </div>
 <p>Interpret the plots above to find the value of <span class="math notranslate nohighlight">\(K_p\)</span> that is the transition from undershooting (no oscillations) and overshooting (with oscillations).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### BEGIN SOLUTION</span>
-<span class="n">calc_eig</span><span class="p">(</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">calc_eig</span><span class="p">(</span><span class="mf">2.3</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">### END SOLUTION</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.02992049758398236+0j)
-Eigenvector 0 = [-0.61982077  0.78474341] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.035+0.0033166247903554j)
+Eigenvector 0 = [0.28676967+0.06340716j 0.95589889+0.j        ] 
 
-Eigenvalue 1 = (-0.022976145166796032+0j)
-Eigenvector 1 = [ 0.35065447 -0.93650491] 
+Eigenvalue 1 = (-0.035-0.0033166247903554j)
+Eigenvector 1 = [0.28676967-0.06340716j 0.95589889-0.j        ] 
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.0299205 +0.j, -0.02297615+0.j])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.035+0.00331662j, -0.035-0.00331662j])
 </pre></div>
 </div>
 </div>
@@ -952,12 +994,12 @@ Eigenvector 1 = [ 0.35065447 -0.93650491]
 <p>Multiplying both sides by <span class="math notranslate nohighlight">\(C_p^H~C_p^S\)</span> gives:</p>
 <div class="math notranslate nohighlight">
 \[
-\left(U_a+U_b + C_p^S \lambda \right) \left( U_b + C^H_p \lambda \right) - \left(U_b - \alpha P_1 K_p \right) \left( U_b \right) = 0
+\left(U_a+U_b + C_p^H \lambda \right) \left( U_b + C^S_p \lambda \right) - \left(U_b - \alpha P_1 K_p \right) \left( U_b \right) = 0
 \]</div>
 <p>Finally, algebriac manipulation give:</p>
 <div class="math notranslate nohighlight">
 \[
-\underbrace{C_p^H C_p^S}_{a} \lambda^2 + \underbrace{\left(C_p^S U_b + (U_a + U_b) C_p^H \right)}_{b} \lambda + \underbrace{\left(U_a + \alpha P_1 K_p \right) U_b}_{c} = 0
+\underbrace{C_p^H C_p^S}_{a} \lambda^2 + \underbrace{\left(C_p^H U_b + (U_a + U_b) C_p^S \right)}_{b} \lambda + \underbrace{\left(U_a + \alpha P_1 K_p \right) U_b}_{c} = 0
 \]</div>
 <p>Recall the quadratic formula:</p>
 <div class="math notranslate nohighlight">
@@ -982,19 +1024,19 @@ b^2 &amp;&lt; b^2 - 4 ac \\
 \[\begin{split}
 \begin{align}
 4 a c &amp;&gt; b^2 \\
-4 C_p^H C_p^S \left(U_a + \alpha P_1 K_P \right) U_b &amp;&gt; \left(C_p^S U_b + (U_a + U_b) C_p^H \right)^2 \\
-K_p &amp;&gt; \frac{\left(C_p^S U_b + (U_a + U_b) C_p^H \right)^2}{4 C_p^H C_p^S U_b \alpha P_1 } - \frac{U_a}{\alpha P_1}
+4 C_p^H C_p^S \left(U_a + \alpha P_1 K_P \right) U_b &amp;&gt; \left(C_p^H U_b + (U_a + U_b) C_p^S \right)^2 \\
+K_p &amp;&gt; \frac{\left(C_p^H U_b + (U_a + U_b) C_p^S \right)^2}{4 C_p^H C_p^S U_b \alpha P_1 } - \frac{U_a}{\alpha P_1}
 \end{align}
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K_p_critical</span> <span class="o">=</span> <span class="p">(</span><span class="n">CpS</span><span class="o">*</span><span class="n">Ub</span> <span class="o">+</span> <span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">*</span><span class="n">CpH</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">CpH</span><span class="o">*</span><span class="n">CpS</span><span class="o">*</span><span class="n">Ub</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Ua</span><span class="o">/</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K_p_critical</span> <span class="o">=</span> <span class="p">(</span><span class="n">CpH</span><span class="o">*</span><span class="n">Ub</span> <span class="o">+</span> <span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">*</span><span class="n">CpS</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">CpH</span><span class="o">*</span><span class="n">CpS</span><span class="o">*</span><span class="n">Ub</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Ua</span><span class="o">/</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Critical K_p = &quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">K_p_critical</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Critical K_p =  1.874
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Critical K_p =  2.266
 </pre></div>
 </div>
 </div>
@@ -1079,42 +1121,59 @@ K_p &amp;&gt; \frac{\left(C_p^S U_b + (U_a + U_b) C_p^H \right)^2}{4 C_p^H C_p^S
 </div>
 </div>
 </div>
-<section id="modest-k-p">
-<h3><span class="section-number">3.8.9.1. </span>Modest <span class="math notranslate nohighlight">\(K_p\)</span><a class="headerlink" href="#modest-k-p" title="Permalink to this heading">#</a></h3>
+<section id="small-k-p">
+<h3><span class="section-number">3.8.9.1. </span>Small <span class="math notranslate nohighlight">\(K_p\)</span><a class="headerlink" href="#small-k-p" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulate_P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.9</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulate_P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fb3507bdc4e72c10a5abbaf75cd9d50a4683e485aae8724545cedc7483c27929.png" src="../_images/fb3507bdc4e72c10a5abbaf75cd9d50a4683e485aae8724545cedc7483c27929.png" />
+<img alt="../_images/23057b01d67e17daa9b3dea5eeb82b5491f37a19e289ee9a7e4a397198be2769.png" src="../_images/23057b01d67e17daa9b3dea5eeb82b5491f37a19e289ee9a7e4a397198be2769.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
 </pre></div>
 </div>
-<img alt="../_images/fb3507bdc4e72c10a5abbaf75cd9d50a4683e485aae8724545cedc7483c27929.png" src="../_images/fb3507bdc4e72c10a5abbaf75cd9d50a4683e485aae8724545cedc7483c27929.png" />
+<img alt="../_images/23057b01d67e17daa9b3dea5eeb82b5491f37a19e289ee9a7e4a397198be2769.png" src="../_images/23057b01d67e17daa9b3dea5eeb82b5491f37a19e289ee9a7e4a397198be2769.png" />
+</div>
+</div>
+</section>
+<section id="moderate-k-p">
+<h3><span class="section-number">3.8.9.2. </span>Moderate <span class="math notranslate nohighlight">\(K_P\)</span><a class="headerlink" href="#moderate-k-p" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulate_P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9aff879953d7f86f7343e1076e62efb84f4c6b67f0db0365a90ea53d7a71a8c6.png" src="../_images/9aff879953d7f86f7343e1076e62efb84f4c6b67f0db0365a90ea53d7a71a8c6.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
+</pre></div>
+</div>
+<img alt="../_images/9aff879953d7f86f7343e1076e62efb84f4c6b67f0db0365a90ea53d7a71a8c6.png" src="../_images/9aff879953d7f86f7343e1076e62efb84f4c6b67f0db0365a90ea53d7a71a8c6.png" />
 </div>
 </div>
 </section>
 <section id="large-k-p">
-<h3><span class="section-number">3.8.9.2. </span>Large <span class="math notranslate nohighlight">\(K_p\)</span><a class="headerlink" href="#large-k-p" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.8.9.3. </span>Large <span class="math notranslate nohighlight">\(K_P\)</span><a class="headerlink" href="#large-k-p" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulate_P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">7.0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulate_P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c5d39c938fbfd3bda8d7f6b594ae66f850d19901dc4ed225bd25074a0ffc73fc.png" src="../_images/c5d39c938fbfd3bda8d7f6b594ae66f850d19901dc4ed225bd25074a0ffc73fc.png" />
+<img alt="../_images/57d208d5bd681c503fb27b9173fece144fcc49e48ad17efe118214946b443bb3.png" src="../_images/57d208d5bd681c503fb27b9173fece144fcc49e48ad17efe118214946b443bb3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
 </pre></div>
 </div>
-<img alt="../_images/c5d39c938fbfd3bda8d7f6b594ae66f850d19901dc4ed225bd25074a0ffc73fc.png" src="../_images/c5d39c938fbfd3bda8d7f6b594ae66f850d19901dc4ed225bd25074a0ffc73fc.png" />
+<img alt="../_images/57d208d5bd681c503fb27b9173fece144fcc49e48ad17efe118214946b443bb3.png" src="../_images/57d208d5bd681c503fb27b9173fece144fcc49e48ad17efe118214946b443bb3.png" />
 </div>
 </div>
 </section>
 <section id="discussion">
-<h3><span class="section-number">3.8.9.3. </span>Discussion:<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.8.9.4. </span>Discussion:<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Were the responses overdamped or underdamped?</p></li>
 <li><p>Did the system reach the setpoint?</p></li>
@@ -1202,9 +1261,10 @@ K_p &amp;&gt; \frac{\left(C_p^S U_b + (U_a + U_b) C_p^H \right)^2}{4 C_p^H C_p^S
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis-numerical">3.8.7. Stability Analysis: Numerical</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis-analytical">3.8.8. Stability Analysis: Analytical</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-performance-with-tc-lab">3.8.9. Simulate Performance with TC Lab</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modest-k-p">3.8.9.1. Modest <span class="math notranslate nohighlight">\(K_p\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-k-p">3.8.9.2. Large <span class="math notranslate nohighlight">\(K_p\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">3.8.9.3. Discussion:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-k-p">3.8.9.1. Small <span class="math notranslate nohighlight">\(K_p\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moderate-k-p">3.8.9.2. Moderate <span class="math notranslate nohighlight">\(K_P\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-k-p">3.8.9.3. Large <span class="math notranslate nohighlight">\(K_P\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">3.8.9.4. Discussion:</a></li>
 </ul>
 </li>
 </ul>
@@ -1255,8 +1315,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
   <footer class="bd-footer">
   </footer>
