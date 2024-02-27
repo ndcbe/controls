@@ -151,13 +151,47 @@ There will be one in-class exam on Thursday, April 4. The exam will be open book
 
 ### Final Project
 
-The final project for CBE 30338 is in-depth exploration of a dynamic modeling, optimization, or control problem of your choice. You will work in groups (at least three, no more than four, no exceptions), select a problem of interest, and develop an analysis or control design using the skills you learned in this course.  The essential elements of the project are:
+*This section of the syllabus is underconstruction. Check back soon for updates.*
 
-* **Preliminary reports** consisting of a problem statement, a meeting with the instructor to review the project, and a progress report.
+The final project for CBE 30338 is in-depth exploration of a dynamic modeling, optimization, or control problem of your choice. You will work in groups (at least three, no more than four, no exceptions), select a problem of interest, and develop an analysis or control design using the skills you learned in this course. 
 
-* A **Group presentation** to the class.
+#### Project Requirements and Scope
+
+Every project must incorporate at least three of the following elements:
+- Mathematical modeling including degree of freedom analysis (e.g., states, decisions/controls)
+- Feedback control
+- Stability analysis
+- State estimation
+- Optimization
+- Data analysis, e.g., regression, uncertainty quantification
+- Explore a numerical method, statitical method, or algorithm not taught in CBE 20258
+- Use the TCLab hardware
+- Use data or a computer/mathematical model from another project, research, or class (with permission from the other instructor or research supervisor)
+- Use methods/concepts from CBE 30338 not listed above
+
+The three project deliverables are described below and deadlines are given in the [](./Schedule.md).
+
+#### Project Proposal
+
+The first step is to assemble a team of three people (four if needed due to class numbers) with similar topic interests.
+
+As a team, you will write a two-page project proposal with up to one additional page of references that:
+1. Explains the project motivation and goals. Also briefly explain your personal motivations for choosing this project.
+2. Explains the technical approach for the project, especially how the required elements (see list above) will be incorporated
+3. Identifies the starting point for the project. Where will the model or data come from? Will the project leverage prior experience or knowledge of your team? Please explain if the project will extend prior work from an extracircular/club activity, another class, research, or an internship. Do you have permission from your prior collaborators/supervisors/instructors? If a student is working on a similar topic for two concurrent classes, both instructors need to be aware of the potential overlap and provide written consent (email is fine) per university policies. Likewise, if you are leveraging data or a model from an internship or research, you need to confirm there are no confidentiality issues.
+4. Presents a timeline for the project. Identify the weekly goals for the project and person(s) primarily responsible for each goal.
+5. Lists references in a style of your choice (e.g., APA, MLA, ACS). You must identify at least five useful references for the project, two of which should be beyond the CBE 20258 or 30338 class notes/websites.
+
+#### Project Check-ins
+
+
+#### Group Presentation
+
+#### Fianl Report and Code
 
 * A **Final Report** that includes at least one executable demonstration of your project. The executable element might consist of a Python/Jupyter notebook, a simulation prepared in an industry standard format, or video of experiment or hardware demonstration.
+
+#### Project Ideas
 
 ### Grading Standards
 

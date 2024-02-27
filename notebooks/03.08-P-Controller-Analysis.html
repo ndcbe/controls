@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,10 +78,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +121,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -541,8 +543,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-model-closed-loop">3.8.6.3. New Model: Closed Loop</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis">3.8.7. Stability Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-performance-with-tc-lab">3.8.8. Simulate Performance with TC Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis-numerical">3.8.7. Stability Analysis: Numerical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis-analytical">3.8.8. Stability Analysis: Analytical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-performance-with-tc-lab">3.8.9. Simulate Performance with TC Lab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modest-k-p">3.8.9.1. Modest <span class="math notranslate nohighlight">\(K_p\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-k-p">3.8.9.2. Large <span class="math notranslate nohighlight">\(K_p\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">3.8.9.3. Discussion:</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -552,23 +560,22 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analysis-of-proportional-only-controller">
 <h1><span class="section-number">3.8. </span>Analysis of Proportional Only Controller<a class="headerlink" href="#analysis-of-proportional-only-controller" title="Permalink to this heading">#</a></h1>
 <section id="learning-objectives">
 <h2><span class="section-number">3.8.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
-<p>In this notebook, we will use a mathematical model for the TCLab to design and analyze a PI controller.</p>
+<p>In this notebook, we will use a mathematical model for the TCLab to design and analyze a P-only controller.</p>
 <p>After studying this notebook and completing the activities, you will be able to:</p>
 <ul class="simple">
 <li><p>Agument dynamic system model with proportional (P) feedback control law to predict closed loop dynamics</p></li>
-<li><p>Analyze stability of a (linear) system</p></li>
+<li><p>Analyze stability of a linear (or linearized) system</p></li>
 <li><p>Perform senstivity analysis to tune controller</p></li>
 </ul>
 </section>
 <section id="mathematical-model">
 <h2><span class="section-number">3.8.2. </span>Mathematical Model<a class="headerlink" href="#mathematical-model" title="Permalink to this heading">#</a></h2>
-<p>TODO: Update sign convention for e, bar for steady-state</p>
 <p>Recall the following second order model for the heater and sensor:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -583,36 +590,37 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
 <li><p><span class="math notranslate nohighlight">\(U_b = 0.0222 \pm 0.0045\)</span> (Watt/°C) is the heat transfer coefficient between the heater and sensor</p></li>
 <li><p><span class="math notranslate nohighlight">\(C_{p}^{H} = 1.335 \pm 0.215\)</span> (J/°C) is the heat capacity of the heater</p></li>
 <li><p><span class="math notranslate nohighlight">\(C_{p}^{S} = 1.328 \pm 0.051\)</span> (J/°C) is the heat capacity of the sensor</p></li>
-<li><p><span class="math notranslate nohighlight">\(\alpha = 0.00016 \)</span> (Watt/Watt) is the heat delivered, this is a conversion factor</p></li>
-<li><p><span class="math notranslate nohighlight">\(P_1 = 100\)</span> (Watt) is the maximum power of the heater</p></li>
-<li><p><span class="math notranslate nohighlight">\(u_1 \in [0,1]\)</span> (Watt/Watt) is the control signal</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha = 0.00016 \)</span> (Watt / a.u. / %) is the heat delivered, this is a conversion factor</p></li>
+<li><p><span class="math notranslate nohighlight">\(P_1 = 200\)</span> (a.u.) is the maximum power of the heater</p></li>
+<li><p><span class="math notranslate nohighlight">\(u_1 \in [0,100]\)</span> (%) is the control signal</p></li>
 </ul>
+<p>Everyone has their own TCLab hardware which due to manufacturing variability (e.g., different batches of parts, different amount of thermal paste) will have slightly different dynamics. You can adapt this notebook to analyze your TCLab hardware using your estimates for <span class="math notranslate nohighlight">\(U_a\)</span>, <span class="math notranslate nohighlight">\(U_b\)</span>, <span class="math notranslate nohighlight">\(C_{p}^H\)</span>, and <span class="math notranslate nohighlight">\(C_p^{S}\)</span> from <a class="reference internal" href="../assignments/Lab-3-Model-Identification.html"><span class="doc std std-doc">Lab 3</span></a>.</p>
 </section>
 <section id="steady-state-control-signal">
 <h2><span class="section-number">3.8.3. </span>Steady State Control Signal<a class="headerlink" href="#steady-state-control-signal" title="Permalink to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(T_{set}\)</span> be the set point (target) temperature.</p>
-<p>What control signal <span class="math notranslate nohighlight">\(u_1^{*}\)</span> is required to maintain the steady state if <span class="math notranslate nohighlight">\(T_{H,1} = T_{set}\)</span>? We start by making the substitution and setting the time derivatives to zero:</p>
+<p>What control signal <span class="math notranslate nohighlight">\(\bar{u}_1\)</span> is required to maintain the steady state <span class="math notranslate nohighlight">\(\bar{T}_{H,1} = T_{set}\)</span>? We start by making the substitution and setting the time derivatives to zero:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-0 &amp; = U_a(T_{amb} - T_{set}) + U_b(T_{S,1} - T_{set}) + \alpha P_1 u^{*}_1\\
-0 &amp; = U_b(T_{set} - T_{S,1}) 
+0 &amp; = U_a(T_{amb} - T_{set}) + U_b(\bar{T}_{S,1} - T_{set}) + \alpha P_1 \bar{u}_{1}\\
+0 &amp; = U_b(T_{set} - \bar{T}_{S,1}) 
 \end{align}
 \end{split}\]</div>
-<p>From the second equation, we see <span class="math notranslate nohighlight">\(T_{S,1} = T_{amb}\)</span>, which makes sense. Let’s substitute this expression into the first equation and rearrange:</p>
+<p>From the second equation, we see <span class="math notranslate nohighlight">\(\bar{T}_{S,1} = T_{set}\)</span>, which makes sense. Let’s substitute this expression into the first equation and rearrange:</p>
 <div class="math notranslate nohighlight">
 \[
-u^{*}_1 = \frac{ - U_a(T_{amb} - T_{set})}{\alpha P_1}
+\bar{u}_1 = \frac{ - U_a(T_{amb} - T_{set})}{\alpha P_1}
 \]</div>
 </section>
 <section id="proporational-control-law">
 <h2><span class="section-number">3.8.4. </span>Proporational Control Law<a class="headerlink" href="#proporational-control-law" title="Permalink to this heading">#</a></h2>
-<p>We will consider the proporational control law:</p>
+<p>We will consider the proporational control law (position form):</p>
 <div class="math notranslate nohighlight">
 \[
-u_{1} = u^*_{1} - K_p (T_{S,1}-T_{set})
+u_{1}(t) = \bar{u}_{1} + K_P (T_{set}(t)-T_{S,1}(t)) = \bar{u}_{1} + K_P e(t)
 \]</div>
-<p>Here, <span class="math notranslate nohighlight">\(K_p &gt; 0\)</span> is the proportional gain and <span class="math notranslate nohighlight">\(T_{S,1}-T_{set}\)</span> is the tracking error. If the temperature of the sensor is less than the set point, i.e., <span class="math notranslate nohighlight">\(T_{S,1} &lt; T_{set}\)</span>, then the control signal is greater than the heat input required to maintain steady state, i.e., <span class="math notranslate nohighlight">\(u_{1} &gt; u^*_{1}\)</span>.</p>
+<p>Here, <span class="math notranslate nohighlight">\(K_P &gt; 0\)</span> is the proportional gain and <span class="math notranslate nohighlight">\(e(t) = T_{set}(t) - T_{S,1}(t)\)</span> is the tracking error. If the temperature of the sensor is less than the set point, i.e., <span class="math notranslate nohighlight">\(T_{S,1} &lt; T_{set}\)</span>, then the control signal is greater than the heat input required to maintain steady state, i.e., <span class="math notranslate nohighlight">\(u_{1} &gt; \bar{u}_{1}\)</span>.</p>
 <p>How can we tune <span class="math notranslate nohighlight">\(K_p\)</span>? How does our choice of <span class="math notranslate nohighlight">\(K_p\)</span> impact the closed loop dynamics of the system?</p>
 </section>
 <section id="closed-loop-dynamics">
@@ -625,7 +633,7 @@ T^*_{S,1} &amp;= T_{S,1} - T_{set} \\
 T^*_{amb} &amp;= T_{amb} - T_{set}
 \end{align}
 \end{split}\]</div>
-<p>We can now rewrite our dynamic model in terms of these temperatures. Because <span class="math notranslate nohighlight">\(T_{set}\)</span> is a constant, <span class="math notranslate nohighlight">\(\frac{dT_i}{dt} = \frac{dT^{*}_i}{dt}\)</span> where subscript <span class="math notranslate nohighlight">\(i\)</span> is short hand for the subscripts <span class="math notranslate nohighlight">\(_{H,1}\)</span>, <span class="math notranslate nohighlight">\(_{S,1}\)</span> and <span class="math notranslate nohighlight">\(_{amb}\)</span>. Likewise, our model also has temperature differences, such as</p>
+<p>We can now rewrite our dynamic model in terms of these temperatures. If we ignore changes in the set point, i.e., assume <span class="math notranslate nohighlight">\(T_{set}\)</span> is a constant, then <span class="math notranslate nohighlight">\(\frac{dT_i}{dt} = \frac{dT^{*}_i}{dt}\)</span> where subscript <span class="math notranslate nohighlight">\(i\)</span> is short hand for the subscripts <span class="math notranslate nohighlight">\(_{H,1}\)</span>, <span class="math notranslate nohighlight">\(_{S,1}\)</span> and <span class="math notranslate nohighlight">\(_{amb}\)</span>. Likewise, our model also has temperature differences, such as</p>
 <div class="math notranslate nohighlight">
 \[T_{amb} - T_{H,1} = (T_{amb} - T_{set}) - (T_{H,1} - T_{set}) = T^*_{amb} - T^*_{H,1}\]</div>
 <p>Putting this all together gives:</p>
@@ -639,17 +647,23 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <p>Let’s write the steady state control signal in terms of the offset temperature:</p>
 <div class="math notranslate nohighlight">
 \[
-u^{*}_1 = \frac{ - U_a(T_{amb} - T_{set})}{\alpha P_1} = \frac{ - U_a T^*_{amb}}{\alpha P_1}
+\bar{u}_1 = \frac{ - U_a(T_{amb} - T_{set})}{\alpha P_1} = \frac{ - U_a T^*_{amb}}{\alpha P_1}
 \]</div>
-<p>And substitute into our first differential equation:</p>
+<p>Likewise, we will write the tracking error with the offset temperature:</p>
+<div class="math notranslate nohighlight">
+\[
+e(t) = T_{set}(t) - T_{S,1}(t) = -T^{*}_{S,1}(t)
+\]</div>
+<p>Next, we subsitute our control law into the first differential equation of the TCLab model:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-C^H_p\frac{dT^*_{H,1}}{dt} &amp;= U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 \left(u^*_{1} - K_p T^*_{S,1} \right) \\
+C^H_p\frac{dT^*_{H,1}}{dt} &amp;= U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 \left(\bar{u}_{1} - K_p T^*_{S,1} \right) \\
 &amp;= U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) - U_a T^*_{amb} - \alpha P_1 K_p T^*_{S,1}
 \end{align}
 \end{split}\]</div>
-<p>Notice the <span class="math notranslate nohighlight">\(T^{*}_{amb}\)</span> term cancels! We are left with the following system of differential equations:</p>
+<p>Notice the <span class="math notranslate nohighlight">\(T^{*}_{amb}\)</span> terms cancel!</p>
+<p>We are left with the following system of differential equations:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -694,7 +708,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <span class="c1"># parameters</span>
 <span class="n">T_amb</span> <span class="o">=</span> <span class="mi">21</span> <span class="c1"># deg C</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.00016</span> <span class="c1"># watts / (units P1 * percent U1)</span>
-<span class="n">P1</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># P1 units</span>
+<span class="n">P1</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># P1 units (arbitrary units)</span>
 <span class="n">U1</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># steady state value of u1 (percent)</span>
 
 <span class="c1"># fiited parameters (see previous lab)</span>
@@ -730,7 +744,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/172a17d9b2d01958f267eb864f1652bf443e07f6921342de1e8ccfe3ded190be.png" src="../_images/172a17d9b2d01958f267eb864f1652bf443e07f6921342de1e8ccfe3ded190be.png" />
+<img alt="../_images/dd9e7777ce20f3f61f47559c0010e08c3a9e5680bbd744539a6c9f84dbc24105.png" src="../_images/dd9e7777ce20f3f61f47559c0010e08c3a9e5680bbd744539a6c9f84dbc24105.png" />
 </div>
 </div>
 <p>Compare this plot to our model identification lab. This is a simulation of a step response.</p>
@@ -765,7 +779,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/709a76902e735669ab6d485fea72343b3ca103920446bf13a333ae8b9a4c7c2c.png" src="../_images/709a76902e735669ab6d485fea72343b3ca103920446bf13a333ae8b9a4c7c2c.png" />
+<img alt="../_images/35cf683c22d60011e304af39253cf815ffce938be90c22243e3653ee9c63c6d9.png" src="../_images/35cf683c22d60011e304af39253cf815ffce938be90c22243e3653ee9c63c6d9.png" />
 </div>
 </div>
 <p>This matches our original model. We did not make a math mistake!</p>
@@ -780,7 +794,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/da701fa54d8674437d057aa5d13b1006ddee1617892a22e01651575969458953.png" src="../_images/da701fa54d8674437d057aa5d13b1006ddee1617892a22e01651575969458953.png" />
+<img alt="../_images/75103041a02897dd6cedf2499a7bba4fea76feb68947c96011478742fddcc56e.png" src="../_images/75103041a02897dd6cedf2499a7bba4fea76feb68947c96011478742fddcc56e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -790,7 +804,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/afa421ca399945c119470a3f6e4a87c920b6b666d7f79c6a19b62696dcc0eae5.png" src="../_images/afa421ca399945c119470a3f6e4a87c920b6b666d7f79c6a19b62696dcc0eae5.png" />
+<img alt="../_images/0718a85e286f3c87566e558db7fc4f08f4ee8834d450804e15811771cd5a915a.png" src="../_images/0718a85e286f3c87566e558db7fc4f08f4ee8834d450804e15811771cd5a915a.png" />
 </div>
 </div>
 <p>Perform a simple sensitivity analysis and answer the following discussion questions:</p>
@@ -800,9 +814,9 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 </ul>
 </section>
 </section>
-<section id="stability-analysis">
-<h2><span class="section-number">3.8.7. </span>Stability Analysis<a class="headerlink" href="#stability-analysis" title="Permalink to this heading">#</a></h2>
-<p>We will now perform a more sophisticated analysis to understand how the choice of <span class="math notranslate nohighlight">\(K_p\)</span> impacts the closed loop dynamics. Specifcally, we’ll inspect the eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
+<section id="stability-analysis-numerical">
+<h2><span class="section-number">3.8.7. </span>Stability Analysis: Numerical<a class="headerlink" href="#stability-analysis-numerical" title="Permalink to this heading">#</a></h2>
+<p>We will now perform a more sophisticated analysis to understand how the choice of <span class="math notranslate nohighlight">\(K_P\)</span> impacts the closed loop dynamics. Specifcally, we’ll inspect the eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eigendecomposition analysis</span>
@@ -830,7 +844,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.04522741496569595+0j)
 Eigenvector 0 = [-0.86264796  0.5058048 ] 
 
-Eigenvalue 1 = (-0.007669227785082447+0j)
+Eigenvalue 1 = (-0.007669227785082444+0j)
 Eigenvector 1 = [-0.47598497 -0.87945342] 
 </pre></div>
 </div>
@@ -846,10 +860,10 @@ Eigenvector 1 = [-0.47598497 -0.87945342]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.0264483213753892+0.04038353802879882j)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.026448321375389196+0.04038353802879882j)
 Eigenvector 0 = [ 0.92769638+0.j         -0.08746124-0.36294622j] 
 
-Eigenvalue 1 = (-0.0264483213753892-0.04038353802879882j)
+Eigenvalue 1 = (-0.026448321375389196-0.04038353802879882j)
 Eigenvector 1 = [ 0.92769638-0.j         -0.08746124+0.36294622j] 
 </pre></div>
 </div>
@@ -876,14 +890,14 @@ Eigenvector 1 = [ 0.92769638-0.j         -0.08746124+0.36294622j]
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Kp_range</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">eig_values</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$K_p$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$K_P$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;real($\lambda_i$)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$\lambda_1$&#39;</span><span class="p">,</span><span class="s1">&#39;$\lambda_2$&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Kp_range</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">eig_values</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$K_p$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$K_P$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;imag($\lambda_i$)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$\lambda_1$&#39;</span><span class="p">,</span><span class="s1">&#39;$\lambda_2$&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
@@ -891,8 +905,8 @@ Eigenvector 1 = [ 0.92769638-0.j         -0.08746124+0.36294622j]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f85a28605dc487f9207b57daf32b3ac186d8a183a660aa4534dd583b856f06d5.png" src="../_images/f85a28605dc487f9207b57daf32b3ac186d8a183a660aa4534dd583b856f06d5.png" />
-<img alt="../_images/b5a9cde9eeefefb7f52296dede0682eb79d0083b342096b15326f5322378dcdc.png" src="../_images/b5a9cde9eeefefb7f52296dede0682eb79d0083b342096b15326f5322378dcdc.png" />
+<img alt="../_images/2c66aab163c496e1b3dd7f45f8430e74c5b1d0e69f9be6d936eeb1ecdf58ad3f.png" src="../_images/2c66aab163c496e1b3dd7f45f8430e74c5b1d0e69f9be6d936eeb1ecdf58ad3f.png" />
+<img alt="../_images/74cc43acd54287959a09fcfec30706948465dc2d0bf8015159b17f91d7d0cd27.png" src="../_images/74cc43acd54287959a09fcfec30706948465dc2d0bf8015159b17f91d7d0cd27.png" />
 </div>
 </div>
 <p>Interpret the plots above to find the value of <span class="math notranslate nohighlight">\(K_p\)</span> that is the transition from undershooting (no oscillations) and overshooting (with oscillations).</p>
@@ -908,7 +922,7 @@ Eigenvector 1 = [ 0.92769638-0.j         -0.08746124+0.36294622j]
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.02992049758398236+0j)
 Eigenvector 0 = [-0.61982077  0.78474341] 
 
-Eigenvalue 1 = (-0.022976145166796035+0j)
+Eigenvalue 1 = (-0.022976145166796032+0j)
 Eigenvector 1 = [ 0.35065447 -0.93650491] 
 </pre></div>
 </div>
@@ -918,67 +932,195 @@ Eigenvector 1 = [ 0.35065447 -0.93650491]
 </div>
 </div>
 </section>
-<section id="simulate-performance-with-tc-lab">
-<h2><span class="section-number">3.8.8. </span>Simulate Performance with TC Lab<a class="headerlink" href="#simulate-performance-with-tc-lab" title="Permalink to this heading">#</a></h2>
+<section id="stability-analysis-analytical">
+<h2><span class="section-number">3.8.8. </span>Stability Analysis: Analytical<a class="headerlink" href="#stability-analysis-analytical" title="Permalink to this heading">#</a></h2>
+<p>Finally, let’s calculate the eigenvalues analytically. Recall, eigenvalues <span class="math notranslate nohighlight">\(\lambda\)</span> and eigenvectors <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> satisfy:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A} \mathbf{v} = \lambda \mathbf{v}
+\]</div>
+<p>We can calculate the eigenvalues <span class="math notranslate nohighlight">\(\lambda\)</span> using the determinant.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\det \left(\mathbf{A} - \lambda \mathbf{I} \right) = \det \left(\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} -\lambda &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} \\ \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p} - \lambda\end{bmatrix}\right)
+\end{split}\]</div>
+<p>This gives the characteristic equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\frac{U_a+U_b}{C^H_p} + \lambda \right) \left( \frac{U_b}{C^S_p} + \lambda\right) - \left(\frac{U_b - \alpha P_1 K_p}{C^H_p} \right) \left( \frac{U_b}{C^S_p} \right) = 0
+\]</div>
+<p>Multiplying both sides by <span class="math notranslate nohighlight">\(C_p^H~C_p^S\)</span> gives:</p>
+<div class="math notranslate nohighlight">
+\[
+\left(U_a+U_b + C_p^S \lambda \right) \left( U_b + C^H_p \lambda \right) - \left(U_b - \alpha P_1 K_p \right) \left( U_b \right) = 0
+\]</div>
+<p>Finally, algebriac manipulation give:</p>
+<div class="math notranslate nohighlight">
+\[
+\underbrace{C_p^H C_p^S}_{a} \lambda^2 + \underbrace{\left(C_p^S U_b + (U_a + U_b) C_p^H \right)}_{b} \lambda + \underbrace{\left(U_a + \alpha P_1 K_p \right) U_b}_{c} = 0
+\]</div>
+<p>Recall the quadratic formula:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda = \frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}
+\]</div>
+<p><strong>Is the controller always stable?</strong></p>
+<p>In order for the controller to be unstable, <span class="math notranslate nohighlight">\(\mathrm{Real}(\lambda_i) &gt; 0\)</span> for at least one of the eigenvalues. This can only happen if</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+-b &amp;&lt; \sqrt{b^2 - 4 a c} \\
+b^2 &amp;&lt; b^2 - 4 ac \\
+0 &amp;&lt; -4ac \\
+0 &amp;&gt; 4 a c
+\end{align}
+\end{split}\]</div>
+<p>However, <span class="math notranslate nohighlight">\(a&gt;0\)</span> and <span class="math notranslate nohighlight">\(c&gt;0\)</span> because <span class="math notranslate nohighlight">\(Cp^S\)</span>, <span class="math notranslate nohighlight">\(Cp^H\)</span>, <span class="math notranslate nohighlight">\(U_a\)</span>, <span class="math notranslate nohighlight">\(U_b\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(P_a\)</span>, <span class="math notranslate nohighlight">\(K_P &gt; 0\)</span>. Thus, <span class="math notranslate nohighlight">\(0 &gt; 4 a c\)</span> is not possible and the controller is stable for all choices of <span class="math notranslate nohighlight">\(K_P\)</span> (ignoring changes in setpoint).</p>
+<p><strong>When does the controller oscillate?</strong></p>
+<p>The closed-loop system oscillates if <span class="math notranslate nohighlight">\(\mathrm{Imag}(\lambda) \neq 0\)</span> for at least two eigenvalues. This occurs when</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+4 a c &amp;&gt; b^2 \\
+4 C_p^H C_p^S \left(U_a + \alpha P_1 K_P \right) U_b &amp;&gt; \left(C_p^S U_b + (U_a + U_b) C_p^H \right)^2 \\
+K_p &amp;&gt; \frac{\left(C_p^S U_b + (U_a + U_b) C_p^H \right)^2}{4 C_p^H C_p^S U_b \alpha P_1 } - \frac{U_a}{\alpha P_1}
+\end{align}
+\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">MV_bar</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Basic proportional only controller</span>
-
-<span class="sd">    Arguments:</span>
-<span class="sd">        Kp: proportional gain</span>
-<span class="sd">        MV_bar: steady-state value for manipulated variable</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Minimum and maximum bounds for manipulated variables</span>
-    <span class="n">MV_min</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">MV_max</span> <span class="o">=</span> <span class="mi">100</span>
-
-    <span class="c1"># Initialize with MV_bar</span>
-    <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span>
-
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">PV</span> <span class="o">-</span> <span class="n">SP</span> <span class="c1"># calculate error</span>
-        <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span> <span class="o">-</span> <span class="n">Kp</span><span class="o">*</span><span class="n">e</span> <span class="c1"># apply control law</span>
-        <span class="n">MV</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">MV_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">MV_max</span><span class="p">,</span> <span class="n">MV</span><span class="p">))</span> <span class="c1"># Apply upper and lower bounds</span>
-
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span>
-
-<span class="c1"># Initialize in simulation mode</span>
-<span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">speedup</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
-
-<span class="n">SP</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># set point, deg C</span>
-<span class="n">tfinal</span> <span class="o">=</span> <span class="mi">600</span> <span class="c1"># simulation horizon, seconds</span>
-<span class="n">t_step</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># time step, seconds</span>
-<span class="n">u_star</span> <span class="o">=</span> <span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">SP</span><span class="o">-</span><span class="n">T_amb</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># u at steady-state</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MV_bar =&quot;</span><span class="p">,</span><span class="n">u_star</span><span class="p">)</span>
-
-<span class="c1"># create control loop</span>
-<span class="n">controller1</span> <span class="o">=</span> <span class="n">P_only</span><span class="p">(</span><span class="n">MV_bar</span><span class="o">=</span><span class="n">u_star</span><span class="p">)</span>
-<span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-
-<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
-        <span class="n">PV</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span>                                     <span class="c1"># measure the the process variable</span>
-        <span class="n">MV</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">U1</span>                                     <span class="c1"># get manipulated variable</span>
-        <span class="n">MV</span> <span class="o">=</span> <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span><span class="p">])</span>             <span class="c1"># P control to determine the MV</span>
-        <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">MV</span><span class="p">)</span>                                      <span class="c1"># set the heater power</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>                                      <span class="c1"># log data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K_p_critical</span> <span class="o">=</span> <span class="p">(</span><span class="n">CpS</span><span class="o">*</span><span class="n">Ub</span> <span class="o">+</span> <span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">*</span><span class="n">CpH</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">CpH</span><span class="o">*</span><span class="n">CpS</span><span class="o">*</span><span class="n">Ub</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Ua</span><span class="o">/</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Critical K_p = &quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">K_p_critical</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cfa86ed1a52c9f9326b9457dae972ac13ca3dca4251ddda38c94c83e60161e9b.png" src="../_images/cfa86ed1a52c9f9326b9457dae972ac13ca3dca4251ddda38c94c83e60161e9b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Critical K_p =  1.874
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulate-performance-with-tc-lab">
+<h2><span class="section-number">3.8.9. </span>Simulate Performance with TC Lab<a class="headerlink" href="#simulate-performance-with-tc-lab" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span>
+
+<span class="k">def</span> <span class="nf">simulate_P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.9</span><span class="p">,</span> <span class="n">SP</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tfinal</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">t_step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Simulate proportional only controller using TCLab &#39;digital twin&#39; mode</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        Kp: proportional gain (%/degC)</span>
+<span class="sd">        SP: setpoint (degC)</span>
+<span class="sd">        tfinal: simulation time (seconds)</span>
+<span class="sd">        t_step: time step (seconds)</span>
+<span class="sd">        MV_bar: steady-state value for manipulated variable (%)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">P_only</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">MV_bar</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Basic proportional only controller</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            Kp: proportional gain</span>
+<span class="sd">            MV_bar: steady-state value for manipulated variable</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Minimum and maximum bounds for manipulated variables</span>
+        <span class="n">MV_min</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">MV_max</span> <span class="o">=</span> <span class="mi">100</span>
+
+        <span class="c1"># Initialize with MV_bar</span>
+        <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="n">PV</span> <span class="o">-</span> <span class="n">SP</span> <span class="c1"># calculate error</span>
+            <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span> <span class="o">-</span> <span class="n">Kp</span><span class="o">*</span><span class="n">e</span> <span class="c1"># apply control law</span>
+            <span class="n">MV</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">MV_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">MV_max</span><span class="p">,</span> <span class="n">MV</span><span class="p">))</span> <span class="c1"># Apply upper and lower bounds</span>
+
+
+
+    <span class="c1"># Initialize in simulation mode</span>
+    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">speedup</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+
+    <span class="n">u_star</span> <span class="o">=</span> <span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">SP</span><span class="o">-</span><span class="n">T_amb</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="p">)</span> <span class="c1"># u at steady-state</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MV_bar =&quot;</span><span class="p">,</span><span class="n">u_star</span><span class="p">)</span>
+
+    <span class="c1"># create control loop</span>
+    <span class="n">controller1</span> <span class="o">=</span> <span class="n">P_only</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">MV_bar</span><span class="o">=</span><span class="n">u_star</span><span class="p">)</span>
+    <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+        <span class="c1"># Create historican and plotter</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
+
+        <span class="c1"># initialize maximum power for heater 1</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">P1</span> <span class="o">=</span> <span class="n">P1</span>
+
+
+        <span class="c1"># Loop over the time steps</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
+            <span class="c1"># measure the the process variable (sense)</span>
+            <span class="n">PV</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span>
+
+            <span class="c1"># get manipulated variable (sense)                                    </span>
+            <span class="n">MV</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">U1</span>
+
+            <span class="c1"># P control to determine the MV (compute)                                    </span>
+            <span class="n">MV</span> <span class="o">=</span> <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span><span class="p">])</span>
+
+            <span class="c1"># set the heater power (actuate)             </span>
+            <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">MV</span><span class="p">)</span>
+
+            <span class="c1"># log data                                      </span>
+            <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="modest-k-p">
+<h3><span class="section-number">3.8.9.1. </span>Modest <span class="math notranslate nohighlight">\(K_p\)</span><a class="headerlink" href="#modest-k-p" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulate_P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fb3507bdc4e72c10a5abbaf75cd9d50a4683e485aae8724545cedc7483c27929.png" src="../_images/fb3507bdc4e72c10a5abbaf75cd9d50a4683e485aae8724545cedc7483c27929.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
 </pre></div>
 </div>
-<img alt="../_images/cfa86ed1a52c9f9326b9457dae972ac13ca3dca4251ddda38c94c83e60161e9b.png" src="../_images/cfa86ed1a52c9f9326b9457dae972ac13ca3dca4251ddda38c94c83e60161e9b.png" />
+<img alt="../_images/fb3507bdc4e72c10a5abbaf75cd9d50a4683e485aae8724545cedc7483c27929.png" src="../_images/fb3507bdc4e72c10a5abbaf75cd9d50a4683e485aae8724545cedc7483c27929.png" />
 </div>
 </div>
+</section>
+<section id="large-k-p">
+<h3><span class="section-number">3.8.9.2. </span>Large <span class="math notranslate nohighlight">\(K_p\)</span><a class="headerlink" href="#large-k-p" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulate_P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">7.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c5d39c938fbfd3bda8d7f6b594ae66f850d19901dc4ed225bd25074a0ffc73fc.png" src="../_images/c5d39c938fbfd3bda8d7f6b594ae66f850d19901dc4ed225bd25074a0ffc73fc.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
+</pre></div>
+</div>
+<img alt="../_images/c5d39c938fbfd3bda8d7f6b594ae66f850d19901dc4ed225bd25074a0ffc73fc.png" src="../_images/c5d39c938fbfd3bda8d7f6b594ae66f850d19901dc4ed225bd25074a0ffc73fc.png" />
+</div>
+</div>
+</section>
+<section id="discussion">
+<h3><span class="section-number">3.8.9.3. </span>Discussion:<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Were the responses overdamped or underdamped?</p></li>
+<li><p>Did the system reach the setpoint?</p></li>
+<li><p>Did the results match the mathematical analysis? If not, why?</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -1039,6 +1181,7 @@ Eigenvector 1 = [ 0.35065447 -0.93650491]
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1056,8 +1199,14 @@ Eigenvector 1 = [ 0.35065447 -0.93650491]
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-model-closed-loop">3.8.6.3. New Model: Closed Loop</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis">3.8.7. Stability Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-performance-with-tc-lab">3.8.8. Simulate Performance with TC Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis-numerical">3.8.7. Stability Analysis: Numerical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-analysis-analytical">3.8.8. Stability Analysis: Analytical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-performance-with-tc-lab">3.8.9. Simulate Performance with TC Lab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modest-k-p">3.8.9.1. Modest <span class="math notranslate nohighlight">\(K_p\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-k-p">3.8.9.2. Large <span class="math notranslate nohighlight">\(K_p\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">3.8.9.3. Discussion:</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -1106,8 +1255,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
