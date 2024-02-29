@@ -284,12 +284,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tclab/03.00-Estimating-Model-Parameters.html">4. Estimating Model Parameters</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="tclab/03.10-TCLab-Lab-2-Model-Indentification.html">4.1. Assignment: Model Identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tclab/03.04-Two-Input-Two-Output-Model.html">4.1. Two-Input, Two-Output Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tclab/03.05-Two-State-Model-for-a-Single-Heater.html">4.2. Two State Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tclab/03.06-Four-State-Model.html">4.3. Four State Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tclab/03.10-TCLab-Lab-2-Model-Indentification.html">4.4. Assignment: Model Identification</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tclab/04.00-Feedback-Control.html">5. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tclab/04.01-Relay-Control.html">5.1. Relay Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tclab/04.02-Lab-Assignment-Relay-Control.html">5.2. Lab Assignment 4: Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tclab/04.10-Lab-Assignment-PID-Control.html">5.3. Lab Assignment: PID Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tclab/04.11-Lab-Assignment-PI-Control.html">5.4. Lab Assignment 4: PI Control</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tclab/05.00-State-Estimation.html">6. State Estimation</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -710,7 +715,6 @@ document.write(`
 </section>
 <section id="final-project">
 <h3>Final Project<a class="headerlink" href="#final-project" title="Permalink to this heading">#</a></h3>
-<p><em>This section of the syllabus is underconstruction. Check back soon for updates.</em></p>
 <p>The final project for CBE 30338 is in-depth exploration of a dynamic modeling, optimization, or control problem of your choice. You will work in groups (at least three, no more than four, no exceptions), select a problem of interest, and develop an analysis or control design using the skills you learned in this course.</p>
 <section id="project-requirements-and-scope">
 <h4>Project Requirements and Scope<a class="headerlink" href="#project-requirements-and-scope" title="Permalink to this heading">#</a></h4>
@@ -732,29 +736,85 @@ document.write(`
 <section id="project-proposal">
 <h4>Project Proposal<a class="headerlink" href="#project-proposal" title="Permalink to this heading">#</a></h4>
 <p>The first step is to assemble a team of three people (four if needed due to class numbers) with similar topic interests.</p>
-<p>As a team, you will write a two-page project proposal with up to one additional page of references that:</p>
+<p>As a team, you will write a <strong>two-page project proposal</strong> with up to <strong>one additional page of references</strong> that:</p>
 <ol class="arabic simple">
 <li><p>Explains the project motivation and goals. Also briefly explain your personal motivations for choosing this project.</p></li>
 <li><p>Explains the technical approach for the project, especially how the required elements (see list above) will be incorporated</p></li>
 <li><p>Identifies the starting point for the project. Where will the model or data come from? Will the project leverage prior experience or knowledge of your team? Please explain if the project will extend prior work from an extracircular/club activity, another class, research, or an internship. Do you have permission from your prior collaborators/supervisors/instructors? If a student is working on a similar topic for two concurrent classes, both instructors need to be aware of the potential overlap and provide written consent (email is fine) per university policies. Likewise, if you are leveraging data or a model from an internship or research, you need to confirm there are no confidentiality issues.</p></li>
 <li><p>Presents a timeline for the project. Identify the weekly goals for the project and person(s) primarily responsible for each goal.</p></li>
-<li><p>Lists references in a style of your choice (e.g., APA, MLA, ACS). You must identify at least five useful references for the project, two of which should be beyond the CBE 20258 or 30338 class notes/websites.</p></li>
+<li><p>Lists references in a style of your choice (e.g., APA, MLA, ACS). You must identify at least <strong>five useful references</strong> for the project, two of which should be beyond the CBE 20258 or 30338 class notes/websites.</p></li>
 </ol>
 </section>
 <section id="project-check-ins">
 <h4>Project Check-ins<a class="headerlink" href="#project-check-ins" title="Permalink to this heading">#</a></h4>
+<p>At least twice during class time (see <a class="reference internal" href="Schedule.html"><span class="doc std std-doc">Schedule</span></a>), your team will meet with Prof. Dowling for a 6-minute status update and check-in. It is essential your team carefully prepares for this meeting. For example, consider preparing a 3-slide update:</p>
+<ol class="arabic simple">
+<li><p>What is the motivation and goal of the project?</p></li>
+<li><p>Is the project on schedule? What is the updated timeline?</p></li>
+<li><p>What do you need feedback or advice on? Are you stuck?</p></li>
+</ol>
 </section>
 <section id="group-presentation">
 <h4>Group Presentation<a class="headerlink" href="#group-presentation" title="Permalink to this heading">#</a></h4>
+<p>Each team will give a 6-minute final presentation to the class on their project. Here is a suggested presentation outline:</p>
+<ol class="arabic simple">
+<li><p><strong>Motivation</strong>. Describe why your problem is interesting and excited. Why did you choose it as a final project?</p></li>
+<li><p><strong>Mathematical Model</strong>. Briefly explain the mathematical model for the system you studied. If your project focused on a numerical or statistical method, you may skip this slide and instead use two slides to describe the method in detail.</p></li>
+<li><p><strong>Methods</strong>. Describe the analysis procedure or methods you used in the project. Many groups will find it most effective to make a flowchart that shows their steps, e.g., construct model, regress model, tune controller, verify performance via simuluation.</p></li>
+<li><p><strong>Cool Result 1</strong>. Highlight one result you find very exciting and can explain qucikly.</p></li>
+<li><p><strong>Cool Result 2</strong>. Highlight another result you find exciting.</p></li>
+<li><p><strong>Take Away Message or Lessons Learned</strong>. What are the few essential things your audience should remember about the project? If you were telling a story about this project in a job interview, what would the punch line/conclusion of your story be?</p></li>
+</ol>
+<p>Teams are welcome to customize the above suggested presentation outline; however, each presentation must include all of the elements described above.</p>
+<p>Teams will submit their slides by 7am the morning of their assigned presentation time. Prof. Dowling will then compile these into one PowerPoint presentation.</p>
 </section>
 <section id="fianl-report-and-code">
 <h4>Fianl Report and Code<a class="headerlink" href="#fianl-report-and-code" title="Permalink to this heading">#</a></h4>
+<p>Each team will submit a final report that includes at least one executable that demonstrates your project. The executable element might consist of a Python/Jupyter notebook, a simulation prepared in an industry standard format, or video of experiment or hardware demonstration.</p>
+<p>The final report should be at least 4 pages long (not counting references) and include the following information:</p>
 <ul class="simple">
-<li><p>A <strong>Final Report</strong> that includes at least one executable demonstration of your project. The executable element might consist of a Python/Jupyter notebook, a simulation prepared in an industry standard format, or video of experiment or hardware demonstration.</p></li>
+<li><p>Motivation of the project (1/2 page)</p></li>
+<li><p>Description of the mathematical model and system of interest (1 or 2 pages). If you focused on a numerical or statistical method, include a brief description of the test cases you used to demonstrate the method (1/2 page).</p></li>
+<li><p>Description of the methods used. For projects that use methods from class to analyze a new system, this may be a short section that describes in a graphic (e.g., flowchart) how you combined methods from the class (1/2 page). For projects that focus on a numerical or statistical method, this section should be longer (e.g., 1 or 2 pages).</p></li>
+<li><p>Technical results (2 or more pages).</p></li>
+<li><p>Conclusions (1/2 page).</p></li>
+<li><p>At least 10 <strong>references</strong> in a style of your choice (e.g., APA, MLA, ACS)</p></li>
+</ul>
+<p>Important reminders:</p>
+<ul class="simple">
+<li><p>Review the formating guidelines in this syllabus.</p></li>
+<li><p>All code must be extensively commented.</p></li>
+<li><p>All plots should be professional formatted, i.e., publication quality.</p></li>
+<li><p>Many groups will choose to combine their report and Jupyter notebook into one file/submission. Please ensure the text written in the Jupyter notebook is about the length listed above is copied into a Word or LaTeX document.</p></li>
+<li><p>Upload your notebook to Gradescope early to check formatting. Gradescope is more strict about Markdown formatting standards that Colab or Jupyter Notebook. In other words, Colab and Jupyter Notebook will still render notebooks that have certain formatting errors but Gradescope will not.</p></li>
 </ul>
 </section>
 <section id="project-ideas">
 <h4>Project Ideas<a class="headerlink" href="#project-ideas" title="Permalink to this heading">#</a></h4>
+<p>Here are some project ideas, organized by topic.</p>
+<p><strong>TCLab</strong>. Significantly extend one of our TCLab activities, complete on the labs on the website we skipped this year, or make a new mini-lab that applying a method from control, optimization, or estimation to the TCLab hardware. For example:</p>
+<ul class="simple">
+<li><p>Fit a <a class="reference internal" href="tclab/03.06-Four-State-Model.html"><span class="doc std std-doc">four state model</span></a> that considers the interactions between the two heater/sensor assemblies.</p></li>
+<li><p>Try different types besides the simple step test to estimate parameters in the TCLab model. For example, what happens if the input is a sine wave with different amplitudes and frequencies. For a handful of experiments, estimate the model coefficients and quantify their uncertainty. Which tests are most informative, i.e., result in the smallest parameter uncertainty. Look up <a class="reference external" href="https://ndcbe.github.io/data-and-computing/notebooks/16/Reaction-MBDoE.html">A-optimality and D-optimality</a> as ways of comparing information content.</p></li>
+<li><p>Use <a class="reference internal" href="notebooks/04/04.04-Lab-Assigment-State-Estimation.html"><span class="doc std std-doc">state estimation</span></a> for <a class="reference internal" href="notebooks/04/04.06-Lab-Assignment-Anomaly-Detection.html"><span class="doc std std-doc">anomaly detection</span></a>. Test your implementation by running the TCLab and then exposing it to a large external distubrance such as a fan or hair dryer. How long does it take your state estimator to detect the disturbance?</p></li>
+<li><p>Character the noise in the TCLab system. Are the residuals after parameter estimation i.i.d. Gaussian or is a different error model more appropriate? Explore fitting different time series models to the residuals. (This is a very open-ended project.)</p></li>
+<li><p>Develop a <a class="reference internal" href="tclab/04.10-Lab-Assignment-PID-Control.html"><span class="doc std std-doc">PID controller</span></a> for the TCLab. Extend our stability analysis of P and PI controllers from lecture to a PID controller.</p></li>
+<li><p>Develop two <a class="reference internal" href="tclab/04.11-Lab-Assignment-PI-Control.html"><span class="doc std std-doc">PI contollers</span></a> to simultanously control both heater assemblies. Test this on the <a class="reference internal" href="assignments/Lab-2-Relay-Control.html"><span class="doc std std-doc">original chocolate temperating experiment</span></a>.</p></li>
+</ul>
+<p><strong>Modeling and Applications</strong>. Apply methods and concepts from class to explore a system of interest to your team.</p>
+<ul class="simple">
+<li><p>Develop a controler (e.g., PID, MPC) for tanks in series. This is a classic problem in chemical engineering control textbooks.</p></li>
+<li><p>Develop a controller (e.g., PID, MPC) for the <a class="reference internal" href="notebooks/02.07-Exothermic-CSTR.html"><span class="doc std std-doc">exothermic reactor</span></a>. The goal is to operate the reactor in the high conversion region with minimal oscillations and reject disturbances.</p></li>
+<li><p>Simulate model predictive control for a <a class="reference external" href="https://www.pnas.org/doi/10.1073/pnas.1525162113">microfluidics device</a>.</p></li>
+<li><p>Analysis of an industrial control system case study.</p></li>
+</ul>
+<p><strong>Numerical and Statistical Methods</strong>. Develop a tutorial notebook for a topic not covered in CBE 20258.</p>
+<ul class="simple">
+<li><p>Principle componenent analysis</p></li>
+<li><p>Fourier analysis of periodic signals</p></li>
+<li><p>Maximum likelihood estimation</p></li>
+</ul>
+<p><em>This list will be periodically updated with additional ideas.</em></p>
 </section>
 </section>
 <section id="grading-standards">
