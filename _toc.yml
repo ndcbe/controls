@@ -122,9 +122,9 @@ parts:
       
     - file: tclab/03.00-Estimating-Model-Parameters
       sections:
-#      - file: tclab/03.05-Two-State-Model-for-a-Single-Heater
-#      - file: tclab/03.04-Two-Input-Two-Output-Model
-#      - file: tclab/03.06-Four-State-Model
+      - file: tclab/03.04-Two-Input-Two-Output-Model
+      - file: tclab/03.05-Two-State-Model-for-a-Single-Heater
+      - file: tclab/03.06-Four-State-Model
 #      - file: tclab/03.10-TCLab-Lab-2-Model-Indentification-Solutions
       - file: tclab/03.10-TCLab-Lab-2-Model-Indentification
 #      - file: tclab/03.11-TCLab-Lab-2-Fitting
@@ -134,8 +134,8 @@ parts:
       - file: tclab/04.01-Relay-Control
       - file: tclab/04.02-Lab-Assignment-Relay-Control
 #      - file: tclab/04.03-PID_Control
-#      - file: tclab/04.10-Lab-Assignment-PID-Control
-#      - file: tclab/04.11-Lab-Assignment-PI-Control
+      - file: tclab/04.10-Lab-Assignment-PID-Control
+      - file: tclab/04.11-Lab-Assignment-PI-Control
 #      - file: tclab/04.12-Lab-Assignment-PI-Control-2
       
     - file: tclab/05.00-State-Estimation

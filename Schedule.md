@@ -85,10 +85,10 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | **Thursday, February 22** | **PI Implementation Details** |
 | [](./notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.ipynb) | |
 | **Tuesday, February 27** | **PI Stability Analysis** |
-| [](./notebooks/03-TCLab-P-Controller-Analysis.ipynb) |
-| [](./notebooks/03-TCLab-PI-Controller-Analysis.ipynb) |
+| [](./notebooks/03.08-P-Controller-Analysis.ipynb) |
+| [](./notebooks/03.09-PI-Controller-Analysis.ipynb) |
 | **Thursday, February 29** | **PID Tuning** |
-| [](./notebooks/03.08-Controller-Tuning.ipynb) | |
+| [](./notebooks/03.10-Controller-Tuning.ipynb) | |
 | **Tuesday, March 5** | **Optimization Modeling in Pyomo** |
 | **Thursday, March 7** | **Linear Programming Examples** |
 | **Tuesday, March 19** | **Nonlinear and Dynamic Optimization** |

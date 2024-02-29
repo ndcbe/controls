@@ -151,7 +151,6 @@ There will be one in-class exam on Thursday, April 4. The exam will be open book
 
 ### Final Project
 
-*This section of the syllabus is underconstruction. Check back soon for updates.*
 
 The final project for CBE 30338 is in-depth exploration of a dynamic modeling, optimization, or control problem of your choice. You will work in groups (at least three, no more than four, no exceptions), select a problem of interest, and develop an analysis or control design using the skills you learned in this course. 
 
@@ -175,23 +174,77 @@ The three project deliverables are described below and deadlines are given in th
 
 The first step is to assemble a team of three people (four if needed due to class numbers) with similar topic interests.
 
-As a team, you will write a two-page project proposal with up to one additional page of references that:
+As a team, you will write a **two-page project proposal** with up to **one additional page of references** that:
 1. Explains the project motivation and goals. Also briefly explain your personal motivations for choosing this project.
 2. Explains the technical approach for the project, especially how the required elements (see list above) will be incorporated
 3. Identifies the starting point for the project. Where will the model or data come from? Will the project leverage prior experience or knowledge of your team? Please explain if the project will extend prior work from an extracircular/club activity, another class, research, or an internship. Do you have permission from your prior collaborators/supervisors/instructors? If a student is working on a similar topic for two concurrent classes, both instructors need to be aware of the potential overlap and provide written consent (email is fine) per university policies. Likewise, if you are leveraging data or a model from an internship or research, you need to confirm there are no confidentiality issues.
 4. Presents a timeline for the project. Identify the weekly goals for the project and person(s) primarily responsible for each goal.
-5. Lists references in a style of your choice (e.g., APA, MLA, ACS). You must identify at least five useful references for the project, two of which should be beyond the CBE 20258 or 30338 class notes/websites.
+5. Lists references in a style of your choice (e.g., APA, MLA, ACS). You must identify at least **five useful references** for the project, two of which should be beyond the CBE 20258 or 30338 class notes/websites.
 
 #### Project Check-ins
 
+At least twice during class time (see [](./Schedule.md)), your team will meet with Prof. Dowling for a 6-minute status update and check-in. It is essential your team carefully prepares for this meeting. For example, consider preparing a 3-slide update:
+1. What is the motivation and goal of the project?
+2. Is the project on schedule? What is the updated timeline?
+3. What do you need feedback or advice on? Are you stuck?
 
 #### Group Presentation
 
+Each team will give a 6-minute final presentation to the class on their project. Here is a suggested presentation outline:
+1. **Motivation**. Describe why your problem is interesting and excited. Why did you choose it as a final project?
+2. **Mathematical Model**. Briefly explain the mathematical model for the system you studied. If your project focused on a numerical or statistical method, you may skip this slide and instead use two slides to describe the method in detail.
+3. **Methods**. Describe the analysis procedure or methods you used in the project. Many groups will find it most effective to make a flowchart that shows their steps, e.g., construct model, regress model, tune controller, verify performance via simuluation.
+4. **Cool Result 1**. Highlight one result you find very exciting and can explain qucikly.
+5. **Cool Result 2**. Highlight another result you find exciting.
+6. **Take Away Message or Lessons Learned**. What are the few essential things your audience should remember about the project? If you were telling a story about this project in a job interview, what would the punch line/conclusion of your story be?
+
+Teams are welcome to customize the above suggested presentation outline; however, each presentation must include all of the elements described above.
+
+Teams will submit their slides by 7am the morning of their assigned presentation time. Prof. Dowling will then compile these into one PowerPoint presentation. 
+
 #### Fianl Report and Code
 
-* A **Final Report** that includes at least one executable demonstration of your project. The executable element might consist of a Python/Jupyter notebook, a simulation prepared in an industry standard format, or video of experiment or hardware demonstration.
+Each team will submit a final report that includes at least one executable that demonstrates your project. The executable element might consist of a Python/Jupyter notebook, a simulation prepared in an industry standard format, or video of experiment or hardware demonstration.
+
+The final report should be at least 4 pages long (not counting references) and include the following information:
+* Motivation of the project (1/2 page)
+* Description of the mathematical model and system of interest (1 or 2 pages). If you focused on a numerical or statistical method, include a brief description of the test cases you used to demonstrate the method (1/2 page).
+* Description of the methods used. For projects that use methods from class to analyze a new system, this may be a short section that describes in a graphic (e.g., flowchart) how you combined methods from the class (1/2 page). For projects that focus on a numerical or statistical method, this section should be longer (e.g., 1 or 2 pages).
+* Technical results (2 or more pages).
+* Conclusions (1/2 page).
+* At least 10 **references** in a style of your choice (e.g., APA, MLA, ACS)
+
+Important reminders:
+* Review the formating guidelines in this syllabus.
+* All code must be extensively commented.
+* All plots should be professional formatted, i.e., publication quality.
+* Many groups will choose to combine their report and Jupyter notebook into one file/submission. Please ensure the text written in the Jupyter notebook is about the length listed above is copied into a Word or LaTeX document.
+* Upload your notebook to Gradescope early to check formatting. Gradescope is more strict about Markdown formatting standards that Colab or Jupyter Notebook. In other words, Colab and Jupyter Notebook will still render notebooks that have certain formatting errors but Gradescope will not.
 
 #### Project Ideas
+
+Here are some project ideas, organized by topic.
+
+**TCLab**. Significantly extend one of our TCLab activities, complete on the labs on the website we skipped this year, or make a new mini-lab that applying a method from control, optimization, or estimation to the TCLab hardware. For example:
+* Fit a [four state model](./tclab/03.06-Four-State-Model.ipynb) that considers the interactions between the two heater/sensor assemblies.
+* Try different types besides the simple step test to estimate parameters in the TCLab model. For example, what happens if the input is a sine wave with different amplitudes and frequencies. For a handful of experiments, estimate the model coefficients and quantify their uncertainty. Which tests are most informative, i.e., result in the smallest parameter uncertainty. Look up [A-optimality and D-optimality](https://ndcbe.github.io/data-and-computing/notebooks/16/Reaction-MBDoE.html) as ways of comparing information content.
+* Use [state estimation](./notebooks/04/04.04-Lab-Assigment-State-Estimation.ipynb) for [anomaly detection](./notebooks/04/04.06-Lab-Assignment-Anomaly-Detection.ipynb). Test your implementation by running the TCLab and then exposing it to a large external distubrance such as a fan or hair dryer. How long does it take your state estimator to detect the disturbance?
+* Character the noise in the TCLab system. Are the residuals after parameter estimation i.i.d. Gaussian or is a different error model more appropriate? Explore fitting different time series models to the residuals. (This is a very open-ended project.)
+* Develop a [PID controller](./tclab/04.10-Lab-Assignment-PID-Control.ipynb) for the TCLab. Extend our stability analysis of P and PI controllers from lecture to a PID controller.
+* Develop two [PI contollers](./tclab/04.11-Lab-Assignment-PI-Control.ipynb) to simultanously control both heater assemblies. Test this on the [original chocolate temperating experiment](./assignments/Lab-2-Relay-Control.ipynb).
+
+**Modeling and Applications**. Apply methods and concepts from class to explore a system of interest to your team.
+* Develop a controler (e.g., PID, MPC) for tanks in series. This is a classic problem in chemical engineering control textbooks.
+* Develop a controller (e.g., PID, MPC) for the [exothermic reactor](./notebooks/02.07-Exothermic-CSTR.ipynb). The goal is to operate the reactor in the high conversion region with minimal oscillations and reject disturbances.
+* Simulate model predictive control for a [microfluidics device](https://www.pnas.org/doi/10.1073/pnas.1525162113).
+* Analysis of an industrial control system case study.
+
+**Numerical and Statistical Methods**. Develop a tutorial notebook for a topic not covered in CBE 20258.
+* Principle componenent analysis
+* Fourier analysis of periodic signals
+* Maximum likelihood estimation
+
+*This list will be periodically updated with additional ideas.*
 
 ### Grading Standards
 
