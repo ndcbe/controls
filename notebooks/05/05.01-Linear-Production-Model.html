@@ -585,9 +585,12 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install Pyomo and solvers for Google Colab</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="k">if</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
-    <span class="o">!</span>wget<span class="w"> </span>-N<span class="w"> </span>-q<span class="w"> </span>https://raw.githubusercontent.com/jckantor/MO-book/main/tools/install_on_colab.py<span class="w"> </span>
-    <span class="o">%</span><span class="k">run</span> install_on_colab.py
+<span class="n">on_colab</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+<span class="k">if</span> <span class="n">on_colab</span><span class="p">:</span>
+    <span class="o">!</span>wget<span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/IDAES/idaes-pse/main/scripts/colab_helper.py&quot;</span>
+    <span class="kn">import</span> <span class="nn">colab_helper</span>
+    <span class="n">colab_helper</span><span class="o">.</span><span class="n">install_idaes</span><span class="p">()</span>
+    <span class="n">colab_helper</span><span class="o">.</span><span class="n">install_ipopt</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -654,21 +657,21 @@ document.write(`
 <p><img alt="LP_ProductX.png" src="../../_images/LP_ProductX.png" /></p>
 <p>The essential decision we need to make is how many units or Product X to produce each week. That’s our <em>decision variable</em> which we denote as <span class="math notranslate nohighlight">\(x\)</span>. The weekly revenues are then</p>
 <div class="math notranslate nohighlight">
-\[ \mbox{Revenue} = \$270 x \]</div>
+\[ \text{Revenue} = \$270 x \]</div>
 <p>The costs include the value of the raw materials and each form of labor. If we produce x units a week, then the total cost is</p>
 <div class="math notranslate nohighlight">
-\[ \mbox{Cost} = \underbrace{\$100 x}_{\mbox{Raw Material}} 
-    + \underbrace{\$50 x}_{\mbox{Labor A}} + \underbrace{2\times\$40 x}_{\mbox{Labor B}} = \$230 x\]</div>
+\[ \text{Cost} = \underbrace{\$100 x}_{\text{Raw Material}} 
+    + \underbrace{\$50 x}_{\text{Labor A}} + \underbrace{2\times\$40 x}_{\text{Labor B}} = \$230 x\]</div>
 <p>We see immediately that the gross profit is just</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray*}\mbox{Profit} &amp; = &amp; \mbox{Revenue} - \mbox{Cost} \\
+\[\begin{split}\begin{align*}\text{Profit} &amp; = &amp; \text{Revenue} - \text{Cost} \\
 &amp; = &amp; \$270x - \$230x \\
 &amp; = &amp; \$40 x
-\end{eqnarray*}\end{split}\]</div>
+\end{align*}\end{split}\]</div>
 <p>which means there is a profit earned on each unit of X produced, so let’s produce as many as possible.</p>
 <p>There are three constraints that limit how many units can be produced. There is market demand for no more than 40 units per week. Producing <span class="math notranslate nohighlight">\(x = 40\)</span> units per week will require 40 hours per week of Labor A, and 80 hours per week of Labor B. Checking those constraints we see that we have enough labor of each type, so the maximum profit will be</p>
 <div class="math notranslate nohighlight">
-\[\max \mbox{Profit} = $40 \mbox{ per unit} \times 40 \mbox{ units per week} = \$1600 \mbox{ per week}\]</div>
+\[\max \text{Profit} = \$40 \text{ per unit} \times 40 \text{ units per week} = \$1600 \text{ per week}\]</div>
 <p>What we conclude is that market demand is the ‘most constraining constraint.’ Once we’ve made that deduction, the rest is a straightforward problem that can be solved by inspection.</p>
 <section id="mathematical-model">
 <h3><span class="section-number">5.1.2.1. </span>Mathematical Model<a class="headerlink" href="#mathematical-model" title="Permalink to this heading">#</a></h3>
@@ -676,11 +679,11 @@ document.write(`
 <p>The mathematical representation consists of a single non-negative decision variable, <span class="math notranslate nohighlight">\(x\)</span>, an objective function, and a set of linear constraints.  Here we include all constraints even though we know only one of them – the most ‘constraining constraint’ – will be active.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
-\max_{x \geq 0} &amp;\ 40\ x  &amp; \mbox{objective}\\
-\mbox{subject to:}\qquad \\
-x &amp; \leq 40  &amp; \mbox{demand constraint} \\
-x &amp; \leq 80  &amp; \mbox{labor A constraint} \\
-2\ x &amp; \leq 100 &amp; \mbox{labor B constraint}
+\max_{x \geq 0} &amp;\ 40\ x  &amp; \text{objective}\\
+\text{subject to:}\qquad \\
+x &amp; \leq 40  &amp; \text{demand constraint} \\
+x &amp; \leq 80  &amp; \text{labor A constraint} \\
+2\ x &amp; \leq 100 &amp; \text{labor B constraint}
 \end{align}\end{split}\]</div>
 <p>All of these constraints must be satisfied, therefore the demand constraint is the ‘most constrainting’. Again, the maximum value of <span class="math notranslate nohighlight">\(x\)</span> is 40, so the maximum profit is <span class="math notranslate nohighlight">\(\$ 40 \times 40 = \$1,600\)</span>.</p>
 </section>
@@ -694,30 +697,30 @@ x &amp; \leq 80  &amp; \mbox{labor A constraint} \\
 </section>
 <section id="production-plan-product-y">
 <h2><span class="section-number">5.1.3. </span>Production Plan: Product Y<a class="headerlink" href="#production-plan-product-y" title="Permalink to this heading">#</a></h2>
-<p>Your marketing department has developed plans for a new product called Y. The product sells at a price of \<span class="math notranslate nohighlight">\(210 each, and they expect that you can sell all that you can make. It's also cheaper to make, requiring only \\\)</span>90 in raw materials, 1 hour of Labor type A at \<span class="math notranslate nohighlight">\(50 per hour, and 1 hour of Labor B at \\\)</span>40 per hour. What is the potential weekly profit?</p>
+<p>Your marketing department has developed plans for a new product called Y. The product sells at a price of $210 each, and they expect that you can sell all that you can make. It’s also cheaper to make, requiring only $90 in raw materials, 1 hour of Labor type A at $50 per hour, and 1 hour of Labor B at $40 per hour. What is the potential weekly profit?</p>
 <p><img alt="LP_ProductY.png" src="../../_images/LP_ProductY.png" /></p>
 <p>The analysis proceeds in the same form as Product X. In this case the revenue is given by</p>
 <div class="math notranslate nohighlight">
-\[ \mbox{Revenue} = \$210 y \]</div>
+\[ \text{Revenue} = \$210 y \]</div>
 <p>The total cost is</p>
 <div class="math notranslate nohighlight">
-\[ \mbox{Cost} = \underbrace{\$90 x}_{\mbox{Raw Material}} 
-    + \underbrace{\$50 x}_{\mbox{Labor A}} + \underbrace{\$40 x}_{\mbox{Labor B}} = \$180 x\]</div>
+\[ \text{Cost} = \underbrace{\$90 x}_{\text{Raw Material}} 
+    + \underbrace{\$50 x}_{\text{Labor A}} + \underbrace{\$40 x}_{\text{Labor B}} = \$180 x\]</div>
 <p>The gross profit is thn</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray}\mbox{Profit} &amp; = &amp; \mbox{Revenue} - \mbox{Cost} \\
+\[\begin{split}\begin{align*}\text{Profit} &amp; = &amp; \text{Revenue} - \text{Cost} \\
 &amp; = &amp; \$210x - \$180x \\
 &amp; = &amp; \$30 x
-\end{eqnarray}\end{split}\]</div>
+\end{align*}\end{split}\]</div>
 <p>We see the profit per unit of Y is smaller. So a decision to produce Y instead of X must be based on the ability to make Y in larger quantities.</p>
 <p>The mathematical formulation of this problem becomes</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
-\max_{y \geq 0} &amp;\ 30\ y  &amp; \mbox{objective}\\
-\mbox{subject to:}\qquad \\
-y &amp; \leq 80  &amp; \mbox{labor A constraint} \\
-y &amp; \leq 100 &amp; \mbox{labor B constraint}
-\end{align}\end{split}\]</div>
+\[\begin{split}\begin{align*}
+\max_{y \geq 0} &amp;\ 30\ y  &amp; \text{objective}\\
+\text{subject to:}\qquad \\
+y &amp; \leq 80  &amp; \text{labor A constraint} \\
+y &amp; \leq 100 &amp; \text{labor B constraint}
+\end{align*}\end{split}\]</div>
 <p>Compared to product X, we can manufacture and sell up 80 units per week for a total profit of $2,400. This is very welcome news.</p>
 <section id="id1">
 <h3><span class="section-number">5.1.3.1. </span>Exercises<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
@@ -729,17 +732,17 @@ y &amp; \leq 100 &amp; \mbox{labor B constraint}
 </section>
 <section id="production-plan-mixed-product-strategy">
 <h2><span class="section-number">5.1.4. </span>Production Plan: Mixed Product Strategy<a class="headerlink" href="#production-plan-mixed-product-strategy" title="Permalink to this heading">#</a></h2>
-<p>So far we have learned that we can make \<span class="math notranslate nohighlight">\(1,600 per week by manufacturing product X, and \\\)</span>2,400 per week manufacturing product Y.  Is it possible to do even better?</p>
+<p>So far we have learned that we can make $1,600 per week by manufacturing product X, and $2,400 per week manufacturing product Y.  Is it possible to do even better?</p>
 <p>To answer this question, we consider the possibilty of manufacturing both products in the same plant. The marketing department assures us that product Y will not affect the sales of product X.  So the same constraints hold as before, but now we have two decision variables, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p><img alt="LP_ProductXY.png" src="../../_images/LP_ProductXY.png" /></p>
 <p>Mathematical formulation</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
-\max_{x,y \geq 0} &amp;\ 40\ x + 30\ y  &amp; \mbox{objective}\\
-\mbox{subject to:}\qquad \\
-x &amp; \leq 40  &amp; \mbox{demand constraint} \\
-x + y &amp; \leq 80  &amp; \mbox{labor A constraint} \\
-2x + y &amp; \leq 100 &amp; \mbox{labor B constraint}
+\max_{x,y \geq 0} &amp;\ 40\ x + 30\ y  &amp; \text{objective}\\
+\text{subject to:}\qquad \\
+x &amp; \leq 40  &amp; \text{demand constraint} \\
+x + y &amp; \leq 80  &amp; \text{labor A constraint} \\
+2x + y &amp; \leq 100 &amp; \text{labor B constraint}
 \end{align}\end{split}\]</div>
 </section>
 <section id="solution-using-pyomo">
@@ -774,7 +777,8 @@ x + y &amp; \leq 80  &amp; \mbox{labor A constraint} \\
     <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">100</span>
 
 <span class="c1"># compute solution</span>
-<span class="n">solver</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">SolverFactory</span><span class="p">(</span><span class="s1">&#39;gurobi_direct&#39;</span><span class="p">)</span>
+<span class="c1"># solver = pyo.SolverFactory(&#39;gurobi_direct&#39;)</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">SolverFactory</span><span class="p">(</span><span class="s1">&#39;cbc&#39;</span><span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
 <span class="c1"># display solution</span>
@@ -847,12 +851,14 @@ y =  60.0
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="s1">&#39;Increasing Profit&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">15</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrowprops</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/LPprob01.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">on_colab</span><span class="p">:</span>
+    <span class="c1"># Only save the figure if not running in Google Colab</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../figures/LPprob01.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/850d4d9b12d34ac135e2a0fcf16e10022f1f1f5f4f8153969cc1ca818e4e6fd0.png" src="../../_images/850d4d9b12d34ac135e2a0fcf16e10022f1f1f5f4f8153969cc1ca818e4e6fd0.png" />
+<img alt="../../_images/e0144a481918a0b831100b7202bc1a5e7fe73154f35ee9553b8386c9be4a8079.png" src="../../_images/e0144a481918a0b831100b7202bc1a5e7fe73154f35ee9553b8386c9be4a8079.png" />
 </div>
 </div>
 </section>
@@ -866,6 +872,16 @@ y =  60.0
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyomo.environ</span> <span class="k">as</span> <span class="nn">pyo</span>
 
 <span class="k">def</span> <span class="nf">production_model</span><span class="p">(</span><span class="n">demand</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">laborA</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">laborB</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Production model with demand, laborA, and laborB constraints</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        demand: float, maximum demand for product X</span>
+<span class="sd">        laborA: float, maximum availability of labor A</span>
+<span class="sd">        laborB: float, maximum availability of labor B</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        model: solved Pyomo model object </span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="c1"># create a new model</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">ConcreteModel</span><span class="p">(</span><span class="s2">&quot;Production Model&quot;</span><span class="p">)</span>
@@ -893,12 +909,16 @@ y =  60.0
         <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">laborB</span>
 
     <span class="c1"># compute solution</span>
-    <span class="n">solver</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">SolverFactory</span><span class="p">(</span><span class="s1">&#39;gurobi_direct&#39;</span><span class="p">)</span>
+    <span class="c1"># solver = pyo.SolverFactory(&#39;gurobi_direct&#39;)</span>
+    <span class="n">solver</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">SolverFactory</span><span class="p">(</span><span class="s1">&#39;cbc&#39;</span><span class="p">)</span>
     <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">model</span>
 
+<span class="c1"># Build and solve the optimization problem</span>
 <span class="n">model</span><span class="o">=</span> <span class="n">production_model</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Extract and print the solution</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;profit = &quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">profit</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">x</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y = &quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">y</span><span class="p">())</span>
