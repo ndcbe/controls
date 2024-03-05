@@ -89,12 +89,16 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | [](./notebooks/03.09-PI-Controller-Analysis.ipynb) |
 | **Thursday, February 29** | **PID Tuning** |
 | [](./notebooks/03.10-Controller-Tuning.ipynb) | |
-| **Tuesday, March 5** | **Optimization Modeling in Pyomo** |
-| **Thursday, March 7** | **Linear Programming Examples** |
-| **Tuesday, March 19** | **Nonlinear and Dynamic Optimization** |
+| **Tuesday, March 5** | **Optimization Modeling and Linear Programming in Pyomo** |
+| [](./notebooks/05/05.01-Linear-Production-Model.ipynb) | [Optimization Python Book: Mathematical Optimization](https://mobook.github.io/MO-book/notebooks/01/01.00.html) |
+| [](./notebooks/05/05.02-Linear-Blending-Problem.ipynb) | [Optimization Python Book: Linear Optimization](https://mobook.github.io/MO-book/notebooks/02/02.00.html) |
+| **Thursday, March 7** | **Nonlinear Programming Examples** |
+| [](./notebooks/05/05.04-Gasoline-Blending.ipynb) | |
+| [](./notebooks/05/05.06-Design-of-a-Cold-Weather-Fuel.ipynb) | |
+| **Tuesday, March 19** | **Dynamic Optimization** |
 | **Thursday, March 21** | **Simulation and Open-Loop Control** |
-| **Tuesday, March 26** | **Model Predictive Control** |
-| **Thursday, March 28** | **Implementing Model Predictive Control** |
+| **Tuesday, March 26** | **State Estimation** |
+| **Thursday, March 28** | **Model Predictive Control** |
 | Tuesday, April 2 | Review Session |
 | Thursday, April 4 | Midterm Exam (in-class) |
 | Tuesday, April 9 | Project Consulations (in-class) |
