@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Homework Assignment 2: Optimization &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+    <title>Homework 2: Optimization &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
   
   
   
@@ -186,7 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework Assignment 2: Optimization</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 2: Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
 </ul>
 </li>
@@ -532,7 +532,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Homework Assignment 2: Optimization</h1>
+    <h1>Homework 2: Optimization</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -569,8 +569,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="homework-assignment-2-optimization">
-<h1>Homework Assignment 2: Optimization<a class="headerlink" href="#homework-assignment-2-optimization" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-2-optimization">
+<h1>Homework 2: Optimization<a class="headerlink" href="#homework-2-optimization" title="Permalink to this heading">#</a></h1>
 <p><em>Your Name</em>:</p>
 <p>Homework assigment 2 is intended to develop your skills in creating linear programming models. The lecture notes will provide with a starting point for the following exercises. The problem data has been changed to provide a more meaningful example for sensitivity analysis.</p>
 <section id="blending-and-metal-recycling">
@@ -873,8 +873,8 @@ document.write(`
 <section id="return-rate">
 <h3>Return Rate<a class="headerlink" href="#return-rate" title="Permalink to this heading">#</a></h3>
 <p>You are given a Stock_Data.csv file. Using the stock data, calculate the 1-day return rate:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5c47aeeb-d3f6-4319-9c17-ec7978214d3d">
-<span class="eqno">(6)<a class="headerlink" href="#equation-5c47aeeb-d3f6-4319-9c17-ec7978214d3d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-15081833-63af-4d10-a3f5-6500c149495f">
+<span class="eqno">(6)<a class="headerlink" href="#equation-15081833-63af-4d10-a3f5-6500c149495f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	r_{t,i} = \frac{p_{t+1,i} - p_{t,i}}{p_{t,i}}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_{t+1,i}\)</span> and <span class="math notranslate nohighlight">\(p_{t,i}\)</span> are the <em>Adjusted Closing Prices</em> at the end of days <span class="math notranslate nohighlight">\(t+1\)</span> and <span class="math notranslate nohighlight">\(t\)</span>, respectively, for stock <span class="math notranslate nohighlight">\(i\)</span>. These results are stored in matrix <code class="docutils literal notranslate"><span class="pre">R</span></code>. <em>Hint</em>: Use Pandas.</p>
@@ -970,8 +970,8 @@ document.write(`
 <section id="exercise-3-markowitz-mean-variance-portfolio-optimization-model">
 <h3>Exercise 3. Markowitz Mean/Variance Portfolio Optimization Model<a class="headerlink" href="#exercise-3-markowitz-mean-variance-portfolio-optimization-model" title="Permalink to this heading">#</a></h3>
 <p>The Markowitz mean/variance model, shown below, computes the optimal allocation of funds in a portfolio:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-23be1d40-df72-4929-bf89-f71e118f58e6">
-<span class="eqno">(7)<a class="headerlink" href="#equation-23be1d40-df72-4929-bf89-f71e118f58e6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-755a6f71-3328-4704-8b94-eb2c39037ecf">
+<span class="eqno">(7)<a class="headerlink" href="#equation-755a6f71-3328-4704-8b94-eb2c39037ecf" title="Permalink to this equation">#</a></span>\[\begin{align}
 		\min_{{x} \geq {0}} \qquad &amp; z:= {x}^T \cdot {\Sigma_r} \cdot {x} \\
 		\text{s.t.} \qquad &amp; {\bar{r}}^T \cdot {x} \geq \rho \\
 		 &amp; \sum_{i =1}^N x_i = 1 
