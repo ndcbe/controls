@@ -239,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/05/05.00-Optimization.html">5. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.01-Linear-Production-Model.html">5.1. Linear Production Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.03-Homework_2.html">5.3. Homework Assignment 2: Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.03-Homework_2.html">5.3. Homework 2: Optimization (Legacy)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.04-Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
@@ -873,8 +873,8 @@ document.write(`
 <section id="return-rate">
 <h3>Return Rate<a class="headerlink" href="#return-rate" title="Permalink to this heading">#</a></h3>
 <p>You are given a Stock_Data.csv file. Using the stock data, calculate the 1-day return rate:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-15081833-63af-4d10-a3f5-6500c149495f">
-<span class="eqno">(6)<a class="headerlink" href="#equation-15081833-63af-4d10-a3f5-6500c149495f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9902c0ea-8fc2-46e9-b8ce-2405db269192">
+<span class="eqno">(6)<a class="headerlink" href="#equation-9902c0ea-8fc2-46e9-b8ce-2405db269192" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	r_{t,i} = \frac{p_{t+1,i} - p_{t,i}}{p_{t,i}}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_{t+1,i}\)</span> and <span class="math notranslate nohighlight">\(p_{t,i}\)</span> are the <em>Adjusted Closing Prices</em> at the end of days <span class="math notranslate nohighlight">\(t+1\)</span> and <span class="math notranslate nohighlight">\(t\)</span>, respectively, for stock <span class="math notranslate nohighlight">\(i\)</span>. These results are stored in matrix <code class="docutils literal notranslate"><span class="pre">R</span></code>. <em>Hint</em>: Use Pandas.</p>
@@ -970,8 +970,8 @@ document.write(`
 <section id="exercise-3-markowitz-mean-variance-portfolio-optimization-model">
 <h3>Exercise 3. Markowitz Mean/Variance Portfolio Optimization Model<a class="headerlink" href="#exercise-3-markowitz-mean-variance-portfolio-optimization-model" title="Permalink to this heading">#</a></h3>
 <p>The Markowitz mean/variance model, shown below, computes the optimal allocation of funds in a portfolio:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-755a6f71-3328-4704-8b94-eb2c39037ecf">
-<span class="eqno">(7)<a class="headerlink" href="#equation-755a6f71-3328-4704-8b94-eb2c39037ecf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-192e2a26-f57c-40f6-8b89-cd93f223e348">
+<span class="eqno">(7)<a class="headerlink" href="#equation-192e2a26-f57c-40f6-8b89-cd93f223e348" title="Permalink to this equation">#</a></span>\[\begin{align}
 		\min_{{x} \geq {0}} \qquad &amp; z:= {x}^T \cdot {\Sigma_r} \cdot {x} \\
 		\text{s.t.} \qquad &amp; {\bar{r}}^T \cdot {x} \geq \rho \\
 		 &amp; \sum_{i =1}^N x_i = 1 

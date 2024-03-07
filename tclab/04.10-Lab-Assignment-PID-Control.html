@@ -241,7 +241,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/05/05.00-Optimization.html">5. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.01-Linear-Production-Model.html">5.1. Linear Production Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.03-Homework_2.html">5.3. Homework Assignment 2: Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.03-Homework_2.html">5.3. Homework 2: Optimization (Legacy)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.04-Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
@@ -593,8 +593,8 @@ document.write(`
 <section id="part-2-implementing-a-pid-controller">
 <h2><span class="section-number">5.3.2. </span>Part 2. Implementing a PID Controller<a class="headerlink" href="#part-2-implementing-a-pid-controller" title="Permalink to this heading">#</a></h2>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the rule</p>
-<div class="amsmath math notranslate nohighlight" id="equation-18139149-f4df-4964-bf2f-4c7c95ed132e">
-<span class="eqno">(5.13)<a class="headerlink" href="#equation-18139149-f4df-4964-bf2f-4c7c95ed132e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-01e0f344-4af4-4b55-8549-e06fde91d8ee">
+<span class="eqno">(5.13)<a class="headerlink" href="#equation-01e0f344-4af4-4b55-8549-e06fde91d8ee" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV &amp; = \bar{MV} + K_p\left(SP - PV\right) + K_i \int_0^t \left(SP-PV)\right)dt + K_d \frac{d\left(SP-PV\right)}{dt}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(K_p\)</span>, <span class="math notranslate nohighlight">\(K_i\)</span>, and <span class="math notranslate nohighlight">\(K_d\)</span> are the proportional, integral, and derivative coefficients, respectively.</p>

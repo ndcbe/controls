@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="5.5. Linear Programming" href="05.05-Linear-Programming.html" />
-    <link rel="prev" title="5.3. Homework Assignment 2: Optimization" href="05.03-Homework_2.html" />
+    <link rel="prev" title="5.3. Homework 2: Optimization (Legacy)" href="05.03-Homework_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -241,7 +241,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="05.00-Optimization.html">5. Optimization</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="05.01-Linear-Production-Model.html">5.1. Linear Production Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.03-Homework_2.html">5.3. Homework Assignment 2: Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05.03-Homework_2.html">5.3. Homework 2: Optimization (Legacy)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Gasoline Blending</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
@@ -827,8 +827,8 @@ document.write(`
 <section id="objective">
 <h3><span class="section-number">5.4.4.1. </span>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h3>
 <p>The objective is maximize profit, which is the difference between product revenue and stream costs.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-44b73d92-ef35-417a-bd9b-94056969b0b4">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-44b73d92-ef35-417a-bd9b-94056969b0b4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-07310dbc-2314-4299-821b-eb3bc8f5085b">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-07310dbc-2314-4299-821b-eb3bc8f5085b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \text{profit} &amp; = \max_{x_{s,p}}\left( \sum_{p\in P} \text{Price}_p \sum_{s\in S} x_{s,p}
 - \sum_{s\in S} \text{Cost}_s \sum_{p\in P} x_{s,p}\right) \\
 &amp; = \max_{x_{s,p}}\left(\sum_{p\in P}\sum_{s\in S}x_{s,p}(\text{Price}_p - \text{Cost}_s)\right)
@@ -838,23 +838,23 @@ document.write(`
 <h3><span class="section-number">5.4.4.2. </span>Raw Materials<a class="headerlink" href="#raw-materials" title="Permalink to this heading">#</a></h3>
 <p>The first constraints in any blending problem are normally the limits on available raw materials.</p>
 <p>The blending constraint for octane can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90f8a5c9-ec50-4a44-b2ed-8b62a5a41f22">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-90f8a5c9-ec50-4a44-b2ed-8b62a5a41f22" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-00f10246-d674-4740-816a-1817fb9fba02">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-00f10246-d674-4740-816a-1817fb9fba02" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{\sum_{s \in S} x_{s,p} \text{Octane}_s}{\sum_{s \in S} x_{s,p}} &amp; \geq \text{Octane}_p &amp; \forall p \in P
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\text{Octane}_s\)</span> refers to the octane rating of stream <span class="math notranslate nohighlight">\(s\)</span>, whereas <span class="math notranslate nohighlight">\(\text{Octane}_p\)</span> refers to the octane rating of product <span class="math notranslate nohighlight">\(p\)</span>. Multiplying through by the denominator, and consolidating terms gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-037bb885-54ac-4824-b41b-87c6f666eaa9">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-037bb885-54ac-4824-b41b-87c6f666eaa9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4887d57f-3438-4260-8d8c-ae65435408b9">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-4887d57f-3438-4260-8d8c-ae65435408b9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{Octane}_s - \text{Octane}_p\right) &amp; \geq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>The same assumptions and development apply to the benzene constraint</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8121e8d9-b8e2-4328-ad61-3b74579dfb6b">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-8121e8d9-b8e2-4328-ad61-3b74579dfb6b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-da13aec3-7bc4-4a6c-9ec2-4367a46203a2">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-da13aec3-7bc4-4a6c-9ec2-4367a46203a2" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{Benzene}_s - \text{Benzene}_p\right) &amp; \leq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>Reid vapor pressure, however, follows a somewhat different mixing rule.  For the Reid vapor pressure we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71b3f4b6-2db5-4560-98ec-7eced127b837">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-71b3f4b6-2db5-4560-98ec-7eced127b837" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-25811888-4f3c-4fd0-8ae8-9d12751c4822">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-25811888-4f3c-4fd0-8ae8-9d12751c4822" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{RVP}_s^{1.25} - \text{RVP}_{min,p}^{1.25}\right) &amp; \geq  0 &amp; \forall p \in P \\
 \sum_{s \in S} x_{s,p}\left(\text{RVP}_s^{1.25} - \text{RVP}_{max,p}^{1.25}\right) &amp; \leq  0 &amp; \forall p \in P
 \end{align}\]</div>
@@ -2786,7 +2786,7 @@ Profit = 27.5 cents per gallon.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.3. </span>Homework Assignment 2: Optimization</p>
+        <p class="prev-next-title"><span class="section-number">5.3. </span>Homework 2: Optimization (Legacy)</p>
       </div>
     </a>
     <a class="right-next"
