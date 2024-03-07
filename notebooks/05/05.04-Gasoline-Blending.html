@@ -541,22 +541,22 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blending-model">5.4.4. Blending Model</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">5.4.4.1. Objective</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-materials">5.4.4.2. Raw Materials</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyomo-implementation">5.4.4.3. Pyomo Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-results">5.4.5. Display Results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results-for-each-stream">5.4.5.1. Results for each Stream</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results-for-each-product">5.4.5.2. Results for each Product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyomo-implementation">5.4.5. Pyomo Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-results">5.4.6. Display Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results-for-each-stream">5.4.6.1. Results for each Stream</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results-for-each-product">5.4.6.2. Results for each Product</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excercise-0">5.4.6. Excercise 0.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">5.4.7. Exercise 1.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">5.4.8. Exercise 2.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">5.4.9. Exercise 3.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-a-reformate-and-lsr-base">5.4.9.1. Scenario A: Reformate and LSR (base)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenarion-b-reformate-lb-and-lsr">5.4.9.2. Scenarion B: Reformate LB and LSR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-c-reformate-and-isomerate">5.4.9.3. Scenario C: Reformate and Isomerate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenarion-d-reformate-lb-and-isomerate">5.4.9.4. Scenarion D: Reformate LB and Isomerate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excercise-0">5.4.7. Excercise 0.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">5.4.8. Exercise 1.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">5.4.9. Exercise 2.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">5.4.10. Exercise 3.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-a-reformate-and-lsr-base">5.4.10.1. Scenario A: Reformate and LSR (base)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenarion-b-reformate-lb-and-lsr">5.4.10.2. Scenarion B: Reformate LB and LSR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-c-reformate-and-isomerate">5.4.10.3. Scenario C: Reformate and Isomerate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenarion-d-reformate-lb-and-isomerate">5.4.10.4. Scenarion D: Reformate LB and Isomerate</a></li>
 </ul>
 </li>
 </ul>
@@ -814,8 +814,8 @@ document.write(`
 <section id="objective">
 <h3><span class="section-number">5.4.4.1. </span>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h3>
 <p>The objective is maximize profit, which is the difference between product revenue and stream costs.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f09329fb-29eb-47b0-9109-babfb254edcf">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-f09329fb-29eb-47b0-9109-babfb254edcf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-84e94e4c-6d70-4333-b4d6-7454790dab8b">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-84e94e4c-6d70-4333-b4d6-7454790dab8b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \text{profit} &amp; = \max_{x_{s,p}}\left( \sum_{p\in P} \text{Price}_p \sum_{s\in S} x_{s,p}
 - \sum_{s\in S} \text{Cost}_s \sum_{p\in P} x_{s,p}\right) \\
 &amp; = \max_{x_{s,p}}\left(\sum_{p\in P}\sum_{s\in S}x_{s,p}(\text{Price}_p - \text{Cost}_s)\right)
@@ -825,30 +825,31 @@ document.write(`
 <h3><span class="section-number">5.4.4.2. </span>Raw Materials<a class="headerlink" href="#raw-materials" title="Permalink to this heading">#</a></h3>
 <p>The first constraints in any blending problem are normally the limits on available raw materials.</p>
 <p>The blending constraint for octane can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bfa25ebe-2ed2-4a0b-97dc-630053ad6f9a">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-bfa25ebe-2ed2-4a0b-97dc-630053ad6f9a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c91dafbf-4241-4a34-bc49-b74b9b1454c9">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-c91dafbf-4241-4a34-bc49-b74b9b1454c9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{\sum_{s \in S} x_{s,p} \text{Octane}_s}{\sum_{s \in S} x_{s,p}} &amp; \geq \text{Octane}_p &amp; \forall p \in P
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\text{Octane}_s\)</span> refers to the octane rating of stream <span class="math notranslate nohighlight">\(s\)</span>, whereas <span class="math notranslate nohighlight">\(\text{Octane}_p\)</span> refers to the octane rating of product <span class="math notranslate nohighlight">\(p\)</span>. Multiplying through by the denominator, and consolidating terms gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ebdbd955-c763-4941-8e13-3b674f3870e2">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-ebdbd955-c763-4941-8e13-3b674f3870e2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e3fe6108-06d1-4941-9a1d-162a527d38d0">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-e3fe6108-06d1-4941-9a1d-162a527d38d0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{Octane}_s - \text{Octane}_p\right) &amp; \geq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>The same assumptions and development apply to the benzene constraint</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5ebfba85-e5bc-46f7-be87-0e6b8458e718">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-5ebfba85-e5bc-46f7-be87-0e6b8458e718" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c9afa401-26be-409c-bb3e-3af6cd9aecd0">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-c9afa401-26be-409c-bb3e-3af6cd9aecd0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{Benzene}_s - \text{Benzene}_p\right) &amp; \leq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>Reid vapor pressure, however, follows a somewhat different mixing rule.  For the Reid vapor pressure we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b3ba084d-41b8-4935-9ccf-5cc4107f821c">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-b3ba084d-41b8-4935-9ccf-5cc4107f821c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ecb48761-2c5e-48eb-b87f-02d10f407c40">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-ecb48761-2c5e-48eb-b87f-02d10f407c40" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{RVP}_s^{1.25} - \text{RVP}_{min,p}^{1.25}\right) &amp; \geq  0 &amp; \forall p \in P \\
 \sum_{s \in S} x_{s,p}\left(\text{RVP}_s^{1.25} - \text{RVP}_{max,p}^{1.25}\right) &amp; \leq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>This model is implemented in the following cell.</p>
 </section>
+</section>
 <section id="pyomo-implementation">
-<h3><span class="section-number">5.4.4.3. </span>Pyomo Implementation<a class="headerlink" href="#pyomo-implementation" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">5.4.5. </span>Pyomo Implementation<a class="headerlink" href="#pyomo-implementation" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyomo.environ</span> <span class="k">as</span> <span class="nn">pyo</span>
@@ -986,11 +987,10 @@ Profit = 42.7 cents per gallon.
 </div></div></div>
 </div>
 </section>
-</section>
 <section id="display-results">
-<h2><span class="section-number">5.4.5. </span>Display Results<a class="headerlink" href="#display-results" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4.6. </span>Display Results<a class="headerlink" href="#display-results" title="Permalink to this heading">#</a></h2>
 <section id="results-for-each-stream">
-<h3><span class="section-number">5.4.5.1. </span>Results for each Stream<a class="headerlink" href="#results-for-each-stream" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.6.1. </span>Results for each Stream<a class="headerlink" href="#results-for-each-stream" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_stream_results</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">streams</span><span class="p">):</span>
@@ -1119,7 +1119,7 @@ Profit = 42.7 cents per gallon.
 </div>
 </section>
 <section id="results-for-each-product">
-<h3><span class="section-number">5.4.5.2. </span>Results for each Product<a class="headerlink" href="#results-for-each-product" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.6.2. </span>Results for each Product<a class="headerlink" href="#results-for-each-product" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_product_results</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">streams</span><span class="p">,</span> <span class="n">products</span><span class="p">):</span>
@@ -1188,7 +1188,7 @@ Profit = 42.7 cents per gallon.
 </section>
 </section>
 <section id="excercise-0">
-<h2><span class="section-number">5.4.6. </span>Excercise 0.<a class="headerlink" href="#excercise-0" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4.7. </span>Excercise 0.<a class="headerlink" href="#excercise-0" title="Permalink to this heading">#</a></h2>
 <p>What are the marginal blending rates of each stream?</p>
 <p>Perturb the <code class="docutils literal notranslate"><span class="pre">avail</span></code> of each stream and record the results. We can then calculate the partial derivative of profit with respect to each perturbation.</p>
 <div class="cell docutils container">
@@ -1266,7 +1266,7 @@ Name: sensitivity, dtype: float64
 <p>Which feed stream is most valuable and why?</p>
 </section>
 <section id="exercise-1">
-<h2><span class="section-number">5.4.7. </span>Exercise 1.<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4.8. </span>Exercise 1.<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
 <p>The marketing team says there is an opportunity to create a mid-grade gasoline product with a road octane number of 89 that would sell for $2.82/gallon, and with all other specifications the same. Could an additional profit be created?</p>
 <p>Create a new cell (or cells) below to compute a solution to this exercise.</p>
 <div class="cell docutils container">
@@ -1499,7 +1499,7 @@ Profit = 44.7 cents per gallon.
 </div>
 </section>
 <section id="exercise-2">
-<h2><span class="section-number">5.4.8. </span>Exercise 2.<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4.9. </span>Exercise 2.<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h2>
 <p>New environmental regulations have reduced the allowable benzene levels from 1.1 vol% to 0.62 vol%, and the maximum Reid vapor pressure from 15.0 to 9.0.</p>
 <p>Compared to the base case (i.e., without the midgrade product), how does this change profitability?</p>
 <div class="cell docutils container">
@@ -1708,11 +1708,11 @@ Profit = 32.4 cents per gallon.
 </div>
 </section>
 <section id="exercise-3">
-<h2><span class="section-number">5.4.9. </span>Exercise 3.<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4.10. </span>Exercise 3.<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h2>
 <p>Given the new product specifications in Exercise 2, let’s consider using different refinery streams. In place of Reformate, the refinery could produce Reformate LB. (That is, one or the other of the two streams could be 60000 gallons per day, but not both).  Same for LSR and Isomerate.</p>
 <p>How should the refinery be operated to maximize profitability? Why is this the best solution? What intutition can you develop from the results?</p>
 <section id="scenario-a-reformate-and-lsr-base">
-<h3><span class="section-number">5.4.9.1. </span>Scenario A: Reformate and LSR (base)<a class="headerlink" href="#scenario-a-reformate-and-lsr-base" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.10.1. </span>Scenario A: Reformate and LSR (base)<a class="headerlink" href="#scenario-a-reformate-and-lsr-base" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exercise3</span><span class="p">(</span><span class="n">reformate_LB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isomerate</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -2009,7 +2009,7 @@ Profit = 32.4 cents per gallon.
 </div>
 </section>
 <section id="scenarion-b-reformate-lb-and-lsr">
-<h3><span class="section-number">5.4.9.2. </span>Scenarion B: Reformate LB and LSR<a class="headerlink" href="#scenarion-b-reformate-lb-and-lsr" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.10.2. </span>Scenarion B: Reformate LB and LSR<a class="headerlink" href="#scenarion-b-reformate-lb-and-lsr" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exercise3</span><span class="p">(</span><span class="n">reformate_LB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isomerate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -2251,7 +2251,7 @@ Profit = 29.1 cents per gallon.
 </div>
 </section>
 <section id="scenario-c-reformate-and-isomerate">
-<h3><span class="section-number">5.4.9.3. </span>Scenario C: Reformate and Isomerate<a class="headerlink" href="#scenario-c-reformate-and-isomerate" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.10.3. </span>Scenario C: Reformate and Isomerate<a class="headerlink" href="#scenario-c-reformate-and-isomerate" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exercise3</span><span class="p">(</span><span class="n">reformate_LB</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">isomerate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2493,7 +2493,7 @@ Profit = 30.0 cents per gallon.
 </div>
 </section>
 <section id="scenarion-d-reformate-lb-and-isomerate">
-<h3><span class="section-number">5.4.9.4. </span>Scenarion D: Reformate LB and Isomerate<a class="headerlink" href="#scenarion-d-reformate-lb-and-isomerate" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.10.4. </span>Scenarion D: Reformate LB and Isomerate<a class="headerlink" href="#scenarion-d-reformate-lb-and-isomerate" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exercise3</span><span class="p">(</span><span class="n">reformate_LB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isomerate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2806,22 +2806,22 @@ Profit = 27.5 cents per gallon.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blending-model">5.4.4. Blending Model</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">5.4.4.1. Objective</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-materials">5.4.4.2. Raw Materials</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyomo-implementation">5.4.4.3. Pyomo Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-results">5.4.5. Display Results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results-for-each-stream">5.4.5.1. Results for each Stream</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results-for-each-product">5.4.5.2. Results for each Product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyomo-implementation">5.4.5. Pyomo Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-results">5.4.6. Display Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results-for-each-stream">5.4.6.1. Results for each Stream</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results-for-each-product">5.4.6.2. Results for each Product</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excercise-0">5.4.6. Excercise 0.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">5.4.7. Exercise 1.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">5.4.8. Exercise 2.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">5.4.9. Exercise 3.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-a-reformate-and-lsr-base">5.4.9.1. Scenario A: Reformate and LSR (base)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenarion-b-reformate-lb-and-lsr">5.4.9.2. Scenarion B: Reformate LB and LSR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-c-reformate-and-isomerate">5.4.9.3. Scenario C: Reformate and Isomerate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenarion-d-reformate-lb-and-isomerate">5.4.9.4. Scenarion D: Reformate LB and Isomerate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excercise-0">5.4.7. Excercise 0.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">5.4.8. Exercise 1.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">5.4.9. Exercise 2.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">5.4.10. Exercise 3.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-a-reformate-and-lsr-base">5.4.10.1. Scenario A: Reformate and LSR (base)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenarion-b-reformate-lb-and-lsr">5.4.10.2. Scenarion B: Reformate LB and LSR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-c-reformate-and-isomerate">5.4.10.3. Scenario C: Reformate and Isomerate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenarion-d-reformate-lb-and-isomerate">5.4.10.4. Scenarion D: Reformate LB and Isomerate</a></li>
 </ul>
 </li>
 </ul>
