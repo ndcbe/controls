@@ -591,8 +591,8 @@ u_{1}(t) = \bar{u}_{1} + K_P (T_{set} - T_{S,1}(t)) + K_I \int_{0}^{t} (T_{set} 
 <h2><span class="section-number">3.9.3. </span>Closed-Loop Dynamics<a class="headerlink" href="#closed-loop-dynamics" title="Permalink to this heading">#</a></h2>
 <p>How can we model the integral in the control law? Let’s add a new state to our model for the integral:
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-67bbf91e-e12b-4944-9277-ea996450daf5">
-<span class="eqno">(3.15)<a class="headerlink" href="#equation-67bbf91e-e12b-4944-9277-ea996450daf5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fad0336e-5606-4bbc-9e1a-af8596a5a9e1">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-fad0336e-5606-4bbc-9e1a-af8596a5a9e1" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = -U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) - \alpha P_1 K_P T^*_{S,1} + \alpha P_1 K_I I\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) \\
 \frac{dI}{dt} &amp;= -T^{*}_{S,1}

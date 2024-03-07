@@ -593,8 +593,8 @@ document.write(`
 <section id="part-2-implementing-a-pid-controller">
 <h2><span class="section-number">5.3.2. </span>Part 2. Implementing a PID Controller<a class="headerlink" href="#part-2-implementing-a-pid-controller" title="Permalink to this heading">#</a></h2>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the rule</p>
-<div class="amsmath math notranslate nohighlight" id="equation-01e0f344-4af4-4b55-8549-e06fde91d8ee">
-<span class="eqno">(5.13)<a class="headerlink" href="#equation-01e0f344-4af4-4b55-8549-e06fde91d8ee" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-63f2b454-1c7f-4228-984a-8e882576f18f">
+<span class="eqno">(5.13)<a class="headerlink" href="#equation-63f2b454-1c7f-4228-984a-8e882576f18f" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV &amp; = \bar{MV} + K_p\left(SP - PV\right) + K_i \int_0^t \left(SP-PV)\right)dt + K_d \frac{d\left(SP-PV\right)}{dt}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(K_p\)</span>, <span class="math notranslate nohighlight">\(K_i\)</span>, and <span class="math notranslate nohighlight">\(K_d\)</span> are the proportional, integral, and derivative coefficients, respectively.</p>
