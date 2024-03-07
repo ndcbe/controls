@@ -16,6 +16,7 @@ parts:
       - file: assignments/Lab-2-Relay-Control.ipynb
       - file: assignments/Lab-3-Model-Identification.ipynb
       - file: assignments/Lab-4-PI-Control.ipynb
+      - file: assignments/Homework-2.ipynb
       - file: assignments/Lab-5-Open-Loop-Optimization.ipynb
       
   - caption: Topical Materials
