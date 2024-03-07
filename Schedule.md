@@ -13,7 +13,7 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Thursday, February 8 | [](./assignments/Lab-2-Relay-Control.ipynb) |
 | Thursday, February 22 | [](./assignments/Lab-3-Model-Identification.ipynb) |
 | Friday, March 8 | [](./assignments/Lab-4-PI-Control.ipynb) |
-| Thursday, March 21| Homework 2: Optimization in Pyomo |
+| Thursday, March 21| [](./assignments/Homework-2.ipynb) |
 | Friday, March 22 | Project Proposals (team submission) |
 | Thursday, April 4 | **In-Class Exam** (no Gradescope submission) |
 | Monday, April 8 | [](./assignments/Lab-5-Open-Loop-Optimization.ipynb) |

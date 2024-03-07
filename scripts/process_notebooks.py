@@ -48,6 +48,7 @@ def process_notebook(folder_original, folder_new, filename, remove_output=False,
     
     SOLUTION_CODE = "### BEGIN SOLUTION(.*?)### END SOLUTION"
     SOLUTION_TEXT = "--- BEGIN SOLUTION(.*?)--- END SOLUTION"
+    HIDDEN_NOTE = "--- BEGIN HIDDEN NOTE(.*?)--- END HIDDEN NOTE"
     HIDDEN_TESTS = "### BEGIN HIDDEN TESTS(.*?)### END HIDDEN TESTS"
     replace_code(SOLUTION_CODE, "# Add your solution here")
     replace_code(HIDDEN_TESTS, "# Removed autograder test. You may delete this cell.")
@@ -101,6 +102,9 @@ def process_notebook(folder_original, folder_new, filename, remove_output=False,
     
     # Remove text solutions
     replace_markdown(SOLUTION_TEXT, "*Answer*: ")
+
+    # Remove hidden notes
+    replace_markdown(HIDDEN_NOTE, "")
 
     # replace links to media with urls
     # 2022-09-21: removed "!" from the beginning both of these expressions to also work on handouts (pdf) in media folder
