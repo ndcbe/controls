@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
 
@@ -121,20 +121,12 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <header>
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-  </header>
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -559,21 +551,21 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="two-input-two-output-model">
 <h1><span class="section-number">4.1. </span>Two-Input, Two-Output Model<a class="headerlink" href="#two-input-two-output-model" title="Permalink to this heading">#</a></h1>
 <section id="interacting-heaters">
 <h2><span class="section-number">4.1.1. </span>Interacting Heaters<a class="headerlink" href="#interacting-heaters" title="Permalink to this heading">#</a></h2>
 <p>Our next model considers the interaction between the two heaters. From the step response it is obvious that the heaters interact, and we need to understand how that affects the dynamic performance.  Will we see qualitative differences in the step response once we’ve included the second heater?</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e3fbb4c6-e68a-4eab-8a1e-4ffaf462d570">
-<span class="eqno">(4.9)<a class="headerlink" href="#equation-e3fbb4c6-e68a-4eab-8a1e-4ffaf462d570" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6f33b56d-026c-4a4a-9431-dc8f70b1b5f0">
+<span class="eqno">(4.9)<a class="headerlink" href="#equation-6f33b56d-026c-4a4a-9431-dc8f70b1b5f0" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + U_b(T_2 - T_1) + P_1u_1\\
 C_p\frac{dT_2}{dt} &amp; = U_a(T_{amb} - T_2) + U_b(T_1 - T_2) + P_2u_2
 \end{align}\]</div>
 <p>As a first step we isolate the bare derivatives on the left-hand side of the equations. This is good practice in situations where you expect to be doing numerical simulation.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7003c2a4-749d-4783-b3a6-d60e79605064">
-<span class="eqno">(4.10)<a class="headerlink" href="#equation-7003c2a4-749d-4783-b3a6-d60e79605064" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e19e7108-70e1-4117-b768-b69a345e0d89">
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-e19e7108-70e1-4117-b768-b69a345e0d89" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT_1}{dt} &amp; = \frac{U_a}{C_p}(T_{amb} - T_1) + \frac{U_b}{C_p}(T_2 - T_1) + \frac{P_1}{C_p}u_1\\
 \frac{dT_2}{dt} &amp; = \frac{U_a}{C_p}(T_{amb} - T_2) + \frac{U_b}{C_p}(T_1 - T_2) + \frac{P_2}{C_p}u_2
 \end{align}\]</div>
@@ -581,20 +573,20 @@ C_p\frac{dT_2}{dt} &amp; = U_a(T_{amb} - T_2) + U_b(T_1 - T_2) + P_2u_2
 <section id="deviation-variables">
 <h2><span class="section-number">4.1.2. </span>Deviation Variables<a class="headerlink" href="#deviation-variables" title="Permalink to this heading">#</a></h2>
 <p>As before, the equations appear somewhat simpler if we introduce deviation variables from a nominal state. In this case we’ll use the ambient temperature as the reference, so the deviation variable will express deviation from ambient.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fe18d89f-814c-4b59-8e01-af410fdbcaaf">
-<span class="eqno">(4.11)<a class="headerlink" href="#equation-fe18d89f-814c-4b59-8e01-af410fdbcaaf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bca1ea5f-5bc0-4ef8-824e-0e172cd3d81f">
+<span class="eqno">(4.11)<a class="headerlink" href="#equation-bca1ea5f-5bc0-4ef8-824e-0e172cd3d81f" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_1' &amp; = T_1 - T_{amb} \\
 T_2' &amp; = T_2 - T_{amb}
 \end{align}\]</div>
 <p>Then gathering terms</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52ab8764-52eb-4bb6-a23b-d410fff60935">
-<span class="eqno">(4.12)<a class="headerlink" href="#equation-52ab8764-52eb-4bb6-a23b-d410fff60935" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a6759ab1-98a6-48c3-92cf-6c1b44dac2df">
+<span class="eqno">(4.12)<a class="headerlink" href="#equation-a6759ab1-98a6-48c3-92cf-6c1b44dac2df" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT_1'}{dt} &amp; = -\frac{U_a+U_b}{C_p}T_1' + \frac{U_b}{C_p}T_2' + \frac{P_1}{C_p}u_1\\
 \frac{dT_2'}{dt} &amp; = -\frac{U_a+U_b}{C_p}T_2' + \frac{U_b}{C_p}T_1' + \frac{P_2}{C_p}u_2
 \end{align}\]</div>
 <p>An alternative way to express these equations is in matrix/vector form.  We won’t use this today, but later will make extensive use of this ‘state-space’ model of a linear system.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-64080951-4ef8-4d34-837a-88398796da84">
-<span class="eqno">(4.13)<a class="headerlink" href="#equation-64080951-4ef8-4d34-837a-88398796da84" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9f19cca3-58cd-4634-b14e-df762f32345f">
+<span class="eqno">(4.13)<a class="headerlink" href="#equation-9f19cca3-58cd-4634-b14e-df762f32345f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[\begin{array}{c}\frac{dT_1'}{dt} \\ \frac{dT_2'}{dt}\end{array}\right] &amp; = 
 \left[\begin{array}{cc}-\frac{U_a+U_b}{C_p} &amp; \frac{U_b}{C_p} \\ \frac{U_b}{C_p} &amp; -\frac{U_a+U_b}{C_p} \end{array}\right]
 \left[\begin{array}{c}T_1' \\ T_2'\end{array}\right] +
@@ -605,21 +597,21 @@ T_2' &amp; = T_2 - T_{amb}
 <section id="steady-state">
 <h2><span class="section-number">4.1.3. </span>Steady State<a class="headerlink" href="#steady-state" title="Permalink to this heading">#</a></h2>
 <p>The steady state is found by setting the derivatives to zero. We’ll use a bar over the dependent variables to designate steady state values.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4ed428b1-fa4b-4a95-af2b-86b281f36823">
-<span class="eqno">(4.14)<a class="headerlink" href="#equation-4ed428b1-fa4b-4a95-af2b-86b281f36823" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6c49f4c0-dd5c-4b3a-a7b3-0e28f57c16af">
+<span class="eqno">(4.14)<a class="headerlink" href="#equation-6c49f4c0-dd5c-4b3a-a7b3-0e28f57c16af" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; = -(U_a+U_b)\bar{T}_{1}' + U_b\bar{T}_{2}' + P_1\bar{u}_{1}\\
 0 &amp; = -(U_a+U_b)\bar{T}_{2}' + U_b\bar{T}_{1}' + P_2\bar{u}_{1}
 \end{align}\]</div>
 <p>Our challenge is to solve the following 2x2 system of linear equations for the steady state temperatures.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-576c89a7-ddb9-43cb-90e1-3772b08a80a1">
-<span class="eqno">(4.15)<a class="headerlink" href="#equation-576c89a7-ddb9-43cb-90e1-3772b08a80a1" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<div class="amsmath math notranslate nohighlight" id="equation-38d3c4b5-ee38-447f-8ec2-604b19585cff">
+<span class="eqno">(4.15)<a class="headerlink" href="#equation-38d3c4b5-ee38-447f-8ec2-604b19585cff" title="Permalink to this equation">#</a></span>\[\begin{align} 
 \left[\begin{array}{cc}(U_a+U_b) &amp; -U_b \\ -U_b &amp; (U_a+U_b) \end{array}\right]
 \left[\begin{array}{c}\bar{T}_1' \\ \bar{T}_2'\end{array}\right] &amp; = 
 \left[\begin{array}{c} P_1\bar{u}_1 \\ P_2\bar{u}_2\end{array}\right]
 \end{align}\]</div>
 <p>The solution to these equations is a bit of work, but you should be able to verify</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8b729782-fb71-486a-ae2b-8517f0969b03">
-<span class="eqno">(4.16)<a class="headerlink" href="#equation-8b729782-fb71-486a-ae2b-8517f0969b03" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9de615b5-2477-4561-8643-6c7fa0ca4e01">
+<span class="eqno">(4.16)<a class="headerlink" href="#equation-9de615b5-2477-4561-8643-6c7fa0ca4e01" title="Permalink to this equation">#</a></span>\[\begin{align}
 \bar{T}_1' &amp; = \frac{(U_a+U_b)}{U_a(U_a+2U_b)}P_1\bar{u}_1 + \frac{U_b}{U_a(U_a+2U_b)}P_2\bar{u}_2 \\
 \bar{T}_2' &amp; = \frac{U_b}{U_a(U_a+2U_b)}P_1\bar{u}_1 + \frac{(U_a+U_b)}{U_a(U_a+2U_b)}P_2\bar{u}_2
 \end{align}\]</div>
@@ -627,14 +619,14 @@ T_2' &amp; = T_2 - T_{amb}
 <section id="estimating-u-a-and-u-b">
 <h2><span class="section-number">4.1.4. </span>Estimating <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(U_b\)</span><a class="headerlink" href="#estimating-u-a-and-u-b" title="Permalink to this heading">#</a></h2>
 <p>Experimental step response data gives us the information needed to estimate parameters <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(U_b\)</span>. Rearranging the steady state equations, we find a pair of linear equations for <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(U_b\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1288a17-0ecc-43ac-8587-ff3878eac753">
-<span class="eqno">(4.17)<a class="headerlink" href="#equation-f1288a17-0ecc-43ac-8587-ff3878eac753" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4b4de17b-198d-4861-9cb0-70650650ca2b">
+<span class="eqno">(4.17)<a class="headerlink" href="#equation-4b4de17b-198d-4861-9cb0-70650650ca2b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \bar{T}_{1}'U_a  + (\bar{T}_{1}'-\bar{T}_{2}')U_b &amp; = P_1\bar{u}_{1}\\
 \bar{T}_{2}'U_a + (\bar{T}_{2}'-\bar{T}_{1}')U_b &amp; = P_2\bar{u}_{1}
 \end{align}\]</div>
 <p>There is an analytical solution to these equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-482b4570-e000-49d5-959e-0e1e16a661f0">
-<span class="eqno">(4.18)<a class="headerlink" href="#equation-482b4570-e000-49d5-959e-0e1e16a661f0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c556cea7-cbf5-40c4-b592-c59556c5b1c9">
+<span class="eqno">(4.18)<a class="headerlink" href="#equation-c556cea7-cbf5-40c4-b592-c59556c5b1c9" title="Permalink to this equation">#</a></span>\[\begin{align}
 U_a &amp; = \frac{P_1\bar{u}_1 + P_2\bar{u}_2}{\bar{T}_1' + \bar{T}_2'}\\
 U_b &amp; = \frac{\bar{T}_2'P_1\bar{u}_1 - \bar{T}_1'P_2\bar{u}_2}{(\bar{T}_1' - \bar{T}_2')(\bar{T}_1' + \bar{T}_2')}
 \end{align}\]</div>
@@ -823,7 +815,6 @@ U_b &amp; = \frac{\bar{T}_2'P_1\bar{u}_1 - \bar{T}_1'P_2\bar{u}_2}{(\bar{T}_1' -
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -884,8 +875,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

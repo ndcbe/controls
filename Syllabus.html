@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -78,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
 
@@ -121,20 +121,12 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <header>
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-  </header>
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -552,7 +544,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="syllabus">
 <h1>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this heading">#</a></h1>
@@ -801,18 +793,19 @@ document.write(`
 <li><p>Character the noise in the TCLab system. Are the residuals after parameter estimation i.i.d. Gaussian or is a different error model more appropriate? Explore fitting different time series models to the residuals. (This is a very open-ended project.)</p></li>
 <li><p>Develop a <a class="reference internal" href="tclab/04.10-Lab-Assignment-PID-Control.html"><span class="doc std std-doc">PID controller</span></a> for the TCLab. Extend our stability analysis of P and PI controllers from lecture to a PID controller.</p></li>
 <li><p>Develop two <a class="reference internal" href="tclab/04.11-Lab-Assignment-PI-Control.html"><span class="doc std std-doc">PI contollers</span></a> to simultanously control both heater assemblies. Test this on the <a class="reference internal" href="assignments/Lab-2-Relay-Control.html"><span class="doc std std-doc">original chocolate temperating experiment</span></a>.</p></li>
+<li><p>Perform <a class="reference internal" href="notebooks/03.10-Controller-Tuning.html"><span class="doc std std-doc">Ziegler-Nichols PID tuning</span></a></p></li>
 </ul>
 <p><strong>Modeling and Applications</strong>. Apply methods and concepts from class to explore a system of interest to your team.</p>
 <ul class="simple">
 <li><p>Develop a controler (e.g., PID, MPC) for tanks in series. This is a classic problem in chemical engineering control textbooks.</p></li>
 <li><p>Develop a controller (e.g., PID, MPC) for the <a class="reference internal" href="notebooks/02.07-Exothermic-CSTR.html"><span class="doc std std-doc">exothermic reactor</span></a>. The goal is to operate the reactor in the high conversion region with minimal oscillations and reject disturbances.</p></li>
 <li><p>Simulate model predictive control for a <a class="reference external" href="https://www.pnas.org/doi/10.1073/pnas.1525162113">microfluidics device</a>.</p></li>
-<li><p>Analysis of an industrial control system case study.</p></li>
+<li><p>Analyze an industrial control system.</p></li>
 </ul>
 <p><strong>Numerical and Statistical Methods</strong>. Develop a tutorial notebook for a topic not covered in CBE 20258.</p>
 <ul class="simple">
 <li><p>Principle componenent analysis</p></li>
-<li><p>Fourier analysis of periodic signals</p></li>
+<li><p><a class="reference external" href="https://www.3blue1brown.com/lessons/fourier-transforms">Fourier analysis</a> of periodic signals</p></li>
 <li><p>Maximum likelihood estimation</p></li>
 </ul>
 <p><em>This list will be periodically updated with additional ideas.</em></p>
@@ -944,7 +937,6 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1029,8 +1021,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
