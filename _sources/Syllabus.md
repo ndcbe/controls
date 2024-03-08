@@ -159,7 +159,7 @@ The final project for CBE 30338 is in-depth exploration of a dynamic modeling, o
 Every project must incorporate at least three of the following elements:
 - Mathematical modeling including degree of freedom analysis (e.g., states, decisions/controls)
 - Feedback control
-- Stability analysis
+- Stability/eigenvalue analysis
 - State estimation
 - Optimization
 - Data analysis, e.g., regression, uncertainty quantification
