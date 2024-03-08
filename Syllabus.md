@@ -159,7 +159,7 @@ The final project for CBE 30338 is in-depth exploration of a dynamic modeling, o
 Every project must incorporate at least three of the following elements:
 - Mathematical modeling including degree of freedom analysis (e.g., states, decisions/controls)
 - Feedback control
-- Stability analysis
+- Stability/eigenvalue analysis
 - State estimation
 - Optimization
 - Data analysis, e.g., regression, uncertainty quantification
@@ -232,16 +232,17 @@ Here are some project ideas, organized by topic.
 * Character the noise in the TCLab system. Are the residuals after parameter estimation i.i.d. Gaussian or is a different error model more appropriate? Explore fitting different time series models to the residuals. (This is a very open-ended project.)
 * Develop a [PID controller](./tclab/04.10-Lab-Assignment-PID-Control.ipynb) for the TCLab. Extend our stability analysis of P and PI controllers from lecture to a PID controller.
 * Develop two [PI contollers](./tclab/04.11-Lab-Assignment-PI-Control.ipynb) to simultanously control both heater assemblies. Test this on the [original chocolate temperating experiment](./assignments/Lab-2-Relay-Control.ipynb).
+* Perform [Ziegler-Nichols PID tuning](./notebooks/03.10-Controller-Tuning.ipynb)
 
 **Modeling and Applications**. Apply methods and concepts from class to explore a system of interest to your team.
 * Develop a controler (e.g., PID, MPC) for tanks in series. This is a classic problem in chemical engineering control textbooks.
 * Develop a controller (e.g., PID, MPC) for the [exothermic reactor](./notebooks/02.07-Exothermic-CSTR.ipynb). The goal is to operate the reactor in the high conversion region with minimal oscillations and reject disturbances.
 * Simulate model predictive control for a [microfluidics device](https://www.pnas.org/doi/10.1073/pnas.1525162113).
-* Analysis of an industrial control system case study.
+* Analyze an industrial control system.
 
 **Numerical and Statistical Methods**. Develop a tutorial notebook for a topic not covered in CBE 20258.
 * Principle componenent analysis
-* Fourier analysis of periodic signals
+* [Fourier analysis](https://www.3blue1brown.com/lessons/fourier-transforms) of periodic signals
 * Maximum likelihood estimation
 
 *This list will be periodically updated with additional ideas.*
