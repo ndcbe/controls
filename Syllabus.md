@@ -223,7 +223,7 @@ Important reminders:
 
 #### Project Ideas
 
-Here are some project ideas, organized by topic.
+Here are some project ideas, organized by topic. Please refine these ideas to fit your groups interest or use these ideas as a starting point to develop your own project.
 
 **TCLab**. Significantly extend one of our TCLab activities, complete on the labs on the website we skipped this year, or make a new mini-lab that applying a method from control, optimization, or estimation to the TCLab hardware. For example:
 * Fit a [four state model](./tclab/03.06-Four-State-Model.ipynb) that considers the interactions between the two heater/sensor assemblies.
@@ -245,11 +245,14 @@ Here are some project ideas, organized by topic.
 * Simulate model predictive control for a [microfluidics device](https://www.pnas.org/doi/10.1073/pnas.1525162113).
 * In the fall and spring, it is warm during the days and cool at night. From an energy perspective, does it make sense to open the windows in your house or appartment to cool off at night? The downside is that open windows will increase the humidity of your living space. When the air conditioner turns on in the day, it then takes more energy to dehumidify the room. Develop a simple mathematical model to perform the thermodynamic calculation. Then find historical temperature and humidity data for a location of your choice. Using your model and the data, analyze this strategy for one fall and one spring. How many nights was it clearly better to keep the windows open or closed? You will have to make a lot of assumptions for this project using your engineering judgement. The goal here is to get a reasonable answer you can defended, which is not neccessarily the most rigorous answer possible. This is a great project to hone engineering analysis skills before senior design.
 * Analyze an industrial control system.
+* Simulate the [growth and development of fruit flies](https://www.pnas.org/doi/epdf/10.1073/pnas.2313224120).
+* Find time-series historical pricing and trade data for critical minerals used in batteries and other green technologies (e.g., copper, cobalt, lithium). For example, cobalt is a secondary product to mining of copper in the Democratic Republic of the Congo. Are these prices correlated? Can you identify geo-political events (e.g., conflicts, battery plant opennings) in the time-series? This project focuses on data collection and gathering related to critical mineral global supply chains.
 
 **Numerical and Statistical Methods**. Develop a tutorial notebook for a topic not covered in CBE 20258.
 * Principle componenent analysis
 * [Fourier analysis](https://www.3blue1brown.com/lessons/fourier-transforms) of periodic signals
 * Maximum likelihood estimation
+* Create and demonstrate machine learning models to [predict the boiling point and other thermophysical properties of compounds](https://pubs.acs.org/doi/abs/10.1021/acs.jchemed.3c01040). 
 
 *This list will be periodically updated with additional ideas.*
 
