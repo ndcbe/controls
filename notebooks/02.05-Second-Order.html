@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
 
@@ -121,12 +121,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <header>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
   
+  </header>
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -549,7 +557,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="second-order-model">
 <h1><span class="section-number">2.5. </span>Second Order Model<a class="headerlink" href="#second-order-model" title="Permalink to this heading">#</a></h1>
@@ -584,6 +592,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">data_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jckantor/cbe30338-book/main/notebooks/data/tclab-data-example.csv&quot;</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
@@ -667,17 +676,17 @@ document.write(`
 <p>The Pandas library includes a highly functional method for plotting data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;T2&quot;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;deg C&quot;</span><span class="p">)</span>
-<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f power range&quot;</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">105</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;T2&quot;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;deg C&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;TS1 (measured)&quot;</span><span class="p">,</span> <span class="s2">&quot;TS2 (measured)&quot;</span><span class="p">])</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f power range&quot;</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">105</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Time&#39;, ylabel=&#39;% of power range&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/09f55977128e9ef03e2f115e7b1c029beab91c65c17f091d36608bf904792af6.png" src="../_images/09f55977128e9ef03e2f115e7b1c029beab91c65c17f091d36608bf904792af6.png" />
-<img alt="../_images/d2eb0c9710d17332c7e13bb82a93a1dbd75af6581adb3ba0858573c578eb7f4a.png" src="../_images/d2eb0c9710d17332c7e13bb82a93a1dbd75af6581adb3ba0858573c578eb7f4a.png" />
+<img alt="../_images/871b9107f6e117136fea3d7178b1386897bdd778b6e8c3685c1cf008fbdea901.png" src="../_images/871b9107f6e117136fea3d7178b1386897bdd778b6e8c3685c1cf008fbdea901.png" />
+<img alt="../_images/fb605e71063710370357db26a3fdec77fc03753a1879b6127d64e09449fa2884.png" src="../_images/fb605e71063710370357db26a3fdec77fc03753a1879b6127d64e09449fa2884.png" />
 </div>
 </div>
 </section>
@@ -700,7 +709,7 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
-<span class="kn">import</span>  <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># known parameters</span>
 <span class="n">T_amb</span> <span class="o">=</span> <span class="mi">21</span>             <span class="c1"># deg C</span>
@@ -860,30 +869,27 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;deg C&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model Prediction&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;TS1&quot;</span><span class="p">,</span><span class="s2">&quot;TH1&quot;</span><span class="p">],</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;deg C&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model Prediction&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: title={&#39;center&#39;: &#39;Model Prediction&#39;}, xlabel=&#39;Time&#39;, ylabel=&#39;deg C&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/9395b8070e085a17d27739af395abf4a9cccc2b5a164f2fd0e1576db1b717ecb.png" src="../_images/9395b8070e085a17d27739af395abf4a9cccc2b5a164f2fd0e1576db1b717ecb.png" />
+<img alt="../_images/53ebecff049140a60ddffd427cd50b602d2ba7bbb8e5a7311180a7bf5ffc106f.png" src="../_images/53ebecff049140a60ddffd427cd50b602d2ba7bbb8e5a7311180a7bf5ffc106f.png" />
 </div>
 </div>
 <p>Now let’s compare the predicted measurement to the actual measurement. How did we do?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">],</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;deg C&quot;</span><span class="p">)</span>
-<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;TS1&quot;</span><span class="p">,</span> <span class="s2">&quot;TH1&quot;</span><span class="p">],</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;deg C&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;TS1 (measured)&quot;</span><span class="p">,</span><span class="s2">&quot;TS1 (model)&quot;</span><span class="p">,</span> <span class="s2">&quot;TH1 (model)&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Time&#39;, ylabel=&#39;deg C&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/a539cb7045c4481fcac7863bd49c3e8e9746e44fad072bc0f673f254833d8711.png" src="../_images/a539cb7045c4481fcac7863bd49c3e8e9746e44fad072bc0f673f254833d8711.png" />
+<img alt="../_images/19cb622d3d3ed20b79f50b3ca74094b2263c9014d574a3944f34fc282a41cde3.png" src="../_images/19cb622d3d3ed20b79f50b3ca74094b2263c9014d574a3944f34fc282a41cde3.png" />
 </div>
 </div>
 </section>
@@ -973,12 +979,12 @@ C = \begin{bmatrix}0 &amp; 1 \end{bmatrix} \\
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Ua</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Ua</span><span class="si">=}</span><span class="s2"> watts/deg C&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ua=0.05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ua=0.05 watts/deg C
 </pre></div>
 </div>
 </div>
@@ -1118,39 +1124,39 @@ C=array([[0, 1]])
     </tr>
     <tr>
       <th>1.00</th>
-      <td>0.298918</td>
-      <td>0.015568</td>
-      <td>0.015568</td>
-      <td>21.298918</td>
-      <td>21.015568</td>
-      <td>21.015568</td>
+      <td>0.316847</td>
+      <td>0.007816</td>
+      <td>0.007816</td>
+      <td>21.316847</td>
+      <td>21.007816</td>
+      <td>21.007816</td>
     </tr>
     <tr>
       <th>2.01</th>
-      <td>0.587624</td>
-      <td>0.059784</td>
-      <td>0.059784</td>
-      <td>21.587624</td>
-      <td>21.059784</td>
-      <td>21.059784</td>
+      <td>0.630651</td>
+      <td>0.030850</td>
+      <td>0.030850</td>
+      <td>21.630651</td>
+      <td>21.030850</td>
+      <td>21.030850</td>
     </tr>
     <tr>
       <th>3.01</th>
-      <td>0.862058</td>
-      <td>0.127671</td>
-      <td>0.127671</td>
-      <td>21.862058</td>
-      <td>21.127671</td>
-      <td>21.127671</td>
+      <td>0.935462</td>
+      <td>0.067618</td>
+      <td>0.067618</td>
+      <td>21.935462</td>
+      <td>21.067618</td>
+      <td>21.067618</td>
     </tr>
     <tr>
       <th>4.00</th>
-      <td>1.123965</td>
-      <td>0.215041</td>
-      <td>0.215041</td>
-      <td>22.123965</td>
-      <td>21.215041</td>
-      <td>21.215041</td>
+      <td>1.231700</td>
+      <td>0.116765</td>
+      <td>0.116765</td>
+      <td>22.231700</td>
+      <td>21.116765</td>
+      <td>21.116765</td>
     </tr>
   </tbody>
 </table>
@@ -1158,15 +1164,13 @@ C=array([[0, 1]])
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;TS1&quot;</span><span class="p">,</span><span class="s2">&quot;TH1&quot;</span><span class="p">],</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;deg C&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model Prediction&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Time&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/edb28cbb9df9809eba6bd00916aab40aeeabfa26c7d1af9d2361f5d4cf628c03.png" src="../_images/edb28cbb9df9809eba6bd00916aab40aeeabfa26c7d1af9d2361f5d4cf628c03.png" />
+<img alt="../_images/4a04a8ae7ecc4e5d5dcd3952fc03c4f6848eb04267033058fb7b46f0124cbdfe.png" src="../_images/4a04a8ae7ecc4e5d5dcd3952fc03c4f6848eb04267033058fb7b46f0124cbdfe.png" />
 </div>
 </div>
 </section>
@@ -1191,16 +1195,15 @@ C=array([[0, 1]])
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 
 <span class="n">pred</span> <span class="o">=</span> <span class="n">tclab_ss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">pred</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;TH1&quot;</span><span class="p">,</span><span class="s2">&quot;TS1&quot;</span><span class="p">],</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;deg C&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;TH1 (measured)&quot;</span><span class="p">,</span> <span class="s2">&quot;TH1 (model)&quot;</span><span class="p">,</span> <span class="s2">&quot;TS1 (model)&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Time&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/1c1efde92d314cfe2cccba9212fbdf2285886984d1026b61a0b6f305e133fd6f.png" src="../_images/1c1efde92d314cfe2cccba9212fbdf2285886984d1026b61a0b6f305e133fd6f.png" />
+<img alt="../_images/a8fb46492ec0973a882754963d982bcabdfda110e297daabb5fdc454483f92da.png" src="../_images/a8fb46492ec0973a882754963d982bcabdfda110e297daabb5fdc454483f92da.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1218,15 +1221,15 @@ C=array([[0, 1]])
     <span class="k">return</span> <span class="n">pred</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span>
 
     
-<span class="n">pred_err</span><span class="p">([</span><span class="mf">5.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.045</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">pred_err</span><span class="p">([</span><span class="mf">5.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.045</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Prediction Error (deg C)&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Time&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Time (s)&#39;, ylabel=&#39;Prediction Error (deg C)&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/280b621adf3067abc894beaeb2dbf21450fb6e7a438da5cb7fb3fdb7ff774876.png" src="../_images/280b621adf3067abc894beaeb2dbf21450fb6e7a438da5cb7fb3fdb7ff774876.png" />
+<img alt="../_images/ef7498d65c5fb2d8b88100dcb8006e341ed0f13c51ec8ac35b81219e5daa27b2.png" src="../_images/ef7498d65c5fb2d8b88100dcb8006e341ed0f13c51ec8ac35b81219e5daa27b2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1238,18 +1241,18 @@ C=array([[0, 1]])
 <span class="n">CpH</span><span class="p">,</span> <span class="n">CpS</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="n">Ub</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">x</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CpH = </span><span class="si">{</span><span class="n">CpH</span><span class="si">}</span><span class="s2">,  CpS = </span><span class="si">{</span><span class="n">CpS</span><span class="si">}</span><span class="s2">,   Ua = </span><span class="si">{</span><span class="n">Ua</span><span class="si">}</span><span class="s2">,  Ub = </span><span class="si">{</span><span class="n">Ub</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">pred_err</span><span class="p">([</span><span class="n">CpH</span><span class="p">,</span> <span class="n">CpS</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="n">Ub</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">pred_err</span><span class="p">([</span><span class="n">CpH</span><span class="p">,</span> <span class="n">CpS</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="n">Ub</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Prediction Error (deg C)&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CpH = 5.228060928587527,  CpS = 1.9896637181582368,   Ua = 0.041571036467889934,  Ub = 0.21309424723032316
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CpH = 5.2280012374973746,  CpS = 1.9897188470054918,   Ua = 0.04157103899328196,  Ub = 0.21309849232002476
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Time&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Time (s)&#39;, ylabel=&#39;Prediction Error (deg C)&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/92d45ffe6a5c8cfb764ec063325664344f6d663e4d23ad6efddfb7d128af49d1.png" src="../_images/92d45ffe6a5c8cfb764ec063325664344f6d663e4d23ad6efddfb7d128af49d1.png" />
+<img alt="../_images/ca623623e685b7cadf11b609a131362e28694ded473e3ecb1316d1dbc16131e1.png" src="../_images/ca623623e685b7cadf11b609a131362e28694ded473e3ecb1316d1dbc16131e1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1259,16 +1262,15 @@ C=array([[0, 1]])
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 
 <span class="n">pred</span> <span class="o">=</span> <span class="n">tclab_ss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">pred</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;TH1&quot;</span><span class="p">,</span><span class="s2">&quot;TS1&quot;</span><span class="p">],</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;deg C&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;TH1 (measured)&quot;</span><span class="p">,</span> <span class="s2">&quot;TH1 (model)&quot;</span><span class="p">,</span> <span class="s2">&quot;TS1 (model)&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Time&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/a8ba0f7a354d9d85d6f08b21550f851e5f33563e7c4aaf212f04e4926a2a4c7a.png" src="../_images/a8ba0f7a354d9d85d6f08b21550f851e5f33563e7c4aaf212f04e4926a2a4c7a.png" />
+<img alt="../_images/fe9879cdf4ff559a8c212f6f61c0aa8495b9faafc25b1cc224a45f749a74c693.png" src="../_images/fe9879cdf4ff559a8c212f6f61c0aa8495b9faafc25b1cc224a45f749a74c693.png" />
 </div>
 </div>
 <div class="admonition-choosing-a-loss-function admonition">
@@ -1340,6 +1342,7 @@ C=array([[0, 1]])
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1398,8 +1401,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -130,7 +130,7 @@ You are expected to attend and actively participate in all class sessions.  If y
 
 Class sessions will include opportunities to respond to instructor questions and other active learning exercises. All interactions will be civil, respectful, and inclusive. If you have any concerns about classroom dynamics, please feel free to speak with the instructor.
 
-At the end of the semester, the instructor will assign grades for class participation and professionalism at their discretion. Students who are good class citizens, i.e., actively engage in class and lab activities, work well with peers, and ask and answer questions on the Canvas discussion board, will receive full marks. In contrast, the following may result in a reduced grade:
+At the end of the semester, the instructor will assign grades for class participation and professionalism at their discretion. Students who are good class citizens, i.e., actively engage in class and lab activities, work well with peers, arrives prepared, and ask and answer questions on the Canvas discussion board, will receive (near) full marks. In contrast, the following may result in a reduced grade:
 - Unprofessional behavior toward peers, instructors, teaching assistants, or others in the campus community. (This may also result in other disciplinary action per university policies.)
 - Repeatedly sending emails to the instructor or TAs on topics that should be addressed in the Canvas Discussion board (e.g., assignment help, class policy questions).
 - Repeatdely sending emails without "CBE 30338" in the subject.
@@ -138,6 +138,7 @@ At the end of the semester, the instructor will assign grades for class particip
 - Missing significant numbers of class sessions without an excuse recognized by the university.
 - Arriving late to class as this causes a distrubtion.
 
+The class participation grade may include online quizzes, pre-lab activities, in-class Poll Everywhere questions, and prepartion for in-class project consultations.
 
 ### Assignments
 
@@ -223,7 +224,7 @@ Important reminders:
 
 #### Project Ideas
 
-Here are some project ideas, organized by topic.
+Here are some project ideas, organized by topic. Please refine these ideas to fit your groups interest or use these ideas as a starting point to develop your own project.
 
 **TCLab**. Significantly extend one of our TCLab activities, complete on the labs on the website we skipped this year, or make a new mini-lab that applying a method from control, optimization, or estimation to the TCLab hardware. For example:
 * Fit a [four state model](./tclab/03.06-Four-State-Model.ipynb) that considers the interactions between the two heater/sensor assemblies.
@@ -237,13 +238,22 @@ Here are some project ideas, organized by topic.
 **Modeling and Applications**. Apply methods and concepts from class to explore a system of interest to your team.
 * Develop a controler (e.g., PID, MPC) for tanks in series. This is a classic problem in chemical engineering control textbooks.
 * Develop a controller (e.g., PID, MPC) for the [exothermic reactor](./notebooks/02.07-Exothermic-CSTR.ipynb). The goal is to operate the reactor in the high conversion region with minimal oscillations and reject disturbances.
+* Extend the portfolio optimization problem from [Homework 2](./assignments/Homework-2.ipynb) into a model predictive control scheme. Each day, compute the expected value and covariance of the return for the available mutal funds using data from the last 3 months (or another time period). Then resolve the portfolio optimization problem and buy/sell accordingly. Then increment the horizon one day and repeat. The key is that you cannot use the future data when making a decision, only past information. Add a small transaction fee and fine tune your buy/sell logic (perhaps borrow ideas from relay control with a deadband where you do nothing). How does your optimized portfolio compare to a simple investment strategy of 40\% large cap index funds, 30\% medium to small cap index funds, and 30\% international index funds?
+* How does a home water softener (ion exchange) or reverse osmosis water filter work? Research and develop a mathematical model. Use your model to predict how frequently you a typical homeowner/renter needs to do maintance, e.g., replacing the softer salt or the RO membrane, or the cost of operation. Do you predictions match your personal experience or manufacture recommendations?
+* Are solar panels worth it in South Bend, IN (or another location)? Develop a simple mathematical model to predict the electrical power produced from a solar panel as a function of the solar intensity and position. You can find help [Python packages](https://pvlib-python.readthedocs.io/en/stable/index.html) to calculate the position of the sun as a function of time and location. Next, find [historical solar irradiance data](https://nsrdb.nrel.gov/) and calculate the energy production as a function of time. Then calculate the [levelized cost of electricity](https://en.wikipedia.org/wiki/Levelized_cost_of_electricity) for a typical solar installation. You'll need to look up typical home installation costs. How does the LCOE compare to [feed-in tarriff rates](https://www.nipsco.com/services/renewable-energy-programs/feed-in-tariff) from a utility? This is like a mini-senior design project; you will learn all of the economic calculations and time-value of money. Modeling a PV solar panel is much more straight forward than your semester long process design.
+* How does a heat pump work? Develop a simple mathematical model, similar to a mini-project in CBE 20258. Use your model to predict how the heat pump's efficiency changes as a function of ambient temperature. How much does it cost to provide cooling or heating with the heat pump? How do your cost and efficiency calculations compare to consumer information you can find online?
+* Does water harvesting make sense in the American West? Develop a simple mathematical model for [adsorption-based atmospheric water harvesting](https://www.sciencedirect.com/science/article/pii/S2542435121001781). Then find timeseries temperature and humidity data for a location of your choice. Simulate the water harvester for a year. How much water did you procedure? How much energy did regeneration take? What was the cost of producing the water? 
 * Simulate model predictive control for a [microfluidics device](https://www.pnas.org/doi/10.1073/pnas.1525162113).
+* In the fall and spring, it is warm during the days and cool at night. From an energy perspective, does it make sense to open the windows in your house or appartment to cool off at night? The downside is that open windows will increase the humidity of your living space. When the air conditioner turns on in the day, it then takes more energy to dehumidify the room. Develop a simple mathematical model to perform the thermodynamic calculation. Then find historical temperature and humidity data for a location of your choice. Using your model and the data, analyze this strategy for one fall and one spring. How many nights was it clearly better to keep the windows open or closed? You will have to make a lot of assumptions for this project using your engineering judgement. The goal here is to get a reasonable answer you can defended, which is not neccessarily the most rigorous answer possible. This is a great project to hone engineering analysis skills before senior design.
 * Analyze an industrial control system.
+* Simulate the [growth and development of fruit flies](https://www.pnas.org/doi/epdf/10.1073/pnas.2313224120).
+* Find time-series historical pricing and trade data for critical minerals used in batteries and other green technologies (e.g., copper, cobalt, lithium). For example, cobalt is a secondary product to mining of copper in the Democratic Republic of the Congo. Are these prices correlated? Can you identify geo-political events (e.g., conflicts, battery plant opennings) in the time-series? This project focuses on data collection and gathering related to critical mineral global supply chains.
 
 **Numerical and Statistical Methods**. Develop a tutorial notebook for a topic not covered in CBE 20258.
 * Principle componenent analysis
 * [Fourier analysis](https://www.3blue1brown.com/lessons/fourier-transforms) of periodic signals
 * Maximum likelihood estimation
+* Create and demonstrate machine learning models to [predict the boiling point and other thermophysical properties of compounds](https://pubs.acs.org/doi/abs/10.1021/acs.jchemed.3c01040). 
 
 *This list will be periodically updated with additional ideas.*
 
