@@ -257,6 +257,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/06.06a-gompertz-tumor-growth.html">6.6. Gompertz Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/07-TCLab-Optimization-Estimation-Control.html">6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -573,25 +574,25 @@ document.write(`
 <section id="implementation-of-a-simple-pi-controller">
 <h2>Implementation of a Simple PI Controller<a class="headerlink" href="#implementation-of-a-simple-pi-controller" title="Permalink to this heading">#</a></h2>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2514d890-561b-4b56-9f30-ce2192d9ae8d">
-<span class="eqno">(2)<a class="headerlink" href="#equation-2514d890-561b-4b56-9f30-ce2192d9ae8d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5d95613e-63bf-449d-b49d-e73ee96fe233">
+<span class="eqno">(2)<a class="headerlink" href="#equation-5d95613e-63bf-449d-b49d-e73ee96fe233" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV(t) &amp; = \bar{MV} + K_P\left(SP(t) - PV(t)\right) + K_I \int_0^t \left(SP(t')-PV(t')\right)dt'
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(K_P\)</span> and <span class="math notranslate nohighlight">\(K_I\)</span> are the proportional and integral coefficients, respectively. The value <span class="math notranslate nohighlight">\(\bar{MV}\)</span> is a nominal or initial value of the manipulated variable.</p>
 <p>The actual implementation of PI control is normally done by computing how much the <span class="math notranslate nohighlight">\(MV\)</span> should change at each time step. Defining the error at time <span class="math notranslate nohighlight">\(k\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf86e574-db75-4170-92ff-2d2528764cfa">
-<span class="eqno">(3)<a class="headerlink" href="#equation-cf86e574-db75-4170-92ff-2d2528764cfa" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6ccf5514-1bcc-4963-99a2-b1af87a0a6ad">
+<span class="eqno">(3)<a class="headerlink" href="#equation-6ccf5514-1bcc-4963-99a2-b1af87a0a6ad" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; =  SP_k - PV_k
 \end{align}\]</div>
 <p>then consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2bbb82c1-eb60-4558-b6bd-dd36223c3421">
-<span class="eqno">(4)<a class="headerlink" href="#equation-2bbb82c1-eb60-4558-b6bd-dd36223c3421" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9a61b3fc-348d-4673-b581-29ca97af4574">
+<span class="eqno">(4)<a class="headerlink" href="#equation-9a61b3fc-348d-4673-b581-29ca97af4574" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k-1} &amp; = \bar{MV} + K_P e_{k-1} + h K_I \sum_{j=0}^{k-1} e_{j} \\
 MV_{k} &amp; = \bar{MV} + K_P e_{k} + h K_I \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
 <p>Taking differences gives a practical formula (velocity form) for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to measurements</p>
-<div class="amsmath math notranslate nohighlight" id="equation-13a2dac3-562a-4840-b066-1d0ddcbe329b">
-<span class="eqno">(5)<a class="headerlink" href="#equation-13a2dac3-562a-4840-b066-1d0ddcbe329b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-380ee68a-fe44-4324-94e5-c79b4bc48d3c">
+<span class="eqno">(5)<a class="headerlink" href="#equation-380ee68a-fe44-4324-94e5-c79b4bc48d3c" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
 \end{align}\]</div>
 <p>The following code defines a Python object that implements this algorithm.</p>
@@ -669,7 +670,7 @@ MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
     <span class="n">t_step</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># seconds</span>
 
     <span class="c1"># Create and intialize the PI controller</span>
-    <span class="n">controller1</span> <span class="o">=</span> <span class="n">PI</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">Ki</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> 
+    <span class="n">controller1</span> <span class="o">=</span> <span class="n">PI</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">12.0</span><span class="p">,</span> <span class="n">Ki</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span> 
     <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>

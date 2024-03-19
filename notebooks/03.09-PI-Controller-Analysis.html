@@ -259,6 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="06.06a-gompertz-tumor-growth.html">6.6. Gompertz Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-TCLab-Optimization-Estimation-Control.html">6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -591,8 +592,8 @@ u_{1}(t) = \bar{u}_{1} + K_P (T_{set} - T_{S,1}(t)) + K_I \int_{0}^{t} (T_{set} 
 <h2><span class="section-number">3.9.3. </span>Closed-Loop Dynamics<a class="headerlink" href="#closed-loop-dynamics" title="Permalink to this heading">#</a></h2>
 <p>How can we model the integral in the control law? Let’s add a new state to our model for the integral:
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e51b205b-6930-4c3b-90f6-243df2ffc35e">
-<span class="eqno">(3.15)<a class="headerlink" href="#equation-e51b205b-6930-4c3b-90f6-243df2ffc35e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3c22dcc4-c419-478f-a635-b4715ef32c8d">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-3c22dcc4-c419-478f-a635-b4715ef32c8d" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = -U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) - \alpha P_1 K_P T^*_{S,1} + \alpha P_1 K_I I\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) \\
 \frac{dI}{dt} &amp;= -T^{*}_{S,1}

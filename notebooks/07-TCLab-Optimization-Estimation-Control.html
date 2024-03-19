@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Lab 5: Open Loop Optimization &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+    <title>6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
   
   
   
@@ -64,11 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/Lab-5-Open-Loop-Optimization';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/07-TCLab-Optimization-Estimation-Control';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. What is Process Control?" href="../notebooks/01.00-What-is-Process-Control.html" />
-    <link rel="prev" title="Homework 2: Optimization" href="Homework-2.html" />
+    <link rel="next" title="7. Projects" href="08.00-Projects.html" />
+    <link rel="prev" title="6.8. Time as a Decision Variable" href="06.07-time-as-decision-variable.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -134,6 +134,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -177,94 +179,94 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Syllabus.html">Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Schedule.html">Schedule</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="assignments.html">Assignments</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Homework-2.html">Homework 2: Optimization</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 5: Open Loop Optimization</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assignments/assignments.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-2.html">Homework 2: Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Topical Materials</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/01.00-What-is-Process-Control.html">1. What is Process Control?</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/01.01-What-is-Feedback.html">1.1. What is Feedback?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/01.02-Elements-of-Feedback-Control.html">1.2. Elements of Process Control</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="01.00-What-is-Process-Control.html">1. What is Process Control?</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.01-What-is-Feedback.html">1.1. What is Feedback?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.02-Elements-of-Feedback-Control.html">1.2. Elements of Process Control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/02.00-Process-Modeling.html">2. Process Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.01-One-Compartment-Pharmacokinetics.html">2.1. One Compartment Pharmacokinetics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.02-Properties-of-Scalar-First-Order-Linear-Systems.html">2.2. First-Order Linear Systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.03-First-Order-Model-for-a-Single-Heater.html">2.3. First Order Model for a Single Heater</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.05-Second-Order.html">2.5. Second Order Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.09-Study-Guide.html">2.10. Study Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02.00-Process-Modeling.html">2. Process Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="02.01-One-Compartment-Pharmacokinetics.html">2.1. One Compartment Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.02-Properties-of-Scalar-First-Order-Linear-Systems.html">2.2. First-Order Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.03-First-Order-Model-for-a-Single-Heater.html">2.3. First Order Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.05-Second-Order.html">2.5. Second Order Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.09-Study-Guide.html">2.10. Study Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.01-Case-Study-Thermal-Cycling-PCR.html">3.1. Case Study: Thermal Cycling for PCR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.02-Setpoints.html">3.2. Setpoints</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.03-Setpoints-Thermal-Cycler.html">3.3. Case Study: PCR Thermal Cycler Protocols</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.04-Relay-Control.html">3.4. Relay Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="03.01-Case-Study-Thermal-Cycling-PCR.html">3.1. Case Study: Thermal Cycling for PCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.02-Setpoints.html">3.2. Setpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.03-Setpoints-Thermal-Cycler.html">3.3. Case Study: PCR Thermal Cycler Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.04-Relay-Control.html">3.4. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.01-Learning-Goals.html">4.1. Learning Goals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.02-Process-Historians.html">4.2. Data/Process/Operational Historian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.03-State-Estimation.html">4.3. State Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.04-Lab-Assigment-State-Estimation.html">4.4. Lab Assignment 5: State Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.05-Anomaly-Detection.html">4.5. Anomaly Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.06-Lab-Assignment-Anomaly-Detection.html">4.6. Lab Assignment 6: Anomaly Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.07-Observer-Synthesis-LMI.html">4.7. Observer Synthesis using Linear Matrix Inequalities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.08-Envrironmental-Application.html">4.8. Application of Luenberger Observers to Environmental Modeling of Rivers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.09-Study-Questions.html">4.9. Study Questions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="04/04.01-Learning-Goals.html">4.1. Learning Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.02-Process-Historians.html">4.2. Data/Process/Operational Historian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.03-State-Estimation.html">4.3. State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.04-Lab-Assigment-State-Estimation.html">4.4. Lab Assignment 5: State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.05-Anomaly-Detection.html">4.5. Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.06-Lab-Assignment-Anomaly-Detection.html">4.6. Lab Assignment 6: Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.07-Observer-Synthesis-LMI.html">4.7. Observer Synthesis using Linear Matrix Inequalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.08-Envrironmental-Application.html">4.8. Application of Luenberger Observers to Environmental Modeling of Rivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.09-Study-Questions.html">4.9. Study Questions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/05/05.00-Optimization.html">5. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.01-Linear-Production-Model.html">5.1. Linear Production Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.03-Homework_2.html">5.3. Homework 2: Optimization (Legacy)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.04-Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.99-Pyomo-Examples.html">5.7. Pyomo Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05/05.00-Optimization.html">5. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="05/05.01-Linear-Production-Model.html">5.1. Linear Production Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.03-Homework_2.html">5.3. Homework 2: Optimization (Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.04-Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.99-Pyomo-Examples.html">5.7. Pyomo Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../CBE30338-EV-Example.html">5.8. Recharging Strategy for an Electric Vehicle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/milk-pooling.html">5.9. Pooling and Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="milk-pooling.html">5.9. Pooling and Blending</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/06.00-Predictive-Control.html">6. Predictive Control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html">6.1. Simulation and Optimal Control in Pharmacokinetics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.01-Static-Operability.html">6.2. Static Operability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.02-Simulation-and-Open-Loop-Optimal-Control.html">6.3. Open-Loop Optimal Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.03-Predictive-Control.html">6.4. Predictive Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.04-Implementing-Predictive-Control.html">6.5. Implementing Predictive Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.06a-gompertz-tumor-growth.html">6.6. Gompertz Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/07-TCLab-Optimization-Estimation-Control.html">6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="06.00-Predictive-Control.html">6. Predictive Control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html">6.1. Simulation and Optimal Control in Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.01-Static-Operability.html">6.2. Static Operability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.02-Simulation-and-Open-Loop-Optimal-Control.html">6.3. Open-Loop Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.03-Predictive-Control.html">6.4. Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.04-Implementing-Predictive-Control.html">6.5. Implementing Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.06a-gompertz-tumor-growth.html">6.6. Gompertz Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/09.00-Bibliography.html">8. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09.00-Bibliography.html">8. References</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Laboratory</span></p>
 <ul class="nav bd-sidenav">
@@ -371,7 +373,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/assignments/Lab-5-Open-Loop-Optimization.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/07-TCLab-Optimization-Estimation-Control.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -419,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fassignments/Lab-5-Open-Loop-Optimization.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/07-TCLab-Optimization-Estimation-Control.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -449,7 +451,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/assignments/Lab-5-Open-Loop-Optimization.ipynb" target="_blank"
+      <li><a href="../_sources/notebooks/07-TCLab-Optimization-Estimation-Control.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -533,7 +535,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 5: Open Loop Optimization</h1>
+    <h1>TCLab: Open-Loop Optimization and Estimation using Pyomo</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -543,46 +545,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-setup">Installation and Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-0-develop-the-mathematical-model-and-pyomo-simulation">Exercise 0: Develop the Mathematical Model and Pyomo Simulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyomo-model">Pyomo Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-inputs">Process Inputs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">6.9.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-model-and-pyomo-simulation">6.9.2. Mathematical Model and Pyomo Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyomo-model">6.9.2.1. Pyomo Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-inputs">6.9.2.2. Process Inputs</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-control-with-knowledge-of-disturbances">Optimal Control with Knowledge of Disturbances</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-observation">Estimation/Observation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">Parameter Estimation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excerise-6">Excerise 6</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-loop-optimization">Open Loop Optimization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-implementation">Hardware Implementation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Discussion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state-estimation">State Estimation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Parameter Estimation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Discussion</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-control-with-knowledge-of-disturbances">6.9.3. Optimal Control with Knowledge of Disturbances</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-implementation">6.9.4. Hardware Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-observation">6.9.5. Estimation/Observation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">6.9.6. Parameter Estimation</a></li>
 </ul>
             </nav>
         </div>
@@ -594,72 +566,39 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-5-open-loop-optimization">
-<h1>Lab 5: Open Loop Optimization<a class="headerlink" href="#lab-5-open-loop-optimization" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tclab-open-loop-optimization-and-estimation-using-pyomo">
+<h1><span class="section-number">6.9. </span>TCLab: Open-Loop Optimization and Estimation using Pyomo<a class="headerlink" href="#tclab-open-loop-optimization-and-estimation-using-pyomo" title="Permalink to this heading">#</a></h1>
 <section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.9.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Compute optimal heater strategy using physics-based model</p></li>
-<li><p>Verify open loop performance with TC Lab hardware</p></li>
+<li><p>Verify open loop performance with TC Lab simulation</p></li>
 <li><p>Estimate unmeasured states (heater temperature) using model</p></li>
 </ol>
-</section>
-<section id="installation-and-setup">
-<h2>Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Permalink to this heading">#</a></h2>
-<p>This notebook is using Pyomo and Ipopt. Be sure to follow the installation instructions on the class website.</p>
-<p>Before beginning this lab, connect your TCLab device and run the following cell to estimate your ambient temperature.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># experimental parameters</span>
-<span class="n">tfinal</span> <span class="o">=</span> <span class="mi">30</span>
-
-<span class="c1"># To complete the experiment, change this to True</span>
-<span class="c1"># After completing the experiment, be sure to change it back to False</span>
-<span class="c1"># This will prevent you from overwriting your data</span>
-<span class="n">run_tamb_tclab</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="k">if</span> <span class="n">run_tamb_tclab</span><span class="p">:</span>
-
-    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1"># initialize list to store temperature</span>
-    <span class="n">T_list</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1"># perform experiment</span>
-    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-        <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">lab</span><span class="o">.</span><span class="n">U2</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
-        
-        <span class="c1"># save temperatures to access later</span>
-        <span class="n">T_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">)</span>
-        <span class="n">T_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">):</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-
-    <span class="c1"># estimate ambient temperature</span>
-    <span class="n">Tamb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">T_list</span><span class="p">)</span> <span class="c1"># deg C</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The ambient temperature is </span><span class="si">{</span><span class="n">Tamb</span><span class="si">}</span><span class="s2"> degrees C&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">if</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">!</span>wget<span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/IDAES/idaes-pse/main/scripts/colab_helper.py&quot;</span>
+    <span class="kn">import</span> <span class="nn">colab_helper</span>
+    <span class="n">colab_helper</span><span class="o">.</span><span class="n">install_idaes</span><span class="p">()</span>
+    <span class="n">colab_helper</span><span class="o">.</span><span class="n">install_ipopt</span><span class="p">()</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>tclab
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-0-develop-the-mathematical-model-and-pyomo-simulation">
-<h2>Exercise 0: Develop the Mathematical Model and Pyomo Simulation<a class="headerlink" href="#exercise-0-develop-the-mathematical-model-and-pyomo-simulation" title="Permalink to this heading">#</a></h2>
+<section id="mathematical-model-and-pyomo-simulation">
+<h2><span class="section-number">6.9.2. </span>Mathematical Model and Pyomo Simulation<a class="headerlink" href="#mathematical-model-and-pyomo-simulation" title="Permalink to this heading">#</a></h2>
 <p>Recall the two-state model for a single heater/sensor assembly:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 C_p^H \frac{dT_H}{dt} &amp; = U_a (T_{amb} - T_H) + U_b (T_S - T_H) + \alpha P u(t) + d(t)\\
-C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H) 
+C_p^S \frac{dT_S}{dt} &amp; = - U_b (T_S - T_H) 
 \end{align*}\]</div>
 <section id="pyomo-model">
-<h3>Pyomo Model<a class="headerlink" href="#pyomo-model" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.9.2.1. </span>Pyomo Model<a class="headerlink" href="#pyomo-model" title="Permalink to this heading">#</a></h3>
 <p>The code block below provides a library for performing several analysis tasks with our model. This is a <code class="docutils literal notranslate"><span class="pre">class</span></code>, which is a more sophisticated way to modularize our code. Briefly, classes store both data and methods to manipualte the data.</p>
 <p>Take a few minutes to study this code. Note the missing lines of code to fill in when you get to Exercise 1. A few features:</p>
 <ul class="simple">
@@ -691,7 +630,9 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 <span class="kn">from</span> <span class="nn">pyomo.dae</span> <span class="kn">import</span> <span class="n">DerivativeVar</span><span class="p">,</span> <span class="n">ContinuousSet</span><span class="p">,</span> <span class="n">Simulator</span>
 
 <span class="c1">##### IMPORTANT #####</span>
-<span class="c1"># Update the default values for Ua, Ub, CpH, and CpS to match your previous labs</span>
+<span class="c1"># When you do Lab 5, you need to update Ua, Ub, CpH, and CpS to the values</span>
+<span class="c1"># you previously estimated for your hardware.</span>
+<span class="c1">#</span>
 <span class="c1">#####################</span>
 
 <span class="k">class</span> <span class="nc">TCLabPyomo</span><span class="p">:</span>
@@ -701,8 +642,8 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 <span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">t_data</span><span class="p">,</span> <span class="n">u_data</span><span class="p">,</span> <span class="n">d_data</span><span class="p">,</span> <span class="n">Tset_data</span><span class="p">,</span> 
-                 <span class="n">TS_data</span><span class="p">,</span> <span class="n">Tamb</span> <span class="o">=</span> <span class="n">Tamb</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.00016</span><span class="p">,</span> <span class="n">P1</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-                 <span class="n">Ua</span> <span class="o">=</span> <span class="mf">0.0261</span><span class="p">,</span> <span class="n">Ub</span> <span class="o">=</span> <span class="mf">0.0222</span><span class="p">,</span> <span class="n">CpH</span> <span class="o">=</span> <span class="mf">1.335</span><span class="p">,</span> <span class="n">CpS</span> <span class="o">=</span> <span class="mf">1.328</span><span class="p">,</span>
+                 <span class="n">TS_data</span><span class="p">,</span> <span class="n">Tamb</span> <span class="o">=</span> <span class="mf">21.0</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.00016</span><span class="p">,</span> <span class="n">P1</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+                 <span class="n">Ua</span> <span class="o">=</span> <span class="mf">0.0268</span><span class="p">,</span> <span class="n">Ub</span> <span class="o">=</span> <span class="mf">0.0029</span><span class="p">,</span> <span class="n">CpH</span> <span class="o">=</span> <span class="mf">3.678</span><span class="p">,</span> <span class="n">CpS</span> <span class="o">=</span> <span class="mf">0.054</span><span class="p">,</span>
                  <span class="n">integrate_to_initialize</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
@@ -771,8 +712,9 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
         <span class="c1"># create the time set</span>
         <span class="n">m</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">ContinuousSet</span><span class="p">(</span><span class="n">initialize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_data</span><span class="p">)</span>  <span class="c1"># make sure the experimental time grid are discretization points</span>
         <span class="c1"># define the heater and sensor temperatures as variables</span>
-        <span class="n">m</span><span class="o">.</span><span class="n">Th</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span> <span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Tamb</span><span class="p">)</span>
-        <span class="n">m</span><span class="o">.</span><span class="n">Ts</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span> <span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Tamb</span><span class="p">)</span>
+        <span class="c1"># Increased temperature bounds to 85 deg C for digital twin mode</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">Th</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">85</span><span class="p">],</span> <span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Tamb</span><span class="p">)</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">Ts</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">85</span><span class="p">],</span> <span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Tamb</span><span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">helper</span><span class="p">(</span><span class="n">my_array</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&#39;&#39;&#39;</span>
@@ -875,12 +817,8 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
                                         <span class="n">varying_inputs</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">var_input</span><span class="p">)</span>
             <span class="n">sim</span><span class="o">.</span><span class="n">initialize_model</span><span class="p">()</span>
 
-        <span class="c1"># for the optimize mode</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;optimize&#39;</span><span class="p">:</span>
-            <span class="c1"># Add requested constraints on U ramping here</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">Udot</span> <span class="o">=</span> <span class="n">DerivativeVar</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">U</span><span class="p">,</span> <span class="n">wrt</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
-
-            <span class="c1"># Add your solution here</span>
+        <span class="c1"># In Lab 5, you will add constraints limiting the </span>
+        <span class="c1"># rate of change of the heater power (u) here.</span>
 
         <span class="c1"># for the optimize mode, set point data is a parameter</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;optimize&#39;</span><span class="p">:</span>
@@ -924,7 +862,9 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Solves the pyomo model using ipopt.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="n">SolverFactory</span><span class="p">(</span><span class="s1">&#39;ipopt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">tee</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">solver</span> <span class="o">=</span> <span class="n">SolverFactory</span><span class="p">(</span><span class="s1">&#39;ipopt&#39;</span><span class="p">)</span>
+        <span class="c1">#solver.options[&#39;linear_solver&#39;] = &#39;ma57&#39;</span>
+        <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">tee</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
     <span class="k">def</span> <span class="nf">get_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -966,7 +906,7 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Returns model parameters from solved pyomo model.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Ua</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Ub</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CpH</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CpS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">Ua</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">CpH</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">CpS</span><span class="p">)</span>
 
 
     <span class="k">def</span> <span class="nf">print_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1032,11 +972,15 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 </div>
 </section>
 <section id="process-inputs">
-<h3>Process Inputs<a class="headerlink" href="#process-inputs" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.9.2.2. </span>Process Inputs<a class="headerlink" href="#process-inputs" title="Permalink to this heading">#</a></h3>
 <p>The next cell defines some process inputs that will be used throughout the notebook to demonstrate aspects of process simulation, control, and estimation.  These are gathered in one place to make it easier to modify the notebook to test the response under different conditions. These functions are implemented using the <code class="docutils literal notranslate"><span class="pre">interp1d</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># Ambient temperature</span>
+<span class="c1"># In Lab 5, you will update this based on the room&#39;s temperature</span>
+<span class="n">Tamb</span> <span class="o">=</span> <span class="mf">21.0</span> <span class="c1"># deg C</span>
 
 <span class="n">tclab_disturbance</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
     <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">9999</span><span class="p">],</span>   <span class="c1"># time</span>
@@ -1082,6 +1026,9 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/ffd55c6dd0c2e5d7c76d451000eb70662c789ee1f382b952c23c1463751f7c07.png" src="../_images/ffd55c6dd0c2e5d7c76d451000eb70662c789ee1f382b952c23c1463751f7c07.png" />
+</div>
 </div>
 <p>Let’s see how well our initial guess at a control strategy will work for us.</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1111,16 +1058,77 @@ T_S(t_0) &amp; = T_{amb}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ipopt 3.13.2: 
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+
+This version of Ipopt was compiled from source code available at
+    https://github.com/IDAES/Ipopt as part of the Institute for the Design of
+    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE
+    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.
+
+This version of Ipopt was compiled using HSL, a collection of Fortran codes
+    for large-scale scientific computation.  All technical papers, sales and
+    publicity material resulting from use of the HSL codes within IPOPT must
+    contain the following acknowledgement:
+        HSL, a collection of Fortran codes for large-scale scientific
+        computation. See http://www.hsl.rl.ac.uk.
+******************************************************************************
+
+This is Ipopt version 3.13.2, running with linear solver ma27.
+
+Number of nonzeros in equality constraint Jacobian...:     2400
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:        0
+
+Total number of variables............................:      802
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:      400
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:      802
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  0.0000000e+00 1.28e+00 0.00e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  0.0000000e+00 2.31e-15 1.12e+00  -1.0 3.00e+01    -  4.09e-01 1.00e+00h  1
+
+Number of Iterations....: 1
+
+                                   (scaled)                 (unscaled)
+Objective...............:   0.0000000000000000e+00    0.0000000000000000e+00
+Dual infeasibility......:   0.0000000000000000e+00    0.0000000000000000e+00
+Constraint violation....:   2.3125121785736367e-15    2.3125121785736367e-15
+Complementarity.........:   0.0000000000000000e+00    0.0000000000000000e+00
+Overall NLP error.......:   2.3125121785736367e-15    2.3125121785736367e-15
+
+
+Number of objective function evaluations             = 2
+Number of objective gradient evaluations             = 2
+Number of equality constraint evaluations            = 2
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 2
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 1
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.002
+Total CPU secs in NLP function evaluations           =      0.000
+
+EXIT: Optimal Solution Found.
+</pre></div>
 </div>
-</section>
-<section id="discussion">
-<h3>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h3>
-<p><strong>How well does the initial control strategy perform? Quantitatively justify your response using plots from the Pyomo model results.</strong></p>
-<p><em>Answer</em>:</p>
+<img alt="../_images/94703ecc985e8852304e71507d59086dd31451c6c09f18a27027ff59e92da201.png" src="../_images/94703ecc985e8852304e71507d59086dd31451c6c09f18a27027ff59e92da201.png" />
+</div>
+</div>
 </section>
 </section>
 <section id="optimal-control-with-knowledge-of-disturbances">
-<h2>Optimal Control with Knowledge of Disturbances<a class="headerlink" href="#optimal-control-with-knowledge-of-disturbances" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.9.3. </span>Optimal Control with Knowledge of Disturbances<a class="headerlink" href="#optimal-control-with-knowledge-of-disturbances" title="Permalink to this heading">#</a></h2>
 <p>An optimal control policy minimizes the differences</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1139,22 +1147,9 @@ T_H(t_0) &amp; = T_{amb} \\
 T_S(t_0) &amp; = T_{amb}
 \end{align*}\]</div>
 <p>and prior knowledge of <span class="math notranslate nohighlight">\(d(t)\)</span>.</p>
-</section>
-<section id="exercise-1">
-<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
-<p>The optimal control computed above requires rapid changes in power level. In process systems where control action requires movement of a valve stem position, there are often limits on how fast the manipulated variable can change. Modify the model to include differential inequalities that limit the time rate of change of control to 0.25 <span class="math notranslate nohighlight">\(s^{-1}\)</span>.</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-\frac{du}{dt} &amp; \leq \dot{u}_{max} \\
-\frac{du}{dt} &amp; \geq -\dot{u}_{max}
-\end{align*}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\dot{u}_{max}\)</span> is the maximum rate of change.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Be sure to check and update the ambient temperature!</span>
-<span class="c1"># Hint: you can do this with the hardware</span>
-
-<span class="n">opt</span> <span class="o">=</span> <span class="n">TCLabPyomo</span><span class="p">(</span><span class="s1">&#39;optimize&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span> <span class="o">=</span> <span class="n">TCLabPyomo</span><span class="p">(</span><span class="s1">&#39;optimize&#39;</span><span class="p">,</span>
                  <span class="n">t_sim</span><span class="p">,</span>
                  <span class="n">u_sim</span><span class="p">,</span>
                  <span class="n">d_sim</span><span class="p">,</span>
@@ -1167,45 +1162,99 @@ T_S(t_0) &amp; = T_{amb}
 </pre></div>
 </div>
 </div>
-</div>
-<section id="id1">
-<h3>Discussion<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p><strong>Using what you know about how the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> and <code class="docutils literal notranslate"><span class="pre">optimize</span></code> modes operate, desctibe the differences in the controller performance and why those differences are occuring. How does the optimal control with knowledge of disturbances impact the controller performance? Quantitatively justify your response using plots from the Pyomo model results.</strong></p>
-<p><em>Answer</em>:</p>
-</section>
-</section>
-<section id="exercise-2">
-<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h2>
-<p>Implement your calculated solution on the TC Lab hardware. Save the simulation results to a text file.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recommended: Check that the device is at steady state and ambient temperature</span>
-<span class="c1"># experimental parameters</span>
-<span class="n">tfinal</span> <span class="o">=</span> <span class="mi">30</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ipopt 3.13.2: 
 
-<span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
 
-<span class="c1"># To complete the experiment, change this to True</span>
-<span class="c1"># After completing the experiment, be sure to change it back to False</span>
-<span class="c1"># This will prevent you from overwriting your data</span>
-<span class="n">run_exercise2_tclab</span> <span class="o">=</span> <span class="kc">False</span>
+This version of Ipopt was compiled from source code available at
+    https://github.com/IDAES/Ipopt as part of the Institute for the Design of
+    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE
+    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.
 
-<span class="k">if</span> <span class="n">run_exercise2_tclab</span><span class="p">:</span>
+This version of Ipopt was compiled using HSL, a collection of Fortran codes
+    for large-scale scientific computation.  All technical papers, sales and
+    publicity material resulting from use of the HSL codes within IPOPT must
+    contain the following acknowledgement:
+        HSL, a collection of Fortran codes for large-scale scientific
+        computation. See http://www.hsl.rl.ac.uk.
+******************************************************************************
 
-    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+This is Ipopt version 3.13.2, running with linear solver ma27.
 
-    <span class="c1"># perform experiment</span>
-    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-        <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">lab</span><span class="o">.</span><span class="n">U2</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">):</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+Number of nonzeros in equality constraint Jacobian...:     2601
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:      400
+
+Total number of variables............................:     1003
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:      601
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:      802
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  5.9057167e+04 1.36e+00 7.80e+01  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  2.2377351e+05 1.76e-15 4.70e+01  -1.0 4.06e+01    -  2.02e-02 1.00e+00h  1
+   2  5.2907794e+04 2.68e-15 1.78e+01  -1.0 1.23e+02    -  4.87e-03 8.03e-01f  1
+   3  1.1381160e+04 2.17e-15 6.62e+00  -1.0 8.96e+01    -  1.60e-01 6.39e-01f  1
+   4  3.1797545e+03 2.62e-15 2.82e+00  -1.0 4.91e+01    -  2.08e-01 5.66e-01f  1
+   5  9.2792137e+02 2.47e-15 1.17e+00  -1.0 4.03e+01    -  2.67e-01 7.02e-01f  1
+   6  5.3843247e+02 2.55e-15 3.60e-01  -1.0 3.20e+01    -  3.24e-01 9.69e-01f  1
+   7  4.9908475e+02 2.34e-15 2.75e-01  -1.0 2.33e+01    -  4.10e-01 1.00e+00f  1
+   8  4.8398364e+02 2.28e-15 1.44e-01  -1.0 2.05e+01    -  5.07e-01 9.21e-01f  1
+   9  4.7608577e+02 2.50e-15 7.05e-02  -1.0 2.82e+01    -  5.62e-01 8.04e-01f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  4.7108116e+02 2.46e-15 2.40e-02  -1.0 3.34e+01    -  7.41e-01 1.00e+00f  1
+  11  4.6869666e+02 2.39e-15 4.20e-03  -1.0 4.17e+01    -  8.83e-01 1.00e+00f  1
+  12  4.6493692e+02 2.54e-15 1.19e-03  -1.7 1.63e+01    -  9.42e-01 1.00e+00f  1
+  13  4.6382225e+02 2.47e-15 6.92e-04  -2.5 1.44e+01    -  9.25e-01 1.00e+00f  1
+  14  4.6358856e+02 2.50e-15 8.85e-04  -3.8 1.07e+01    -  7.57e-01 1.00e+00f  1
+  15  4.6355618e+02 2.25e-15 3.34e-04  -3.8 8.37e+00    -  8.12e-01 1.00e+00f  1
+  16  4.6354709e+02 2.61e-15 5.68e-14  -3.8 1.08e+01    -  1.00e+00 1.00e+00f  1
+  17  4.6353720e+02 2.41e-15 7.45e-05  -5.7 2.33e+00    -  6.85e-01 1.00e+00f  1
+  18  4.6353668e+02 2.33e-15 1.88e-05  -5.7 6.60e-01    -  8.37e-01 1.00e+00f  1
+  19  4.6353658e+02 2.44e-15 5.68e-14  -5.7 2.78e+00    -  1.00e+00 1.00e+00f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  20  4.6353646e+02 2.60e-15 1.86e-07  -8.6 1.13e-01    -  9.65e-01 1.00e+00f  1
+  21  4.6353646e+02 2.19e-15 5.68e-14  -8.6 4.25e-01    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 21
+
+                                   (scaled)                 (unscaled)
+Objective...............:   4.6353646311045622e+02    4.6353646311045622e+02
+Dual infeasibility......:   5.6843418860808015e-14    5.6843418860808015e-14
+Constraint violation....:   2.1926904736346842e-15    2.1926904736346842e-15
+Complementarity.........:   3.9641559121872383e-09    3.9641559121872383e-09
+Overall NLP error.......:   3.9641559121872383e-09    3.9641559121872383e-09
+
+
+Number of objective function evaluations             = 22
+Number of objective gradient evaluations             = 22
+Number of equality constraint evaluations            = 22
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 22
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 21
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.015
+Total CPU secs in NLP function evaluations           =      0.001
+
+EXIT: Optimal Solution Found.
 </pre></div>
 </div>
+<img alt="../_images/0db83d10355772e867f0b7432ef35ab05471af78443afb446d218b1dabb95b93.png" src="../_images/0db83d10355772e867f0b7432ef35ab05471af78443afb446d218b1dabb95b93.png" />
 </div>
 </div>
+</section>
+<section id="hardware-implementation">
+<h2><span class="section-number">6.9.4. </span>Hardware Implementation<a class="headerlink" href="#hardware-implementation" title="Permalink to this heading">#</a></h2>
+<p>Implement your calculated solution on the TC Lab hardware (in “digital twin” mode). Save the simulation results to a text file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_solution</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
@@ -1230,25 +1279,51 @@ T_S(t_0) &amp; = T_{amb}
 
 <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
 
-<span class="k">if</span> <span class="n">run_exercise2_tclab</span><span class="p">:</span>
+<span class="c1"># In Lab 5, you will use connected=True</span>
+<span class="c1"># And run this experiment on your hardware</span>
+<span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">speedup</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
-    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Set final time to match simulation</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="n">t_solution</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="n">t_final</span> <span class="o">=</span> <span class="n">t_solution</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># change this to 500 seconds for the actual experiment</span>
-    <span class="n">t_step</span> <span class="o">=</span> <span class="mf">0.1</span>
-    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-        <span class="n">sources</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">),</span>
-                <span class="p">(</span><span class="s2">&quot;T1pred&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">TS_predict</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
-                <span class="p">(</span><span class="s2">&quot;SP1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">tclab_setpoint</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
-                <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Q2&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">)]</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">sources</span><span class="p">)</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">((</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;SP1&quot;</span><span class="p">,</span><span class="s2">&quot;T1pred&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">)))</span>
-        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">t_final</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
-            <span class="n">U1</span> <span class="o">=</span> <span class="n">u_open_loop</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-            <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">U1</span><span class="p">)</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="c1"># Only implement the controller change every 2 seconds</span>
+<span class="n">t_step</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="c1"># Run experiments</span>
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+
+    <span class="c1"># Define sources for plotting</span>
+    <span class="n">sources</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;T1pred&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">TS_predict</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s2">&quot;SP1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">tclab_setpoint</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Q2&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">)]</span>
+    
+    <span class="c1"># Create a historian to store data</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">sources</span><span class="p">)</span>
+    <span class="c1"># Define plotting using same names as sources/historian</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">((</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;SP1&quot;</span><span class="p">,</span><span class="s2">&quot;T1pred&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">)))</span>
+
+    <span class="c1"># Loop over time steps</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">t_final</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
+        <span class="c1"># Look up the control value via interpolation</span>
+        <span class="n">U1</span> <span class="o">=</span> <span class="n">u_open_loop</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+        <span class="c1"># Notice, we did not apply the distrubance here</span>
+
+        <span class="c1"># Set control value to hardware</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">U1</span><span class="p">)</span>
+
+        <span class="c1"># Update the plot</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/be5a77fb900f21f3605a65947bec359dc693aa2915140c38925274afd22b6498.png" src="../_images/be5a77fb900f21f3605a65947bec359dc693aa2915140c38925274afd22b6498.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
+</pre></div>
+</div>
+<img alt="../_images/be5a77fb900f21f3605a65947bec359dc693aa2915140c38925274afd22b6498.png" src="../_images/be5a77fb900f21f3605a65947bec359dc693aa2915140c38925274afd22b6498.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1273,25 +1348,24 @@ T_S(t_0) &amp; = T_{amb}
 
     <span class="k">return</span> <span class="n">file_name</span>
 
-<span class="n">excercise2_tclab_data_file</span> <span class="o">=</span> <span class="s1">&#39;tclab-open-loop1.csv&#39;</span>
+<span class="n">excercise2_tclab_data_file</span> <span class="o">=</span> <span class="s1">&#39;tclab-open-loop-digital-twin.csv&#39;</span>
 
-<span class="k">if</span> <span class="n">run_exercise2_tclab</span><span class="p">:</span>
-    <span class="n">data_file</span> <span class="o">=</span> <span class="n">save_tclab_data</span><span class="p">(</span><span class="n">h</span><span class="p">,</span>
-                    <span class="n">excercise2_tclab_data_file</span><span class="p">,</span> <span class="c1"># tip: change this to end in &quot;2&quot; when copying code later in assignment</span>
-                    <span class="kc">False</span>
-    <span class="p">)</span>
+<span class="n">data_file</span> <span class="o">=</span> <span class="n">save_tclab_data</span><span class="p">(</span><span class="n">h</span><span class="p">,</span>
+                <span class="n">excercise2_tclab_data_file</span><span class="p">,</span>
+                <span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully saved data to tclab-open-loop-digital-twin.csv
 </pre></div>
 </div>
 </div>
 </div>
-<section id="id2">
-<h3>Discussion<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<p><strong>How do your optimzized simulation results (with pyomo model) compare to the implementation results (with TCLab hardware)? Why do you think these differences do (or don’t) occur?</strong></p>
-<p><em>Answer</em>:</p>
-</section>
 </section>
 <section id="estimation-observation">
-<h2>Estimation/Observation<a class="headerlink" href="#estimation-observation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.9.5. </span>Estimation/Observation<a class="headerlink" href="#estimation-observation" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><p>“… and now my watch begins …” ―The Night’s Watch oath, Game of Thrones</p>
 </div></blockquote>
@@ -1312,13 +1386,10 @@ C_p^S \frac{d\hat{T}_S}{dt} &amp; = - U_c (\hat{T}_S - \hat{T}_H)
 T_H(t_0) &amp; = T_{amb} \\
 T_S(t_0) &amp; = T_{amb}
 \end{align*}\]</div>
-</section>
-<section id="exercise-3">
-<h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h2>
-<p>Using the simulation data you saved in Exercise 2, estimate the heater temperature and disturbance when the disturbance has no impact on the objective function (i.e., <span class="math notranslate nohighlight">\(w\)</span> = 0).</p>
+<p>Using the experimental data generated above, estimate the heater temperature and disturbance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">excercise2_tclab_data_file</span> <span class="o">=</span> <span class="s1">&#39;tclab-open-loop1.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">excercise3_tclab_data_file</span> <span class="o">=</span> <span class="s1">&#39;tclab-open-loop-digital-twin.csv&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1326,11 +1397,93 @@ T_S(t_0) &amp; = T_{amb}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">experiment_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">excercise2_tclab_data_file</span><span class="p">)</span>
+<span class="n">experiment_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">excercise3_tclab_data_file</span><span class="p">)</span>
 <span class="n">experiment_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Time</th>
+      <th>T1</th>
+      <th>T2</th>
+      <th>T1pred</th>
+      <th>SP1</th>
+      <th>Q1</th>
+      <th>Q2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.534980</td>
+      <td>20.9495</td>
+      <td>20.9495</td>
+      <td>21.0</td>
+      <td>21.0</td>
+      <td>3.898698e+01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>7.558308</td>
+      <td>20.9495</td>
+      <td>20.9495</td>
+      <td>21.0</td>
+      <td>21.0</td>
+      <td>7.563474e+00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9.594454</td>
+      <td>20.9495</td>
+      <td>20.9495</td>
+      <td>21.0</td>
+      <td>21.0</td>
+      <td>4.246276e-09</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11.630926</td>
+      <td>20.9495</td>
+      <td>20.9495</td>
+      <td>21.0</td>
+      <td>21.0</td>
+      <td>5.229587e-09</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>15.587924</td>
+      <td>21.2718</td>
+      <td>20.6272</td>
+      <td>21.0</td>
+      <td>21.0</td>
+      <td>8.259456e-09</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1352,15 +1505,81 @@ T_S(t_0) &amp; = T_{amb}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ipopt 3.13.2: 
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+
+This version of Ipopt was compiled from source code available at
+    https://github.com/IDAES/Ipopt as part of the Institute for the Design of
+    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE
+    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.
+
+This version of Ipopt was compiled using HSL, a collection of Fortran codes
+    for large-scale scientific computation.  All technical papers, sales and
+    publicity material resulting from use of the HSL codes within IPOPT must
+    contain the following acknowledgement:
+        HSL, a collection of Fortran codes for large-scale scientific
+        computation. See http://www.hsl.rl.ac.uk.
+******************************************************************************
+
+This is Ipopt version 3.13.2, running with linear solver ma27.
+
+Number of nonzeros in equality constraint Jacobian...:     4876
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:      751
+
+Total number of variables............................:     1878
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:      750
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:     1502
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  1.9259940e+01 1.55e+00 5.15e-01  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.3997034e+00 8.73e-15 9.36e-04  -1.0 6.55e-01    -  9.73e-01 1.00e+00f  1
+   2  3.3236926e+00 8.73e-15 1.41e-14  -1.0 1.58e-01    -  1.00e+00 1.00e+00f  1
+   3  3.3220307e+00 1.02e-14 1.41e-14  -2.5 8.41e-03    -  1.00e+00 1.00e+00f  1
+   4  3.3220293e+00 1.03e-14 1.40e-14  -3.8 2.33e-04    -  1.00e+00 1.00e+00f  1
+   5  3.3220293e+00 7.07e-15 1.37e-14  -5.7 1.25e-05    -  1.00e+00 1.00e+00h  1
+   6  3.3220293e+00 9.90e-15 1.35e-14  -8.6 1.55e-07    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 6
+
+                                   (scaled)                 (unscaled)
+Objective...............:   3.3220293067872477e+00    3.3220293067872477e+00
+Dual infeasibility......:   1.3466279855938151e-14    1.3466279855938151e-14
+Constraint violation....:   9.9033921334892507e-15    9.9033921334892507e-15
+Complementarity.........:   2.5059213607022356e-09    2.5059213607022356e-09
+Overall NLP error.......:   2.5059213607022356e-09    2.5059213607022356e-09
+
+
+Number of objective function evaluations             = 7
+Number of objective gradient evaluations             = 7
+Number of equality constraint evaluations            = 7
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 7
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 6
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.010
+Total CPU secs in NLP function evaluations           =      0.000
+
+EXIT: Optimal Solution Found.
+</pre></div>
 </div>
-<section id="id3">
-<h3>Discussion<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<p><strong>Interpret your estimates for the heater temperature and disturbance.</strong></p>
-<p><em>Answer</em>:</p>
-</section>
+<img alt="../_images/7826b2240970d5f1b34aeaf0ddb15a573e034e444139a33d0d402a7e1808d030.png" src="../_images/7826b2240970d5f1b34aeaf0ddb15a573e034e444139a33d0d402a7e1808d030.png" />
+</div>
+</div>
 </section>
 <section id="parameter-estimation">
-<h2>Parameter Estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.9.6. </span>Parameter Estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this heading">#</a></h2>
 <p>It is also possible our model does not match the physics of the system (e.g., wrong assumptions) or our estimated parameters are no longer valid or both. To investigate the later, we can repeat the parameter estimation problem for earlier in the semester:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1379,15 +1598,12 @@ T_H(t_0) &amp; = T_{amb} \\
 T_S(t_0) &amp; = T_{amb}
 \end{align*}\]</div>
 <p>and assumption disturbance is zero</p>
-<div class="amsmath math notranslate nohighlight" id="equation-86cdcb12-816e-4ba1-a4a5-082c87fffccc">
-<span class="eqno">(8)<a class="headerlink" href="#equation-86cdcb12-816e-4ba1-a4a5-082c87fffccc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7d204dfe-78d5-4108-8718-0e50bdc3625f">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-7d204dfe-78d5-4108-8718-0e50bdc3625f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 d(t) = 0
 \end{equation}\]</div>
-</section>
-<section id="exercise-4">
-<h2>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this heading">#</a></h2>
 <p>Using data from your experiment, restimate the model parameters <span class="math notranslate nohighlight">\(U_a\)</span>, <span class="math notranslate nohighlight">\(U_b\)</span>, <span class="math notranslate nohighlight">\(C_p^H\)</span>, <span class="math notranslate nohighlight">\(C_p^S\)</span>.</p>
-<p>NOTE: Depending on your operating system, the following code cell may take up to 2 minutes to solve.</p>
+<p>NOTE: Depending on your computer’s hardward and the version of Ipopt installed, the following code cell may take up to 2 minutes to solve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">est</span> <span class="o">=</span> <span class="n">TCLabPyomo</span><span class="p">(</span><span class="s1">&#39;estimate&#39;</span><span class="p">,</span>
@@ -1402,6 +1618,109 @@ d(t) = 0
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ipopt 3.13.2: 
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+
+This version of Ipopt was compiled from source code available at
+    https://github.com/IDAES/Ipopt as part of the Institute for the Design of
+    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE
+    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.
+
+This version of Ipopt was compiled using HSL, a collection of Fortran codes
+    for large-scale scientific computation.  All technical papers, sales and
+    publicity material resulting from use of the HSL codes within IPOPT must
+    contain the following acknowledgement:
+        HSL, a collection of Fortran codes for large-scale scientific
+        computation. See http://www.hsl.rl.ac.uk.
+******************************************************************************
+
+This is Ipopt version 3.13.2, running with linear solver ma27.
+
+Number of nonzeros in equality constraint Jacobian...:     6378
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:     2252
+
+Total number of variables............................:     1506
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:      754
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:     1502
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  1.9259940e+01 1.54e+00 5.31e-01  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  2.2269094e+01 1.48e+00 2.18e+02  -1.0 4.22e+02    -  2.00e-03 1.48e-02h  1
+   2  2.2825561e+01 1.47e+00 2.17e+02  -1.0 2.46e+02   0.0 3.70e-02 1.78e-03h  1
+   3  2.2195242e+01 1.47e+00 2.17e+02  -1.0 1.83e+01    -  3.63e-01 5.88e-04f  1
+   4  1.9054366e+04 1.09e+00 5.76e+05  -1.0 1.83e+01    -  3.77e-03 1.00e+00h  1
+   5  1.8583321e+04 1.08e+00 5.69e+05  -1.0 1.93e+01    -  6.83e-01 1.15e-02f  1
+   6  5.3197080e+02 4.69e-01 1.00e+06  -1.0 1.94e+01    -  7.42e-01 1.00e+00f  1
+   7  5.0356021e+01 9.18e-03 3.05e+04  -1.0 1.84e+00    -  7.23e-01 1.00e+00f  1
+   8  3.3692518e+01 6.42e-04 5.48e+03  -1.0 9.79e-01    -  1.63e-01 1.00e+00f  1
+   9  1.3274799e+01 3.22e-05 6.51e+02  -1.0 1.00e+00    -  1.00e+00 1.00e+00f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  1.2172711e+01 1.61e-06 8.49e+02  -1.0 8.66e-02    -  1.00e+00 1.00e+00f  1
+  11  1.2257014e+01 2.54e-06 4.56e+01  -1.0 7.05e-03    -  6.74e-01 1.00e+00f  1
+  12  1.2128150e+01 1.95e-05 4.49e+02  -1.0 2.34e-02    -  4.71e-01 1.00e+00f  1
+  13  1.1886389e+01 5.70e-05 8.20e+01  -1.0 5.44e-02    -  1.00e+00 1.00e+00F  1
+  14  1.2156932e+01 8.01e-06 2.33e+02  -1.0 2.29e-02   1.3 1.00e+00 1.00e+00h  1
+  15  1.2243211e+01 1.48e-05 6.75e+01  -1.0 7.76e-02    -  1.89e-01 2.50e-01f  3
+  16  1.2204832e+01 1.37e-05 1.74e+02  -1.0 1.86e-02   0.9 1.00e+00 1.00e+00f  1
+  17  1.2204738e+01 4.76e-05 3.84e+01  -1.0 5.92e-02    -  9.41e-01 1.00e+00F  1
+  18  1.2263440e+01 3.54e-03 2.21e+02  -1.0 3.33e-01    -  1.00e+00 1.00e+00f  1
+  19  1.2254139e+01 6.60e-06 2.60e+02  -1.0 2.33e-02    -  1.00e+00 1.00e+00h  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  20  1.2232966e+01 4.54e-07 5.43e-01  -1.0 6.80e-03   0.4 1.00e+00 1.00e+00h  1
+  21  1.2216588e+01 1.72e-04 2.61e+00  -1.7 8.58e-02    -  1.00e+00 1.00e+00f  1
+  22  1.2220637e+01 2.89e-02 7.56e+01  -1.7 1.03e+00    -  1.00e+00 1.00e+00h  1
+  23  1.2213179e+01 5.94e-05 1.17e+01  -1.7 6.84e-02  -0.1 1.00e+00 1.00e+00h  1
+  24  1.2208158e+01 5.03e-03 8.87e+00  -1.7 2.16e+00    -  1.00e+00 2.38e-01h  3
+  25  1.2207894e+01 1.35e-02 1.49e+00  -1.7 8.41e-01    -  1.00e+00 1.00e+00H  1
+  26  1.2209661e+01 1.17e-02 1.69e+00  -1.7 5.99e-01    -  1.00e+00 1.25e-01h  4
+  27  1.2211031e+01 1.01e-02 1.36e+00  -1.7 6.27e-01    -  1.00e+00 1.25e-01h  4
+  28  1.2211284e+01 9.79e-03 1.33e+00  -1.7 4.68e-01    -  1.00e+00 3.12e-02h  6
+  29  1.2211314e+01 9.76e-03 1.32e+00  -1.7 4.52e-01    -  1.00e+00 3.91e-03h  9
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  30  1.2211328e+01 9.74e-03 1.32e+00  -1.7 4.49e-01    -  1.00e+00 1.95e-03h 10
+  31  1.2219088e+01 4.54e-03 2.14e+00  -1.7 4.48e-01    -  1.00e+00 1.00e+00h  1
+  32  1.2217170e+01 1.59e-05 1.74e-02  -1.7 3.99e-02    -  1.00e+00 1.00e+00h  1
+  33  1.2217031e+01 4.23e-09 1.84e-04  -3.8 9.82e-04    -  1.00e+00 1.00e+00h  1
+  34  1.2217031e+01 3.52e-12 3.68e-08  -5.7 1.97e-05    -  1.00e+00 1.00e+00h  1
+  35  1.2217031e+01 4.57e-14 2.51e-11  -8.6 1.70e-06    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 35
+
+                                   (scaled)                 (unscaled)
+Objective...............:   1.2217031010956887e+01    1.2217031010956887e+01
+Dual infeasibility......:   2.5064861796542046e-11    2.5064861796542046e-11
+Constraint violation....:   4.5741188614556449e-14    4.5741188614556449e-14
+Complementarity.........:   2.5062593128969544e-09    2.5062593128969544e-09
+Overall NLP error.......:   2.5062593128969544e-09    2.5062593128969544e-09
+
+
+Number of objective function evaluations             = 76
+Number of objective gradient evaluations             = 36
+Number of equality constraint evaluations            = 76
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 36
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 35
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.117
+Total CPU secs in NLP function evaluations           =      0.009
+
+EXIT: Optimal Solution Found.
+</pre></div>
+</div>
+<img alt="../_images/50b9efdcf91655403512838c7a371f41ef266be903084baa306a766756cbcd1e.png" src="../_images/50b9efdcf91655403512838c7a371f41ef266be903084baa306a766756cbcd1e.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1411,236 +1730,15 @@ d(t) = 0
 </pre></div>
 </div>
 </div>
-</div>
-<section id="id4">
-<h3>Discussion<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
-<p><strong>Are these parameters close to what you expected (i.e., your Lab 3 results)? Why or why not?</strong></p>
-<p><em>Answer</em>:</p>
-</section>
-</section>
-<section id="exercise-5">
-<h2>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this heading">#</a></h2>
-<p>Compare the profiles of <span class="math notranslate nohighlight">\(T_H\)</span>, <span class="math notranslate nohighlight">\(T_S\)</span>, <span class="math notranslate nohighlight">\(Q_1\)</span>, and <span class="math notranslate nohighlight">\(d\)</span> (disturbance) across:</p>
-<ul class="simple">
-<li><p>The open loop optimization (prediction)</p></li>
-<li><p>The hardware results</p></li>
-<li><p>The state estimation</p></li>
-</ul>
-<p>Write a short paragraph or a bulleted list of observations.</p>
-<p><strong>Your Observations:</strong></p>
-<p><em>Answer</em>:</p>
-<p>Compare the mean absolute and mean squared tracking (TODO: make solutions to calculate this) error <span class="math notranslate nohighlight">\(T_S - T_{set}\)</span> and <span class="math notranslate nohighlight">\(T_H - T_{set}\)</span> across:</p>
-<ul class="simple">
-<li><p>The open loop optimization</p></li>
-<li><p>The state estimation (using hardware results)</p></li>
-</ul>
-<p>Write a short paragraph or a bulleted list of observations.</p>
-<p><strong>Your Observations:</strong></p>
-<p><em>Answer</em>:</p>
-</section>
-<section id="excerise-6">
-<h2>Excerise 6<a class="headerlink" href="#excerise-6" title="Permalink to this heading">#</a></h2>
-<p>Repeat the procedure from this lab for the dark chocolate tempering profile.</p>
-<section id="open-loop-optimization">
-<h3>Open Loop Optimization<a class="headerlink" href="#open-loop-optimization" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># experimental parameters</span>
-<span class="n">tfinal</span> <span class="o">=</span> <span class="mi">30</span>
-
-<span class="c1"># To complete the experiment, change this to True</span>
-<span class="c1"># After completing the experiment, be sure to change it back to False</span>
-<span class="c1"># This will prevent you from overwriting your data</span>
-<span class="n">run_tamb2_tclab</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="k">if</span> <span class="n">run_tamb2_tclab</span><span class="p">:</span>
-
-    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1"># initialize list to store temperature</span>
-    <span class="n">T_list</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1"># perform experiment</span>
-    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-        <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">lab</span><span class="o">.</span><span class="n">U2</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
-        
-        <span class="c1"># save temperatures to access later</span>
-        <span class="n">T_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">)</span>
-        <span class="n">T_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">):</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-
-    <span class="c1"># estimate ambient temperature</span>
-    <span class="n">Tamb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">T_list</span><span class="p">)</span> <span class="c1"># deg C</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The ambient temperature is </span><span class="si">{</span><span class="n">Tamb</span><span class="si">}</span><span class="s2"> degrees C&quot;</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The value of Ua is 0.0268 Watts/degC.
+The value of Ub is 0.025 Watts/degC.
+The value of CpH is 2.749 Joules/degC.
+The value of CpS is 0.696 Joules/degC.
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Be sure to check and update the ambient temperature!</span>
-
-<span class="c1"># Determine the optimal control scheme</span>
-<span class="c1"># Hint: the correct implementation of the set point can be found in Lab 2 solutions</span>
-<span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="hardware-implementation">
-<h3>Hardware Implementation<a class="headerlink" href="#hardware-implementation" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recommended: Check that the device is at steady state and ambient temperature</span>
-<span class="c1"># experimental parameters</span>
-<span class="n">tfinal</span> <span class="o">=</span> <span class="mi">30</span>
-
-<span class="c1"># To complete the experiment, change this to True</span>
-<span class="c1"># After completing the experiment, be sure to change it back to False</span>
-<span class="c1"># This will prevent you from overwriting your data</span>
-<span class="n">run_exercise6_tclab</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
-
-<span class="k">if</span> <span class="n">run_exercise6_tclab</span><span class="p">:</span>
-
-    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1"># perform experiment</span>
-    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-        <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">lab</span><span class="o">.</span><span class="n">U2</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">):</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implement optimal solution on your TCLab</span>
-<span class="c1">## BEGIN SOLUTION</span>
-
-<span class="n">t_solution</span> <span class="o">=</span> <span class="n">choc_opt</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
-<span class="n">u_solution</span> <span class="o">=</span> <span class="n">choc_opt</span><span class="o">.</span><span class="n">get_U</span><span class="p">()</span>
-<span class="n">TS_solution</span> <span class="o">=</span> <span class="n">choc_opt</span><span class="o">.</span><span class="n">get_Ts</span><span class="p">()</span>
-<span class="n">TH_solution</span> <span class="o">=</span> <span class="n">choc_opt</span><span class="o">.</span><span class="n">get_Th</span><span class="p">()</span>
-
-<span class="n">u_open_loop</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
-    <span class="n">t_solution</span><span class="p">,</span>   <span class="c1"># time</span>
-    <span class="n">u_solution</span><span class="p">,</span>   <span class="c1"># control value</span>
-    <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>   <span class="c1"># tolerates slight exptrapolation</span>
-
-<span class="n">TS_predict</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
-    <span class="n">t_solution</span><span class="p">,</span>   <span class="c1"># time</span>
-    <span class="n">TS_solution</span><span class="p">,</span>   <span class="c1"># sensor temperature prediction</span>
-    <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>   <span class="c1"># tolerates slight exptrapolation</span>
-
-<span class="n">TH_predict</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
-    <span class="n">t_solution</span><span class="p">,</span>   <span class="c1"># time</span>
-    <span class="n">TH_solution</span><span class="p">,</span>   <span class="c1"># sensor temperature prediction</span>
-    <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>   <span class="c1"># tolerates slight exptrapolation</span>
-
-<span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
-
-<span class="k">if</span> <span class="n">run_exercise6_tclab</span><span class="p">:</span>
-
-    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="n">t_final</span> <span class="o">=</span> <span class="n">t_chocolate</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">t_step</span> <span class="o">=</span> <span class="mf">0.1</span>
-    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
-        <span class="n">sources</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">),</span>
-                <span class="p">(</span><span class="s2">&quot;T1pred&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">TS_predict</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
-                <span class="p">(</span><span class="s2">&quot;SP1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">chocolate_setpoint</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
-                <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Q2&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">)]</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">sources</span><span class="p">)</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">((</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;SP1&quot;</span><span class="p">,</span> <span class="s2">&quot;T1pred&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">)))</span>
-        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">t_final</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
-            <span class="n">U1</span> <span class="o">=</span> <span class="n">u_open_loop</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-            <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">U1</span><span class="p">)</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-
-<span class="c1">### END SOLUTION</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save your experimental data as data_file2.</span>
-
-<span class="n">excercise6_tclab_data_file</span> <span class="o">=</span> <span class="s1">&#39;tclab-open-loop2.csv&#39;</span>
-
-<span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id5">
-<h3>Discussion<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
-<p><strong>How does the open loop optimization control scheme compare to the other implememntations we have seen this semester (e.g., relay, PI, etc.)? Justify your answer using knowlege of the mathematical models.</strong></p>
-<p><em>Answer</em>:</p>
-<p><strong>Does your hardware implementation make sense based on your optimization results from the Pyomo model? Justify your answer.</strong></p>
-<p><em>Answer</em>:</p>
-</section>
-<section id="state-estimation">
-<h3>State Estimation<a class="headerlink" href="#state-estimation" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment_data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">excercise6_tclab_data_file</span><span class="p">)</span>
-
-<span class="n">time_data2</span> <span class="o">=</span> <span class="n">experiment_data2</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">array</span> <span class="c1"># grab column from pandas, convert to array</span>
-<span class="n">time_data2</span> <span class="o">-=</span> <span class="n">time_data2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># make initial time 0</span>
-
-<span class="c1"># Estimate TH and d from data</span>
-<span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id6">
-<h3>Discussion<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
-<p><strong>Interpret your estimates for the heater temperature and disturbance. Do these makes sense? How do you know?</strong></p>
-<p><em>Answer</em>:</p>
-</section>
-</section>
-<section id="id7">
-<h2>Parameter Estimation<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
-<p>NOTE: Depending on your operating system, the following code cell may take up to 2 minnutes to solve.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estimate model parameters</span>
-<span class="c1"># Add your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">est2</span><span class="o">.</span><span class="n">print_parameters</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="id8">
-<h3>Discussion<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
-<p><strong>How do your parameters compare to those found in previous labs? Does this make sense?</strong></p>
-<p><em>Answer</em>:</p>
-</section>
 </section>
 </section>
 
@@ -1657,7 +1755,7 @@ d(t) = 0
         },
         kernelOptions: {
             name: "python3",
-            path: "./assignments"
+            path: "./notebooks"
         },
         predefinedOutput: true
     }
@@ -1675,20 +1773,20 @@ d(t) = 0
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Homework-2.html"
+       href="06.07-time-as-decision-variable.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Homework 2: Optimization</p>
+        <p class="prev-next-title"><span class="section-number">6.8. </span>Time as a Decision Variable</p>
       </div>
     </a>
     <a class="right-next"
-       href="../notebooks/01.00-What-is-Process-Control.html"
+       href="08.00-Projects.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>What is Process Control?</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Projects</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1708,46 +1806,16 @@ d(t) = 0
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-setup">Installation and Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-0-develop-the-mathematical-model-and-pyomo-simulation">Exercise 0: Develop the Mathematical Model and Pyomo Simulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyomo-model">Pyomo Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-inputs">Process Inputs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">6.9.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-model-and-pyomo-simulation">6.9.2. Mathematical Model and Pyomo Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyomo-model">6.9.2.1. Pyomo Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-inputs">6.9.2.2. Process Inputs</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-control-with-knowledge-of-disturbances">Optimal Control with Knowledge of Disturbances</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-observation">Estimation/Observation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">Parameter Estimation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excerise-6">Excerise 6</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-loop-optimization">Open Loop Optimization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-implementation">Hardware Implementation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Discussion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state-estimation">State Estimation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Parameter Estimation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Discussion</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-control-with-knowledge-of-disturbances">6.9.3. Optimal Control with Knowledge of Disturbances</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-implementation">6.9.4. Hardware Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-observation">6.9.5. Estimation/Observation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">6.9.6. Parameter Estimation</a></li>
 </ul>
   </nav></div>
 
