@@ -553,8 +553,22 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-control-with-knowledge-of-disturbances">6.9.3. Optimal Control with Knowledge of Disturbances</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-implementation">6.9.4. Hardware Implementation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-observation">6.9.5. Estimation/Observation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">6.9.6. Parameter Estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-observation">6.9.5. Estimation/Observation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-objective-weight-w-0-01">6.9.5.1. Small Objective Weight (<span class="math notranslate nohighlight">\(w=0.01\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medium-objective-weight-w-0-1">6.9.5.2. Medium Objective Weight (<span class="math notranslate nohighlight">\(w=0.1\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medium-large-objective-weight-w-1">6.9.5.3. Medium Large Objective Weight (<span class="math notranslate nohighlight">\(w=1\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-large-objective-weight-w-10">6.9.5.4. Extra Large Objective Weight (<span class="math notranslate nohighlight">\(w=10\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">6.9.6. Parameter Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assume-no-disturbance">6.9.6.1. Assume no disturbance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-exercise-take-two">6.9.7. Recommended Exercise: Take Two</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-loop-optimization">6.9.7.1. Open-Loop Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-on-hardware-simulation">6.9.7.2. Implement on Hardware (Simulation)</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -621,8 +635,10 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_b (T_S - T_H)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="c1"># ensure that IDEAS is imported if there is an error calling Ipopt</span>
+
+<span class="c1"># ensure that IDAES is imported if there is an error calling Ipopt</span>
 <span class="kn">import</span> <span class="nn">idaes</span>
+
 <span class="c1"># Protip: only import the functions you need for each library.</span>
 <span class="c1"># This tells other programs exactly where each function is defined.</span>
 <span class="c1"># Avoid using from pyomo.environ import * as this imports everything</span>
@@ -642,9 +658,9 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_b (T_S - T_H)
 <span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">t_data</span><span class="p">,</span> <span class="n">u_data</span><span class="p">,</span> <span class="n">d_data</span><span class="p">,</span> <span class="n">Tset_data</span><span class="p">,</span> 
-                 <span class="n">TS_data</span><span class="p">,</span> <span class="n">Tamb</span> <span class="o">=</span> <span class="mf">21.0</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.00016</span><span class="p">,</span> <span class="n">P1</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-                 <span class="n">Ua</span> <span class="o">=</span> <span class="mf">0.0268</span><span class="p">,</span> <span class="n">Ub</span> <span class="o">=</span> <span class="mf">0.0029</span><span class="p">,</span> <span class="n">CpH</span> <span class="o">=</span> <span class="mf">3.678</span><span class="p">,</span> <span class="n">CpS</span> <span class="o">=</span> <span class="mf">0.054</span><span class="p">,</span>
-                 <span class="n">integrate_to_initialize</span><span class="o">=</span><span class="kc">True</span>
+                 <span class="n">TS_data</span><span class="p">,</span> <span class="n">Tamb</span> <span class="o">=</span> <span class="mf">21.0</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.00016</span><span class="p">,</span> <span class="n">P1</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+                 <span class="n">Ua</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">Ub</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">CpH</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">CpS</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+                 <span class="n">integrate_to_initialize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">obj_weight</span><span class="o">=</span><span class="mf">0.1</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Method called automatically when instantiating class.</span>
@@ -663,6 +679,7 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_b (T_S - T_H)
 <span class="sd">            CpH: heat capacity of the heater, joules/deg C</span>
 <span class="sd">            CpS: heat capacity of the, joules/deg C</span>
 <span class="sd">            integrate_to_initialize: Boolean</span>
+<span class="sd">            obj_weight: weight for heater temperature or disturbance in objective function, default is 0.1</span>
 <span class="sd">        Returns:</span>
 <span class="sd">            None </span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -688,8 +705,10 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_b (T_S - T_H)
         <span class="bp">self</span><span class="o">.</span><span class="n">Ub</span> <span class="o">=</span> <span class="n">Ub</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">CpH</span> <span class="o">=</span> <span class="n">CpH</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">CpS</span> <span class="o">=</span> <span class="n">CpS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">P1</span> <span class="o">=</span> <span class="n">P1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alphaP</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">P1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">integrate_to_initialize</span> <span class="o">=</span> <span class="n">integrate_to_initialize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj_weight</span> <span class="o">=</span> <span class="n">obj_weight</span>
 
         <span class="c1"># create the pyomo model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_create_pyomo_model</span><span class="p">()</span>
@@ -757,17 +776,18 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_b (T_S - T_H)
 
         <span class="c1"># for the simulate, optimize, observe modes</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;simulate&#39;</span><span class="p">,</span> <span class="s1">&#39;optimize&#39;</span><span class="p">,</span> <span class="s1">&#39;observe&#39;</span><span class="p">]:</span>
-            <span class="c1"># Ua, Ub, CpH, and CpS are parameters</span>
+            <span class="c1"># Ua and Ub parameters</span>
             <span class="n">m</span><span class="o">.</span><span class="n">Ua</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ua</span><span class="p">)</span>
             <span class="n">m</span><span class="o">.</span><span class="n">Ub</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ub</span><span class="p">)</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">CpH</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CpH</span><span class="p">)</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">CpS</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CpS</span><span class="p">)</span>
+            <span class="c1"># 1/CpH and 1/CpS parameters</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">inv_CpH</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">CpH</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">inv_CpS</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">CpS</span><span class="p">)</span>
         <span class="c1"># otherwise (estimate) they are variables</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">Ua</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ua</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">Ub</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ub</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">CpH</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CpH</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-3</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">CpS</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CpS</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-3</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">Ua</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ua</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">Ub</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ub</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">inv_CpH</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">CpH</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-2</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">inv_CpS</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">CpS</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 
 
 
@@ -778,9 +798,9 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_b (T_S - T_H)
         <span class="c1"># define differential equations (model) as contraints</span>
         <span class="c1"># moved Cps to the right hand side to diagnose integrator</span>
         <span class="n">m</span><span class="o">.</span><span class="n">Th_ode</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">rule</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> 
-                            <span class="n">m</span><span class="o">.</span><span class="n">CpH</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">Thdot</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span><span class="o">.</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Tamb</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">alphaP</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">U</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">D</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+                            <span class="n">m</span><span class="o">.</span><span class="n">Thdot</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Tamb</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">alphaP</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">U</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">D</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">inv_CpH</span><span class="p">)</span>
         <span class="n">m</span><span class="o">.</span><span class="n">Ts_ode</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">rule</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> 
-                            <span class="n">m</span><span class="o">.</span><span class="n">CpS</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">Tsdot</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="p">)</span>
+                            <span class="n">m</span><span class="o">.</span><span class="n">Tsdot</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="p">)</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">inv_CpS</span><span class="p">)</span>
 
 
         
@@ -835,11 +855,11 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_b (T_S - T_H)
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;optimize&#39;</span><span class="p">:</span>
             <span class="c1"># defining the tracking objective function</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Objective</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Tset</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Tset</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="n">sense</span><span class="o">=</span><span class="n">minimize</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Objective</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Tset</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_weight</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Tset</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="n">sense</span><span class="o">=</span><span class="n">minimize</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;observe&#39;</span><span class="p">:</span>
             <span class="c1"># define observation (state estimation)</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Objective</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="nb">sum</span><span class="p">((</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Ts_measure</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">D</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="n">sense</span><span class="o">=</span><span class="n">minimize</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Objective</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="nb">sum</span><span class="p">((</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Ts_measure</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_weight</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">D</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="n">sense</span><span class="o">=</span><span class="n">minimize</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;estimate&#39;</span><span class="p">:</span>
             <span class="c1"># define parameter estimation objective</span>
@@ -906,7 +926,7 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_b (T_S - T_H)
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Returns model parameters from solved pyomo model.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">Ua</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">CpH</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">CpS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">Ua</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">inv_CpH</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">inv_CpS</span><span class="p">)</span>
 
 
     <span class="k">def</span> <span class="nf">print_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1096,17 +1116,17 @@ Total number of inequality constraints...............:        0
         inequality constraints with only upper bounds:        0
 
 iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
-   0  0.0000000e+00 1.28e+00 0.00e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
-   1  0.0000000e+00 2.31e-15 1.12e+00  -1.0 3.00e+01    -  4.09e-01 1.00e+00h  1
+   0  0.0000000e+00 5.12e-01 0.00e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  0.0000000e+00 3.21e-15 1.38e+00  -1.0 3.49e+01    -  3.73e-01 1.00e+00h  1
 
 Number of Iterations....: 1
 
                                    (scaled)                 (unscaled)
 Objective...............:   0.0000000000000000e+00    0.0000000000000000e+00
 Dual infeasibility......:   0.0000000000000000e+00    0.0000000000000000e+00
-Constraint violation....:   2.3125121785736367e-15    2.3125121785736367e-15
+Constraint violation....:   3.2057689836051395e-15    3.2057689836051395e-15
 Complementarity.........:   0.0000000000000000e+00    0.0000000000000000e+00
-Overall NLP error.......:   2.3125121785736367e-15    2.3125121785736367e-15
+Overall NLP error.......:   3.2057689836051395e-15    3.2057689836051395e-15
 
 
 Number of objective function evaluations             = 2
@@ -1122,7 +1142,7 @@ Total CPU secs in NLP function evaluations           =      0.000
 EXIT: Optimal Solution Found.
 </pre></div>
 </div>
-<img alt="../_images/94703ecc985e8852304e71507d59086dd31451c6c09f18a27027ff59e92da201.png" src="../_images/94703ecc985e8852304e71507d59086dd31451c6c09f18a27027ff59e92da201.png" />
+<img alt="../_images/474f58225f16b477ce9f34ab5319eee0b57f6ce2d3473cc1fadc2599fca50cc5.png" src="../_images/474f58225f16b477ce9f34ab5319eee0b57f6ce2d3473cc1fadc2599fca50cc5.png" />
 </div>
 </div>
 </section>
@@ -1132,7 +1152,7 @@ EXIT: Optimal Solution Found.
 <p>An optimal control policy minimizes the differences</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-\min_{u} \int_{t_0}^{t_f} \|T_S^{SP}(t) - T_S(t)\|^2\,dt \\
+\min_{u} \int_{t_0}^{t_f} \|T_S^{SP}(t) - T_S(t)\|^2\ + w \|T_S^{SP}(t) - T_H(t)\|^2\,dt \\
 \end{align*}\]</div>
 <p>subject to constraints</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1155,6 +1175,7 @@ T_S(t_0) &amp; = T_{amb}
                  <span class="n">d_sim</span><span class="p">,</span>
                  <span class="n">setpoint_sim</span><span class="p">,</span>
                  <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">obj_weight</span><span class="o">=</span><span class="mf">0.01</span>
 <span class="p">)</span>
 
 <span class="n">opt</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
@@ -1200,55 +1221,51 @@ Total number of inequality constraints...............:        0
         inequality constraints with only upper bounds:        0
 
 iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
-   0  5.9057167e+04 1.36e+00 7.80e+01  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
-   1  2.2377351e+05 1.76e-15 4.70e+01  -1.0 4.06e+01    -  2.02e-02 1.00e+00h  1
-   2  5.2907794e+04 2.68e-15 1.78e+01  -1.0 1.23e+02    -  4.87e-03 8.03e-01f  1
-   3  1.1381160e+04 2.17e-15 6.62e+00  -1.0 8.96e+01    -  1.60e-01 6.39e-01f  1
-   4  3.1797545e+03 2.62e-15 2.82e+00  -1.0 4.91e+01    -  2.08e-01 5.66e-01f  1
-   5  9.2792137e+02 2.47e-15 1.17e+00  -1.0 4.03e+01    -  2.67e-01 7.02e-01f  1
-   6  5.3843247e+02 2.55e-15 3.60e-01  -1.0 3.20e+01    -  3.24e-01 9.69e-01f  1
-   7  4.9908475e+02 2.34e-15 2.75e-01  -1.0 2.33e+01    -  4.10e-01 1.00e+00f  1
-   8  4.8398364e+02 2.28e-15 1.44e-01  -1.0 2.05e+01    -  5.07e-01 9.21e-01f  1
-   9  4.7608577e+02 2.50e-15 7.05e-02  -1.0 2.82e+01    -  5.62e-01 8.04e-01f  1
+   0  4.3590553e+04 5.00e-01 7.80e+01  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  1.7609161e+05 2.10e-15 4.92e+01  -1.0 4.52e+01    -  1.94e-02 1.00e+00h  1
+   2  4.4312486e+04 2.69e-15 1.82e+01  -1.0 1.35e+02    -  4.73e-03 7.27e-01f  1
+   3  4.5351328e+03 2.61e-15 4.43e+00  -1.0 7.82e+01    -  1.66e-01 8.00e-01f  1
+   4  4.9045017e+02 2.28e-15 6.94e-01  -1.0 3.28e+01    -  2.55e-01 8.53e-01f  1
+   5  2.0157778e+02 2.34e-15 4.42e-01  -1.0 2.40e+01    -  3.55e-01 1.00e+00f  1
+   6  1.6575864e+02 2.22e-15 2.83e-01  -1.0 1.93e+01    -  4.28e-01 1.00e+00f  1
+   7  1.5100971e+02 2.78e-15 1.57e-01  -1.0 1.88e+01    -  4.68e-01 1.00e+00f  1
+   8  1.4418673e+02 2.23e-15 6.00e-02  -1.0 1.50e+01    -  6.40e-01 1.00e+00f  1
+   9  1.4018857e+02 2.41e-15 1.19e-02  -1.0 2.89e+01    -  8.20e-01 1.00e+00f  1
 iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
-  10  4.7108116e+02 2.46e-15 2.40e-02  -1.0 3.34e+01    -  7.41e-01 1.00e+00f  1
-  11  4.6869666e+02 2.39e-15 4.20e-03  -1.0 4.17e+01    -  8.83e-01 1.00e+00f  1
-  12  4.6493692e+02 2.54e-15 1.19e-03  -1.7 1.63e+01    -  9.42e-01 1.00e+00f  1
-  13  4.6382225e+02 2.47e-15 6.92e-04  -2.5 1.44e+01    -  9.25e-01 1.00e+00f  1
-  14  4.6358856e+02 2.50e-15 8.85e-04  -3.8 1.07e+01    -  7.57e-01 1.00e+00f  1
-  15  4.6355618e+02 2.25e-15 3.34e-04  -3.8 8.37e+00    -  8.12e-01 1.00e+00f  1
-  16  4.6354709e+02 2.61e-15 5.68e-14  -3.8 1.08e+01    -  1.00e+00 1.00e+00f  1
-  17  4.6353720e+02 2.41e-15 7.45e-05  -5.7 2.33e+00    -  6.85e-01 1.00e+00f  1
-  18  4.6353668e+02 2.33e-15 1.88e-05  -5.7 6.60e-01    -  8.37e-01 1.00e+00f  1
-  19  4.6353658e+02 2.44e-15 5.68e-14  -5.7 2.78e+00    -  1.00e+00 1.00e+00f  1
-iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
-  20  4.6353646e+02 2.60e-15 1.86e-07  -8.6 1.13e-01    -  9.65e-01 1.00e+00f  1
-  21  4.6353646e+02 2.19e-15 5.68e-14  -8.6 4.25e-01    -  1.00e+00 1.00e+00h  1
+  10  1.3880583e+02 2.21e-15 2.88e-03  -1.0 3.13e+01    -  1.00e+00 8.55e-01f  1
+  11  1.3550555e+02 2.19e-15 7.52e-15  -1.7 1.79e+01    -  1.00e+00 1.00e+00f  1
+  12  1.3447858e+02 2.64e-15 3.64e-03  -2.5 1.30e+01    -  6.65e-01 1.00e+00f  1
+  13  1.3424026e+02 2.16e-15 4.31e-04  -3.8 1.03e+01    -  9.26e-01 1.00e+00f  1
+  14  1.3420930e+02 2.55e-15 7.12e-15  -3.8 6.39e+00    -  1.00e+00 1.00e+00f  1
+  15  1.3419823e+02 2.71e-15 7.51e-06  -5.7 3.32e+00    -  9.63e-01 1.00e+00f  1
+  16  1.3419787e+02 2.48e-15 9.68e-15  -5.7 5.11e+00    -  1.00e+00 1.00e+00f  1
+  17  1.3419783e+02 2.28e-15 6.90e-15  -5.7 1.52e+01    -  1.00e+00 1.00e+00f  1
+  18  1.3419773e+02 2.61e-15 7.21e-15  -8.6 1.45e-02    -  1.00e+00 1.00e+00f  1
 
-Number of Iterations....: 21
+Number of Iterations....: 18
 
                                    (scaled)                 (unscaled)
-Objective...............:   4.6353646311045622e+02    4.6353646311045622e+02
-Dual infeasibility......:   5.6843418860808015e-14    5.6843418860808015e-14
-Constraint violation....:   2.1926904736346842e-15    2.1926904736346842e-15
-Complementarity.........:   3.9641559121872383e-09    3.9641559121872383e-09
-Overall NLP error.......:   3.9641559121872383e-09    3.9641559121872383e-09
+Objective...............:   1.3419773060809698e+02    1.3419773060809698e+02
+Dual infeasibility......:   7.2051086499059460e-15    7.2051086499059460e-15
+Constraint violation....:   2.6088628220262246e-15    2.6088628220262246e-15
+Complementarity.........:   8.7906857272874773e-09    8.7906857272874773e-09
+Overall NLP error.......:   8.7906857272874773e-09    8.7906857272874773e-09
 
 
-Number of objective function evaluations             = 22
-Number of objective gradient evaluations             = 22
-Number of equality constraint evaluations            = 22
+Number of objective function evaluations             = 19
+Number of objective gradient evaluations             = 19
+Number of equality constraint evaluations            = 19
 Number of inequality constraint evaluations          = 0
-Number of equality constraint Jacobian evaluations   = 22
+Number of equality constraint Jacobian evaluations   = 19
 Number of inequality constraint Jacobian evaluations = 0
-Number of Lagrangian Hessian evaluations             = 21
-Total CPU secs in IPOPT (w/o function evaluations)   =      0.015
-Total CPU secs in NLP function evaluations           =      0.001
+Number of Lagrangian Hessian evaluations             = 18
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.013
+Total CPU secs in NLP function evaluations           =      0.000
 
 EXIT: Optimal Solution Found.
 </pre></div>
 </div>
-<img alt="../_images/0db83d10355772e867f0b7432ef35ab05471af78443afb446d218b1dabb95b93.png" src="../_images/0db83d10355772e867f0b7432ef35ab05471af78443afb446d218b1dabb95b93.png" />
+<img alt="../_images/268c434f340c87a24a3ca6ce2f06e22078393084ce0620026c36b20475b06089.png" src="../_images/268c434f340c87a24a3ca6ce2f06e22078393084ce0620026c36b20475b06089.png" />
 </div>
 </div>
 </section>
@@ -1257,73 +1274,90 @@ EXIT: Optimal Solution Found.
 <p>Implement your calculated solution on the TC Lab hardware (in “digital twin” mode). Save the simulation results to a text file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_solution</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
-<span class="n">u_solution</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get_U</span><span class="p">()</span>
-<span class="n">TS_solution</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get_Ts</span><span class="p">()</span>
-<span class="n">TH_solution</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get_Th</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">perform_hardware_simulation</span><span class="p">(</span><span class="n">opt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; </span>
+<span class="sd">    This function applies the optimized control to the hardware (digital twin).</span>
 
-<span class="n">u_open_loop</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
-    <span class="n">t_solution</span><span class="p">,</span>   <span class="c1"># time</span>
-    <span class="n">u_solution</span><span class="p">,</span>   <span class="c1"># control value</span>
-    <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>   <span class="c1"># tolerates slight exptrapolation</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        opt: TCLabPyomo object</span>
 
-<span class="n">TS_predict</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
-    <span class="n">t_solution</span><span class="p">,</span>   <span class="c1"># time</span>
-    <span class="n">TS_solution</span><span class="p">,</span>   <span class="c1"># sensor temperature prediction</span>
-    <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>   <span class="c1"># tolerates slight exptrapolation</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        h: Historian object</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
-<span class="n">TH_predict</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
-    <span class="n">t_solution</span><span class="p">,</span>   <span class="c1"># time</span>
-    <span class="n">TH_solution</span><span class="p">,</span>   <span class="c1"># sensor temperature prediction</span>
-    <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>   <span class="c1"># tolerates slight exptrapolation</span>
+    <span class="n">t_solution</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
+    <span class="n">u_solution</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get_U</span><span class="p">()</span>
+    <span class="n">TS_solution</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get_Ts</span><span class="p">()</span>
+    <span class="n">TH_solution</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get_Th</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
+    <span class="n">u_open_loop</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
+        <span class="n">t_solution</span><span class="p">,</span>   <span class="c1"># time</span>
+        <span class="n">u_solution</span><span class="p">,</span>   <span class="c1"># control value</span>
+        <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>   <span class="c1"># tolerates slight exptrapolation</span>
 
-<span class="c1"># In Lab 5, you will use connected=True</span>
-<span class="c1"># And run this experiment on your hardware</span>
-<span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">speedup</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">TS_predict</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
+        <span class="n">t_solution</span><span class="p">,</span>   <span class="c1"># time</span>
+        <span class="n">TS_solution</span><span class="p">,</span>   <span class="c1"># sensor temperature prediction</span>
+        <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>   <span class="c1"># tolerates slight exptrapolation</span>
 
-<span class="c1"># Set final time to match simulation</span>
-<span class="n">t_final</span> <span class="o">=</span> <span class="n">t_solution</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">TH_predict</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
+        <span class="n">t_solution</span><span class="p">,</span>   <span class="c1"># time</span>
+        <span class="n">TH_solution</span><span class="p">,</span>   <span class="c1"># sensor temperature prediction</span>
+        <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>   <span class="c1"># tolerates slight exptrapolation</span>
 
-<span class="c1"># Only implement the controller change every 2 seconds</span>
-<span class="n">t_step</span> <span class="o">=</span> <span class="mf">2.0</span>
+    <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
 
-<span class="c1"># Run experiments</span>
-<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="c1"># In Lab 5, you will use connected=True</span>
+    <span class="c1"># And run this experiment on your hardware</span>
+    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">speedup</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
-    <span class="c1"># Define sources for plotting</span>
-    <span class="n">sources</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">),</span>
-            <span class="p">(</span><span class="s2">&quot;T1pred&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">TS_predict</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
-            <span class="p">(</span><span class="s2">&quot;SP1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">tclab_setpoint</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
-            <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Q2&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">)]</span>
-    
-    <span class="c1"># Create a historian to store data</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">sources</span><span class="p">)</span>
-    <span class="c1"># Define plotting using same names as sources/historian</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">((</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;SP1&quot;</span><span class="p">,</span><span class="s2">&quot;T1pred&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">)))</span>
+    <span class="c1"># Set final time to match simulation</span>
+    <span class="n">t_final</span> <span class="o">=</span> <span class="n">t_solution</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="c1"># Loop over time steps</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">t_final</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
-        <span class="c1"># Look up the control value via interpolation</span>
-        <span class="n">U1</span> <span class="o">=</span> <span class="n">u_open_loop</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="c1"># Only implement the controller change every 2 seconds</span>
+    <span class="n">t_step</span> <span class="o">=</span> <span class="mf">2.0</span>
 
-        <span class="c1"># Notice, we did not apply the distrubance here</span>
+    <span class="c1"># Run experiments</span>
+    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
 
-        <span class="c1"># Set control value to hardware</span>
-        <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">U1</span><span class="p">)</span>
+        <span class="c1"># Define sources for plotting</span>
+        <span class="n">sources</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;T1pred&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">TS_predict</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
+                <span class="p">(</span><span class="s2">&quot;SP1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">tclab_setpoint</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
+                <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Q2&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">)]</span>
+        
+        <span class="c1"># Create a historian to store data</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">sources</span><span class="p">)</span>
+        <span class="c1"># Define plotting using same names as sources/historian</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">((</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;SP1&quot;</span><span class="p">,</span><span class="s2">&quot;T1pred&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">)))</span>
 
-        <span class="c1"># Update the plot</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">P1</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">P1</span>
+
+        <span class="c1"># Loop over time steps</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">t_final</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
+            <span class="c1"># Look up the control value via interpolation</span>
+            <span class="n">U1</span> <span class="o">=</span> <span class="n">u_open_loop</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+            <span class="c1"># Notice, we did not apply the distrubance here</span>
+
+            <span class="c1"># Set control value to hardware</span>
+            <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">U1</span><span class="p">)</span>
+
+            <span class="c1"># Update the plot</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">h</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">perform_hardware_simulation</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/be5a77fb900f21f3605a65947bec359dc693aa2915140c38925274afd22b6498.png" src="../_images/be5a77fb900f21f3605a65947bec359dc693aa2915140c38925274afd22b6498.png" />
+<img alt="../_images/414b8186bededf0c1291b53005f93371a199c75b92300fb94a6540b3fb9516b1.png" src="../_images/414b8186bededf0c1291b53005f93371a199c75b92300fb94a6540b3fb9516b1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
 </pre></div>
 </div>
-<img alt="../_images/be5a77fb900f21f3605a65947bec359dc693aa2915140c38925274afd22b6498.png" src="../_images/be5a77fb900f21f3605a65947bec359dc693aa2915140c38925274afd22b6498.png" />
+<img alt="../_images/414b8186bededf0c1291b53005f93371a199c75b92300fb94a6540b3fb9516b1.png" src="../_images/414b8186bededf0c1291b53005f93371a199c75b92300fb94a6540b3fb9516b1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1348,11 +1382,11 @@ EXIT: Optimal Solution Found.
 
     <span class="k">return</span> <span class="n">file_name</span>
 
-<span class="n">excercise2_tclab_data_file</span> <span class="o">=</span> <span class="s1">&#39;tclab-open-loop-digital-twin.csv&#39;</span>
+<span class="n">excercise2_tclab_data_file</span> <span class="o">=</span> <span class="s1">&#39;./data/tclab-open-loop-digital-twin.csv&#39;</span>
 
 <span class="n">data_file</span> <span class="o">=</span> <span class="n">save_tclab_data</span><span class="p">(</span><span class="n">h</span><span class="p">,</span>
                 <span class="n">excercise2_tclab_data_file</span><span class="p">,</span>
-                <span class="kc">True</span>
+                <span class="kc">False</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1389,7 +1423,11 @@ T_S(t_0) &amp; = T_{amb}
 <p>Using the experimental data generated above, estimate the heater temperature and disturbance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">excercise3_tclab_data_file</span> <span class="o">=</span> <span class="s1">&#39;tclab-open-loop-digital-twin.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># local data file</span>
+<span class="n">excercise3_tclab_data_file</span> <span class="o">=</span> <span class="s1">&#39;./data/tclab-open-loop-digital-twin.csv&#39;</span>
+
+<span class="c1"># saved data file</span>
+<span class="c1"># excercise3_tclab_data_file = &quot;https://raw.githubusercontent.com/ndcbe/controls/main/notebooks/data/tclab-open-loop-digital-twin.csv&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1433,52 +1471,52 @@ T_S(t_0) &amp; = T_{amb}
   <tbody>
     <tr>
       <th>0</th>
-      <td>3.534980</td>
+      <td>3.521838</td>
       <td>20.9495</td>
       <td>20.9495</td>
       <td>21.0</td>
       <td>21.0</td>
-      <td>3.898698e+01</td>
+      <td>5.000000e+01</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>7.558308</td>
+      <td>7.544108</td>
       <td>20.9495</td>
-      <td>20.9495</td>
+      <td>20.6272</td>
       <td>21.0</td>
       <td>21.0</td>
-      <td>7.563474e+00</td>
+      <td>9.800000e+00</td>
       <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>9.594454</td>
+      <td>9.603698</td>
       <td>20.9495</td>
       <td>20.9495</td>
       <td>21.0</td>
       <td>21.0</td>
-      <td>4.246276e-09</td>
+      <td>4.586005e-09</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>11.630926</td>
+      <td>11.647745</td>
       <td>20.9495</td>
       <td>20.9495</td>
       <td>21.0</td>
       <td>21.0</td>
-      <td>5.229587e-09</td>
+      <td>4.746977e-09</td>
       <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>15.587924</td>
+      <td>15.576986</td>
       <td>21.2718</td>
-      <td>20.6272</td>
+      <td>20.9495</td>
       <td>21.0</td>
       <td>21.0</td>
-      <td>8.259456e-09</td>
+      <td>5.219476e-09</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -1492,13 +1530,22 @@ T_S(t_0) &amp; = T_{amb}
 
 <span class="n">u_data</span> <span class="o">=</span> <span class="n">experiment_data</span><span class="p">[</span><span class="s1">&#39;Q1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">array</span>
 <span class="n">T1_data</span> <span class="o">=</span> <span class="n">experiment_data</span><span class="p">[</span><span class="s1">&#39;T1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">array</span>
-
-<span class="n">obs</span> <span class="o">=</span> <span class="n">TCLabPyomo</span><span class="p">(</span><span class="s1">&#39;observe&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="small-objective-weight-w-0-01">
+<h3><span class="section-number">6.9.5.1. </span>Small Objective Weight (<span class="math notranslate nohighlight">\(w=0.01\)</span>)<a class="headerlink" href="#small-objective-weight-w-0-01" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span> <span class="o">=</span> <span class="n">TCLabPyomo</span><span class="p">(</span><span class="s1">&#39;observe&#39;</span><span class="p">,</span>
                  <span class="n">time_data</span><span class="p">,</span>
                  <span class="n">u_data</span><span class="p">,</span>
                  <span class="kc">None</span><span class="p">,</span>
                  <span class="kc">None</span><span class="p">,</span>
-                 <span class="n">T1_data</span><span class="p">)</span>
+                 <span class="n">T1_data</span><span class="p">,</span>
+                <span class="n">obj_weight</span><span class="o">=</span><span class="mf">0.01</span>
+<span class="p">)</span>
 
 <span class="n">obs</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 <span class="n">obs</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -1528,37 +1575,37 @@ This version of Ipopt was compiled using HSL, a collection of Fortran codes
 
 This is Ipopt version 3.13.2, running with linear solver ma27.
 
-Number of nonzeros in equality constraint Jacobian...:     4876
+Number of nonzeros in equality constraint Jacobian...:     4941
 Number of nonzeros in inequality constraint Jacobian.:        0
-Number of nonzeros in Lagrangian Hessian.............:      751
+Number of nonzeros in Lagrangian Hessian.............:      761
 
-Total number of variables............................:     1878
+Total number of variables............................:     1903
                      variables with only lower bounds:        0
-                variables with lower and upper bounds:      750
+                variables with lower and upper bounds:      760
                      variables with only upper bounds:        0
-Total number of equality constraints.................:     1502
+Total number of equality constraints.................:     1522
 Total number of inequality constraints...............:        0
         inequality constraints with only lower bounds:        0
    inequality constraints with lower and upper bounds:        0
         inequality constraints with only upper bounds:        0
 
 iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
-   0  1.9259940e+01 1.55e+00 5.15e-01  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
-   1  3.3997034e+00 8.73e-15 9.36e-04  -1.0 6.55e-01    -  9.73e-01 1.00e+00f  1
-   2  3.3236926e+00 8.73e-15 1.41e-14  -1.0 1.58e-01    -  1.00e+00 1.00e+00f  1
-   3  3.3220307e+00 1.02e-14 1.41e-14  -2.5 8.41e-03    -  1.00e+00 1.00e+00f  1
-   4  3.3220293e+00 1.03e-14 1.40e-14  -3.8 2.33e-04    -  1.00e+00 1.00e+00f  1
-   5  3.3220293e+00 7.07e-15 1.37e-14  -5.7 1.25e-05    -  1.00e+00 1.00e+00h  1
-   6  3.3220293e+00 9.90e-15 1.35e-14  -8.6 1.55e-07    -  1.00e+00 1.00e+00h  1
+   0  2.8926286e+03 5.70e-01 5.72e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  1.1442845e+01 5.82e-15 7.38e-02  -1.0 5.95e+00    -  7.90e-01 1.00e+00f  1
+   2  2.2509680e+00 6.23e-15 2.98e-03  -1.0 1.61e+00    -  9.89e-01 1.00e+00f  1
+   3  2.2460375e+00 5.71e-15 7.10e-15  -1.7 1.01e-01    -  1.00e+00 1.00e+00f  1
+   4  2.2460008e+00 5.95e-15 7.10e-15  -3.8 4.27e-03    -  1.00e+00 1.00e+00f  1
+   5  2.2460008e+00 5.61e-15 7.09e-15  -5.7 3.18e-05    -  1.00e+00 1.00e+00h  1
+   6  2.2460008e+00 5.75e-15 7.09e-15  -8.6 3.71e-07    -  1.00e+00 1.00e+00h  1
 
 Number of Iterations....: 6
 
                                    (scaled)                 (unscaled)
-Objective...............:   3.3220293067872477e+00    3.3220293067872477e+00
-Dual infeasibility......:   1.3466279855938151e-14    1.3466279855938151e-14
-Constraint violation....:   9.9033921334892507e-15    9.9033921334892507e-15
-Complementarity.........:   2.5059213607022356e-09    2.5059213607022356e-09
-Overall NLP error.......:   2.5059213607022356e-09    2.5059213607022356e-09
+Objective...............:   2.2460008023069951e+00    2.2460008023069951e+00
+Dual infeasibility......:   7.0860308655916949e-15    7.0860308655916949e-15
+Constraint violation....:   5.7547825012271847e-15    5.7547825012271847e-15
+Complementarity.........:   2.5059270518034706e-09    2.5059270518034706e-09
+Overall NLP error.......:   2.5059270518034706e-09    2.5059270518034706e-09
 
 
 Number of objective function evaluations             = 7
@@ -1574,9 +1621,283 @@ Total CPU secs in NLP function evaluations           =      0.000
 EXIT: Optimal Solution Found.
 </pre></div>
 </div>
-<img alt="../_images/7826b2240970d5f1b34aeaf0ddb15a573e034e444139a33d0d402a7e1808d030.png" src="../_images/7826b2240970d5f1b34aeaf0ddb15a573e034e444139a33d0d402a7e1808d030.png" />
+<img alt="../_images/f777fb9c012370d399828059ade0ab962d9bc5a12c007d00211005515cef91c2.png" src="../_images/f777fb9c012370d399828059ade0ab962d9bc5a12c007d00211005515cef91c2.png" />
 </div>
 </div>
+</section>
+<section id="medium-objective-weight-w-0-1">
+<h3><span class="section-number">6.9.5.2. </span>Medium Objective Weight (<span class="math notranslate nohighlight">\(w=0.1\)</span>)<a class="headerlink" href="#medium-objective-weight-w-0-1" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span> <span class="o">=</span> <span class="n">TCLabPyomo</span><span class="p">(</span><span class="s1">&#39;observe&#39;</span><span class="p">,</span>
+                 <span class="n">time_data</span><span class="p">,</span>
+                 <span class="n">u_data</span><span class="p">,</span>
+                 <span class="kc">None</span><span class="p">,</span>
+                 <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">T1_data</span><span class="p">,</span>
+                <span class="n">obj_weight</span><span class="o">=</span><span class="mf">0.1</span>
+<span class="p">)</span>
+
+<span class="n">obs</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+<span class="n">obs</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ipopt 3.13.2: 
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+
+This version of Ipopt was compiled from source code available at
+    https://github.com/IDAES/Ipopt as part of the Institute for the Design of
+    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE
+    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.
+
+This version of Ipopt was compiled using HSL, a collection of Fortran codes
+    for large-scale scientific computation.  All technical papers, sales and
+    publicity material resulting from use of the HSL codes within IPOPT must
+    contain the following acknowledgement:
+        HSL, a collection of Fortran codes for large-scale scientific
+        computation. See http://www.hsl.rl.ac.uk.
+******************************************************************************
+
+This is Ipopt version 3.13.2, running with linear solver ma27.
+
+Number of nonzeros in equality constraint Jacobian...:     4941
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:      761
+
+Total number of variables............................:     1903
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:      760
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:     1522
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  2.8926286e+03 5.70e-01 5.72e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  1.3103007e+01 7.83e-15 7.69e-02  -1.0 5.68e+00    -  7.83e-01 1.00e+00f  1
+   2  4.7390881e+00 5.44e-15 1.38e-03  -1.0 4.96e-01    -  9.95e-01 1.00e+00f  1
+   3  4.7384162e+00 5.49e-15 6.98e-15  -1.7 1.64e-02    -  1.00e+00 1.00e+00f  1
+   4  4.7383858e+00 5.81e-15 7.08e-15  -3.8 1.51e-03    -  1.00e+00 1.00e+00f  1
+   5  4.7383858e+00 5.22e-15 7.09e-15  -5.7 1.14e-05    -  1.00e+00 1.00e+00h  1
+   6  4.7383858e+00 6.19e-15 7.13e-15  -8.6 1.40e-07    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 6
+
+                                   (scaled)                 (unscaled)
+Objective...............:   4.7383857509470761e+00    4.7383857509470761e+00
+Dual infeasibility......:   7.1264405509564865e-15    7.1264405509564865e-15
+Constraint violation....:   6.1884975170595391e-15    6.1884975170595391e-15
+Complementarity.........:   2.5059147960052462e-09    2.5059147960052462e-09
+Overall NLP error.......:   2.5059147960052462e-09    2.5059147960052462e-09
+
+
+Number of objective function evaluations             = 7
+Number of objective gradient evaluations             = 7
+Number of equality constraint evaluations            = 7
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 7
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 6
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.009
+Total CPU secs in NLP function evaluations           =      0.000
+
+EXIT: Optimal Solution Found.
+</pre></div>
+</div>
+<img alt="../_images/32edc29848bcf08926061b23e246a734e475221c8ac7b7756dc4d69a56b58be0.png" src="../_images/32edc29848bcf08926061b23e246a734e475221c8ac7b7756dc4d69a56b58be0.png" />
+</div>
+</div>
+</section>
+<section id="medium-large-objective-weight-w-1">
+<h3><span class="section-number">6.9.5.3. </span>Medium Large Objective Weight (<span class="math notranslate nohighlight">\(w=1\)</span>)<a class="headerlink" href="#medium-large-objective-weight-w-1" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span> <span class="o">=</span> <span class="n">TCLabPyomo</span><span class="p">(</span><span class="s1">&#39;observe&#39;</span><span class="p">,</span>
+                 <span class="n">time_data</span><span class="p">,</span>
+                 <span class="n">u_data</span><span class="p">,</span>
+                 <span class="kc">None</span><span class="p">,</span>
+                 <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">T1_data</span><span class="p">,</span>
+                <span class="n">obj_weight</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="p">)</span>
+
+<span class="n">obs</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+<span class="n">obs</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ipopt 3.13.2: 
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+
+This version of Ipopt was compiled from source code available at
+    https://github.com/IDAES/Ipopt as part of the Institute for the Design of
+    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE
+    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.
+
+This version of Ipopt was compiled using HSL, a collection of Fortran codes
+    for large-scale scientific computation.  All technical papers, sales and
+    publicity material resulting from use of the HSL codes within IPOPT must
+    contain the following acknowledgement:
+        HSL, a collection of Fortran codes for large-scale scientific
+        computation. See http://www.hsl.rl.ac.uk.
+******************************************************************************
+
+This is Ipopt version 3.13.2, running with linear solver ma27.
+
+Number of nonzeros in equality constraint Jacobian...:     4941
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:      761
+
+Total number of variables............................:     1903
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:      760
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:     1522
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  2.8926286e+03 5.70e-01 5.72e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  2.7708675e+01 5.85e-15 8.95e-02  -1.0 6.25e+00    -  7.68e-01 1.00e+00f  1
+   2  1.9664761e+01 6.13e-15 1.10e-03  -1.0 3.55e-01    -  9.96e-01 1.00e+00f  1
+   3  1.9664286e+01 5.47e-15 7.08e-15  -1.7 4.16e-03    -  1.00e+00 1.00e+00f  1
+   4  1.9664258e+01 5.92e-15 7.07e-15  -3.8 8.71e-04    -  1.00e+00 1.00e+00f  1
+   5  1.9664258e+01 5.92e-15 7.14e-15  -5.7 6.56e-06    -  1.00e+00 1.00e+00h  1
+   6  1.9664258e+01 5.50e-15 7.10e-15  -8.6 8.07e-08    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 6
+
+                                   (scaled)                 (unscaled)
+Objective...............:   1.9664257877518683e+01    1.9664257877518683e+01
+Dual infeasibility......:   7.1010527434483437e-15    7.1010527434483437e-15
+Constraint violation....:   5.4950690716677132e-15    5.4950690716677132e-15
+Complementarity.........:   2.5059104850534475e-09    2.5059104850534475e-09
+Overall NLP error.......:   2.5059104850534475e-09    2.5059104850534475e-09
+
+
+Number of objective function evaluations             = 7
+Number of objective gradient evaluations             = 7
+Number of equality constraint evaluations            = 7
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 7
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 6
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.010
+Total CPU secs in NLP function evaluations           =      0.000
+
+EXIT: Optimal Solution Found.
+</pre></div>
+</div>
+<img alt="../_images/0c744bf0be5a09c5141f6488525d08b3d930440921443b9176c8e1101cb57e50.png" src="../_images/0c744bf0be5a09c5141f6488525d08b3d930440921443b9176c8e1101cb57e50.png" />
+</div>
+</div>
+</section>
+<section id="extra-large-objective-weight-w-10">
+<h3><span class="section-number">6.9.5.4. </span>Extra Large Objective Weight (<span class="math notranslate nohighlight">\(w=10\)</span>)<a class="headerlink" href="#extra-large-objective-weight-w-10" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span> <span class="o">=</span> <span class="n">TCLabPyomo</span><span class="p">(</span><span class="s1">&#39;observe&#39;</span><span class="p">,</span>
+                 <span class="n">time_data</span><span class="p">,</span>
+                 <span class="n">u_data</span><span class="p">,</span>
+                 <span class="kc">None</span><span class="p">,</span>
+                 <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">T1_data</span><span class="p">,</span>
+                <span class="n">obj_weight</span><span class="o">=</span><span class="mf">10.0</span>
+<span class="p">)</span>
+
+<span class="n">obs</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+<span class="n">obs</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ipopt 3.13.2: 
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+
+This version of Ipopt was compiled from source code available at
+    https://github.com/IDAES/Ipopt as part of the Institute for the Design of
+    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE
+    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.
+
+This version of Ipopt was compiled using HSL, a collection of Fortran codes
+    for large-scale scientific computation.  All technical papers, sales and
+    publicity material resulting from use of the HSL codes within IPOPT must
+    contain the following acknowledgement:
+        HSL, a collection of Fortran codes for large-scale scientific
+        computation. See http://www.hsl.rl.ac.uk.
+******************************************************************************
+
+This is Ipopt version 3.13.2, running with linear solver ma27.
+
+Number of nonzeros in equality constraint Jacobian...:     4941
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:      761
+
+Total number of variables............................:     1903
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:      760
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:     1522
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  2.8926286e+03 5.70e-01 5.72e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  1.3478367e+02 5.77e-15 9.18e-02  -1.0 6.37e+00    -  7.66e-01 1.00e+00f  1
+   2  1.2757689e+02 6.00e-15 1.24e-03  -1.0 2.83e-01    -  9.96e-01 1.00e+00f  1
+   3  1.2757652e+02 5.44e-15 7.31e-15  -1.7 2.98e-03    -  1.00e+00 1.00e+00f  1
+   4  1.2757649e+02 5.57e-15 8.45e-15  -3.8 5.30e-04    -  1.00e+00 1.00e+00f  1
+   5  1.2757649e+02 5.77e-15 8.81e-15  -5.7 3.98e-06    -  1.00e+00 1.00e+00h  1
+   6  1.2757649e+02 6.33e-15 7.25e-15  -8.6 4.92e-08    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 6
+
+                                   (scaled)                 (unscaled)
+Objective...............:   1.2757649007576410e+02    1.2757649007576410e+02
+Dual infeasibility......:   7.2463869543232571e-15    7.2463869543232571e-15
+Constraint violation....:   6.3313131075306715e-15    6.3313131075306715e-15
+Complementarity.........:   2.5059079948903840e-09    2.5059079948903840e-09
+Overall NLP error.......:   2.5059079948903840e-09    2.5059079948903840e-09
+
+
+Number of objective function evaluations             = 7
+Number of objective gradient evaluations             = 7
+Number of equality constraint evaluations            = 7
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 7
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 6
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.010
+Total CPU secs in NLP function evaluations           =      0.000
+
+EXIT: Optimal Solution Found.
+</pre></div>
+</div>
+<img alt="../_images/a8176ae8588e54db90e4e9b5a4f9cd33a168a2cd05f8122ba44ca2d42fc88703.png" src="../_images/a8176ae8588e54db90e4e9b5a4f9cd33a168a2cd05f8122ba44ca2d42fc88703.png" />
+</div>
+</div>
+</section>
 </section>
 <section id="parameter-estimation">
 <h2><span class="section-number">6.9.6. </span>Parameter Estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this heading">#</a></h2>
@@ -1597,19 +1918,21 @@ EXIT: Optimal Solution Found.
 T_H(t_0) &amp; = T_{amb} \\
 T_S(t_0) &amp; = T_{amb}
 \end{align*}\]</div>
-<p>and assumption disturbance is zero</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d204dfe-78d5-4108-8718-0e50bdc3625f">
-<span class="eqno">(6.1)<a class="headerlink" href="#equation-7d204dfe-78d5-4108-8718-0e50bdc3625f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>and (optionally) the assumption disturbance is zero</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f5037cc2-f856-4523-a0a6-7801dc38a5ea">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-f5037cc2-f856-4523-a0a6-7801dc38a5ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
 d(t) = 0
 \end{equation}\]</div>
 <p>Using data from your experiment, restimate the model parameters <span class="math notranslate nohighlight">\(U_a\)</span>, <span class="math notranslate nohighlight">\(U_b\)</span>, <span class="math notranslate nohighlight">\(C_p^H\)</span>, <span class="math notranslate nohighlight">\(C_p^S\)</span>.</p>
 <p>NOTE: Depending on your computer’s hardward and the version of Ipopt installed, the following code cell may take up to 2 minutes to solve.</p>
+<section id="assume-no-disturbance">
+<h3><span class="section-number">6.9.6.1. </span>Assume no disturbance<a class="headerlink" href="#assume-no-disturbance" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">est</span> <span class="o">=</span> <span class="n">TCLabPyomo</span><span class="p">(</span><span class="s1">&#39;estimate&#39;</span><span class="p">,</span>
                  <span class="n">time_data</span><span class="p">,</span>
                  <span class="n">u_data</span><span class="p">,</span>
-                 <span class="kc">None</span><span class="p">,</span>
+                 <span class="kc">None</span><span class="p">,</span> <span class="c1"># assume d(t) = 0</span>
                  <span class="kc">None</span><span class="p">,</span>
                  <span class="n">T1_data</span><span class="p">)</span>
 
@@ -1641,104 +1964,219 @@ This version of Ipopt was compiled using HSL, a collection of Fortran codes
 
 This is Ipopt version 3.13.2, running with linear solver ma27.
 
-Number of nonzeros in equality constraint Jacobian...:     6378
+Number of nonzeros in equality constraint Jacobian...:     6462
 Number of nonzeros in inequality constraint Jacobian.:        0
-Number of nonzeros in Lagrangian Hessian.............:     2252
+Number of nonzeros in Lagrangian Hessian.............:     3043
 
-Total number of variables............................:     1506
+Total number of variables............................:     1526
                      variables with only lower bounds:        0
-                variables with lower and upper bounds:      754
+                variables with lower and upper bounds:      764
                      variables with only upper bounds:        0
-Total number of equality constraints.................:     1502
+Total number of equality constraints.................:     1522
 Total number of inequality constraints...............:        0
         inequality constraints with only lower bounds:        0
    inequality constraints with lower and upper bounds:        0
         inequality constraints with only upper bounds:        0
 
 iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
-   0  1.9259940e+01 1.54e+00 5.31e-01  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
-   1  2.2269094e+01 1.48e+00 2.18e+02  -1.0 4.22e+02    -  2.00e-03 1.48e-02h  1
-   2  2.2825561e+01 1.47e+00 2.17e+02  -1.0 2.46e+02   0.0 3.70e-02 1.78e-03h  1
-   3  2.2195242e+01 1.47e+00 2.17e+02  -1.0 1.83e+01    -  3.63e-01 5.88e-04f  1
-   4  1.9054366e+04 1.09e+00 5.76e+05  -1.0 1.83e+01    -  3.77e-03 1.00e+00h  1
-   5  1.8583321e+04 1.08e+00 5.69e+05  -1.0 1.93e+01    -  6.83e-01 1.15e-02f  1
-   6  5.3197080e+02 4.69e-01 1.00e+06  -1.0 1.94e+01    -  7.42e-01 1.00e+00f  1
-   7  5.0356021e+01 9.18e-03 3.05e+04  -1.0 1.84e+00    -  7.23e-01 1.00e+00f  1
-   8  3.3692518e+01 6.42e-04 5.48e+03  -1.0 9.79e-01    -  1.63e-01 1.00e+00f  1
-   9  1.3274799e+01 3.22e-05 6.51e+02  -1.0 1.00e+00    -  1.00e+00 1.00e+00f  1
+   0  2.8926286e+03 5.70e-01 7.75e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  2.0120167e+03 4.65e-01 1.02e+01  -1.0 1.05e+01    -  4.05e-01 1.67e-01f  1
+   2  1.0717968e+02 1.32e-01 7.78e+03  -1.0 6.65e+00    -  3.88e-02 1.00e+00f  1
+   3  2.2025371e+01 1.71e-02 1.30e+03  -1.0 1.37e+00    -  9.48e-01 1.00e+00f  1
+   4  1.3705448e+01 7.71e-03 2.86e+02  -1.0 9.40e-01    -  9.93e-01 1.00e+00f  1
+   5  1.3645057e+01 5.79e-04 1.21e+01  -1.0 1.56e-01    -  1.00e+00 1.00e+00h  1
+   6  1.3645108e+01 1.86e-01 3.13e+00  -1.0 1.10e+01    -  1.00e+00 1.00e+00f  1
+   7  1.3645719e+01 3.44e-02 8.27e+00  -1.0 4.37e+00    -  1.00e+00 1.00e+00h  1
+   8  1.3648763e+01 2.46e-02 7.50e-01  -1.0 4.68e-01    -  8.49e-01 1.00e+00H  1
+   9  1.3648007e+01 3.03e-02 5.69e-01  -1.7 6.02e-01    -  1.00e+00 1.00e+00h  1
 iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
-  10  1.2172711e+01 1.61e-06 8.49e+02  -1.0 8.66e-02    -  1.00e+00 1.00e+00f  1
-  11  1.2257014e+01 2.54e-06 4.56e+01  -1.0 7.05e-03    -  6.74e-01 1.00e+00f  1
-  12  1.2128150e+01 1.95e-05 4.49e+02  -1.0 2.34e-02    -  4.71e-01 1.00e+00f  1
-  13  1.1886389e+01 5.70e-05 8.20e+01  -1.0 5.44e-02    -  1.00e+00 1.00e+00F  1
-  14  1.2156932e+01 8.01e-06 2.33e+02  -1.0 2.29e-02   1.3 1.00e+00 1.00e+00h  1
-  15  1.2243211e+01 1.48e-05 6.75e+01  -1.0 7.76e-02    -  1.89e-01 2.50e-01f  3
-  16  1.2204832e+01 1.37e-05 1.74e+02  -1.0 1.86e-02   0.9 1.00e+00 1.00e+00f  1
-  17  1.2204738e+01 4.76e-05 3.84e+01  -1.0 5.92e-02    -  9.41e-01 1.00e+00F  1
-  18  1.2263440e+01 3.54e-03 2.21e+02  -1.0 3.33e-01    -  1.00e+00 1.00e+00f  1
-  19  1.2254139e+01 6.60e-06 2.60e+02  -1.0 2.33e-02    -  1.00e+00 1.00e+00h  1
-iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
-  20  1.2232966e+01 4.54e-07 5.43e-01  -1.0 6.80e-03   0.4 1.00e+00 1.00e+00h  1
-  21  1.2216588e+01 1.72e-04 2.61e+00  -1.7 8.58e-02    -  1.00e+00 1.00e+00f  1
-  22  1.2220637e+01 2.89e-02 7.56e+01  -1.7 1.03e+00    -  1.00e+00 1.00e+00h  1
-  23  1.2213179e+01 5.94e-05 1.17e+01  -1.7 6.84e-02  -0.1 1.00e+00 1.00e+00h  1
-  24  1.2208158e+01 5.03e-03 8.87e+00  -1.7 2.16e+00    -  1.00e+00 2.38e-01h  3
-  25  1.2207894e+01 1.35e-02 1.49e+00  -1.7 8.41e-01    -  1.00e+00 1.00e+00H  1
-  26  1.2209661e+01 1.17e-02 1.69e+00  -1.7 5.99e-01    -  1.00e+00 1.25e-01h  4
-  27  1.2211031e+01 1.01e-02 1.36e+00  -1.7 6.27e-01    -  1.00e+00 1.25e-01h  4
-  28  1.2211284e+01 9.79e-03 1.33e+00  -1.7 4.68e-01    -  1.00e+00 3.12e-02h  6
-  29  1.2211314e+01 9.76e-03 1.32e+00  -1.7 4.52e-01    -  1.00e+00 3.91e-03h  9
-iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
-  30  1.2211328e+01 9.74e-03 1.32e+00  -1.7 4.49e-01    -  1.00e+00 1.95e-03h 10
-  31  1.2219088e+01 4.54e-03 2.14e+00  -1.7 4.48e-01    -  1.00e+00 1.00e+00h  1
-  32  1.2217170e+01 1.59e-05 1.74e-02  -1.7 3.99e-02    -  1.00e+00 1.00e+00h  1
-  33  1.2217031e+01 4.23e-09 1.84e-04  -3.8 9.82e-04    -  1.00e+00 1.00e+00h  1
-  34  1.2217031e+01 3.52e-12 3.68e-08  -5.7 1.97e-05    -  1.00e+00 1.00e+00h  1
-  35  1.2217031e+01 4.57e-14 2.51e-11  -8.6 1.70e-06    -  1.00e+00 1.00e+00h  1
+  10  1.3658732e+01 4.77e-03 2.40e-01  -1.7 3.44e-01  -2.0 1.00e+00 1.00e+00h  1
+  11  1.3657205e+01 7.18e-03 5.00e-02  -1.7 3.54e-01    -  1.00e+00 1.00e+00h  1
+  12  1.3657195e+01 1.99e-03 8.80e-02  -2.5 2.36e-01    -  1.00e+00 1.00e+00h  1
+  13  1.3657194e+01 3.19e-03 4.04e-01  -2.5 4.98e+00    -  1.00e+00 3.60e-02h  5
+  14  1.3657153e+01 6.82e-04 3.23e-03  -2.5 1.55e-01    -  1.00e+00 1.00e+00h  1
+  15  1.3657153e+01 3.89e-04 6.66e-03  -3.8 1.14e-01    -  1.00e+00 1.00e+00h  1
+  16  1.3657152e+01 1.26e-07 7.73e-06  -3.8 2.32e-03  -2.5 1.00e+00 1.00e+00h  1
+  17  1.3657152e+01 1.30e-06 1.73e-05  -5.7 6.61e-03    -  1.00e+00 1.00e+00h  1
+  18  1.3657152e+01 8.05e-07 3.77e-06  -8.6 5.23e-03    -  1.00e+00 1.00e+00h  1
+  19  1.3657152e+01 5.63e-13 4.11e-09  -8.6 3.70e-06  -3.0 1.00e+00 1.00e+00h  1
 
-Number of Iterations....: 35
+Number of Iterations....: 19
 
                                    (scaled)                 (unscaled)
-Objective...............:   1.2217031010956887e+01    1.2217031010956887e+01
-Dual infeasibility......:   2.5064861796542046e-11    2.5064861796542046e-11
-Constraint violation....:   4.5741188614556449e-14    4.5741188614556449e-14
-Complementarity.........:   2.5062593128969544e-09    2.5062593128969544e-09
-Overall NLP error.......:   2.5062593128969544e-09    2.5062593128969544e-09
+Objective...............:   1.3657151862902243e+01    1.3657151862902243e+01
+Dual infeasibility......:   4.1069780432464661e-09    4.1069780432464661e-09
+Constraint violation....:   5.6343818499726694e-13    5.6343818499726694e-13
+Complementarity.........:   2.5059066030777639e-09    2.5059066030777639e-09
+Overall NLP error.......:   4.1069780432464661e-09    4.1069780432464661e-09
 
 
-Number of objective function evaluations             = 76
-Number of objective gradient evaluations             = 36
-Number of equality constraint evaluations            = 76
+Number of objective function evaluations             = 26
+Number of objective gradient evaluations             = 20
+Number of equality constraint evaluations            = 26
 Number of inequality constraint evaluations          = 0
-Number of equality constraint Jacobian evaluations   = 36
+Number of equality constraint Jacobian evaluations   = 20
 Number of inequality constraint Jacobian evaluations = 0
-Number of Lagrangian Hessian evaluations             = 35
-Total CPU secs in IPOPT (w/o function evaluations)   =      0.117
-Total CPU secs in NLP function evaluations           =      0.009
+Number of Lagrangian Hessian evaluations             = 19
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.059
+Total CPU secs in NLP function evaluations           =      0.005
 
 EXIT: Optimal Solution Found.
 </pre></div>
 </div>
-<img alt="../_images/50b9efdcf91655403512838c7a371f41ef266be903084baa306a766756cbcd1e.png" src="../_images/50b9efdcf91655403512838c7a371f41ef266be903084baa306a766756cbcd1e.png" />
+<img alt="../_images/0ca50f932fa0dad0aba5968f520226f8601e04cabdc40171fd48bb893e845d0e.png" src="../_images/0ca50f932fa0dad0aba5968f520226f8601e04cabdc40171fd48bb893e845d0e.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ua</span><span class="p">,</span> <span class="n">Ub</span><span class="p">,</span> <span class="n">CpH</span><span class="p">,</span> <span class="n">CpS</span> <span class="o">=</span> <span class="n">est</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">()</span>
-
-<span class="n">est</span><span class="o">.</span><span class="n">print_parameters</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">est</span><span class="o">.</span><span class="n">print_parameters</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The value of Ua is 0.0268 Watts/degC.
-The value of Ub is 0.025 Watts/degC.
-The value of CpH is 2.749 Joules/degC.
-The value of CpS is 0.696 Joules/degC.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The value of Ua is 0.0535 Watts/degC.
+The value of Ub is 0.0148 Watts/degC.
+The value of CpH is 6.911 Joules/degC.
+The value of CpS is 0.318 Joules/degC.
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="recommended-exercise-take-two">
+<h2><span class="section-number">6.9.7. </span>Recommended Exercise: Take Two<a class="headerlink" href="#recommended-exercise-take-two" title="Permalink to this heading">#</a></h2>
+<p>How can we make our strategy better? One idea is to perform the optimization again using the estimated parameters. We can see there was some plant-model mismatch, which caused our open-loop optimization to only perform okay.</p>
+<section id="open-loop-optimization">
+<h3><span class="section-number">6.9.7.1. </span>Open-Loop Optimization<a class="headerlink" href="#open-loop-optimization" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ua_new</span><span class="p">,</span> <span class="n">Ub_new</span><span class="p">,</span> <span class="n">CpH_new</span><span class="p">,</span> <span class="n">CpS_new</span> <span class="o">=</span> <span class="n">est</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">()</span>
+
+<span class="n">opt2</span> <span class="o">=</span> <span class="n">TCLabPyomo</span><span class="p">(</span><span class="s1">&#39;optimize&#39;</span><span class="p">,</span>
+                 <span class="n">t_sim</span><span class="p">,</span>
+                 <span class="n">u_sim</span><span class="p">,</span>
+                 <span class="n">d_sim</span><span class="p">,</span>
+                 <span class="n">setpoint_sim</span><span class="p">,</span>
+                 <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">obj_weight</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+                 <span class="n">Ua</span><span class="o">=</span><span class="n">Ua_new</span><span class="p">,</span>
+                 <span class="n">Ub</span><span class="o">=</span><span class="n">Ub_new</span><span class="p">,</span>
+                 <span class="n">CpH</span><span class="o">=</span><span class="n">CpH_new</span><span class="p">,</span>
+                 <span class="n">CpS</span><span class="o">=</span><span class="n">CpS_new</span>
+<span class="p">)</span>
+
+<span class="n">opt2</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+<span class="n">opt2</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ipopt 3.13.2: 
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+
+This version of Ipopt was compiled from source code available at
+    https://github.com/IDAES/Ipopt as part of the Institute for the Design of
+    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE
+    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.
+
+This version of Ipopt was compiled using HSL, a collection of Fortran codes
+    for large-scale scientific computation.  All technical papers, sales and
+    publicity material resulting from use of the HSL codes within IPOPT must
+    contain the following acknowledgement:
+        HSL, a collection of Fortran codes for large-scale scientific
+        computation. See http://www.hsl.rl.ac.uk.
+******************************************************************************
+
+This is Ipopt version 3.13.2, running with linear solver ma27.
+
+Number of nonzeros in equality constraint Jacobian...:     2601
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:      400
+
+Total number of variables............................:     1003
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:      601
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:      802
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  4.7457159e+04 3.55e-01 7.80e+01  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  1.7144926e+05 2.28e-15 4.53e+01  -1.0 4.14e+01    -  2.10e-02 1.00e+00h  1
+   2  5.7802368e+04 2.39e-15 2.03e+01  -1.0 1.56e+02    -  3.81e-03 6.29e-01f  1
+   3  1.1908286e+04 2.29e-15 7.43e+00  -1.0 9.86e+01    -  1.45e-01 6.46e-01f  1
+   4  3.1947040e+03 2.88e-15 3.47e+00  -1.0 5.31e+01    -  2.20e-01 5.73e-01f  1
+   5  8.9237657e+02 1.89e-15 1.33e+00  -1.0 3.13e+01    -  2.82e-01 7.07e-01f  1
+   6  5.1593585e+02 2.44e-15 3.46e-01  -1.0 2.46e+01    -  3.43e-01 9.82e-01f  1
+   7  4.8364602e+02 2.89e-15 2.34e-01  -1.0 1.88e+01    -  4.44e-01 9.73e-01f  1
+   8  4.7244315e+02 2.26e-15 1.22e-01  -1.0 1.85e+01    -  5.08e-01 7.75e-01f  1
+   9  4.6491701e+02 2.44e-15 4.93e-02  -1.0 2.25e+01    -  6.18e-01 7.77e-01f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  4.6049380e+02 2.16e-15 8.72e-03  -1.0 2.36e+01    -  8.76e-01 1.00e+00f  1
+  11  4.5422359e+02 2.11e-15 2.07e-03  -1.7 2.58e+01    -  9.03e-01 1.00e+00f  1
+  12  4.5314348e+02 2.36e-15 1.35e-03  -2.5 1.90e+01    -  9.02e-01 6.59e-01f  1
+  13  4.5253559e+02 2.25e-15 4.00e-04  -2.5 1.60e+01    -  7.98e-01 1.00e+00f  1
+  14  4.5233604e+02 2.30e-15 4.45e-04  -3.8 8.38e+00    -  8.08e-01 1.00e+00f  1
+  15  4.5232358e+02 2.39e-15 1.36e-14  -3.8 7.05e+00    -  1.00e+00 1.00e+00f  1
+  16  4.5231178e+02 2.36e-15 1.63e-05  -5.7 3.04e+00    -  9.28e-01 1.00e+00f  1
+  17  4.5231151e+02 2.35e-15 1.33e-14  -5.7 2.78e+00    -  1.00e+00 1.00e+00f  1
+  18  4.5231150e+02 2.53e-15 1.38e-14  -5.7 1.61e+01    -  1.00e+00 1.00e+00f  1
+  19  4.5231138e+02 2.56e-15 1.37e-14  -8.6 1.39e-02    -  1.00e+00 1.00e+00f  1
+
+Number of Iterations....: 19
+
+                                   (scaled)                 (unscaled)
+Objective...............:   4.5231138132528781e+02    4.5231138132528781e+02
+Dual infeasibility......:   1.3688496345685749e-14    1.3688496345685749e-14
+Constraint violation....:   2.5578497653278021e-15    2.5578497653278021e-15
+Complementarity.........:   6.4931186704900211e-09    6.4931186704900211e-09
+Overall NLP error.......:   6.4931186704900211e-09    6.4931186704900211e-09
+
+
+Number of objective function evaluations             = 20
+Number of objective gradient evaluations             = 20
+Number of equality constraint evaluations            = 20
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 20
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 19
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.014
+Total CPU secs in NLP function evaluations           =      0.001
+
+EXIT: Optimal Solution Found.
+</pre></div>
+</div>
+<img alt="../_images/73592fc9676c2508b99bedaac1535b39e76fdf9c4bb741896f1a8755c8c69b63.png" src="../_images/73592fc9676c2508b99bedaac1535b39e76fdf9c4bb741896f1a8755c8c69b63.png" />
+</div>
+</div>
+</section>
+<section id="implement-on-hardware-simulation">
+<h3><span class="section-number">6.9.7.2. </span>Implement on Hardware (Simulation)<a class="headerlink" href="#implement-on-hardware-simulation" title="Permalink to this heading">#</a></h3>
+<p>Again, we will NOT apply the disturbance. Thus we expect to see some discrepency starting at 300 seconds. We planned for the disturbance but it did not happen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h2</span> <span class="o">=</span> <span class="n">perform_hardware_simulation</span><span class="p">(</span><span class="n">opt2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fbac5983a0ec8ae1b4081e6159290cce0bbc149c8cfd565a3f6f47f31baff1e8.png" src="../_images/fbac5983a0ec8ae1b4081e6159290cce0bbc149c8cfd565a3f6f47f31baff1e8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
+</pre></div>
+</div>
+<img alt="../_images/fbac5983a0ec8ae1b4081e6159290cce0bbc149c8cfd565a3f6f47f31baff1e8.png" src="../_images/fbac5983a0ec8ae1b4081e6159290cce0bbc149c8cfd565a3f6f47f31baff1e8.png" />
+</div>
+</div>
+<p>The updated parameters cause the model prediction to match the hardware (simulation) data until a little after 300 seconds. Recall we planned for a distrubrance starting at 300 seconds, but did not include the distrubance in our simulation.</p>
+</section>
 </section>
 </section>
 
@@ -1814,8 +2252,22 @@ The value of CpS is 0.696 Joules/degC.
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-control-with-knowledge-of-disturbances">6.9.3. Optimal Control with Knowledge of Disturbances</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-implementation">6.9.4. Hardware Implementation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-observation">6.9.5. Estimation/Observation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">6.9.6. Parameter Estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-observation">6.9.5. Estimation/Observation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-objective-weight-w-0-01">6.9.5.1. Small Objective Weight (<span class="math notranslate nohighlight">\(w=0.01\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medium-objective-weight-w-0-1">6.9.5.2. Medium Objective Weight (<span class="math notranslate nohighlight">\(w=0.1\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medium-large-objective-weight-w-1">6.9.5.3. Medium Large Objective Weight (<span class="math notranslate nohighlight">\(w=1\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-large-objective-weight-w-10">6.9.5.4. Extra Large Objective Weight (<span class="math notranslate nohighlight">\(w=10\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">6.9.6. Parameter Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assume-no-disturbance">6.9.6.1. Assume no disturbance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-exercise-take-two">6.9.7. Recommended Exercise: Take Two</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-loop-optimization">6.9.7.1. Open-Loop Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-on-hardware-simulation">6.9.7.2. Implement on Hardware (Simulation)</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

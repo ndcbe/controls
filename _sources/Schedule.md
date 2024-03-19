@@ -97,7 +97,7 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | [](./notebooks/05/05.06-Design-of-a-Cold-Weather-Fuel.ipynb) | |
 | **Tuesday, March 19** | **Dynamic Optimization** |
 | [Pyomo.DAE Theory](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_theory.html) | [](./notebooks/07-TCLab-Optimization-Estimation-Control.ipynb) |
-| [Pyomo.DAE Example](https://https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_example.html) |
+| [Pyomo.DAE Example](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_example.html) |
 | **Thursday, March 21** | **Simulation and Open-Loop Control** |
 | [](./notebooks/07-TCLab-Optimization-Estimation-Control.ipynb) |
 | **Tuesday, March 26** | **State Estimation** |
