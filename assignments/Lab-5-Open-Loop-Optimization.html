@@ -571,15 +571,13 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excerise-6">Excerise 6</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excerise-6-chocolate-tempering">Excerise 6. Chocolate Tempering</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-loop-optimization">Open Loop Optimization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-implementation">Hardware Implementation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Discussion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state-estimation">State Estimation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Parameter Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Parameter Estimation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Discussion</a></li>
 </ul>
 </li>
@@ -679,11 +677,21 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 <p>This notebook walks you through using the library. The take away message is that a class is a convient way to modularize our code and maximize reuse. The four supported modes are very similar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment and update value from code cell and run above if returning to notebook with reset kernel</span>
+<span class="c1"># Tamb = 20.75 # deg C</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="c1"># ensure that IDEAS is imported if there is an error calling Ipopt</span>
+
+<span class="c1"># ensure that IDAES is imported if there is an error calling Ipopt</span>
 <span class="kn">import</span> <span class="nn">idaes</span>
+
 <span class="c1"># Protip: only import the functions you need for each library.</span>
 <span class="c1"># This tells other programs exactly where each function is defined.</span>
 <span class="c1"># Avoid using from pyomo.environ import * as this imports everything</span>
@@ -703,10 +711,13 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">t_data</span><span class="p">,</span> <span class="n">u_data</span><span class="p">,</span> <span class="n">d_data</span><span class="p">,</span> <span class="n">Tset_data</span><span class="p">,</span> 
                  <span class="n">TS_data</span><span class="p">,</span> <span class="n">Tamb</span> <span class="o">=</span> <span class="n">Tamb</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.00016</span><span class="p">,</span> <span class="n">P1</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
                  <span class="n">Ua</span> <span class="o">=</span> <span class="mf">0.0261</span><span class="p">,</span> <span class="n">Ub</span> <span class="o">=</span> <span class="mf">0.0222</span><span class="p">,</span> <span class="n">CpH</span> <span class="o">=</span> <span class="mf">1.335</span><span class="p">,</span> <span class="n">CpS</span> <span class="o">=</span> <span class="mf">1.328</span><span class="p">,</span>
-                 <span class="n">integrate_to_initialize</span><span class="o">=</span><span class="kc">True</span>
+                 <span class="n">integrate_to_initialize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">obj_weight_observe</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                 <span class="n">obj_weight_optimize</span><span class="o">=</span><span class="mf">0.01</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Method called automatically when instantiating class.</span>
+<span class="sd">        This method is automatically called automatically when instantiating class.</span>
+<span class="sd">        It stores input data in the class and creates the pyomo model.</span>
+<span class="sd">        </span>
 <span class="sd">        Arguments:</span>
 <span class="sd">            mode: specify mode</span>
 <span class="sd">            t_data: time data</span>
@@ -720,10 +731,11 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 <span class="sd">            Ua: heat transfer coefficient from heater to environment, watts/deg C</span>
 <span class="sd">            Ub: heat transfer coefficient from heater to sensor, watts/deg C</span>
 <span class="sd">            CpH: heat capacity of the heater, joules/deg C</span>
-<span class="sd">            CpS: heat capacity of the, joules/deg C</span>
+<span class="sd">            CpS: heat capacity of the sensor, joules/deg C</span>
 <span class="sd">            integrate_to_initialize: Boolean</span>
-<span class="sd">        Returns:</span>
-<span class="sd">            None </span>
+<span class="sd">            obj_weight_observe: weight for disturbance in objective function, default is 0.1</span>
+<span class="sd">            obj_weight_optimize: weight for heater temperature in objective function, default is 0.01</span>
+
 <span class="sd">        &#39;&#39;&#39;</span>
         
         <span class="c1"># establish the valid operating modes</span>
@@ -747,8 +759,11 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
         <span class="bp">self</span><span class="o">.</span><span class="n">Ub</span> <span class="o">=</span> <span class="n">Ub</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">CpH</span> <span class="o">=</span> <span class="n">CpH</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">CpS</span> <span class="o">=</span> <span class="n">CpS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">P1</span> <span class="o">=</span> <span class="n">P1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alphaP</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">P1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">integrate_to_initialize</span> <span class="o">=</span> <span class="n">integrate_to_initialize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj_weight_observe</span> <span class="o">=</span> <span class="n">obj_weight_observe</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj_weight_optimize</span> <span class="o">=</span> <span class="n">obj_weight_optimize</span>
 
         <span class="c1"># create the pyomo model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_create_pyomo_model</span><span class="p">()</span>
@@ -818,16 +833,15 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
             <span class="c1"># Ua, Ub, CpH, and CpS are parameters</span>
             <span class="n">m</span><span class="o">.</span><span class="n">Ua</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ua</span><span class="p">)</span>
             <span class="n">m</span><span class="o">.</span><span class="n">Ub</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ub</span><span class="p">)</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">CpH</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CpH</span><span class="p">)</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">CpS</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CpS</span><span class="p">)</span>
+            <span class="c1"># 1/CpH and 1/CpS parameters</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">inv_CpH</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">CpH</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">inv_CpS</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">CpS</span><span class="p">)</span>
         <span class="c1"># otherwise (estimate) they are variables</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">m</span><span class="o">.</span><span class="n">Ua</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ua</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
             <span class="n">m</span><span class="o">.</span><span class="n">Ub</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Ub</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">CpH</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CpH</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-3</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">CpS</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CpS</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-3</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-
-
+            <span class="n">m</span><span class="o">.</span><span class="n">inv_CpH</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">CpH</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-2</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">inv_CpS</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">CpS</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">1E-1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 
         <span class="c1"># define variables for change in temperature wrt to time</span>
         <span class="n">m</span><span class="o">.</span><span class="n">Thdot</span> <span class="o">=</span> <span class="n">DerivativeVar</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">,</span> <span class="n">wrt</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
@@ -836,12 +850,9 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
         <span class="c1"># define differential equations (model) as contraints</span>
         <span class="c1"># moved Cps to the right hand side to diagnose integrator</span>
         <span class="n">m</span><span class="o">.</span><span class="n">Th_ode</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">rule</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> 
-                            <span class="n">m</span><span class="o">.</span><span class="n">CpH</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">Thdot</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span><span class="o">.</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Tamb</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">alphaP</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">U</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">D</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+                            <span class="n">m</span><span class="o">.</span><span class="n">Thdot</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Tamb</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">alphaP</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">U</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">D</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">inv_CpH</span><span class="p">)</span>
         <span class="n">m</span><span class="o">.</span><span class="n">Ts_ode</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">rule</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> 
-                            <span class="n">m</span><span class="o">.</span><span class="n">CpS</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">Tsdot</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="p">)</span>
-
-
-        
+                            <span class="n">m</span><span class="o">.</span><span class="n">Tsdot</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="p">)</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">inv_CpS</span><span class="p">)</span>
 
         <span class="c1">##### Simulate to initialize</span>
         <span class="c1"># Specify time-varying input data</span>
@@ -897,11 +908,11 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;optimize&#39;</span><span class="p">:</span>
             <span class="c1"># defining the tracking objective function</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Objective</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Tset</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Tset</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="n">sense</span><span class="o">=</span><span class="n">minimize</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Objective</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Tset</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_weight_optimize</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">Th</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Tset</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="n">sense</span><span class="o">=</span><span class="n">minimize</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;observe&#39;</span><span class="p">:</span>
             <span class="c1"># define observation (state estimation)</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Objective</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="nb">sum</span><span class="p">((</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Ts_measure</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">D</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="n">sense</span><span class="o">=</span><span class="n">minimize</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Objective</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="nb">sum</span><span class="p">((</span><span class="n">m</span><span class="o">.</span><span class="n">Ts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">Ts_measure</span><span class="p">[</span><span class="n">t</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_weight_observe</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">D</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="n">sense</span><span class="o">=</span><span class="n">minimize</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;estimate&#39;</span><span class="p">:</span>
             <span class="c1"># define parameter estimation objective</span>
@@ -924,7 +935,9 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Solves the pyomo model using ipopt.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="n">SolverFactory</span><span class="p">(</span><span class="s1">&#39;ipopt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">tee</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">solver</span> <span class="o">=</span> <span class="n">SolverFactory</span><span class="p">(</span><span class="s1">&#39;ipopt&#39;</span><span class="p">)</span>
+        <span class="c1">#solver.options[&#39;linear_solver&#39;] = &#39;ma57&#39;</span>
+        <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">tee</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
     <span class="k">def</span> <span class="nf">get_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -966,7 +979,7 @@ C_p^S \frac{dT_S}{dt} &amp; = - U_c (T_S - T_H)
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Returns model parameters from solved pyomo model.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Ua</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Ub</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CpH</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CpS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">Ua</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">Ub</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">inv_CpH</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="n">value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">inv_CpS</span><span class="p">)</span>
 
 
     <span class="k">def</span> <span class="nf">print_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1124,7 +1137,7 @@ T_S(t_0) &amp; = T_{amb}
 <p>An optimal control policy minimizes the differences</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-\min_{u} \int_{t_0}^{t_f} \|T_S^{SP}(t) - T_S(t)\|^2\,dt \\
+\min_{u} \int_{t_0}^{t_f} \left( \|T_S^{SP}(t) - T_S(t)\|^2\ + w \|T_S^{SP}(t) - T_H(t)\|^2\, \right) dt \\
 \end{align*}\]</div>
 <p>subject to constraints</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1160,6 +1173,7 @@ T_S(t_0) &amp; = T_{amb}
                  <span class="n">d_sim</span><span class="p">,</span>
                  <span class="n">setpoint_sim</span><span class="p">,</span>
                  <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">obj_weight_optimize</span><span class="o">=</span><span class="mf">0.01</span>   <span class="c1"># keep default value</span>
 <span class="p">)</span>
 
 <span class="n">opt</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
@@ -1318,7 +1332,8 @@ T_S(t_0) &amp; = T_{amb}
 <p>Using the simulation data you saved in Exercise 2, estimate the heater temperature and disturbance when the disturbance has no impact on the objective function (i.e., <span class="math notranslate nohighlight">\(w\)</span> = 0).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">excercise2_tclab_data_file</span> <span class="o">=</span> <span class="s1">&#39;tclab-open-loop1.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment and run the following line to run exercise 3 if returning to notebook with a restarted kernel</span>
+<span class="c1"># excercise2_tclab_data_file = &#39;tclab-open-loop1.csv&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1345,7 +1360,9 @@ T_S(t_0) &amp; = T_{amb}
                  <span class="n">u_data</span><span class="p">,</span>
                  <span class="kc">None</span><span class="p">,</span>
                  <span class="kc">None</span><span class="p">,</span>
-                 <span class="n">T1_data</span><span class="p">)</span>
+                 <span class="n">T1_data</span><span class="p">,</span>
+                 <span class="n">obj_weight_observe</span><span class="o">=</span><span class="mf">0.1</span>   <span class="c1"># keep default value</span>
+<span class="p">)</span>
 
 <span class="n">obs</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 <span class="n">obs</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -1379,8 +1396,8 @@ T_H(t_0) &amp; = T_{amb} \\
 T_S(t_0) &amp; = T_{amb}
 \end{align*}\]</div>
 <p>and assumption disturbance is zero</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ac173501-edbc-4cad-82d4-de8272d5f588">
-<span class="eqno">(8)<a class="headerlink" href="#equation-ac173501-edbc-4cad-82d4-de8272d5f588" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1c0478d8-0630-4c36-944b-ba22839d1262">
+<span class="eqno">(8)<a class="headerlink" href="#equation-1c0478d8-0630-4c36-944b-ba22839d1262" title="Permalink to this equation">#</a></span>\[\begin{equation}
 d(t) = 0
 \end{equation}\]</div>
 </section>
@@ -1429,18 +1446,26 @@ d(t) = 0
 <p>Write a short paragraph or a bulleted list of observations.</p>
 <p><strong>Your Observations:</strong></p>
 <p><em>Answer</em>:</p>
-<p>Compare the mean absolute and mean squared tracking (TODO: make solutions to calculate this) error <span class="math notranslate nohighlight">\(T_S - T_{set}\)</span> and <span class="math notranslate nohighlight">\(T_H - T_{set}\)</span> across:</p>
+<p>Compare the mean absolute and mean squared tracking error <span class="math notranslate nohighlight">\(T_S - T_{set}\)</span> and <span class="math notranslate nohighlight">\(T_H - T_{set}\)</span> across:</p>
 <ul class="simple">
 <li><p>The open loop optimization</p></li>
 <li><p>The state estimation (using hardware results)</p></li>
 </ul>
-<p>Write a short paragraph or a bulleted list of observations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: pay attention to how the set point was calculated and the size of your temperature data sets.</span>
+<span class="c1"># Add your solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write a short paragraph or a bulleted list of observations that interpret the above data.</p>
 <p><strong>Your Observations:</strong></p>
 <p><em>Answer</em>:</p>
 </section>
-<section id="excerise-6">
-<h2>Excerise 6<a class="headerlink" href="#excerise-6" title="Permalink to this heading">#</a></h2>
-<p>Repeat the procedure from this lab for the dark chocolate tempering profile.</p>
+<section id="excerise-6-chocolate-tempering">
+<h2>Excerise 6. Chocolate Tempering<a class="headerlink" href="#excerise-6-chocolate-tempering" title="Permalink to this heading">#</a></h2>
+<p>Repeat the procedure from this lab for the dark chocolate tempering profile. You may optionally use the new model parameters you estimated in Exercise 4.</p>
 <section id="open-loop-optimization">
 <h3>Open Loop Optimization<a class="headerlink" href="#open-loop-optimization" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -1451,7 +1476,7 @@ d(t) = 0
 <span class="c1"># To complete the experiment, change this to True</span>
 <span class="c1"># After completing the experiment, be sure to change it back to False</span>
 <span class="c1"># This will prevent you from overwriting your data</span>
-<span class="n">run_tamb2_tclab</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">run_tamb2_tclab</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1480,6 +1505,14 @@ d(t) = 0
     <span class="c1"># estimate ambient temperature</span>
     <span class="n">Tamb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">T_list</span><span class="p">)</span> <span class="c1"># deg C</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The ambient temperature is </span><span class="si">{</span><span class="n">Tamb</span><span class="si">}</span><span class="s2"> degrees C&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment and update value from code cell and run above if returning to notebook with reset kernel</span>
+<span class="c1"># Tamb = 22.36 # deg C</span>
 </pre></div>
 </div>
 </div>
@@ -1600,6 +1633,14 @@ d(t) = 0
 <h3>State Estimation<a class="headerlink" href="#state-estimation" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment and run the following line to run exercise 6 if returning to notebook with a restarted kernel</span>
+<span class="c1"># excercise6_tclab_data_file = &#39;tclab-open-loop2.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment_data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">excercise6_tclab_data_file</span><span class="p">)</span>
 
 <span class="n">time_data2</span> <span class="o">=</span> <span class="n">experiment_data2</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">array</span> <span class="c1"># grab column from pandas, convert to array</span>
@@ -1617,9 +1658,8 @@ d(t) = 0
 <p><strong>Interpret your estimates for the heater temperature and disturbance. Do these makes sense? How do you know?</strong></p>
 <p><em>Answer</em>:</p>
 </section>
-</section>
 <section id="id7">
-<h2>Parameter Estimation<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h3>Parameter Estimation<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <p>NOTE: Depending on your operating system, the following code cell may take up to 2 minnutes to solve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1636,6 +1676,7 @@ d(t) = 0
 </div>
 </div>
 </div>
+</section>
 <section id="id8">
 <h3>Discussion<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <p><strong>How do your parameters compare to those found in previous labs? Does this make sense?</strong></p>
@@ -1736,15 +1777,13 @@ d(t) = 0
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excerise-6">Excerise 6</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excerise-6-chocolate-tempering">Excerise 6. Chocolate Tempering</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-loop-optimization">Open Loop Optimization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-implementation">Hardware Implementation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Discussion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state-estimation">State Estimation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Discussion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Parameter Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Parameter Estimation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Discussion</a></li>
 </ul>
 </li>

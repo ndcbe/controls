@@ -574,25 +574,25 @@ document.write(`
 <section id="implementation-of-a-simple-pi-controller">
 <h2>Implementation of a Simple PI Controller<a class="headerlink" href="#implementation-of-a-simple-pi-controller" title="Permalink to this heading">#</a></h2>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4665d0d1-8d17-4d48-8f29-b7ef716481a2">
-<span class="eqno">(2)<a class="headerlink" href="#equation-4665d0d1-8d17-4d48-8f29-b7ef716481a2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2d27a4ca-1c7c-49fa-b11a-0b8f612a9ceb">
+<span class="eqno">(2)<a class="headerlink" href="#equation-2d27a4ca-1c7c-49fa-b11a-0b8f612a9ceb" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV(t) &amp; = \bar{MV} + K_P\left(SP(t) - PV(t)\right) + K_I \int_0^t \left(SP(t')-PV(t')\right)dt'
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(K_P\)</span> and <span class="math notranslate nohighlight">\(K_I\)</span> are the proportional and integral coefficients, respectively. The value <span class="math notranslate nohighlight">\(\bar{MV}\)</span> is a nominal or initial value of the manipulated variable.</p>
 <p>The actual implementation of PI control is normally done by computing how much the <span class="math notranslate nohighlight">\(MV\)</span> should change at each time step. Defining the error at time <span class="math notranslate nohighlight">\(k\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f4443697-704e-4819-ab6c-6cec76ac0605">
-<span class="eqno">(3)<a class="headerlink" href="#equation-f4443697-704e-4819-ab6c-6cec76ac0605" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d6a24977-6b7d-4ad7-bd05-1f1cf241079e">
+<span class="eqno">(3)<a class="headerlink" href="#equation-d6a24977-6b7d-4ad7-bd05-1f1cf241079e" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; =  SP_k - PV_k
 \end{align}\]</div>
 <p>then consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-959bdd58-0d01-477e-ba84-05c6f7e5533d">
-<span class="eqno">(4)<a class="headerlink" href="#equation-959bdd58-0d01-477e-ba84-05c6f7e5533d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c0c19cd3-ebc0-4f98-a023-d4756e2573da">
+<span class="eqno">(4)<a class="headerlink" href="#equation-c0c19cd3-ebc0-4f98-a023-d4756e2573da" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k-1} &amp; = \bar{MV} + K_P e_{k-1} + h K_I \sum_{j=0}^{k-1} e_{j} \\
 MV_{k} &amp; = \bar{MV} + K_P e_{k} + h K_I \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
 <p>Taking differences gives a practical formula (velocity form) for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to measurements</p>
-<div class="amsmath math notranslate nohighlight" id="equation-863acc47-df1a-4c52-a08a-ec59604937a1">
-<span class="eqno">(5)<a class="headerlink" href="#equation-863acc47-df1a-4c52-a08a-ec59604937a1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-98a8aed4-6665-490a-940a-d8a96f5248bf">
+<span class="eqno">(5)<a class="headerlink" href="#equation-98a8aed4-6665-490a-940a-d8a96f5248bf" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
 \end{align}\]</div>
 <p>The following code defines a Python object that implements this algorithm.</p>
@@ -654,7 +654,7 @@ MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suggestion: set to &quot;if False:&quot; after you have completed this </span>
 <span class="c1"># exercise to prevent yourself from accidently overwriting your results.</span>
-<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
 
     <span class="c1"># Debug this code with connected=False</span>
     <span class="c1"># Once you are happy with the code, proceed to the next exercise</span>
@@ -713,7 +713,7 @@ MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suggestion: set to False after you have completed this </span>
 <span class="c1"># exercise to prevent yourself from accidently overwriting your results.</span>
-<span class="k">if</span> <span class="kc">True</span><span class="p">:</span> 
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span> 
 
     <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -807,7 +807,7 @@ MV_{k} &amp; = MV_{k-1} + K_P(e_{k} - e_{k-1}) + h K_I e_{k}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suggestion: set to False after you&#39;ve completed this exercise to prevent yourself from accidently overwriting your results.</span>
-<span class="k">if</span> <span class="kc">True</span><span class="p">:</span> 
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span> 
 
     <span class="c1"># Add your solution here</span>
     

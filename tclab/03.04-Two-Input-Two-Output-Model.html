@@ -567,14 +567,14 @@ document.write(`
 <section id="interacting-heaters">
 <h2><span class="section-number">4.1.1. </span>Interacting Heaters<a class="headerlink" href="#interacting-heaters" title="Permalink to this heading">#</a></h2>
 <p>Our next model considers the interaction between the two heaters. From the step response it is obvious that the heaters interact, and we need to understand how that affects the dynamic performance.  Will we see qualitative differences in the step response once we’ve included the second heater?</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b63a47e1-4b3a-4ffc-a7b0-6e22b2f1e456">
-<span class="eqno">(4.9)<a class="headerlink" href="#equation-b63a47e1-4b3a-4ffc-a7b0-6e22b2f1e456" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6420d170-307e-46ad-96b3-443fe017434b">
+<span class="eqno">(4.9)<a class="headerlink" href="#equation-6420d170-307e-46ad-96b3-443fe017434b" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + U_b(T_2 - T_1) + P_1u_1\\
 C_p\frac{dT_2}{dt} &amp; = U_a(T_{amb} - T_2) + U_b(T_1 - T_2) + P_2u_2
 \end{align}\]</div>
 <p>As a first step we isolate the bare derivatives on the left-hand side of the equations. This is good practice in situations where you expect to be doing numerical simulation.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1319c13a-7ea6-43b0-91ee-a8fa50ea427b">
-<span class="eqno">(4.10)<a class="headerlink" href="#equation-1319c13a-7ea6-43b0-91ee-a8fa50ea427b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-99425834-fc5d-4131-99cb-dc63db933b5c">
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-99425834-fc5d-4131-99cb-dc63db933b5c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT_1}{dt} &amp; = \frac{U_a}{C_p}(T_{amb} - T_1) + \frac{U_b}{C_p}(T_2 - T_1) + \frac{P_1}{C_p}u_1\\
 \frac{dT_2}{dt} &amp; = \frac{U_a}{C_p}(T_{amb} - T_2) + \frac{U_b}{C_p}(T_1 - T_2) + \frac{P_2}{C_p}u_2
 \end{align}\]</div>
@@ -582,20 +582,20 @@ C_p\frac{dT_2}{dt} &amp; = U_a(T_{amb} - T_2) + U_b(T_1 - T_2) + P_2u_2
 <section id="deviation-variables">
 <h2><span class="section-number">4.1.2. </span>Deviation Variables<a class="headerlink" href="#deviation-variables" title="Permalink to this heading">#</a></h2>
 <p>As before, the equations appear somewhat simpler if we introduce deviation variables from a nominal state. In this case we’ll use the ambient temperature as the reference, so the deviation variable will express deviation from ambient.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ea5b7283-cd1b-4846-8f2a-2fffe55bd5af">
-<span class="eqno">(4.11)<a class="headerlink" href="#equation-ea5b7283-cd1b-4846-8f2a-2fffe55bd5af" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2d6dadae-86bf-4677-85b2-15caf3f39c02">
+<span class="eqno">(4.11)<a class="headerlink" href="#equation-2d6dadae-86bf-4677-85b2-15caf3f39c02" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_1' &amp; = T_1 - T_{amb} \\
 T_2' &amp; = T_2 - T_{amb}
 \end{align}\]</div>
 <p>Then gathering terms</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2be4c1d-f5a6-4ac4-b57e-6d3d16cc3a2b">
-<span class="eqno">(4.12)<a class="headerlink" href="#equation-b2be4c1d-f5a6-4ac4-b57e-6d3d16cc3a2b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ba643110-0e09-4db4-a455-ed130958897b">
+<span class="eqno">(4.12)<a class="headerlink" href="#equation-ba643110-0e09-4db4-a455-ed130958897b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT_1'}{dt} &amp; = -\frac{U_a+U_b}{C_p}T_1' + \frac{U_b}{C_p}T_2' + \frac{P_1}{C_p}u_1\\
 \frac{dT_2'}{dt} &amp; = -\frac{U_a+U_b}{C_p}T_2' + \frac{U_b}{C_p}T_1' + \frac{P_2}{C_p}u_2
 \end{align}\]</div>
 <p>An alternative way to express these equations is in matrix/vector form.  We won’t use this today, but later will make extensive use of this ‘state-space’ model of a linear system.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e7c3cf3-7b0e-47e2-8c0e-f9eaa3bb4c89">
-<span class="eqno">(4.13)<a class="headerlink" href="#equation-4e7c3cf3-7b0e-47e2-8c0e-f9eaa3bb4c89" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-84672e5f-ac27-4eb9-89ef-403ed49221f7">
+<span class="eqno">(4.13)<a class="headerlink" href="#equation-84672e5f-ac27-4eb9-89ef-403ed49221f7" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[\begin{array}{c}\frac{dT_1'}{dt} \\ \frac{dT_2'}{dt}\end{array}\right] &amp; = 
 \left[\begin{array}{cc}-\frac{U_a+U_b}{C_p} &amp; \frac{U_b}{C_p} \\ \frac{U_b}{C_p} &amp; -\frac{U_a+U_b}{C_p} \end{array}\right]
 \left[\begin{array}{c}T_1' \\ T_2'\end{array}\right] +
@@ -606,21 +606,21 @@ T_2' &amp; = T_2 - T_{amb}
 <section id="steady-state">
 <h2><span class="section-number">4.1.3. </span>Steady State<a class="headerlink" href="#steady-state" title="Permalink to this heading">#</a></h2>
 <p>The steady state is found by setting the derivatives to zero. We’ll use a bar over the dependent variables to designate steady state values.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4ec140ec-027d-49f1-8738-594fc4358041">
-<span class="eqno">(4.14)<a class="headerlink" href="#equation-4ec140ec-027d-49f1-8738-594fc4358041" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dfd322d8-3dc7-4d56-aea4-dacaee7d8e82">
+<span class="eqno">(4.14)<a class="headerlink" href="#equation-dfd322d8-3dc7-4d56-aea4-dacaee7d8e82" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; = -(U_a+U_b)\bar{T}_{1}' + U_b\bar{T}_{2}' + P_1\bar{u}_{1}\\
 0 &amp; = -(U_a+U_b)\bar{T}_{2}' + U_b\bar{T}_{1}' + P_2\bar{u}_{1}
 \end{align}\]</div>
 <p>Our challenge is to solve the following 2x2 system of linear equations for the steady state temperatures.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6750d3d2-3f7c-4ac0-b45c-b0eda97f174a">
-<span class="eqno">(4.15)<a class="headerlink" href="#equation-6750d3d2-3f7c-4ac0-b45c-b0eda97f174a" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<div class="amsmath math notranslate nohighlight" id="equation-27b24e59-378d-49fe-99a4-1d33507494b7">
+<span class="eqno">(4.15)<a class="headerlink" href="#equation-27b24e59-378d-49fe-99a4-1d33507494b7" title="Permalink to this equation">#</a></span>\[\begin{align} 
 \left[\begin{array}{cc}(U_a+U_b) &amp; -U_b \\ -U_b &amp; (U_a+U_b) \end{array}\right]
 \left[\begin{array}{c}\bar{T}_1' \\ \bar{T}_2'\end{array}\right] &amp; = 
 \left[\begin{array}{c} P_1\bar{u}_1 \\ P_2\bar{u}_2\end{array}\right]
 \end{align}\]</div>
 <p>The solution to these equations is a bit of work, but you should be able to verify</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b40cd5b8-e23d-4a62-95cd-8e4f7dea832b">
-<span class="eqno">(4.16)<a class="headerlink" href="#equation-b40cd5b8-e23d-4a62-95cd-8e4f7dea832b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-07768185-4cb8-487b-b76f-28dc1163321c">
+<span class="eqno">(4.16)<a class="headerlink" href="#equation-07768185-4cb8-487b-b76f-28dc1163321c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \bar{T}_1' &amp; = \frac{(U_a+U_b)}{U_a(U_a+2U_b)}P_1\bar{u}_1 + \frac{U_b}{U_a(U_a+2U_b)}P_2\bar{u}_2 \\
 \bar{T}_2' &amp; = \frac{U_b}{U_a(U_a+2U_b)}P_1\bar{u}_1 + \frac{(U_a+U_b)}{U_a(U_a+2U_b)}P_2\bar{u}_2
 \end{align}\]</div>
@@ -628,14 +628,14 @@ T_2' &amp; = T_2 - T_{amb}
 <section id="estimating-u-a-and-u-b">
 <h2><span class="section-number">4.1.4. </span>Estimating <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(U_b\)</span><a class="headerlink" href="#estimating-u-a-and-u-b" title="Permalink to this heading">#</a></h2>
 <p>Experimental step response data gives us the information needed to estimate parameters <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(U_b\)</span>. Rearranging the steady state equations, we find a pair of linear equations for <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(U_b\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2782ea98-e846-4d33-b1c3-1fd9cb74ec0d">
-<span class="eqno">(4.17)<a class="headerlink" href="#equation-2782ea98-e846-4d33-b1c3-1fd9cb74ec0d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d6456e53-653c-4606-90aa-b814c4c02176">
+<span class="eqno">(4.17)<a class="headerlink" href="#equation-d6456e53-653c-4606-90aa-b814c4c02176" title="Permalink to this equation">#</a></span>\[\begin{align}
 \bar{T}_{1}'U_a  + (\bar{T}_{1}'-\bar{T}_{2}')U_b &amp; = P_1\bar{u}_{1}\\
 \bar{T}_{2}'U_a + (\bar{T}_{2}'-\bar{T}_{1}')U_b &amp; = P_2\bar{u}_{1}
 \end{align}\]</div>
 <p>There is an analytical solution to these equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd292778-c854-4ee8-a2c1-7ac5df18187f">
-<span class="eqno">(4.18)<a class="headerlink" href="#equation-bd292778-c854-4ee8-a2c1-7ac5df18187f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e8ac3674-9f17-4d03-9feb-2414401276ed">
+<span class="eqno">(4.18)<a class="headerlink" href="#equation-e8ac3674-9f17-4d03-9feb-2414401276ed" title="Permalink to this equation">#</a></span>\[\begin{align}
 U_a &amp; = \frac{P_1\bar{u}_1 + P_2\bar{u}_2}{\bar{T}_1' + \bar{T}_2'}\\
 U_b &amp; = \frac{\bar{T}_2'P_1\bar{u}_1 - \bar{T}_1'P_2\bar{u}_2}{(\bar{T}_1' - \bar{T}_2')(\bar{T}_1' + \bar{T}_2')}
 \end{align}\]</div>
