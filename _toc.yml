@@ -89,6 +89,7 @@ parts:
       - file: notebooks/06.06-gompertz-model-project
       - file: notebooks/06.07-time-as-decision-variable
       - file: notebooks/07-TCLab-Optimization-Estimation-Control
+      - file: notebooks/06-TCLab-Model-Predictive-Control
 
 #    - file: notebooks/07.00-Discrete-Event-Systems
 #      sections:
