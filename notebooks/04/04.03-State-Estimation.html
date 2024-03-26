@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -78,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
 
@@ -121,20 +121,12 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <header>
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-  </header>
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -260,6 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../07-TCLab-Optimization-Estimation-Control.html">6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-TCLab-Model-Predictive-Control.html">6.10. TCLab: Model Predictive Control (MPC)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -570,7 +563,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="state-estimation">
 <h1><span class="section-number">4.3. </span>State Estimation<a class="headerlink" href="#state-estimation" title="Permalink to this heading">#</a></h1>
@@ -679,14 +672,14 @@ document.write(`
 <section id="heater-sensor-model">
 <h2><span class="section-number">4.3.3. </span>Heater/Sensor Model<a class="headerlink" href="#heater-sensor-model" title="Permalink to this heading">#</a></h2>
 <p>In chapter two we explored various models for describing the response of the heater/sensor assemblies to heater inputs. For heater/sensor assembly 1 we developed the following model</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2d04f36-f0b4-4d8e-994d-2976885c8b2f">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-a2d04f36-f0b4-4d8e-994d-2976885c8b2f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dd65c5b6-3201-4d89-803c-ea0243c66e01">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-dd65c5b6-3201-4d89-803c-ea0243c66e01" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT_{H,1}}{dt} &amp; = U_a(T_{amb} - T_{H,1}) + U_b(T_{S,1} - T_{H,1}) + \alpha P_1 u_1\\
 C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1}) 
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(C^H_p\)</span> and <span class="math notranslate nohighlight">\(C^S_p\)</span> are the gross heat capacities of the heater and sensor, respectively, <span class="math notranslate nohighlight">\(U_a\)</span> is the heat transfer coefficient characterizing the exchange of heat with the surroundings, and <span class="math notranslate nohighlight">\(U_b\)</span> is a heat transfer coefficient between the heater and sensor.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e5f19c49-ad55-4d35-96c0-049487f2e8cd">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-e5f19c49-ad55-4d35-96c0-049487f2e8cd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-79241ce5-f4c5-4480-8d06-5728d33ae723">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-79241ce5-f4c5-4480-8d06-5728d33ae723" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT_{H,1}}{dt} &amp; = -\frac{U_a+U_b}{C^H_p}T_{H,1} + \frac{U_b}{C^H_p}T_{S,1} + \frac{\alpha P_1}{C^H_p}u_1 + \frac{U_a}{C^H_p}T_{amb}\\
 \frac{dT_{S,1}}{dt} &amp; = \frac{U_b}{C^S_p}(T_{H,1} - T_{S,1}) 
 \end{align}\]</div>
@@ -697,8 +690,8 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
 <section id="converting-to-a-state-space-model">
 <h2><span class="section-number">4.3.4. </span>Converting to a State-Space Model<a class="headerlink" href="#converting-to-a-state-space-model" title="Permalink to this heading">#</a></h2>
 <p>The same model can be written in a <strong>state-space</strong> matrix/vector format:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0198e080-8dce-4e5d-a4b1-15f87419aeac">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-0198e080-8dce-4e5d-a4b1-15f87419aeac" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-89f35be1-1b71-41ed-a2f5-44d685acc536">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-89f35be1-1b71-41ed-a2f5-44d685acc536" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt} &amp; = A x + B_u u + B_d d \\
 y &amp; = C x
 \end{align}\]</div>
@@ -1301,7 +1294,6 @@ y &amp; = C x
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1372,8 +1364,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

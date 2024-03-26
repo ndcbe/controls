@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -78,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
 
@@ -121,20 +121,12 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <header>
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-  </header>
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -260,6 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../07-TCLab-Optimization-Estimation-Control.html">6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-TCLab-Model-Predictive-Control.html">6.10. TCLab: Model Predictive Control (MPC)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -578,7 +571,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="gasoline-blending">
 <h1><span class="section-number">5.4. </span>Gasoline Blending<a class="headerlink" href="#gasoline-blending" title="Permalink to this heading">#</a></h1>
@@ -828,8 +821,8 @@ document.write(`
 <section id="objective">
 <h3><span class="section-number">5.4.4.1. </span>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h3>
 <p>The objective is maximize profit, which is the difference between product revenue and stream costs.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2d7a69be-b8d2-4459-b205-e3a6107cd1cf">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-2d7a69be-b8d2-4459-b205-e3a6107cd1cf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-900688db-e8be-4c2a-9d22-81a0de99495e">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-900688db-e8be-4c2a-9d22-81a0de99495e" title="Permalink to this equation">#</a></span>\[\begin{align}
 \text{profit} &amp; = \max_{x_{s,p}}\left( \sum_{p\in P} \text{Price}_p \sum_{s\in S} x_{s,p}
 - \sum_{s\in S} \text{Cost}_s \sum_{p\in P} x_{s,p}\right) \\
 &amp; = \max_{x_{s,p}}\left(\sum_{p\in P}\sum_{s\in S}x_{s,p}(\text{Price}_p - \text{Cost}_s)\right)
@@ -839,23 +832,23 @@ document.write(`
 <h3><span class="section-number">5.4.4.2. </span>Raw Materials<a class="headerlink" href="#raw-materials" title="Permalink to this heading">#</a></h3>
 <p>The first constraints in any blending problem are normally the limits on available raw materials.</p>
 <p>The blending constraint for octane can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-730943e1-35cf-4276-b4cd-a55ee1c9b151">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-730943e1-35cf-4276-b4cd-a55ee1c9b151" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fd51f060-f4a2-410f-a67b-9c5cfeda3a3d">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-fd51f060-f4a2-410f-a67b-9c5cfeda3a3d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{\sum_{s \in S} x_{s,p} \text{Octane}_s}{\sum_{s \in S} x_{s,p}} &amp; \geq \text{Octane}_p &amp; \forall p \in P
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\text{Octane}_s\)</span> refers to the octane rating of stream <span class="math notranslate nohighlight">\(s\)</span>, whereas <span class="math notranslate nohighlight">\(\text{Octane}_p\)</span> refers to the octane rating of product <span class="math notranslate nohighlight">\(p\)</span>. Multiplying through by the denominator, and consolidating terms gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-01d9d17d-cde9-4125-879d-7fb42374efa0">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-01d9d17d-cde9-4125-879d-7fb42374efa0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a32eeb11-0744-4440-8b1b-ad34de7dbe4d">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-a32eeb11-0744-4440-8b1b-ad34de7dbe4d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{Octane}_s - \text{Octane}_p\right) &amp; \geq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>The same assumptions and development apply to the benzene constraint</p>
-<div class="amsmath math notranslate nohighlight" id="equation-460432ee-e229-4def-9bdd-db69b7b819eb">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-460432ee-e229-4def-9bdd-db69b7b819eb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bd28a1f0-a937-4322-8831-248dd5819464">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-bd28a1f0-a937-4322-8831-248dd5819464" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{Benzene}_s - \text{Benzene}_p\right) &amp; \leq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>Reid vapor pressure, however, follows a somewhat different mixing rule.  For the Reid vapor pressure we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-82b860e1-f3f6-4b9f-9f2f-be13547c0554">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-82b860e1-f3f6-4b9f-9f2f-be13547c0554" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b90e6130-f3f0-4fdc-9656-556de50c11c5">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-b90e6130-f3f0-4fdc-9656-556de50c11c5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{RVP}_s^{1.25} - \text{RVP}_{min,p}^{1.25}\right) &amp; \geq  0 &amp; \forall p \in P \\
 \sum_{s \in S} x_{s,p}\left(\text{RVP}_s^{1.25} - \text{RVP}_{max,p}^{1.25}\right) &amp; \leq  0 &amp; \forall p \in P
 \end{align}\]</div>
@@ -2808,7 +2801,6 @@ Profit = 27.5 cents per gallon.
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -2887,8 +2879,8 @@ By Jeffrey Kantor and Alexander Dowling
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
