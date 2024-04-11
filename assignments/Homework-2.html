@@ -177,8 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="assignments.html">Assignments</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lab-2-Relay-Control.html">© Alexander Dowling et al. University of Notre Dame. For individual use only. These solutions may not be distributed.</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 2: Optimization</a></li>
@@ -871,8 +870,8 @@ document.write(`
 <section id="return-rate">
 <h3>Return Rate<a class="headerlink" href="#return-rate" title="Permalink to this heading">#</a></h3>
 <p>You are given a Stock_Data.csv file. Using the stock data, calculate the 1-day return rate:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32f31bab-4de8-4bc1-bc0e-69fcf56d2563">
-<span class="eqno">(6)<a class="headerlink" href="#equation-32f31bab-4de8-4bc1-bc0e-69fcf56d2563" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-88763c68-5f55-48e3-9b3f-8689ff5029a5">
+<span class="eqno">(6)<a class="headerlink" href="#equation-88763c68-5f55-48e3-9b3f-8689ff5029a5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	r_{t,i} = \frac{p_{t+1,i} - p_{t,i}}{p_{t,i}}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_{t+1,i}\)</span> and <span class="math notranslate nohighlight">\(p_{t,i}\)</span> are the <em>Adjusted Closing Prices</em> at the end of days <span class="math notranslate nohighlight">\(t+1\)</span> and <span class="math notranslate nohighlight">\(t\)</span>, respectively, for stock <span class="math notranslate nohighlight">\(i\)</span>. These results are stored in matrix <code class="docutils literal notranslate"><span class="pre">R</span></code>. <em>Hint</em>: Use Pandas.</p>
@@ -968,8 +967,8 @@ document.write(`
 <section id="exercise-3-markowitz-mean-variance-portfolio-optimization-model">
 <h3>Exercise 3. Markowitz Mean/Variance Portfolio Optimization Model<a class="headerlink" href="#exercise-3-markowitz-mean-variance-portfolio-optimization-model" title="Permalink to this heading">#</a></h3>
 <p>The Markowitz mean/variance model, shown below, computes the optimal allocation of funds in a portfolio:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8ba92d6b-41d5-411a-8ae4-b073e971365a">
-<span class="eqno">(7)<a class="headerlink" href="#equation-8ba92d6b-41d5-411a-8ae4-b073e971365a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0496915d-38cd-4bbd-a6fe-ac672c87fff3">
+<span class="eqno">(7)<a class="headerlink" href="#equation-0496915d-38cd-4bbd-a6fe-ac672c87fff3" title="Permalink to this equation">#</a></span>\[\begin{align}
 		\min_{{x} \geq {0}} \qquad &amp; z:= {x}^T \cdot {\Sigma_r} \cdot {x} \\
 		\text{s.t.} \qquad &amp; {\bar{r}}^T \cdot {x} \geq \rho \\
 		 &amp; \sum_{i =1}^N x_i = 1 

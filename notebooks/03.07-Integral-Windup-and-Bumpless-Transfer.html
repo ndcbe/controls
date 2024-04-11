@@ -177,8 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../assignments/assignments.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">© Alexander Dowling et al. University of Notre Dame. For individual use only. These solutions may not be distributed.</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-2.html">Homework 2: Optimization</a></li>
@@ -677,13 +676,13 @@ document.write(`
 <section id="basic-pi-control">
 <h2><span class="section-number">3.7.4. </span>Basic PI Control<a class="headerlink" href="#basic-pi-control" title="Permalink to this heading">#</a></h2>
 <p>Proportional-Integral (PI) Control in velocity form is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5c5a1f66-4b87-4ad2-b394-12b794d6fbc7">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-5c5a1f66-4b87-4ad2-b394-12b794d6fbc7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8f11f97b-ca9a-4031-a864-76209aaddd36">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-8f11f97b-ca9a-4031-a864-76209aaddd36" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = MV_{k-1} + K_P (e_{k} - e_{k-1}) + \delta t K_I e_k
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(MV_0= \bar{MV}\)</span> is the initial value, and the error <span class="math notranslate nohighlight">\(e_k\)</span> is the difference between the process variable and setpoint, and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6f6135dd-9b35-48c2-b1cb-550edae28127">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-6f6135dd-9b35-48c2-b1cb-550edae28127" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dd0ec62b-f238-45a1-b138-9f5c10bf2b03">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-dd0ec62b-f238-45a1-b138-9f5c10bf2b03" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k \\
 \end{align}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
@@ -856,8 +855,8 @@ e_k &amp; = SP_k - PV_k \\
 </div>
 <hr class="docutils" />
 <p><strong>Discussion Question:</strong> Examine the results of this experiment. The PI velocity algorithm is given by an equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed8c35a8-f39d-4751-818e-df34aca0b47f">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-ed8c35a8-f39d-4751-818e-df34aca0b47f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0dab332f-c805-45f4-9bc0-5550b2cce4b5">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-0dab332f-c805-45f4-9bc0-5550b2cce4b5" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + K_p(e_{k} + e_{k-1}) + \delta t K_i e_{k}
 \end{align}\]</div>
 <p>Looking at the period from 0 to 100 seconds, is this equation describing what is actually happening? Is it possible for <span class="math notranslate nohighlight">\(MV\)</span> to be different from the actual input applied to the device?</p>
@@ -1260,13 +1259,13 @@ TCLab Model disconnected successfully.
 <li><p>Remove setpoint from proportional term</p></li>
 <li><p>Only the integral control term incorporates the setpoint.</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-46880795-1b88-4ff0-ba61-2623aac8f4e3">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-46880795-1b88-4ff0-ba61-2623aac8f4e3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c4a12970-a1df-4505-b5c4-d6b53175709b">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-c4a12970-a1df-4505-b5c4-d6b53175709b" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k \\
 \hat{MV}_{k} &amp; = MV_{k-1} + K_p(-PV_{k} + PV_{k-1}) + \delta t K_i e_{k} 
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-8d938502-a41d-4fae-bd02-3a11f9010cca">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-8d938502-a41d-4fae-bd02-3a11f9010cca" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c3d5cfc3-9c41-4ddf-b75c-5830456e0fc6">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-c3d5cfc3-9c41-4ddf-b75c-5830456e0fc6" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
 \end{align}\]</div>
 <div class="cell docutils container">

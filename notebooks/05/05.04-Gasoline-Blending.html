@@ -177,8 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../assignments/assignments.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-2-Relay-Control.html">© Alexander Dowling et al. University of Notre Dame. For individual use only. These solutions may not be distributed.</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../assignments/Homework-2.html">Homework 2: Optimization</a></li>
@@ -822,8 +821,8 @@ document.write(`
 <section id="objective">
 <h3><span class="section-number">5.4.4.1. </span>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h3>
 <p>The objective is maximize profit, which is the difference between product revenue and stream costs.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-576f418d-af3c-4b84-98e8-e0f707d33d6f">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-576f418d-af3c-4b84-98e8-e0f707d33d6f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6c64bde0-14eb-49a5-9bfc-a843c7f53aaf">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-6c64bde0-14eb-49a5-9bfc-a843c7f53aaf" title="Permalink to this equation">#</a></span>\[\begin{align}
 \text{profit} &amp; = \max_{x_{s,p}}\left( \sum_{p\in P} \text{Price}_p \sum_{s\in S} x_{s,p}
 - \sum_{s\in S} \text{Cost}_s \sum_{p\in P} x_{s,p}\right) \\
 &amp; = \max_{x_{s,p}}\left(\sum_{p\in P}\sum_{s\in S}x_{s,p}(\text{Price}_p - \text{Cost}_s)\right)
@@ -833,23 +832,23 @@ document.write(`
 <h3><span class="section-number">5.4.4.2. </span>Raw Materials<a class="headerlink" href="#raw-materials" title="Permalink to this heading">#</a></h3>
 <p>The first constraints in any blending problem are normally the limits on available raw materials.</p>
 <p>The blending constraint for octane can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-74323fde-068e-4e77-bbc0-c4097b185e64">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-74323fde-068e-4e77-bbc0-c4097b185e64" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e4fe143a-1316-4372-b8a0-d923dbdbcf11">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-e4fe143a-1316-4372-b8a0-d923dbdbcf11" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{\sum_{s \in S} x_{s,p} \text{Octane}_s}{\sum_{s \in S} x_{s,p}} &amp; \geq \text{Octane}_p &amp; \forall p \in P
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\text{Octane}_s\)</span> refers to the octane rating of stream <span class="math notranslate nohighlight">\(s\)</span>, whereas <span class="math notranslate nohighlight">\(\text{Octane}_p\)</span> refers to the octane rating of product <span class="math notranslate nohighlight">\(p\)</span>. Multiplying through by the denominator, and consolidating terms gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8bf8bd8d-c4ff-42d5-af0c-a46fdfc4558e">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-8bf8bd8d-c4ff-42d5-af0c-a46fdfc4558e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-761245c9-a7b4-4557-b6cb-cbcf9b8c7a20">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-761245c9-a7b4-4557-b6cb-cbcf9b8c7a20" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{Octane}_s - \text{Octane}_p\right) &amp; \geq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>The same assumptions and development apply to the benzene constraint</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b741bf45-26e3-48e2-94c2-8d009585880c">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-b741bf45-26e3-48e2-94c2-8d009585880c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-19673e4d-fa0f-46bf-8b07-9094b520cf16">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-19673e4d-fa0f-46bf-8b07-9094b520cf16" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{Benzene}_s - \text{Benzene}_p\right) &amp; \leq  0 &amp; \forall p \in P
 \end{align}\]</div>
 <p>Reid vapor pressure, however, follows a somewhat different mixing rule.  For the Reid vapor pressure we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e680eba-122c-48aa-8d87-0c9337d50bce">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-1e680eba-122c-48aa-8d87-0c9337d50bce" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8c02c40d-507e-4990-9ae8-c63817e607d7">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-8c02c40d-507e-4990-9ae8-c63817e607d7" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sum_{s \in S} x_{s,p}\left(\text{RVP}_s^{1.25} - \text{RVP}_{min,p}^{1.25}\right) &amp; \geq  0 &amp; \forall p \in P \\
 \sum_{s \in S} x_{s,p}\left(\text{RVP}_s^{1.25} - \text{RVP}_{max,p}^{1.25}\right) &amp; \leq  0 &amp; \forall p \in P
 \end{align}\]</div>

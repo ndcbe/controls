@@ -177,8 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../assignments/assignments.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">© Alexander Dowling et al. University of Notre Dame. For individual use only. These solutions may not be distributed.</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-2.html">Homework 2: Optimization</a></li>
@@ -588,8 +587,8 @@ document.write(`
 <section id="part-2-implementing-a-pid-controller">
 <h2><span class="section-number">5.3.2. </span>Part 2. Implementing a PID Controller<a class="headerlink" href="#part-2-implementing-a-pid-controller" title="Permalink to this heading">#</a></h2>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the rule</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a127173-8e58-4959-8ec4-512e3f41e5ff">
-<span class="eqno">(5.13)<a class="headerlink" href="#equation-0a127173-8e58-4959-8ec4-512e3f41e5ff" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7de72fec-0f95-463e-a23d-a67108312d80">
+<span class="eqno">(5.13)<a class="headerlink" href="#equation-7de72fec-0f95-463e-a23d-a67108312d80" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV &amp; = \bar{MV} + K_p\left(SP - PV\right) + K_i \int_0^t \left(SP-PV)\right)dt + K_d \frac{d\left(SP-PV\right)}{dt}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(K_p\)</span>, <span class="math notranslate nohighlight">\(K_i\)</span>, and <span class="math notranslate nohighlight">\(K_d\)</span> are the proportional, integral, and derivative coefficients, respectively.</p>
