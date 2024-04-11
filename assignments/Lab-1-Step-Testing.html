@@ -182,6 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Homework-2.html">Homework 2: Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lab-6-MPC.html">Lab 6: Model Predictive Control (MPC)</a></li>
 </ul>
 </li>
 </ul>
@@ -255,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/06-TCLab-Model-Predictive-Control.html">6.10. TCLab: Model Predictive Control (MPC)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/08.00-Projects.html">7. Projects (Spring 2023)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
 </ul>
 </li>
@@ -610,8 +611,8 @@ document.write(`
 <section id="first-order-lumped-model-for-heater-sensor-device">
 <h3>First-order lumped model for heater/sensor device.<a class="headerlink" href="#first-order-lumped-model-for-heater-sensor-device" title="Permalink to this heading">#</a></h3>
 <p>We have previously developed a first-order model for one heater/sensor pair on the temperature control lab device.  An energy balance gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f92b7a07-1c1a-4c5c-99aa-999d109326ea">
-<span class="eqno">(1)<a class="headerlink" href="#equation-f92b7a07-1c1a-4c5c-99aa-999d109326ea" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-06615de6-bd6b-41a6-bf14-ed1b9f5bf831">
+<span class="eqno">(1)<a class="headerlink" href="#equation-06615de6-bd6b-41a6-bf14-ed1b9f5bf831" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T_1\)</span> is the average temperature of heater/sensor one, <span class="math notranslate nohighlight">\(T_{amb}\)</span> is the ambient temperature of the surroundings. The unknown parameters are the heat capacity <span class="math notranslate nohighlight">\(C_p\)</span> and the heat transfer coefficient <span class="math notranslate nohighlight">\(U_a\)</span>.</p>

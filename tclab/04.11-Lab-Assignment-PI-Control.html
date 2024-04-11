@@ -182,6 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-2.html">Homework 2: Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-6-MPC.html">Lab 6: Model Predictive Control (MPC)</a></li>
 </ul>
 </li>
 </ul>
@@ -255,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/06-TCLab-Model-Predictive-Control.html">6.10. TCLab: Model Predictive Control (MPC)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/08.00-Projects.html">7. Projects (Spring 2023)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
 </ul>
 </li>
@@ -564,25 +565,25 @@ document.write(`
 <section id="implementation-of-a-simple-pi-controller">
 <h2><span class="section-number">5.4.1. </span>Implementation of a simple PI controller<a class="headerlink" href="#implementation-of-a-simple-pi-controller" title="Permalink to this heading">#</a></h2>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-54a3d2bc-d3da-4a3c-b3c2-cee53d82bc6b">
-<span class="eqno">(5.14)<a class="headerlink" href="#equation-54a3d2bc-d3da-4a3c-b3c2-cee53d82bc6b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bf8f6f44-3c26-4d1e-9659-a3ae16ebdc94">
+<span class="eqno">(5.14)<a class="headerlink" href="#equation-bf8f6f44-3c26-4d1e-9659-a3ae16ebdc94" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV &amp; = \bar{MV} + k_p\left(SP - PV\right) + k_i \int_0^t \left(SP-PV)\right)dt
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(k_p\)</span> and <span class="math notranslate nohighlight">\(k_i\)</span> are the proportional and integral coefficients, respectively. The value <span class="math notranslate nohighlight">\(\bar{MV}\)</span> is a nominal or initial value of the manipulated variable.</p>
 <p>The actual implementation of PI control is normally done by computing how much the <span class="math notranslate nohighlight">\(MV\)</span> should change at each time step. Defining the error at time <span class="math notranslate nohighlight">\(k\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7eacb3ef-8a28-4789-ba11-c4ab12df7a8e">
-<span class="eqno">(5.15)<a class="headerlink" href="#equation-7eacb3ef-8a28-4789-ba11-c4ab12df7a8e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-801f90ff-6b22-4d59-8a18-ec2e7550bb2b">
+<span class="eqno">(5.15)<a class="headerlink" href="#equation-801f90ff-6b22-4d59-8a18-ec2e7550bb2b" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k
 \end{align}\]</div>
 <p>then consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a19263b8-4dc1-424c-a19a-fb32ed99b872">
-<span class="eqno">(5.16)<a class="headerlink" href="#equation-a19263b8-4dc1-424c-a19a-fb32ed99b872" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-acacc1ee-11f8-4e9d-a29d-948be7f6bbd2">
+<span class="eqno">(5.16)<a class="headerlink" href="#equation-acacc1ee-11f8-4e9d-a29d-948be7f6bbd2" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k-1} &amp; = \bar{MV} + k_p e_{k-1} + k_i \sum_{j=0}^{k-1} e_{j} \\
 MV_{k} &amp; = \bar{MV} + k_p e_{k} + k_i \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
 <p>Taking differences gives a practical formula for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to measurements</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f328e67-65eb-4cb5-a5aa-ea2cdb3336ed">
-<span class="eqno">(5.17)<a class="headerlink" href="#equation-8f328e67-65eb-4cb5-a5aa-ea2cdb3336ed" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1425b893-5ce7-446c-83a9-e4cb05c64087">
+<span class="eqno">(5.17)<a class="headerlink" href="#equation-1425b893-5ce7-446c-83a9-e4cb05c64087" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + k_p(e_{k} - e_{k-1}) + k_i e_{k}
 \end{align}\]</div>
 <p>The following code defines a Python object that implements this algorithm.</p>

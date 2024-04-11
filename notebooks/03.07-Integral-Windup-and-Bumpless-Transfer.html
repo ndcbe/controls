@@ -182,6 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-2.html">Homework 2: Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-6-MPC.html">Lab 6: Model Predictive Control (MPC)</a></li>
 </ul>
 </li>
 </ul>
@@ -255,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="06-TCLab-Model-Predictive-Control.html">6.10. TCLab: Model Predictive Control (MPC)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="08.00-Projects.html">7. Projects</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="08.00-Projects.html">7. Projects (Spring 2023)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
 </ul>
 </li>
@@ -676,13 +677,13 @@ document.write(`
 <section id="basic-pi-control">
 <h2><span class="section-number">3.7.4. </span>Basic PI Control<a class="headerlink" href="#basic-pi-control" title="Permalink to this heading">#</a></h2>
 <p>Proportional-Integral (PI) Control in velocity form is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f11f97b-ca9a-4031-a864-76209aaddd36">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-8f11f97b-ca9a-4031-a864-76209aaddd36" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2ca51a80-4367-4658-b532-9f36545c4624">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-2ca51a80-4367-4658-b532-9f36545c4624" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = MV_{k-1} + K_P (e_{k} - e_{k-1}) + \delta t K_I e_k
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(MV_0= \bar{MV}\)</span> is the initial value, and the error <span class="math notranslate nohighlight">\(e_k\)</span> is the difference between the process variable and setpoint, and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd0ec62b-f238-45a1-b138-9f5c10bf2b03">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-dd0ec62b-f238-45a1-b138-9f5c10bf2b03" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-64be7dea-96bf-46e1-9d0b-821b8f271225">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-64be7dea-96bf-46e1-9d0b-821b8f271225" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k \\
 \end{align}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
@@ -855,8 +856,8 @@ e_k &amp; = SP_k - PV_k \\
 </div>
 <hr class="docutils" />
 <p><strong>Discussion Question:</strong> Examine the results of this experiment. The PI velocity algorithm is given by an equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0dab332f-c805-45f4-9bc0-5550b2cce4b5">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-0dab332f-c805-45f4-9bc0-5550b2cce4b5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-437e1731-6acb-4f50-9006-e72a1eacba10">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-437e1731-6acb-4f50-9006-e72a1eacba10" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + K_p(e_{k} + e_{k-1}) + \delta t K_i e_{k}
 \end{align}\]</div>
 <p>Looking at the period from 0 to 100 seconds, is this equation describing what is actually happening? Is it possible for <span class="math notranslate nohighlight">\(MV\)</span> to be different from the actual input applied to the device?</p>
@@ -1259,13 +1260,13 @@ TCLab Model disconnected successfully.
 <li><p>Remove setpoint from proportional term</p></li>
 <li><p>Only the integral control term incorporates the setpoint.</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-c4a12970-a1df-4505-b5c4-d6b53175709b">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-c4a12970-a1df-4505-b5c4-d6b53175709b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-62e015be-b79d-4f36-b769-0cf053d4ea84">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-62e015be-b79d-4f36-b769-0cf053d4ea84" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k \\
 \hat{MV}_{k} &amp; = MV_{k-1} + K_p(-PV_{k} + PV_{k-1}) + \delta t K_i e_{k} 
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-c3d5cfc3-9c41-4ddf-b75c-5830456e0fc6">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-c3d5cfc3-9c41-4ddf-b75c-5830456e0fc6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-70da3a0b-b555-44b3-93dd-7f4784e35fc7">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-70da3a0b-b555-44b3-93dd-7f4784e35fc7" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
 \end{align}\]</div>
 <div class="cell docutils container">
