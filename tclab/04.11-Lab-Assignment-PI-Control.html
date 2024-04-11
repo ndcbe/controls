@@ -565,25 +565,25 @@ document.write(`
 <section id="implementation-of-a-simple-pi-controller">
 <h2><span class="section-number">5.4.1. </span>Implementation of a simple PI controller<a class="headerlink" href="#implementation-of-a-simple-pi-controller" title="Permalink to this heading">#</a></h2>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fcfa73ef-db1a-4e71-9949-cfaaa1588a39">
-<span class="eqno">(5.14)<a class="headerlink" href="#equation-fcfa73ef-db1a-4e71-9949-cfaaa1588a39" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-da5df509-4790-498d-8c55-8eb85a27f278">
+<span class="eqno">(5.14)<a class="headerlink" href="#equation-da5df509-4790-498d-8c55-8eb85a27f278" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV &amp; = \bar{MV} + k_p\left(SP - PV\right) + k_i \int_0^t \left(SP-PV)\right)dt
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(k_p\)</span> and <span class="math notranslate nohighlight">\(k_i\)</span> are the proportional and integral coefficients, respectively. The value <span class="math notranslate nohighlight">\(\bar{MV}\)</span> is a nominal or initial value of the manipulated variable.</p>
 <p>The actual implementation of PI control is normally done by computing how much the <span class="math notranslate nohighlight">\(MV\)</span> should change at each time step. Defining the error at time <span class="math notranslate nohighlight">\(k\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6043c4fa-cea6-49a3-ab96-852b42ef9b12">
-<span class="eqno">(5.15)<a class="headerlink" href="#equation-6043c4fa-cea6-49a3-ab96-852b42ef9b12" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2d51fe40-12b1-4f0e-a211-801c70b9ee48">
+<span class="eqno">(5.15)<a class="headerlink" href="#equation-2d51fe40-12b1-4f0e-a211-801c70b9ee48" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k
 \end{align}\]</div>
 <p>then consecutive values of <span class="math notranslate nohighlight">\(MV\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-011dc49f-111b-43aa-a8be-9e19d0eedb44">
-<span class="eqno">(5.16)<a class="headerlink" href="#equation-011dc49f-111b-43aa-a8be-9e19d0eedb44" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-88f9d813-3008-4fc6-a4ec-ddb46625b1b7">
+<span class="eqno">(5.16)<a class="headerlink" href="#equation-88f9d813-3008-4fc6-a4ec-ddb46625b1b7" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k-1} &amp; = \bar{MV} + k_p e_{k-1} + k_i \sum_{j=0}^{k-1} e_{j} \\
 MV_{k} &amp; = \bar{MV} + k_p e_{k} + k_i \sum_{j=0}^{k} e_{j}
 \end{align}\]</div>
 <p>Taking differences gives a practical formula for updating the value of <span class="math notranslate nohighlight">\(MV\)</span> in response to measurements</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a6b2b4f7-3ee6-45ea-8656-1f473e901472">
-<span class="eqno">(5.17)<a class="headerlink" href="#equation-a6b2b4f7-3ee6-45ea-8656-1f473e901472" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-60f2c734-d484-482f-aed6-c15a3d196eec">
+<span class="eqno">(5.17)<a class="headerlink" href="#equation-60f2c734-d484-482f-aed6-c15a3d196eec" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + k_p(e_{k} - e_{k-1}) + k_i e_{k}
 \end{align}\]</div>
 <p>The following code defines a Python object that implements this algorithm.</p>
@@ -766,7 +766,7 @@ By Jeffrey Kantor and Alexander Dowling
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2024.
       <br/>
     
   </p>
