@@ -1,0 +1,1162 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Operation of the Temperature Control Laboratory &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/data/02.00-Testing-your-TCLab';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../Readme.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../Readme.html">
+                    CBE 30338 Data Analytics, Optimization, and Control
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Schedule.html">Schedule</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../assignments/assignments.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../assignments/Homework-2.html">Homework 2: Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../assignments/Lab-6-MPC.html">Lab 6: Model Predictive Control (MPC)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topical Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01.00-What-is-Process-Control.html">1. What is Process Control?</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01.01-What-is-Feedback.html">1.1. What is Feedback?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01.02-Elements-of-Feedback-Control.html">1.2. Elements of Process Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02.00-Process-Modeling.html">2. Process Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02.01-One-Compartment-Pharmacokinetics.html">2.1. One Compartment Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.02-Properties-of-Scalar-First-Order-Linear-Systems.html">2.2. First-Order Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.03-First-Order-Model-for-a-Single-Heater.html">2.3. First Order Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.05-Second-Order.html">2.5. Second Order Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02.09-Study-Guide.html">2.10. Study Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03.01-Case-Study-Thermal-Cycling-PCR.html">3.1. Case Study: Thermal Cycling for PCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03.02-Setpoints.html">3.2. Setpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03.03-Setpoints-Thermal-Cycler.html">3.3. Case Study: PCR Thermal Cycler Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03.04-Relay-Control.html">3.4. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04/04.01-Learning-Goals.html">4.1. Learning Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04/04.02-Process-Historians.html">4.2. Data/Process/Operational Historian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04/04.03-State-Estimation.html">4.3. State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04/04.04-Lab-Assigment-State-Estimation.html">4.4. Lab Assignment 5: State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04/04.05-Anomaly-Detection.html">4.5. Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04/04.06-Lab-Assignment-Anomaly-Detection.html">4.6. Lab Assignment 6: Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04/04.07-Observer-Synthesis-LMI.html">4.7. Observer Synthesis using Linear Matrix Inequalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04/04.08-Envrironmental-Application.html">4.8. Application of Luenberger Observers to Environmental Modeling of Rivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04/04.09-Study-Questions.html">4.9. Study Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05/05.00-Optimization.html">5. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05/05.01-Linear-Production-Model.html">5.1. Linear Production Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05/05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05/05.03-Homework_2.html">5.3. Homework 2: Optimization (Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05/05.04-Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05/05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05/05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05/05.99-Pyomo-Examples.html">5.7. Pyomo Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CBE30338-EV-Example.html">5.8. Recharging Strategy for an Electric Vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../milk-pooling.html">5.9. Pooling and Blending</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06.00-Predictive-Control.html">6. Predictive Control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html">6.1. Simulation and Optimal Control in Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06.01-Static-Operability.html">6.2. Static Operability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06.02-Simulation-and-Open-Loop-Optimal-Control.html">6.3. Open-Loop Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06.03-Predictive-Control.html">6.4. Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06.04-Implementing-Predictive-Control.html">6.5. Implementing Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06.06a-gompertz-tumor-growth.html">6.6. Gompertz Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-TCLab-Optimization-Estimation-Control.html">6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-TCLab-Model-Predictive-Control.html">6.10. TCLab: Model Predictive Control (MPC)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08.00-Projects.html">7. Projects (Spring 2023)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../09.00-Bibliography.html">8. References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Laboratory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/00.00-tclab.html">1. The Temperature Control Laboratory</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/00.01-setting-up-tclab.html">1.1. Setting up TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/00.02-troubleshooting-tclab.html">1.2. Testing and Troubleshooting TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/00.03-using-tclab.html">1.3. Python Coding for TCLab</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/01.00-step-testing.html">2. Step Testing</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/01.01-step-testing.html">2.1. Step Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/01.02-first-order-model-for-a-single-heater.html">2.2. Lab Assignment 1: Step Test of a First-Order System</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/02.00-Empirical-Model-Identification.html">3. Empirical Model Identification</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/02.02-Fitting-Step-Test-Data-to-Empirical-Models.html">3.1. Fitting Step Test Data to Empirical Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/03.00-Estimating-Model-Parameters.html">4. Estimating Model Parameters</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/03.04-Two-Input-Two-Output-Model.html">4.1. Two-Input, Two-Output Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/03.05-Two-State-Model-for-a-Single-Heater.html">4.2. Two State Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/03.06-Four-State-Model.html">4.3. Four State Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/03.10-TCLab-Lab-2-Model-Indentification.html">4.4. Assignment: Model Identification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/04.00-Feedback-Control.html">5. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/04.01-Relay-Control.html">5.1. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/04.02-Lab-Assignment-Relay-Control.html">5.2. Lab Assignment 4: Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/04.10-Lab-Assignment-PID-Control.html">5.3. Lab Assignment: PID Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/04.11-Lab-Assignment-PI-Control.html">5.4. Lab Assignment 4: PI Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/05.00-State-Estimation.html">6. State Estimation</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/05.01-Open-and-Closed-Loop-Estimation.html">6.2. Open and Closed Loop Estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tclab/06.00-Optimal-Control.html">7. Optimization</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/07.00-Predictive-Control-and-Real-Time-Optimization.html">8. Predictive Control and Real Time Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.html">8.1. Simulation, Control, and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/07.02-Optimization-Control-and-Estimation-using-Pyomo-With-Windows-ipopt.html">8.2. Simulation, Control, and Estimation using Pyomo</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../python/A.00-Python-Tutorials.html">Python Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python/A.05-Tidy-Data-and-Pandas.html">Tidy Data and Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python/A.10-Coding-Controllers-with-Python-Generators.html">Coding Controllers with Python Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python/A.11-Modular-Approach-to-Simulation-using-Python-Generators.html">Modular Simulation using Python Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python/A.30-Animation-in-Jupyter-Notebooks.html">Animation in Jupyter Notebooks</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/data/02.00-Testing-your-TCLab.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ndcbe/controls" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data/02.00-Testing-your-TCLab.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/data/02.00-Testing-your-TCLab.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Operation of the Temperature Control Laboratory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establishing-connection-with-tclab-tclab">Establishing connection with <code class="docutils literal notranslate"><span class="pre">tclab.TCLab</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-temperature-sensors">Reading the temperature sensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heater-power">Setting Heater Power</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-maximum-power-levels-tclab-tclab-p1-and-tclab-tclab-p2">Setting maximum power levels <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.P1</span></code> and <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.P2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heater-power-levels-tclab-tclab-u1-and-tclab-tclab-u2">Setting heater power levels <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.U1</span></code> and <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.U2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heater-power-levels-tclab-q1-and-tclab-q2">Setting heater power levels TCLab.Q1() and TCLab.Q2()</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-tclab-clock-tperiod-tsample">Synchronizing with real time using <code class="docutils literal notranslate"><span class="pre">tclab.clock(tperiod,</span> <span class="pre">tsample)</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-logging-with-tclab-historian">Data logging with <code class="docutils literal notranslate"><span class="pre">tclab.Historian</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-time-plotting-with-tclab-plotter">Real time plotting with <code class="docutils literal notranslate"><span class="pre">tclab.Plotter</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application-relay-control">Example Application: Relay Control</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="operation-of-the-temperature-control-laboratory">
+<h1>Operation of the Temperature Control Laboratory<a class="headerlink" href="#operation-of-the-temperature-control-laboratory" title="Permalink to this heading">#</a></h1>
+<p>The primary purpose of this notebook is to test and verify correct operation of the Temperature Control Laboratory. Before starting, be sure the latest version of TCLab firmware has been installed on the Arduino, and the lastest version of the <code class="docutils literal notranslate"><span class="pre">tclab</span></code> has been installed on your laptop. The library can be installed by copying and runing the following command into a new code cell:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>!pip install tclab
+</pre></div>
+</div>
+<p>And prerequisite libraries, such as <code class="docutils literal notranslate"><span class="pre">pyserial</span></code> will be installed at the same time. To upgrade a previous installation, use</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>!pip install tclab --upgrade
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>tclab<span class="w"> </span>--upgrade
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already up-to-date: tclab in /Users/jeff/opt/anaconda3/lib/python3.7/site-packages (0.4.9)
+Requirement already satisfied, skipping upgrade: pyserial in /Users/jeff/opt/anaconda3/lib/python3.7/site-packages (from tclab) (3.4)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="establishing-connection-with-tclab-tclab">
+<h2>Establishing connection with <code class="docutils literal notranslate"><span class="pre">tclab.TCLab</span></code><a class="headerlink" href="#establishing-connection-with-tclab-tclab" title="Permalink to this heading">#</a></h2>
+<p>The interface to the Temperature Control Laboratory is established by creating an instance of a <code class="docutils literal notranslate"><span class="pre">TCLab</span></code> object from the <code class="docutils literal notranslate"><span class="pre">tclab</span></code> library. When all operations are complete, the instance should be closed. The following cell opens a serial connection to the TCLab hardware over USB, turns on the LED at 100% power, and then closes the connection. The output of this cell will report:</p>
+<ul class="simple">
+<li><p>version number of the tclab Python library</p></li>
+<li><p>device port and speed of the serial connection</p></li>
+<li><p>version number of the TCLab firmware</p></li>
+</ul>
+<p>The LED will return to normal operation after 10 seconds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
+
+<span class="n">lab</span> <span class="o">=</span> <span class="n">TCLab</span><span class="p">()</span>
+<span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">lab</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab version 0.4.9
+Arduino Leonardo connected on port /dev/cu.usbmodem142101 at 115200 baud.
+TCLab Firmware 1.5.1 Arduino Leonardo/Micro.
+TCLab disconnected successfully.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Python <code class="docutils literal notranslate"><span class="pre">with</span></code> statement provides a more convenient syntax for coding with the Temperature Control Laboratory.  The <code class="docutils literal notranslate"><span class="pre">with</span></code> statement creates an instance of <code class="docutils literal notranslate"><span class="pre">TCLab</span></code> and assigns the name given after <code class="docutils literal notranslate"><span class="pre">as</span></code>.  Once the code block is complete, the <code class="docutils literal notranslate"><span class="pre">TCLab.close()</span></code> command is executed automatically.  Generally speaking, this is the preferred syntax for coding with TCLab.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
+
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab version 0.4.9
+Arduino Leonardo connected on port /dev/cu.usbmodem142101 at 115200 baud.
+TCLab Firmware 1.5.1 Arduino Leonardo/Micro.
+TCLab disconnected successfully.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following code uses the <code class="docutils literal notranslate"><span class="pre">TCLab.LED()</span></code> command to cause the LED to blink on and off at 100% brightness once a second for five seconds. The standard Python library function <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> is used to pause execution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>        <span class="c1"># repeat 5 times</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>             <span class="c1"># LED set to 100%</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>          <span class="c1"># sleep for 0.5 seconds</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>               <span class="c1"># LED set to 0%</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>          <span class="c1"># sleep for 0.5 seconds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab version 0.4.9
+Arduino Leonardo connected on port /dev/cu.usbmodem142101 at 115200 baud.
+TCLab Firmware 1.5.1 Arduino Leonardo/Micro.
+TCLab disconnected successfully.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reading-the-temperature-sensors">
+<h2>Reading the temperature sensors<a class="headerlink" href="#reading-the-temperature-sensors" title="Permalink to this heading">#</a></h2>
+<p>The temperatures measured by the thermisters located on the TCLab are accessed as if they were Python variables <code class="docutils literal notranslate"><span class="pre">TCLab.T1</span></code> and <code class="docutils literal notranslate"><span class="pre">TCLab.T2</span></code>. The following cell accesses and prints the current temperatures of the two thermisters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
+
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature 1: </span><span class="si">{0:0.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature 2: </span><span class="si">{0:0.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab version 0.4.9
+Arduino Leonardo connected on port /dev/cu.usbmodem142101 at 115200 baud.
+TCLab Firmware 1.5.1 Arduino Leonardo/Micro.
+Temperature 1: 24.77 C
+Temperature 2: 24.77 C
+TCLab disconnected successfully.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="setting-heater-power">
+<h2>Setting Heater Power<a class="headerlink" href="#setting-heater-power" title="Permalink to this heading">#</a></h2>
+<p>Power for the heaters on the Temperature Control Lab is provided through a USB power cord and a USB power supply. Too achieve the maximum operating envelope the power supply should be capable of 2 amps or 10 watts.</p>
+<p>The power to each heater is the specified as the product of a specified maximum power multiplied by the percentaage of that power to use.  For heater 1, the maximum power is specified by the variable <code class="docutils literal notranslate"><span class="pre">TCLab.P1</span></code> and the percentage of power to use by <code class="docutils literal notranslate"><span class="pre">TCLab.U1</span></code>. A similar rule holds for heater 2.</p>
+<p>The applied power, in watts, for heaters 1 and 2 are given by</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lab = TCLab()
+power_in_watts_heater_1 = 0.013 * lab.P1 * lab.U1 / 100
+power_in_watts_heater_2 = 0.013 * lab.P2 * lab.U2 / 100
+</pre></div>
+</div>
+<p>where the value 0.013 is a conversion from values used in the coding to actual power in measured in watts.</p>
+<section id="setting-maximum-power-levels-tclab-tclab-p1-and-tclab-tclab-p2">
+<h3>Setting maximum power levels <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.P1</span></code> and <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.P2</span></code><a class="headerlink" href="#setting-maximum-power-levels-tclab-tclab-p1-and-tclab-tclab-p2" title="Permalink to this heading">#</a></h3>
+<p>The maximum power available from each heater is adjusted assigning values in the range from 0 to 255 to variables <code class="docutils literal notranslate"><span class="pre">TCLab.P1</span></code> and <code class="docutils literal notranslate"><span class="pre">TCLab.P2</span></code>. Default values of 200 and 100, respectively, are assigned upon the start of a new connection.</p>
+<p>To convert <code class="docutils literal notranslate"><span class="pre">TCLab.P1</span></code> and <code class="docutils literal notranslate"><span class="pre">TCLab.P2</span></code> values to watts, multiply by a conversion factor of 0.013 watts/unit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
+
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Startup conditions&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum power of heater 1:&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P1</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P1</span><span class="o">*</span><span class="mf">0.013</span><span class="p">,</span> <span class="s2">&quot;watts&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum power of heater 1:&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P2</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P2</span><span class="o">*</span><span class="mf">0.013</span><span class="p">,</span> <span class="s2">&quot;watts&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set maximum power to 255&quot;</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">P1</span> <span class="o">=</span> <span class="mi">255</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">P2</span> <span class="o">=</span> <span class="mi">255</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum power of heater 1:&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P1</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P1</span><span class="o">*</span><span class="mf">0.013</span><span class="p">,</span> <span class="s2">&quot;watts&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum power of heater 1:&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P2</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P2</span><span class="o">*</span><span class="mf">0.013</span><span class="p">,</span> <span class="s2">&quot;watts&quot;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab version 0.4.9
+Arduino Leonardo connected on port /dev/cu.usbmodem142101 at 115200 baud.
+TCLab Firmware 1.5.1 Arduino Leonardo/Micro.
+Startup conditions
+Maximum power of heater 1: 200.0 = 2.6 watts
+Maximum power of heater 1: 100.0 = 1.3 watts
+
+Set maximum power to 255
+Maximum power of heater 1: 255.0 = 3.315 watts
+Maximum power of heater 1: 255.0 = 3.315 watts
+TCLab disconnected successfully.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="setting-heater-power-levels-tclab-tclab-u1-and-tclab-tclab-u2">
+<h3>Setting heater power levels <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.U1</span></code> and <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.U2</span></code><a class="headerlink" href="#setting-heater-power-levels-tclab-tclab-u1-and-tclab-tclab-u2" title="Permalink to this heading">#</a></h3>
+<p>The power to each heater can be accessed or set with variables <code class="docutils literal notranslate"><span class="pre">TCLab.U1</span></code> and <code class="docutils literal notranslate"><span class="pre">TCLab.U2</span></code> with values ranging from 0 to 100.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting Temperature 1: </span><span class="si">{0:0.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting Temperature 2: </span><span class="si">{0:0.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum power of heater 1:&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P1</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="mf">0.013</span><span class="o">*</span><span class="n">lab</span><span class="o">.</span><span class="n">P1</span><span class="p">,</span> <span class="s2">&quot;watts&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum power of heater 2:&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P2</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="mf">0.013</span><span class="o">*</span><span class="n">lab</span><span class="o">.</span><span class="n">P2</span><span class="p">,</span> <span class="s2">&quot;watts&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set Heater 1:&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set Heater 2:&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">t_heat</span> <span class="o">=</span> <span class="mi">60</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Heat for&quot;</span><span class="p">,</span> <span class="n">t_heat</span><span class="p">,</span> <span class="s2">&quot;seconds&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">t_heat</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set Heater 1:&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;%&quot;</span><span class="p">,</span><span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set Heater 2:&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;%&quot;</span><span class="p">,</span><span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final Temperature 1: </span><span class="si">{0:0.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final Temperature 2: </span><span class="si">{0:0.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab version 0.4.9
+Arduino Leonardo connected on port /dev/cu.usbmodem142101 at 115200 baud.
+TCLab Firmware 1.5.1 Arduino Leonardo/Micro.
+
+Starting Temperature 1: 49.59 C
+Starting Temperature 2: 39.60 C
+
+Maximum power of heater 1: 200.0 = 2.6 watts
+Maximum power of heater 2: 100.0 = 1.3 watts
+
+Set Heater 1: 100.0 %
+Set Heater 2: 100.0 %
+
+Heat for 60 seconds
+
+Set Heater 1: 0.0 %
+Set Heater 2: 0.0 %
+
+Final Temperature 1: 54.75 C
+Final Temperature 2: 43.47 C
+
+TCLab disconnected successfully.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="setting-heater-power-levels-tclab-q1-and-tclab-q2">
+<h3>Setting heater power levels TCLab.Q1() and TCLab.Q2()<a class="headerlink" href="#setting-heater-power-levels-tclab-q1-and-tclab-q2" title="Permalink to this heading">#</a></h3>
+<p>Earlier versions of the Temperature Control Lab used functions <code class="docutils literal notranslate"><span class="pre">TCLab.Q1()</span></code> and <code class="docutils literal notranslate"><span class="pre">TCLab.Q2()</span></code> to set the percentage of maximum power applied to heaters 1 and 2, respectively.  These are functionally equivalent to assigning values to <code class="docutils literal notranslate"><span class="pre">TCLab.P1</span></code> and <code class="docutils literal notranslate"><span class="pre">TCLab.P2</span></code>.</p>
+</section>
+</section>
+<section id="synchronizing-with-real-time-using-tclab-clock-tperiod-tsample">
+<h2>Synchronizing with real time using <code class="docutils literal notranslate"><span class="pre">tclab.clock(tperiod,</span> <span class="pre">tsample)</span></code><a class="headerlink" href="#synchronizing-with-real-time-using-tclab-clock-tperiod-tsample" title="Permalink to this heading">#</a></h2>
+<p>Coding for the Temperature Control Laboratory will typically include a code block that must be executed at regular intervals for a period of time.  <code class="docutils literal notranslate"><span class="pre">tclab.clock(tperiod,</span> <span class="pre">tsample)</span></code> is a Python iterator designed to simplify coding for those applications, where <code class="docutils literal notranslate"><span class="pre">tperiod</span></code> is the period of operation and <code class="docutils literal notranslate"><span class="pre">tsample</span></code> is the time between executions of the code block.</p>
+<p>The following code will print “Hello, World” every two seconds for sixty seconds.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from tclab import TCLab, clock
+
+with TCLab() as lab:
+    for t in clock(60, 2):
+        pass
+</pre></div>
+</div>
+<p>The following code cell demonstrates use of <code class="docutils literal notranslate"><span class="pre">tclab.clock()</span></code> to read a series of temperature measurements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span>
+
+<span class="n">tperiod</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">tsample</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># connect to the temperature control lab</span>
+
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="c1"># turn heaters on</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">P1</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">P2</span> <span class="o">=</span> <span class="mi">100</span>
+    
+    <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">U2</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set Heater 1 to </span><span class="si">{0:0.1f}% o</span><span class="s2">f max power of </span><span class="si">{1:0.1f}</span><span class="s2"> units&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">U1</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set Heater 2 to </span><span class="si">{0:0.1f}% o</span><span class="s2">f max power of </span><span class="si">{1:0.1f}</span><span class="s2"> units&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">U2</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">P2</span><span class="p">))</span>
+
+    <span class="c1"># report temperatures for the next tperiod seconds</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tperiod</span><span class="p">,</span> <span class="n">tsample</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   </span><span class="si">{0:5.1f}</span><span class="s2"> sec:   T1 = </span><span class="si">{1:0.1f}</span><span class="s2"> C    T2 = </span><span class="si">{2:0.1f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+    <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">U2</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab version 0.4.9
+Arduino Leonardo connected on port /dev/cu.usbmodem142101 at 115200 baud.
+TCLab Firmware 1.5.1 Arduino Leonardo/Micro.
+
+Set Heater 1 to 100.0% of max power of 200.0 units
+Set Heater 2 to 100.0% of max power of 100.0 units
+
+     0.0 sec:   T1 = 29.0 C    T2 = 28.6 C
+     2.0 sec:   T1 = 29.0 C    T2 = 28.6 C
+     4.0 sec:   T1 = 29.0 C    T2 = 28.6 C
+     6.0 sec:   T1 = 29.0 C    T2 = 28.6 C
+     8.0 sec:   T1 = 28.6 C    T2 = 28.6 C
+    10.0 sec:   T1 = 28.6 C    T2 = 28.6 C
+    12.0 sec:   T1 = 28.6 C    T2 = 28.6 C
+    14.0 sec:   T1 = 28.6 C    T2 = 28.6 C
+    16.0 sec:   T1 = 28.6 C    T2 = 28.6 C
+    18.0 sec:   T1 = 28.6 C    T2 = 28.3 C
+    20.0 sec:   T1 = 28.6 C    T2 = 29.3 C
+    22.0 sec:   T1 = 28.6 C    T2 = 28.3 C
+    24.0 sec:   T1 = 28.6 C    T2 = 29.3 C
+    26.0 sec:   T1 = 29.0 C    T2 = 29.3 C
+    28.0 sec:   T1 = 29.0 C    T2 = 28.6 C
+    30.0 sec:   T1 = 29.3 C    T2 = 28.6 C
+    32.0 sec:   T1 = 29.6 C    T2 = 29.9 C
+    34.0 sec:   T1 = 29.9 C    T2 = 29.0 C
+    36.0 sec:   T1 = 30.2 C    T2 = 29.3 C
+    38.0 sec:   T1 = 30.9 C    T2 = 30.2 C
+    40.0 sec:   T1 = 31.2 C    T2 = 29.6 C
+    42.0 sec:   T1 = 31.5 C    T2 = 30.9 C
+    44.0 sec:   T1 = 31.9 C    T2 = 29.9 C
+    46.0 sec:   T1 = 32.5 C    T2 = 31.2 C
+    48.0 sec:   T1 = 32.8 C    T2 = 30.6 C
+    50.0 sec:   T1 = 33.5 C    T2 = 31.5 C
+    52.0 sec:   T1 = 33.8 C    T2 = 30.9 C
+    54.0 sec:   T1 = 34.4 C    T2 = 32.2 C
+    56.0 sec:   T1 = 34.8 C    T2 = 31.2 C
+    58.0 sec:   T1 = 35.4 C    T2 = 32.5 C
+    60.0 sec:   T1 = 35.7 C    T2 = 31.9 C
+TCLab disconnected successfully.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-logging-with-tclab-historian">
+<h2>Data logging with <code class="docutils literal notranslate"><span class="pre">tclab.Historian</span></code><a class="headerlink" href="#data-logging-with-tclab-historian" title="Permalink to this heading">#</a></h2>
+<p>A common requirement in commercial process control systems is to maintain a log of all important process data. <code class="docutils literal notranslate"><span class="pre">tclab.Historian</span></code> is a simple implementation of data historian for the Temperature Control Laboratory.</p>
+<p>An instance of the <code class="docutils literal notranslate"><span class="pre">tclab.Historian</span></code> from a list of data sources after a connection has been created with <code class="docutils literal notranslate"><span class="pre">tclab.TCLab</span></code>. The data sources are name/function pairs where the function creates the value to be logged.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span>
+    
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;T1&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;T2&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">P1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;U1&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">U1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;P2&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">P2</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;U2&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">U2</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">sources</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab version 0.4.9
+Arduino Leonardo connected on port /dev/cu.usbmodem142101 at 115200 baud.
+TCLab Firmware 1.5.1 Arduino Leonardo/Micro.
+TCLab disconnected successfully.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">P1</span><span class="p">,</span> <span class="n">U1</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">U2</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">fields</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">T2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;T1&#39;</span><span class="p">,</span> <span class="s1">&#39;T2&#39;</span><span class="p">])</span>
+
+<span class="c1"># saving to a file</span>
+<span class="n">h</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># reading from file and plotting with pandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Time     T1     T2     P1     U1     P2   U2
+Time                                                
+0.00    0.00  26.06  24.77  200.0  100.0  100.0  0.0
+2.00    2.00  26.06  24.77  200.0  100.0  100.0  0.0
+4.00    4.00  26.06  24.45  200.0  100.0  100.0  0.0
+6.00    6.00  26.06  24.45  200.0  100.0  100.0  0.0
+8.00    8.00  26.06  24.45  200.0  100.0  100.0  0.0
+10.00  10.00  26.06  24.77  200.0  100.0  100.0  0.0
+12.00  12.00  25.74  24.45  200.0  100.0  100.0  0.0
+14.01  14.01  25.74  24.45  200.0  100.0  100.0  0.0
+16.01  16.01  25.74  24.45  200.0  100.0  100.0  0.0
+18.01  18.01  25.74  24.45  200.0  100.0  100.0  0.0
+20.00  20.00  25.74  24.45  200.0  100.0  100.0  0.0
+22.00  22.00  25.74  24.45  200.0  100.0  100.0  0.0
+24.00  24.00  25.74  24.45  200.0  100.0  100.0  0.0
+26.00  26.00  25.74  24.45  200.0  100.0  100.0  0.0
+28.00  28.00  25.74  24.45  200.0  100.0  100.0  0.0
+30.00  30.00  25.74  24.45  200.0  100.0  100.0  0.0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x122d62890&gt;
+</pre></div>
+</div>
+<img alt="../../_images/4a539e735f6322f1c2da08c946b7175fd786aafc27adaa87ad47cd29ae4a4574.png" src="../../_images/4a539e735f6322f1c2da08c946b7175fd786aafc27adaa87ad47cd29ae4a4574.png" />
+<img alt="../../_images/4bd4a454faa320100d79a2c0621945108c1845e712f26468c47dce933ecfdf29.png" src="../../_images/4bd4a454faa320100d79a2c0621945108c1845e712f26468c47dce933ecfdf29.png" />
+</div>
+</div>
+</section>
+<section id="real-time-plotting-with-tclab-plotter">
+<h2>Real time plotting with <code class="docutils literal notranslate"><span class="pre">tclab.Plotter</span></code><a class="headerlink" href="#real-time-plotting-with-tclab-plotter" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">tclab.Plotter</span></code> class adds to the functionality of <code class="docutils literal notranslate"><span class="pre">tclab.Historian</span></code> by providing real-time plotting of experimental data. An instance of a plotter is created after an historian has been created.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>h = Historian(sources)
+p = Plotter(h, tperiod)
+</pre></div>
+</div>
+<p>The plotter is updated by</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>p.update(t)
+</pre></div>
+</div>
+<p>which also updates the associated historian.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span>
+
+<span class="n">tperiod</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">tsample</span> <span class="o">=</span> <span class="mi">2</span>
+    
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;T1&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;T2&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">P1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;U1&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">U1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;P2&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">P2</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;U2&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">U2</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">sources</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">P1</span> <span class="o">=</span> <span class="mi">255</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tperiod</span><span class="p">,</span> <span class="n">tsample</span><span class="p">):</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a6b73af297a5e420f3966298ed1bedf3296bb520726dd3f58904e092ed66fcdf.png" src="../../_images/a6b73af297a5e420f3966298ed1bedf3296bb520726dd3f58904e092ed66fcdf.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab disconnected successfully.
+</pre></div>
+</div>
+<img alt="../../_images/a6b73af297a5e420f3966298ed1bedf3296bb520726dd3f58904e092ed66fcdf.png" src="../../_images/a6b73af297a5e420f3966298ed1bedf3296bb520726dd3f58904e092ed66fcdf.png" />
+</div>
+</div>
+</section>
+<section id="example-application-relay-control">
+<h2>Example Application: Relay Control<a class="headerlink" href="#example-application-relay-control" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span>
+
+<span class="n">tperiod</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">tsample</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Tsetpoint</span> <span class="o">=</span> <span class="mi">35</span>
+    
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;T1&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">P1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;U1&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">U1</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">sources</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">P1</span> <span class="o">=</span> <span class="mi">255</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tperiod</span><span class="p">,</span> <span class="n">tsample</span><span class="p">):</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">100</span> <span class="k">if</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span> <span class="o">&lt;</span> <span class="n">Tsetpoint</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/aab7be818ff5de215db7c907aec11486d5b4d78c2129ea1f31f20dbfb16197e3.png" src="../../_images/aab7be818ff5de215db7c907aec11486d5b4d78c2129ea1f31f20dbfb16197e3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab disconnected successfully.
+</pre></div>
+</div>
+<img alt="../../_images/aab7be818ff5de215db7c907aec11486d5b4d78c2129ea1f31f20dbfb16197e3.png" src="../../_images/aab7be818ff5de215db7c907aec11486d5b4d78c2129ea1f31f20dbfb16197e3.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establishing-connection-with-tclab-tclab">Establishing connection with <code class="docutils literal notranslate"><span class="pre">tclab.TCLab</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-temperature-sensors">Reading the temperature sensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heater-power">Setting Heater Power</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-maximum-power-levels-tclab-tclab-p1-and-tclab-tclab-p2">Setting maximum power levels <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.P1</span></code> and <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.P2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heater-power-levels-tclab-tclab-u1-and-tclab-tclab-u2">Setting heater power levels <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.U1</span></code> and <code class="docutils literal notranslate"><span class="pre">tclab.TCLab.U2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heater-power-levels-tclab-q1-and-tclab-q2">Setting heater power levels TCLab.Q1() and TCLab.Q2()</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-tclab-clock-tperiod-tsample">Synchronizing with real time using <code class="docutils literal notranslate"><span class="pre">tclab.clock(tperiod,</span> <span class="pre">tsample)</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-logging-with-tclab-historian">Data logging with <code class="docutils literal notranslate"><span class="pre">tclab.Historian</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-time-plotting-with-tclab-plotter">Real time plotting with <code class="docutils literal notranslate"><span class="pre">tclab.Plotter</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application-relay-control">Example Application: Relay Control</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeffrey Kantor and Alexander Dowling
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

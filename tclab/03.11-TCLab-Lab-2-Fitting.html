@@ -1,0 +1,1348 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Model Identification: Fitting models to data &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tclab/03.11-TCLab-Lab-2-Fitting';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../Readme.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../Readme.html">
+                    CBE 30338 Data Analytics, Optimization, and Control
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Schedule.html">Schedule</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assignments/assignments.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-2.html">Homework 2: Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-6-MPC.html">Lab 6: Model Predictive Control (MPC)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topical Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/01.00-What-is-Process-Control.html">1. What is Process Control?</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/01.01-What-is-Feedback.html">1.1. What is Feedback?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/01.02-Elements-of-Feedback-Control.html">1.2. Elements of Process Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/02.00-Process-Modeling.html">2. Process Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.01-One-Compartment-Pharmacokinetics.html">2.1. One Compartment Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.02-Properties-of-Scalar-First-Order-Linear-Systems.html">2.2. First-Order Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.03-First-Order-Model-for-a-Single-Heater.html">2.3. First Order Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.05-Second-Order.html">2.5. Second Order Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.09-Study-Guide.html">2.10. Study Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.01-Case-Study-Thermal-Cycling-PCR.html">3.1. Case Study: Thermal Cycling for PCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.02-Setpoints.html">3.2. Setpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.03-Setpoints-Thermal-Cycler.html">3.3. Case Study: PCR Thermal Cycler Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.04-Relay-Control.html">3.4. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.01-Learning-Goals.html">4.1. Learning Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.02-Process-Historians.html">4.2. Data/Process/Operational Historian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.03-State-Estimation.html">4.3. State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.04-Lab-Assigment-State-Estimation.html">4.4. Lab Assignment 5: State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.05-Anomaly-Detection.html">4.5. Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.06-Lab-Assignment-Anomaly-Detection.html">4.6. Lab Assignment 6: Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.07-Observer-Synthesis-LMI.html">4.7. Observer Synthesis using Linear Matrix Inequalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.08-Envrironmental-Application.html">4.8. Application of Luenberger Observers to Environmental Modeling of Rivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.09-Study-Questions.html">4.9. Study Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/05/05.00-Optimization.html">5. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.01-Linear-Production-Model.html">5.1. Linear Production Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.03-Homework_2.html">5.3. Homework 2: Optimization (Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.04-Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.99-Pyomo-Examples.html">5.7. Pyomo Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CBE30338-EV-Example.html">5.8. Recharging Strategy for an Electric Vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/milk-pooling.html">5.9. Pooling and Blending</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/06.00-Predictive-Control.html">6. Predictive Control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html">6.1. Simulation and Optimal Control in Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.01-Static-Operability.html">6.2. Static Operability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.02-Simulation-and-Open-Loop-Optimal-Control.html">6.3. Open-Loop Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.03-Predictive-Control.html">6.4. Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.04-Implementing-Predictive-Control.html">6.5. Implementing Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.06a-gompertz-tumor-growth.html">6.6. Gompertz Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/07-TCLab-Optimization-Estimation-Control.html">6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06-TCLab-Model-Predictive-Control.html">6.10. TCLab: Model Predictive Control (MPC)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/08.00-Projects.html">7. Projects (Spring 2023)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/09.00-Bibliography.html">8. References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Laboratory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="00.00-tclab.html">1. The Temperature Control Laboratory</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="00.01-setting-up-tclab.html">1.1. Setting up TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00.02-troubleshooting-tclab.html">1.2. Testing and Troubleshooting TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00.03-using-tclab.html">1.3. Python Coding for TCLab</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="01.00-step-testing.html">2. Step Testing</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.01-step-testing.html">2.1. Step Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.02-first-order-model-for-a-single-heater.html">2.2. Lab Assignment 1: Step Test of a First-Order System</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02.00-Empirical-Model-Identification.html">3. Empirical Model Identification</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="02.02-Fitting-Step-Test-Data-to-Empirical-Models.html">3.1. Fitting Step Test Data to Empirical Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03.00-Estimating-Model-Parameters.html">4. Estimating Model Parameters</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="03.04-Two-Input-Two-Output-Model.html">4.1. Two-Input, Two-Output Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.05-Two-State-Model-for-a-Single-Heater.html">4.2. Two State Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.06-Four-State-Model.html">4.3. Four State Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.10-TCLab-Lab-2-Model-Indentification.html">4.4. Assignment: Model Identification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="04.00-Feedback-Control.html">5. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="04.01-Relay-Control.html">5.1. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.02-Lab-Assignment-Relay-Control.html">5.2. Lab Assignment 4: Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.10-Lab-Assignment-PID-Control.html">5.3. Lab Assignment: PID Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.11-Lab-Assignment-PI-Control.html">5.4. Lab Assignment 4: PI Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05.00-State-Estimation.html">6. State Estimation</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="05.01-Open-and-Closed-Loop-Estimation.html">6.2. Open and Closed Loop Estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="06.00-Optimal-Control.html">7. Optimization</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="07.00-Predictive-Control-and-Real-Time-Optimization.html">8. Predictive Control and Real Time Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="07.01-Optimization-Control-and-Estimation-using-Pyomo.html">8.1. Simulation, Control, and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07.02-Optimization-Control-and-Estimation-using-Pyomo-With-Windows-ipopt.html">8.2. Simulation, Control, and Estimation using Pyomo</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/A.00-Python-Tutorials.html">Python Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.05-Tidy-Data-and-Pandas.html">Tidy Data and Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.10-Coding-Controllers-with-Python-Generators.html">Coding Controllers with Python Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.11-Modular-Approach-to-Simulation-using-Python-Generators.html">Modular Simulation using Python Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.30-Animation-in-Jupyter-Notebooks.html">Animation in Jupyter Notebooks</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/tclab/03.11-TCLab-Lab-2-Fitting.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ndcbe/controls" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Ftclab/03.11-TCLab-Lab-2-Fitting.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tclab/03.11-TCLab-Lab-2-Fitting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Model Identification: Fitting models to data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initializations">Initializations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data">Reading data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-function">Plotting function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-models">Empirical Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-model">First-order linear model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-model-with-time-delay">First-order linear model with time delay</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-principles-modeling">First-principles modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-energy-balance-for-one-heater">First-order energy balance for one heater</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-state-model">Two State Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-heater-four-state-model">Two heater, four state model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences">Consequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-space-model">State-Space Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-to-work">Putting to work</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="model-identification-fitting-models-to-data">
+<h1>Model Identification: Fitting models to data<a class="headerlink" href="#model-identification-fitting-models-to-data" title="Permalink to this heading">#</a></h1>
+<p>Given the data from an identification experiment, the next task is to find one or more models that accurately reproduce the process response to changes in the manipulated variable. This notebook demonsrates a practical approach to fitting low-order models to step response data.</p>
+<section id="initializations">
+<h2>Initializations<a class="headerlink" href="#initializations" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="reading-data">
+<h3>Reading data<a class="headerlink" href="#reading-data" title="Permalink to this heading">#</a></h3>
+<p>The following cell reads previously stored experimental step response data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tclab-data.csv&quot;</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">])</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">])</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;T2&quot;</span><span class="p">])</span>
+<span class="n">Q1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Q1&quot;</span><span class="p">])</span>
+<span class="n">Q2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-function">
+<h3>Plotting function<a class="headerlink" href="#plotting-function" title="Permalink to this heading">#</a></h3>
+<p>The following simple data plotting function is used in this notebooke to compare experimental data to model predictions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">T_pred</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
+    
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="p">[</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">grid</span><span class="p">[:</span><span class="mi">2</span><span class="p">]),</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">3</span><span class="p">])]</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">T_pred</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;deg C&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;T_pred&quot;</span><span class="p">])</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T_pred</span> <span class="o">-</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;deg C&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;T_pred - &quot;</span><span class="p">])</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Q&quot;</span><span class="p">])</span>
+    
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time / seconds&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    
+<span class="n">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+<span class="n">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">Q2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/632c95b144f19804ea0d0f40508e3e2af3a22204144705c324f47bb714431806.png" src="../_images/632c95b144f19804ea0d0f40508e3e2af3a22204144705c324f47bb714431806.png" />
+<img alt="../_images/6003591b0cf69344126eea443cb209a19bbe1ed1aa610c4d987ef2513fc0c410.png" src="../_images/6003591b0cf69344126eea443cb209a19bbe1ed1aa610c4d987ef2513fc0c410.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="empirical-models">
+<h2>Empirical Models<a class="headerlink" href="#empirical-models" title="Permalink to this heading">#</a></h2>
+<p>Empirical modeling is a process in which we attempt to discover models that accurately describe the input-output behavior of a process without regard to the underlying mechanisms.</p>
+<section id="first-order-linear-model">
+<h3>First-order linear model<a class="headerlink" href="#first-order-linear-model" title="Permalink to this heading">#</a></h3>
+<p>A first-order transfer function is modeled by the differential equation</p>
+<div class="math notranslate nohighlight">
+\[ \tau \frac{dy}{dt} + y = K u\]</div>
+<p>where <span class="math notranslate nohighlight">\(y\)</span> is the ‘deviation’ of the process variable from a nominal steady state, and <span class="math notranslate nohighlight">\(u\)</span> is the deviation in manipulated variable from a nominal steady state. For the temperature control lab we will assign the deviation variables as follows:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+y &amp; = T_1 - T_{ambient} \\
+u &amp; = Q_1
+\end{align*}\]</div>
+<p>Parameter <span class="math notranslate nohighlight">\(K\)</span> is the process gain which can be estimated as the ratio of the a steady-state change in <span class="math notranslate nohighlight">\(y\)</span> due to a steady-state change in <span class="math notranslate nohighlight">\(u\)</span>. Parameter <span class="math notranslate nohighlight">\(\tau\)</span> is the first-order ‘time constant’ which can be estimated as the time to achieve 63.2% of the steady-state change in output to due a steady-state change in <span class="math notranslate nohighlight">\(u\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model_first_order</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># access parameter values</span>
+    <span class="n">K</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">param</span>
+
+    <span class="c1"># simulation in deviation variables</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ti</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ti</span><span class="p">):</span>
+        <span class="n">dydt</span>  <span class="o">=</span> <span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">u</span><span class="p">(</span><span class="n">ti</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">tau</span>
+        <span class="k">return</span> <span class="n">dydt</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># comparing to experimental data</span>
+    <span class="n">T_ambient</span> <span class="o">=</span> <span class="n">T1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">T1_pred</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">T_ambient</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;K =&quot;</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="s2">&quot;tau =&quot;</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+        <span class="n">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T1_pred</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">T1_pred</span> <span class="o">-</span> <span class="n">T1</span><span class="p">)</span>
+    
+<span class="n">param_first_order</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.62</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">]</span>
+<span class="n">model_first_order</span><span class="p">(</span><span class="n">param_first_order</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K = 0.62 tau = 180.0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.649520390255464
+</pre></div>
+</div>
+<img alt="../_images/6857b249a596f4af9b9023f023e624aa847ef3d393cb441d9290ee4508c3ae61.png" src="../_images/6857b249a596f4af9b9023f023e624aa847ef3d393cb441d9290ee4508c3ae61.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">model_first_order</span><span class="p">,</span> <span class="n">param_first_order</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nelder-mead&#39;</span><span class="p">)</span>
+<span class="n">param_first_order</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">x</span>
+<span class="n">model_first_order</span><span class="p">(</span><span class="n">param_first_order</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K = 0.6370841237049034 tau = 199.8617397701267
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.651093155278453
+</pre></div>
+</div>
+<img alt="../_images/60ab0ac9e070dfa17f686a2d41fef81a54c1cf96d332dbe56a96fdab03a8cc5b.png" src="../_images/60ab0ac9e070dfa17f686a2d41fef81a54c1cf96d332dbe56a96fdab03a8cc5b.png" />
+</div>
+</div>
+</section>
+<section id="first-order-linear-model-with-time-delay">
+<h3>First-order linear model with time delay<a class="headerlink" href="#first-order-linear-model-with-time-delay" title="Permalink to this heading">#</a></h3>
+<p>The code cell below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model_first_order_time_delay</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># access parameter values</span>
+    <span class="n">K</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">tdelay</span> <span class="o">=</span> <span class="n">param</span>
+    
+    <span class="c1"># simulation in deviation variables</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ti</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">Q1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ti</span><span class="p">):</span>
+        <span class="n">dydt</span>  <span class="o">=</span> <span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">u</span><span class="p">(</span><span class="n">ti</span><span class="o">-</span><span class="n">tdelay</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">tau</span>
+        <span class="k">return</span> <span class="n">dydt</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># comparing to experimental data</span>
+    <span class="n">T_ambient</span> <span class="o">=</span> <span class="n">T1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">T1_pred</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">T_ambient</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;K =&quot;</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="s2">&quot;tau =&quot;</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="s2">&quot;tdelay =&quot;</span><span class="p">,</span> <span class="n">tdelay</span><span class="p">)</span>
+        <span class="n">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T1_pred</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">T1_pred</span> <span class="o">-</span> <span class="n">T1</span><span class="p">)</span>
+
+<span class="n">param_first_order_time_delay</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.62</span><span class="p">,</span> <span class="mf">160.0</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">model_first_order_time_delay</span><span class="p">(</span><span class="n">param_first_order_time_delay</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K = 0.62 tau = 160.0 tdelay = 15
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.12137889182889
+</pre></div>
+</div>
+<img alt="../_images/43584ac4edc0d0e32ad34e001d525a61e97f38945a018121707e3640ed92f870.png" src="../_images/43584ac4edc0d0e32ad34e001d525a61e97f38945a018121707e3640ed92f870.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">model_first_order_time_delay</span><span class="p">,</span> <span class="n">param_first_order_time_delay</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nelder-mead&#39;</span><span class="p">)</span>
+<span class="n">param_first_order_time_delay</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">x</span>
+<span class="n">model_first_order_time_delay</span><span class="p">(</span><span class="n">param_first_order_time_delay</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K = 0.6228198545524255 tau = 167.7567962566444 tdelay = 20.18136187851927
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.290512704413097
+</pre></div>
+</div>
+<img alt="../_images/7565557603571958c663166a55adb3dae18e43b68d9fb6fd973d0f5514704b77.png" src="../_images/7565557603571958c663166a55adb3dae18e43b68d9fb6fd973d0f5514704b77.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="first-principles-modeling">
+<h2>First-principles modeling<a class="headerlink" href="#first-principles-modeling" title="Permalink to this heading">#</a></h2>
+<section id="first-order-energy-balance-for-one-heater">
+<h3>First-order energy balance for one heater<a class="headerlink" href="#first-order-energy-balance-for-one-heater" title="Permalink to this heading">#</a></h3>
+<p>Assuming the heater/sensor assembly can be described as mass at uniform temperature that exchanges heat with the surrounding results in a first-order linear model.</p>
+<div class="math notranslate nohighlight">
+\[C_p\frac{dT_{1}}{dt} = U_a (T_{amb} - T_{1}) + P Q_1\]</div>
+<p>The model can be rearranged into the form of a first order system with time constant <span class="math notranslate nohighlight">\(\tau\)</span> and gain <span class="math notranslate nohighlight">\(K\)</span></p>
+<div class="math notranslate nohighlight">
+\[\underbrace{\frac{C_p}{U_a}}_{\tau}\underbrace{\frac{d(T_1 - T_{amb})}{dt}}_{\frac{dy}{dt}} + \underbrace{T_1 - T_{amb}}_y = \underbrace{\frac{P}{U_a}}_K \underbrace{Q_1}_u\]</div>
+<p>Using the previous results gives estimates for <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+K = \frac{P}{U_a} &amp; \implies U_a = \frac{P}{K} = \frac{0.04}{0.62} = 0.065 \text{ watts/deg C} \\
+\tau = \frac{C_p}{U_a} &amp; \implies C_p = \tau U_a = \frac{\tau P}{K} = \frac{186 \times 0.04}{0.62} = 12 \text{ J/deg C}
+\end{align*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="mf">0.04</span>
+
+<span class="n">K</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">param_first_order</span>
+
+<span class="n">Ua</span> <span class="o">=</span> <span class="n">P</span><span class="o">/</span><span class="n">K</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Heat transfer coefficient Ua =&quot;</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="s2">&quot;watts/degree C&quot;</span><span class="p">)</span>
+
+<span class="n">Cp</span> <span class="o">=</span> <span class="n">tau</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">K</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Heat capacity =&quot;</span><span class="p">,</span> <span class="n">Cp</span><span class="p">,</span> <span class="s2">&quot;J/deg C&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Heat transfer coefficient Ua = 0.06278605683560866 watts/degree C
+Heat capacity = 12.548530552470801 J/deg C
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model_heater</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># access parameter values</span>
+    <span class="n">T_ambient</span><span class="p">,</span> <span class="n">Cp</span><span class="p">,</span> <span class="n">Ua</span> <span class="o">=</span> <span class="n">param</span>
+    
+    <span class="n">P1</span> <span class="o">=</span> <span class="mf">0.04</span>
+
+    <span class="c1"># simulation in deviation variables</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ti</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">TH1</span><span class="p">,</span> <span class="n">ti</span><span class="p">):</span>
+        <span class="n">dT1</span>  <span class="o">=</span> <span class="p">(</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">T_ambient</span> <span class="o">-</span> <span class="n">TH1</span><span class="p">)</span> <span class="o">+</span> <span class="n">P1</span><span class="o">*</span><span class="n">u</span><span class="p">(</span><span class="n">ti</span><span class="p">))</span><span class="o">/</span><span class="n">Cp</span>
+        <span class="k">return</span> <span class="n">dT1</span>
+    <span class="n">T1_pred</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="n">T_ambient</span><span class="p">,</span> <span class="n">t</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># comparing to experimental data</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cp =&quot;</span><span class="p">,</span> <span class="n">Cp</span><span class="p">,</span> <span class="s2">&quot;Ua =&quot;</span><span class="p">,</span> <span class="n">Ua</span><span class="p">)</span>
+        <span class="n">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T1_pred</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">T1_pred</span> <span class="o">-</span> <span class="n">T1</span><span class="p">)</span>
+
+<span class="n">param_heater</span> <span class="o">=</span> <span class="p">[</span><span class="n">T1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Cp</span><span class="p">,</span> <span class="n">Ua</span><span class="p">]</span>
+<span class="n">model_heater</span><span class="p">(</span><span class="n">param_heater</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cp = 12.548530552470801 Ua = 0.06278605683560866
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.651088966149587
+</pre></div>
+</div>
+<img alt="../_images/60ab0ac9e070dfa17f686a2d41fef81a54c1cf96d332dbe56a96fdab03a8cc5b.png" src="../_images/60ab0ac9e070dfa17f686a2d41fef81a54c1cf96d332dbe56a96fdab03a8cc5b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">model_heater</span><span class="p">,</span> <span class="n">param_heater</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nelder-mead&#39;</span><span class="p">)</span>
+<span class="n">param_heater</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">x</span>
+<span class="n">model_heater</span><span class="p">(</span><span class="n">param_heater</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cp = 10.313205580961114 Ua = 0.05862920031801483
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.630933447435487
+</pre></div>
+</div>
+<img alt="../_images/2a1a7c2f339e42ebea34f353f22bb0081baed0bc06b86dd48cbde5c534b9d5b7.png" src="../_images/2a1a7c2f339e42ebea34f353f22bb0081baed0bc06b86dd48cbde5c534b9d5b7.png" />
+</div>
+</div>
+</section>
+<section id="two-state-model">
+<h3>Two State Model<a class="headerlink" href="#two-state-model" title="Permalink to this heading">#</a></h3>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+C_p^H \frac{dT_{H,1}}{dt} &amp; = U_a(T_{amb} - T_{H,1}) + U_c(T_{S,1} - T_{H,1}) + P_1Q_1 \\
+C_p^S \frac{dT_{S,1}}{dt} &amp; = U_c(T_{H,1} - T_{S,1}) 
+\end{align*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model_heater_sensor</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># access parameter values</span>
+    <span class="n">T_ambient</span><span class="p">,</span> <span class="n">Cp_H</span><span class="p">,</span> <span class="n">Cp_S</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="n">Uc</span> <span class="o">=</span> <span class="n">param</span>
+    
+    <span class="n">P1</span> <span class="o">=</span> <span class="mf">0.04</span>
+
+    <span class="c1"># simulation in deviation variables</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ti</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">ti</span><span class="p">):</span>
+        <span class="n">T_H1</span><span class="p">,</span> <span class="n">T_S1</span> <span class="o">=</span> <span class="n">T</span>
+        <span class="n">dT_H1</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">T_ambient</span> <span class="o">-</span> <span class="n">T_H1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="n">T_S1</span> <span class="o">-</span> <span class="n">T_H1</span><span class="p">)</span> <span class="o">+</span> <span class="n">P1</span><span class="o">*</span><span class="n">u</span><span class="p">(</span><span class="n">ti</span><span class="p">))</span><span class="o">/</span><span class="n">Cp_H</span>
+        <span class="n">dT_S1</span> <span class="o">=</span> <span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="n">T_H1</span> <span class="o">-</span> <span class="n">T_S1</span><span class="p">)</span><span class="o">/</span><span class="n">Cp_S</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">dT_H1</span><span class="p">,</span> <span class="n">dT_S1</span><span class="p">]</span>
+    <span class="n">T1_pred</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="p">[</span><span class="n">T_ambient</span><span class="p">,</span> <span class="n">T_ambient</span><span class="p">],</span> <span class="n">t</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># comparing to experimental data</span>
+    
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+        <span class="n">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T1_pred</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">T1_pred</span> <span class="o">-</span> <span class="n">T1</span><span class="p">)</span>
+
+<span class="n">param_heater_sensor</span> <span class="o">=</span> <span class="p">[</span><span class="n">T1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Cp</span><span class="p">,</span> <span class="n">Cp</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="n">Ua</span><span class="p">]</span>
+<span class="n">model_heater_sensor</span><span class="p">(</span><span class="n">param_heater_sensor</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[23.81, 12.548530552470801, 2.50970611049416, 0.06278605683560866, 0.06278605683560866]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>89.2722844989071
+</pre></div>
+</div>
+<img alt="../_images/9d1e7823f67341d22eade8321a0b2bf37dcc732ad13b1f5dacea6bdba6a7810a.png" src="../_images/9d1e7823f67341d22eade8321a0b2bf37dcc732ad13b1f5dacea6bdba6a7810a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">model_heater_sensor</span><span class="p">,</span> <span class="n">param_heater_sensor</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nelder-mead&#39;</span><span class="p">)</span>
+<span class="n">param_heater_sensor</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">x</span>
+<span class="n">model_heater_sensor</span><span class="p">(</span><span class="n">param_heater_sensor</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[23.71861419  6.88125133  2.74272516  0.06428723  0.07897125]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.554156209522013
+</pre></div>
+</div>
+<img alt="../_images/5dd7059754891f356a7d0b7b8e121356d6dc48f0895dd54229421f3a5bd4c608.png" src="../_images/5dd7059754891f356a7d0b7b8e121356d6dc48f0895dd54229421f3a5bd4c608.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="two-heater-four-state-model">
+<h2>Two heater, four state model<a class="headerlink" href="#two-heater-four-state-model" title="Permalink to this heading">#</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+C_p^H \frac{dT_{H,1}}{dt} &amp; = U_a(T_{amb} - T_{H,1}) + U_b(T_{H,2} - T_{H,1}) + U_c(T_{S,1} - T_{H,1}) + P_1Q_1 \\
+C_p^S \frac{dT_{S,1}}{dt} &amp; = U_c(T_{H,1} - T_{S,1}) \\
+C_p^H \frac{dT_{H,2}}{dt} &amp; = U_a(T_{amb} - T_{H,2}) + U_b(T_{H,1} - T_{H,2}) + U_c(T_{S,2} - T_{H,2}) + P_2Q_2 \\
+C_p^S \frac{dT_{S,2}}{dt} &amp; = U_c(T_{H,2} - T_{S,2}) 
+\end{align*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model_complete</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># access parameter values</span>
+    <span class="n">T_ambient</span><span class="p">,</span> <span class="n">Cp_H</span><span class="p">,</span> <span class="n">Cp_S</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="n">Ub</span><span class="p">,</span> <span class="n">Uc</span> <span class="o">=</span> <span class="n">param</span>
+    
+    <span class="n">P1</span> <span class="o">=</span> <span class="mf">0.04</span>
+
+    <span class="c1"># simulation in deviation variables</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ti</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">ti</span><span class="p">):</span>
+        <span class="n">T_H1</span><span class="p">,</span> <span class="n">T_S1</span><span class="p">,</span> <span class="n">T_H2</span><span class="p">,</span> <span class="n">T_S2</span> <span class="o">=</span> <span class="n">T</span>
+        <span class="n">dT_H1</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">T_ambient</span> <span class="o">-</span> <span class="n">T_H1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">T_H2</span> <span class="o">-</span> <span class="n">T_H1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="n">T_S1</span> <span class="o">-</span> <span class="n">T_H1</span><span class="p">)</span> <span class="o">+</span> <span class="n">P1</span><span class="o">*</span><span class="n">u</span><span class="p">(</span><span class="n">ti</span><span class="p">))</span><span class="o">/</span><span class="n">Cp_H</span>
+        <span class="n">dT_S1</span> <span class="o">=</span> <span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="n">T_H1</span> <span class="o">-</span> <span class="n">T_S1</span><span class="p">)</span><span class="o">/</span><span class="n">Cp_S</span>
+        <span class="n">dT_H2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">T_ambient</span> <span class="o">-</span> <span class="n">T_H2</span><span class="p">)</span> <span class="o">+</span> <span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">T_H1</span> <span class="o">-</span> <span class="n">T_H2</span><span class="p">)</span> <span class="o">+</span> <span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="n">T_S2</span> <span class="o">-</span> <span class="n">T_H2</span><span class="p">))</span><span class="o">/</span><span class="n">Cp_H</span>
+        <span class="n">dT_S2</span> <span class="o">=</span> <span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="n">T_H2</span> <span class="o">-</span> <span class="n">T_S2</span><span class="p">)</span><span class="o">/</span><span class="n">Cp_S</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">dT_H1</span><span class="p">,</span> <span class="n">dT_S1</span><span class="p">,</span> <span class="n">dT_H2</span><span class="p">,</span> <span class="n">dT_S2</span><span class="p">]</span>
+    <span class="n">T_pred</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="p">[</span><span class="n">T_ambient</span><span class="p">,</span> <span class="n">T_ambient</span><span class="p">,</span> <span class="n">T_ambient</span><span class="p">,</span> <span class="n">T_ambient</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span>
+    <span class="n">T1_pred</span> <span class="o">=</span> <span class="n">T_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">T2_pred</span> <span class="o">=</span> <span class="n">T_pred</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="c1"># comparing to experimental data</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+        <span class="n">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T1_pred</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+        <span class="n">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">T2_pred</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">T1_pred</span> <span class="o">-</span> <span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">T2_pred</span> <span class="o">-</span> <span class="n">T2</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">param_complete</span> <span class="o">=</span> <span class="p">[</span><span class="n">T1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Cp</span><span class="p">,</span> <span class="n">Cp</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="n">Ua</span><span class="p">]</span>
+<span class="n">model_complete</span><span class="p">(</span><span class="n">param_complete</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[23.81, 12.548530552470801, 2.50970611049416, 0.06278605683560866, 0.06278605683560866, 0.06278605683560866]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>143.87441921309681
+</pre></div>
+</div>
+<img alt="../_images/af2d2bd990ae046ed2b46e61d67229f44eca6f6b9f196ba538a466247cc5581d.png" src="../_images/af2d2bd990ae046ed2b46e61d67229f44eca6f6b9f196ba538a466247cc5581d.png" />
+<img alt="../_images/43928db11c4d11d5958c36dc84446e2e3301d2e6c0615964373864ae3fecc245.png" src="../_images/43928db11c4d11d5958c36dc84446e2e3301d2e6c0615964373864ae3fecc245.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">model_complete</span><span class="p">,</span> <span class="n">param_complete</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nelder-mead&#39;</span><span class="p">)</span>
+<span class="n">param_complete</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">x</span>
+<span class="n">model_complete</span><span class="p">(</span><span class="n">param_complete</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[23.60707391  6.92707544  1.61783224  0.04676309  0.02633501  0.04303801]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.441799745669341
+</pre></div>
+</div>
+<img alt="../_images/466c3b14c9473a8e7a00b131999685d3b80bc15f247faffdafb5a9a9387dd514.png" src="../_images/466c3b14c9473a8e7a00b131999685d3b80bc15f247faffdafb5a9a9387dd514.png" />
+<img alt="../_images/f102990aed6de9cf284a6b84282e2878260e62e7f609edace8fc417373a0b140.png" src="../_images/f102990aed6de9cf284a6b84282e2878260e62e7f609edace8fc417373a0b140.png" />
+</div>
+</div>
+</section>
+<section id="consequences">
+<h2>Consequences<a class="headerlink" href="#consequences" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model_complete</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># access parameter values</span>
+    <span class="n">T_ambient</span><span class="p">,</span> <span class="n">Cp_H</span><span class="p">,</span> <span class="n">Cp_S</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="n">Ub</span><span class="p">,</span> <span class="n">Uc</span> <span class="o">=</span> <span class="n">param</span>
+    
+    <span class="n">P1</span> <span class="o">=</span> <span class="mf">0.04</span>
+
+    <span class="c1"># simulation in deviation variables</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ti</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">Q1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">ti</span><span class="p">):</span>
+        <span class="n">T_H1</span><span class="p">,</span> <span class="n">T_S1</span><span class="p">,</span> <span class="n">T_H2</span><span class="p">,</span> <span class="n">T_S2</span> <span class="o">=</span> <span class="n">T</span>
+        <span class="n">dT_H1</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">T_ambient</span> <span class="o">-</span> <span class="n">T_H1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">T_H2</span> <span class="o">-</span> <span class="n">T_H1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="n">T_S1</span> <span class="o">-</span> <span class="n">T_H1</span><span class="p">)</span> <span class="o">+</span> <span class="n">P1</span><span class="o">*</span><span class="n">u</span><span class="p">(</span><span class="n">ti</span><span class="p">))</span><span class="o">/</span><span class="n">Cp_H</span>
+        <span class="n">dT_S1</span> <span class="o">=</span> <span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="n">T_H1</span> <span class="o">-</span> <span class="n">T_S1</span><span class="p">)</span><span class="o">/</span><span class="n">Cp_S</span>
+        <span class="n">dT_H2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">T_ambient</span> <span class="o">-</span> <span class="n">T_H2</span><span class="p">)</span> <span class="o">+</span> <span class="n">Ub</span><span class="o">*</span><span class="p">(</span><span class="n">T_H1</span> <span class="o">-</span> <span class="n">T_H2</span><span class="p">)</span> <span class="o">+</span> <span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="n">T_S2</span> <span class="o">-</span> <span class="n">T_H2</span><span class="p">))</span><span class="o">/</span><span class="n">Cp_H</span>
+        <span class="n">dT_S2</span> <span class="o">=</span> <span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="n">T_H2</span> <span class="o">-</span> <span class="n">T_S2</span><span class="p">)</span><span class="o">/</span><span class="n">Cp_S</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">dT_H1</span><span class="p">,</span> <span class="n">dT_S1</span><span class="p">,</span> <span class="n">dT_H2</span><span class="p">,</span> <span class="n">dT_S2</span><span class="p">]</span>
+    <span class="n">T_pred</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="p">[</span><span class="n">T_ambient</span><span class="p">,</span> <span class="n">T_ambient</span><span class="p">,</span> <span class="n">T_ambient</span><span class="p">,</span> <span class="n">T_ambient</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span>
+    <span class="n">T1_pred</span> <span class="o">=</span> <span class="n">T_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">T2_pred</span> <span class="o">=</span> <span class="n">T_pred</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="c1"># comparing to experimental data</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+        <span class="n">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">T_pred</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Q1</span><span class="p">)</span>
+        <span class="n">plot_data</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T_pred</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span> <span class="n">T_pred</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">Q1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">T1_pred</span> <span class="o">-</span> <span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">T2_pred</span> <span class="o">-</span> <span class="n">T2</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">model_complete</span><span class="p">(</span><span class="n">param_complete</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[23.60707391  6.92707544  1.61783224  0.04676309  0.02633501  0.04303801]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.441799745669341
+</pre></div>
+</div>
+<img alt="../_images/2c334e2b9dde7bb59ab08e0a1c36e2a0839b3484ec7833cb8d6eb313c00b082f.png" src="../_images/2c334e2b9dde7bb59ab08e0a1c36e2a0839b3484ec7833cb8d6eb313c00b082f.png" />
+<img alt="../_images/db80eeb821e572f69c6c7916296092a63d3a1306bf61e38b334c5840a72ee2d7.png" src="../_images/db80eeb821e572f69c6c7916296092a63d3a1306bf61e38b334c5840a72ee2d7.png" />
+</div>
+</div>
+</section>
+<section id="state-space-model">
+<h2>State-Space Model<a class="headerlink" href="#state-space-model" title="Permalink to this heading">#</a></h2>
+<p>Recalling the model equations</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+C_p^H \frac{dT_{H,1}}{dt} &amp; = U_a(T_{amb} - T_{H,1}) + U_b(T_{H,2} - T_{H,1}) + U_c(T_{S,1} - T_{H,1}) + P_1Q_1 \\
+C_p^S \frac{dT_{S,1}}{dt} &amp; = U_c(T_{H,1} - T_{S,1}) \\
+C_p^H \frac{dT_{H,2}}{dt} &amp; = U_a(T_{amb} - T_{H,2}) + U_b(T_{H,1} - T_{H,2}) + U_c(T_{S,2} - T_{H,2}) + P_2Q_2 \\
+C_p^S \frac{dT_{S,2}}{dt} &amp; = U_c(T_{H,2} - T_{S,2}) 
+\end{align*}\]</div>
+<p>Normalizing the derivatives</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+C_p^H \frac{dT_{H,1}}{dt} &amp; = -(U_a + U_b + U_c)T_{H,1} + U_c T_{S,1} + U_b T_{H,2} + U_a T_{amb} + P_1Q_1 \\
+C_p^S \frac{dT_{S,1}}{dt} &amp; = U_c T_{H,1} - U_c T_{S,1}) \\
+C_p^H \frac{dT_{H,2}}{dt} &amp; = U_b T_{H,1} - (U_a + U_b + U_c) T_{H,2} + U_c T_{S,2} + U_aT_{amb} + P_2Q_2 \\
+C_p^S \frac{dT_{S,2}}{dt} &amp; = U_c T_{H,2} - U_c T_{S,2}
+\end{align*}\]</div>
+<p>Gathering terms on the right hand side</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+ \frac{dT_{H,1}}{dt} &amp; = -\frac{(U_a + U_b + U_c)}{C_p^H} T_{H,1} + \frac{U_c}{C_p^H} T_{S,1} + \frac{U_b}{C_p^H} T_{H,2} + \frac{U_a}{C_p^H} T_{amb} + \frac{P_1}{C_p^H} Q_1 \\
+\frac{dT_{S,1}}{dt} &amp; = \frac{U_c}{C_p^S} T_{H,1} - \frac{U_c}{C_p^S} T_{S,1} \\
+\frac{dT_{H,2}}{dt} &amp; = \frac{U_b}{C_p^H} T_{H,1} - \frac{(U_a + U_b + U_c)}{C_p^H} T_{H,2} + \frac{U_c}{C_p^H} T_{S,2} + \frac{U_a}{C_p^H} T_{amb} + \frac{P_2}{C_p^H} Q_2 \\
+\frac{dT_{S,2}}{dt} &amp; = \frac{U_c}{C_p^S} T_{H,2} - \frac{U_c}{C_p^S} T_{S,2}
+\end{align*}\]</div>
+<p>State space model</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \underbrace{\begin{bmatrix} \frac{dT_{H,1}}{dt} \\ \frac{dT_{S,1}}{dt} \\ \frac{T_{H,2}}{dt} \\ \frac{T_{S,2}}{dt} \end{bmatrix}}_{\frac{dx}{dt}} = \underbrace{\begin{bmatrix} -\frac{(U_a + U_b + U_c)}{C_p^H} &amp; \frac{U_c}{C_p^H} &amp; \frac{U_b}{C_p^H} &amp; 0 \\ \frac{U_c}{C_p^S} &amp; - \frac{U_c}{C_p^S} &amp; 0 &amp; 0 \\  \frac{U_b}{C_p^H} &amp; 0 &amp; - \frac{(U_a + U_b + U_c)}{C_p^H} &amp; \frac{U_c}{C_p^H} \\  0 &amp; 0 &amp; \frac{U_c}{C_p^S} &amp; - \frac{U_c}{C_p^S} \end{bmatrix}}_A
+\underbrace{\begin{bmatrix} T_{H,1} \\ T_{S,1} \\ T_{H,2} \\ T_{S,2} \end{bmatrix}}_x + \underbrace{\begin{bmatrix} \frac{P_1}{C_p^H} &amp; 0 \\ 0 &amp; 0 \\ 0 &amp; \frac{P_2}{C_p^H} \\ 0 &amp; 0 \end{bmatrix}}_B \underbrace{\begin{bmatrix} Q_1 \\ Q_2 \end{bmatrix}}_u + \underbrace{\begin{bmatrix} \frac{U_a}{C_p^H} \\ 0 \\ \frac{U_a}{C_p^H} \\ 0 \end{bmatrix}}_E \underbrace{T_{amb}}_d\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\underbrace{\begin{bmatrix} T_1 \\ T_2 \end{bmatrix}}_y = \underbrace{\begin{bmatrix} 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}}_C \underbrace{\begin{bmatrix} T_{H,1} \\ T_{S,1} \\ T_{H,2} \\ T_{S,2} \end{bmatrix}}_x + \underbrace{\begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 0\end{bmatrix}}_D \underbrace{\begin{bmatrix} Q_1 \\ Q_2 \end{bmatrix}}_u\end{split}\]</div>
+<p>Matrix/vector formulation</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{dx}{dt} &amp; = A x + B u + E d \\
+y &amp; = C x + D u
+\end{align*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P1</span> <span class="o">=</span> <span class="mf">0.04</span>
+<span class="n">P2</span> <span class="o">=</span> <span class="mf">0.02</span>
+
+<span class="n">T_ambient</span><span class="p">,</span> <span class="n">Cp_H</span><span class="p">,</span> <span class="n">Cp_S</span><span class="p">,</span> <span class="n">Ua</span><span class="p">,</span> <span class="n">Ub</span><span class="p">,</span> <span class="n">Uc</span> <span class="o">=</span> <span class="n">param_complete</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span> <span class="o">+</span> <span class="n">Uc</span><span class="p">)</span><span class="o">/</span><span class="n">Cp_H</span><span class="p">,</span> <span class="n">Uc</span><span class="o">/</span><span class="n">Cp_H</span><span class="p">,</span> <span class="n">Ub</span><span class="o">/</span><span class="n">Cp_H</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="n">Uc</span><span class="o">/</span><span class="n">Cp_S</span><span class="p">,</span> <span class="o">-</span><span class="n">Uc</span><span class="o">/</span><span class="n">Cp_S</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="n">Ub</span><span class="o">/</span><span class="n">Cp_H</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span> <span class="o">+</span> <span class="n">Uc</span><span class="p">)</span><span class="o">/</span><span class="n">Cp_H</span><span class="p">,</span> <span class="n">Uc</span><span class="o">/</span><span class="n">Cp_H</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Uc</span><span class="o">/</span><span class="n">Cp_S</span><span class="p">,</span> <span class="o">-</span><span class="n">Uc</span><span class="o">/</span><span class="n">Cp_S</span><span class="p">]])</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">P1</span><span class="o">/</span><span class="n">Cp_H</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">P2</span><span class="o">/</span><span class="n">Cp_H</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">Ua</span><span class="o">/</span><span class="n">Cp_H</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">Ua</span><span class="o">/</span><span class="n">Cp_H</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Time constants</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="p">,</span> <span class="n">evec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="nb">eval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([191.1942343 ,  96.34592497,  27.18108829,  29.12414895])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">evec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.44286448, -0.36815989, -0.25289296, -0.19739009],
+       [ 0.551245  , -0.60370381,  0.66033715,  0.67899717],
+       [ 0.44286448,  0.36815989,  0.25289296, -0.19739009],
+       [ 0.551245  ,  0.60370381, -0.66033715,  0.67899717]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="putting-to-work">
+<h2>Putting to work<a class="headerlink" href="#putting-to-work" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">control</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">control.matlab</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span> <span class="o">=</span> <span class="n">StateSpace</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = [[-0.01676553  0.00621301  0.00380175  0.        ]
+ [ 0.02660227 -0.02660227  0.          0.        ]
+ [ 0.00380175  0.         -0.01676553  0.00621301]
+ [ 0.          0.          0.02660227 -0.02660227]]
+
+B = [[0.00577444 0.        ]
+ [0.         0.        ]
+ [0.         0.00288722]
+ [0.         0.        ]]
+
+C = [[0. 1. 0. 0.]
+ [0. 0. 0. 1.]]
+
+D = [[0. 0.]
+ [0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">,</span><span class="n">t</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">ss</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1210520d0&gt;,
+ &lt;matplotlib.lines.Line2D at 0x121052f50&gt;]
+</pre></div>
+</div>
+<img alt="../_images/d5a6621b6c1c8f4d9fa5c204d8b5c8fd835f5244a31e86966e7fa25cdde2d4f2.png" src="../_images/d5a6621b6c1c8f4d9fa5c204d8b5c8fd835f5244a31e86966e7fa25cdde2d4f2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pole</span><span class="p">(</span><span class="n">ss</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.00523028, -0.01037927, -0.03679029, -0.03433577])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="p">(</span><span class="n">ss</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}\frac{0.0001536 s^2}{s^4 + 0.03957 s^3 + 0.0001796 s^2}&amp;\frac{7.681 \times 10^{-5} s^2}{s^4 + 0.03957 s^3 + 0.0001796 s^2}\\\frac{5.84 \times 10^{-7} s + 1.554 \times 10^{-8}}{s^4 + 0.08674 s^3 + 0.002428 s^2 + 2.358 \times 10^{-5} s + 6.858 \times 10^{-8}}&amp;\frac{7.681 \times 10^{-5} s^2 + 3.331 \times 10^{-6} s + 2.156 \times 10^{-8}}{s^4 + 0.08674 s^3 + 0.002428 s^2 + 2.358 \times 10^{-5} s + 6.858 \times 10^{-8}}\\ \end{bmatrix}\end{split}\]</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tclab"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initializations">Initializations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data">Reading data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-function">Plotting function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-models">Empirical Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-model">First-order linear model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-model-with-time-delay">First-order linear model with time delay</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-principles-modeling">First-principles modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-energy-balance-for-one-heater">First-order energy balance for one heater</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-state-model">Two State Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-heater-four-state-model">Two heater, four state model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences">Consequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-space-model">State-Space Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-to-work">Putting to work</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeffrey Kantor and Alexander Dowling
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

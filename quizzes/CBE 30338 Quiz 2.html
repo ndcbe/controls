@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>CBE 30338: Quiz 2 (40 pts) &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'quizzes/CBE 30338 Quiz 2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../Readme.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../Readme.html">
+                    CBE 30338 Data Analytics, Optimization, and Control
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Schedule.html">Schedule</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assignments/assignments.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-2.html">Homework 2: Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-6-MPC.html">Lab 6: Model Predictive Control (MPC)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topical Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/01.00-What-is-Process-Control.html">1. What is Process Control?</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/01.01-What-is-Feedback.html">1.1. What is Feedback?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/01.02-Elements-of-Feedback-Control.html">1.2. Elements of Process Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/02.00-Process-Modeling.html">2. Process Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.01-One-Compartment-Pharmacokinetics.html">2.1. One Compartment Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.02-Properties-of-Scalar-First-Order-Linear-Systems.html">2.2. First-Order Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.03-First-Order-Model-for-a-Single-Heater.html">2.3. First Order Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.05-Second-Order.html">2.5. Second Order Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02.09-Study-Guide.html">2.10. Study Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.01-Case-Study-Thermal-Cycling-PCR.html">3.1. Case Study: Thermal Cycling for PCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.02-Setpoints.html">3.2. Setpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.03-Setpoints-Thermal-Cycler.html">3.3. Case Study: PCR Thermal Cycler Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.04-Relay-Control.html">3.4. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.01-Learning-Goals.html">4.1. Learning Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.02-Process-Historians.html">4.2. Data/Process/Operational Historian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.03-State-Estimation.html">4.3. State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.04-Lab-Assigment-State-Estimation.html">4.4. Lab Assignment 5: State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.05-Anomaly-Detection.html">4.5. Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.06-Lab-Assignment-Anomaly-Detection.html">4.6. Lab Assignment 6: Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.07-Observer-Synthesis-LMI.html">4.7. Observer Synthesis using Linear Matrix Inequalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.08-Envrironmental-Application.html">4.8. Application of Luenberger Observers to Environmental Modeling of Rivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04/04.09-Study-Questions.html">4.9. Study Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/05/05.00-Optimization.html">5. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.01-Linear-Production-Model.html">5.1. Linear Production Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.03-Homework_2.html">5.3. Homework 2: Optimization (Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.04-Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05/05.99-Pyomo-Examples.html">5.7. Pyomo Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CBE30338-EV-Example.html">5.8. Recharging Strategy for an Electric Vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/milk-pooling.html">5.9. Pooling and Blending</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/06.00-Predictive-Control.html">6. Predictive Control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html">6.1. Simulation and Optimal Control in Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.01-Static-Operability.html">6.2. Static Operability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.02-Simulation-and-Open-Loop-Optimal-Control.html">6.3. Open-Loop Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.03-Predictive-Control.html">6.4. Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.04-Implementing-Predictive-Control.html">6.5. Implementing Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.06a-gompertz-tumor-growth.html">6.6. Gompertz Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/07-TCLab-Optimization-Estimation-Control.html">6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06-TCLab-Model-Predictive-Control.html">6.10. TCLab: Model Predictive Control (MPC)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/08.00-Projects.html">7. Projects (Spring 2023)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/09.00-Bibliography.html">8. References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Laboratory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/00.00-tclab.html">1. The Temperature Control Laboratory</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/00.01-setting-up-tclab.html">1.1. Setting up TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/00.02-troubleshooting-tclab.html">1.2. Testing and Troubleshooting TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/00.03-using-tclab.html">1.3. Python Coding for TCLab</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/01.00-step-testing.html">2. Step Testing</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/01.01-step-testing.html">2.1. Step Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/01.02-first-order-model-for-a-single-heater.html">2.2. Lab Assignment 1: Step Test of a First-Order System</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/02.00-Empirical-Model-Identification.html">3. Empirical Model Identification</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/02.02-Fitting-Step-Test-Data-to-Empirical-Models.html">3.1. Fitting Step Test Data to Empirical Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/03.00-Estimating-Model-Parameters.html">4. Estimating Model Parameters</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.04-Two-Input-Two-Output-Model.html">4.1. Two-Input, Two-Output Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.05-Two-State-Model-for-a-Single-Heater.html">4.2. Two State Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.06-Four-State-Model.html">4.3. Four State Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.10-TCLab-Lab-2-Model-Indentification.html">4.4. Assignment: Model Identification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/04.00-Feedback-Control.html">5. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.01-Relay-Control.html">5.1. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.02-Lab-Assignment-Relay-Control.html">5.2. Lab Assignment 4: Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.10-Lab-Assignment-PID-Control.html">5.3. Lab Assignment: PID Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.11-Lab-Assignment-PI-Control.html">5.4. Lab Assignment 4: PI Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/05.00-State-Estimation.html">6. State Estimation</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/05.01-Open-and-Closed-Loop-Estimation.html">6.2. Open and Closed Loop Estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tclab/06.00-Optimal-Control.html">7. Optimization</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/07.00-Predictive-Control-and-Real-Time-Optimization.html">8. Predictive Control and Real Time Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.html">8.1. Simulation, Control, and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/07.02-Optimization-Control-and-Estimation-using-Pyomo-With-Windows-ipopt.html">8.2. Simulation, Control, and Estimation using Pyomo</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/A.00-Python-Tutorials.html">Python Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.05-Tidy-Data-and-Pandas.html">Tidy Data and Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.10-Coding-Controllers-with-Python-Generators.html">Coding Controllers with Python Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.11-Modular-Approach-to-Simulation-using-Python-Generators.html">Modular Simulation using Python Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.30-Animation-in-Jupyter-Notebooks.html">Animation in Jupyter Notebooks</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ndcbe/controls" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fquizzes/CBE 30338 Quiz 2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/quizzes/CBE 30338 Quiz 2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>CBE 30338: Quiz 2 (40 pts)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-20-pts">Problem 2 (20 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-10-pts">Problem 3 (10 pts)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p>Name (please print clearly): ______________________________________________________________________</p>
+<section class="tex2jax_ignore mathjax_ignore" id="cbe-30338-quiz-2-40-pts">
+<h1>CBE 30338: Quiz 2 (40 pts)<a class="headerlink" href="#cbe-30338-quiz-2-40-pts" title="Permalink to this heading">#</a></h1>
+<p>Chemical Process Control</p>
+<p>April 4, 2023</p>
+<ul class="simple">
+<li><p>This is a closed-book, no electronics exam. You are allowed a pencil/pen and one page of notes (8.5 x 11-inch paper, both sides, personally handwritten, no copies). Turn your notes in with the quiz.</p></li>
+<li><p>You may take the pages apart but then print your name at the top of every page.</p></li>
+<li><p>Show your work on the quiz paper. Indicate your answer by enclosing it in a box. Always show relevant units.</p></li>
+</ul>
+<div style="page-break-after: always; break-after: page;"></div>
+<hr class="docutils" />
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Problem 1</p></td>
+<td><p>/10</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Problem 2</p></td>
+<td><p>/20</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Problem 3</p></td>
+<td><p>/10</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>TOTAL</p></td>
+<td><p>/40</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always; break-after: page;"></div>
+## Problem 1 (10 pts)
+<p>The following diagram shows a heat exchanger and accompanying control hardware. The system is initially at steady state under manual control. <strong>Note: The controller output denoted “CO” in the diagram corresponds to the manipulated variable “MV” that we use in class.</strong></p>
+<p>![](/Users/jeff/Google Drive/GitHub/cbe30338-book/quizzes/heatexchangebig.jpg)</p>
+<p>The operator conducts a step test on this unit where “CO” is changed from 39% to 42%. The results are:</p>
+<p>![](/Users/jeff/Google Drive/GitHub/cbe30338-book/quizzes/hesteptestbig.png)</p>
+<p>Estimate values for the following quantities (including units). Annotate the chart to show how the two time constants are related to the step test.</p>
+<ol class="arabic simple">
+<li><p>[3 pts] Sketch your work on the chart above.</p></li>
+<li><p>[3 pts] What is the steady-state gain <span class="math notranslate nohighlight">\(K\)</span> ?</p></li>
+<li><p>[2 pts] What is the first-order time constant <span class="math notranslate nohighlight">\(\tau\)</span> ?</p></li>
+<li><p>[2 pts] What is the time delay <span class="math notranslate nohighlight">\(\theta\)</span> ?</p></li>
+</ol>
+<div style="page-break-after: always; break-after: page;"></div>
+<section id="problem-2-20-pts">
+<h2>Problem 2 (20 pts)<a class="headerlink" href="#problem-2-20-pts" title="Permalink to this heading">#</a></h2>
+<p>The following code has been used to create instances of PI control in a large chemical plant. Assume both <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_I\)</span> are non-zero unless stated otherwise.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Proprietary_Control</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">Ki</span><span class="p">,</span> <span class="n">MV_bar</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">MV_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">MV_max</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">MV</span> <span class="o">=</span> <span class="n">MV_bar</span>
+    <span class="n">PV_prev</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">t_step</span><span class="p">,</span> <span class="n">SP</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">MV</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">MV</span> 
+        <span class="n">e</span> <span class="o">=</span> <span class="n">PV</span> <span class="o">-</span> <span class="n">SP</span>
+        <span class="k">if</span> <span class="n">PV_prev</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">MV</span> <span class="o">=</span> <span class="n">MV</span> <span class="o">-</span> <span class="n">Kp</span><span class="o">*</span><span class="p">(</span><span class="n">PV</span> <span class="o">-</span> <span class="n">PV_prev</span><span class="p">)</span> <span class="o">-</span> <span class="n">t_step</span><span class="o">*</span><span class="n">Ki</span><span class="o">*</span><span class="n">e</span> 
+            <span class="n">MV</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">MV_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">MV_max</span><span class="p">,</span> <span class="n">MV</span><span class="p">))</span>
+        <span class="n">PV_prev</span> <span class="o">=</span> <span class="n">PV</span>
+    
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>[2 pts] Is this a P, PI, or PID control?</p></li>
+<li><p>[2 pts] Will this controller exhibit steady-state offset?  Why or why not? (Explain why using the equations embedded in the code above.)</p></li>
+<li><p>[2 pts] Suppose there is a sudden change in setpoint SP. Will that cause a sudden change in the manipulated variable MV?  Why or why not?</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>[2 pts] Will this controller exhibit anti-reset windup? Why or why not?</p></li>
+<li><p>[2 pts] Locate the yield statement.  Why does MV appear on both sides of the equality symbol?</p></li>
+<li><p>[2 pts] Locate the first statement where MV is updated. Why does MV appear on both sides of the equality symbol?</p></li>
+<li><p>[2 pts] Is this in velocity or position form?</p></li>
+<li><p>[2 pts] Suppose the operator sets <span class="math notranslate nohighlight">\(K_I = 0\)</span>. How will the manipulated variable respond if the setpoint SP changes?</p></li>
+<li><p>[4 pts] Write a generator for a proportional-only controller using the code above as a starting point. The proportional control should be in velocity form, and should respond to set point changes.</p></li>
+</ol>
+<div style="page-break-after: always; break-after: page;"></div>
+</section>
+<section id="problem-3-10-pts">
+<h2>Problem 3 (10 pts)<a class="headerlink" href="#problem-3-10-pts" title="Permalink to this heading">#</a></h2>
+<p>The following chart shows a grid of candidate tunings for PI control. The proportional control gain <span class="math notranslate nohighlight">\(K_p\)</span>  (called <span class="math notranslate nohighlight">\(K_c\)</span> in the chart) is changed along the vertical axis, and the integral time constant <span class="math notranslate nohighlight">\(\tau_I\)</span> along the horizontal axis. (In our nomenclature, <span class="math notranslate nohighlight">\(K_I = K_p/\tau_I\)</span>). The chart shows the response of the closed-loop system to a step change in a disturbance.</p>
+<p>![](/Users/jeff/Google Drive/GitHub/cbe30338-book/quizzes/tuning.png)</p>
+<ol class="arabic simple">
+<li><p>[2 pts] Are there any unstable responses?  If so, which one(s)?  (Note the number in the upper right corner of each sub-chart).</p></li>
+<li><p>[3 pts] In chart #3 (upper right), is the integral gain too high or too low?  Explain what you see.</p></li>
+<li><p>[3 pts] Which of these tunings would you recommend for industrial use?</p></li>
+<li><p>[2 pts] The Ziegler-Nichols rules for PI tuning are <span class="math notranslate nohighlight">\(K_p = \frac{0.9\tau}{K\theta}\)</span> and <span class="math notranslate nohighlight">\(K_I = \frac{0.3\tau}{K\theta^2}\)</span>  where <span class="math notranslate nohighlight">\(K\)</span> is the gain measured in a step test, where <span class="math notranslate nohighlight">\(\tau\)</span> is the time constant, and <span class="math notranslate nohighlight">\(\theta\)</span> is the dead time.  In this chart, <span class="math notranslate nohighlight">\(K_P = K_c\)</span> and <span class="math notranslate nohighlight">\(K_I = K_c/\tau_I\)</span>. Suppose <span class="math notranslate nohighlight">\(\tau_I = 12\)</span> minutes provides a satisfactory tuning, then estimate the dead time in the process.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quizzes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-20-pts">Problem 2 (20 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-10-pts">Problem 3 (10 pts)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeffrey Kantor and Alexander Dowling
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

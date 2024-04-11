@@ -1,0 +1,1379 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Simulating Queuing Systems &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/07.05-Queuing-Systems-and-Poisson-Processes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../Readme.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../Readme.html">
+                    CBE 30338 Data Analytics, Optimization, and Control
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Schedule.html">Schedule</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assignments/assignments.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-2-Relay-Control.html">Lab 2: Relay (On-Off) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-3-Model-Identification.html">Lab 3: Model Identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-2.html">Homework 2: Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-6-MPC.html">Lab 6: Model Predictive Control (MPC)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topical Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="01.00-What-is-Process-Control.html">1. What is Process Control?</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.01-What-is-Feedback.html">1.1. What is Feedback?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.02-Elements-of-Feedback-Control.html">1.2. Elements of Process Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02.00-Process-Modeling.html">2. Process Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="02.01-One-Compartment-Pharmacokinetics.html">2.1. One Compartment Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.02-Properties-of-Scalar-First-Order-Linear-Systems.html">2.2. First-Order Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.03-First-Order-Model-for-a-Single-Heater.html">2.3. First Order Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.04-Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.05-Second-Order.html">2.5. Second Order Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.06-Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-spring-mass-damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.07-Exothermic-CSTR.html">2.8. Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.08-Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.09-Study-Guide.html">2.10. Study Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03.00-Feedback-Control.html">3. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="03.01-Case-Study-Thermal-Cycling-PCR.html">3.1. Case Study: Thermal Cycling for PCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.02-Setpoints.html">3.2. Setpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.03-Setpoints-Thermal-Cycler.html">3.3. Case Study: PCR Thermal Cycler Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.04-Relay-Control.html">3.4. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.05-Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.06-Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.07-Integral-Windup-and-Bumpless-Transfer.html">3.7. Integral Windup and Bumpless Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.08-P-Controller-Analysis.html">3.8. Analysis of Proportional Only Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.09-PI-Controller-Analysis.html">3.9. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.10-Controller-Tuning.html">3.10. Controller Tuning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="04/04.00-Process-Analytics.html">4. Process Analytics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="04/04.01-Learning-Goals.html">4.1. Learning Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.02-Process-Historians.html">4.2. Data/Process/Operational Historian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.03-State-Estimation.html">4.3. State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.04-Lab-Assigment-State-Estimation.html">4.4. Lab Assignment 5: State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.05-Anomaly-Detection.html">4.5. Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.06-Lab-Assignment-Anomaly-Detection.html">4.6. Lab Assignment 6: Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.07-Observer-Synthesis-LMI.html">4.7. Observer Synthesis using Linear Matrix Inequalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.08-Envrironmental-Application.html">4.8. Application of Luenberger Observers to Environmental Modeling of Rivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04/04.09-Study-Questions.html">4.9. Study Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05/05.00-Optimization.html">5. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="05/05.01-Linear-Production-Model.html">5.1. Linear Production Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.02-Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.03-Homework_2.html">5.3. Homework 2: Optimization (Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.04-Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.05-Linear-Programming.html">5.5. Linear Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.06-Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05/05.99-Pyomo-Examples.html">5.7. Pyomo Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CBE30338-EV-Example.html">5.8. Recharging Strategy for an Electric Vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="milk-pooling.html">5.9. Pooling and Blending</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="06.00-Predictive-Control.html">6. Predictive Control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics.html">6.1. Simulation and Optimal Control in Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.01-Static-Operability.html">6.2. Static Operability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.02-Simulation-and-Open-Loop-Optimal-Control.html">6.3. Open-Loop Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.03-Predictive-Control.html">6.4. Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.04-Implementing-Predictive-Control.html">6.5. Implementing Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.06a-gompertz-tumor-growth.html">6.6. Gompertz Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.06-gompertz-model-project.html">6.7. Project: Gompertz Model for Tumor Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.07-time-as-decision-variable.html">6.8. Time as a Decision Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-TCLab-Optimization-Estimation-Control.html">6.9. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-TCLab-Model-Predictive-Control.html">6.10. TCLab: Model Predictive Control (MPC)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="08.00-Projects.html">7. Projects (Spring 2023)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="09.00-Bibliography.html">8. References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Laboratory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/00.00-tclab.html">1. The Temperature Control Laboratory</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/00.01-setting-up-tclab.html">1.1. Setting up TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/00.02-troubleshooting-tclab.html">1.2. Testing and Troubleshooting TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/00.03-using-tclab.html">1.3. Python Coding for TCLab</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/01.00-step-testing.html">2. Step Testing</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/01.01-step-testing.html">2.1. Step Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/01.02-first-order-model-for-a-single-heater.html">2.2. Lab Assignment 1: Step Test of a First-Order System</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/02.00-Empirical-Model-Identification.html">3. Empirical Model Identification</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/02.02-Fitting-Step-Test-Data-to-Empirical-Models.html">3.1. Fitting Step Test Data to Empirical Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/03.00-Estimating-Model-Parameters.html">4. Estimating Model Parameters</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.04-Two-Input-Two-Output-Model.html">4.1. Two-Input, Two-Output Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.05-Two-State-Model-for-a-Single-Heater.html">4.2. Two State Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.06-Four-State-Model.html">4.3. Four State Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.10-TCLab-Lab-2-Model-Indentification.html">4.4. Assignment: Model Identification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/04.00-Feedback-Control.html">5. Feedback Control</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.01-Relay-Control.html">5.1. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.02-Lab-Assignment-Relay-Control.html">5.2. Lab Assignment 4: Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.10-Lab-Assignment-PID-Control.html">5.3. Lab Assignment: PID Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.11-Lab-Assignment-PI-Control.html">5.4. Lab Assignment 4: PI Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/05.00-State-Estimation.html">6. State Estimation</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/05.01-Open-and-Closed-Loop-Estimation.html">6.2. Open and Closed Loop Estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tclab/06.00-Optimal-Control.html">7. Optimization</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/07.00-Predictive-Control-and-Real-Time-Optimization.html">8. Predictive Control and Real Time Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.html">8.1. Simulation, Control, and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/07.02-Optimization-Control-and-Estimation-using-Pyomo-With-Windows-ipopt.html">8.2. Simulation, Control, and Estimation using Pyomo</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/A.00-Python-Tutorials.html">Python Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.05-Tidy-Data-and-Pandas.html">Tidy Data and Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.10-Coding-Controllers-with-Python-Generators.html">Coding Controllers with Python Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.11-Modular-Approach-to-Simulation-using-Python-Generators.html">Modular Simulation using Python Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.30-Animation-in-Jupyter-Notebooks.html">Animation in Jupyter Notebooks</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/notebooks/07.05-Queuing-Systems-and-Poisson-Processes.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ndcbe/controls" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fnotebooks/07.05-Queuing-Systems-and-Poisson-Processes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/07.05-Queuing-Systems-and-Poisson-Processes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Simulating Queuing Systems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-queues">Examples of Queues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manufacturing-lines">Manufacturing Lines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manufacturing-tesla-shanghai-gigafactory">Manufacturing: Tesla Shanghai Gigafactory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-lines">Service Lines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nomenclature">Nomenclature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-disciplines-of-many-possibilities">Service Disciplines (of many possibilities)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-process">Poisson Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-distribution">Binomial distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-distribution">Poisson distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waiting-time-between-events">Waiting time between events</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-a-poisson-process-in-simpy">Simulating a Poisson Process in SimPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kendall-notation-for-queues">Kendall notation for queues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulation-of-an-order-processing-queue">Example: Simulation of an Order Processing Queue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing-example-needs-rework">Batch Processing Example  (NEEDS REWORK)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-the-simulation-log">Processing the Simulation Log</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="simulating-queuing-systems">
+<h1>Simulating Queuing Systems<a class="headerlink" href="#simulating-queuing-systems" title="Permalink to this heading">#</a></h1>
+<p>Queuing theory is one of the foundations for the analysis of discrete-event systems. This notebook introduces the nomenclature and terminology of queuing theory that will be used in later applications.</p>
+<section id="examples-of-queues">
+<h2>Examples of Queues<a class="headerlink" href="#examples-of-queues" title="Permalink to this heading">#</a></h2>
+<section id="manufacturing-lines">
+<h3>Manufacturing Lines<a class="headerlink" href="#manufacturing-lines" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="manufacturing-tesla-shanghai-gigafactory">
+<h2>Manufacturing: Tesla Shanghai Gigafactory<a class="headerlink" href="#manufacturing-tesla-shanghai-gigafactory" title="Permalink to this heading">#</a></h2>
+<p>Telsa has recently been outfitting factories with very large scale automated casting (‘megacasting’) to signficantly reduce the complexity of its manufacturiing processes.</p>
+<p>As you watch the following video, try to identify the many levels of control required to realize this automated manufacturing system. For example, what sensors and actuators are required for each robot to do their tasks?  How is quality control maintained? How are operations coordinated among the assembly stations in the manufacturing line?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&#39;</span> <span class="o">+</span> \
+    <span class="s1">&#39;Giga Shanghai is becoming a production powerhouse. Watch &#39;</span> <span class="o">+</span> \
+    <span class="s1">&#39;mega castings for Model Y coming out of 6k-ton Giga presses. &#39;</span> <span class="o">+</span> \
+    <span class="s1">&#39;The whole process is fully automated, including quality check. &#39;</span> <span class="o">+</span> \
+    <span class="s1">&#39;Pretty mind blowing to say the least. &#39;</span> <span class="o">+</span> \
+    <span class="s1">&#39;&lt;a href=&quot;https://t.co/PBMUpDjnD8&quot;&gt;pic.twitter.com/PBMUpDjnD8&lt;/a&gt;&#39;</span> <span class="o">+</span> \
+    <span class="s1">&#39;&lt;/p&gt;&amp;mdash; Ray4Tesla⚡️🚘☀️🔋 (@ray4tesla) &#39;</span> <span class="o">+</span> \
+    <span class="s1">&#39;&lt;a href=&quot;https://twitter.com/ray4tesla/status/1356639381549846529?ref_src=twsrc</span><span class="si">%5E</span><span class="s1">tfw&quot;&gt;February 2, 2021&lt;/a&gt;&#39;</span> <span class="o">+</span> \
+    <span class="s1">&#39;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&#39;</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Giga Shanghai is becoming a production powerhouse. Watch mega castings for Model Y coming out of 6k-ton Giga presses. The whole process is fully automated, including quality check. Pretty mind blowing to say the least. <a href="https://t.co/PBMUpDjnD8">pic.twitter.com/PBMUpDjnD8</a></p>&mdash; Ray4Tesla⚡️🚘☀️🔋 (@ray4tesla) <a href="https://twitter.com/ray4tesla/status/1356639381549846529?ref_src=twsrc%5Etfw">February 2, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;yUVuiZUhbyA&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">560</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">315</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/yUVuiZUhbyA"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
+</div>
+<p><a class="reference external" href="https://electrek.co/2020/08/31/tesla-video-production-gigafactory-shanghai-alien-dreadnought/?fbclid=IwAR2jHUZMQG4Gl77ugYHvm3DTq-zV5iOuN3bMNePzJswvfY_VVgYP3W7pSZQ">Tesla China - Shanghai Gigafactory production line</a>.</p>
+<section id="service-lines">
+<h3>Service Lines<a class="headerlink" href="#service-lines" title="Permalink to this heading">#</a></h3>
+<p><img alt="mathworks queue" src="https://blogs.mathworks.com/images/seth/2015Q1/queues.png" /></p>
+</section>
+</section>
+<section id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this heading">#</a></h2>
+<section id="nomenclature">
+<h3>Nomenclature<a class="headerlink" href="#nomenclature" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Servers</p></li>
+<li><p>Arrival rate</p></li>
+<li><p>Departure rate</p></li>
+<li><p>Queuing area or waiting area</p></li>
+</ul>
+</section>
+<section id="service-disciplines-of-many-possibilities">
+<h3>Service Disciplines (of many possibilities)<a class="headerlink" href="#service-disciplines-of-many-possibilities" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>First-in-first-out (FIFO or FCFS)</p></li>
+<li><p>Last in first out (LIFO)</p></li>
+<li><p>Shortest job first</p></li>
+<li><p>Priority queue, no interruption</p></li>
+<li><p>Priority queue with premption</p></li>
+<li><p>Earliest due date</p></li>
+</ul>
+</section>
+</section>
+<section id="poisson-process">
+<h2>Poisson Process<a class="headerlink" href="#poisson-process" title="Permalink to this heading">#</a></h2>
+<p>Poisson processes describe the occurance of independent random events. Examples:</p>
+<ul class="simple">
+<li><p>Arrival of customers, orders, or other entities from totally independent sources.</p></li>
+<li><p>Machine failures when characterized by a mean time between failures (MTBF)</p></li>
+<li><p>Physical phenomena like molecules striking a surface, meteor strikes.</p></li>
+</ul>
+<p>Poisson processes are a useful approximation for many simulations, and also very easy to implement in practice. This section introduces some theory before describing a typical implementation.</p>
+<section id="binomial-distribution">
+<h3>Binomial distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this heading">#</a></h3>
+<p>Suppose there is a probability <span class="math notranslate nohighlight">\(p\)</span> of an event occurring in a short interval. We’ll assume the interval is short enough that two or more events in the same interval would be extremely unlikely. Assuming each event is independent, the probability of seeing <span class="math notranslate nohighlight">\(k\)</span> events in <span class="math notranslate nohighlight">\(n\)</span> intervals is given by the binomial distribution</p>
+<div class="math notranslate nohighlight">
+\[\text{Binomial}(k | n, p) = \frac{n!}{k! (n-k)!} p^k (1 - p)^{n-k}\]</div>
+<p>The term <span class="math notranslate nohighlight">\(p^k (1 - p)^{n-k}\)</span> is the probability of seeing a particular sequence of <span class="math notranslate nohighlight">\(k\)</span> intervals with events and <span class="math notranslate nohighlight">\(n-k\)</span> intervals with no events, assuming all of the events are independent of one another. The multiplier <span class="math notranslate nohighlight">\(\frac{n!}{k! (n-k)!}\)</span> is the number of different sequences that can be constructed from <span class="math notranslate nohighlight">\(k\)</span> events occurring in <span class="math notranslate nohighlight">\(n\)</span> intervals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span><span class="o">&lt;=</span><span class="mi">1</span> <span class="k">else</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">combination</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">binomial</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">combination</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span><span class="o">**</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.20</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">binomial</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Binomial Distribution n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Binomial Distribution n=20, p=0.2&#39;)
+</pre></div>
+</div>
+<img alt="../_images/82e6f6e7e6b6e02414400bd922c88a4d74d43b24256fea0163c61afad5f7469a.png" src="../_images/82e6f6e7e6b6e02414400bd922c88a4d74d43b24256fea0163c61afad5f7469a.png" />
+</div>
+</div>
+</section>
+<section id="poisson-distribution">
+<h3>Poisson distribution<a class="headerlink" href="#poisson-distribution" title="Permalink to this heading">#</a></h3>
+<p>Now imagine the events are occuring at an average rate <span class="math notranslate nohighlight">\(r\)</span> of events per unit time. In period <span class="math notranslate nohighlight">\(t\)</span> there would be, on average, <span class="math notranslate nohighlight">\(r t\)</span> events. If that period is broken into <span class="math notranslate nohighlight">\(n\)</span> intervals then</p>
+<div class="math notranslate nohighlight">
+\[ p = \frac{rt}{n}\]</div>
+<p>which leads to the Poisson distribution</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\text{Poisson}(k | r, t) &amp; = 
+\lim_{n\rightarrow\infty}\text{Binomial}(k | n, \frac{rt}{n}) \\
+&amp; = \lim_{n\rightarrow\infty} \frac{n!}{k! (n-k)!} (\frac{rt}{n})^k (1 - \frac{rt}{n})^{n-k}
+\end{align*}\end{split}\]</div>
+<p>We’re interested in the limit <span class="math notranslate nohighlight">\(n\rightarrow\infty\)</span>. Without detailing the math, the limit works out to be</p>
+<div class="math notranslate nohighlight">
+\[\text{Poisson}(k | r, t) = \frac{(rt)^k e^{-rt}}{k!}\]</div>
+<p>which is the probability of seeing <span class="math notranslate nohighlight">\(k\)</span> events in an interval of length <span class="math notranslate nohighlight">\(t\)</span> when the average rate is <span class="math notranslate nohighlight">\(r\)</span> events per unit time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span><span class="o">&lt;=</span><span class="mi">1</span> <span class="k">else</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">combination</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">binomial</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">combination</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span><span class="o">**</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">poisson</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="n">k</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="n">n</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">[</span><span class="n">binomial</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k</span><span class="p">],</span> <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Binomial&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">[</span><span class="n">poisson</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k</span><span class="p">],</span> <span class="s1">&#39;g.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Poisson&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbe974ddf10&gt;
+</pre></div>
+</div>
+<img alt="../_images/d75d929045d1ec9d68e8dcc286d431e440b544e0a76019c73c6702ed49a0b85b.png" src="../_images/d75d929045d1ec9d68e8dcc286d431e440b544e0a76019c73c6702ed49a0b85b.png" />
+</div>
+</div>
+</section>
+<section id="waiting-time-between-events">
+<h3>Waiting time between events<a class="headerlink" href="#waiting-time-between-events" title="Permalink to this heading">#</a></h3>
+<p>Suppose an event has just occurred. What is the probability of no additional events in the next <span class="math notranslate nohighlight">\(t\)</span> units of time? This is calculated with the Poisson distribution where <span class="math notranslate nohighlight">\(k=0\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\text{Poisson}(0 | r, t) = e^{-r t}\]</div>
+<p>We can treat this as the probability distribution for the time period between events. We refer to this as the exponential distribution</p>
+<div class="math notranslate nohighlight">
+\[\text{Exponential}(t | r) =  e^{-r t}\]</div>
+<p>This fact is useful in creating simulations of independent random events. For a given rate <span class="math notranslate nohighlight">\(r\)</span>, we sample values from an exponential distribution.</p>
+</section>
+</section>
+<section id="simulating-a-poisson-process-in-simpy">
+<h2>Simulating a Poisson Process in SimPy<a class="headerlink" href="#simulating-a-poisson-process-in-simpy" title="Permalink to this heading">#</a></h2>
+<p>Poisson processes are easy to implement in SimPy. A single parameter, commonly denoted as <span class="math notranslate nohighlight">\(r\)</span> or <span class="math notranslate nohighlight">\(\lambda\)</span>, is required to specify the average rate of occurance in units of number per unit time. For example, a value <span class="math notranslate nohighlight">\(\lambda = 4.2 \text{ min}^{-1}\)</span> corresponds to an average of 4.2 events per minute.</p>
+<p>An alternative specification is so express the mean time between events. The rate of machine failures, for example, is typically specified as “mean time between failures” (MTBF). In these cases, <span class="math notranslate nohighlight">\(r = \lambda = \frac{1}{\bar{\tau}}\)</span> where <span class="math notranslate nohighlight">\(\bar{\tau}\)</span> is the mean time between events.</p>
+<p>Once the mean rate has been determined, the time between events can be simulated by drawing samples from an exponential distribution</p>
+<div class="math notranslate nohighlight">
+\[\text{Exponential}(t | r) =  e^{-r t}\]</div>
+<p>The following cell demonstrates the simulation of a Poisson process with an average <span class="math notranslate nohighlight">\(r\)</span> events per unit time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">simpy</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># average rate: events per unit time</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">2.0</span> 
+
+<span class="k">def</span> <span class="nf">arrival</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+        <span class="n">data_log</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+
+<span class="n">data_log</span> <span class="o">=</span> <span class="p">[]</span>  
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">arrival</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualization</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_log</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">data_log</span><span class="p">),</span> <span class="mi">1</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;event&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;timeline of events&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_log</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_log</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_log</span><span class="p">,</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_log</span><span class="p">),</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cumulative sum of events&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data_log</span><span class="p">),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;event&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;time to next event&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data_log</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6209ef792f7dad3fc6ea81c146626e0c29a5109cb7e251f32efc64a284194214.png" src="../_images/6209ef792f7dad3fc6ea81c146626e0c29a5109cb7e251f32efc64a284194214.png" />
+<img alt="../_images/078b0c53d13a6e6da0a3107f6970bb916d87b9be650cb4d0e7abb56d1e151e24.png" src="../_images/078b0c53d13a6e6da0a3107f6970bb916d87b9be650cb4d0e7abb56d1e151e24.png" />
+</div>
+</div>
+</section>
+<section id="kendall-notation-for-queues">
+<h2>Kendall notation for queues<a class="headerlink" href="#kendall-notation-for-queues" title="Permalink to this heading">#</a></h2>
+<p>Kendall notation is a standardized methods to describe and classify queues. The notation consists of three factors written as A/S/c where where A describes the arrival process, S the service process, and c is the number of servers attending the queue.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A/S/c\)</span></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(A\)</span>: statistical nature of the arrival process</p></li>
+<li><p><span class="math notranslate nohighlight">\(S\)</span>: Statistical nature of the service process</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span>: Number of servers at the queue node</p></li>
+</ul>
+</li>
+<li><p>Typical Statistics</p>
+<ul>
+<li><p>D: Deterministic (average arrival rate <span class="math notranslate nohighlight">\(\lambda\)</span>)</p></li>
+<li><p>M: Markov or memoryless (average arrival rate <span class="math notranslate nohighlight">\(r\)</span>)</p></li>
+<li><p>G: General or arbitrary distribution (mean <span class="math notranslate nohighlight">\(\mu\)</span> and standard deviation <span class="math notranslate nohighlight">\(\simga\)</span> or variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>)</p></li>
+</ul>
+</li>
+</ul>
+<p>Example: M/D/1</p>
+<p><img alt="Aircraft queue" src="https://i0.wp.com/nats.aero/blog/wp-content/uploads/2013/08/aircraft-queue-e1377251576844.jpg?ssl=1" /></p>
+<p>Example: M/M/8</p>
+<p><img alt="Call Center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Emergency_Call_Center_112.jpg/640px-Emergency_Call_Center_112.jpg" /></p>
+</section>
+<section id="example-simulation-of-an-order-processing-queue">
+<h2>Example: Simulation of an Order Processing Queue<a class="headerlink" href="#example-simulation-of-an-order-processing-queue" title="Permalink to this heading">#</a></h2>
+<p>A chemical storeroom processes orders for a large research campus. At peak loads it is expected to receive an average of one order every 12 minutes. The time required to process each order is a fixed 10 minutes.</p>
+<ol class="arabic simple">
+<li><p>Describe the process using the Kendall notation: M/D/1</p></li>
+<li><p>Create a simulation of the order queue that operates for 8 hours. Determine the average time between the arrival and completion of an order, and determine the average queue length.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">simpy</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># time unit = minutes</span>
+
+<span class="n">order_log</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># log data on order processing</span>
+<span class="n">queue_log</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># log data on queue length</span>
+
+<span class="c1"># log time and queue_length at regular time steps</span>
+<span class="k">def</span> <span class="nf">queue_logger</span><span class="p">(</span><span class="n">t_step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">queue_log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">items</span><span class="p">)])</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">t_step</span><span class="p">)</span>
+
+<span class="c1"># generate and place orders on the queue at a specified rate</span>
+<span class="k">def</span> <span class="nf">order_generator</span><span class="p">(</span><span class="n">order_rate</span><span class="p">):</span>
+    <span class="n">order_id</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="n">order_rate</span><span class="p">))</span>
+        <span class="k">yield</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">([</span><span class="n">order_id</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">])</span>
+        <span class="n">order_id</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+<span class="c1"># process orders from the queue with a specified processing time</span>
+<span class="k">def</span> <span class="nf">server</span><span class="p">(</span><span class="n">t_process</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">order_id</span><span class="p">,</span> <span class="n">time_placed</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">t_process</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">order_id</span><span class="p">,</span> <span class="n">time_placed</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">])</span>
+        
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">queue_logger</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">order_generator</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">12.0</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">server</span><span class="p">(</span><span class="mf">10.0</span><span class="p">))</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">8</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="n">queue_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">queue_log</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;queue length&quot;</span><span class="p">])</span>
+<span class="n">order_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">order_log</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;order id&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;finish&quot;</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">queue_df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">queue_df</span><span class="p">[</span><span class="s2">&quot;queue length&quot;</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time / min&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;queue length&quot;</span><span class="p">)</span>
+
+<span class="n">order_df</span><span class="p">[</span><span class="s2">&quot;elapsed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">order_df</span><span class="p">[</span><span class="s2">&quot;finish&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">order_df</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_orders</span><span class="p">[</span><span class="s2">&quot;elapsed&quot;</span><span class="p">])</span>
+<span class="c1">#ax[1].hist(df_orders[&quot;elapsed&quot;], bins=int(np.sqrt(len(df_orders.index))));</span>
+<span class="c1">#ax[1].set_xlim((0,ax[1].get_xlim()[1]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbe974dd250&gt;]
+</pre></div>
+</div>
+<img alt="../_images/303ceff5e84bb96dc5c014d30ae22a638ff2dd3b39b82e412a30e897bca34b75.png" src="../_images/303ceff5e84bb96dc5c014d30ae22a638ff2dd3b39b82e412a30e897bca34b75.png" />
+</div>
+</div>
+</section>
+<section id="batch-processing-example-needs-rework">
+<h2>Batch Processing Example  (NEEDS REWORK)<a class="headerlink" href="#batch-processing-example-needs-rework" title="Permalink to this heading">#</a></h2>
+<p><strong>Note that this model is incorrect! Update expected soon.</strong></p>
+<p>Schultheisz, Daniel, and Jude T. Sommerfeld. “Discrete-Event Simulation in Chemical Engineering.” Chemical Engineering Education 22.2 (1988): 98-102.</p>
+<p><img alt="Batch Process" src="../_images/BatchProcess.png" /></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;... a small, single-product batch chemical plant has three identical reactors in parallel, followed by a single storage tank and a batch still. Customer orders (batches) to be filled (which begin with processing in the reactor) occur every 115 ± 30 minutes, uniformly distributed. The reaction time in a given reactor is 335 ± 60 minutes, and the distillation time in the still is 110 ± 25 minutes, both times uniformly distributed. The holding capacity of the storage tank is exactly one batch. Hence, the storage tank must be empty for a given reactor to discharge its batch; if not, the reactor cannot begin processing a new batch until the storage tank becomes empty. The simulation is to be run for 100 batches. The model should have the capability to collect waiting line statistics for the queue im- mediately upstream of the reactor.&quot;&quot;
+
+G/G/3
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">simpy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first step in any SimPy simulation is to setup the simulation environment and define any shared resources that may be used in the course of the simulation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this application, the batch process is conceptually modeled as a sequence of components that process individual orders. Here we use the SimPy <a class="reference external" href="http://simpy.readthedocs.io/en/latest/api_reference/simpy.resources.html">Store</a> primative to describe the reactor queue and storage tank. These components will accept orders corresponding to batches, and process them on a first-in, first-out (FIFO) basis.  We’ll put no upper limit on the orders that can be stored in the reactor queue, but we will establish the storage tank so that it can accept only one batch at a time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">customer_order_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we turn to the process that will generate the customer orders. The function <code class="docutils literal notranslate"><span class="pre">order_generator</span></code> begins by initializing a counter that will be used to assigned a consecutive order numbers, after which <code class="docutils literal notranslate"><span class="pre">order_generator</span></code> enters a loop that will create a total of 100 orders for the simulation.</p>
+<p>At the start of each loop, <code class="docutils literal notranslate"><span class="pre">order_generator</span></code> issues a yield statement that will return control back to the simulation for a simulated period extending into the future. The period is given by a random number uniformly distributed in the range 115 +/- 30 minutes.</p>
+<p>Technically speaking, the <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement defines the function as a generator of events, and provides the means for <code class="docutils literal notranslate"><span class="pre">order_generator</span></code> to communicate with other processes and to be controlled by the simulation environment. At least one <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement is needed in every function that will simulate a SimPy process.</p>
+<p>Once control returns to <code class="docutils literal notranslate"><span class="pre">order_generator</span></code>, the order counter is incremented and a second yield used to request the simuation environment put the order into the reactor queue. On return the order_generator completes the loop by writing an entry into the simulation log.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">env.process()</span></code> creates order generator within the simulation environment. The actual simulation, however, happens later when we use <code class="docutils literal notranslate"><span class="pre">env.run()</span></code> after creating the other needed processes for this application.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">order_generator</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">customer_order_queue</span><span class="p">):</span>
+    <span class="n">orderID</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">orderID</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">115</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">115</span><span class="o">+</span><span class="mi">30</span><span class="p">))</span>
+        <span class="k">yield</span> <span class="n">customer_order_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">orderID</span><span class="p">)</span>
+        <span class="n">writeLog</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">orderID</span><span class="p">,</span> <span class="s1">&#39;Stage 0&#39;</span><span class="p">,</span> <span class="s1">&#39;Queue&#39;</span><span class="p">)</span>
+        <span class="n">orderID</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">order_generator</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">customer_order_queue</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Process(order_generator) object at 0x7fa83184c6d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The user is responsible for managing the logging of simulation events.  A simple but useful approach is to initialize a Python list, then append data containing a description of the event and time at which it occurred. Later we’ll see how to process this log to get the desired process performance indicators.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">def</span> <span class="nf">writeLog</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">orderID</span><span class="p">,</span> <span class="n">stage</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">orderID</span><span class="p">,</span> <span class="n">stage</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, &#39;Stage 0&#39;, &#39;Queue&#39;, 139.7912689063472],
+ [2, &#39;Stage 0&#39;, &#39;Queue&#39;, 281.90183364963775],
+ [3, &#39;Stage 0&#39;, &#39;Queue&#39;, 383.9453070616212],
+ [4, &#39;Stage 0&#39;, &#39;Queue&#39;, 473.3172502050613],
+ [5, &#39;Stage 0&#39;, &#39;Queue&#39;, 579.7437399430546],
+ [6, &#39;Stage 0&#39;, &#39;Queue&#39;, 700.9082069695478],
+ [7, &#39;Stage 0&#39;, &#39;Queue&#39;, 797.3263526092184],
+ [8, &#39;Stage 0&#39;, &#39;Queue&#39;, 938.8568078270348],
+ [9, &#39;Stage 0&#39;, &#39;Queue&#39;, 1055.831373019922],
+ [10, &#39;Stage 0&#39;, &#39;Queue&#39;, 1158.4320187228143],
+ [11, &#39;Stage 0&#39;, &#39;Queue&#39;, 1284.9471277131183],
+ [12, &#39;Stage 0&#39;, &#39;Queue&#39;, 1373.0125904139793],
+ [13, &#39;Stage 0&#39;, &#39;Queue&#39;, 1469.363988086261],
+ [14, &#39;Stage 0&#39;, &#39;Queue&#39;, 1571.3833209362244],
+ [15, &#39;Stage 0&#39;, &#39;Queue&#39;, 1699.2527666939222],
+ [16, &#39;Stage 0&#39;, &#39;Queue&#39;, 1822.6510441755897],
+ [17, &#39;Stage 0&#39;, &#39;Queue&#39;, 1915.304591044007],
+ [18, &#39;Stage 0&#39;, &#39;Queue&#39;, 2041.8743538454528],
+ [19, &#39;Stage 0&#39;, &#39;Queue&#39;, 2155.278139269896],
+ [20, &#39;Stage 0&#39;, &#39;Queue&#39;, 2290.0547002600742],
+ [21, &#39;Stage 0&#39;, &#39;Queue&#39;, 2393.5362204948715],
+ [22, &#39;Stage 0&#39;, &#39;Queue&#39;, 2506.2849727620733],
+ [23, &#39;Stage 0&#39;, &#39;Queue&#39;, 2642.6189836453086],
+ [24, &#39;Stage 0&#39;, &#39;Queue&#39;, 2729.8169921354465],
+ [25, &#39;Stage 0&#39;, &#39;Queue&#39;, 2832.19696545759],
+ [26, &#39;Stage 0&#39;, &#39;Queue&#39;, 2929.6045375554263],
+ [27, &#39;Stage 0&#39;, &#39;Queue&#39;, 3070.3439449353186],
+ [28, &#39;Stage 0&#39;, &#39;Queue&#39;, 3211.7279498110393],
+ [29, &#39;Stage 0&#39;, &#39;Queue&#39;, 3336.40988792481],
+ [30, &#39;Stage 0&#39;, &#39;Queue&#39;, 3463.380538361207],
+ [31, &#39;Stage 0&#39;, &#39;Queue&#39;, 3603.2230123608497],
+ [32, &#39;Stage 0&#39;, &#39;Queue&#39;, 3711.035428144933],
+ [33, &#39;Stage 0&#39;, &#39;Queue&#39;, 3846.174135049626],
+ [34, &#39;Stage 0&#39;, &#39;Queue&#39;, 3941.908203577261],
+ [35, &#39;Stage 0&#39;, &#39;Queue&#39;, 4059.7083248328127],
+ [36, &#39;Stage 0&#39;, &#39;Queue&#39;, 4170.078647909729],
+ [37, &#39;Stage 0&#39;, &#39;Queue&#39;, 4305.77360484569],
+ [38, &#39;Stage 0&#39;, &#39;Queue&#39;, 4395.53096517807],
+ [39, &#39;Stage 0&#39;, &#39;Queue&#39;, 4536.0827433731665],
+ [40, &#39;Stage 0&#39;, &#39;Queue&#39;, 4660.549148301049],
+ [41, &#39;Stage 0&#39;, &#39;Queue&#39;, 4771.915112790694],
+ [42, &#39;Stage 0&#39;, &#39;Queue&#39;, 4908.858514856362],
+ [43, &#39;Stage 0&#39;, &#39;Queue&#39;, 5007.856696350772],
+ [44, &#39;Stage 0&#39;, &#39;Queue&#39;, 5125.895058131786],
+ [45, &#39;Stage 0&#39;, &#39;Queue&#39;, 5259.66045952376],
+ [46, &#39;Stage 0&#39;, &#39;Queue&#39;, 5354.399130237207],
+ [47, &#39;Stage 0&#39;, &#39;Queue&#39;, 5483.216083813942],
+ [48, &#39;Stage 0&#39;, &#39;Queue&#39;, 5597.939751736744],
+ [49, &#39;Stage 0&#39;, &#39;Queue&#39;, 5711.070472200441],
+ [50, &#39;Stage 0&#39;, &#39;Queue&#39;, 5847.5720533883505],
+ [51, &#39;Stage 0&#39;, &#39;Queue&#39;, 5938.885193496104],
+ [52, &#39;Stage 0&#39;, &#39;Queue&#39;, 6074.379038858271],
+ [53, &#39;Stage 0&#39;, &#39;Queue&#39;, 6170.097868087694],
+ [54, &#39;Stage 0&#39;, &#39;Queue&#39;, 6296.965828425611],
+ [55, &#39;Stage 0&#39;, &#39;Queue&#39;, 6386.230592889007],
+ [56, &#39;Stage 0&#39;, &#39;Queue&#39;, 6501.134880674207],
+ [57, &#39;Stage 0&#39;, &#39;Queue&#39;, 6639.365892028055],
+ [58, &#39;Stage 0&#39;, &#39;Queue&#39;, 6750.043874352989],
+ [59, &#39;Stage 0&#39;, &#39;Queue&#39;, 6886.445488191414],
+ [60, &#39;Stage 0&#39;, &#39;Queue&#39;, 6985.649225657926],
+ [61, &#39;Stage 0&#39;, &#39;Queue&#39;, 7100.921676185798],
+ [62, &#39;Stage 0&#39;, &#39;Queue&#39;, 7194.905104793235],
+ [63, &#39;Stage 0&#39;, &#39;Queue&#39;, 7291.21004031581],
+ [64, &#39;Stage 0&#39;, &#39;Queue&#39;, 7411.807271603546],
+ [65, &#39;Stage 0&#39;, &#39;Queue&#39;, 7541.9225706988345],
+ [66, &#39;Stage 0&#39;, &#39;Queue&#39;, 7663.532255909225],
+ [67, &#39;Stage 0&#39;, &#39;Queue&#39;, 7808.497271428981],
+ [68, &#39;Stage 0&#39;, &#39;Queue&#39;, 7893.914423491529],
+ [69, &#39;Stage 0&#39;, &#39;Queue&#39;, 7988.467184947141],
+ [70, &#39;Stage 0&#39;, &#39;Queue&#39;, 8133.331587205895],
+ [71, &#39;Stage 0&#39;, &#39;Queue&#39;, 8250.26166814278],
+ [72, &#39;Stage 0&#39;, &#39;Queue&#39;, 8352.826517833395],
+ [73, &#39;Stage 0&#39;, &#39;Queue&#39;, 8449.030320608046],
+ [74, &#39;Stage 0&#39;, &#39;Queue&#39;, 8565.33638606168],
+ [75, &#39;Stage 0&#39;, &#39;Queue&#39;, 8697.03378742154],
+ [76, &#39;Stage 0&#39;, &#39;Queue&#39;, 8834.792708239542],
+ [77, &#39;Stage 0&#39;, &#39;Queue&#39;, 8956.134435889602],
+ [78, &#39;Stage 0&#39;, &#39;Queue&#39;, 9051.059534162901],
+ [79, &#39;Stage 0&#39;, &#39;Queue&#39;, 9156.387991246875],
+ [80, &#39;Stage 0&#39;, &#39;Queue&#39;, 9298.27282815946],
+ [81, &#39;Stage 0&#39;, &#39;Queue&#39;, 9432.612966261526],
+ [82, &#39;Stage 0&#39;, &#39;Queue&#39;, 9518.958039574118],
+ [83, &#39;Stage 0&#39;, &#39;Queue&#39;, 9622.244858766759],
+ [84, &#39;Stage 0&#39;, &#39;Queue&#39;, 9738.571191914454],
+ [85, &#39;Stage 0&#39;, &#39;Queue&#39;, 9881.187052184567],
+ [86, &#39;Stage 0&#39;, &#39;Queue&#39;, 9968.89003070113],
+ [87, &#39;Stage 0&#39;, &#39;Queue&#39;, 10085.847687786474],
+ [88, &#39;Stage 0&#39;, &#39;Queue&#39;, 10172.446830735656],
+ [89, &#39;Stage 0&#39;, &#39;Queue&#39;, 10281.001833155075],
+ [90, &#39;Stage 0&#39;, &#39;Queue&#39;, 10408.338121229022],
+ [91, &#39;Stage 0&#39;, &#39;Queue&#39;, 10507.247153761977],
+ [92, &#39;Stage 0&#39;, &#39;Queue&#39;, 10640.706199960125],
+ [93, &#39;Stage 0&#39;, &#39;Queue&#39;, 10784.663646773472],
+ [94, &#39;Stage 0&#39;, &#39;Queue&#39;, 10873.007758668453],
+ [95, &#39;Stage 0&#39;, &#39;Queue&#39;, 10970.584783893359],
+ [96, &#39;Stage 0&#39;, &#39;Queue&#39;, 11087.107698691347],
+ [97, &#39;Stage 0&#39;, &#39;Queue&#39;, 11203.466699373446],
+ [98, &#39;Stage 0&#39;, &#39;Queue&#39;, 11300.12551313884],
+ [99, &#39;Stage 0&#39;, &#39;Queue&#39;, 11405.146524051328],
+ [100, &#39;Stage 0&#39;, &#39;Queue&#39;, 11544.512786337717]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we create a function <code class="docutils literal notranslate"><span class="pre">batch_reactor</span></code> that will be use to create processes corresponding to each of the three batch reactors. Each reactor is assigned a unique name so they can be distinguished in the simulation log.</p>
+<p>The batch reactors have three interactions with the simulation environment. The first is to get an orderID from the reactor_queue. The batch_reactor yields to the simulation environment until an order is ready for processing. Once the processing can start, and suitable event is written to the log, the process waits a period of time corresponding the length of the reaction, and the order put into the storage_tank.  The reactor will wait until the storage tank is ready to accept a new batch.</p>
+<p><code class="docutils literal notranslate"><span class="pre">env.process()</span></code> is called three times to put three copies of the batch_reactor process into the simulation environment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">batch_reactor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">reactor_queue</span><span class="p">,</span> <span class="n">storage_tank</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">orderID</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">reactor_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="n">writeLog</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">orderID</span><span class="p">,</span> <span class="s1">&#39;Stage 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">335</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="mi">335</span><span class="o">+</span><span class="mi">60</span><span class="p">))</span>
+        <span class="n">writeLog</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">orderID</span><span class="p">,</span> <span class="s1">&#39;Stage 2&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">storage_tank</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">orderID</span><span class="p">)</span>
+        <span class="n">writeLog</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">orderID</span><span class="p">,</span> <span class="s1">&#39;Stage 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Storage&#39;</span><span class="p">)</span>
+        
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">batch_reactor</span><span class="p">(</span><span class="s1">&#39;Reactor A&#39;</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">reactor_queue</span><span class="p">,</span> <span class="n">storage_tank</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">batch_reactor</span><span class="p">(</span><span class="s1">&#39;Reactor B&#39;</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">reactor_queue</span><span class="p">,</span> <span class="n">storage_tank</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">batch_reactor</span><span class="p">(</span><span class="s1">&#39;Reactor C&#39;</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">reactor_queue</span><span class="p">,</span> <span class="n">storage_tank</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Process(batch_reactor) object at 0x7fa8312b8f10&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The last process to model is the batch still. Similar to the reactor model, <code class="docutils literal notranslate"><span class="pre">batch_still</span></code> yields control while waiting for an orderID to be retrieved from a preceding unit. Once an order has been received from the storage_tank, a message is written to the simulation log, time is yielded to the simulation environment corresponding to the time required for distillation, and then a final completion message is written to the log.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">batch_still</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">storage_tank</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">orderID</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">storage_tank</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="n">writeLog</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">orderID</span><span class="p">,</span> <span class="s1">&#39;Stage 4&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">110</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">110</span><span class="o">+</span><span class="mi">25</span><span class="p">))</span>
+        <span class="n">writeLog</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">orderID</span><span class="p">,</span> <span class="s1">&#39;Stage 5&#39;</span><span class="p">,</span> <span class="s1">&#39;complete&#39;</span><span class="p">)</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">batch_still</span><span class="p">(</span><span class="s1">&#39;Still A&#39;</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">storage_tank</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Process(batch_still) object at 0x7fa8312b83d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re now ready to run the the simulation.  In this case the simulation is limited to the 100 orders generated in the <code class="docutils literal notranslate"><span class="pre">order_generator</span></code> process. Simulation is complete once all of the resulting events have been processed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Simulation complete.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">log</span><span class="p">),</span> <span class="s1">&#39; messages have been logged.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulation complete.
+600  messages have been logged.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="processing-the-simulation-log">
+<h2>Processing the Simulation Log<a class="headerlink" href="#processing-the-simulation-log" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_log</span><span class="p">(</span><span class="n">log</span><span class="p">):</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">log</span><span class="p">])</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;OrderID&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">stage1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 0&#39;</span><span class="p">]</span>
+    <span class="n">stage2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 2&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
+    <span class="n">stage3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 3&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 2&#39;</span><span class="p">]</span>
+    <span class="n">stage4</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 4&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 3&#39;</span><span class="p">]</span>
+    <span class="n">stage5</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 5&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 4&#39;</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Order Completion = </span><span class="si">{0:6.1f}</span><span class="s1"> min.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 5&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 0&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Time in Process Stages:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;     Reactor Queue = </span><span class="si">{0:6.1f}</span><span class="s1"> min.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stage1</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;          Reactors = </span><span class="si">{0:6.1f}</span><span class="s1"> min.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stage2</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    Reactor Holdup = </span><span class="si">{0:6.1f}</span><span class="s1"> min.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stage3</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;           Storage = </span><span class="si">{0:6.1f}</span><span class="s1"> min.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stage4</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;             Still = </span><span class="si">{0:6.1f}</span><span class="s1"> min.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stage5</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Utilization</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reactor Utilization = </span><span class="si">{0:5.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stage2</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mf">3.0</span><span class="o">/</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  Still Utilization = </span><span class="si">{0:5.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stage5</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 5&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stage 5&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())))</span>
+    
+    <span class="n">stage1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Reactor Queue Times&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Minutes&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">process_log</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Order Completion =  501.3 min.
+
+Mean Time in Process Stages:
+
+     Reactor Queue =   22.9 min.
+          Reactors =  335.2 min.
+    Reactor Holdup =    0.2 min.
+           Storage =   34.1 min.
+             Still =  109.0 min.
+
+Utilization
+
+Reactor Utilization = 0.960
+  Still Utilization = 0.932
+</pre></div>
+</div>
+<img alt="../_images/7cf0d65c74662338627578c16c445480ada7e6e7f1040b2f6733f2114aebe4ff.png" src="../_images/7cf0d65c74662338627578c16c445480ada7e6e7f1040b2f6733f2114aebe4ff.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-queues">Examples of Queues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manufacturing-lines">Manufacturing Lines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manufacturing-tesla-shanghai-gigafactory">Manufacturing: Tesla Shanghai Gigafactory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-lines">Service Lines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nomenclature">Nomenclature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-disciplines-of-many-possibilities">Service Disciplines (of many possibilities)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-process">Poisson Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-distribution">Binomial distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-distribution">Poisson distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waiting-time-between-events">Waiting time between events</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-a-poisson-process-in-simpy">Simulating a Poisson Process in SimPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kendall-notation-for-queues">Kendall notation for queues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulation-of-an-order-processing-queue">Example: Simulation of an Order Processing Queue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing-example-needs-rework">Batch Processing Example  (NEEDS REWORK)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-the-simulation-log">Processing the Simulation Log</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeffrey Kantor and Alexander Dowling
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
