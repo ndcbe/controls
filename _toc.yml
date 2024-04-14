@@ -18,6 +18,7 @@ parts:
       - file: assignments/Lab-4-PI-Control.ipynb
       - file: assignments/Homework-2.ipynb
       - file: assignments/Lab-5-Open-Loop-Optimization.ipynb
+      - file: assignments/Lab-6-MPC.ipynb
       
   - caption: Topical Materials
     numbered: true

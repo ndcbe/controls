@@ -3,6 +3,7 @@
 
 title: CBE 30338 Data Analytics, Optimization, and Control 
 author: Jeffrey Kantor and Alexander Dowling
+copyright: "2024"
 logo: notebooks/figures/logo.png
 exclude_patterns: [.DS_Store, "**.ipynb_checkpoints", "**.pytest_cache"]
 
