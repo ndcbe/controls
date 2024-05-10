@@ -20,25 +20,27 @@ Dynamic modeling, data analytics, optimization, and control are essential to mod
 
 ## Software Installation Instructions (current)
 
-**Start Here**:
-* Install anaconda: https://www.anaconda.com/ (skip this step if you are using a ND owned computer)
+**Install Software (personal computer)**:
+* Install anaconda: https://www.anaconda.com/
+* Windows users: install LaTeX (https://miktex.org/download) or add `miktex` to the end of the above command
+* Mac users: install LaTeX (https://tug.org/mactex/mactex-download.html)
+* Linux users: install LaTeX via your package manager
+
+**Openning Anaconda**:
+
 * Windows users: in the Start menu, search search for "Anaconda prompt". Open it and copy-paste-run the commands below
 * Mac users: press command + space, then search for "terminal". Open it and copy-paste-run the commands below
 
 **Students** In the terminal/prompt, type:
 
 ``
-conda create -n controls2 python=3.10 -c anaconda -c conda-forge -c IDAES-PSE pandas numpy matplotlib scipy jupyterlab nb_conda_kernels pandoc nbconvert-pandoc idaes-pse
+conda create -n controls -c anaconda -c conda-forge -c IDAES-PSE python=3.10 pandas numpy matplotlib scipy jupyterlab nb_conda_kernels pandoc nbconvert-pandoc idaes-pse
 ``
-
-Windows users: add `miktex` to the end of the above command.
-Mac users: install LaTeX (https://tug.org/mactex/mactex-download.html)
-Linux users: install LaTeX via your package manager
 
 **Instructor/TAs** In the terminal/prompt, type:
 
 ``
-conda create -n controls python=3.10 -c anaconda -c conda-forge -c IDAES-PSE pandas numpy matplotlib scipy jupyterlab nb_conda_kernels pandoc jupyter-book ghp-import
+conda create -n controls -c anaconda -c conda-forge -c IDAES-PSE python=3.10 pandas numpy matplotlib scipy jupyterlab nb_conda_kernels pandoc nbconvert-pandoc jupyter-book ghp-import
 ``
 
 **Everyone** Next, in the terminal type:
