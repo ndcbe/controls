@@ -678,13 +678,13 @@ document.write(`
 <section id="basic-pi-control">
 <h2><span class="section-number">3.7.4. </span>Basic PI Control<a class="headerlink" href="#basic-pi-control" title="Permalink to this heading">#</a></h2>
 <p>Proportional-Integral (PI) Control in velocity form is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6d9621b1-16ea-4fe4-a46c-98b638b69804">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-6d9621b1-16ea-4fe4-a46c-98b638b69804" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7635b79c-4046-4088-aadf-2da457689dab">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-7635b79c-4046-4088-aadf-2da457689dab" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = MV_{k-1} + K_P (e_{k} - e_{k-1}) + \delta t K_I e_k
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(MV_0= \bar{MV}\)</span> is the initial value, and the error <span class="math notranslate nohighlight">\(e_k\)</span> is the difference between the process variable and setpoint, and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-13880388-3286-4c7e-afb1-e3c0fcaa8862">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-13880388-3286-4c7e-afb1-e3c0fcaa8862" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-44eef45f-b399-49cd-8c58-3065ad2bbcf6">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-44eef45f-b399-49cd-8c58-3065ad2bbcf6" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k \\
 \end{align}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\delta t\)</span> is the time step.</p>
@@ -857,8 +857,8 @@ e_k &amp; = SP_k - PV_k \\
 </div>
 <hr class="docutils" />
 <p><strong>Discussion Question:</strong> Examine the results of this experiment. The PI velocity algorithm is given by an equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22dacbb4-6187-4c36-9895-cfb0f1420c6a">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-22dacbb4-6187-4c36-9895-cfb0f1420c6a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-473ccc68-f781-402b-b70d-64a14c6479a5">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-473ccc68-f781-402b-b70d-64a14c6479a5" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_{k} &amp; = MV_{k-1} + K_p(e_{k} + e_{k-1}) + \delta t K_i e_{k}
 \end{align}\]</div>
 <p>Looking at the period from 0 to 100 seconds, is this equation describing what is actually happening? Is it possible for <span class="math notranslate nohighlight">\(MV\)</span> to be different from the actual input applied to the device?</p>
@@ -1261,13 +1261,13 @@ TCLab Model disconnected successfully.
 <li><p>Remove setpoint from proportional term</p></li>
 <li><p>Only the integral control term incorporates the setpoint.</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-12c1afd6-1180-4d22-9cda-e977e10e9577">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-12c1afd6-1180-4d22-9cda-e977e10e9577" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5feb05b2-6089-43bb-814b-48b0c53c1553">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-5feb05b2-6089-43bb-814b-48b0c53c1553" title="Permalink to this equation">#</a></span>\[\begin{align}
 e_k &amp; = SP_k - PV_k \\
 \hat{MV}_{k} &amp; = MV_{k-1} + K_p(-PV_{k} + PV_{k-1}) + \delta t K_i e_{k} 
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-e2ebe42c-d0c5-4a0e-9d69-93421ec18b63">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-e2ebe42c-d0c5-4a0e-9d69-93421ec18b63" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e7453026-816e-4dec-a49f-0a7fd8f4ea8e">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-e7453026-816e-4dec-a49f-0a7fd8f4ea8e" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV_k &amp; = \max(MV^{min}, \min(MV^{max}, \hat{MV}_k)
 \end{align}\]</div>
 <div class="cell docutils container">

@@ -564,6 +564,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-1-step-test-of-a-first-order-system">
 <h1>Lab 1: Step Test of a First-Order System<a class="headerlink" href="#lab-1-step-test-of-a-first-order-system" title="Permalink to this heading">#</a></h1>
+<p><em>Your Name:</em></p>
 <p>This notebook outlines a process for fitting a first-order model of a heater/sensor assembly to data taken during a step test. The learning goals for this notebook are:</p>
 <ul class="simple">
 <li><p>Read and plot a previously saved step test data using the <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> library.</p></li>
@@ -611,8 +612,8 @@ document.write(`
 <section id="first-order-lumped-model-for-heater-sensor-device">
 <h3>First-order lumped model for heater/sensor device.<a class="headerlink" href="#first-order-lumped-model-for-heater-sensor-device" title="Permalink to this heading">#</a></h3>
 <p>We have previously developed a first-order model for one heater/sensor pair on the temperature control lab device.  An energy balance gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71fede5c-be88-43aa-bfd8-7d9480b8ccab">
-<span class="eqno">(1)<a class="headerlink" href="#equation-71fede5c-be88-43aa-bfd8-7d9480b8ccab" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2f31c72a-1d52-4598-849c-91de8efcfe29">
+<span class="eqno">(1)<a class="headerlink" href="#equation-2f31c72a-1d52-4598-849c-91de8efcfe29" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T_1\)</span> is the average temperature of heater/sensor one, <span class="math notranslate nohighlight">\(T_{amb}\)</span> is the ambient temperature of the surroundings. The unknown parameters are the heat capacity <span class="math notranslate nohighlight">\(C_p\)</span> and the heat transfer coefficient <span class="math notranslate nohighlight">\(U_a\)</span>.</p>
