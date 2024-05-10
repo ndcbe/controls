@@ -28,8 +28,10 @@ Dynamic modeling, data analytics, optimization, and control are essential to mod
 **Students** In the terminal/prompt, type:
 
 ``
-conda create -n controls python=3.10 -c anaconda -c conda-forge -c IDAES-PSE pandas numpy matplotlib scipy jupyterlab nb_conda_kernels pandoc nbconvert-pandoc miktex 
+conda create -n controls2 python=3.10 -c anaconda -c conda-forge -c IDAES-PSE pandas numpy matplotlib scipy jupyterlab nb_conda_kernels pandoc nbconvert-pandoc idaes-pse
 ``
+
+Windows users: add `miktex` to the end of the above command. Mac and Linux users can skip this. 
 
 **Instructor/TAs** In the terminal/prompt, type:
 
