@@ -18,7 +18,37 @@ Dynamic modeling, data analytics, optimization, and control are essential to mod
 | 12 - 13 | Team Project Workshops |
 | 14 | Student Project Presentations |
 
-## Software Installation Instructions
+## Software Installation Instructions (current)
+
+**Start Here**:
+* Install anaconda: https://www.anaconda.com/
+* Windows users: in the Start menu, search search for "Anaconda prompt". Open it and copy-paste-run the commands below
+* Mac users: press command + space, then search for "terminal". Open it and copy-paste-run the commands below
+
+**Students** In the terminal/prompt, type:
+
+``
+conda create -n controls python=3.10 -c anaconda -c conda-forge -c IDAES-PSE pandas numpy matplotlib scipy jupyterlab nb_conda_kernels
+``
+
+**Instructor/TAs** In the terminal/prompt, type:
+
+``
+conda create -n controls python=3.10 -c anaconda -c conda-forge -c IDAES-PSE pandas numpy matplotlib scipy jupyterlab nb_conda_kernels jupyter-book ghp-import
+``
+
+**Everyone** Next, in the terminal type:
+* `conda activate controls` (activates the new environment)
+* `idaes get-extensions` (installs optimization solvers)
+* `pip install tclab` (installs TCLab software)
+
+To **start using Python**, in either the Acaconda prompty (Windows) or terminal (Mac):
+* Activate our environment: `conda activate controls`
+* Launch Jupyter lab: `jupyter lab`
+* In the upper right corner, click on "Kernel" and change to "controls"
+* You are now ready to test the TCLab hardware!
+
+## Software Installation Instructions (from Spring 2024)
 
 Students will use their personal laptop computers to complete labratory and homework assignments. Below are instructions 
 
