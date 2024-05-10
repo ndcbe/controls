@@ -21,7 +21,7 @@ Dynamic modeling, data analytics, optimization, and control are essential to mod
 ## Software Installation Instructions (current)
 
 **Start Here**:
-* Install anaconda: https://www.anaconda.com/
+* Install anaconda: https://www.anaconda.com/ (skip this step if you are using a ND owned computer)
 * Windows users: in the Start menu, search search for "Anaconda prompt". Open it and copy-paste-run the commands below
 * Mac users: press command + space, then search for "terminal". Open it and copy-paste-run the commands below
 
