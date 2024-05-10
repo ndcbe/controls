@@ -268,6 +268,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../tclab/00.01-setting-up-tclab.html">1.1. Setting up TCLab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tclab/00.02-troubleshooting-tclab.html">1.2. Testing and Troubleshooting TCLab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tclab/00.03-using-tclab.html">1.3. Python Coding for TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/testing-software-environment.html">1.4. Testing Your Software Environment and TCLab</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/01.00-step-testing.html">2. Step Testing</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -586,8 +587,8 @@ u_{1}(t) = \bar{u}_{1} + K_P (T_{set} - T_{S,1}(t)) + K_I \int_{0}^{t} (T_{set} 
 <h2><span class="section-number">3.9.3. </span>Closed-Loop Dynamics<a class="headerlink" href="#closed-loop-dynamics" title="Permalink to this heading">#</a></h2>
 <p>How can we model the integral in the control law? Let’s add a new state to our model for the integral:
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-98f1c9da-b07a-4f5a-9cdb-23cb59399977">
-<span class="eqno">(3.15)<a class="headerlink" href="#equation-98f1c9da-b07a-4f5a-9cdb-23cb59399977" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-76ca1cfa-5dca-460c-9264-fd482aa5649d">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-76ca1cfa-5dca-460c-9264-fd482aa5649d" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = -U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) - \alpha P_1 K_P T^*_{S,1} + \alpha P_1 K_I I\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) \\
 \frac{dI}{dt} &amp;= -T^{*}_{S,1}
@@ -751,7 +752,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.05764412757011409+0j)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalue 0 = (-0.0576441275701141+0j)
 Eigenvector 0 = [ 0.00879784 -0.05754637  0.99830407] 
 
 Eigenvalue 1 = (-0.00940444864546306+0j)
@@ -829,7 +830,7 @@ Eigenvector 2 = [-0.00277718 -0.0029514   0.99999179]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3cbbb08341335765e719db1260b80bd41e66102b6bf6f4e7a064e26df732bcbf.png" src="../_images/3cbbb08341335765e719db1260b80bd41e66102b6bf6f4e7a064e26df732bcbf.png" />
+<img alt="../_images/603fee74a539b864b7d7882562788a803c88523da0b58a468c5e126020e3acb3.png" src="../_images/603fee74a539b864b7d7882562788a803c88523da0b58a468c5e126020e3acb3.png" />
 </div>
 </div>
 <p>These six subplots show how the real (right) and imaginary (left) components of the three eigenvalues (rows) change as a function of <span class="math notranslate nohighlight">\(K_P\)</span> and <span class="math notranslate nohighlight">\(K_I\)</span>. While these plots are informative, they are a little difficult to interpret.</p>
@@ -856,6 +857,7 @@ Eigenvector 2 = [-0.00277718 -0.0029514   0.99999179]
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[:])</span>
 
 <span class="c1">#plt.tight_layout()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;PI_stability.pdf&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -962,11 +964,11 @@ Eigenvector 2 = [-0.00277718 -0.0029514   0.99999179]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1c3948e5fff6cec1434251ec5ab079b806275464056a5ecfd290e6bef4965553.png" src="../_images/1c3948e5fff6cec1434251ec5ab079b806275464056a5ecfd290e6bef4965553.png" />
+<img alt="../_images/3ed5efd763a8fc853adb614762938b09166dac49b6d74c193138d748c134e507.png" src="../_images/3ed5efd763a8fc853adb614762938b09166dac49b6d74c193138d748c134e507.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
 </pre></div>
 </div>
-<img alt="../_images/1c3948e5fff6cec1434251ec5ab079b806275464056a5ecfd290e6bef4965553.png" src="../_images/1c3948e5fff6cec1434251ec5ab079b806275464056a5ecfd290e6bef4965553.png" />
+<img alt="../_images/3ed5efd763a8fc853adb614762938b09166dac49b6d74c193138d748c134e507.png" src="../_images/3ed5efd763a8fc853adb614762938b09166dac49b6d74c193138d748c134e507.png" />
 </div>
 </div>
 </section>
@@ -979,11 +981,11 @@ Eigenvector 2 = [-0.00277718 -0.0029514   0.99999179]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/904d9cfacce30700625f2553331c262284191945e1dda6020e18cc62d51de96b.png" src="../_images/904d9cfacce30700625f2553331c262284191945e1dda6020e18cc62d51de96b.png" />
+<img alt="../_images/e59730021151d0b9bf1e978957567be3b057d3e921dd5afd5a06a32053200d3a.png" src="../_images/e59730021151d0b9bf1e978957567be3b057d3e921dd5afd5a06a32053200d3a.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab Model disconnected successfully.
 </pre></div>
 </div>
-<img alt="../_images/904d9cfacce30700625f2553331c262284191945e1dda6020e18cc62d51de96b.png" src="../_images/904d9cfacce30700625f2553331c262284191945e1dda6020e18cc62d51de96b.png" />
+<img alt="../_images/e59730021151d0b9bf1e978957567be3b057d3e921dd5afd5a06a32053200d3a.png" src="../_images/e59730021151d0b9bf1e978957567be3b057d3e921dd5afd5a06a32053200d3a.png" />
 </div>
 </div>
 </section>

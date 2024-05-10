@@ -268,6 +268,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../tclab/00.01-setting-up-tclab.html">1.1. Setting up TCLab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tclab/00.02-troubleshooting-tclab.html">1.2. Testing and Troubleshooting TCLab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tclab/00.03-using-tclab.html">1.3. Python Coding for TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tclab/testing-software-environment.html">1.4. Testing Your Software Environment and TCLab</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../tclab/01.00-step-testing.html">2. Step Testing</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -558,29 +559,29 @@ document.write(`
 <section id="model">
 <h2><span class="section-number">4.8.1. </span>Model<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h2>
 <p>The Streeter-Phelps model for oxygen in a river or stream is given by the pair of linear differential equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71ee9a3e-f278-4b8b-9e35-9bd3644ecbd9">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-71ee9a3e-f278-4b8b-9e35-9bd3644ecbd9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-79500d41-5ee1-4e3b-be18-a9656528b850">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-79500d41-5ee1-4e3b-be18-a9656528b850" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx_1}{dt} &amp; = -\frac{k_1}{U} x_2 + \frac{k_2}{U}(D_s - x_1) \\
 \frac{dx_2}{dt} &amp; = -\frac{k_1}{U} x_2
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x_1\)</span> is dissolved oxygen (DO) and <span class="math notranslate nohighlight">\(x_2\)</span> is biological oxygen demand (BOD).  Rate constant <span class="math notranslate nohighlight">\(k_1\)</span> is the BOD removal rate, <span class="math notranslate nohighlight">\(k_2\)</span> is the re-areation rate, and <span class="math notranslate nohighlight">\(D_s\)</span> is the oxygen saturation level which, for this problem, is a disturbance variable. No manipulations to this system are possible.</p>
 <p>For environmental monitoring, dissolved oxygen can be measured in the field with a low-cost sensor. BOD, however, cannot be measured in the field.</p>
 <p>Our standard model for a state-space system is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-161a3a13-4dd5-4da9-85e3-d37927a2e73a">
-<span class="eqno">(4.5)<a class="headerlink" href="#equation-161a3a13-4dd5-4da9-85e3-d37927a2e73a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-443d2d54-1e04-4b13-a5ea-f305b9c8d07d">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-443d2d54-1e04-4b13-a5ea-f305b9c8d07d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt} &amp; = A x + B_d d + B_u u\\
 y &amp; = C x
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> contains the states, <span class="math notranslate nohighlight">\(d\)</span> contains the disturbances, and <span class="math notranslate nohighlight">\(u\)</span> contains the manipulable inputs.</p>
 <p>Parameter values are <span class="math notranslate nohighlight">\(k_1 = 0.3\ \text{day}^{-1}\)</span>, <span class="math notranslate nohighlight">\(k_2 = 0.06\ \text{day}^{-1}\)</span>, and <span class="math notranslate nohighlight">\(U = 1\)</span>. A typical value of Ds = 16 mg/liter. For these values the state space model becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e4adc87-f0cc-457f-ab65-dc750e2f51ef">
-<span class="eqno">(4.6)<a class="headerlink" href="#equation-4e4adc87-f0cc-457f-ab65-dc750e2f51ef" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4b29b345-4ceb-4794-955d-328a0f5d8f5c">
+<span class="eqno">(4.6)<a class="headerlink" href="#equation-4b29b345-4ceb-4794-955d-328a0f5d8f5c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt} &amp; = A x + B_d d + B_u u\\
 y &amp; = C x
 \end{align}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd183ebe-672d-4e24-85fb-0ad573afaa83">
-<span class="eqno">(4.7)<a class="headerlink" href="#equation-fd183ebe-672d-4e24-85fb-0ad573afaa83" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a38db539-cd34-4fc4-b180-e72068cfc439">
+<span class="eqno">(4.7)<a class="headerlink" href="#equation-a38db539-cd34-4fc4-b180-e72068cfc439" title="Permalink to this equation">#</a></span>\[\begin{align}
 A &amp; = \begin{bmatrix} -0.06 &amp; -0.3 \\0 &amp; -0.3\end{bmatrix}
 \qquad
 B_d = \begin{bmatrix} 0.06 \\ 0 \end{bmatrix} \\
@@ -590,8 +591,8 @@ C &amp; = \begin{bmatrix} 1 &amp; 0 \end{bmatrix}
 <ul class="simple">
 <li><p><strong>Model Prediction:</strong> Use the model to update the state to the next time step, i.e., <span class="math notranslate nohighlight">\(\hat{x}_{k-1} \rightarrow \hat{x}_{k}^{pred}\)</span> with the equation</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-44f9f907-7279-4732-9fad-ee8929d84e45">
-<span class="eqno">(4.8)<a class="headerlink" href="#equation-44f9f907-7279-4732-9fad-ee8929d84e45" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7fd10c2b-0619-4e7a-b7f4-333de55f21fa">
+<span class="eqno">(4.8)<a class="headerlink" href="#equation-7fd10c2b-0619-4e7a-b7f4-333de55f21fa" title="Permalink to this equation">#</a></span>\[\begin{align}
 \hat{x}_k^{pred} &amp; = \hat{x}_{k-1} + (t_k - t_{k-1}) ( A \hat{x}_{k-1} + B_u u_{k-1} + B_d \hat{d}_{k-1}) \\
 \hat{y}_k^{pred} &amp; = C \hat{x}_k^{pred}
 \end{align}\]</div>
