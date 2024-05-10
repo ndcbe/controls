@@ -28,13 +28,13 @@ Dynamic modeling, data analytics, optimization, and control are essential to mod
 **Students** In the terminal/prompt, type:
 
 ``
-conda create -n controls python=3.10 -c anaconda -c conda-forge -c IDAES-PSE pandas numpy matplotlib scipy jupyterlab nb_conda_kernels
+conda create -n controls python=3.10 -c anaconda -c conda-forge -c IDAES-PSE pandas numpy matplotlib scipy jupyterlab nb_conda_kernels pandoc nbconvert-pandoc miktex 
 ``
 
 **Instructor/TAs** In the terminal/prompt, type:
 
 ``
-conda create -n controls python=3.10 -c anaconda -c conda-forge -c IDAES-PSE pandas numpy matplotlib scipy jupyterlab nb_conda_kernels jupyter-book ghp-import
+conda create -n controls python=3.10 -c anaconda -c conda-forge -c IDAES-PSE pandas numpy matplotlib scipy jupyterlab nb_conda_kernels pandoc jupyter-book ghp-import
 ``
 
 **Everyone** Next, in the terminal type:
