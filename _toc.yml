@@ -114,6 +114,7 @@ parts:
       - file: tclab/00.01-setting-up-tclab.ipynb
       - file: tclab/00.02-troubleshooting-tclab
       - file: tclab/00.03-using-tclab
+      - file: tclab/testing-software-environment
       
     - file: tclab/01.00-step-testing.md
       sections:
