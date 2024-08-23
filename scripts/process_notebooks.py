@@ -109,6 +109,8 @@ def process_notebook(folder_original, folder_new, filename, remove_output=False,
     # replace links to media with urls
     # 2022-09-21: removed "!" from the beginning both of these expressions to also work on handouts (pdf) in media folder
     # 2022-09-21: the use case is the error propagation handout
+    # Why is this needed?
+    '''
     MEDIA_LINK = '\[(.*)\]\(\.\./\.\./media/(.*\..*)\)'
     IMAGE_LINK = r'[\1](https://ndcbe.github.io/controls/_images/\2)'
     
@@ -127,6 +129,14 @@ def process_notebook(folder_original, folder_new, filename, remove_output=False,
                     shutil.copy2(path_to_media_file, "./_build/html/_images")
             # replace media files with urls to _images
             cell.source = re.sub(MEDIA_LINK, IMAGE_LINK, cell.source)
+    '''
+
+    # Does this help for openning notebooks in Colab?
+    # replace_markdown('../figures', 'https://raw.githubusercontent.com/ndcbe/controls/main/notebooks/figures/')
+
+    # Optional for handouts
+    replace_markdown('../../extras/', 'https://raw.githubusercontent.com/ndcbe/controls/main/extras/')
+
 
     ## Remove code output
     # https://gist.github.com/decabyte/0ed87372774cf5d34d7e#file-nb_remove_output-py-L24
