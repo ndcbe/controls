@@ -41,7 +41,7 @@ conda create -n controls -c anaconda -c conda-forge -c IDAES-PSE python=3.10 pan
 **Instructor/TAs** In the terminal/prompt, type:
 
 ``
-conda create -n controls -c anaconda -c conda-forge -c IDAES-PSE python=3.10 pandas numpy matplotlib scipy jupyterlab nb_conda_kernels pandoc nbconvert-pandoc jupyter-book ghp-import
+conda create -n controls -c anaconda -c conda-forge -c IDAES-PSE python=3.10 pandas numpy matplotlib scipy jupyterlab nb_conda_kernels pandoc nbconvert-pandoc jupyter-book ghp-import idaes-pse
 ``
 
 **Everyone** Next, in the terminal type:
