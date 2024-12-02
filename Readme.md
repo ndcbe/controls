@@ -22,6 +22,7 @@ Dynamic modeling, data analytics, optimization, and control are essential to mod
 
 **Install Software (personal computer)**:
 * Install anaconda: https://www.anaconda.com/
+  * Mac users: if you have a computer with an M1, M2, M3, or M4 processor, please choose "Apple Silicon"
 * Windows users: install LaTeX (https://miktex.org/download) or add `miktex` to the end of the above command
 * Mac users: install LaTeX (https://tug.org/mactex/mactex-download.html)
 * Linux users: install LaTeX via your package manager
