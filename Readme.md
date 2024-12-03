@@ -49,6 +49,9 @@ conda create -n controls -c anaconda -c conda-forge -c IDAES-PSE python=3.10 pan
 * `idaes get-extensions` (installs optimization solvers)
 * `pip install tclab` (installs TCLab software)
 
+**Instructors/TAs**, Next, in the terminal type:
+* `pip install sphinxcontrib-tikz`
+
 To **start using Python**, in either the Acaconda prompty (Windows) or terminal (Mac):
 * Activate our environment: `conda activate controls`
 * Launch Jupyter lab: `jupyter lab`
