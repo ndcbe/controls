@@ -58,6 +58,13 @@ To **start using Python**, in either the Acaconda prompty (Windows) or terminal 
 * In the upper right corner, click on "Kernel" and change to "controls"
 * You are now ready to test the TCLab hardware!
 
+**Note** macOS users might need to add the following line to `.bashrc`
+
+`export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:/Users/adowling/.idaes/bin"
+export PATH="$PATH:/Users/adowling/.idaes/bin`
+
+Replace `adowling` with your username.
+
 ## Software Installation Instructions (from Spring 2024)
 
 Students will use their personal laptop computers to complete labratory and homework assignments. Below are instructions 
