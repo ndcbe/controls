@@ -13,8 +13,8 @@ parts:
       sections:
       - file: assignments/Homework-1.ipynb
       - file: assignments/Lab-1-Step-Testing.ipynb
-      - file: assignments/Lab-2-Relay-Control.ipynb
-      - file: assignments/Lab-3-Model-Identification.ipynb
+      - file: assignments/Lab-2-Model-Identification.ipynb
+      - file: assignments/Lab-3-Relay-Control.ipynb
       - file: assignments/Lab-4-PI-Control.ipynb
       - file: assignments/Homework-2.ipynb
       - file: assignments/Lab-5-Open-Loop-Optimization.ipynb
