@@ -65,6 +65,20 @@ export PATH="$PATH:/Users/adowling/.idaes/bin`
 
 Replace `adowling` with your username.
 
+## DeBartolo 133 Computer Lab
+
+The computers in DeBartolo 133 have Anaconda installed. The first time you use a specific machine, you will need to create the `controls` environment and install the packages using the Windows instructions above. Here is a video walking through the students (no audio):
+
+```{raw} html
+<iframe width="640" height="360" src="https://www.youtube.com/embed/D5-X_CfZdyo" 
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+We will be meeting in DBT 133 on Fridays for the tutorial session. If you use the same computer each week, you should only need to setup your conda `controls` environment once each semester.
+
+After tutorial each week, you should copy your files from the classroom computer to Google Drive or another cloud storage system. This is important to make sure you do not loose any work between weeks.
+
 ## Software Installation Instructions (from Spring 2024)
 
 Students will use their personal laptop computers to complete labratory and homework assignments. Below are instructions 
