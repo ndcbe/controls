@@ -55,27 +55,27 @@ parts:
       - file: notebooks/3/PI-Controller-Analysis
       - file: notebooks/3/Controller-Tuning
 
-    - file: notebooks/04/04.00-Process-Analytics
+    - file: notebooks/4/04.00-Process-Analytics
       sections:
-      - file: notebooks/04/04.01-Learning-Goals
-      - file: notebooks/04/04.02-Process-Historians
-      - file: notebooks/04/04.03-State-Estimation
-      - file: notebooks/04/04.04-Lab-Assigment-State-Estimation
-      - file: notebooks/04/04.05-Anomaly-Detection
-      - file: notebooks/04/04.06-Lab-Assignment-Anomaly-Detection
-      - file: notebooks/04/04.07-Observer-Synthesis-LMI
-      - file: notebooks/04/04.08-Envrironmental-Application
-      - file: notebooks/04/04.09-Study-Questions
+      - file: notebooks/4/04.01-Learning-Goals
+      - file: notebooks/4/04.02-Process-Historians
+      - file: notebooks/4/04.03-State-Estimation
+      - file: notebooks/4/04.04-Lab-Assigment-State-Estimation
+      - file: notebooks/4/04.05-Anomaly-Detection
+      - file: notebooks/4/04.06-Lab-Assignment-Anomaly-Detection
+      - file: notebooks/4/04.07-Observer-Synthesis-LMI
+      - file: notebooks/4/04.08-Envrironmental-Application
+      - file: notebooks/4/04.09-Study-Questions
   
-    - file: notebooks/05/05.00-Optimization
+    - file: notebooks/5/05.00-Optimization
       sections:
-      - file: notebooks/05/05.01-Linear-Production-Model
-      - file: notebooks/05/05.02-Linear-Blending-Problem
-      - file: notebooks/05/05.03-Homework_2
-      - file: notebooks/05/05.04-Gasoline-Blending
-      - file: notebooks/05/05.05-Linear-Programming
-      - file: notebooks/05/05.06-Design-of-a-Cold-Weather-Fuel
-      - file: notebooks/05/05.99-Pyomo-Examples
+      - file: notebooks/5/05.01-Linear-Production-Model
+      - file: notebooks/5/05.02-Linear-Blending-Problem
+      - file: notebooks/5/05.03-Homework_2
+      - file: notebooks/5/05.04-Gasoline-Blending
+      - file: notebooks/5/05.05-Linear-Programming
+      - file: notebooks/5/05.06-Design-of-a-Cold-Weather-Fuel
+      - file: notebooks/5/05.99-Pyomo-Examples
       - file: CBE30338-EV-Example
       - file: notebooks/milk-pooling
   
