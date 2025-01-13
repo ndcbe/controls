@@ -59,9 +59,9 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | Main Topic(s) | Supplemental Material |
 | ----------- | ----------- |
 | **Tuesday, January 14** | **Welcome** |
-| [](./notebooks/What-is-Process-Control.md) | [](./Schedule.md) |
-| [](./notebooks/What-is-Feedback.ipynb) | [](./Syllabus.md) |
-| [](./notebooks/Elements-of-Feedback-Control.ipynb) | [](./python/A.00-Python-Tutorials.md) |
+| [](./notebooks/1/What-is-Process-Control.md) | [](./Schedule.md) |
+| [](./notebooks/1/What-is-Feedback.ipynb) | [](./Syllabus.md) |
+| [](./notebooks/1/Elements-of-Feedback-Control.ipynb) | [](./python/A.00-Python-Tutorials.md) |
 | **Thursday, January 16** | **CBE 20258 Review** |
 | [](./assignments/Homework-1.ipynb) | [Python](https://ndcbe.github.io/data-and-computing/notebooks/01/Python-Primer.html) |
 | | [Solving Nonlinear Equations](https://ndcbe.github.io/data-and-computing/notebooks/06/nonlinear_systems.html) |
@@ -74,7 +74,7 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | **Thursday, January 23** | **Modeling: TCLab as First Order Linear System**  |
 | [](./notebooks/2/First-Order-Model-for-a-Single-Heater.ipynb) | |
 | **Tuesday, January 28** | **More About Nonlinear Regression** |
-| [](./notebooks/02/Fitting-a-Model-to-Data.ipynb) | |
+| [](./notebooks/2/Fitting-a-Model-to-Data.ipynb) | |
 | **Thursday, January 30** | **Modeling: TCLab as Second Order Linear System** |
 | [](./notebooks/2/Second-Order.ipynb) | [](./assignments/Lab-2-Model-Identification.ipynb) |
 | **Tuesday, February 4** | **Modeling: Second Order Systems** |
@@ -82,7 +82,7 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | **Thursday, February 6** | **Nonlinear Modeling: Exothermic CSTR**  |
 | [](./notebooks/2/Exothermic-CSTR.ipynb) |  |
 | **Tuesday, February 11** | **Nonlinear Modeling: Hare and Lynx** |
-| [](./notebooks/2/Hare-and-Lynx.ipynb) | [](./notebooks/02.09-Study-Guide.ipynb) | |
+| [](./notebooks/2/Hare-and-Lynx.ipynb) | [](./notebooks/2/Study-Guide.ipynb) | |
 | **Thursday, February 13** | **Introduction of Feedback**|
 | [](./notebooks/3/Feedback-Control.md) | [](./notebooks/3/Relay-Control.ipynb) |
 | [](./notebooks/3/Case-Study-Thermal-Cycling-PCR.ipynb) | [](./notebooks/3/Setpoints-Thermal-Cycler.ipynb) |
