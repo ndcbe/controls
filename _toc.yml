@@ -79,18 +79,18 @@ parts:
       - file: notebooks/5/EV-Example
       - file: notebooks/5/milk-pooling
   
-    - file: notebooks/06.00-Predictive-Control
+    - file: notebooks/6/Predictive-Control-Chapter.md
       sections:
-      - file: notebooks/07.01-Simulation-and-Optimal-Control-in-Pharmacokinetics
-      - file: notebooks/06.01-Static-Operability
-      - file: notebooks/06.02-Simulation-and-Open-Loop-Optimal-Control
-      - file: notebooks/06.03-Predictive-Control
-      - file: notebooks/06.04-Implementing-Predictive-Control
-      - file: notebooks/06.06a-gompertz-tumor-growth
-      - file: notebooks/06.06-gompertz-model-project
-      - file: notebooks/06.07-time-as-decision-variable
-      - file: notebooks/07-TCLab-Optimization-Estimation-Control
-      - file: notebooks/06-TCLab-Model-Predictive-Control
+      - file: notebooks/6/Static-Operability
+      - file: notebooks/6/Simulation-and-Open-Loop-Optimal-Control
+      - file: notebooks/6/Predictive-Control.ipynb
+      - file: notebooks/6/Implementing-Predictive-Control
+      - file: notebooks/6/gompertz-tumor-growth
+      - file: notebooks/6/gompertz-model-project
+      - file: notebooks/6/time-as-decision-variable
+      - file: notebooks/6/TCLab-Optimization-Estimation-Control
+      - file: notebooks/6/TCLab-Model-Predictive-Control
+      - file: notebooks/6/Simulation-and-Optimal-Control-in-Pharmacokinetics
 
 #    - file: notebooks/07.00-Discrete-Event-Systems
 #      sections:
