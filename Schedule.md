@@ -73,50 +73,50 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | [](./notebooks/2/Properties-of-Scalar-First-Order-Linear-Systems.ipynb) | |
 | **Thursday, January 23** | **Modeling: TCLab as First Order Linear System**  |
 | [](./notebooks/2/First-Order-Model-for-a-Single-Heater.ipynb) | |
-| **Tuesday, January 28** | **Nonlinear Regression Review** |
-[](./notebooks/02/Fitting-a-Model-to-Data.ipynb) | |
+| **Tuesday, January 28** | **More About Nonlinear Regression** |
+| [](./notebooks/02/Fitting-a-Model-to-Data.ipynb) | |
 | **Thursday, January 30** | **Modeling: TCLab as Second Order Linear System** |
-| [](./notebooks/2/Second-Order.ipynb) |
+| [](./notebooks/2/Second-Order.ipynb) | [](./assignments/Lab-2-Model-Identification.ipynb) |
 | **Tuesday, February 4** | **Modeling: Second Order Systems** |
-| [](./notebooks/02-spring-mass-damper.ipynb) | |
-| **Thursday, February 6** | **Modeling: Second Order Systems** |
-| [](./notebooks/02-spring-mass-damper.ipynb) | [](./assignments/Lab-3-Model-Identification.ipynb) |
-| **Tuesday, February 11** | **Nonlinear Modeling: Exothermic CSTR** |
-| [](./notebooks/02.07-Exothermic-CSTR.ipynb) |  |
-| **Thursday, February 13** | **Nonlinear Modeling: Hare and Lynx, Introduction of Feedback**|
-| [](./notebooks/02.08-Hare-and-Lynx.ipynb) | [](./notebooks/02.09-Study-Guide.ipynb) |
-| [](./notebooks/03.00-Feedback-Control.md) | [](./notebooks/03.03-Setpoints-Thermal-Cycler.ipynb) |
-| [](./notebooks/03.01-Case-Study-Thermal-Cycling-PCR.ipynb) | [](./notebooks/03.04-Relay-Control.ipynb) |
-| [](./notebooks/03.02-Setpoints.ipynb) | [](./notebooks/03.05-Implementing-Controllers.ipynb) |
+| [](./notebooks/2/Spring-Mass-Damper.ipynb) | |
+| **Thursday, February 6** | **Nonlinear Modeling: Exothermic CSTR**  |
+| [](./notebooks/2/Exothermic-CSTR.ipynb) |  |
+| **Tuesday, February 11** | **Nonlinear Modeling: Hare and Lynx** |
+| [](./notebooks/2/Hare-and-Lynx.ipynb) | [](./notebooks/02.09-Study-Guide.ipynb) | |
+| **Thursday, February 13** | **Introduction of Feedback**|
+| [](./notebooks/3/Feedback-Control.md) | [](./notebooks/3/Relay-Control.ipynb) |
+| [](./notebooks/3/Case-Study-Thermal-Cycling-PCR.ipynb) | [](./notebooks/3/Setpoints-Thermal-Cycler.ipynb) |
+| [](./notebooks/3/Setpoints.ipynb) | [](./notebooks/3/Implementing-Controllers.ipynb) |
 | **Tuesday, February 18** | **Feedback Control: P, PI, and PID** |
-| [](./notebooks/03.06-Proportional-Integral-Control.ipynb) | |
-| **Thursday, February 20** | **PI Implementation Details** |
-| [](./notebooks/03.07-Integral-Windup-and-Bumpless-Transfer.ipynb) | |
-| **Tuesday, February 25** | **PI Stability Analysis** |
-| [](./notebooks/03.08-P-Controller-Analysis.ipynb) |
-| [](./notebooks/03.09-PI-Controller-Analysis.ipynb) |
+| [](./notebooks/3/Proportional-Integral-Control.ipynb) | |
+| **Thursday, February 20** | **PI Stability Analysis** |
+| [](./notebooks/3/P-Controller-Analysis.ipynb) | |
+| [](./notebooks/3/PI-Controller-Analysis.ipynb) | |
+| **Tuesday, February 25**  | **PI Implementation Details** |
+| [](./notebooks/3/Integral-Windup-and-Bumpless-Transfer.ipynb) | |
+| Stability Analysis Revisited | |
 | **Thursday, February 27** | **PID Tuning** |
-| [](./notebooks/03.10-Controller-Tuning.ipynb) | |
+| [](./notebooks/3/Controller-Tuning.ipynb) | |
 | **Tuesday, March 4** | **Optimization Modeling and Linear Programming in Pyomo** |
-| [](./notebooks/05/05.01-Linear-Production-Model.ipynb) | [Optimization Python Book: Mathematical Optimization](https://mobook.github.io/MO-book/notebooks/01/01.00.html) |
-| [](./notebooks/05/05.02-Linear-Blending-Problem.ipynb) | [Optimization Python Book: Linear Optimization](https://mobook.github.io/MO-book/notebooks/02/02.00.html) |
+| [](./notebooks/5/Linear-Production-Model.ipynb) | [Optimization Python Book: Mathematical Optimization](https://mobook.github.io/MO-book/notebooks/01/01.00.html) |
+| [](./notebooks/5/Linear-Blending-Problem.ipynb) | [Optimization Python Book: Linear Optimization](https://mobook.github.io/MO-book/notebooks/02/02.00.html) |
 | **Thursday, March 6** | **Nonlinear Programming Examples** |
-| [](./notebooks/05/05.04-Gasoline-Blending.ipynb) | |
-| [](./notebooks/05/05.06-Design-of-a-Cold-Weather-Fuel.ipynb) | |
+| [](./notebooks/5/Gasoline-Blending.ipynb) | |
+| [](./notebooks/5/Design-of-a-Cold-Weather-Fuel.ipynb) | |
 | **Tuesday, March 18** | **Dynamic Optimization** |
-| [Pyomo.DAE Theory](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_theory.html) | [](./notebooks/07-TCLab-Optimization-Estimation-Control.ipynb) |
+| [Pyomo.DAE Theory](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_theory.html) | [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) |
 | [Pyomo.DAE Example](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_example.html) |
 | **Thursday, March 20** | **Simulation and Open-Loop Control** |
-| [](./notebooks/07-TCLab-Optimization-Estimation-Control.ipynb) |
-| **Tuesday, March 25** | **State Estimation** |
-| [](./notebooks/07-TCLab-Optimization-Estimation-Control.ipynb) | |
-| **Thursday, March 27** | **Model Predictive Control** |
-| Tuesday, April 1 | Review Session |
-| Thursday, April 3 | Midterm Exam (in-class) |
-| Tuesday, April 8 | Project Consulations (in-class) |
-| Thursday, April 10 | Project Consulations (in-class) |
-| Tuesday, April 15 | Project Consulations (in-class) |
-| Thursday, April 17 | Project Consulations (in-class) |
+| [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) | |
+| **Tuesday, March 25** | **Catch-up** |
+| **Thursday, March 27** | **Exam Review** |
+| **Tuesday, April 1** | Project Consultations (in-class) |
+| **Thursday, April 3** | **State Estimation and Model Predictive Control** |
+| [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) | |
+| **Tuesday, April 8** | **Exam** starting at 8am in 136 DBT |
+| **Thursday, April 10** | **Implementing MPC** |
+| **Tuesday, April 15** | Project Consulations (in-class) |
+| **Thursday, April 17** | Project Working Time / Office Hours |
 | Tuesday, April 22 | Project Presentations (in-class) |
 | Thursday, April 24 | Project Presentations (in-class) |
 | Tuesday, April 29 | Project Presentations (in-class) |
