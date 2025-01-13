@@ -64,4 +64,4 @@ The beats ...
     * Feedback control reduces the need for highly accurate or detailed models. Systems become as accurate as their sensors.  
     * The role of feedback is often not understood in social and economic settings.
 
-1. Control is a large interdisciplineary field of ever-growing technical importance. This course will introduce many of the topics in the "Map of Control Theory" by Brian Douglas. ![](figures/Control_Map_ver5.png) <br> Image Credit: Brian Douglas {cite}`douglas2017fundamentals`
+1. Control is a large interdisciplineary field of ever-growing technical importance. This course will introduce many of the topics in the "Map of Control Theory" by Brian Douglas. ![](../figures/Control_Map_ver5.png) <br> Image Credit: Brian Douglas {cite}`douglas2017fundamentals`
