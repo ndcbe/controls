@@ -69,15 +69,15 @@ parts:
   
     - file: notebooks/5/05.00-Optimization
       sections:
-      - file: notebooks/5/05.01-Linear-Production-Model
-      - file: notebooks/5/05.02-Linear-Blending-Problem
-      - file: notebooks/5/05.03-Homework_2
-      - file: notebooks/5/05.04-Gasoline-Blending
-      - file: notebooks/5/05.05-Linear-Programming
-      - file: notebooks/5/05.06-Design-of-a-Cold-Weather-Fuel
-      - file: notebooks/5/05.99-Pyomo-Examples
-      - file: CBE30338-EV-Example
-      - file: notebooks/milk-pooling
+      - file: notebooks/5/Linear-Production-Model
+      - file: notebooks/5/Linear-Blending-Problem
+      - file: notebooks/5/Homework_2
+      - file: notebooks/5/Gasoline-Blending
+      - file: notebooks/5/Linear-Programming
+      - file: notebooks/5/Design-of-a-Cold-Weather-Fuel
+      - file: notebooks/5/Pyomo-Examples
+      - file: notebooks/5/EV-Example
+      - file: notebooks/5/milk-pooling
   
     - file: notebooks/06.00-Predictive-Control
       sections:
