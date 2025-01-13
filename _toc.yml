@@ -23,37 +23,37 @@ parts:
   - caption: Topical Materials
     numbered: true
     chapters:
-    - file: notebooks/01.00-What-is-Process-Control
+    - file: notebooks/1/What-is-Process-Control
       sections:
-      - file: notebooks/01.01-What-is-Feedback
-      - file: notebooks/01.02-Elements-of-Feedback-Control
+      - file: notebooks/1/What-is-Feedback
+      - file: notebooks/1/Elements-of-Feedback-Control
 #      - file: notebooks/01.05-Assignment-1
       
-    - file: notebooks/02.00-Process-Modeling
+    - file: notebooks/2/Process-Modeling
       sections:
-      - file: notebooks/02.01-One-Compartment-Pharmacokinetics
-      - file: notebooks/02.02-Properties-of-Scalar-First-Order-Linear-Systems
-      - file: notebooks/02.03-First-Order-Model-for-a-Single-Heater
-      - file: notebooks/02.04-Fitting-a-Model-to-Data
-      - file: notebooks/02.05-Second-Order
-      - file: notebooks/02.06-Fed-Batch-Bioreactor
-      - file: notebooks/02-spring-mass-damper
-      - file: notebooks/02.07-Exothermic-CSTR
-      - file: notebooks/02.08-Hare-and-Lynx
-      - file: notebooks/02.09-Study-Guide
+      - file: notebooks/2/One-Compartment-Pharmacokinetics
+      - file: notebooks/2/Properties-of-Scalar-First-Order-Linear-Systems
+      - file: notebooks/2/First-Order-Model-for-a-Single-Heater
+      - file: notebooks/2/Fitting-a-Model-to-Data
+      - file: notebooks/2/Second-Order
+      - file: notebooks/2/Fed-Batch-Bioreactor
+      - file: notebooks/2/Spring-Mass-Damper
+      - file: notebooks/2/Exothermic-CSTR
+      - file: notebooks/2/Hare-and-Lynx
+      - file: notebooks/2/Study-Guide
       
-    - file: notebooks/03.00-Feedback-Control
+    - file: notebooks/3/Feedback-Control
       sections:
-      - file: notebooks/03.01-Case-Study-Thermal-Cycling-PCR
-      - file: notebooks/03.02-Setpoints
-      - file: notebooks/03.03-Setpoints-Thermal-Cycler
-      - file: notebooks/03.04-Relay-Control
-      - file: notebooks/03.05-Implementing-Controllers
-      - file: notebooks/03.06-Proportional-Integral-Control
-      - file: notebooks/03.07-Integral-Windup-and-Bumpless-Transfer
-      - file: notebooks/03.08-P-Controller-Analysis
-      - file: notebooks/03.09-PI-Controller-Analysis
-      - file: notebooks/03.10-Controller-Tuning
+      - file: notebooks/3/Case-Study-Thermal-Cycling-PCR
+      - file: notebooks/3/Setpoints
+      - file: notebooks/3/Setpoints-Thermal-Cycler
+      - file: notebooks/3/Relay-Control
+      - file: notebooks/3/Implementing-Controllers
+      - file: notebooks/3/Proportional-Integral-Control
+      - file: notebooks/3/Integral-Windup-and-Bumpless-Transfer
+      - file: notebooks/3/P-Controller-Analysis
+      - file: notebooks/3/PI-Controller-Analysis
+      - file: notebooks/3/Controller-Tuning
 
     - file: notebooks/04/04.00-Process-Analytics
       sections:
