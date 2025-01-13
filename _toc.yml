@@ -67,7 +67,7 @@ parts:
       - file: notebooks/4/Envrironmental-Application
       - file: notebooks/4/Study-Questions
   
-    - file: notebooks/5/05.00-Optimization
+    - file: notebooks/5/Optimization
       sections:
       - file: notebooks/5/Linear-Production-Model
       - file: notebooks/5/Linear-Blending-Problem
