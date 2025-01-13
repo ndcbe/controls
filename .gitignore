@@ -2,3 +2,5 @@
 .DS_Store/
 references/
 .pytest_cache/
+notebooks/.DS_Store
+.DS_Store
