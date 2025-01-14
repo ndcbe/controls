@@ -4,8 +4,7 @@
 
 **CBE 30338 Data Analytics, Optimization, and Control** introduces students to the analysis and design of control systems for chemical and biochemical processes. Applications include chemical and biological reactors, separation processes, autonomous biomedical devices, and examples from other engineering disciplines. 
 
-The major topics of the course are
-
+The major topics of the course are:
 * Modeling and Parameter Estimation
 * Feedback Control
 * Process Data Analytics
@@ -19,7 +18,6 @@ The lab sessions (CBE 32338) provide opportunities for hands-on coding and exper
 ## Learning Objectives
 
 Students completing this course will be able to:
-
 * Identify process models and fit the models to data
 * Design and implement feedback (e.g., advanced PID) control
 * Manipulate time series data and extract process information
@@ -28,17 +26,17 @@ Students completing this course will be able to:
 
 ## Course Information
 
-**Canvas link:** [SP24-CBE-30338-01 Data Analytics, Optimization, and Control](https://canvas.nd.edu/courses/82955)
+**Canvas link:** [SP25-CBE-30338-01 Data Analytics, Optimization, and Control](https://canvas.nd.edu/courses/105816)
 
-**Dates:** January 16 - April 30, 2024
+**Dates:** January 14 - April 30, 2025
 
 **Class:** CBE 30338 Tuesday and  Thursdays, 9:15 - 10:45 am, DeBartolo 136
 
-**Lab/Tutorial:**  You must be registered for one of these lab/tutorial sections.
-* CBE 32338-01 Friday, 11:35 am - 12:25 pm, Fitzpatrick A68
-* CBE 32338-02 Friday, 12:50 am - 1:40 pm, Fitzpatrick A68
+**Lab/Tutorial:**  Please try to attend the tutorial for which you are registered:
+* CBE 32338-01 Friday, 10:30 am - 11:20 pm, DeBartolo 133
+* CBE 32338-02 Friday, 11:30 am - 12:20 pm, DeBartolo 133
 
-Seating in A68 is limited. Pleae attend the lab session for which you are registered.
+Seating in DeBartolo 133 (computer classroom) is limited to 45 students*. Pleae attend the lab session for which you are registered.
 
 **Prerequisites:** This course assumes knowledge of modeling and analysis with differential equations, procedural programming in Python, mass and energy balances. Students taking this course will normally have completed
 
@@ -53,39 +51,79 @@ Students without this background should contact the instructor before registerin
 2. A laptop/desktop computer with USB-A port, or a USB-C port and a USB-C to USB-A converter.
 3. An up-to-date installation of the [Anaconda Individual Edition](https://www.anaconda.com/products/individual)  for Python programming. **Follow the instructions [here](https://appdividend.com/2020/05/12/how-to-update-anaconda-upgrade-anaconda-navigator/) to update an older installation.**
 
-## Instructor and Teaching Assistants
+## Instructors and Teaching Assistants
+
+This semester will be team-taught. Prof. Dowling will deliver most of the lectures and Prof. Zartman will be responsible for most of the labs/tutorial sessions.
+
+```{list-table}
+:header-rows: 1
+:widths: 50 50
+
+* - [Prof. Alex Dowling](https://dowlinglab.nd.edu/people/professor-alexander-w-dowling/)
+  - [Prof. Jeremy Zartman](https://engineering.nd.edu/faculty/jeremiah-zartman/)
+* - ![](https://dowlinglab.nd.edu/assets/320333/300x300/dowling_alex_sq.jpg)
+  - ![](https://engineering.nd.edu/wp-content/uploads/2020/06/Zartman-Jermiah-HS-300x300.jpg)
+* - Co-Instructor
+  - Co-Instructor
+* - TBA
+  - TBA
+```
+
+Five teaching assistants (TAs) will help run the tutorial sessions, answer student questions on Canvas, hold office hours, and grade a majority of the assignments.
 
 ```{list-table}
 :header-rows: 1
 :widths: 20 20 20 20 20
 
-* - [Prof. Alex Dowling](https://dowlinglab.nd.edu/people/professor-alexander-w-dowling/)
-  - [Maddie Watson](https://dowlinglab.nd.edu/people/madelynn-watson/)
-  - [Hailey Lynch](https://dowlinglab.nd.edu/people/hailey-lynch/)
-  - [Molly Dougher](https://dowlinglab.nd.edu/people/molly-dougher/)
-  - [Zhicheng Lu](https://dowlinglab.nd.edu/people/zhicheng-lu/)
-* - ![](https://dowlinglab.nd.edu/assets/320333/200x200/dowling_alex_sq.jpg)
-  - ![](https://dowlinglab.nd.edu/assets/477606/200x200/senior_composite.png)
-  - ![](https://dowlinglab.nd.edu/assets/497694/200x200/img_3436.jpg)
-  - ![](https://dowlinglab.nd.edu/assets/496713/200x200/img_2112_3.jpeg)
-  - ![](https://dowlinglab.nd.edu/assets/552006/200x200/zhicheng.jpg)
-* - Primary Instructor
-  - Lead TA
-  - Senior TA
+* - [Zhicheng Lu](https://dowlinglab.nd.edu/people/zhicheng-lu/)
+  - [Shammah Lilonfe](https://dowlinglab.nd.edu/people/shammah-lilonfe/)
+  - [Kay Lu](https://dowlinglab.nd.edu/people/hailey-lynch/)
+  - Caitlin Frank
+  - Yikang Gong
+* - ![](https://dowlinglab.nd.edu/assets/552006/200x200/zhicheng.jpg)
+  - ![](https://dowlinglab.nd.edu/assets/556829/200x200/lilonfe_photograph_min.jpg)
+  - ![](https://dowlinglab.nd.edu/assets/599315/200x200/kay_164.jpeg) 
+  - ![](https://dowlinglab.nd.edu/assets/600219/200x200/caitlin2025_headshot.jpg)
+  - 
+* - Senior TA
   - Senior TA
   - TA
-* - Wednesdays, 2 - 3pm, 369 NSH
-  - Thursdays, 2 - 3pm, 252 NSH $^\dagger$
-  - (same)
-  - (same)
-  - (same)
+  - TA
+  - TA
+* - TBA
+  - TBA
+  - TBA
+  - TBA
+  - TBA
 ```
-Office hours are lists in the last row. TAs share office hours. $^\dagger$ TA office hours will be held in 366 NSH on March 28, 2023. 
+
+## ACES Tutors and Study Room
+
+Five tutors are available in the ACES study room for this course at the following times:
+* Sundays, 4 - 6pm, Stinson-Remick Hall 108
+* Thursdays, 6 - 9pm, Stinson-Remick Hall 108
+
+```{list-table}
+:header-rows: 1
+:widths: 20 20 20 20 20
+* - Lucy Chmura
+  - Nikki McNamara
+  - Erik Rozanski
+  - Evan Wood
+  - Samantha Yu
+* - ![](https://dowlinglab.nd.edu/assets/600160/200x200/lucy2025_headshot.jpeg)
+  - ![](https://dowlinglab.nd.edu/assets/600158/200x200/nikki2025_headshot.jpeg)
+  - ![](https://dowlinglab.nd.edu/assets/600159/200x200/erik2025_headshot.jpg)
+  - ![](https://dowlinglab.nd.edu/assets/600161/200x200/evan2025_headshot.jpg)
+  - ![](https://dowlinglab.nd.edu/assets/600223/200x200/samantha2025_headshot.jpeg)
+```
+
+The ACES tutors are an additional resource to help you master the content in this course. The ACES tutors DO NOT have access to the solutions for the assignments. The ACES tutors do have access to Canvas, including all announcements and the discussion boards. You SHOULD NOT ask the ACES tutorials to see their homework or lab solutions from last year as help.
 
 ## Discussion Board (Canvas) and Email Correspondance
 
 * Post your questions to the **discussion board in Canvas**
-* Instructor only: adowling@nd.edu, ''CBE 30338'' in the subject, private official matters (e.g., excused absence, testing accommodations)
+* Instructor only: adowling@nd.edu and jzartman@nd.edu, ''CBE 30338'' in the subject, private official matters (e.g., excused absence, testing accommodations)
 
 We encourage you to post all your questions, including your mathematical models, pseudocode, and code screenshots, to the public **discussion board in Canvas**. We are doing this for a few reasons:
 1. As professionals, you'll need to be comfortable asking questions in front of a team. We want to cultivate a positive and friendly learning environment where everyone can practice this skill during the semester.
@@ -124,9 +162,7 @@ Grades are based on a weighted assessment of performance in the following catego
 * Exam: 25\%
 * Group Project: 25\%
 
-### Class Participation and Professionalism 
-
-You are expected to attend and actively participate in all class sessions.  If you miss class for an official University excused function, please find notes for that lecture, do the  reading, and avail yourself of office hours to catch up on the missed material.
+### Class Participation and Participation 
 
 Class sessions will include opportunities to respond to instructor questions and other active learning exercises. All interactions will be civil, respectful, and inclusive. If you have any concerns about classroom dynamics, please feel free to speak with the instructor.
 
@@ -140,18 +176,23 @@ At the end of the semester, the instructor will assign grades for class particip
 
 The class participation grade may include online quizzes, pre-lab activities, in-class Poll Everywhere questions, and prepartion for in-class project consultations.
 
+### Excused Absenses
+
+You are expected to attend and actively participate in all class sessions.  If you miss class for an official University excused function, please find notes for that lecture, do the reading, and avail yourself of office hours to catch up on the missed material. You do not need to email the instructor(s) to ask about missed materials. Please check Canvas, the class schedule, and with your classmates first. (You are welcome to post on the Canvas discussion if you miss class.)
+
+We plan on asking two or more Poll Everyone questions each lecture. If you have an excused absense, please submit the supporting documentation [via Canvas](https://canvas.nd.edu/courses/105816/assignments/342768). Please do NOT sent excused absense documenation via email. Canvas provides a more organized way to document excused absenses and factor this into the class participation grades. The exception are excused absenses from Athletics, which are sent via email directly to the instructors.
+
 ### Assignments
 
-Homework and labratory assignments are critical to developing the skills needed to succeed in the course and in the major. Accordingly, assignments are a required element of the course. Missing assignments will be scored as zero. Three or more missed assignments will result in an incomplete for the course. Group study is encouraged, but the submitted work must be your own. Students must be able to explain all of their submitted work.
+Homework and labratory assignments are critical to developing the skills needed to succeed in the course and in the major. Accordingly, assignments are a required element of the course. Missing assignments will be scored as zero. Group study is encouraged, but the submitted work must be your own. Students must be able to explain all of their submitted work.
 
 Please see our [semester schedule](./Schedule.md) for a listing of assignments and deadlines.
 
 ### Exam
 
-There will be one in-class exam on Thursday, April 4. The exam will be open book but without access to a computer or the internet. Students who take notes on a tablet should sit in the front rows during the exam and will be monitored by the teaching team. Tablets may only be used to access your notes, i.e., internet and other connectivity must be disabled.
+There will be one in-class exam. The exam will be open book but without access to a computer or the internet. Students who take notes on a tablet should sit in the front rows during the exam and will be monitored by the teaching team. Tablets may only be used to access your notes, i.e., internet and other connectivity must be disabled.
 
 ### Final Project
-
 
 The final project for CBE 30338 is in-depth exploration of a dynamic modeling, optimization, or control problem of your choice. You will work in groups (at least three, no more than four, no exceptions), select a problem of interest, and develop an analysis or control design using the skills you learned in this course. 
 
@@ -184,7 +225,7 @@ As a team, you will write a **two-page project proposal** with up to **one addit
 
 #### Project Check-ins
 
-At least twice during class time (see [](./Schedule.md)), your team will meet with Prof. Dowling for a 6-minute status update and check-in. It is essential your team carefully prepares for this meeting. For example, consider preparing a 3-slide update:
+At least twice during class time (see [](./Schedule.md)), your team will meet with the instructor(s) for a 6-minute status update and check-in. It is essential your team carefully prepares for this meeting. For example, consider preparing a 3-slide update:
 1. What is the motivation and goal of the project?
 2. Is the project on schedule? What is the updated timeline?
 3. What do you need feedback or advice on? Are you stuck?
@@ -297,7 +338,7 @@ If there is an extenuating circumstance, please email the instructor with ``CBE 
 
 ### Collaboration Policy
 
-You are permitted (and encouraged) to discuss solution approaches to the weekly homework assignments with classmates. However, there must be no wholesale copying or paraphrasing of code, solutions, or written discussions. You are strongly encouraged to ask questions, including posting pseudocode or code screenshots, on the discussion board on Canvas. Likewise, you may use any material posted by the instructors or your classmates in the discussion board on Canvas that you understand. Copying code from classmates or the discussion board, you do not understand is prohibited. This policy facilitates collaboration while ensuring everyone in the class has the same access. Students MAY NOT use old files and solutions for the homework assignments: you must do the problems for homework to be able to do them on the exams too.
+You are permitted (and encouraged) to discuss solution approaches to the weekly homework assignments with classmates. However, there must be no wholesale copying or paraphrasing of code, solutions, or written discussions. You are strongly encouraged to ask questions, including posting pseudocode or code screenshots, on the discussion board on Canvas. Likewise, you may use any material posted by the instructors or your classmates in the discussion board on Canvas that you understand. Copying code from classmates or the discussion board, you do not understand is prohibited. This policy facilitates collaboration while ensuring everyone in the class has the same access. Students **MAY NOT use old files and solutions for the homework assignments or labs or quizes**: you must do the problems for homework to be able to do them on the exams too.
 
 Your work may be electronically tested for plagiarized content. For example, Gradescope can detect highly similar code (i.e., plagiarism for computer code) while distinguishing from provided templates. Plagiarism is a serious offense and will have severe consequences per University, College, and Department procedures.
 
