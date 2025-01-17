@@ -58,12 +58,12 @@ To **start using Python**, in either the Acaconda promptly (Windows) or terminal
 * In the upper right corner, click on "Kernel" and change to "controls"
 * You are now ready to test the TCLab hardware!
 
-**Note** macOS users might need to add the following line to `.bashrc`
+**Advanced Users** macOS users who would like to use `Ipopt` without adding `import idaes` may need to add the following line to their `.bashrc` file:
 
 `export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:/Users/adowling/.idaes/bin"
 export PATH="$PATH:/Users/adowling/.idaes/bin`
 
-Replace `adowling` with your username.
+Replace `adowling` with your username. Every student can likely skip this step.
 
 ## DeBartolo 133 Computer Lab
 
