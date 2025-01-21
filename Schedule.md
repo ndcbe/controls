@@ -69,8 +69,8 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 131 DeBartolo Hall.
 | | [Error Propagation](https://ndcbe.github.io/data-and-computing/notebooks/12/uncertainty.html) |
 | | [Nonlinear Regression](https://ndcbe.github.io/data-and-computing/notebooks/15/advanced_regression.html) |
 | **Tuesday, January 21** | **Modeling: Linear Systems** |
-| [](./notebooks/2/One-Compartment-Pharmacokinetics.ipynb) | |
-| [](./notebooks/2/Properties-of-Scalar-First-Order-Linear-Systems.ipynb) | |
+| [](./notebooks/2/One-Compartment-Pharmacokinetics.ipynb) | [Recorded Lecture from Prior Year](https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=204255f7-4615-422d-bb06-b26c00e0fc86&start=0) |
+| [](./notebooks/2/Properties-of-Scalar-First-Order-Linear-Systems.ipynb) | [Recorded Lecture from Prior Year](https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5b9bd4dc-ef00-4a7f-ac23-b26c00e0fc4b) |
 | **Thursday, January 23** | **Modeling: TCLab as First Order Linear System**  |
 | [](./notebooks/2/First-Order-Model-for-a-Single-Heater.ipynb) | |
 | **Tuesday, January 28** | **More About Nonlinear Regression** |
