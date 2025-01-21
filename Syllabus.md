@@ -84,18 +84,20 @@ Five teaching assistants (TAs) will help run the tutorial sessions, answer stude
   - ![](https://dowlinglab.nd.edu/assets/556829/200x200/lilonfe_photograph_min.jpg)
   - ![](https://dowlinglab.nd.edu/assets/599315/200x200/kay_164.jpeg) 
   - ![](https://dowlinglab.nd.edu/assets/600219/200x200/caitlin2025_headshot.jpg)
-  - 
+  - ![](https://dowlinglab.nd.edu/assets/601552/200x200/yikang2025_headshot.jpg)
 * - Senior TA
   - Senior TA
   - TA
   - TA
   - TA
-* - TBA
-  - TBA
-  - TBA
-  - TBA
-  - TBA
+* - Wed., 1 - 2pm in 366 NSH
+  - Thur., 2 - 3pm in 303 MCH
+  - Wed., 1 - 2pm in 366 NSH
+  - Thur., 2 - 3pm in 303 MCH
+  - Thur., 2 - 3pm in 303 MCH
 ```
+
+NSH = Nieuwland Science Hall, MCH = McCourtney Hall
 
 ## ACES Tutors and Study Room
 
