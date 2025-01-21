@@ -27,7 +27,7 @@ Dynamic modeling, data analytics, optimization, and control are essential to mod
 * Mac users: install LaTeX (https://tug.org/mactex/mactex-download.html)
 * Linux users: install LaTeX via your package manager
 
-**Openning Anaconda**:
+**Opening Anaconda**:
 
 * Windows users: in the Start menu, search search for "Anaconda prompt". Open it and copy-paste-run the commands below
 * Mac users: press command + space, then search for "terminal". Open it and copy-paste-run the commands below
@@ -52,18 +52,18 @@ conda create -n controls -c anaconda -c conda-forge -c IDAES-PSE python=3.10 pan
 **Instructors/TAs**, Next, in the terminal type:
 * `pip install sphinxcontrib-tikz`
 
-To **start using Python**, in either the Acaconda prompty (Windows) or terminal (Mac):
+To **start using Python**, in either the Acaconda promptly (Windows) or terminal (Mac):
 * Activate our environment: `conda activate controls`
 * Launch Jupyter lab: `jupyter lab`
 * In the upper right corner, click on "Kernel" and change to "controls"
 * You are now ready to test the TCLab hardware!
 
-**Note** macOS users might need to add the following line to `.bashrc`
+**Advanced Users** macOS users who would like to use `Ipopt` without adding `import idaes` may need to add the following line to their `.bashrc` file:
 
 `export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:/Users/adowling/.idaes/bin"
 export PATH="$PATH:/Users/adowling/.idaes/bin`
 
-Replace `adowling` with your username.
+Replace `adowling` with your username. Every student can likely skip this step.
 
 ## DeBartolo 133 Computer Lab
 
@@ -77,7 +77,7 @@ gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 We will be meeting in DBT 133 on Fridays for the tutorial session. If you use the same computer each week, you should only need to setup your conda `controls` environment once each semester.
 
-After tutorial each week, you should copy your files from the classroom computer to Google Drive or another cloud storage system. This is important to make sure you do not loose any work between weeks.
+After the tutorial each week, you should copy your files from the classroom computer to Google Drive or another cloud storage system. This is important to ensure you do not loose any work between weeks.
 
 ## Software Installation Instructions (from Spring 2024)
 
@@ -85,7 +85,7 @@ Students will use their personal laptop computers to complete labratory and home
 
 Start Here:
 * Install anaconda: https://www.anaconda.com/
-* Windows users: in the Start menu, search search for "Anaconda prompt". Open it and copy-paste-run the commands below
+* Windows users: In the Start menu, search for "Anaconda prompt". Open it and copy-paste-run the commands below
 * Mac users: press command + space, then search for "terminal". Open it and copy-paste-run the commands below
 * Create new conda environment: `conda create -n controls python=3.10`
 * Activate new environemnt: `conda activate controls`

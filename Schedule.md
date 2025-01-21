@@ -7,8 +7,8 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Deadline    | Description |
 | ----------- | ----------- |
 | Friday, January 17 | [Order Temperature Control Lab](https://www.amazon.com/TCLab-Temperature-Control-Lab/dp/B07GMFWMRY) (no submission required) |
-| Monday, January 20 | [](./assignments/Homework-1.ipynb) (first part) |
 | Monday, January 20 | [Class Policies Quiz](https://canvas.nd.edu/courses/105816/quizzes/59967) (opens after Friday lab, submit via Canvas) |
+| Tuesday, January 21 | 9am, [](./assignments/Homework-1.ipynb) (first part) |
 | Thursday, January 23 | [](./assignments/Homework-1.ipynb) (remainder) |
 | Friday, January 24 | 9am, Lab 1 (Exercise 0) |
 | Thursday, January 30 | [](./assignments/Lab-1-Step-Testing.ipynb) |
@@ -22,7 +22,7 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Tuesday, March 25| [](./assignments/Homework-2.ipynb) |
 | Friday, March 28 | 9am, Lab 5 (Exercise 0) |
 | Tuesday, April 8 | **In-Class Exam** (no Gradescope submission) |
-| Thursday, April 8 | [](./assignments/Lab-5-Open-Loop-Optimization.ipynb) |
+| Thursday, April 10 | [](./assignments/Lab-5-Open-Loop-Optimization.ipynb) |
 | Friday, April 11 | 9am, Lab 6 (quick quiz on Canvas) |
 | Tuesday, April 29 | [](./assignments/Lab-6-MPC.ipynb) |
 | Tuesday, April 22 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
@@ -50,11 +50,11 @@ Fridays from 10:30 am - 11:20 am (session 1) and 11:30 am - 12:20 pm (session 2)
 | Friday, April 4 | Office Hours |
 | Friday, April 11 | [](./assignments/Lab-6-MPC.ipynb) |
 | Friday, April 18 | Good Friday |
-| Friday, April 29 | Office Hours
+| Friday, April 29 | Office Hours | 
 
 ## Class Meetings
 
-Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
+Tuesdays and Thursdays from 9:30 - 10:45am in 131 DeBartolo Hall.
 
 | Main Topic(s) | Supplemental Material |
 | ----------- | ----------- |
@@ -69,8 +69,8 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 136 DeBartolo Hall.
 | | [Error Propagation](https://ndcbe.github.io/data-and-computing/notebooks/12/uncertainty.html) |
 | | [Nonlinear Regression](https://ndcbe.github.io/data-and-computing/notebooks/15/advanced_regression.html) |
 | **Tuesday, January 21** | **Modeling: Linear Systems** |
-| [](./notebooks/2/One-Compartment-Pharmacokinetics.ipynb) | |
-| [](./notebooks/2/Properties-of-Scalar-First-Order-Linear-Systems.ipynb) | |
+| [](./notebooks/2/One-Compartment-Pharmacokinetics.ipynb) | [Recorded Lecture from Prior Year](https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=204255f7-4615-422d-bb06-b26c00e0fc86&start=0) |
+| [](./notebooks/2/Properties-of-Scalar-First-Order-Linear-Systems.ipynb) | [Recorded Lecture from Prior Year](https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5b9bd4dc-ef00-4a7f-ac23-b26c00e0fc4b) |
 | **Thursday, January 23** | **Modeling: TCLab as First Order Linear System**  |
 | [](./notebooks/2/First-Order-Model-for-a-Single-Heater.ipynb) | |
 | **Tuesday, January 28** | **More About Nonlinear Regression** |

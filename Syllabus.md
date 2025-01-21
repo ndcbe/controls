@@ -30,7 +30,7 @@ Students completing this course will be able to:
 
 **Dates:** January 14 - April 30, 2025
 
-**Class:** CBE 30338 Tuesday and  Thursdays, 9:15 - 10:45 am, DeBartolo 136
+**Class:** CBE 30338 Tuesday and  Thursdays, 9:15 - 10:45 am, DeBartolo 131
 
 **Lab/Tutorial:**  Please try to attend the tutorial for which you are registered:
 * CBE 32338-01 Friday, 10:30 am - 11:20 pm, DeBartolo 133
