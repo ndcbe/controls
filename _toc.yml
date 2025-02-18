@@ -50,9 +50,9 @@ parts:
       - file: notebooks/3/Relay-Control
       - file: notebooks/3/Implementing-Controllers
       - file: notebooks/3/Proportional-Integral-Control
-      - file: notebooks/3/Integral-Windup-and-Bumpless-Transfer
       - file: notebooks/3/P-Controller-Analysis
       - file: notebooks/3/PI-Controller-Analysis
+      - file: notebooks/3/Integral-Windup-and-Bumpless-Transfer
       - file: notebooks/3/Controller-Tuning
 
     - file: notebooks/4/Process-Analytics
