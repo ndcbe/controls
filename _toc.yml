@@ -53,6 +53,7 @@ parts:
       - file: notebooks/3/P-Controller-Analysis
       - file: notebooks/3/PI-Controller-Analysis
       - file: notebooks/3/Integral-Windup-and-Bumpless-Transfer
+      - file: notebooks/3/Bumpless-PI-Controller-Analysis
       - file: notebooks/3/Controller-Tuning
 
     - file: notebooks/4/Process-Analytics
