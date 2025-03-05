@@ -242,12 +242,12 @@ During this update meeting, your team should be ready to present (e.g., brings a
 Each team will give a 6-minute final presentation to the class on their project. Here is a suggested presentation outline:
 1. **Motivation**. Describe why your problem is interesting and excited. Why did you choose it as a final project?
 2. **Mathematical Model**. Briefly explain the mathematical model for the system you studied. If your project focused on a numerical or statistical method, you may skip this slide and instead use two slides to describe the method in detail.
-3. **Methods**. Describe the analysis procedure or methods you used in the project. Many groups will find it most effective to make a flowchart that shows their steps, e.g., construct model, regress model, tune controller, verify performance via simuluation.
-4. **Cool Result 1**. Highlight one result you find very exciting and can explain qucikly.
+3. **Methods**. Describe the analysis procedure or methods you used in the project. Many groups will find it most effective to make a flowchart that shows their steps, e.g., construct model, regress model, tune controller, verify performance via simulation.
+4. **Cool Result 1**. Highlight one result you find very exciting and can explain quickly.
 5. **Cool Result 2**. Highlight another result you find exciting.
 6. **Take Away Message or Lessons Learned**. What are the few essential things your audience should remember about the project? If you were telling a story about this project in a job interview, what would the punch line/conclusion of your story be?
 
-Teams are welcome to customize the above suggested presentation outline; however, each presentation must include all of the elements described above.
+Teams are welcome to customize the above suggested presentation outline; however, each presentation must include all of the elements described above. A good rule-of-thumb is one slide per minute in a presentation.
 
 Teams will submit their slides by 7am the morning of their assigned presentation time. The instructors will then compile these into one PowerPoint presentation. 
 
