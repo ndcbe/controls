@@ -206,10 +206,13 @@ Every project must incorporate at least three of the following elements:
 - Stability/eigenvalue analysis
 - State estimation
 - Optimization
+- Probability theory or stochastic modeling/analysis (this is more complicated than deterministic modeling so it counts as a separate item)
 - Data analysis, e.g., regression, uncertainty quantification
-- Explore a numerical method, statitical method, or algorithm not taught in CBE 20258
+- Explore a numerical method, statistical method, or algorithm not taught in CBE 20258
 - Use the TCLab hardware
 - Use data or a computer/mathematical model from another project, research, or class (with permission from the other instructor or research supervisor)
+- Reproduce a mathematical/computer model from literature OR take a mathematical/computer model from literature (e.g., code is published) and perform a new analysis
+- Convert a textbook problem from a previous course into a homework problem, similar to Homework 1 or Homework 2, that reinforces key skills from this course (or CBE 20258)
 - Use methods/concepts from CBE 30338 not listed above
 
 The three project deliverables are described below and deadlines are given in the [](./Schedule.md).
@@ -219,10 +222,10 @@ The three project deliverables are described below and deadlines are given in th
 The first step is to assemble a team of three people (four if needed due to class numbers) with similar topic interests.
 
 As a team, you will write a **two-page project proposal** with up to **one additional page of references** that:
-1. Explains the project motivation and goals. Also briefly explain your personal motivations for choosing this project.
+1. Explains the project motivation and goals. Also, briefly explain your personal motivations for choosing this project.
 2. Explains the technical approach for the project, especially how the required elements (see list above) will be incorporated
-3. Identifies the starting point for the project. Where will the model or data come from? Will the project leverage prior experience or knowledge of your team? Please explain if the project will extend prior work from an extracircular/club activity, another class, research, or an internship. Do you have permission from your prior collaborators/supervisors/instructors? If a student is working on a similar topic for two concurrent classes, both instructors need to be aware of the potential overlap and provide written consent (email is fine) per university policies. Likewise, if you are leveraging data or a model from an internship or research, you need to confirm there are no confidentiality issues.
-4. Presents a timeline for the project. Identify the weekly goals for the project and person(s) primarily responsible for each goal.
+3. Identifies the starting point for the project. Where will the model or data come from? Will the project leverage prior experience or knowledge of your team? Please explain if the project will extend prior work from an extra-circular/club activity, another class, research, or an internship. Do you have permission from your prior collaborators/supervisors/instructors? If a student is working on a similar topic for two concurrent classes, both instructors need to be aware of the potential overlap and provide written consent (email is fine) per university policies. Likewise, if you are leveraging data or a model from an internship or research, you need to confirm there are no confidentiality issues.
+4. Presents a timeline for the project. Identify the weekly goals for the project and person(s) primarily responsible for each goal. Suggestion: organize this information in a table, bulleted list, or [Gantt chart](https://en.wikipedia.org/wiki/Gantt_chart).
 5. Lists references in a style of your choice (e.g., APA, MLA, ACS). You must identify at least **five useful references** for the project, two of which should be beyond the CBE 20258 or 30338 class notes/websites.
 
 #### Project Check-ins
@@ -231,6 +234,8 @@ At least twice during class time (see [](./Schedule.md)), your team will meet wi
 1. What is the motivation and goal of the project?
 2. Is the project on schedule? What is the updated timeline?
 3. What do you need feedback or advice on? Are you stuck?
+
+During this update meeting, your team should be ready to present (e.g., brings a laptop) and at least one person should be the designated note taker and actively take notes. 
 
 #### Group Presentation
 
@@ -244,9 +249,9 @@ Each team will give a 6-minute final presentation to the class on their project.
 
 Teams are welcome to customize the above suggested presentation outline; however, each presentation must include all of the elements described above.
 
-Teams will submit their slides by 7am the morning of their assigned presentation time. Prof. Dowling will then compile these into one PowerPoint presentation. 
+Teams will submit their slides by 7am the morning of their assigned presentation time. The instructors will then compile these into one PowerPoint presentation. 
 
-#### Fianl Report and Code
+#### Final Report and Code
 
 Each team will submit a final report that includes at least one executable that demonstrates your project. The executable element might consist of a Python/Jupyter notebook, a simulation prepared in an industry standard format, or video of experiment or hardware demonstration.
 
@@ -259,7 +264,7 @@ The final report should be at least 4 pages long (not counting references) and i
 * At least 10 **references** in a style of your choice (e.g., APA, MLA, ACS)
 
 Important reminders:
-* Review the formating guidelines in this syllabus.
+* Review the formatting guidelines in this syllabus.
 * All code must be extensively commented.
 * All plots should be professional formatted, i.e., publication quality.
 * Many groups will choose to combine their report and Jupyter notebook into one file/submission. Please ensure the text written in the Jupyter notebook is about the length listed above is copied into a Word or LaTeX document.
@@ -270,33 +275,37 @@ Important reminders:
 Here are some project ideas, organized by topic. Please refine these ideas to fit your groups interest or use these ideas as a starting point to develop your own project.
 
 **TCLab**. Significantly extend one of our TCLab activities, complete on the labs on the website we skipped this year, or make a new mini-lab that applying a method from control, optimization, or estimation to the TCLab hardware. For example:
-* Fit a [four state model](./tclab/03.06-Four-State-Model.ipynb) that considers the interactions between the two heater/sensor assemblies.
-* Try different types besides the simple step test to estimate parameters in the TCLab model. For example, what happens if the input is a sine wave with different amplitudes and frequencies. For a handful of experiments, estimate the model coefficients and quantify their uncertainty. Which tests are most informative, i.e., result in the smallest parameter uncertainty. Look up [A-optimality and D-optimality](https://ndcbe.github.io/data-and-computing/notebooks/16/Reaction-MBDoE.html) as ways of comparing information content.
-* Use [state estimation](./notebooks/4/Lab-Assigment-State-Estimation.ipynb) for [anomaly detection](./notebooks/4/Lab-Assignment-Anomaly-Detection.ipynb). Test your implementation by running the TCLab and then exposing it to a large external distubrance such as a fan or hair dryer. How long does it take your state estimator to detect the disturbance?
+* Fit a [four state model](./tclab/03.06-Four-State-Model.ipynb) that considers the interactions between the two heater/sensor assemblies. Based on your results, perform additional TCLab experiments. You will likely need to try multiple variations of the model with slightly different assumptions.
+* Try different types besides the simple step test to estimate parameters in the TCLab model. For example, what happens if the input is a sine wave with different amplitudes and frequencies. For a handful of experiments, estimate the model coefficients and quantify their uncertainty. Which tests are most informative, i.e., result in the smallest parameter uncertainty? Look up [A-optimality and D-optimality](https://ndcbe.github.io/data-and-computing/notebooks/16/Reaction-MBDoE.html) as ways of comparing information content.
+* Use [state estimation](./notebooks/4/Lab-Assigment-State-Estimation.ipynb) for [anomaly detection](./notebooks/4/Lab-Assignment-Anomaly-Detection.ipynb). Test your implementation by running the TCLab and then exposing it to a large external disturbance such as a fan or hair dryer. How long does it take your state estimator to detect the disturbance?
 * Character the noise in the TCLab system. Are the residuals after parameter estimation i.i.d. Gaussian or is a different error model more appropriate? Explore fitting different time series models to the residuals. (This is a very open-ended project.)
-* Develop a [PID controller](./tclab/04.10-Lab-Assignment-PID-Control.ipynb) for the TCLab. Extend our stability analysis of P and PI controllers from lecture to a PID controller.
-* Develop two [PI contollers](./tclab/04.11-Lab-Assignment-PI-Control.ipynb) to simultanously control both heater assemblies. Test this on the [original chocolate temperating experiment](./assignments/Lab-3-Relay-Control.ipynb).
+* Similar to the previous idea, explore different TCLab models that incorporate a dead-time. Your group may need to have a ~10 minute conversation with Prof. Dowling on how to model dead-times in state-space models.
+* Develop a [PID controller](./tclab/04.10-Lab-Assignment-PID-Control.ipynb) for the TCLab. Extend our stability analysis of P and PI controllers from lecture to a PID controller. You will most likely need to investigate first-order filters to remove noise from the derivative signal (which is estimated via finite difference).
+* Develop two [PI controllers](./tclab/04.11-Lab-Assignment-PI-Control.ipynb) to simultaneously control both heater assemblies. Test this on the [original chocolate tempering experiment](./assignments/Lab-3-Relay-Control.ipynb).
 * Perform [Ziegler-Nichols PID tuning](./notebooks/3/Controller-Tuning.ipynb)
+* Perform Bayesian inference for the TCLab model. Here is a [good tutorial](https://juanitorduz.github.io/intro_pymc3/). Here are example codes on using PyMC3 for a [dynamical system](https://github.com/pymc-devs/sunode).
+* Research pole placement methods for controller design. Prepare a brief tutorial on the topic. Then, apply the pole placement method to the TCLab system. Here is a [nice tutorial](https://www.mathworks.com/help/control/getstart/pole-placement.html) and here is a [Python function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.place_poles.html).
 
 **Modeling and Applications**. Apply methods and concepts from class to explore a system of interest to your team.
-* Develop a controler (e.g., PID, MPC) for tanks in series. This is a classic problem in chemical engineering control textbooks.
+* Develop a controller (e.g., PID, MPC) for tanks in series. This is a classic problem in chemical engineering control textbooks.
 * Develop a controller (e.g., PID, MPC) for the [exothermic reactor](./notebooks/2/Exothermic-CSTR.ipynb). The goal is to operate the reactor in the high conversion region with minimal oscillations and reject disturbances.
-* Extend the portfolio optimization problem from [Homework 2](./assignments/Homework-2.ipynb) into a model predictive control scheme. Each day, compute the expected value and covariance of the return for the available mutal funds using data from the last 3 months (or another time period). Then resolve the portfolio optimization problem and buy/sell accordingly. Then increment the horizon one day and repeat. The key is that you cannot use the future data when making a decision, only past information. Add a small transaction fee and fine tune your buy/sell logic (perhaps borrow ideas from relay control with a deadband where you do nothing). How does your optimized portfolio compare to a simple investment strategy of 40\% large cap index funds, 30\% medium to small cap index funds, and 30\% international index funds?
-* How does a home water softener (ion exchange) or reverse osmosis water filter work? Research and develop a mathematical model. Use your model to predict how frequently you a typical homeowner/renter needs to do maintance, e.g., replacing the softer salt or the RO membrane, or the cost of operation. Do you predictions match your personal experience or manufacture recommendations?
-* Are solar panels worth it in South Bend, IN (or another location)? Develop a simple mathematical model to predict the electrical power produced from a solar panel as a function of the solar intensity and position. You can find help [Python packages](https://pvlib-python.readthedocs.io/en/stable/index.html) to calculate the position of the sun as a function of time and location. Next, find [historical solar irradiance data](https://nsrdb.nrel.gov/) and calculate the energy production as a function of time. Then calculate the [levelized cost of electricity](https://en.wikipedia.org/wiki/Levelized_cost_of_electricity) for a typical solar installation. You'll need to look up typical home installation costs. How does the LCOE compare to [feed-in tarriff rates](https://www.nipsco.com/services/renewable-energy-programs/feed-in-tariff) from a utility? This is like a mini-senior design project; you will learn all of the economic calculations and time-value of money. Modeling a PV solar panel is much more straight forward than your semester long process design.
+* Extend the portfolio optimization problem from [Homework 2](./assignments/Homework-2.ipynb) into a model predictive control scheme. Each day, compute the expected value and covariance of the return for the available mutual funds using data from the last 3 months (or another time period). Then resolve the portfolio optimization problem and buy/sell accordingly. Then increment the horizon one day and repeat. The key is that you cannot use the future data when making a decision, only past information. Add a small transaction fee and fine tune your buy/sell logic (perhaps borrow ideas from relay control with a dead-band where you do nothing). How does your optimized portfolio compare to a simple investment strategy of 40\% large cap index funds, 30\% medium to small cap index funds, and 30\% international index funds?
+* How does a home water softener (ion exchange) or reverse osmosis water filter work? Research and develop a mathematical model. Use your model to predict how frequently you a typical homeowner/renter needs to do maintenance, e.g., replacing the softer salt or the RO membrane, or the cost of operation. Do you predictions match your personal experience or manufacture recommendations?
+* Are solar panels worth it in South Bend, IN (or another location)? Develop a simple mathematical model to predict the electrical power produced from a solar panel as a function of the solar intensity and position. You can find help [Python packages](https://pvlib-python.readthedocs.io/en/stable/index.html) to calculate the position of the sun as a function of time and location. Next, find [historical solar irradiance data](https://nsrdb.nrel.gov/) and calculate the energy production as a function of time. Then calculate the [levelized cost of electricity](https://en.wikipedia.org/wiki/Levelized_cost_of_electricity) for a typical solar installation. You'll need to look up typical home installation costs. How does the LCOE compare to [feed-in tariff rates](https://www.nipsco.com/services/renewable-energy-programs/feed-in-tariff) from a utility? This is like a mini-senior design project; you will learn all of the economic calculations and time-value of money. Modeling a PV solar panel is much more straight forward than your semester long process design. As an additional reference, look at [this notebook](https://dowlinglab.github.io/lakeshore-science/predict_solar_array_performance.html), which Prof. Dowling adapted from a prior CBE 30338 project to analyze solar data from a regional high school.
 * How does a heat pump work? Develop a simple mathematical model, similar to a mini-project in CBE 20258. Use your model to predict how the heat pump's efficiency changes as a function of ambient temperature. How much does it cost to provide cooling or heating with the heat pump? How do your cost and efficiency calculations compare to consumer information you can find online?
+* Using [CoolProp](http://www.coolprop.org/) or the [IDAES-PSE platform](https://github.com/IDAES/idaes-pse), develop a simple mathematical/computational model for a refrigeration cycle. If you worked on the refrigeration unit operation in Junior Lab, adapt your model to our system. Does your model agree with your experimental data?
 * Does water harvesting make sense in the American West? Develop a simple mathematical model for [adsorption-based atmospheric water harvesting](https://www.sciencedirect.com/science/article/pii/S2542435121001781). Then find timeseries temperature and humidity data for a location of your choice. Simulate the water harvester for a year. How much water did you procedure? How much energy did regeneration take? What was the cost of producing the water? 
 * Simulate model predictive control for a [microfluidics device](https://www.pnas.org/doi/10.1073/pnas.1525162113).
-* In the fall and spring, it is warm during the days and cool at night. From an energy perspective, does it make sense to open the windows in your house or appartment to cool off at night? The downside is that open windows will increase the humidity of your living space. When the air conditioner turns on in the day, it then takes more energy to dehumidify the room. Develop a simple mathematical model to perform the thermodynamic calculation. Then find historical temperature and humidity data for a location of your choice. Using your model and the data, analyze this strategy for one fall and one spring. How many nights was it clearly better to keep the windows open or closed? You will have to make a lot of assumptions for this project using your engineering judgement. The goal here is to get a reasonable answer you can defended, which is not neccessarily the most rigorous answer possible. This is a great project to hone engineering analysis skills before senior design.
-* Analyze an industrial control system.
+* In the fall and spring, it is warm during the days and cool at night. From an energy perspective, does it make sense to open the windows in your house or apartment to cool off at night? The downside is that open windows will increase the humidity of your living space. When the air conditioner turns on in the day, it then takes more energy to dehumidify the room. Develop a simple mathematical model to perform the thermodynamic calculation. Then find historical temperature and humidity data for a location of your choice. Using your model and the data, analyze this strategy for one fall and one spring. How many nights was it clearly better to keep the windows open or closed? You will have to make a lot of assumptions for this project using your engineering judgement. The goal here is to get a reasonable answer you can defended, which is not necessarily the most rigorous answer possible. This is a great project to hone engineering analysis skills before senior design.
+* Analyze an industrial control system. What are the different control loops and control variables? What controller designs/control laws (e.g., PI, cascade) are used in each loop? How are the controllers tuned?
 * Simulate the [growth and development of fruit flies](https://www.pnas.org/doi/epdf/10.1073/pnas.2313224120).
-* Find time-series historical pricing and trade data for critical minerals used in batteries and other green technologies (e.g., copper, cobalt, lithium). For example, cobalt is a secondary product to mining of copper in the Democratic Republic of the Congo. Are these prices correlated? Can you identify geo-political events (e.g., conflicts, battery plant opennings) in the time-series? This project focuses on data collection and gathering related to critical mineral global supply chains.
+* Find time-series historical pricing and trade data for critical minerals used in batteries and other green technologies (e.g., copper, cobalt, lithium). For example, cobalt is a secondary product to mining of copper in the Democratic Republic of the Congo. Are these prices correlated? Can you identify geo-political events (e.g., conflicts, battery plant openings) in the time-series? This project focuses on data collection and gathering related to critical mineral global supply chains.
 
 **Numerical and Statistical Methods**. Develop a tutorial notebook for a topic not covered in CBE 20258.
-* Principle componenent analysis
+* Principle component analysis
 * [Fourier analysis](https://www.3blue1brown.com/lessons/fourier-transforms) of periodic signals
 * Maximum likelihood estimation
-* Create and demonstrate machine learning models to [predict the boiling point and other thermophysical properties of compounds](https://pubs.acs.org/doi/abs/10.1021/acs.jchemed.3c01040). 
+* Create and demonstrate machine learning models to [predict the boiling point and other thermo-physical properties of compounds](https://pubs.acs.org/doi/abs/10.1021/acs.jchemed.3c01040). 
 
 *This list will be periodically updated with additional ideas.*
 
