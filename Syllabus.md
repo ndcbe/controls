@@ -307,6 +307,23 @@ Here are some project ideas, organized by topic. Please refine these ideas to fi
 * Maximum likelihood estimation
 * Create and demonstrate machine learning models to [predict the boiling point and other thermo-physical properties of compounds](https://pubs.acs.org/doi/abs/10.1021/acs.jchemed.3c01040). 
 
+**Calcium Signaling in Biological Systems** What governs the spatiotemporal dynamics of Ca$^{2+}$ signaling in tesselated multicellular organs, such as epithelial cells? You may use the following Python/[Colab code](https://colab.research.google.com/drive/1ywfB8-SmptrDHivGkBwFxRQOgSas2Msb?usp=sharing) as a starting point. Potential questions:
+* Implement spatiotemporal control of V$_\text{PLC}$ (this would be done through an optogenetic tool) and perform a sensitivity analysis.
+* Evaluate how this may impact downstream processes such as proliferation or differentiation.
+* How would gating of gap junctions impact results?
+* How do you identify and classify different multicellular outputs?
+* What is a Ca$^{2+}$ traveling wave and what biological function could it have?
+* What is a kymograph?
+* How do you measure the predicted velocity and are there any parameters that change the velocity of waves?
+* How do you quantify the wave and make a graph?
+* For example, Fiji plugins for kymographs are available. You can make a kymograph from experimental data or simulation video output.
+* What are the next steps for advancing this model to include additional functionality?
+
+**Bone Morphogenetic Protein (BMP) Pathway** Here are some ideas:
+* Convert previously created [Matlab simulation code](https://github.com/gtreeves/balancing-pos-shaikh2024) into Python/Colab and reproduce at least one [paper figure](https://www.nature.com/articles/s41540-024-00430-9).
+* Perform a sensitivity analysis
+* Set $k_\text{depbos}$ and $k_\text{off}$ values equal to zero and simulate. What does this represent biologically?
+
 *This list will be periodically updated with additional ideas.*
 
 ### Grading Standards
