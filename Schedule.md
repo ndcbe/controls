@@ -14,11 +14,11 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Thursday, January 30 | [](./assignments/Lab-1-Step-Testing.ipynb) |
 | Friday, January 31 | 9am, Lab 2 (Exercise 0) |
 | Tuesday, February 11 | [](./assignments/Lab-2-Model-Identification.ipynb) |
-| Friday, Februrary 14 | 9am, Lab 3 (Exercise 0) |
+| Friday, February 14 | 9am, Lab 3 (Exercise 0) |
 | Tuesday, February 25 | [](./assignments/Lab-3-Relay-Control.ipynb) |
-| Friday, Februrary 28 | 9am, Lab 4 (Exercise 0) |
+| Friday, February 28 | 9am, Lab 4 (Exercise 0) |
 | Friday, March 7 | [](./assignments/Lab-4-PI-Control.ipynb) |
-| Tuesday, March 18 | Project Proposals (team submission) |
+| Friday, March 21 | Project Proposals (team submission) |
 | Tuesday, March 25| [](./assignments/Homework-2.ipynb) |
 | Friday, March 28 | 9am, Lab 5 (Exercise 0) |
 | Tuesday, April 8 | **In-Class Exam** (no Gradescope submission) |
