@@ -100,12 +100,11 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 131 DeBartolo Hall.
 | **Tuesday, March 4** | **Optimization Modeling and Linear Programming in Pyomo** |
 | [](./notebooks/5/Linear-Production-Model.ipynb) | [Optimization Python Book: Mathematical Optimization](https://mobook.github.io/MO-book/notebooks/01/01.00.html) |
 | [](./notebooks/5/Linear-Blending-Problem.ipynb) | [Optimization Python Book: Linear Optimization](https://mobook.github.io/MO-book/notebooks/02/02.00.html) |
-| **Thursday, March 6** | **Nonlinear Programming Examples** |
-| [](./notebooks/5/Gasoline-Blending.ipynb) | |
-| [](./notebooks/5/Design-of-a-Cold-Weather-Fuel.ipynb) | |
+| **Thursday, March 6** | **More Linear Programming Examples** |
+| [](./notebooks/5/Gasoline-Blending.ipynb) | [](./notebooks/5/Design-of-a-Cold-Weather-Fuel.ipynb) |
 | **Tuesday, March 18** | **Dynamic Optimization** |
-| [Pyomo.DAE Theory](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_theory.html) | [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) |
-| [Pyomo.DAE Example](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_example.html) |
+| [Pyomo.DAE Race Car Example](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_car.html) | [Review of Numeric Integration](https://ndcbe.github.io/data-and-computing/notebooks/07/integration.html) |
+| [Pyomo.DAE TCLab](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_TCLab.html) | [Pyomo.DAE Theory](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_theory.html) |
 | **Thursday, March 20** | **Simulation and Open-Loop Control** |
 | [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) | |
 | **Tuesday, March 25** | **Catch-up** |
@@ -115,7 +114,7 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 131 DeBartolo Hall.
 | [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) | |
 | **Tuesday, April 8** | **Exam** starting at 8am in 136 DBT |
 | **Thursday, April 10** | **Implementing MPC** |
-| **Tuesday, April 15** | Project Consulations (in-class) |
+| **Tuesday, April 15** | Project Consultations (in-class) |
 | **Thursday, April 17** | Project Working Time / Office Hours |
 | Tuesday, April 22 | Project Presentations (in-class) |
 | Thursday, April 24 | Project Presentations (in-class) |
