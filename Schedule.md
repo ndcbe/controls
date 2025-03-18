@@ -105,6 +105,8 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 131 DeBartolo Hall.
 | **Tuesday, March 18** | **Dynamic Optimization** |
 | [Pyomo.DAE Race Car Example](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_car.html) | [Review of Numeric Integration](https://ndcbe.github.io/data-and-computing/notebooks/07/integration.html) |
 | [Pyomo.DAE TCLab](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_TCLab.html) | [Pyomo.DAE Theory](https://ndcbe.github.io/optimization/notebooks/3/PyomoDAE_theory.html) |
+| [Pyomo.DAE for Heat Transfer PDEs](https://jckantor.github.io/ND-Pyomo-Cookbook/notebooks/05.03-Heat_Conduction_in_Various_Geometries.html) | |
+| [Pyomo.DAE for Mass Transfer PDEs](https://jckantor.github.io/ND-Pyomo-Cookbook/notebooks/05.04-Diffusion_Adsorption_in_Polymers.html) | |
 | **Thursday, March 20** | **Simulation and Open-Loop Control** |
 | [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) | |
 | **Tuesday, March 25** | **Catch-up** |
