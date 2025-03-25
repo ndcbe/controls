@@ -30,7 +30,7 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Tuesday, April 29 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
 | Final Exam Day | Project Reports/Notebooks Due (team submission) |
 
-## Labratory Sessions
+## Laboratory Sessions
 
 Fridays from 10:30 am - 11:20 am (session 1) and 11:30 am - 12:20 pm (session 2) in 133 DeBartolo Hall (computer classroom).
 
@@ -117,9 +117,9 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 131 DeBartolo Hall.
 | **Thursday, April 3** | **State Estimation and Model Predictive Control** |
 | [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) | |
 | **Tuesday, April 8** | **Exam** starting at 8am in 136 DBT |
-| **Thursday, April 10** | **Calcium Signaling Continued** |
-| **Tuesday, April 15** | Project Consultations (in-class) |
-| **Thursday, April 17** | Project Working Time / Office Hours |
+| **Thursday, April 10** | Project Consultations (in-class)  | 
+| **Tuesday, April 15** | **Calcium Signaling Continued** |
+| **Thursday, April 17** | Project Consultations (in-class) |
 | Tuesday, April 22 | Project Presentations (in-class) |
 | Thursday, April 24 | Project Presentations (in-class) |
 | Tuesday, April 29 | Project Presentations (in-class) |
