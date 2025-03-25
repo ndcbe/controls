@@ -230,17 +230,21 @@ As a team, you will write a **two-page project proposal** with up to **one addit
 
 #### Project Check-ins
 
-At least twice during class time (see [](./Schedule.md)), your team will meet with the instructor(s) for a 6-minute status update and check-in. It is essential your team carefully prepares for this meeting. For example, consider preparing a 3-slide update:
+Three times during class time (see [](./Schedule.md)), your team will meet with an instructor for a 6-minute status update and check-in. It is essential your team carefully prepares for this meeting. For example, consider preparing a 3-slide update:
 1. What is the motivation and goal of the project?
 2. Is the project on schedule? What is the updated timeline?
 3. What do you need feedback or advice on? Are you stuck?
 
-During this update meeting, your team should be ready to present (e.g., brings a laptop) and at least one person should be the designated note taker and actively take notes. 
+During this update meeting, your team should be ready to present (e.g., brings a laptop) and at least one person should be the designated note taker and actively take notes.
+
+Time is limited and these meetings are short. It is your responsibility to plan ahead for this meeting. Preparation for these meetings factors into the semester grade.
+
+Your team should arrive at least 5 minutes before your scheduled meeting time to set ready. There is a small possibility we will get ahead of schedule. You are welcome to work in the classroom before and after your scheduled meeting time.
 
 #### Group Presentation
 
 Each team will give a 6-minute final presentation to the class on their project. Here is a suggested presentation outline:
-1. **Motivation**. Describe why your problem is interesting and excited. Why did you choose it as a final project?
+1. **Motivation**. Describe why your problem is interesting and exciting. Why did you choose it as a final project?
 2. **Mathematical Model**. Briefly explain the mathematical model for the system you studied. If your project focused on a numerical or statistical method, you may skip this slide and instead use two slides to describe the method in detail.
 3. **Methods**. Describe the analysis procedure or methods you used in the project. Many groups will find it most effective to make a flowchart that shows their steps, e.g., construct model, regress model, tune controller, verify performance via simulation.
 4. **Cool Result 1**. Highlight one result you find very exciting and can explain quickly.
@@ -249,7 +253,14 @@ Each team will give a 6-minute final presentation to the class on their project.
 
 Teams are welcome to customize the above suggested presentation outline; however, each presentation must include all of the elements described above. A good rule-of-thumb is one slide per minute in a presentation.
 
-Teams will submit their slides by 7am the morning of their assigned presentation time. The instructors will then compile these into one PowerPoint presentation. 
+Teams will submit their slides by 7am the morning of their assigned presentation time via Google Drive.
+
+Final suggestions and advice:
+1. Include numbers of each slide
+2. Ensure figures are easy to read and publication quality
+3. Use large font size to ensure slides can be read from the back of the room. This includes text on figures.
+4. Do not overload the slides with information. Often less is more. Focus on the most important aspects.
+5. Your presentation should tell a story, starting with the motivation and ending with conclusions or lessons learned.
 
 #### Final Report and Code
 
