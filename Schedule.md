@@ -109,13 +109,15 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 131 DeBartolo Hall.
 | [Pyomo.DAE for Mass Transfer PDEs](https://jckantor.github.io/ND-Pyomo-Cookbook/notebooks/05.04-Diffusion_Adsorption_in_Polymers.html) | |
 | **Thursday, March 20** | **Simulation and Open-Loop Control** |
 | [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) | |
-| **Tuesday, March 25** | **Catch-up** |
+| **Tuesday, March 25** | **Optimization Under Uncertainty** |
+| [Stochastic Programming](https://ndcbe.github.io/optimization/notebooks/4/SP.html) | |
 | **Thursday, March 27** | **Exam Review** |
+| [Exam Information and Topics](https://docs.google.com/document/d/1XMKEoE14-g1PMc_G3xJzlcgbpgn8mRSxKptQnjYJaH4/edit?usp=sharing) | |
 | **Tuesday, April 1** | Project Consultations (in-class) |
 | **Thursday, April 3** | **State Estimation and Model Predictive Control** |
 | [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) | |
 | **Tuesday, April 8** | **Exam** starting at 8am in 136 DBT |
-| **Thursday, April 10** | **Implementing MPC** |
+| **Thursday, April 10** | **Calcium Signaling Continued** |
 | **Tuesday, April 15** | Project Consultations (in-class) |
 | **Thursday, April 17** | Project Working Time / Office Hours |
 | Tuesday, April 22 | Project Presentations (in-class) |
