@@ -36,7 +36,7 @@ Students completing this course will be able to:
 * CBE 32338-01 Friday, 10:30 am - 11:20 pm, DeBartolo 133
 * CBE 32338-02 Friday, 11:30 am - 12:20 pm, DeBartolo 133
 
-Seating in DeBartolo 133 (computer classroom) is limited to 45 students*. Pleae attend the lab session for which you are registered.
+Seating in DeBartolo 133 (computer classroom) is limited to 45 students*. Please attend the lab session for which you are registered.
 
 **Prerequisites:** This course assumes knowledge of modeling and analysis with differential equations, procedural programming in Python, mass and energy balances. Students taking this course will normally have completed
 
@@ -171,28 +171,30 @@ Class sessions will include opportunities to respond to instructor questions and
 At the end of the semester, the instructor will assign grades for class participation and professionalism at their discretion. Students who are good class citizens, i.e., actively engage in class and lab activities, work well with peers, arrives prepared, and ask and answer questions on the Canvas discussion board, will receive (near) full marks. In contrast, the following may result in a reduced grade:
 - Unprofessional behavior toward peers, instructors, teaching assistants, or others in the campus community. (This may also result in other disciplinary action per university policies.)
 - Repeatedly sending emails to the instructor or TAs on topics that should be addressed in the Canvas Discussion board (e.g., assignment help, class policy questions).
-- Repeatdely sending emails without "CBE 30338" in the subject.
+- Repeatedly sending emails without "CBE 30338" in the subject.
 - Not actively participating in class or lab activities.
 - Missing significant numbers of class sessions without an excuse recognized by the university.
-- Arriving late to class as this causes a distrubtion.
+- Arriving late to class as this causes a distribution.
 
-The class participation grade may include online quizzes, pre-lab activities, in-class Poll Everywhere questions, and prepartion for in-class project consultations.
+The class participation grade may include online quizzes, pre-lab activities, in-class Poll Everywhere questions, and preparation for in-class project consultations.
 
-### Excused Absenses
+### Excused Absences
 
 You are expected to attend and actively participate in all class sessions.  If you miss class for an official University excused function, please find notes for that lecture, do the reading, and avail yourself of office hours to catch up on the missed material. You do not need to email the instructor(s) to ask about missed materials. Please check Canvas, the class schedule, and with your classmates first. (You are welcome to post on the Canvas discussion if you miss class.)
 
-We plan on asking two or more Poll Everyone questions each lecture. If you have an excused absense, please submit the supporting documentation [via Canvas](https://canvas.nd.edu/courses/105816/assignments/342768). Please do NOT sent excused absense documenation via email. Canvas provides a more organized way to document excused absenses and factor this into the class participation grades. The exception are excused absenses from Athletics, which are sent via email directly to the instructors.
+We plan on asking two or more Poll Everyone questions each lecture. If you have an excused absence, please submit the supporting documentation [via Canvas](https://canvas.nd.edu/courses/105816/assignments/342768). Please do NOT sent excused absence documentation via email. Canvas provides a more organized way to document excused absences and factor this into the class participation grades. The exception are excused absences from Athletics, which are sent via email directly to the instructors.
 
 ### Assignments
 
-Homework and labratory assignments are critical to developing the skills needed to succeed in the course and in the major. Accordingly, assignments are a required element of the course. Missing assignments will be scored as zero. Group study is encouraged, but the submitted work must be your own. Students must be able to explain all of their submitted work.
+Homework and laboratory assignments are critical to developing the skills needed to succeed in the course and in the major. Accordingly, assignments are a required element of the course. Missing assignments will be scored as zero. Group study is encouraged, but the submitted work must be your own. Students must be able to explain all of their submitted work.
 
 Please see our [semester schedule](./Schedule.md) for a listing of assignments and deadlines.
 
 ### Exam
 
-There will be one in-class exam. The exam will be open book but without access to a computer or the internet. Students who take notes on a tablet should sit in the front rows during the exam and will be monitored by the teaching team. Tablets may only be used to access your notes, i.e., internet and other connectivity must be disabled.
+There will be one in-class exam. The exam will be open book but without access to a computer or the internet. Students may not use their tablet, watch, phone, or other computing device to access a Python environment, AI tool (e.g., ChatGPT), or the internet during the exam. The exam must be an individual effort.
+
+Students who take notes on a tablet during class should sit in the front rows during the exam and will be monitored by the teaching team. Tablets may only be used to access your notes, i.e., internet and other connectivity must be disabled. To maintain fairness, students who take notes on tablet computers may only access note material they have prepared. For example, students are welcome to access PDF copies of pages on the class website, assignments, etc., they saved and organized on their tablet. This is analogous to someone who took class notes on paper printing out these materials and organizing them into a binder or folder. (The act of saving/printing and organizing class material, or other resources, makes this "your notes" for the purpose of this policy.) Students may not use their tablet to interact with any other individuals or access other resources besides their notes.
 
 ### Final Project
 
