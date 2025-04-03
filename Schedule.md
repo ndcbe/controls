@@ -116,7 +116,7 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 131 DeBartolo Hall.
 | **Tuesday, April 1** | Project Consultations (in-class) |
 | **Thursday, April 3** | **State Estimation and Model Predictive Control** |
 | [](./notebooks/6/TCLab-Optimization-Estimation-Control.ipynb) | |
-| **Tuesday, April 8** | **Exam** starting at 8am in 136 DBT |
+| **Tuesday, April 8** | **Exam** starting at 8am in 131 DBT |
 | **Thursday, April 10** | Project Consultations (in-class)  | 
 | **Tuesday, April 15** | **Calcium Signaling Continued** |
 | **Thursday, April 17** | Project Consultations (in-class) |
