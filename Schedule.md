@@ -24,11 +24,11 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 | Tuesday, April 8 | **In-Class Exam** (no Gradescope submission) |
 | Thursday, April 10 | [](./assignments/Lab-5-Open-Loop-Optimization.ipynb) |
 | Friday, April 11 | 9am, Lab 6 (quick quiz on Canvas) |
-| Tuesday, April 29 | [](./assignments/Lab-6-MPC.ipynb) |
+| Friday, April 25 | [](./assignments/Lab-6-MPC.ipynb) |
 | Tuesday, April 22 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
 | Thursday, April 24 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
 | Tuesday, April 29 | In-Class Project Presentations (team, upload slides as PDF by 8am) |
-| Final Exam Day | Project Reports/Notebooks Due (team submission) |
+| Sunday, May 4 | Project Reports/Notebooks Due (team submission) |
 
 ## Laboratory Sessions
 
@@ -50,7 +50,7 @@ Fridays from 10:30 am - 11:20 am (session 1) and 11:30 am - 12:20 pm (session 2)
 | Friday, April 4 | Office Hours |
 | Friday, April 11 | [](./assignments/Lab-6-MPC.ipynb) |
 | Friday, April 18 | Good Friday |
-| Friday, April 29 | Office Hours | 
+| Friday, April 25 | Office Hours | 
 
 ## Class Meetings
 
