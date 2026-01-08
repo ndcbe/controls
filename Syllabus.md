@@ -1,6 +1,6 @@
-# Syllabus - test update for 2026
+# Syllabus
 
-## CBE 30338 Description for 2026
+## CBE 30338 Description (updates for 2026 forthcoming)
 
 **CBE 30338 Data Analytics, Optimization, and Control** introduces students to the analysis and design of control systems for chemical and biochemical processes. Applications include chemical and biological reactors, separation processes, autonomous biomedical devices, and examples from other engineering disciplines. 
 
