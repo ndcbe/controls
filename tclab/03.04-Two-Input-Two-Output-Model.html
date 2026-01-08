@@ -172,8 +172,8 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Syllabus.html">Syllabus - test update for 2026</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Schedule.html">Schedule (2026)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Schedule.html">Schedule (2026 updates coming soon)</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../assignments/assignments.html">Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
@@ -562,14 +562,14 @@
 <p>Note: This page uses <span class="math notranslate nohighlight">\(U_b\)</span> for the heat transfer coefficient between the two channels. In contrast, <a class="reference internal" href="../notebooks/2/Second-Order.html"><span class="std std-doc">Second Order Model</span></a> uses <span class="math notranslate nohighlight">\(U_b\)</span> for the heat transfer between the heater/fin and sensor.</p>
 <p>Note: This is a legacy page. Some of the code does not run.</p>
 <p>Our next model considers the interaction between the two heaters. From the step response it is obvious that the heaters interact, and we need to understand how that affects the dynamic performance.  Will we see qualitative differences in the step response once we’ve included the second heater?</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e0f4361-1bd5-4390-bdb6-06f2b936ca75">
-<span class="eqno">(4.9)<a class="headerlink" href="#equation-7e0f4361-1bd5-4390-bdb6-06f2b936ca75" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7556435d-e944-4f56-a025-db550e9af5a2">
+<span class="eqno">(4.9)<a class="headerlink" href="#equation-7556435d-e944-4f56-a025-db550e9af5a2" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + U_b(T_2 - T_1) + \alpha P_1 u_1\\
 C_p\frac{dT_2}{dt} &amp; = U_a(T_{amb} - T_2) + U_b(T_1 - T_2) + \alpha P_2 u_2
 \end{align}\]</div>
 <p>As a first step we isolate the bare derivatives on the left-hand side of the equations. This is good practice in situations where you expect to be doing numerical simulation.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-219c339f-f08e-42fc-9266-9c76b57cc468">
-<span class="eqno">(4.10)<a class="headerlink" href="#equation-219c339f-f08e-42fc-9266-9c76b57cc468" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d25120e5-b97d-4e55-9d02-123558c35a58">
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-d25120e5-b97d-4e55-9d02-123558c35a58" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT_1}{dt} &amp; = \frac{U_a}{C_p}(T_{amb} - T_1) + \frac{U_b}{C_p}(T_2 - T_1) + \frac{\alpha P_1}{C_p}u_1\\
 \frac{dT_2}{dt} &amp; = \frac{U_a}{C_p}(T_{amb} - T_2) + \frac{U_b}{C_p}(T_1 - T_2) + \frac{\alpha P_2}{C_p}u_2
 \end{align}\]</div>
@@ -577,20 +577,20 @@ C_p\frac{dT_2}{dt} &amp; = U_a(T_{amb} - T_2) + U_b(T_1 - T_2) + \alpha P_2 u_2
 <section id="deviation-variables">
 <h2><span class="section-number">4.1.2. </span>Deviation Variables<a class="headerlink" href="#deviation-variables" title="Link to this heading">#</a></h2>
 <p>As before, the equations appear somewhat simpler if we introduce deviation variables from a nominal state. In this case we’ll use the ambient temperature as the reference, so the deviation variable will express deviation from ambient.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c56d4d7b-8074-4045-a887-aca60b4dccf1">
-<span class="eqno">(4.11)<a class="headerlink" href="#equation-c56d4d7b-8074-4045-a887-aca60b4dccf1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b1cb71b4-bd81-498f-bbad-beef2ecdb31d">
+<span class="eqno">(4.11)<a class="headerlink" href="#equation-b1cb71b4-bd81-498f-bbad-beef2ecdb31d" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_1' &amp; = T_1 - T_{amb} \\
 T_2' &amp; = T_2 - T_{amb}
 \end{align}\]</div>
 <p>Then gathering terms</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a8a552d-844d-4ba5-8219-7d556cb74987">
-<span class="eqno">(4.12)<a class="headerlink" href="#equation-4a8a552d-844d-4ba5-8219-7d556cb74987" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6d0b23e2-44d4-432a-861e-2e52c41b241b">
+<span class="eqno">(4.12)<a class="headerlink" href="#equation-6d0b23e2-44d4-432a-861e-2e52c41b241b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT_1'}{dt} &amp; = -\frac{U_a+U_b}{C_p}T_1' + \frac{U_b}{C_p}T_2' + \frac{\alpha P_1}{C_p}u_1\\
 \frac{dT_2'}{dt} &amp; = -\frac{U_a+U_b}{C_p}T_2' + \frac{U_b}{C_p}T_1' + \frac{\alpha P_2}{C_p}u_2
 \end{align}\]</div>
 <p>An alternative way to express these equations is in matrix/vector form.  We won’t use this today, but later will make extensive use of this ‘state-space’ model of a linear system.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-decb5bab-c2a3-4ba8-b70f-73828d16169a">
-<span class="eqno">(4.13)<a class="headerlink" href="#equation-decb5bab-c2a3-4ba8-b70f-73828d16169a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-62b19f24-4999-4961-91c1-0c0d97763b96">
+<span class="eqno">(4.13)<a class="headerlink" href="#equation-62b19f24-4999-4961-91c1-0c0d97763b96" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left[\begin{array}{c}\frac{dT_1'}{dt} \\ \frac{dT_2'}{dt}\end{array}\right] &amp; = 
 \left[\begin{array}{cc}-\frac{U_a+U_b}{C_p} &amp; \frac{U_b}{C_p} \\ \frac{U_b}{C_p} &amp; -\frac{U_a+U_b}{C_p} \end{array}\right]
 \left[\begin{array}{c}T_1' \\ T_2'\end{array}\right] +
@@ -601,21 +601,21 @@ T_2' &amp; = T_2 - T_{amb}
 <section id="steady-state">
 <h2><span class="section-number">4.1.3. </span>Steady State<a class="headerlink" href="#steady-state" title="Link to this heading">#</a></h2>
 <p>The steady state is found by setting the derivatives to zero. We’ll use a bar over the dependent variables to designate steady state values.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5e393cb4-0d24-4c14-9ca2-6d150bd802f8">
-<span class="eqno">(4.14)<a class="headerlink" href="#equation-5e393cb4-0d24-4c14-9ca2-6d150bd802f8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-95c74eaa-8c4f-4e2c-96a5-57c7c2421b5c">
+<span class="eqno">(4.14)<a class="headerlink" href="#equation-95c74eaa-8c4f-4e2c-96a5-57c7c2421b5c" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; = -(U_a+U_b)\bar{T}_{1}' + U_b\bar{T}_{2}' + \alpha P_1 \bar{u}_{1}\\
 0 &amp; = -(U_a+U_b)\bar{T}_{2}' + U_b\bar{T}_{1}' + \alpha P_2 \bar{u}_{1}
 \end{align}\]</div>
 <p>Our challenge is to solve the following 2x2 system of linear equations for the steady state temperatures.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-194aeb59-fe4b-4307-be13-cfc581c5c880">
-<span class="eqno">(4.15)<a class="headerlink" href="#equation-194aeb59-fe4b-4307-be13-cfc581c5c880" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<div class="amsmath math notranslate nohighlight" id="equation-09311bd9-2411-4e1b-a397-ce1e31e6bc94">
+<span class="eqno">(4.15)<a class="headerlink" href="#equation-09311bd9-2411-4e1b-a397-ce1e31e6bc94" title="Permalink to this equation">#</a></span>\[\begin{align} 
 \left[\begin{array}{cc}(U_a+U_b) &amp; -U_b \\ -U_b &amp; (U_a+U_b) \end{array}\right]
 \left[\begin{array}{c}\bar{T}_1' \\ \bar{T}_2'\end{array}\right] &amp; = 
 \left[\begin{array}{c} \alpha P_1\bar{u}_1 \alpha P_2\bar{u}_2\end{array}\right]
 \end{align}\]</div>
 <p>The solution to these equations is a bit of work, but you should be able to verify</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2c0ef9d-2c08-485f-a6c4-adc4426019d4">
-<span class="eqno">(4.16)<a class="headerlink" href="#equation-d2c0ef9d-2c08-485f-a6c4-adc4426019d4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ec29fdc2-8e5b-4f73-805a-e93968396576">
+<span class="eqno">(4.16)<a class="headerlink" href="#equation-ec29fdc2-8e5b-4f73-805a-e93968396576" title="Permalink to this equation">#</a></span>\[\begin{align}
 \bar{T}_1' &amp; = \frac{(U_a+U_b)}{U_a(U_a+2U_b)}\alpha P_1\bar{u}_1 + \frac{U_b}{U_a(U_a+2U_b)} \alpha P_2\bar{u}_2 \\
 \bar{T}_2' &amp; = \frac{U_b}{U_a(U_a+2U_b)}\alpha P_1\bar{u}_1 + \frac{(U_a+U_b)}{U_a(U_a+2U_b)}\alpha P_2\bar{u}_2
 \end{align}\]</div>
@@ -623,14 +623,14 @@ T_2' &amp; = T_2 - T_{amb}
 <section id="estimating-u-a-and-u-b">
 <h2><span class="section-number">4.1.4. </span>Estimating <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(U_b\)</span><a class="headerlink" href="#estimating-u-a-and-u-b" title="Link to this heading">#</a></h2>
 <p>Experimental step response data gives us the information needed to estimate parameters <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(U_b\)</span>. Rearranging the steady state equations, we find a pair of linear equations for <span class="math notranslate nohighlight">\(U_a\)</span> and <span class="math notranslate nohighlight">\(U_b\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ab3bac76-c077-45f1-b5bc-1d35a87ac3e5">
-<span class="eqno">(4.17)<a class="headerlink" href="#equation-ab3bac76-c077-45f1-b5bc-1d35a87ac3e5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9c56db0c-b7bb-4f96-b18b-8a0e66b91a62">
+<span class="eqno">(4.17)<a class="headerlink" href="#equation-9c56db0c-b7bb-4f96-b18b-8a0e66b91a62" title="Permalink to this equation">#</a></span>\[\begin{align}
 \bar{T}_{1}'U_a  + (\bar{T}_{1}'-\bar{T}_{2}')U_b &amp; = \alpha P_1\bar{u}_{1}\\
 \bar{T}_{2}'U_a + (\bar{T}_{2}'-\bar{T}_{1}')U_b &amp; = \alpha P_2\bar{u}_{1}
 \end{align}\]</div>
 <p>There is an analytical solution to these equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d77dee39-d8a6-48f6-9d06-646227ba5d2c">
-<span class="eqno">(4.18)<a class="headerlink" href="#equation-d77dee39-d8a6-48f6-9d06-646227ba5d2c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e6ce7735-0df7-4027-bc6b-42a571d770c3">
+<span class="eqno">(4.18)<a class="headerlink" href="#equation-e6ce7735-0df7-4027-bc6b-42a571d770c3" title="Permalink to this equation">#</a></span>\[\begin{align}
 U_a &amp; = \frac{\alpha P_1\bar{u}_1 + \alpha P_2\bar{u}_2}{\bar{T}_1' + \bar{T}_2'}\\
 U_b &amp; = \frac{\bar{T}_2'\alpha P_1\bar{u}_1 - \bar{T}_1'\alpha P_2\bar{u}_2}{(\bar{T}_1' - \bar{T}_2')(\bar{T}_1' + \bar{T}_2')}
 \end{align}\]</div>
