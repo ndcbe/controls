@@ -1,6 +1,6 @@
-# Schedule (2025)
+# Schedule (2026)
 
-## Assignment Deadlines
+## Assignment Deadlines to be updated shortly
 
 Assignments are due at 10 pm via Gradescope unless otherwise directed.
 

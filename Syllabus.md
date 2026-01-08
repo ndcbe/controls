@@ -1,4 +1,4 @@
-# Syllabus
+# Syllabus - test update for 2026
 
 ## CBE 30338 Description
 
