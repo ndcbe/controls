@@ -1,6 +1,6 @@
-# Syllabus
+# Syllabus - test update for 2026
 
-## CBE 30338 Description
+## CBE 30338 Description for 2026
 
 **CBE 30338 Data Analytics, Optimization, and Control** introduces students to the analysis and design of control systems for chemical and biochemical processes. Applications include chemical and biological reactors, separation processes, autonomous biomedical devices, and examples from other engineering disciplines. 
 
@@ -28,7 +28,7 @@ Students completing this course will be able to:
 
 **Canvas link:** [SP25-CBE-30338-01 Data Analytics, Optimization, and Control](https://canvas.nd.edu/courses/105816)
 
-**Dates:** January 14 - April 30, 2025
+**Dates:** January 14 - April 30, 2026
 
 **Class:** CBE 30338 Tuesday and  Thursdays, 9:15 - 10:45 am, DeBartolo 131
 
