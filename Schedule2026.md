@@ -6,7 +6,7 @@ Assignments are due at 10 pm via Gradescope unless otherwise directed.
 
 | Deadline    | Description |
 | ----------- | ----------- |
-| Friday, January 17 | [Order Temperature Control Lab](https://www.amazon.com/TCLab-Temperature-Control-Lab/dp/B07GMFWMRY) (no submission required) |
+| Friday, January 17 | [Order Temperature Control Lab](https://www.amazon.com/TCLab-Temperature-Control-Lab/dp/B07GMFWMRY or ) (no submission required) |
 | Monday, January 20 | [Class Policies Quiz](https://canvas.nd.edu/courses/105816/quizzes/59967) (opens after Friday lab, submit via Canvas) |
 | Tuesday, January 21 | 9am, [](./assignments/Homework-1.ipynb) (first part) |
 | Thursday, January 23 | [](./assignments/Homework-1.ipynb) (remainder) |
