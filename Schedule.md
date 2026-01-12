@@ -1,4 +1,4 @@
-# Schedule (2026)
+# Schedule (Updated for 2026)
 
 ## Assignments & Important Dates 
 
