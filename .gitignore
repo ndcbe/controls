@@ -1,6 +1,44 @@
-.ipynb_checkpoints/
-.DS_Store/
-references/
-.pytest_cache/
-notebooks/.DS_Store
+# =========================
+# macOS
+# =========================
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# =========================
+# Jupyter / JupyterBook
+# =========================
+.ipynb_checkpoints/
+_build/
+.build/
+jupyter_execute/
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+
+# =========================
+# Editor / IDE files
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS / temp files
+# =========================
+*.log
+*.tmp
+*.swp
