@@ -4,14 +4,14 @@
 
     `sources = [["T1", lambda: lab.T1], ["T_ave", lambda: (lab.T1 + lab.T1)/2], ["T2", lab.T2]]`
     
-* How many sources are specifiied?
+* How many sources are specified?
 * One of these specification will result in an error. Which one. What is wrong? How would you fix it?
 * Explain what is being done with the second data source.
 * `lab.Q2` is a function defined so that executinig `lab.Q2()` returns a value. Specify a data source incorporating this function.
     
 **Study Question.** Suppose you've written a novel control algorithm. The algorithm generates a floating point value that is denoted by the Python variable `y_est`. Given a list of data sources `sources`, add a source for this quantity with the tag "Y_EST".
 
-**Study Question.** Suppose you have implemented a contrrol algorithm for a bioreactor application that utilizes a state space model. The state vector `x` has two elements representing temperature T and concentration C. Create a list of sources for the historian to record this data with tags "T" and "C".
+**Study Question.** Suppose you have implemented a control algorithm for a bioreactor application that utilizes a state space model. The state vector `x` has two elements representing temperature T and concentration C. Create a list of sources for the historian to record this data with tags "T" and "C".
 
 <hr>
 
