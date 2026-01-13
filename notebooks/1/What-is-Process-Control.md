@@ -10,15 +10,15 @@ The beats ...
 
 1. Important courses in engineering teach universal concepts that can be applied to many situations. Thermodynamics, for example, shows how to use the principles of energy conservation and entropy to analyze and design engines, power systems, chemical equilibrium, biological systems, among many other things. The core concept in this course is **Feedback**. 
 
-1. **Systems** are a collection of interconnected physical and compututional  parts that form a larger and more complex whole. 
+1. **Systems** are a collection of interconnected physical and computational  parts that form a larger and more complex whole. 
 
 1. For any system there are three basic tasks:
 
-    * **System Identification**.  Whaat type of system is this? Can it be modeled mathematically? Can first principles knowledge be incorporated in the model? How can the parameters of the model be determined?
+    * **System Identification**.  What type of system is this? Can it be modeled mathematically? Can first principles knowledge be incorporated in the model? How can the parameters of the model be determined?
     
     * **Simulation**. Predict system behavior for given inputs and disturances. Does the system reproduce test data? Does the system reproduce data that wasn't used to identify the model?
     
-    * **Control**. Given current measurements and uncertainities, determine system inputs needed to achieve a desired response in real time. Control can be computed using control laws 'tuned' to the system, or by optimiziing some measure of system performance.
+    * **Control**. Given current measurements and uncertainities, determine system inputs needed to achieve a desired response in real time. Control can be computed using control laws 'tuned' to the system, or by optimizing some measure of system performance.
 
 1. **Feedback** is the use of sensors to regulate the behavior of a system. Feedback is evident in many natural systems, a universal feature of biological systems at all scales, and key to engineering autonomous, self-regulating devices and processes. 
 
@@ -48,11 +48,11 @@ The beats ...
 
     * **Disturbance Rejection:** Maintain a system variable at a desired value regardless of external influences on the system.
 
-1. Setpoints generally come from other control systems. Complex systems usually involve **control heirarchies** to manage complexity and reduce the impact of uncertainty. ![](https://i1.wp.com/www.hisour.com/wp-content/uploads/2018/11/Hierarchical-control-system.jpg) <br> Image Credit: HiSour
+1. Setpoints generally come from other control systems. Complex systems usually involve **control hierarchies** to manage complexity and reduce the impact of uncertainty. ![](https://i1.wp.com/www.hisour.com/wp-content/uploads/2018/11/Hierarchical-control-system.jpg) <br> Image Credit: HiSour
 
 1. Disturbances are the uncertainties which control systems are designed to mitigate. Uncertainties are not always subject to classical mathematics.
     * **Measured Disturbances:** Disturbances which can be measured or estimated in advance of their effect on a process system.
-    * **Unmeasured Disturbancs:** Disturbances which are not measured.
+    * **Unmeasured Disturbances:** Disturbances which are not measured.
     
     * **Resolvable Uncertainty:** Uncertainties that can be quantitatively characterized using probabilistic or other methods. Often "long tails". The "known unknowns".
     
@@ -64,4 +64,4 @@ The beats ...
     * Feedback control reduces the need for highly accurate or detailed models. Systems become as accurate as their sensors.  
     * The role of feedback is often not understood in social and economic settings.
 
-1. Control is a large interdisciplineary field of ever-growing technical importance. This course will introduce many of the topics in the "Map of Control Theory" by Brian Douglas. ![](../figures/Control_Map_ver5.png) <br> Image Credit: Brian Douglas {cite}`douglas2017fundamentals`
+1. Control is a large interdisciplinary field of ever-growing technical importance. This course will introduce many of the topics in the "Map of Control Theory" by Brian Douglas. ![](../figures/Control_Map_ver5.png) <br> Image Credit: Brian Douglas {cite}`douglas2017fundamentals`

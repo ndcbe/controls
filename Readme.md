@@ -1,6 +1,6 @@
 # CBE 30338 Data Analytics, Optimization, and Control
 
-This is a collection of class materials for CBE 303338 Data Analytics, Optimization, and Control taught at the University of Notre Dame. 
+This is a collection of class materials for CBE 30338 Data Analytics, Optimization, and Control taught at the University of Notre Dame. 
 
 ## Course Description
 
@@ -52,7 +52,7 @@ conda create -n controls -c anaconda -c conda-forge -c IDAES-PSE python=3.10 pan
 **Instructors/TAs**, Next, in the terminal type:
 * `pip install sphinxcontrib-tikz`
 
-To **start using Python**, in either the Acaconda promptly (Windows) or terminal (Mac):
+To **start using Python**, in either the Anaconda prompt (Windows) or terminal (Mac):
 * Activate our environment: `conda activate controls`
 * Launch Jupyter lab: `jupyter lab`
 * In the upper right corner, click on "Kernel" and change to "controls"
@@ -77,18 +77,18 @@ gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 We will be meeting in DBT 228 on Fridays for the tutorial session. If you use the same computer each week, you should only need to setup your conda `controls` environment once each semester.
 
-After the tutorial each week, you should copy your files from the classroom computer to Google Drive or another cloud storage system. This is important to ensure you do not loose any work between weeks.
+After the tutorial each week, you should copy your files from the classroom computer to Google Drive or another cloud storage system. This is important to ensure you do not lose any work between weeks.
 
 ## Software Installation Instructions (from Spring 2024)
 
-Students will use their personal laptop computers to complete labratory and homework assignments. Below are instructions 
+Students will use their personal laptop computers to complete laboratory and homework assignments. Below are instructions 
 
 Start Here:
 * Install anaconda: https://www.anaconda.com/
 * Windows users: In the Start menu, search for "Anaconda prompt". Open it and copy-paste-run the commands below
 * Mac users: press command + space, then search for "terminal". Open it and copy-paste-run the commands below
 * Create new conda environment: `conda create -n controls python=3.10`
-* Activate new environemnt: `conda activate controls`
+* Activate new environment: `conda activate controls`
 
 Extra Steps for Website Contributors (e.g., instructor, TAs, students please skip):
 * Install Jupyter Book (may take a while, solve may freeze a few times): `conda install -c conda-forge jupyter-book`
@@ -102,7 +102,7 @@ Everyone (students resume here after "Start Here" steps are complete):
 * Install optimization solvers: `idaes get-extensions`
 * Install tclab: `pip install tclab`
 
-To run Python, in either the Acaconda prompty (Windows) or terminal (Mac):
+To run Python, in either the Anaconda prompt (Windows) or terminal (Mac):
 * Activate our environment: `conda activate controls`
 * Launch Jupyter lab: `jupyter lab`
 * In the upper right corner, click on "Kernel" and change to "controls"
@@ -110,4 +110,4 @@ To run Python, in either the Acaconda prompty (Windows) or terminal (Mac):
 
 ## Contact Us
 
-Most of these materials were developed by [Prof. Jeffery Kantor](https://news.nd.edu/news/in-memoriam-jeffrey-kantor-former-vice-president-associate-provost-and-dean/). The repository is  administered by [Prof. Alexander Dowling](https://dowlinglab.nd.edu/) at [https://github.com/ndcbe/controls](https://github.com/ndcbe/controls). PRof. Jeremiah Zartman is currently maintaining and maintaining the repository for the 2026 course. 
+Most of these materials were developed by [Prof. Jeffery Kantor](https://news.nd.edu/news/in-memoriam-jeffrey-kantor-former-vice-president-associate-provost-and-dean/). The repository is  administered by [Prof. Alexander Dowling](https://dowlinglab.nd.edu/) at [https://github.com/ndcbe/controls](https://github.com/ndcbe/controls). Prof. Jeremiah Zartman is currently maintaining the repository for the 2026 course. 

@@ -39,14 +39,14 @@ where $x$ is the **state vector** with $n$ elements, $u$ is a vector of manipula
 What you should be able to do:
 
 * Convert systems of linear differential equations into state-space form, identifying all relevant vectors and matrices.
-* For a given problem, determine if the vectors and matrices are of compatiable dimensions.
+* For a given problem, determine if the vectors and matrices are of compatible dimensions.
 * Compute eigenvalues and determine stability.
 * Simulate the response of a state-space model to inputs and disturbances.
 
 
 ## State Estimation
 
-State estimation is a form of real-time process analytics employed in control systems. State estimation combines process models with real-time process measurements to provide estimates of process variables that may not be directly measureable.
+State estimation is a form of real-time process analytics employed in control systems. State estimation combines process models with real-time process measurements to provide estimates of process variables that may not be directly measurable.
 
 At each time step $t_k$ there are two calculations to perform:
 
