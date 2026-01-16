@@ -4,13 +4,13 @@
 
 Note these are **subject to change and updates**. Check Gradescope regularly for confirmation)
 
-Assignments are typically due at 9 am via Gradescope unless otherwise directed. Key dates for the 2026 semester are listed here — see the course Canvas page for formal due times and submission instructions.
+Assignments are typically due at 10 PM via Gradescope unless otherwise directed. Key dates for the 2026 semester are listed here — see the course Canvas page for formal due times and submission instructions.
 
 | Date | Description |
 | --- | --- |
 | Friday, January 16, 2026 | **Homework 1 office hours** (drop-in / TA help) |
-| Tuesday, January 20, 2026 | **Homework 1A** — Modeling: Linear Systems (in class) |
-| Thursday, January 29, 2026 | **Homework 1B** — Modeling: Second Order Systems (in class) |
+| Tuesday, January 20, 2026 | **Homework 1A** — Modeling: Linear Systems |
+| Thursday, January 29, 2026 | **Homework 1B** — Modeling: Second Order Systems |
 | Friday, January 23, 2026 | **Lab 0:** Installing Python, Hardware Demo, Getting Started (no Gradescope submission) |
 | Friday, January 30, 2026 | **Lab 1:** Step Test — Lab 1 prelab due (see lab instructions) |
 | Friday, February 6, 2026 | **Lab 2:** Model Identification — Lab 2 prelab due |
@@ -54,8 +54,8 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 102 DeBartolo Hall.
 | Date | Main Topic / Notes (Note we may deviate from this anticipated schedule as the semester progresses and is only approximate) |
 | --- | --- |
 | **Tuesday, January 13, 2026** | **Welcome and Introduction to Process Control** |
-| **Thursday, January 15, 2026** | **CBE 20258 Review:** Linear Algebra, Numeric Integration, Regression and more (refresher material) |
-| **Tuesday, January 20, 2026** | **Modeling: Linear Systems** — *Homework 1A assigned in class* |
+| **Thursday, January 15, 2026** | **CBE 20258 Review:** Linear Algebra, Numeric Integration, Regression and more (refresher material, aids in starting Homework 1A) |
+| **Tuesday, January 20, 2026** | **Modeling: Linear Systems** — *Homework 1A due* |
 | **Thursday, January 22, 2026** | **Introduction: Temperature Control Lab** (lab orientation & safety) |
 | **Tuesday, January 27, 2026** | **Modeling: Pharmacokinetics** |
 | **Thursday, January 29, 2026** | **Modeling: Second Order Systems** — *Homework 1B assigned in class* |
@@ -83,4 +83,4 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 102 DeBartolo Hall.
 | **Thursday, April 16, 2026** | **Scheduled Project Consultations** — **Lab 4 due** |
 | **Tuesday, April 21, 2026** | **Project Presentations** (in class) |
 | **Thursday, April 23, 2026** | **Project Presentations** — **Homework 3 due** |
-| **Tuesday, April 28, 2026** | **Final (short) exam** — in-class component of final project; **Project reports due** |
+| **Tuesday, April 28, 2026** | **Final (short) quiz/exam** — in-class component of final project; **Project reports due** |
