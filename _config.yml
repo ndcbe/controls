@@ -2,8 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: CBE 30338 Data Analytics, Optimization, and Control 
-author: Jeffrey Kantor and Alexander Dowling
-copyright: "2024"
+author: Jeffrey Kantor, Alexander Dowling, and Jeremiah Zartman
+copyright: "2026, Jeffrey Kantor, Alexander Dowling, and Jeremiah Zartman"
 logo: notebooks/figures/logo.png
 exclude_patterns: [.DS_Store, "**.ipynb_checkpoints", "**.pytest_cache"]
 
