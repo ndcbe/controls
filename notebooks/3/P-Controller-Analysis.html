@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -50,9 +53,9 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -66,6 +69,7 @@
     <link rel="prev" title="3.6. Practical Proportional (P) and Proportional-Integral (PI) Control" href="Proportional-Integral-Control.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -81,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -101,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +149,17 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -334,9 +323,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -511,24 +505,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -603,7 +589,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set default parameters for publication quality plots</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">SMALL_SIZE</span> <span class="o">=</span> <span class="mi">14</span>
 <span class="n">MEDIUM_SIZE</span> <span class="o">=</span> <span class="mi">16</span>
 <span class="n">BIGGER_SIZE</span> <span class="o">=</span> <span class="mi">18</span>
@@ -624,8 +610,8 @@ document.write(`
 <section id="mathematical-model">
 <h2><span class="section-number">3.7.2. </span>Mathematical Model<a class="headerlink" href="#mathematical-model" title="Link to this heading">#</a></h2>
 <p>Recall the following second order model for the heater and sensor:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dfecaec5-e42f-4ac0-a46f-41a46f64440e">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-dfecaec5-e42f-4ac0-a46f-41a46f64440e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-28e6855d-0892-4029-96e3-3394bac8467c">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-28e6855d-0892-4029-96e3-3394bac8467c" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT_{H,1}}{dt} &amp; = U_a(T_{amb} - T_{H,1}) + U_b(T_{S,1} - T_{H,1}) + \alpha P_1 u_1\\
 C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1}) 
 \end{align}\]</div>
@@ -645,22 +631,22 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
 <h2><span class="section-number">3.7.3. </span>Steady State Control Signal<a class="headerlink" href="#steady-state-control-signal" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(T_{set}\)</span> be the set point (target) temperature.</p>
 <p>What control signal <span class="math notranslate nohighlight">\(\bar{u}_1\)</span> is required to maintain the steady state <span class="math notranslate nohighlight">\(\bar{T}_{H,1} = T_{set}\)</span>? We start by making the substitution and setting the time derivatives to zero:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-54d894fe-ad8a-4ee9-b721-06ed93d9d29b">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-54d894fe-ad8a-4ee9-b721-06ed93d9d29b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-75cf10ac-66be-420c-a90d-1e4ac972f5f9">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-75cf10ac-66be-420c-a90d-1e4ac972f5f9" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; = U_a(T_{amb} - T_{set}) + U_b(\bar{T}_{S,1} - T_{set}) + \alpha P_1 \bar{u}_{1}\\
 0 &amp; = U_b(T_{set} - \bar{T}_{S,1}) 
 \end{align}\]</div>
 <p>From the second equation, we see <span class="math notranslate nohighlight">\(\bar{T}_{S,1} = T_{set}\)</span>, which makes sense. Let’s substitute this expression into the first equation and rearrange:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-47d9d0fc-7cae-40c5-ae1e-a7e050aa89cd">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-47d9d0fc-7cae-40c5-ae1e-a7e050aa89cd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5d6c6bcf-66a5-4ac1-b66e-ae1e4cc29655">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-5d6c6bcf-66a5-4ac1-b66e-ae1e4cc29655" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \bar{u}_1 = \frac{ - U_a(T_{amb} - T_{set})}{\alpha P_1}
 \end{equation}\]</div>
 </section>
 <section id="proporational-control-law">
 <h2><span class="section-number">3.7.4. </span>Proporational Control Law<a class="headerlink" href="#proporational-control-law" title="Link to this heading">#</a></h2>
 <p>We will consider the proporational control law (position form):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cdd6544c-353e-4b4b-bf7b-23e85c7b5ed1">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-cdd6544c-353e-4b4b-bf7b-23e85c7b5ed1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-00e2b491-67e6-4d56-8c0d-32beb3b408da">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-00e2b491-67e6-4d56-8c0d-32beb3b408da" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u_{1}(t) = \bar{u}_{1} + K_P (T_{set}(t)-T_{S,1}(t)) = \bar{u}_{1} + K_P e(t)
 \end{equation}\]</div>
 <p>Here, <span class="math notranslate nohighlight">\(K_P &gt; 0\)</span> is the proportional gain and <span class="math notranslate nohighlight">\(e(t) = T_{set}(t) - T_{S,1}(t)\)</span> is the tracking error. If the temperature of the sensor is less than the set point, i.e., <span class="math notranslate nohighlight">\(T_{S,1} &lt; T_{set}\)</span>, then the control signal is greater than the heat input required to maintain steady state, i.e., <span class="math notranslate nohighlight">\(u_{1} &gt; \bar{u}_{1}\)</span>.</p>
@@ -671,36 +657,36 @@ u_{1}(t) = \bar{u}_{1} + K_P (T_{set}(t)-T_{S,1}(t)) = \bar{u}_{1} + K_P e(t)
 <section id="deviation-temperature-defined-relative-to-the-setpoint">
 <h3><span class="section-number">3.7.5.1. </span>Deviation Temperature Defined Relative to the Setpoint<a class="headerlink" href="#deviation-temperature-defined-relative-to-the-setpoint" title="Link to this heading">#</a></h3>
 <p>For convience, let’s define the temperatures as differences with repect to the set point:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b7890b34-1862-47a0-a84e-8188ba4c9911">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-b7890b34-1862-47a0-a84e-8188ba4c9911" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c55f7a31-0865-4392-a0d3-694c6b07de80">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-c55f7a31-0865-4392-a0d3-694c6b07de80" title="Permalink to this equation">#</a></span>\[\begin{align}
 T^*_{H,1} &amp;= T_{H,1} - T_{set} \\
 T^*_{S,1} &amp;= T_{S,1} - T_{set} \\
 T^*_{amb} &amp;= T_{amb} - T_{set}
 \end{align}\]</div>
 <p>We can now rewrite our dynamic model in terms of these temperatures. If we ignore changes in the set point, i.e., assume <span class="math notranslate nohighlight">\(T_{set}\)</span> is a constant, then <span class="math notranslate nohighlight">\(\frac{dT_i}{dt} = \frac{dT^{*}_i}{dt}\)</span> where subscript <span class="math notranslate nohighlight">\(i\)</span> is short hand for the subscripts <span class="math notranslate nohighlight">\(_{H,1}\)</span>, <span class="math notranslate nohighlight">\(_{S,1}\)</span> and <span class="math notranslate nohighlight">\(_{amb}\)</span>. Likewise, our model also has temperature differences, such as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f75b4387-6bdf-45ec-8c0a-31dab67822c9">
-<span class="eqno">(3.15)<a class="headerlink" href="#equation-f75b4387-6bdf-45ec-8c0a-31dab67822c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-be2c6da5-5efd-45a0-96ef-65f45f5ea6dc">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-be2c6da5-5efd-45a0-96ef-65f45f5ea6dc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T_{amb} - T_{H,1} = (T_{amb} - T_{set}) - (T_{H,1} - T_{set}) = T^*_{amb} - T^*_{H,1}
 \end{equation}\]</div>
 <p>Putting this all together gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e833d6ea-035a-4a3a-ab4b-2fd3d7574019">
-<span class="eqno">(3.16)<a class="headerlink" href="#equation-e833d6ea-035a-4a3a-ab4b-2fd3d7574019" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-edc6a083-a239-41e2-b4f4-10dada4043c0">
+<span class="eqno">(3.16)<a class="headerlink" href="#equation-edc6a083-a239-41e2-b4f4-10dada4043c0" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 u_1\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) 
 \end{align}\]</div>
 <p>Let’s write the steady state control signal in terms of the offset temperature:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0276c31-addb-44e9-9fb7-ec796ada475d">
-<span class="eqno">(3.17)<a class="headerlink" href="#equation-b0276c31-addb-44e9-9fb7-ec796ada475d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-acf8c8a6-9b14-4270-abe2-bce09b354021">
+<span class="eqno">(3.17)<a class="headerlink" href="#equation-acf8c8a6-9b14-4270-abe2-bce09b354021" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \bar{u}_1 = \frac{ - U_a(T_{amb} - T_{set})}{\alpha P_1} = \frac{ - U_a T^*_{amb}}{\alpha P_1}
 \end{equation}\]</div>
 <p>Likewise, we will write the tracking error with the offset temperature:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-947fd699-aa9f-4da6-bec2-49188656052b">
-<span class="eqno">(3.18)<a class="headerlink" href="#equation-947fd699-aa9f-4da6-bec2-49188656052b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-621cec9c-4dab-4783-a845-87b1fcae5dc2">
+<span class="eqno">(3.18)<a class="headerlink" href="#equation-621cec9c-4dab-4783-a845-87b1fcae5dc2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 e(t) = T_{set}(t) - T_{S,1}(t) = -T^{*}_{S,1}(t)
 \end{equation}\]</div>
 <p>Next, we subsitute our control law into the first differential equation of the TCLab model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8831597e-e6ef-4b0c-adb4-8bd93db13fad">
-<span class="eqno">(3.19)<a class="headerlink" href="#equation-8831597e-e6ef-4b0c-adb4-8bd93db13fad" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2112672a-75cf-4a49-8dfe-3a9b5c3aac50">
+<span class="eqno">(3.19)<a class="headerlink" href="#equation-2112672a-75cf-4a49-8dfe-3a9b5c3aac50" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp;= U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 \left(\bar{u}_{1} - K_p T^*_{S,1} \right) \\
 &amp;= U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) - U_a T^*_{amb} - \alpha P_1 K_p T^*_{S,1}
 \end{align}\]</div>
@@ -722,8 +708,8 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 \end{align}
 \end{split}\]</div>
 <p>Finally, we can write this as a linear differential equation in matrix form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89514c65-ab11-4444-b17c-bf6d2ca8a4d0">
-<span class="eqno">(3.20)<a class="headerlink" href="#equation-89514c65-ab11-4444-b17c-bf6d2ca8a4d0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-93db8962-f4d1-4909-9b5a-9fd072f551fc">
+<span class="eqno">(3.20)<a class="headerlink" href="#equation-93db8962-f4d1-4909-9b5a-9fd072f551fc" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d}{dt}\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x} &amp; = 
 \underbrace{\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} \\ \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p}\end{bmatrix}}_\mathbf{A} 
 \underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x} \\
@@ -737,32 +723,32 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <section id="deviation-temperature-defined-relative-to-the-ambient-temperature">
 <h3><span class="section-number">3.7.5.2. </span>Deviation Temperature Defined Relative to the Ambient Temperature<a class="headerlink" href="#deviation-temperature-defined-relative-to-the-ambient-temperature" title="Link to this heading">#</a></h3>
 <p>Alternatively, we can rewrite the model using <span class="math notranslate nohighlight">\(T_amb\)</span> for the deviation variable and treating the setpoint <span class="math notranslate nohighlight">\(T_{set}\)</span> as the input control signal. We will also ignore the offset <span class="math notranslate nohighlight">\(\bar{u}_1\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73c58ede-9458-45b0-9d1c-b64cd71d9c0f">
-<span class="eqno">(3.21)<a class="headerlink" href="#equation-73c58ede-9458-45b0-9d1c-b64cd71d9c0f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0851cad4-5b85-4d2f-ada8-84e8174f4f05">
+<span class="eqno">(3.21)<a class="headerlink" href="#equation-0851cad4-5b85-4d2f-ada8-84e8174f4f05" title="Permalink to this equation">#</a></span>\[\begin{align}
 T^*_{H,1} &amp;= T_{H,1} - T_{amb} \\
 T^*_{S,1} &amp;= T_{S,1} - T_{amb} \\
 T^*_{amb} &amp;= T_{amb} - T_{amb}
 \end{align}\]</div>
 <p>Putting this all together gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-728188ce-d0d5-4694-bc26-b94bcfeba51b">
-<span class="eqno">(3.22)<a class="headerlink" href="#equation-728188ce-d0d5-4694-bc26-b94bcfeba51b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3a463798-b951-4f15-a165-78972db054bd">
+<span class="eqno">(3.22)<a class="headerlink" href="#equation-3a463798-b951-4f15-a165-78972db054bd" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = - U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 u_1\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) 
 \end{align}\]</div>
 <p>Next, let’s substitute the control law,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ab0d7590-4b3e-4744-b50f-6f394143d8b7">
-<span class="eqno">(3.23)<a class="headerlink" href="#equation-ab0d7590-4b3e-4744-b50f-6f394143d8b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a9dfde8d-d495-4275-807a-53199709b88f">
+<span class="eqno">(3.23)<a class="headerlink" href="#equation-a9dfde8d-d495-4275-807a-53199709b88f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u_1 = K_p (T^*_{set} - T^*_{S} )
 \end{equation}\]</div>
 <p>which gives the following:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b80f6f8-7d75-44ee-ade0-e3adf721b9e4">
-<span class="eqno">(3.24)<a class="headerlink" href="#equation-9b80f6f8-7d75-44ee-ade0-e3adf721b9e4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-86bb9243-658c-4276-a24c-04947df12a25">
+<span class="eqno">(3.24)<a class="headerlink" href="#equation-86bb9243-658c-4276-a24c-04947df12a25" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = - U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 K_p (T^*_{set} - T^*_{S} )\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) 
 \end{align}\]</div>
 <p>Finally, we can write this in matrix form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-adb0c70d-dc01-41e3-b0f0-f113533a9d1e">
-<span class="eqno">(3.25)<a class="headerlink" href="#equation-adb0c70d-dc01-41e3-b0f0-f113533a9d1e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-45a485ba-aaff-4796-b0d0-5ac8c8711537">
+<span class="eqno">(3.25)<a class="headerlink" href="#equation-45a485ba-aaff-4796-b0d0-5ac8c8711537" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d}{dt}\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x} &amp; = 
 \underbrace{\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} \\ \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p}\end{bmatrix}}_\mathbf{A} 
 \underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x} + \underbrace{\begin{bmatrix} \frac{- \alpha P_1 K_P}{C_p^H} \\ 0 \end{bmatrix}}_{\mathbf{B}} \underbrace{\begin{bmatrix} T^*_{set} \end{bmatrix}}_{\mathbf{u}} \\
@@ -781,9 +767,9 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <h3><span class="section-number">3.7.6.1. </span>Original Model: Open Loop<a class="headerlink" href="#original-model-open-loop" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 
 <span class="c1"># parameters</span>
 <span class="n">T_amb</span> <span class="o">=</span> <span class="mi">21</span> <span class="c1"># deg C</span>
@@ -811,7 +797,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <span class="n">t_expt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">t_final</span><span class="p">,</span><span class="n">t_step</span><span class="p">)</span>
 
 <span class="c1"># model solution</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">deriv</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="c1"># right hand side of differential equation</span>
     <span class="n">T1H</span><span class="p">,</span> <span class="n">T1S</span> <span class="o">=</span> <span class="n">y</span>
     <span class="n">dT1H</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">*</span><span class="n">T1H</span> <span class="o">+</span> <span class="n">Ub</span><span class="o">*</span><span class="n">T1S</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="o">*</span><span class="n">U1</span> <span class="o">+</span> <span class="n">Ua</span><span class="o">*</span><span class="n">T_amb</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span>
@@ -843,7 +829,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <p>Now let’s simulate the new model. We’ll set <span class="math notranslate nohighlight">\(K_p = 0\)</span> to turn off the controller (no gain).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">simulate_response</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulate_response</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Simulate the dynamic response of the system to a step change </span>
 <span class="sd">    using proportional control with gain Kp.</span>
 <span class="sd">    </span>
@@ -866,7 +852,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 
 
     <span class="c1"># model solution</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">closed_loop</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">closed_loop</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">A</span> <span class="o">@</span> <span class="n">y</span>
     <span class="n">soln_P</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">closed_loop</span><span class="p">,</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">t_expt</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">t_expt</span><span class="p">)],</span> <span class="p">[</span><span class="n">T_amb</span> <span class="o">-</span> <span class="n">T_set</span><span class="p">,</span> <span class="n">T_amb</span><span class="o">-</span><span class="n">T_set</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_expt</span><span class="p">)</span>
 
@@ -933,9 +919,9 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <p>Next, let’s simulate the same response, but instead using the discrete dynamical system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">cont2discrete</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">cont2discrete</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">continuous_system</span><span class="p">(</span><span class="n">Kp</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">continuous_system</span><span class="p">(</span><span class="n">Kp</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; Continous system for TCLab with P control</span>
 
 <span class="sd">    Arguments:</span>
@@ -957,7 +943,7 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 
     <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">discrete_system</span><span class="p">(</span><span class="n">Kp</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">discrete_system</span><span class="p">(</span><span class="n">Kp</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; Discrete system for TCLab with P control</span>
 
 <span class="sd">    Arguments:</span>
@@ -1026,9 +1012,9 @@ Dd=
 <p>Next, let’s simulate the response of the continous system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">lsim</span><span class="p">,</span> <span class="n">lti</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">lsim</span><span class="p">,</span> <span class="n">lti</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">simulate_response_continous</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">simulate_response_continous</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 
     <span class="n">c_system</span> <span class="o">=</span> <span class="n">lti</span><span class="p">(</span><span class="o">*</span><span class="n">continuous_system</span><span class="p">(</span><span class="n">Kp</span><span class="p">))</span>
 
@@ -1074,9 +1060,9 @@ Dd=
 <p>Next, let’s simulate the discrete time system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">dlti</span><span class="p">,</span> <span class="n">dlsim</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">dlti</span><span class="p">,</span> <span class="n">dlsim</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">simulate_response_discrete</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">simulate_response_discrete</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 
     <span class="n">d_system</span> <span class="o">=</span> <span class="n">dlti</span><span class="p">(</span><span class="o">*</span><span class="n">discrete_system</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="n">Kp</span><span class="p">))</span>
 
@@ -1122,10 +1108,10 @@ Dd=
 <p>Finally, we can simulate the response using the difference equation and implementing the control logic ourselves.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">tclab_simulate_P</span><span class="p">(</span><span class="n">Kp</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">tclab_simulate_P</span><span class="p">(</span><span class="n">Kp</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; Simulate the TCLab system with P control</span>
 <span class="sd">    Arguments:</span>
 <span class="sd">        Kp: the proportional control gain</span>
@@ -1345,9 +1331,9 @@ Dd=
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eigendecomposition analysis</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">eig</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eig</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">calc_eig</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">calc_eig</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 
     <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="p">(</span><span class="n">Ua</span> <span class="o">+</span> <span class="n">Ub</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">,</span> <span class="p">(</span><span class="n">Ub</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">P1</span><span class="o">*</span><span class="n">Kp</span><span class="p">)</span><span class="o">/</span><span class="n">CpH</span><span class="p">],</span> 
               <span class="p">[</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">,</span> <span class="o">-</span><span class="n">Ub</span><span class="o">/</span><span class="n">CpS</span><span class="p">]])</span>
@@ -1462,33 +1448,33 @@ Eigenvector 1 = [0.28676967-0.06340716j 0.95589889-0.j        ]
 <section id="stability-analysis-analytical-continuous">
 <h2><span class="section-number">3.7.8. </span>Stability Analysis: Analytical (Continuous)<a class="headerlink" href="#stability-analysis-analytical-continuous" title="Link to this heading">#</a></h2>
 <p>Finally, let’s calculate the eigenvalues analytically. Recall, eigenvalues <span class="math notranslate nohighlight">\(\lambda\)</span> and eigenvectors <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> satisfy:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b0b231a-4320-4329-9999-3cf2e6f2fa5c">
-<span class="eqno">(3.26)<a class="headerlink" href="#equation-9b0b231a-4320-4329-9999-3cf2e6f2fa5c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5d4d3642-d2f2-4e1d-8712-a6909c26d872">
+<span class="eqno">(3.26)<a class="headerlink" href="#equation-5d4d3642-d2f2-4e1d-8712-a6909c26d872" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{A} \mathbf{v} = \lambda \mathbf{v}
 \end{equation}\]</div>
 <p>We can calculate the eigenvalues <span class="math notranslate nohighlight">\(\lambda\)</span> using the determinant.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8fc353ea-b753-4cb0-a987-1a745788077c">
-<span class="eqno">(3.27)<a class="headerlink" href="#equation-8fc353ea-b753-4cb0-a987-1a745788077c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b92f367-08cd-4c34-abef-6fec28e4a534">
+<span class="eqno">(3.27)<a class="headerlink" href="#equation-7b92f367-08cd-4c34-abef-6fec28e4a534" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \det \left(\mathbf{A} - \lambda \mathbf{I} \right) = \det \left(\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} -\lambda &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} \\ \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p} - \lambda\end{bmatrix}\right)
 \end{equation}\]</div>
 <p>This gives the characteristic equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-26d45146-7b32-4fbb-8534-cb316ee56095">
-<span class="eqno">(3.28)<a class="headerlink" href="#equation-26d45146-7b32-4fbb-8534-cb316ee56095" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b407cca8-bd1a-4bf5-b29f-9c2b5ae68e27">
+<span class="eqno">(3.28)<a class="headerlink" href="#equation-b407cca8-bd1a-4bf5-b29f-9c2b5ae68e27" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \left(\frac{U_a+U_b}{C^H_p} + \lambda \right) \left( \frac{U_b}{C^S_p} + \lambda\right) - \left(\frac{U_b - \alpha P_1 K_p}{C^H_p} \right) \left( \frac{U_b}{C^S_p} \right) = 0
 \end{equation}\]</div>
 <p>Multiplying both sides by <span class="math notranslate nohighlight">\(C_p^H~C_p^S\)</span> gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ad7cd815-4597-4d27-ac03-a65ec72b7b04">
-<span class="eqno">(3.29)<a class="headerlink" href="#equation-ad7cd815-4597-4d27-ac03-a65ec72b7b04" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-06ea5719-fa64-4e31-80bd-0bfccad31900">
+<span class="eqno">(3.29)<a class="headerlink" href="#equation-06ea5719-fa64-4e31-80bd-0bfccad31900" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \left(U_a+U_b + C_p^H \lambda \right) \left( U_b + C^S_p \lambda \right) - \left(U_b - \alpha P_1 K_p \right) \left( U_b \right) = 0
 \end{equation}\]</div>
 <p>Finally, algebriac manipulation give:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd7241cd-908d-46e9-83aa-0304f22d2978">
-<span class="eqno">(3.30)<a class="headerlink" href="#equation-dd7241cd-908d-46e9-83aa-0304f22d2978" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-158963c1-4774-4134-8858-d1fb16bf8671">
+<span class="eqno">(3.30)<a class="headerlink" href="#equation-158963c1-4774-4134-8858-d1fb16bf8671" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \underbrace{C_p^H C_p^S}_{a} \lambda^2 + \underbrace{\left(C_p^H U_b + (U_a + U_b) C_p^S \right)}_{b} \lambda + \underbrace{\left(U_a + \alpha P_1 K_p \right) U_b}_{c} = 0
 \end{equation}\]</div>
 <p>Recall the quadratic formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-013657c6-625c-4d41-b9d4-9478270cc39b">
-<span class="eqno">(3.31)<a class="headerlink" href="#equation-013657c6-625c-4d41-b9d4-9478270cc39b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0d86e81b-dcce-461f-a755-068a4bba9368">
+<span class="eqno">(3.31)<a class="headerlink" href="#equation-0d86e81b-dcce-461f-a755-068a4bba9368" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \lambda = \frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}
 \end{equation}\]</div>
 <p><strong>Is the controller always stable?</strong></p>
@@ -1532,7 +1518,7 @@ K_p &amp;&gt; \frac{\left(C_p^H U_b + (U_a + U_b) C_p^S \right)^2}{4 C_p^H C_p^S
 <p>Next, we will analyze the eigenvalues of the discrete system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calc_eig_d</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_eig_d</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; Calculate the eigenvalues of the discrete system</span>
 
 <span class="sd">    Arguments:</span>
@@ -1621,9 +1607,9 @@ Eigenvector 1 = [-0.22090244  0.97529591]
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span><span class="w"> </span><span class="nn">tclab</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span>
+<span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">simulate_P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.9</span><span class="p">,</span> <span class="n">SP</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tfinal</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">t_step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">simulate_P_only</span><span class="p">(</span><span class="n">Kp</span><span class="o">=</span><span class="mf">1.9</span><span class="p">,</span> <span class="n">SP</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tfinal</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">t_step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Simulate proportional only controller using TCLab &#39;digital twin&#39; mode</span>
 <span class="sd">    Arguments:</span>
 <span class="sd">        Kp: proportional gain (%/degC)</span>
@@ -1633,7 +1619,7 @@ Eigenvector 1 = [-0.22090244  0.97529591]
 <span class="sd">        MV_bar: steady-state value for manipulated variable (%)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">P_only</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">MV_bar</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">P_only</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">MV_bar</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Basic proportional only controller</span>
 
 <span class="sd">        Arguments:</span>
@@ -1814,7 +1800,8 @@ Eigenvector 1 = [-0.22090244  0.97529591]
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1897,8 +1884,8 @@ By Jeffrey Kantor, Alexander Dowling, and Jeremiah Zartman
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
