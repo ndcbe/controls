@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -610,8 +610,8 @@
 <section id="mathematical-model">
 <h2><span class="section-number">3.7.2. </span>Mathematical Model<a class="headerlink" href="#mathematical-model" title="Link to this heading">#</a></h2>
 <p>Recall the following second order model for the heater and sensor:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-28e6855d-0892-4029-96e3-3394bac8467c">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-28e6855d-0892-4029-96e3-3394bac8467c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9a0f805c-7cce-4560-82a0-393520921c33">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-9a0f805c-7cce-4560-82a0-393520921c33" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT_{H,1}}{dt} &amp; = U_a(T_{amb} - T_{H,1}) + U_b(T_{S,1} - T_{H,1}) + \alpha P_1 u_1\\
 C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1}) 
 \end{align}\]</div>
@@ -631,22 +631,22 @@ C^S_p\frac{dT_{S,1}}{dt} &amp; = U_b(T_{H,1} - T_{S,1})
 <h2><span class="section-number">3.7.3. </span>Steady State Control Signal<a class="headerlink" href="#steady-state-control-signal" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(T_{set}\)</span> be the set point (target) temperature.</p>
 <p>What control signal <span class="math notranslate nohighlight">\(\bar{u}_1\)</span> is required to maintain the steady state <span class="math notranslate nohighlight">\(\bar{T}_{H,1} = T_{set}\)</span>? We start by making the substitution and setting the time derivatives to zero:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-75cf10ac-66be-420c-a90d-1e4ac972f5f9">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-75cf10ac-66be-420c-a90d-1e4ac972f5f9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bf8465a1-0aa1-4460-89da-b1f0ddf04023">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-bf8465a1-0aa1-4460-89da-b1f0ddf04023" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; = U_a(T_{amb} - T_{set}) + U_b(\bar{T}_{S,1} - T_{set}) + \alpha P_1 \bar{u}_{1}\\
 0 &amp; = U_b(T_{set} - \bar{T}_{S,1}) 
 \end{align}\]</div>
 <p>From the second equation, we see <span class="math notranslate nohighlight">\(\bar{T}_{S,1} = T_{set}\)</span>, which makes sense. Let’s substitute this expression into the first equation and rearrange:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d6c6bcf-66a5-4ac1-b66e-ae1e4cc29655">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-5d6c6bcf-66a5-4ac1-b66e-ae1e4cc29655" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-39e2acd0-29e8-4b8f-8afe-d7a57f1b357e">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-39e2acd0-29e8-4b8f-8afe-d7a57f1b357e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \bar{u}_1 = \frac{ - U_a(T_{amb} - T_{set})}{\alpha P_1}
 \end{equation}\]</div>
 </section>
 <section id="proporational-control-law">
 <h2><span class="section-number">3.7.4. </span>Proporational Control Law<a class="headerlink" href="#proporational-control-law" title="Link to this heading">#</a></h2>
 <p>We will consider the proporational control law (position form):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00e2b491-67e6-4d56-8c0d-32beb3b408da">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-00e2b491-67e6-4d56-8c0d-32beb3b408da" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-28b6672f-65e0-4de8-ae1b-aa2957dfda76">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-28b6672f-65e0-4de8-ae1b-aa2957dfda76" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u_{1}(t) = \bar{u}_{1} + K_P (T_{set}(t)-T_{S,1}(t)) = \bar{u}_{1} + K_P e(t)
 \end{equation}\]</div>
 <p>Here, <span class="math notranslate nohighlight">\(K_P &gt; 0\)</span> is the proportional gain and <span class="math notranslate nohighlight">\(e(t) = T_{set}(t) - T_{S,1}(t)\)</span> is the tracking error. If the temperature of the sensor is less than the set point, i.e., <span class="math notranslate nohighlight">\(T_{S,1} &lt; T_{set}\)</span>, then the control signal is greater than the heat input required to maintain steady state, i.e., <span class="math notranslate nohighlight">\(u_{1} &gt; \bar{u}_{1}\)</span>.</p>
@@ -657,36 +657,36 @@ u_{1}(t) = \bar{u}_{1} + K_P (T_{set}(t)-T_{S,1}(t)) = \bar{u}_{1} + K_P e(t)
 <section id="deviation-temperature-defined-relative-to-the-setpoint">
 <h3><span class="section-number">3.7.5.1. </span>Deviation Temperature Defined Relative to the Setpoint<a class="headerlink" href="#deviation-temperature-defined-relative-to-the-setpoint" title="Link to this heading">#</a></h3>
 <p>For convience, let’s define the temperatures as differences with repect to the set point:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c55f7a31-0865-4392-a0d3-694c6b07de80">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-c55f7a31-0865-4392-a0d3-694c6b07de80" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-428c073f-59d9-4bed-a70a-b0b57d6d5d1a">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-428c073f-59d9-4bed-a70a-b0b57d6d5d1a" title="Permalink to this equation">#</a></span>\[\begin{align}
 T^*_{H,1} &amp;= T_{H,1} - T_{set} \\
 T^*_{S,1} &amp;= T_{S,1} - T_{set} \\
 T^*_{amb} &amp;= T_{amb} - T_{set}
 \end{align}\]</div>
 <p>We can now rewrite our dynamic model in terms of these temperatures. If we ignore changes in the set point, i.e., assume <span class="math notranslate nohighlight">\(T_{set}\)</span> is a constant, then <span class="math notranslate nohighlight">\(\frac{dT_i}{dt} = \frac{dT^{*}_i}{dt}\)</span> where subscript <span class="math notranslate nohighlight">\(i\)</span> is short hand for the subscripts <span class="math notranslate nohighlight">\(_{H,1}\)</span>, <span class="math notranslate nohighlight">\(_{S,1}\)</span> and <span class="math notranslate nohighlight">\(_{amb}\)</span>. Likewise, our model also has temperature differences, such as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be2c6da5-5efd-45a0-96ef-65f45f5ea6dc">
-<span class="eqno">(3.15)<a class="headerlink" href="#equation-be2c6da5-5efd-45a0-96ef-65f45f5ea6dc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a6f69843-bf40-4ee0-8624-f64f1b7abc1c">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-a6f69843-bf40-4ee0-8624-f64f1b7abc1c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T_{amb} - T_{H,1} = (T_{amb} - T_{set}) - (T_{H,1} - T_{set}) = T^*_{amb} - T^*_{H,1}
 \end{equation}\]</div>
 <p>Putting this all together gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-edc6a083-a239-41e2-b4f4-10dada4043c0">
-<span class="eqno">(3.16)<a class="headerlink" href="#equation-edc6a083-a239-41e2-b4f4-10dada4043c0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-27608ac2-ca26-4d2f-9240-f5b6a13f3692">
+<span class="eqno">(3.16)<a class="headerlink" href="#equation-27608ac2-ca26-4d2f-9240-f5b6a13f3692" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 u_1\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) 
 \end{align}\]</div>
 <p>Let’s write the steady state control signal in terms of the offset temperature:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-acf8c8a6-9b14-4270-abe2-bce09b354021">
-<span class="eqno">(3.17)<a class="headerlink" href="#equation-acf8c8a6-9b14-4270-abe2-bce09b354021" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc234d01-0b3f-4ed6-ace2-71dfe18ebb2d">
+<span class="eqno">(3.17)<a class="headerlink" href="#equation-cc234d01-0b3f-4ed6-ace2-71dfe18ebb2d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \bar{u}_1 = \frac{ - U_a(T_{amb} - T_{set})}{\alpha P_1} = \frac{ - U_a T^*_{amb}}{\alpha P_1}
 \end{equation}\]</div>
 <p>Likewise, we will write the tracking error with the offset temperature:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-621cec9c-4dab-4783-a845-87b1fcae5dc2">
-<span class="eqno">(3.18)<a class="headerlink" href="#equation-621cec9c-4dab-4783-a845-87b1fcae5dc2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8be44f4d-f603-46d6-9d65-d8625e771f4d">
+<span class="eqno">(3.18)<a class="headerlink" href="#equation-8be44f4d-f603-46d6-9d65-d8625e771f4d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 e(t) = T_{set}(t) - T_{S,1}(t) = -T^{*}_{S,1}(t)
 \end{equation}\]</div>
 <p>Next, we subsitute our control law into the first differential equation of the TCLab model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2112672a-75cf-4a49-8dfe-3a9b5c3aac50">
-<span class="eqno">(3.19)<a class="headerlink" href="#equation-2112672a-75cf-4a49-8dfe-3a9b5c3aac50" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-93f288f4-33b7-483a-b3aa-4bae832ccbc2">
+<span class="eqno">(3.19)<a class="headerlink" href="#equation-93f288f4-33b7-483a-b3aa-4bae832ccbc2" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp;= U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 \left(\bar{u}_{1} - K_p T^*_{S,1} \right) \\
 &amp;= U_a(T^*_{amb} - T^*_{H,1}) + U_b(T^*_{S,1} - T^*_{H,1}) - U_a T^*_{amb} - \alpha P_1 K_p T^*_{S,1}
 \end{align}\]</div>
@@ -708,8 +708,8 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 \end{align}
 \end{split}\]</div>
 <p>Finally, we can write this as a linear differential equation in matrix form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-93db8962-f4d1-4909-9b5a-9fd072f551fc">
-<span class="eqno">(3.20)<a class="headerlink" href="#equation-93db8962-f4d1-4909-9b5a-9fd072f551fc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8a3c598a-be21-47a6-85eb-380e2a8e7b85">
+<span class="eqno">(3.20)<a class="headerlink" href="#equation-8a3c598a-be21-47a6-85eb-380e2a8e7b85" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d}{dt}\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x} &amp; = 
 \underbrace{\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} \\ \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p}\end{bmatrix}}_\mathbf{A} 
 \underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x} \\
@@ -723,32 +723,32 @@ C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1})
 <section id="deviation-temperature-defined-relative-to-the-ambient-temperature">
 <h3><span class="section-number">3.7.5.2. </span>Deviation Temperature Defined Relative to the Ambient Temperature<a class="headerlink" href="#deviation-temperature-defined-relative-to-the-ambient-temperature" title="Link to this heading">#</a></h3>
 <p>Alternatively, we can rewrite the model using <span class="math notranslate nohighlight">\(T_amb\)</span> for the deviation variable and treating the setpoint <span class="math notranslate nohighlight">\(T_{set}\)</span> as the input control signal. We will also ignore the offset <span class="math notranslate nohighlight">\(\bar{u}_1\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0851cad4-5b85-4d2f-ada8-84e8174f4f05">
-<span class="eqno">(3.21)<a class="headerlink" href="#equation-0851cad4-5b85-4d2f-ada8-84e8174f4f05" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8772f858-08ef-41a6-a7b5-0afea6bf40a5">
+<span class="eqno">(3.21)<a class="headerlink" href="#equation-8772f858-08ef-41a6-a7b5-0afea6bf40a5" title="Permalink to this equation">#</a></span>\[\begin{align}
 T^*_{H,1} &amp;= T_{H,1} - T_{amb} \\
 T^*_{S,1} &amp;= T_{S,1} - T_{amb} \\
 T^*_{amb} &amp;= T_{amb} - T_{amb}
 \end{align}\]</div>
 <p>Putting this all together gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3a463798-b951-4f15-a165-78972db054bd">
-<span class="eqno">(3.22)<a class="headerlink" href="#equation-3a463798-b951-4f15-a165-78972db054bd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a73a3832-1e96-40c9-ac60-3b1301f7cc77">
+<span class="eqno">(3.22)<a class="headerlink" href="#equation-a73a3832-1e96-40c9-ac60-3b1301f7cc77" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = - U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 u_1\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) 
 \end{align}\]</div>
 <p>Next, let’s substitute the control law,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9dfde8d-d495-4275-807a-53199709b88f">
-<span class="eqno">(3.23)<a class="headerlink" href="#equation-a9dfde8d-d495-4275-807a-53199709b88f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1b317450-a116-404d-9409-5e57c2b77b5f">
+<span class="eqno">(3.23)<a class="headerlink" href="#equation-1b317450-a116-404d-9409-5e57c2b77b5f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u_1 = K_p (T^*_{set} - T^*_{S} )
 \end{equation}\]</div>
 <p>which gives the following:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-86bb9243-658c-4276-a24c-04947df12a25">
-<span class="eqno">(3.24)<a class="headerlink" href="#equation-86bb9243-658c-4276-a24c-04947df12a25" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-06d2839b-b295-4224-bc81-199f1aec7ce9">
+<span class="eqno">(3.24)<a class="headerlink" href="#equation-06d2839b-b295-4224-bc81-199f1aec7ce9" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = - U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) + \alpha P_1 K_p (T^*_{set} - T^*_{S} )\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) 
 \end{align}\]</div>
 <p>Finally, we can write this in matrix form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-45a485ba-aaff-4796-b0d0-5ac8c8711537">
-<span class="eqno">(3.25)<a class="headerlink" href="#equation-45a485ba-aaff-4796-b0d0-5ac8c8711537" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7a3d4df9-fb6e-470e-8ff5-3b045156bb80">
+<span class="eqno">(3.25)<a class="headerlink" href="#equation-7a3d4df9-fb6e-470e-8ff5-3b045156bb80" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d}{dt}\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x} &amp; = 
 \underbrace{\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} \\ \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p}\end{bmatrix}}_\mathbf{A} 
 \underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \end{bmatrix}}_\mathbf{x} + \underbrace{\begin{bmatrix} \frac{- \alpha P_1 K_P}{C_p^H} \\ 0 \end{bmatrix}}_{\mathbf{B}} \underbrace{\begin{bmatrix} T^*_{set} \end{bmatrix}}_{\mathbf{u}} \\
@@ -1448,33 +1448,33 @@ Eigenvector 1 = [0.28676967-0.06340716j 0.95589889-0.j        ]
 <section id="stability-analysis-analytical-continuous">
 <h2><span class="section-number">3.7.8. </span>Stability Analysis: Analytical (Continuous)<a class="headerlink" href="#stability-analysis-analytical-continuous" title="Link to this heading">#</a></h2>
 <p>Finally, let’s calculate the eigenvalues analytically. Recall, eigenvalues <span class="math notranslate nohighlight">\(\lambda\)</span> and eigenvectors <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> satisfy:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d4d3642-d2f2-4e1d-8712-a6909c26d872">
-<span class="eqno">(3.26)<a class="headerlink" href="#equation-5d4d3642-d2f2-4e1d-8712-a6909c26d872" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b6cf9ef7-7d89-44c7-9812-763293122282">
+<span class="eqno">(3.26)<a class="headerlink" href="#equation-b6cf9ef7-7d89-44c7-9812-763293122282" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{A} \mathbf{v} = \lambda \mathbf{v}
 \end{equation}\]</div>
 <p>We can calculate the eigenvalues <span class="math notranslate nohighlight">\(\lambda\)</span> using the determinant.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7b92f367-08cd-4c34-abef-6fec28e4a534">
-<span class="eqno">(3.27)<a class="headerlink" href="#equation-7b92f367-08cd-4c34-abef-6fec28e4a534" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-43a95adf-e972-4c55-bb9d-ba2557bc3eb3">
+<span class="eqno">(3.27)<a class="headerlink" href="#equation-43a95adf-e972-4c55-bb9d-ba2557bc3eb3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \det \left(\mathbf{A} - \lambda \mathbf{I} \right) = \det \left(\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} -\lambda &amp; \frac{U_b - \alpha P_1 K_p}{C^H_p} \\ \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p} - \lambda\end{bmatrix}\right)
 \end{equation}\]</div>
 <p>This gives the characteristic equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b407cca8-bd1a-4bf5-b29f-9c2b5ae68e27">
-<span class="eqno">(3.28)<a class="headerlink" href="#equation-b407cca8-bd1a-4bf5-b29f-9c2b5ae68e27" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-90c8bf71-33a6-48c6-8222-139ca65a0202">
+<span class="eqno">(3.28)<a class="headerlink" href="#equation-90c8bf71-33a6-48c6-8222-139ca65a0202" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \left(\frac{U_a+U_b}{C^H_p} + \lambda \right) \left( \frac{U_b}{C^S_p} + \lambda\right) - \left(\frac{U_b - \alpha P_1 K_p}{C^H_p} \right) \left( \frac{U_b}{C^S_p} \right) = 0
 \end{equation}\]</div>
 <p>Multiplying both sides by <span class="math notranslate nohighlight">\(C_p^H~C_p^S\)</span> gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-06ea5719-fa64-4e31-80bd-0bfccad31900">
-<span class="eqno">(3.29)<a class="headerlink" href="#equation-06ea5719-fa64-4e31-80bd-0bfccad31900" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-16df9df7-8504-402f-a343-dc11121ac6ea">
+<span class="eqno">(3.29)<a class="headerlink" href="#equation-16df9df7-8504-402f-a343-dc11121ac6ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \left(U_a+U_b + C_p^H \lambda \right) \left( U_b + C^S_p \lambda \right) - \left(U_b - \alpha P_1 K_p \right) \left( U_b \right) = 0
 \end{equation}\]</div>
 <p>Finally, algebriac manipulation give:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-158963c1-4774-4134-8858-d1fb16bf8671">
-<span class="eqno">(3.30)<a class="headerlink" href="#equation-158963c1-4774-4134-8858-d1fb16bf8671" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2124241b-b5b4-4113-b3f3-9171051ae2b0">
+<span class="eqno">(3.30)<a class="headerlink" href="#equation-2124241b-b5b4-4113-b3f3-9171051ae2b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \underbrace{C_p^H C_p^S}_{a} \lambda^2 + \underbrace{\left(C_p^H U_b + (U_a + U_b) C_p^S \right)}_{b} \lambda + \underbrace{\left(U_a + \alpha P_1 K_p \right) U_b}_{c} = 0
 \end{equation}\]</div>
 <p>Recall the quadratic formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0d86e81b-dcce-461f-a755-068a4bba9368">
-<span class="eqno">(3.31)<a class="headerlink" href="#equation-0d86e81b-dcce-461f-a755-068a4bba9368" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-af7965e5-2229-4981-aef0-63a89a6f9f77">
+<span class="eqno">(3.31)<a class="headerlink" href="#equation-af7965e5-2229-4981-aef0-63a89a6f9f77" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \lambda = \frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}
 \end{equation}\]</div>
 <p><strong>Is the controller always stable?</strong></p>

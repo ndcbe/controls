@@ -589,19 +589,19 @@
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>This homework problem is inspired, in part, by a <a class="reference external" href="https://www.wired.com/2011/12/cannon-balls-size-matters/">Wired blog post</a> analyzing an incident with a cannonball on the popular show Myth Busters.</p>
 <p>Consider <span class="math notranslate nohighlight">\(n\)</span> iron cannonballs of mass 12 lb (5.44 kg) fired at unknown angles <span class="math notranslate nohighlight">\(\theta_i\)</span> (where <span class="math notranslate nohighlight">\(i \in \{1,...,n\}\)</span>) with unknown initial velocities <span class="math notranslate nohighlight">\(v_{0,i}\)</span>. The drag on the cannonball is <span class="math notranslate nohighlight">\(F_D = \frac{1}{2} \rho C_D A v |v|\)</span> where <span class="math notranslate nohighlight">\(\rho\)</span> is the density of air, <span class="math notranslate nohighlight">\(C_D\)</span> is the coefficient of drag, and <span class="math notranslate nohighlight">\(A\)</span> is the cross sectional area of the cannonball. We can lump these parameters together into a single unknown coefficient <span class="math notranslate nohighlight">\(\bar{C}_D\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ee059c3-57ff-44b8-8b40-0028e978914b">
-<span class="eqno">(1)<a class="headerlink" href="#equation-6ee059c3-57ff-44b8-8b40-0028e978914b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-23950d24-591d-442a-9372-c6336e2e6494">
+<span class="eqno">(1)<a class="headerlink" href="#equation-23950d24-591d-442a-9372-c6336e2e6494" title="Permalink to this equation">#</a></span>\[\begin{equation}
 F_D = \bar{C}_D v |v|
 \end{equation}\]</div>
 <p>It is important to use <span class="math notranslate nohighlight">\(v |v|\)</span> to account for the change in sign when the cannonball transitions from moving upward to moving downward.</p>
 <p>Applying Newton’s laws of motion gives the following coupled differential equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b3316f2-e91e-4cea-8fda-8d3b0840b9b6">
-<span class="eqno">(2)<a class="headerlink" href="#equation-5b3316f2-e91e-4cea-8fda-8d3b0840b9b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7a5b4a0f-5399-4881-9e29-868bec62060d">
+<span class="eqno">(2)<a class="headerlink" href="#equation-7a5b4a0f-5399-4881-9e29-868bec62060d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 m \frac{dv_x}{dt}=-\bar{C}_D v_x |v |, \quad m \frac{dv_z}{dt} = -mg - \bar{C}_D v_z | v |,   \quad \frac{dx}{dt} = v_x, \quad \frac{dz}{dt} = v_z, \quad |v| = \sqrt{v_x^2 + v_z^2}
 \end{equation}\]</div>
 <p>We assume the cannonball is fired from the origin at time <span class="math notranslate nohighlight">\(t=0\)</span> where <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span> represent horiztonal and vertical displacement, respectively. This gives the follow initial values:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d059aac-3da5-43d0-a847-9a910a1ad3a0">
-<span class="eqno">(3)<a class="headerlink" href="#equation-7d059aac-3da5-43d0-a847-9a910a1ad3a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-52f00353-e0e4-4f7b-b725-62286f942c6b">
+<span class="eqno">(3)<a class="headerlink" href="#equation-52f00353-e0e4-4f7b-b725-62286f942c6b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \sin(\theta)
 \end{equation}\]</div>
 <p>The <span class="math notranslate nohighlight">\(n\)</span> cannonballs are fired on completely flat terrian. We observe the impact location (horizonal distance traveled), impact time, and crater size. The latter can be correlated with impact velocity:</p>

@@ -885,8 +885,8 @@
 <section id="return-rate">
 <h3>Return Rate<a class="headerlink" href="#return-rate" title="Link to this heading">#</a></h3>
 <p>You are given a Stock_Data.csv file. Using the stock data, calculate the 1-day return rate:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2974a8a9-b0b0-4fcc-979f-e653b0135b2f">
-<span class="eqno">(5)<a class="headerlink" href="#equation-2974a8a9-b0b0-4fcc-979f-e653b0135b2f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-984aa4b8-3980-44c7-9a94-d0e108cb3b23">
+<span class="eqno">(5)<a class="headerlink" href="#equation-984aa4b8-3980-44c7-9a94-d0e108cb3b23" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	r_{t,i} = \frac{p_{t+1,i} - p_{t,i}}{p_{t,i}}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_{t+1,i}\)</span> and <span class="math notranslate nohighlight">\(p_{t,i}\)</span> are the <em>Adjusted Closing Prices</em> at the end of days <span class="math notranslate nohighlight">\(t+1\)</span> and <span class="math notranslate nohighlight">\(t\)</span>, respectively, for stock <span class="math notranslate nohighlight">\(i\)</span>. These results are stored in matrix <code class="docutils literal notranslate"><span class="pre">R</span></code>. <em>Hint</em>: Use Pandas.</p>
@@ -982,8 +982,8 @@
 <section id="exercise-3-markowitz-mean-variance-portfolio-optimization-model">
 <h3>Exercise 3. Markowitz Mean/Variance Portfolio Optimization Model<a class="headerlink" href="#exercise-3-markowitz-mean-variance-portfolio-optimization-model" title="Link to this heading">#</a></h3>
 <p>The Markowitz mean/variance model, shown below, computes the optimal allocation of funds in a portfolio:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46dea41a-0dba-4a58-9e91-d19647fa7268">
-<span class="eqno">(6)<a class="headerlink" href="#equation-46dea41a-0dba-4a58-9e91-d19647fa7268" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c07998cf-3e78-4fb4-bace-12936498e86e">
+<span class="eqno">(6)<a class="headerlink" href="#equation-c07998cf-3e78-4fb4-bace-12936498e86e" title="Permalink to this equation">#</a></span>\[\begin{align}
 		\min_{{x} \geq {0}} \qquad &amp; z:= {x}^T \cdot {\Sigma_r} \cdot {x} \\
 		\text{s.t.} \qquad &amp; {\bar{r}}^T \cdot {x} \geq \rho \\
 		 &amp; \sum_{i =1}^N x_i = 1 

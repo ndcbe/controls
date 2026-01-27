@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -581,39 +581,39 @@
 <section id="closed-loop-dynamics">
 <h2><span class="section-number">3.10.1. </span>Closed-Loop Dynamics<a class="headerlink" href="#closed-loop-dynamics" title="Link to this heading">#</a></h2>
 <p>We start with the <strong>velocity form</strong> of the controller:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2b4e0ba-a8fc-4a43-b3bd-8ff1912fa332">
-<span class="eqno">(3.40)<a class="headerlink" href="#equation-a2b4e0ba-a8fc-4a43-b3bd-8ff1912fa332" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-840e5c70-6d67-47eb-9db5-a239c7004e9b">
+<span class="eqno">(3.40)<a class="headerlink" href="#equation-840e5c70-6d67-47eb-9db5-a239c7004e9b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u_k = u_{k-1} + K_p (-y_k + y_{k-1}) + K_I \underbrace{(y_{SP} - y_f)\Delta t}_{e_k}
 \end{equation}\]</div>
 <p>Next, divide by <span class="math notranslate nohighlight">\(\Delta t\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0649275d-2488-45e5-a402-cc63fb421802">
-<span class="eqno">(3.41)<a class="headerlink" href="#equation-0649275d-2488-45e5-a402-cc63fb421802" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ebe3b94e-f8b9-4244-80f4-22ee20167092">
+<span class="eqno">(3.41)<a class="headerlink" href="#equation-ebe3b94e-f8b9-4244-80f4-22ee20167092" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{u_k - u_{k-1}}{\Delta t} = -K_p \frac{(y_k - y_{k-1})}{\Delta t} + K_I e_k
 \end{equation}\]</div>
 <p>Consider limit as <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-181122a0-c71e-47b3-9c52-93f6861c0d3a">
-<span class="eqno">(3.42)<a class="headerlink" href="#equation-181122a0-c71e-47b3-9c52-93f6861c0d3a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d4bb7cc-2585-45ba-9d9c-aadd29816b12">
+<span class="eqno">(3.42)<a class="headerlink" href="#equation-8d4bb7cc-2585-45ba-9d9c-aadd29816b12" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \dot{u} = -K_p \dot{y} + K_I e_k 
 \end{equation}\]</div>
 <p>Next, consider the two-state model for a single TCLab channel:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-028f5b14-259c-45f8-9ad3-a9e9fd2b21ad">
-<span class="eqno">(3.43)<a class="headerlink" href="#equation-028f5b14-259c-45f8-9ad3-a9e9fd2b21ad" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2bae6aea-b09a-4afa-8f3c-701befe2bd34">
+<span class="eqno">(3.43)<a class="headerlink" href="#equation-2bae6aea-b09a-4afa-8f3c-701befe2bd34" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p^H \frac{dT^*_{H,1}}{dt} &amp;= -U_a T^*_{H,1} + U_b (T^*_{S,1} - T^*_{H,1}) + \alpha P_u \\
 C_p^S \frac{dT^*_{S,1}}{dt} &amp;= U_b (T^*_{H,1} - T^*_{S,1})
 \end{align}\]</div>
 <p>Next, substitute the control law:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d36255fd-dc7a-48c4-a929-cd81f251a441">
-<span class="eqno">(3.44)<a class="headerlink" href="#equation-d36255fd-dc7a-48c4-a929-cd81f251a441" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-60d12a58-16f0-4a28-b3e9-b159db8ad6d9">
+<span class="eqno">(3.44)<a class="headerlink" href="#equation-60d12a58-16f0-4a28-b3e9-b159db8ad6d9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{du}{dt} = -K_p \dot{T}^*_{S,1} + K_I (T^*_{set} - T^*_{S,1})
 \end{equation}\]</div>
 <p>Finally, subsitute the second differential equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f4eafe97-d8d6-48a3-abd8-1b84cbda80d4">
-<span class="eqno">(3.45)<a class="headerlink" href="#equation-f4eafe97-d8d6-48a3-abd8-1b84cbda80d4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1cf8277f-42f1-4c85-a431-6f680771478b">
+<span class="eqno">(3.45)<a class="headerlink" href="#equation-1cf8277f-42f1-4c85-a431-6f680771478b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{du}{dt} = -K_p \frac{U_b (T^*_{H,1} - T^*_{S,1})}{C_p^S} + K_I (T^*_{set} - T^*_{S,1})
 \end{equation}\]</div>
 <p>Now, we can write the model as a linear system:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a62b063-2ca1-40e0-afd5-a74c9db9ce13">
-<span class="eqno">(3.46)<a class="headerlink" href="#equation-1a62b063-2ca1-40e0-afd5-a74c9db9ce13" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7fb05cbd-8a3e-4df3-893b-bcb8f3e3d8d3">
+<span class="eqno">(3.46)<a class="headerlink" href="#equation-7fb05cbd-8a3e-4df3-893b-bcb8f3e3d8d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \underbrace{\begin{bmatrix}
 \dot{T}_{H,1} \\
 \dot{T}_{S,1} \\
@@ -637,8 +637,8 @@ K_I
 \end{bmatrix}}_\mathbf{B}
 \underbrace{\begin{bmatrix} T^*_{set} \end{bmatrix}}_\mathbf{u}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-6dc2aba5-ddb4-4fb4-9dff-5d4074ea427c">
-<span class="eqno">(3.47)<a class="headerlink" href="#equation-6dc2aba5-ddb4-4fb4-9dff-5d4074ea427c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c597fd13-e69c-4dd8-b534-d3f224a49a1c">
+<span class="eqno">(3.47)<a class="headerlink" href="#equation-c597fd13-e69c-4dd8-b534-d3f224a49a1c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \underbrace{\begin{bmatrix} T^*_{S,1} \end{bmatrix}}_\mathbf{y} = 
 \underbrace{\begin{bmatrix}
 0 &amp; 1 &amp; 0

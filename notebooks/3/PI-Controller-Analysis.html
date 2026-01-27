@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -612,23 +612,23 @@ u_{1}(t) = \bar{u}_{1} + K_P (T_{set} - T_{S,1}(t)) + K_I \int_{0}^{t} (T_{set} 
 <section id="closed-loop-dynamics">
 <h2><span class="section-number">3.8.3. </span>Closed-Loop Dynamics<a class="headerlink" href="#closed-loop-dynamics" title="Link to this heading">#</a></h2>
 <p>How can we model the integral in the control law? Let’s add a new state to our model for the integral:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5bb054c9-d061-4ece-b0cf-37a40165ab6d">
-<span class="eqno">(3.32)<a class="headerlink" href="#equation-5bb054c9-d061-4ece-b0cf-37a40165ab6d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4007c867-4b77-47cc-bc64-b15276970733">
+<span class="eqno">(3.32)<a class="headerlink" href="#equation-4007c867-4b77-47cc-bc64-b15276970733" title="Permalink to this equation">#</a></span>\[\begin{align}
 C^H_p\frac{dT^*_{H,1}}{dt} &amp; = -U_a T^*_{H,1} + U_b(T^*_{S,1} - T^*_{H,1}) - \alpha P_1 K_P (T^*_{S,1} - T^*_{set}) + \alpha P_1 K_I I\\
 C^S_p\frac{dT^*_{S,1}}{dt} &amp; = U_b(T^*_{H,1} - T^*_{S,1}) \\
 \frac{dI}{dt} &amp;= T^*_{set}-T^{*}_{S,1}
 \end{align}\]</div>
 <p>We are defining the deviation variables relative to the ambient temperature.</p>
 <p>Let’s collect similar terms:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-56278219-53a6-4705-bb7e-e29943d78e25">
-<span class="eqno">(3.33)<a class="headerlink" href="#equation-56278219-53a6-4705-bb7e-e29943d78e25" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fc53dbb0-b3dd-4727-955c-f3309e54a8b1">
+<span class="eqno">(3.33)<a class="headerlink" href="#equation-fc53dbb0-b3dd-4727-955c-f3309e54a8b1" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT^*_{H,1}}{dt} &amp; = \left(-\frac{U_a + U_b}{C^H_p} \right)  T^*_{H,1} + \left(\frac{U_b - \alpha P_1 K_p}{C_p^H} \right) T^*_{S,1} + \left(\frac{- \alpha P_1 K_I}{C_p^H} \right) I + \frac{\alpha P_1 K_P}{C^H_p} T^*_{set} \\
 \frac{dT^*_{S,1}}{dt} &amp; = \left(\frac{U_b}{C_p^S} \right) T^*_{H,1} + \left(-\frac{U_b}{C_p^S} \right) T^*_{S,1} \\
 \frac{dI}{dt} &amp;= -T^{*}_{S,1}
 \end{align}\]</div>
 <p>Finally, we can write this as a linear differential equation in matrix form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e76188a9-2720-4eee-9e7c-4ce57f621d76">
-<span class="eqno">(3.34)<a class="headerlink" href="#equation-e76188a9-2720-4eee-9e7c-4ce57f621d76" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2b7fa6c9-ddf4-4206-ac73-a9c95942fe64">
+<span class="eqno">(3.34)<a class="headerlink" href="#equation-2b7fa6c9-ddf4-4206-ac73-a9c95942fe64" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d}{dt}\underbrace{\begin{bmatrix} T^*_{H,1} \\ T^*_{S,1} \\ I \end{bmatrix}}_\mathbf{x} &amp; = 
 \underbrace{\begin{bmatrix} -\frac{U_a+U_b}{C^H_p} &amp; \frac{U_b - \alpha P_1 K_P}{C^H_p} &amp; \frac{\alpha P_1 K_I}{C^H_p} \\ 
 \frac{U_b}{C^S_p} &amp; - \frac{U_b}{C^S_p} &amp; 0 \\
