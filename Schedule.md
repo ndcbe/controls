@@ -17,6 +17,7 @@ Assignments are typically due at 10 PM via Gradescope unless otherwise directed.
 | Tuesday, February 10, 2026 | **Lab 1:** Step Test — Lab 1 report due 10 PM (see lab assignment instructions) |
 | Tuesday, February 17, 2026 | **Lab 2:** Model Identification — Lab 2 report due 10 PM (see lab assignment instructions) |
 | Friday, February 20, 2026 | **Lab 3:** Relay Control — Lab 3 prelab due |
+| Tuesday, March 3, 2026 | **Lab 3:** Relay Control — Lab 3 due at 10 PM|
 | Friday, March 6, 2026 | **Project proposals** (team submission) |
 | Tuesday, March 24, 2026 | **Homework 2 Due** / project proposal follow-up |
 | Friday, March 27, 2026 | **Lab 4:** PID Control — Lab 4 prelab due |
@@ -47,7 +48,7 @@ Fridays from 10:30 am - 11:20 am (session 1) and 11:30 am - 12:20 pm (session 2)
 | Friday, April 3, 2026 | **No lab (Easter)** |
 | Friday, April 10, 2026 | **Lab 4 help** (TA help) |
 | Friday, April 17, 2026 | **Homework 3 office hours** (TA help) |
-| Friday, April 24, 2026 | **Review for Final exam / office hours** |
+| Friday, April 24, 2026 | **Review for Final quiz / office hours** |
 
 > Note: See each lab page for prelab and submission instructions; if your lab session time conflicts with a presentation or exam, contact the TA to arrange a make-up.
 ## Class Meetings
