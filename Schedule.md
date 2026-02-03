@@ -1,6 +1,6 @@
-# Schedule (Updated for 2026)
+# Schedule
 
-## Assignments & Important Dates 
+## Assignments & Important Dates for Spring 2026
 
 Note these are **subject to change and updates**. Check Gradescope regularly for confirmation)
 
@@ -14,6 +14,8 @@ Assignments are typically due at 10 PM via Gradescope unless otherwise directed.
 | Friday, January 23, 2026 | **Lab 0:** Installing Python, Hardware Demo, Getting Started (no Gradescope submission) |
 | Friday, January 30, 2026 | **Lab 1:** Step Test — Lab 1 prelab due (see lab instructions) |
 | Friday, February 6, 2026 | **Lab 2:** Model Identification — Lab 2 prelab due |
+| Tuesday, February 10, 2026 | **Lab 1:** Step Test — Lab 1 report due 10 PM (see lab assignment instructions) |
+| Tuesday, February 17, 2026 | **Lab 1:** Step Test — Lab 2 report due 10 PM (see lab assignment instructions) |
 | Friday, February 20, 2026 | **Lab 3:** Relay Control — Lab 3 prelab due |
 | Friday, March 6, 2026 | **Project proposals** (team submission) |
 | Tuesday, March 24, 2026 | **Homework 2 Due** / project proposal follow-up |
@@ -33,8 +35,9 @@ Fridays from 10:30 am - 11:20 am (session 1) and 11:30 am - 12:20 pm (session 2)
 | --- | --- |
 | Friday, January 16, 2026 | **Homework 1 office hours and intro to Lab 0** (drop-in / TA help) |
 | Friday, January 23, 2026 | **Lab 0:** Installing Python, Hardware Demo, Getting Started (setup & software checks) |
-| Friday, January 30, 2026 | **Lab 1:** Step Test — Lab 1 prelab due (see lab instructions) |
+| Friday, January 30, 2026 | **Lab 1:** Step Test — Lab 1 prelab due 9 AM (see lab instructions) |
 | Friday, February 6, 2026 | **Lab 2:** Model Identification — Lab 2 prelab due |
+| Tuesday, February 10, 2026 | **Lab 1:** Step Test — Lab 1 report due 10 PM (see lab assignment instructions) |
 | Friday, February 13, 2026 | **Lab 2 help / office hours** (TA help) |
 | Friday, February 20, 2026 | **Lab 3:** Relay Control — Lab 3 prelab due |
 | Friday, February 27, 2026 | **Lab 3 help** (TA help) |
