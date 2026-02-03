@@ -62,7 +62,7 @@ This course is team-taught. **Prof. Jeremiah Zartman** will deliver the lectures
 | Teaching Assistant | Kay Lu | <img src="https://dowlinglab.nd.edu/assets/599315/200x200/kay_164.jpeg" alt="Kay Lu" width="200" height="200" style="object-fit:cover;"> |
 | Teaching Assistant | Caitlin Frank | <img src="https://dowlinglab.nd.edu/assets/600219/200x200/caitlin2025_headshot.jpg" alt="Caitlin Frank" width="200" height="200" style="object-fit:cover;"> |
 | Teaching Assistant | Yikang Gong | <img src="https://dowlinglab.nd.edu/assets/601552/200x200/yikang2025_headshot.jpg" alt="Yikang Gong" width="200" height="200" style="object-fit:cover;"> |
-| Teaching Assistant | TJ Dilenschneider | <img src="https://github.com/ndcbe/controls/blob/main/images/TJ_Dilenschneider200.jpg" alt="TJ Dilenschneider" width="200" height="200" style="object-fit:cover;">
+| Teaching Assistant | TJ Dilenschneider | ![TJ Dilenschneider](images/TJ_Dilenschneider200.jpg)|
 
 
 If you would like a different layout or want me to add TA email addresses and office hours here, tell me which details to include and I will add them.
