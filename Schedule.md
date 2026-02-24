@@ -18,7 +18,7 @@ Assignments are typically due at 10 PM via Gradescope unless otherwise directed.
 | Wednesday, February 18, 2026 | **Lab 2:** Model Identification — Lab 2 report due 10 PM (see lab assignment instructions) |
 | Friday, February 20, 2026 | **Lab 3:** Relay Control — Lab 3 prelab due |
 | Wednesday, March 4, 2026 | **Lab 3:** Relay Control — Lab 3 due at 10 PM|
-| Friday, March 6, 2026 | **Project proposals** (team submission) |
+| Wednesday, March 18, 2026 | **Project proposals** (team submission) |
 | Tuesday, March 24, 2026 | **Homework 2 Due** / project proposal follow-up |
 | Friday, March 27, 2026 | **Lab 4:** PID Control — Lab 4 prelab due |
 | Tuesday, April 7, 2026 | **Midterm Exam** — 8:00 AM start (in class) |
@@ -41,7 +41,7 @@ Fridays from 10:30 am - 11:20 am (session 1) and 11:30 am - 12:20 pm (session 2)
 | Friday, February 13, 2026 | **Lab 2 help / office hours** (TA help) |
 | Friday, February 20, 2026 | **Lab 3:** Relay Control — Lab 3 prelab due |
 | Friday, February 27, 2026 | **Lab 3 help / office hours** (TA help) |
-| Friday, March 6, 2026 | **HW 2 office hour** (practice exam / previous year's exam) |
+| Friday, March 6, 2026 | **Project proposals Check-in & HW 2 office hour** (note - based on practice exam / previous year's exam) |
 | Friday, March 13, 2026 | **Spring Break** (no lab) |
 | Friday, March 27, 2026 | **Lab 4:** PID Control — Lab 4 prelab due |
 | Friday, April 3, 2026 | **No lab (Easter)** |
