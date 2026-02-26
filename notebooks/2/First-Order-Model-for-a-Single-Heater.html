@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -50,9 +53,9 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -66,6 +69,7 @@
     <link rel="prev" title="2.2. First-Order Linear Systems" href="Properties-of-Scalar-First-Order-Linear-Systems.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -81,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -101,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +149,17 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -334,9 +323,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -511,24 +505,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -665,8 +651,8 @@ document.write(`
 <section id="unsteady-state-model">
 <h3><span class="section-number">2.3.2.4. </span>Unsteady State Model<a class="headerlink" href="#unsteady-state-model" title="Link to this heading">#</a></h3>
 <p>Putting these terms together in the energy balance yields a first-order model for the response of the heater/sensor assembly on the Temperature Control Laboratory.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d4bfe44a-f510-486b-9b87-3fcaa066f263">
-<span class="eqno">(2.2)<a class="headerlink" href="#equation-d4bfe44a-f510-486b-9b87-3fcaa066f263" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0933d856-ccc7-41d7-b478-e986644eca09">
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-0933d856-ccc7-41d7-b478-e986644eca09" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 \end{align}\]</div>
 </section>
@@ -685,7 +671,7 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 <p>The parameter <span class="math notranslate nohighlight">\(\alpha\)</span> exhibits a mild temperature dependency due to the intrinisic properties of semiconductors. The following experiment sets to P1 to a value of 200 in the arbitrary units of the Arduino hardware, then sets U1 to 50%. The power delivered to the device is measured after reaching operating temperature.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">t_expt</span> <span class="o">=</span> <span class="mi">600</span>
 
@@ -694,7 +680,7 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 
 <span class="k">if</span> <span class="n">connected</span><span class="p">:</span>
     <span class="c1"># run experiment and record data locally</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">tclab</span><span class="w"> </span><span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span>
+    <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span>
     <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
         <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">t_expt</span><span class="p">)</span>
@@ -732,8 +718,8 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 <section id="steady-state">
 <h3><span class="section-number">2.3.4.1. </span>Steady State<a class="headerlink" href="#steady-state" title="Link to this heading">#</a></h3>
 <p>We’ll begin our analysis by investigating the steady-state response of this system to a steady-state input <span class="math notranslate nohighlight">\(\bar{u}_{1}\)</span>.  At steady-state all variables are constant so <span class="math notranslate nohighlight">\(\frac{dT_1}{dt} = 0\)</span>, which leaves</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc7f54c4-9658-4288-9ad8-b7da152e27b6">
-<span class="eqno">(2.3)<a class="headerlink" href="#equation-fc7f54c4-9658-4288-9ad8-b7da152e27b6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cb8e38c9-6077-4973-a88f-79be6ab19ff5">
+<span class="eqno">(2.3)<a class="headerlink" href="#equation-cb8e38c9-6077-4973-a88f-79be6ab19ff5" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 = U_a(T_{amb} - \bar{T}_1) + \alpha P_1\bar{u}_{1}
 \end{align}\]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(\bar{T}_{1}\)</span></p>
@@ -751,34 +737,34 @@ C_p\frac{dT_1}{dt} &amp; = U_a(T_{amb} - T_1) + \alpha P_1u_1 \\
 <section id="deviation-variables">
 <h3><span class="section-number">2.3.4.2. </span>Deviation Variables<a class="headerlink" href="#deviation-variables" title="Link to this heading">#</a></h3>
 <p>In examining the response of the temperature control laboratory, we see the temperature is a deviation from ambient temperature, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c0d6f89f-acab-4da8-ae10-52bbca8865a5">
-<span class="eqno">(2.4)<a class="headerlink" href="#equation-c0d6f89f-acab-4da8-ae10-52bbca8865a5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-10ffac1f-81ab-4f5e-bdef-f9d69e003125">
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-10ffac1f-81ab-4f5e-bdef-f9d69e003125" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_1' = T_1 - T_{amb}
 \end{align}\]</div>
 <p>For process control purposes, we are often interested in the deviation of a process variable from a nominal value. In this case the choice of deviation variable is clearly obvious which is designated <span class="math notranslate nohighlight">\(T_1'\)</span>. From the steady state equation we see</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b30b1567-757e-4d23-bfff-1edb921e0138">
-<span class="eqno">(2.5)<a class="headerlink" href="#equation-b30b1567-757e-4d23-bfff-1edb921e0138" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-04a58411-ff5e-4b4d-8af5-41f5a07588e9">
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-04a58411-ff5e-4b4d-8af5-41f5a07588e9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \bar{T}_1' = \bar{T}_1 - T_{amb} = \frac{\alpha P_1}{U_a}\bar{u}_1
 \end{align}\]</div>
 <p>which is a somewhat simpler expression.</p>
 <p>Let’s see what happens to the transient model. Substituting <span class="math notranslate nohighlight">\(T_1 = T_{amb} + T_1'\)</span> into the differential equation gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8895230b-37b8-4c32-935b-9e97dbb51cf0">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-8895230b-37b8-4c32-935b-9e97dbb51cf0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dae59d69-b233-4d65-92a9-c45c69a427d2">
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-dae59d69-b233-4d65-92a9-c45c69a427d2" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{d(T_{amb}+T_1')}{dt} &amp; = U_a(T_{amb} - (T_{amb} + T_1')) + \alpha P_1u_1
 \end{align}\]</div>
 <p>Expanding these terms</p>
-<div class="amsmath math notranslate nohighlight" id="equation-45d9c001-4da8-4f6f-8009-a4014ea8b840">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-45d9c001-4da8-4f6f-8009-a4014ea8b840" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-238706d0-c015-4905-a3a8-1d6cfdbc8ae8">
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-238706d0-c015-4905-a3a8-1d6cfdbc8ae8" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\underbrace{\frac{dT_{amb}}{dt}}_{0} + C_p\frac{dT_1'}{dt} &amp; = U_a(\underbrace{T_{amb} - T_{amb}}_{0} - T_1') + \alpha P_1u_1
 \end{align}\]</div>
 <p>we see several terms drop out. The derivative of any constant is zero, and see a cancelation on the right hand side, leaving</p>
-<div class="amsmath math notranslate nohighlight" id="equation-42514051-e3cc-4e72-9a52-d87d46cdaddc">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-42514051-e3cc-4e72-9a52-d87d46cdaddc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-68d03d4c-f25a-45c9-ab74-085ef8d4ac76">
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-68d03d4c-f25a-45c9-ab74-085ef8d4ac76" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p\frac{dT_1'}{dt} &amp; = - U_aT_1' + \alpha P_1u_1
 \end{align}\]</div>
 <p>One last manipulation will bring this model into a commonly used standard form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-47897ea7-b55b-45f4-aa46-d36dda310ff1">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-47897ea7-b55b-45f4-aa46-d36dda310ff1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-251a97f4-9d3f-44c2-9b32-873be78f1a7d">
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-251a97f4-9d3f-44c2-9b32-873be78f1a7d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dT_1'}{dt} &amp; = - \frac{U_a}{C_p}T_1' + \frac{\alpha P_1}{C_p}u_1
 \end{align}\]</div>
 <div class="admonition-study-question admonition">
@@ -789,8 +775,8 @@ C_p\frac{dT_1'}{dt} &amp; = - U_aT_1' + \alpha P_1u_1
 <section id="first-order-linear-differential-equations">
 <h3><span class="section-number">2.3.4.3. </span>First Order Linear Differential Equations<a class="headerlink" href="#first-order-linear-differential-equations" title="Link to this heading">#</a></h3>
 <p>A standard form for a single differential equation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e70b6636-1de1-4ea2-b49a-f231b2df93ec">
-<span class="eqno">(2.10)<a class="headerlink" href="#equation-e70b6636-1de1-4ea2-b49a-f231b2df93ec" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aef6fba2-0bd9-4c40-a101-43be77884f02">
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-aef6fba2-0bd9-4c40-a101-43be77884f02" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt} &amp; = ax + bu
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are model constants, <span class="math notranslate nohighlight">\(x\)</span> is the dependent variable, and <span class="math notranslate nohighlight">\(u\)</span> is an exogeneous input.</p>
@@ -819,16 +805,16 @@ x(t) &amp; = \bar{x} + \left[x(t_0) - \bar{x}\right] e^{a(t-t_0)}
 <section id="apply-to-model-equation">
 <h4><span class="section-number">2.3.4.3.3. </span>Apply to Model Equation<a class="headerlink" href="#apply-to-model-equation" title="Link to this heading">#</a></h4>
 <p>We now apply this textbook solution to the model equation. Comparing equations, we make the following identifications</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c6d55a8-980f-4d8c-a1fc-2714341b1b35">
-<span class="eqno">(2.11)<a class="headerlink" href="#equation-9c6d55a8-980f-4d8c-a1fc-2714341b1b35" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-14e2118f-2464-405b-9a41-a7af7e2bbd97">
+<span class="eqno">(2.11)<a class="headerlink" href="#equation-14e2118f-2464-405b-9a41-a7af7e2bbd97" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_1' \sim x \\
 -\frac{U_a}{C_p} \sim a \\
 \frac{\alpha P_1}{C_p} \sim b \\
 u_1 \sim u
 \end{align}\]</div>
 <p>Substituting these terms into the standard solution we confirm the steady-state solution found above, and provides a solution for the transient response of the deviation variables.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-45845d91-2ccf-4666-830d-ab29947afe29">
-<span class="eqno">(2.12)<a class="headerlink" href="#equation-45845d91-2ccf-4666-830d-ab29947afe29" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-67053dcd-f722-458e-aefc-b162eadc84fd">
+<span class="eqno">(2.12)<a class="headerlink" href="#equation-67053dcd-f722-458e-aefc-b162eadc84fd" title="Permalink to this equation">#</a></span>\[\begin{align}
 \bar{x} = -\frac{b}{a}\bar{u} \qquad &amp; \Rightarrow \qquad \bar{T}_{1}' = \frac{\alpha P_1}{U_a}\bar{u}_{1} \\
 x(t) = \bar{x} + \left[x(t_0) - \bar{x}\right] e^{a(t-t_0)} \qquad &amp; \Rightarrow \qquad
 T_1'(t) = \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1'(t_0) - \frac{\alpha P_1}{U_a}\bar{u}_{1}\right]e^{-\frac{U_a}{C_p}(t-t_0)}
@@ -842,8 +828,8 @@ T_1'(t) = \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1'(t_0) - \frac{\alpha P_1
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># parameter values and units</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.00016</span>        <span class="c1"># watts / (units P1 * percent U1)</span>
@@ -935,7 +921,8 @@ T_1'(t) = \frac{\alpha P_1}{U_a}\bar{u}_{1} + \left[T_1'(t_0) - \frac{\alpha P_1
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1014,8 +1001,8 @@ By Jeffrey Kantor, Alexander Dowling, and Jeremiah Zartman
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

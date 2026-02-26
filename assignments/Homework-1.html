@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -50,9 +53,9 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -66,6 +69,7 @@
     <link rel="prev" title="Assignments" href="assignments.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -81,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -101,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +149,17 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -334,9 +323,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -511,24 +505,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -603,19 +589,19 @@ document.write(`
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>This homework problem is inspired, in part, by a <a class="reference external" href="https://www.wired.com/2011/12/cannon-balls-size-matters/">Wired blog post</a> analyzing an incident with a cannonball on the popular show Myth Busters.</p>
 <p>Consider <span class="math notranslate nohighlight">\(n\)</span> iron cannonballs of mass 12 lb (5.44 kg) fired at unknown angles <span class="math notranslate nohighlight">\(\theta_i\)</span> (where <span class="math notranslate nohighlight">\(i \in \{1,...,n\}\)</span>) with unknown initial velocities <span class="math notranslate nohighlight">\(v_{0,i}\)</span>. The drag on the cannonball is <span class="math notranslate nohighlight">\(F_D = \frac{1}{2} \rho C_D A v |v|\)</span> where <span class="math notranslate nohighlight">\(\rho\)</span> is the density of air, <span class="math notranslate nohighlight">\(C_D\)</span> is the coefficient of drag, and <span class="math notranslate nohighlight">\(A\)</span> is the cross sectional area of the cannonball. We can lump these parameters together into a single unknown coefficient <span class="math notranslate nohighlight">\(\bar{C}_D\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e11744b0-48be-4404-b46e-df29d07c7631">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e11744b0-48be-4404-b46e-df29d07c7631" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5be30ec5-797b-4602-8e64-1e54e75bbfd5">
+<span class="eqno">(1)<a class="headerlink" href="#equation-5be30ec5-797b-4602-8e64-1e54e75bbfd5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 F_D = \bar{C}_D v |v|
 \end{equation}\]</div>
 <p>It is important to use <span class="math notranslate nohighlight">\(v |v|\)</span> to account for the change in sign when the cannonball transitions from moving upward to moving downward.</p>
 <p>Applying Newton’s laws of motion gives the following coupled differential equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9c14c0b-5fff-4530-9654-72c298558230">
-<span class="eqno">(2)<a class="headerlink" href="#equation-e9c14c0b-5fff-4530-9654-72c298558230" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-78c9c546-1559-47e9-bc8d-0d49b6e0bee4">
+<span class="eqno">(2)<a class="headerlink" href="#equation-78c9c546-1559-47e9-bc8d-0d49b6e0bee4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 m \frac{dv_x}{dt}=-\bar{C}_D v_x |v |, \quad m \frac{dv_z}{dt} = -mg - \bar{C}_D v_z | v |,   \quad \frac{dx}{dt} = v_x, \quad \frac{dz}{dt} = v_z, \quad |v| = \sqrt{v_x^2 + v_z^2}
 \end{equation}\]</div>
 <p>We assume the cannonball is fired from the origin at time <span class="math notranslate nohighlight">\(t=0\)</span> where <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span> represent horiztonal and vertical displacement, respectively. This gives the follow initial values:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-df1c895c-f7ed-4831-938d-cab09aa4f04e">
-<span class="eqno">(3)<a class="headerlink" href="#equation-df1c895c-f7ed-4831-938d-cab09aa4f04e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d32097ce-3978-4ee0-9190-90f004585e66">
+<span class="eqno">(3)<a class="headerlink" href="#equation-d32097ce-3978-4ee0-9190-90f004585e66" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \sin(\theta)
 \end{equation}\]</div>
 <p>The <span class="math notranslate nohighlight">\(n\)</span> cannonballs are fired on completely flat terrian. We observe the impact location (horizonal distance traveled), impact time, and crater size. The latter can be correlated with impact velocity:</p>
@@ -672,12 +658,12 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">integrate</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="k">def</span><span class="w"> </span><span class="nf">ode_rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">Cd</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">ode_rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">Cd</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;ODE system for a cannonball with drag</span>
 <span class="sd">    Arguments:</span>
 <span class="sd">        t: time (s)</span>
@@ -697,7 +683,7 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 
 <span class="c1"># Add your solution here</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">simulate_experiment</span><span class="p">(</span><span class="n">Cd</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tdata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xdata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vdata</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">simulate_experiment</span><span class="p">(</span><span class="n">Cd</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tdata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xdata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vdata</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate an experiment.</span>
 <span class="sd">    </span>
 <span class="sd">    Arguments:</span>
@@ -728,7 +714,7 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 <p>Test your function by simulating the provided data for the cannonball experiments. For each experiment, make a plot showing the model predictions (lines) and observed data (symbols). You can use the data given below as intial guesses for <span class="math notranslate nohighlight">\(\theta_{i}\)</span> and <span class="math notranslate nohighlight">\(v_{0,i}\)</span>. You can use <span class="math notranslate nohighlight">\(\bar{C_D} = 0.003\)</span> as an intial guess for the coefficient of drag.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.0</span><span class="p">,</span> <span class="mf">6.9</span><span class="p">,</span> <span class="mf">15.3</span><span class="p">]</span>
@@ -765,9 +751,9 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 <p>Perform nonlinear regression to estimate <span class="math notranslate nohighlight">\(\bar{C}_D\)</span>, <span class="math notranslate nohighlight">\(\theta_1\)</span>, …, <span class="math notranslate nohighlight">\(\theta_n\)</span>, <span class="math notranslate nohighlight">\(v_{0,1}\)</span>, …, <span class="math notranslate nohighlight">\(v_{0,n}\)</span>. Report the estimate parameters with a reasonable number of significant digits. Include plots to compare the model predictions and experiment data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">least_squares</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">least_squares</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">unpack</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">unpack</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Unpacks the vector &quot;param&quot;</span>
 
 <span class="sd">    Arguments:</span>
@@ -785,7 +771,7 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
     <span class="n">v0</span> <span class="o">=</span> <span class="n">param</span><span class="p">[(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
     <span class="k">return</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">v0</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">pack</span><span class="p">(</span><span class="n">Cd</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">v0</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">pack</span><span class="p">(</span><span class="n">Cd</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">v0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Packs the parameters into a vector</span>
 
 <span class="sd">    Arguments:</span>
@@ -803,7 +789,7 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 <span class="n">sigma_x</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># m</span>
 <span class="n">sigma_v</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># m/s</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">residuals_all</span><span class="p">(</span><span class="n">parameter_vec</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">residuals_all</span><span class="p">(</span><span class="n">parameter_vec</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the residuals for all experiments</span>
 
@@ -929,9 +915,9 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 <p>Determine the firing angle <span class="math notranslate nohighlight">\(\theta_j\)</span> and intial velocity <span class="math notranslate nohighlight">\(v_{0,j}\)</span> to hit a target at 300 m with an impact velocity of 80 m/s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">fsolve</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">firing_residuals</span><span class="p">(</span><span class="n">guess</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">firing_residuals</span><span class="p">(</span><span class="n">guess</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Residuals for the firing experiment</span>
 <span class="sd">    </span>
 <span class="sd">    Arguments:</span>
@@ -965,7 +951,7 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
 
 <span class="c1"># Here is code copied from CBE 20258 notebooks that you may find helpful</span>
 <span class="c1"># You can also answer this question without calculating a Jacobian</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">Jacobian</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">delta</span> <span class="o">=</span> <span class="mf">1.0e-7</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">Jacobian</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">delta</span> <span class="o">=</span> <span class="mf">1.0e-7</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;Approximate Jacobian using forward finite difference</span>
 
 <span class="sd">    Args:</span>
@@ -1087,7 +1073,8 @@ x(0) = 0, \quad z(0) = 0, \quad v_x(0) = v_0 \cos(\theta), \quad v_z(0) = v_0 \s
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1156,8 +1143,8 @@ By Jeffrey Kantor, Alexander Dowling, and Jeremiah Zartman
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

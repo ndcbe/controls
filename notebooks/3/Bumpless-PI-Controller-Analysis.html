@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -50,9 +53,9 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -66,6 +69,7 @@
     <link rel="prev" title="3.9. Integral Windup and Bumpless Transfer" href="Integral-Windup-and-Bumpless-Transfer.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -81,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -101,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +149,17 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -334,9 +323,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -511,24 +505,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -575,7 +561,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set default parameters for publication quality plots</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">SMALL_SIZE</span> <span class="o">=</span> <span class="mi">14</span>
 <span class="n">MEDIUM_SIZE</span> <span class="o">=</span> <span class="mi">16</span>
 <span class="n">BIGGER_SIZE</span> <span class="o">=</span> <span class="mi">18</span>
@@ -595,39 +581,39 @@ document.write(`
 <section id="closed-loop-dynamics">
 <h2><span class="section-number">3.10.1. </span>Closed-Loop Dynamics<a class="headerlink" href="#closed-loop-dynamics" title="Link to this heading">#</a></h2>
 <p>We start with the <strong>velocity form</strong> of the controller:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22335600-51b5-4472-b084-8eed176c3ca2">
-<span class="eqno">(3.40)<a class="headerlink" href="#equation-22335600-51b5-4472-b084-8eed176c3ca2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-265fc599-b310-45a1-b85b-eaf54035e254">
+<span class="eqno">(3.40)<a class="headerlink" href="#equation-265fc599-b310-45a1-b85b-eaf54035e254" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u_k = u_{k-1} + K_p (-y_k + y_{k-1}) + K_I \underbrace{(y_{SP} - y_f)\Delta t}_{e_k}
 \end{equation}\]</div>
 <p>Next, divide by <span class="math notranslate nohighlight">\(\Delta t\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fe971d7c-5b9b-46ed-9b70-5d4421247522">
-<span class="eqno">(3.41)<a class="headerlink" href="#equation-fe971d7c-5b9b-46ed-9b70-5d4421247522" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-34ead287-6aa2-4f17-9471-b36f4f25f5d0">
+<span class="eqno">(3.41)<a class="headerlink" href="#equation-34ead287-6aa2-4f17-9471-b36f4f25f5d0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{u_k - u_{k-1}}{\Delta t} = -K_p \frac{(y_k - y_{k-1})}{\Delta t} + K_I e_k
 \end{equation}\]</div>
 <p>Consider limit as <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ddf91a46-9dd3-40bc-ab94-be72ca5cf364">
-<span class="eqno">(3.42)<a class="headerlink" href="#equation-ddf91a46-9dd3-40bc-ab94-be72ca5cf364" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9e467554-c151-4ab8-9da4-1afc713dcc2b">
+<span class="eqno">(3.42)<a class="headerlink" href="#equation-9e467554-c151-4ab8-9da4-1afc713dcc2b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \dot{u} = -K_p \dot{y} + K_I e_k 
 \end{equation}\]</div>
 <p>Next, consider the two-state model for a single TCLab channel:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-483af6f8-51f4-4042-827e-e45d5f7b6c83">
-<span class="eqno">(3.43)<a class="headerlink" href="#equation-483af6f8-51f4-4042-827e-e45d5f7b6c83" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f2c78328-1a0d-4cd9-a4e2-1d33e1f81cf4">
+<span class="eqno">(3.43)<a class="headerlink" href="#equation-f2c78328-1a0d-4cd9-a4e2-1d33e1f81cf4" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_p^H \frac{dT^*_{H,1}}{dt} &amp;= -U_a T^*_{H,1} + U_b (T^*_{S,1} - T^*_{H,1}) + \alpha P_u \\
 C_p^S \frac{dT^*_{S,1}}{dt} &amp;= U_b (T^*_{H,1} - T^*_{S,1})
 \end{align}\]</div>
 <p>Next, substitute the control law:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d8b34d33-a863-4144-a670-94ac0c09c8d1">
-<span class="eqno">(3.44)<a class="headerlink" href="#equation-d8b34d33-a863-4144-a670-94ac0c09c8d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aab219eb-f7d4-445d-be8d-a31f91b48a74">
+<span class="eqno">(3.44)<a class="headerlink" href="#equation-aab219eb-f7d4-445d-be8d-a31f91b48a74" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{du}{dt} = -K_p \dot{T}^*_{S,1} + K_I (T^*_{set} - T^*_{S,1})
 \end{equation}\]</div>
 <p>Finally, substitute the second differential equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0a4a281-0068-416e-8759-e7991287b62a">
-<span class="eqno">(3.45)<a class="headerlink" href="#equation-b0a4a281-0068-416e-8759-e7991287b62a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bacf5baa-2757-434d-860f-9bd0d9ca7cdd">
+<span class="eqno">(3.45)<a class="headerlink" href="#equation-bacf5baa-2757-434d-860f-9bd0d9ca7cdd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{du}{dt} = -K_p \frac{U_b (T^*_{H,1} - T^*_{S,1})}{C_p^S} + K_I (T^*_{set} - T^*_{S,1})
 \end{equation}\]</div>
 <p>Now, we can write the model as a linear system:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8ed3461d-4523-4a4c-948c-16df8a8e3b28">
-<span class="eqno">(3.46)<a class="headerlink" href="#equation-8ed3461d-4523-4a4c-948c-16df8a8e3b28" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fddb646b-1f8a-453e-8650-0d8a5945b007">
+<span class="eqno">(3.46)<a class="headerlink" href="#equation-fddb646b-1f8a-453e-8650-0d8a5945b007" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \underbrace{\begin{bmatrix}
 \dot{T}_{H,1} \\
 \dot{T}_{S,1} \\
@@ -651,8 +637,8 @@ K_I
 \end{bmatrix}}_\mathbf{B}
 \underbrace{\begin{bmatrix} T^*_{set} \end{bmatrix}}_\mathbf{u}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-7ee5fa45-9e09-4bd1-aa41-9c0ca55bbbd1">
-<span class="eqno">(3.47)<a class="headerlink" href="#equation-7ee5fa45-9e09-4bd1-aa41-9c0ca55bbbd1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-524cc46b-7ea4-4096-b77f-176848d17d65">
+<span class="eqno">(3.47)<a class="headerlink" href="#equation-524cc46b-7ea4-4096-b77f-176848d17d65" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \underbrace{\begin{bmatrix} T^*_{S,1} \end{bmatrix}}_\mathbf{y} = 
 \underbrace{\begin{bmatrix}
 0 &amp; 1 &amp; 0
@@ -672,7 +658,7 @@ u
 <h2><span class="section-number">3.10.2. </span>Simulation<a class="headerlink" href="#simulation" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># parameters</span>
 <span class="n">T_amb</span> <span class="o">=</span> <span class="mi">21</span> <span class="c1"># deg C</span>
@@ -721,11 +707,11 @@ u
 <h3><span class="section-number">3.10.2.2. </span>Discrete Simulation<a class="headerlink" href="#discrete-simulation" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">cont2discrete</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">cont2discrete</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">tclab_simulate_bumpless_PI</span><span class="p">(</span><span class="n">Kp</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">Ki</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">tclab_simulate_bumpless_PI</span><span class="p">(</span><span class="n">Kp</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">Ki</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39; Simulate the TCLab system with PI control</span>
 <span class="sd">    Arguments:</span>
 <span class="sd">        Kp: the proportional control gain</span>
@@ -950,10 +936,10 @@ u
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eigendecomposition analysis</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">eig</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eig</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">calc_eig</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">Ki</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">calc_eig</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">Ki</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the eigenvalues and eigenvectors of the A_PI matrix.</span>
 
 <span class="sd">    Args:</span>
@@ -1108,7 +1094,8 @@ Eigenvector 2 = [0.40304171 0.42832509 0.80876139]
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1172,8 +1159,8 @@ By Jeffrey Kantor, Alexander Dowling, and Jeremiah Zartman
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
