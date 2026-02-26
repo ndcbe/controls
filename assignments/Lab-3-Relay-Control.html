@@ -1,0 +1,1650 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 3: Relay (On-Off) Control &#8212; CBE 30338 Data Analytics, Optimization, and Control</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/Lab-3-Relay-Control';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 4: PI Control" href="Lab-4-PI-Control.html" />
+    <link rel="prev" title="Lab 2: Model Identification" href="Lab-2-Model-Identification.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../Readme.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="CBE 30338 Data Analytics, Optimization, and Control - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../Readme.html">
+                    CBE 30338 Data Analytics, Optimization, and Control
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Schedule.html">Schedule</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="assignments.html">Assignments</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Homework-1.html">Homework 1: Computing and Data Analysis Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lab-1-Step-Testing.html">Lab 1: Step Test of a First-Order System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lab-2-Model-Identification.html">Lab 2: Model Identification</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 3: Relay (On-Off) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lab-4-PI-Control.html">Lab 4: PI Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Homework-2.html">Homework 2: Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lab-5-Open-Loop-Optimization.html">Lab 5: Open Loop Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lab-6-MPC.html">Lab 6: Model Predictive Control (MPC)</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topical Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/1/What-is-Process-Control.html">1. What is Process Control?</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/1/What-is-Feedback.html">1.1. What is Feedback?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/1/Elements-of-Feedback-Control.html">1.2. Elements of Process Control</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/2/Process-Modeling.html">2. Process Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/2/One-Compartment-Pharmacokinetics.html">2.1. One Compartment Pharmacokinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/2/Properties-of-Scalar-First-Order-Linear-Systems.html">2.2. First-Order Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/2/First-Order-Model-for-a-Single-Heater.html">2.3. First Order Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/2/Fitting-a-Model-to-Data.html">2.4. Fitting a Model to Experimental Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/2/Second-Order.html">2.5. Second Order Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/2/Fed-Batch-Bioreactor.html">2.6. Fed-Batch Bioreactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/2/Spring-Mass-Damper.html">2.7. Characteristics of Second Order Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/2/Exothermic-CSTR.html">2.8. Application: Exothermic Continuous Stirred Tank Reactor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/2/Hare-and-Lynx.html">2.9. Hare and Lynx Population Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/2/Study-Guide.html">2.10. Study Guide</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/3/Feedback-Control.html">3. Feedback Control</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/Case-Study-Thermal-Cycling-PCR.html">3.1. Case Study: Thermal Cycling for PCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/Setpoints.html">3.2. Setpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/Setpoints-Thermal-Cycler.html">3.3. Case Study: PCR Thermal Cycler Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/Relay-Control.html">3.4. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/Implementing-Controllers.html">3.5. Implementing Controllers in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/Proportional-Integral-Control.html">3.6. Practical Proportional (P) and Proportional-Integral (PI) Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/P-Controller-Analysis.html">3.7. Analysis of Proportional Only Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/PI-Controller-Analysis.html">3.8. Analysis of Proportional-Integral Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/Integral-Windup-and-Bumpless-Transfer.html">3.9. Integral Windup and Bumpless Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/Bumpless-PI-Controller-Analysis.html">3.10. Analysis of Velocity-Form Bumpless PI Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/3/Controller-Tuning.html">3.11. Controller Tuning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/4/Process-Analytics.html">4. Process Analytics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/4/Learning-Goals.html">4.1. Learning Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/4/Process-Historians.html">4.2. Data/Process/Operational Historian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/4/State-Estimation.html">4.3. State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/4/Lab-Assigment-State-Estimation.html">4.4. Lab Assignment 5: State Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/4/Anomaly-Detection.html">4.5. Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/4/Lab-Assignment-Anomaly-Detection.html">4.6. Lab Assignment 6: Anomaly Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/4/Observer-Synthesis-LMI.html">4.7. Observer Synthesis using Linear Matrix Inequalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/4/Envrironmental-Application.html">4.8. Application of Luenberger Observers to Environmental Modeling of Rivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/4/Study-Questions.html">4.9. Study Questions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/5/Optimization.html">5. Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/5/Linear-Production-Model.html">5.1. Linear Production Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/5/Linear-Blending-Problem.html">5.2. Linear Blending Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/5/Homework_2.html">5.3. Homework 2: Optimization (Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/5/Gasoline-Blending.html">5.4. Gasoline Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/5/Linear-Programming.html">5.5. Linear Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/5/Design-of-a-Cold-Weather-Fuel.html">5.6. Design of a Cold Weather Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/5/Pyomo-Examples.html">5.7. Pyomo Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/5/EV-Example.html">5.8. Recharging Strategy for an Electric Vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/5/milk-pooling.html">5.9. Pooling and Blending</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/6/Predictive-Control-Chapter.html">6. Predictive Control</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/6/Static-Operability.html">6.1. Static Operability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/6/Simulation-and-Open-Loop-Optimal-Control.html">6.2. Open-Loop Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/6/Predictive-Control.html">6.3. Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/6/Implementing-Predictive-Control.html">6.4. Implementing Predictive Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/6/gompertz-tumor-growth.html">6.5. Gompertz Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/6/gompertz-model-project.html">6.6. Project: Gompertz Model for Tumor Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/6/time-as-decision-variable.html">6.7. Time as a Decision Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/6/TCLab-Optimization-Estimation-Control.html">6.8. TCLab: Open-Loop Optimization and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/6/TCLab-Model-Predictive-Control.html">6.9. TCLab: Model Predictive Control (MPC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/6/Simulation-and-Optimal-Control-in-Pharmacokinetics.html">6.10. Simulation and Optimal Control in Pharmacokinetics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/08.00-Projects.html">7. Projects (Spring 2023)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/08.01-Project-Ideas.html">7.1. Project Ideas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/09.00-Bibliography.html">8. References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Laboratory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/00.00-tclab.html">1. The Temperature Control Laboratory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/00.01-setting-up-tclab.html">1.1. Setting up TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/00.02-troubleshooting-tclab.html">1.2. Testing and Troubleshooting TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/00.03-using-tclab.html">1.3. Python Coding for TCLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/testing-software-environment.html">1.4. Testing Your Software Environment and TCLab</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/01.00-step-testing.html">2. Step Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/01.01-step-testing.html">2.1. Step Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/01.02-first-order-model-for-a-single-heater.html">2.2. Lab Assignment 1: Step Test of a First-Order System</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/02.00-Empirical-Model-Identification.html">3. Empirical Model Identification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/02.02-Fitting-Step-Test-Data-to-Empirical-Models.html">3.1. Fitting Step Test Data to Empirical Models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/03.00-Estimating-Model-Parameters.html">4. Estimating Model Parameters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.04-Two-Input-Two-Output-Model.html">4.1. Two-Input, Two-Output Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.05-Two-State-Model-for-a-Single-Heater.html">4.2. Two State Model for a Single Heater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.06-Four-State-Model.html">4.3. Four State Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/03.10-TCLab-Lab-2-Model-Indentification.html">4.4. Assignment: Model Identification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/04.00-Feedback-Control.html">5. Feedback Control</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.01-Relay-Control.html">5.1. Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.02-Lab-Assignment-Relay-Control.html">5.2. Lab Assignment 4: Relay Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.10-Lab-Assignment-PID-Control.html">5.3. Lab Assignment: PID Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/04.11-Lab-Assignment-PI-Control.html">5.4. Lab Assignment 4: PI Control</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/05.00-State-Estimation.html">6. State Estimation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/05.01-Open-and-Closed-Loop-Estimation.html">6.2. Open and Closed Loop Estimation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../tclab/06.00-Optimal-Control.html">7. Optimization</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tclab/07.00-Predictive-Control-and-Real-Time-Optimization.html">8. Predictive Control and Real Time Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/07.01-Optimization-Control-and-Estimation-using-Pyomo.html">8.1. Simulation, Control, and Estimation using Pyomo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tclab/07.02-Optimization-Control-and-Estimation-using-Pyomo-With-Windows-ipopt.html">8.2. Simulation, Control, and Estimation using Pyomo</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/A.00-Python-Tutorials.html">Python Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.05-Tidy-Data-and-Pandas.html">Tidy Data and Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.10-Coding-Controllers-with-Python-Generators.html">Coding Controllers with Python Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.11-Modular-Approach-to-Simulation-using-Python-Generators.html">Modular Simulation using Python Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/A.30-Animation-in-Jupyter-Notebooks.html">Animation in Jupyter Notebooks</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ndcbe/controls/blob/main/assignments/Lab-3-Relay-Control.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ndcbe/controls" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ndcbe/controls/issues/new?title=Issue%20on%20page%20%2Fassignments/Lab-3-Relay-Control.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/assignments/Lab-3-Relay-Control.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 3: Relay (On-Off) Control</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-0-simulation">Exercise 0. Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-setpoints">Visualize Setpoints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-to-numerically-simulate-relay-controller">Function to Numerically Simulate Relay Controller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-controller-with-a-small-deadband-assuming-no-cross-channel-interaction">Simulate Controller with a Small Deadband Assuming No Cross Channel Interaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-controller-with-a-small-deadband-assuming-small-cross-channel-interaction">Simulate Controller with a Small Deadband Assuming Small Cross Channel Interaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-the-controller-with-a-large-deadband-and-no-cross-channel-interaction">Simulate the Controller with a Large Deadband and No Cross Channel Interaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-the-controller-with-a-large-deadband-and-modest-cross-channel-interaction">Simulate the Controller with a Large Deadband and Modest Cross Channel Interaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-simple-relay-control-for-tc-lab">Exercise 1. Simple Relay Control for TC Lab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debug-your-implementation-with-the-tclab-digital-twin">Debug Your Implementation with the TCLab Digital Twin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-your-device-is-at-ambient-temperature">Verify your Device is at Ambient Temperature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-the-experiment-with-tclab-hardware">Perform the Experiment with TCLab Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-tempering-chocolate">Exercise 2. Tempering Chocolate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-described-temperature-profile">Plot the Described Temperature Profile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-the-chocolate-tempering-experiment">Simulate the Chocolate Tempering Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-tclab-is-at-ambient-temperature">Verify TCLab is at Ambient Temperature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Perform the Experiment with TCLab Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-quantify-tracking-error">Exercise 3. Quantify Tracking Error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-function-to-quantify-controller-performance">Create a Function to Quantify Controller Performance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-of-tclab-device-for-simple-experiment">Performance of TCLab Device for Simple Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-of-the-simulated-controller-for-the-simple-experiment">Performance of the Simulated Controller for the Simple Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-of-tclab-device-for-chocolate-experiment">Performance of TCLab Device for Chocolate Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-of-the-simulated-controller-for-the-chocolate-experiment">Performance of the Simulated Controller for the Chocolate Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concluding-discussion">Concluding Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-exercise-extra-credit">Bonus Exercise (Extra Credit)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations">Declarations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-3-relay-on-off-control">
+<h1>Lab 3: Relay (On-Off) Control<a class="headerlink" href="#lab-3-relay-on-off-control" title="Link to this heading">#</a></h1>
+<p><em>Your Name:</em></p>
+<p>In this lab assignment you will implement <a class="reference external" href="https://ndcbe.github.io/controls/notebooks/3/Relay-Control.html">relay control</a> for the Temperature Control Laboratory. The <a class="reference external" href="https://ndcbe.github.io/controls/notebooks/3/Implementing-Controllers.html">class website</a> explains the Python interface to the TCLab in more detail. Your main tasks are:</p>
+<ol class="arabic simple">
+<li><p>Use numerical simulation to tune your controller (Exercise 0)</p></li>
+<li><p>Implement and test a relay control for the heater/sensor system</p></li>
+<li><p>Implement and test a relay control to track a complex setpoint (dark chocolate tempering)</p></li>
+</ol>
+<p>Our labratory assignments this semester build up each other. For best results, you want to <strong>use the same hardware configuration for each lab</strong>. To help with this, please fill in the following:</p>
+<ul class="simple">
+<li><p><strong>TCLab</strong>: Did you use your own TCLab or borrow one (friend, class set)?</p></li>
+<li><p><strong>Power adapter</strong>: How did you plug the TCLab into power? Did you use the adapter that came with your kit, a different USB power adapter, or one of the plugs in our computer classroom? What is the power rating of the adapter? (e.g., 1A or 2A or 2.1A at 5V?, Was the power adapter/USB port labeled “phone” or “tablet”?)</p></li>
+<li><p>Suggestion: take a picture of your TCLab setup including the power adapter. Keep this on your phone until the end of the semester.</p></li>
+</ul>
+<section id="exercise-0-simulation">
+<h2>Exercise 0. Simulation<a class="headerlink" href="#exercise-0-simulation" title="Link to this heading">#</a></h2>
+<p>This exercise is due BEFORE the start of lab. It is a pre-lab assignment. Your task:</p>
+<ul class="simple">
+<li><p>Read the entire lab assigment. If you have a question, post to Canvas.</p></li>
+<li><p>Create a plot showing the setpoints described in Excercise 1.</p></li>
+<li><p>On paper (or a tablet), write down the system of differential equations for the TCLab with the simple relay controller described in Exercise 1. Include in your model the intial conditions for each state.</p></li>
+<li><p>Formulate your differential equations as a linear time invariant (LTI) system in cannonical state-space form (use matrices <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>) with a few extra equations for the control law. Write this out on paper.</p></li>
+<li><p>Hint: You can assume your two TCLab channels are identical and there is no interaction between the channels. It will be an imperfect model, but you have enough information to build it. Here are some <a class="reference external" href="https://ndcbe.github.io/controls/tclab/03.06-Four-State-Model.html">ideas from a legacy page on the class website</a>.</p></li>
+<li><p>Using Python, numerically simulate the system of differential equations. Look at <a class="reference external" href="https://ndcbe.github.io/controls/notebooks/3/Relay-Control.html">this example</a>. Use the TCLab model parameters you estimated in Lab 2 for your personal TCLab hardware.</p></li>
+</ul>
+<section id="visualize-setpoints">
+<h3>Visualize Setpoints<a class="headerlink" href="#visualize-setpoints" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Create a plot showing the setpoints described in Exercise 1</span>
+
+<span class="c1"># Set default parameters for publication quality plots</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">SMALL_SIZE</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">MEDIUM_SIZE</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">BIGGER_SIZE</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>  <span class="c1"># controls default text sizes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>  <span class="c1"># fontsize of the axes title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">MEDIUM_SIZE</span><span class="p">)</span>  <span class="c1"># fontsize of the x and y labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>  <span class="c1"># fontsize of the tick labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>  <span class="c1"># fontsize of the tick labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;legend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>  <span class="c1"># legend fontsize</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="n">BIGGER_SIZE</span><span class="p">)</span>  <span class="c1"># fontsize of the figure title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># modify these setpoints to change with time</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">SP1_simple</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set point definition for T1</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        t: time (s)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        set point of T1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">35</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">SP2_simple</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set point definition for T2</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        t: time (s)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        set point of T2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">40</span>
+
+<span class="c1"># Add your solution here</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Add your solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="function-to-numerically-simulate-relay-controller">
+<h3>Function to Numerically Simulate Relay Controller<a class="headerlink" href="#function-to-numerically-simulate-relay-controller" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Simulate differential equations for the TCLab system plus relay controller</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tclab_simulate_relay</span><span class="p">(</span><span class="n">SP1</span><span class="p">,</span> <span class="n">SP2</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> 
+                         <span class="n">d</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T_amb</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">tend</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> 
+                         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.00016</span><span class="p">,</span> <span class="n">P1</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">P2</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> 
+                         <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Simulate the TCLab system with relay control</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        SP1: function that returns setpoint for T1</span>
+<span class="sd">        SP2: function that returns setpoint for T2</span>
+<span class="sd">        param: list of parameters [Ua, Ub, Uc, CpH, CpS]</span>
+<span class="sd">        d: deadband in temperature control, default is 0.5 C</span>
+<span class="sd">        dt: time step, default is 1 second</span>
+<span class="sd">        T_amb: ambient temperature, default is 24 C</span>
+<span class="sd">        tend: end time for simulation, default is 500 seconds</span>
+<span class="sd">        alpha: heat transfer coefficient, default is 0.00016</span>
+<span class="sd">        P1: power level for heater 1, default is 200</span>
+<span class="sd">        P2: power level for heater 2, default is 200</span>
+<span class="sd">        verbose: print matrices, default is False</span>
+<span class="sd">        plot: create plots, default is True</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        data: DataFrame with columns for Time, T1, T2, Q1, Q2</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+    <span class="c1"># Parameters</span>
+    <span class="n">Ua</span><span class="p">,</span> <span class="n">Ub</span><span class="p">,</span> <span class="n">Uc</span><span class="p">,</span> <span class="n">CpH</span><span class="p">,</span> <span class="n">CpS</span> <span class="o">=</span> <span class="n">param</span>
+
+    <span class="c1"># Hint: You need to define the system matrices A, B, C, and D</span>
+    <span class="c1"># Assume the state vector is x = [T1H, T1S, T2H, T2S]</span>
+    <span class="c1"># Assume the input vector is u = [Q1, Q2]</span>
+    <span class="c1"># Add your solution here</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="c1"># Print the matrices</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matrix A:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matrix B:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matrix C:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matrix D:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+
+    <span class="c1"># Convert A and B matrices to discrete time using zero-order hold</span>
+    <span class="c1"># Zero-order hold: assumes input is constant during time interval</span>
+    <span class="c1"># This is a reasonable assumption for our system</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">cont2discrete</span>
+
+    <span class="n">d_system</span> <span class="o">=</span> <span class="n">cont2discrete</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;zoh&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Extract the discrete time A and B matrices</span>
+    <span class="n">Ad</span> <span class="o">=</span> <span class="n">d_system</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Bd</span> <span class="o">=</span> <span class="n">d_system</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">Cd</span> <span class="o">=</span> <span class="n">d_system</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">Dd</span> <span class="o">=</span> <span class="n">d_system</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Discrete-time A matrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Ad</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Discrete-time B matrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Bd</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Discrete-time C matrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Cd</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Discrete-time D matrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Dd</span><span class="p">)</span>
+
+    <span class="c1"># Define time</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tend</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="c1"># Initialize state matrix</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+    <span class="c1"># Initialize input matrix</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="c1"># Initialize setpoints</span>
+    <span class="n">SP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="c1"># Loop over time steps</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="c1"># Current state</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span>
+
+        <span class="c1"># Unpack into individual states</span>
+        <span class="n">T1H</span><span class="p">,</span> <span class="n">T1S</span><span class="p">,</span> <span class="n">T2H</span><span class="p">,</span> <span class="n">T2S</span> <span class="o">=</span> <span class="n">x</span>
+
+        <span class="c1"># Setpoints</span>
+        <span class="n">sp1</span> <span class="o">=</span> <span class="n">SP1</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">sp2</span> <span class="o">=</span> <span class="n">SP2</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1"># Temperature control</span>
+        <span class="c1"># Channel 1</span>
+        <span class="c1"># Hint: Write code below to set U[i,0]</span>
+        <span class="c1"># Look at the equations you wrote down for the relay controller</span>
+        <span class="c1"># Add your solution here</span>
+        
+        <span class="c1"># Channel 2</span>
+        <span class="c1"># Hint: Write code below to set U[i,1]</span>
+        <span class="c1"># Add your solution here</span>
+
+        <span class="c1"># Update state</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># Do not update the state for the last time step</span>
+            <span class="c1"># We want to update U and SP for plotting</span>
+            <span class="n">X</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">Ad</span> <span class="o">@</span> <span class="n">x</span> <span class="o">+</span> <span class="n">Bd</span> <span class="o">@</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span>
+
+        <span class="c1"># Save step points</span>
+        <span class="n">SP</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">sp1</span>
+        <span class="n">SP</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">sp2</span>
+
+    <span class="c1"># Shift states from deviation variables to absolute values</span>
+    <span class="n">X</span> <span class="o">+=</span> <span class="n">T_amb</span>
+
+    <span class="c1"># Create DataFrame</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;T1H&#39;</span><span class="p">,</span> <span class="s1">&#39;T1S&#39;</span><span class="p">,</span> <span class="s1">&#39;T2H&#39;</span><span class="p">,</span> <span class="s1">&#39;T2S&#39;</span><span class="p">])</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Q1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Q2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;SP1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SP</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;SP2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SP</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Channel 1, Simulated Relay Control with d=</span><span class="si">{}</span><span class="s1"> (C)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;T1H&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;T1H&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;T1S&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;T1S&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;SP1&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SP1&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (C)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+        <span class="c1"># Add code to plot Channel 2</span>
+        <span class="c1"># Add your solution here</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Heaters, Simulated Relay Control with d=</span><span class="si">{}</span><span class="s1"> (C)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Q1&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Q1&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Q2&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Q2&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power Level (%)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulate-controller-with-a-small-deadband-assuming-no-cross-channel-interaction">
+<h3>Simulate Controller with a Small Deadband Assuming No Cross Channel Interaction<a class="headerlink" href="#simulate-controller-with-a-small-deadband-assuming-no-cross-channel-interaction" title="Link to this heading">#</a></h3>
+<p>In Labs 1 and 2, we did not consider the second channel, so we do not have a good guess for the heat transfer rate between channels 1 and 2. To get started, lets assume there is NO heat transfer between channels, i.e., <span class="math notranslate nohighlight">\(U_c = 0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ua, Ub, Uc, CpH, CpS</span>
+<span class="c1"># Update these to match the parameters of your system (from Lab 2)</span>
+<span class="n">tclab_parameters_no_interaction</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.050</span><span class="p">,</span> <span class="mf">0.099</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">7.399</span><span class="p">,</span> <span class="mf">1.663</span><span class="p">]</span>
+
+<span class="n">sim1</span> <span class="o">=</span> <span class="n">tclab_simulate_relay</span><span class="p">(</span><span class="n">SP1_simple</span><span class="p">,</span> <span class="n">SP2_simple</span><span class="p">,</span> <span class="n">tclab_parameters_no_interaction</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulate-controller-with-a-small-deadband-assuming-small-cross-channel-interaction">
+<h3>Simulate Controller with a Small Deadband Assuming Small Cross Channel Interaction<a class="headerlink" href="#simulate-controller-with-a-small-deadband-assuming-small-cross-channel-interaction" title="Link to this heading">#</a></h3>
+<p>Next, let’s repeat the simulation, but assume the heat transfer between channels is 50% the rate of each channel with the ambient, i.e., <span class="math notranslate nohighlight">\(U_c = 0.5 U_a\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tclab_parameters_with_interaction</span> <span class="o">=</span> <span class="n">tclab_parameters_no_interaction</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">tclab_parameters_with_interaction</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">tclab_parameters_with_interaction</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">0.5</span>
+
+<span class="n">sim2</span> <span class="o">=</span> <span class="n">tclab_simulate_relay</span><span class="p">(</span><span class="n">SP1_simple</span><span class="p">,</span> <span class="n">SP2_simple</span><span class="p">,</span> <span class="n">tclab_parameters_with_interaction</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulate-the-controller-with-a-large-deadband-and-no-cross-channel-interaction">
+<h3>Simulate the Controller with a Large Deadband and No Cross Channel Interaction<a class="headerlink" href="#simulate-the-controller-with-a-large-deadband-and-no-cross-channel-interaction" title="Link to this heading">#</a></h3>
+<p>Now, let’s consider a larger deadband with <span class="math notranslate nohighlight">\(U_c = 0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim3</span> <span class="o">=</span> <span class="n">tclab_simulate_relay</span><span class="p">(</span><span class="n">SP1_simple</span><span class="p">,</span> <span class="n">SP2_simple</span><span class="p">,</span> <span class="n">tclab_parameters_no_interaction</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulate-the-controller-with-a-large-deadband-and-modest-cross-channel-interaction">
+<h3>Simulate the Controller with a Large Deadband and Modest Cross Channel Interaction<a class="headerlink" href="#simulate-the-controller-with-a-large-deadband-and-modest-cross-channel-interaction" title="Link to this heading">#</a></h3>
+<p>Finally, consider a larger deadband and <span class="math notranslate nohighlight">\(U_c = 0.5 U_a\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim4</span> <span class="o">=</span> <span class="n">tclab_simulate_relay</span><span class="p">(</span><span class="n">SP1_simple</span><span class="p">,</span> <span class="n">SP2_simple</span><span class="p">,</span> <span class="n">tclab_parameters_with_interaction</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional extra code cell</span>
+<span class="c1"># Please delete this cell if you do not use it</span>
+
+<span class="c1"># Add your solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h3>
+<p>Write a few observations about your simulation results. (Recommendation: Write 3 to 5 bullet points where each bullet point is one idea, expressed in one or two sentences.)</p>
+<p><em>Answer</em>:</p>
+</section>
+</section>
+<section id="exercise-1-simple-relay-control-for-tc-lab">
+<h2>Exercise 1. Simple Relay Control for TC Lab<a class="headerlink" href="#exercise-1-simple-relay-control-for-tc-lab" title="Link to this heading">#</a></h2>
+<p>Create a relay controller subject to the following requirements:</p>
+<ul class="simple">
+<li><p>Simultaneous control of sensor temperatures <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> to setpoints 35 and 40 °C, respectively. The setpoints return to 25 °C at  t = 300.</p></li>
+<li><p>Use a tolerance value <span class="math notranslate nohighlight">\(d\)</span> of 0.5 °C.</p></li>
+<li><p>Set the minimum and maximum values of the heater to 0 and 100%, respectively.</p></li>
+<li><p>Set ‘lab.P1’ and ‘lab.P2’ to 200 to be consistent with prior labs.</p></li>
+<li><p>Run the experiment for at least 500 seconds.</p></li>
+<li><p>Show the results of an experiment in which the setpoints are adjusted accordingly.</p></li>
+</ul>
+<section id="debug-your-implementation-with-the-tclab-digital-twin">
+<h3>Debug Your Implementation with the TCLab Digital Twin<a class="headerlink" href="#debug-your-implementation-with-the-tclab-digital-twin" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">tclab</span></code> library includes a simulation-mode/digital twin. This allows you to debug your controller code BEFORE using your hardware. This is really helpful as the digital twin does not require anytime to cool down.</p>
+<p>Here is the code to use the digital twin:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">speedup</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">connected=False</span></code> enables the simulation-mode (a.k.a., digital twin). When <code class="docutils literal notranslate"><span class="pre">connected=False</span></code>, you can also use the <code class="docutils literal notranslate"><span class="pre">speedup</span></code> argument to speed-up the simulation. Again, this is super helpful for debugging your code.</p>
+<p><em>With great power comes great responsibility.</em> While the digital twin mode is increadibly helpful, it is very easy to forget to set <code class="docutils literal notranslate"><span class="pre">connected=True</span></code> again before running the actual experiments in the lab. In later Exercises, you <strong>must</strong> run the experiments on your TCLab hardware. It is important you tripple check <code class="docutils literal notranslate"><span class="pre">connected=True</span></code>.</p>
+<p>Below is some starter code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># As a first step, let&#39;s verify the sample code runs</span>
+<span class="c1"># After that, modify the code to implement the relay controller for T2</span>
+<span class="c1"># Debug your implementation with the connected=False</span>
+<span class="c1"># &quot;digital twin&quot; mode before connecting to the real device</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">tclab</span><span class="w"> </span><span class="kn">import</span> <span class="n">TCLab</span><span class="p">,</span> <span class="n">clock</span><span class="p">,</span> <span class="n">Historian</span><span class="p">,</span> <span class="n">Plotter</span><span class="p">,</span> <span class="n">setup</span>
+
+<span class="sd">&#39;&#39;&#39; Important note about the &#39;setup&#39; function:</span>
+<span class="sd">connected=False is used for the simulation.</span>
+<span class="sd">connected=True is used to connect to the real device.</span>
+<span class="sd">speedup=5 can be used to run the simulation at 5x real time.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">speedup</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># relay controller</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">relay</span><span class="p">(</span><span class="n">SP</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">Umin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Umax</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Relay controller definition</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        SP: set point function</span>
+<span class="sd">        d: set point tolerance</span>
+<span class="sd">        Umin: minimum heater output (%) </span>
+<span class="sd">        Umax: maximum heater output (%)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        none</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#start with the heater off</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">#while the simulation is active (t&lt;tfinal)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">t</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">U</span>
+        <span class="c1">#When T is below the set point, turn on heater</span>
+        <span class="k">if</span> <span class="n">T</span> <span class="o">&lt;</span> <span class="n">SP</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">Umax</span>
+        <span class="c1">#When T is above the set point, turn off heater</span>
+        <span class="k">if</span> <span class="n">T</span> <span class="o">&gt;</span> <span class="n">SP</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">Umin</span>
+
+<span class="c1"># create a single control loop for T1</span>
+<span class="n">controller1</span> <span class="o">=</span> <span class="n">relay</span><span class="p">(</span><span class="n">SP1_simple</span><span class="p">)</span>
+<span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># This started code only implements a controller for T1</span>
+<span class="c1"># What do you need to change to implement a controller for T2 too?</span>
+
+<span class="c1"># simulate with TCLab</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="mi">60</span> <span class="c1"># change this to 500 seconds for the actual experiment</span>
+<span class="n">t_step</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="n">sources</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&quot;SP1&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">SP1_simple</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="p">(</span><span class="s2">&quot;SP2&quot;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">SP2_simple</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
+               <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Q2&quot;</span><span class="p">,</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">)]</span>
+    <span class="c1">#load historian</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">sources</span><span class="p">)</span>
+    <span class="c1">#load plotter</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">((</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;SP1&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,</span> <span class="s2">&quot;SP2&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">)))</span>
+    <span class="c1">#While time is less than tfinal</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">t_final</span><span class="p">,</span> <span class="n">t_step</span><span class="p">):</span>
+        <span class="c1">## Controller for T1</span>
+        <span class="c1"># This starter code only manipulates U1 to control T1.</span>
+        <span class="c1"># Your specifications also give a setpoint for T2</span>
+        <span class="n">T1</span> <span class="o">=</span> <span class="n">lab</span><span class="o">.</span><span class="n">T1</span>
+        <span class="c1"># Send the controller time and T1 data</span>
+        <span class="n">U1</span> <span class="o">=</span> <span class="n">controller1</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">])</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="n">U1</span><span class="p">)</span>
+
+        <span class="c1">## Controller for T2</span>
+        <span class="c1"># What do you need to change to implement a controller for T2 too?</span>
+
+        <span class="c1">## Read data and update plot</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="verify-your-device-is-at-ambient-temperature">
+<h3>Verify your Device is at Ambient Temperature<a class="headerlink" href="#verify-your-device-is-at-ambient-temperature" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify your device has cooled back to ambient</span>
+<span class="n">tfinal</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">#seconds</span>
+
+<span class="n">run_tclab</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">In the labs, we will us &quot;run_tclab&quot; to control whether the TCLab is used.</span>
+<span class="sd">After you finish the lab experiment, set run_tclab = False.</span>
+<span class="sd">This way, you can run all the cells without losing your TCLab output.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">run_tclab</span><span class="p">:</span>
+
+    <span class="c1"># Connect to the TCLab device (not digital twin)</span>
+    <span class="c1"># This should be connected=True</span>
+    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># perform experiment</span>
+    <span class="k">with</span> <span class="n">TCLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+        <span class="c1">#Set power to 0</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">U1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">U2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1">#load historian </span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">Historian</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
+        <span class="c1">#Load plotter</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">)</span>
+        <span class="c1">#While time is less than tfinal</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clock</span><span class="p">(</span><span class="n">tfinal</span><span class="p">):</span>
+            <span class="c1">#Read data and update plot</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="perform-the-experiment-with-tclab-hardware">
+<h3>Perform the Experiment with TCLab Hardware<a class="headerlink" href="#perform-the-experiment-with-tclab-hardware" title="Link to this heading">#</a></h3>
+<p>Hint: You already debugged the code above with <code class="docutils literal notranslate"><span class="pre">connected=False</span></code>. You should copy your code to below and slightly modify. A few hints:</p>
+<ul class="simple">
+<li><p>You should not copy functions you already defined.</p></li>
+<li><p>Be careful with the indentation. You may get an error about the device not being connected. If that occurs, check the indentation.</p></li>
+<li><p>Make sure you adjust <code class="docutils literal notranslate"><span class="pre">t_final</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy the code you implemented and debugged above</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
+
+<span class="n">data_file_simple</span> <span class="o">=</span> <span class="s1">&#39;lab3-simple-relay.csv&#39;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save_data</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">data_file</span><span class="p">,</span> <span class="n">overwrite_file</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Save the data to a csv file</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        history: dataframe with data</span>
+<span class="sd">        data_file: filename to save data</span>
+<span class="sd">        overwrite_file: boolean to overwrite file, default is False to prevent accidental overwriting</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">overwrite_file</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="o">+</span><span class="n">data_file</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span><span class="n">data_file</span> <span class="o">+</span> <span class="s1">&#39; already exisits. Either choose a new filename or set overwrite_file = True.&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">history</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Successfully saved data to &quot;</span><span class="o">+</span><span class="n">data_file</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">run_tclab</span><span class="p">:</span>
+
+    <span class="c1"># Connect to the TCLab device (not digital twin)</span>
+    <span class="c1"># This should be connected=True</span>
+    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># In the above cells, you debugged your logic for the relay controller with</span>
+    <span class="c1"># connected=False. Now, you can run the experiment with connected=True.</span>
+    <span class="c1"># Copy your code from above to below and run the experiment.</span>
+
+    <span class="c1"># Before you run this cell, make sure you have </span>
+    <span class="c1"># implemented the controller for T2</span>
+    <span class="c1"># This is the most common mistake in the lab.</span>
+
+    <span class="c1"># Indentation is the second most common mistake.</span>
+
+    <span class="c1"># The third most common mistake is rerunning with experiment</span>
+    <span class="c1"># without waiting for the device to cool back down to ambient. </span>
+
+    <span class="c1"># Add your solution here</span>
+
+    <span class="n">save_data</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">data_file_simple</span><span class="p">,</span> <span class="n">overwrite_file</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>Discussion<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Write a 1 to 3 sentences to answer each of the following questions.</p>
+<p><strong>Q1</strong> Describe the shape of the temperature profiles (time-series) for the exercise 1 experiment. Are these shapes expected?</p>
+<p><em>Answer</em>:</p>
+<p><strong>Q2</strong> Speculate about why T1 overshoots the setpoint more than T2 in the exercise 1 experiment.</p>
+<p><em>Answer</em>:</p>
+</section>
+</section>
+<section id="exercise-2-tempering-chocolate">
+<h2>Exercise 2. Tempering Chocolate<a class="headerlink" href="#exercise-2-tempering-chocolate" title="Link to this heading">#</a></h2>
+<p>We now want to create a relay controller that matches the temperature profile for tempering chocolate.</p>
+<p><img alt="" src="https://d29hmqxeker05q.cloudfront.net/eyJidWNrZXQiOiJpbWFnZXMuY2tiay5jb20iLCJrZXkiOiJpbWFnZXMvY2hvYzI0NDE0YzA0czAwMXNzMDAxc3NzMDA0ZzAxLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsIndpZHRoIjo2NTEsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwianBlZyI6eyJxdWFsaXR5Ijo5MCwicHJvZ3Jlc3NpdmUiOnRydWV9fX0=" /></p>
+<p>Temperature 1 specifications:</p>
+<ul class="simple">
+<li><p>Start from ambient.</p></li>
+<li><p>Reach 50 °C at 3 minutes, 27 °C at 7 minutes, return to 32 °C at 8 minutes, and hold until 10 minutes.</p></li>
+<li><p>The goal is follow the linear ramp between setpoints as closely as possible.</p></li>
+</ul>
+<p>Temperature 2 specifications:</p>
+<ul class="simple">
+<li><p>Start from ambient, ramp, and then hold at 30 °C.</p></li>
+</ul>
+<p>Hints:</p>
+<ul class="simple">
+<li><p>Modify SP1 to <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.interp.html">linearly interpolate</a> the set point as a function of time.</p></li>
+</ul>
+<section id="plot-the-described-temperature-profile">
+<h3>Plot the Described Temperature Profile<a class="headerlink" href="#plot-the-described-temperature-profile" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete these function to define the setpoints for T1 and T2</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">SP1_chocolate</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set point definition for T1</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        t: time (s)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        set point of T1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Add your solution here</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">SP2_chocolate</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set point definition for T2</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        t: time (s)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        set point of T2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Add your solution here</span>
+
+<span class="c1"># Make a plot of the setpoints to verify your setpoint functions</span>
+<span class="c1"># are correct.</span>
+
+<span class="c1"># Add your solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulate-the-chocolate-tempering-experiment">
+<h3>Simulate the Chocolate Tempering Experiment<a class="headerlink" href="#simulate-the-chocolate-tempering-experiment" title="Link to this heading">#</a></h3>
+<p>One great way to test your setpoint functions is to simulate the response of the relay controller.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim5</span> <span class="o">=</span> <span class="n">tclab_simulate_relay</span><span class="p">(</span><span class="n">SP1_chocolate</span><span class="p">,</span> <span class="n">SP2_chocolate</span><span class="p">,</span> <span class="n">tclab_parameters_with_interaction</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using this simulation, adjust <span class="math notranslate nohighlight">\(d\)</span> via trial-and-error. Choose a value of <span class="math notranslate nohighlight">\(d\)</span> and write a sentence or two to justify your choice. We care less about the value of <span class="math notranslate nohighlight">\(d\)</span> you select and more on your <em>justification</em> for the choice. This is an open ended question with many reasonable answers.</p>
+<p><em>Answer</em>:</p>
+</section>
+<section id="verify-tclab-is-at-ambient-temperature">
+<h3>Verify TCLab is at Ambient Temperature<a class="headerlink" href="#verify-tclab-is-at-ambient-temperature" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">run_tclab</span><span class="p">:</span>
+
+    <span class="c1"># Connect to the TCLab device (not digital twin)</span>
+    <span class="c1"># This should be connected=True</span>
+    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Add your solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Perform the Experiment with TCLab Hardware<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Please use the value for <span class="math notranslate nohighlight">\(d\)</span> you identified above using the simulation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy your code from above and modify to match the specifications</span>
+
+<span class="n">data_file_chocolate</span> <span class="o">=</span> <span class="s1">&#39;lab3-chocolate-relay.csv&#39;</span>
+
+<span class="k">if</span> <span class="n">run_tclab</span><span class="p">:</span>
+    <span class="c1"># You may optionally set connected=False to debug your code</span>
+    <span class="c1"># If you do, you MUST set it back to connected=True before running the experiment</span>
+    <span class="c1"># You should also rerun the code block above to verify your TCLab is at ambient temperature</span>
+    <span class="c1"># BEFORE running this experiment</span>
+    <span class="n">TCLab</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># One of the most common mistakes is NOT using the correct</span>
+    <span class="c1"># setpoint functions when you copy and paste code from above.</span>
+
+    <span class="c1"># Add your solution here</span>
+
+    <span class="n">save_data</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">data_file_chocolate</span><span class="p">,</span> <span class="n">overwrite_file</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>Discussion<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>In the cholcate tempering simulation, how many times does each heater transitions from (a) one to off and (b) off to on? Fill in the table below.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sensor</p></th>
+<th class="head"><p>On to Off</p></th>
+<th class="head"><p>Off to On</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>T1</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>T2</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Answer</em>:</p>
+<p>Descibe the shape of the T1 and T2 timeseries for the excerise 2 experiment. How do the T1 and T2 profiles relate to the on/off and off/on transitions for Q1 and Q2?</p>
+<p><em>Answer</em>:</p>
+</section>
+</section>
+<section id="exercise-3-quantify-tracking-error">
+<h2>Exercise 3. Quantify Tracking Error<a class="headerlink" href="#exercise-3-quantify-tracking-error" title="Link to this heading">#</a></h2>
+<p>In this exercise, you will compare compute the error between the desired setpoint and the temperature sensor. We will use two metrics: root mean squared error (RMSE) and absolute mean error (AME):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+RMSE = \sqrt{\frac{1}{N}\sum_t \left(T_{S}(t) - SP(t)\right)^2}
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+AME = \frac{1}{N}\sum_t | T_{S}(t) - SP(t) |
+\end{equation*}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(N\)</span> is the number of data points.</p>
+<section id="create-a-function-to-quantify-controller-performance">
+<h3>Create a Function to Quantify Controller Performance<a class="headerlink" href="#create-a-function-to-quantify-controller-performance" title="Link to this heading">#</a></h3>
+<p>We will start by writing a general function that computer both tracking error metrics used save data and the setpoint function(s).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_tracking_error</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">SP1</span><span class="p">,</span> <span class="n">SP2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Compute the tracking error between the set point and the data</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        data: dataframe with columns for T1 and T2</span>
+<span class="sd">        SP1: function that returns setpoint for T1</span>
+<span class="sd">        SP2: function that returns setpoint for T2, default None</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        rmse1: root mean square error for T1</span>
+<span class="sd">        rmse2: root mean square error for T2</span>
+<span class="sd">        ame1: absolute mean error for T1</span>
+<span class="sd">        ame2: absolute mean error for T2</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># Grab the time data</span>
+    <span class="k">if</span> <span class="s1">&#39;Time&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="c1"># if &#39;Time&#39; is one of the columns</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># otherwise, use the index</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="s1">&#39;T1&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="c1"># for TCLab data, &#39;T1&#39; is the column name</span>
+        <span class="n">T1_name</span> <span class="o">=</span> <span class="s1">&#39;T1&#39;</span>
+    <span class="k">elif</span> <span class="s1">&#39;T1S&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="c1"># for our simulation, &#39;T1S&#39; is the column name</span>
+        <span class="n">T1_name</span> <span class="o">=</span> <span class="s1">&#39;T1S&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;T1 data not found. Here are the column names: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="s1">&#39;T2&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="c1"># for TCLab data, &#39;T2&#39; is the column name</span>
+        <span class="n">T2_name</span> <span class="o">=</span> <span class="s1">&#39;T2&#39;</span>
+    <span class="k">elif</span> <span class="s1">&#39;T2S&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="c1"># for our simulation, &#39;T2S&#39; is the column name</span>
+        <span class="n">T2_name</span> <span class="o">=</span> <span class="s1">&#39;T2S&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">T2_name</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Add your solution here</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE T1:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">rmse1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;AME T1: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">ame1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rmse2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE T2:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">rmse2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ame2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;AME T2: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">ame2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">rmse1</span><span class="p">,</span> <span class="n">rmse2</span><span class="p">,</span> <span class="n">ame1</span><span class="p">,</span> <span class="n">ame2</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="performance-of-tclab-device-for-simple-experiment">
+<h3>Performance of TCLab Device for Simple Experiment<a class="headerlink" href="#performance-of-tclab-device-for-simple-experiment" title="Link to this heading">#</a></h3>
+<p>Next, use your function to analyze the simple experiment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="performance-of-the-simulated-controller-for-the-simple-experiment">
+<h3>Performance of the Simulated Controller for the Simple Experiment<a class="headerlink" href="#performance-of-the-simulated-controller-for-the-simple-experiment" title="Link to this heading">#</a></h3>
+<p>Choose one of the simulation results from Exercise 0 and compute the performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="performance-of-tclab-device-for-chocolate-experiment">
+<h3>Performance of TCLab Device for Chocolate Experiment<a class="headerlink" href="#performance-of-tclab-device-for-chocolate-experiment" title="Link to this heading">#</a></h3>
+<p>Next, analyze the chocolate tempering experiment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="performance-of-the-simulated-controller-for-the-chocolate-experiment">
+<h3>Performance of the Simulated Controller for the Chocolate Experiment<a class="headerlink" href="#performance-of-the-simulated-controller-for-the-chocolate-experiment" title="Link to this heading">#</a></h3>
+<p>Finally, analyze the simulation for the chocolate experiment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<p>Complete the following table to summarize your results.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Experiment</p></th>
+<th class="head"><p>Mode</p></th>
+<th class="head"><p>RMSE T1</p></th>
+<th class="head"><p>AME T1</p></th>
+<th class="head"><p>RMSE T2</p></th>
+<th class="head"><p>AME T2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Simple</p></td>
+<td><p>Hardware</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Simple</p></td>
+<td><p>Simulate</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Chocolate</p></td>
+<td><p>Hardware</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Chocolate</p></td>
+<td><p>Simulate</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="concluding-discussion">
+<h2>Concluding Discussion<a class="headerlink" href="#concluding-discussion" title="Link to this heading">#</a></h2>
+<p>The following questions tie together the Exercises throughout the lab. Please write 1 to 3 sentences per prompt.</p>
+<p><strong>Q1</strong> How can we reduce the oscillations in these experiments? Propose at least one idea and provide reasoning for why it could work.</p>
+<p><em>Answer</em>:</p>
+<p>Consider the following feedback diagram from the first day of class:</p>
+<p><img alt="" src="https://ndcbe.github.io/controls/_images/FeedbackControlDiagram.png" /></p>
+<p>Identify the variables in each of the categories for our temperature control lab.</p>
+<p><strong>Maninpulated Variable(s)</strong>:</p>
+<p><em>Answer</em>:</p>
+<p><strong>Controlled Variable(s)</strong>:</p>
+<p><em>Answer</em>:</p>
+<p><strong>Process/Measured Variable(s)</strong>:</p>
+<p><em>Answer</em>:</p>
+<p><strong>Set Point Variable(s)</strong>:</p>
+<p><em>Answer</em>:</p>
+<p><strong>Disturbance Variable(s)</strong>:</p>
+<p><em>Answer</em>:</p>
+<section id="bonus-exercise-extra-credit">
+<h3>Bonus Exercise (Extra Credit)<a class="headerlink" href="#bonus-exercise-extra-credit" title="Link to this heading">#</a></h3>
+<p>Using your code from Lab 2 as a starting point, re-estimate the parameters in the four-state TCLab model (<span class="math notranslate nohighlight">\(T_S\)</span> and <span class="math notranslate nohighlight">\(T_H\)</span> for both channels). Perform simultaneous nonlinear regression with four datasets:</p>
+<ul class="simple">
+<li><p>Step test (Lab 1)</p></li>
+<li><p>Sine test (Lab 2)</p></li>
+<li><p>Simple Relay On/Off Experiment (Lab 3)</p></li>
+<li><p>Chocolate Tempering Relay On/Off Experiment (Lab 3)</p></li>
+</ul>
+<p>You should start by deriving the four state model on paper. You may need to perform multi-start initialization. Include time-series plots, analysis of the residuals, and quantification of uncertainty, similar to Lab 2. How much did your parameter estimates change compared to Lab 2? How much did the parameter uncertainty decrease (or increase)? Do the results make sense and why?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your solution here</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">dT1H</span><span class="p">,</span> <span class="n">dT1S</span><span class="p">,</span> <span class="n">dT2H</span><span class="p">,</span> <span class="n">dT2S</span><span class="p">]</span>
+
+    <span class="n">soln</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">t_expt</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">t_expt</span><span class="p">)],</span> <span class="p">[</span><span class="n">T_amb</span><span class="p">,</span> <span class="n">T_amb</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_expt</span><span class="p">)</span>
+
+    <span class="n">T1H</span> <span class="o">=</span> <span class="n">soln</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">T1S</span> <span class="o">=</span> <span class="n">soln</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">T2H</span> <span class="o">=</span> <span class="n">soln</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">T2S</span> <span class="o">=</span> <span class="n">soln</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="c1"># Plot the temperature data and heat power</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_expt</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;T1&#39;</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Measured $T_S$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_expt</span><span class="p">,</span> <span class="n">T1S</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Predicted $T_</span><span class="si">{S1}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_expt</span><span class="p">,</span> <span class="n">T1H</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Predicted $T_</span><span class="si">{H1}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_expt</span><span class="p">,</span> <span class="n">T2S</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Predicted $T_</span><span class="si">{S2}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_expt</span><span class="p">,</span> <span class="n">T2H</span><span class="p">,</span> <span class="s1">&#39;p-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Predicted $T_</span><span class="si">{H2}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (degC)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_expt</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Q1&#39;</span><span class="p">],</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Heater 1&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_expt</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Q2&#39;</span><span class="p">],</span> <span class="s1">&#39;p-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Heater 2&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Heater (%)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (sec)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">plot_title</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">TS</span>
+
+<span class="c1"># Test your function with the data and initial parameters</span>
+<span class="n">TS</span> <span class="o">=</span> <span class="n">tclab_model4</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="common-mistakes">
+<h2>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Not using the correct kernel (for the controls environment with TCLab installed)</p></li>
+<li><p>Not setting up controller #2 (This includes assigning T2 and Q2 in the simulation code)</p></li>
+<li><p>When switching to <code class="docutils literal notranslate"><span class="pre">connected=True</span></code> most got errors if they did not restart the kernel and clear all the cells output</p></li>
+<li><p>Trying to create their own linear interpolation function, just use <code class="docutils literal notranslate"><span class="pre">np.interp</span></code></p></li>
+</ol>
+</section>
+<section id="declarations">
+<h2>Declarations<a class="headerlink" href="#declarations" title="Link to this heading">#</a></h2>
+<p><strong>TCLab Hardware:</strong> Did you use the <em>same</em> TCLab device for Labs 1, 2, and 3? If not, please provide details here. These labs are designed to use the same hardware throughout the semester. Please keep this in mind as you answer the discussion questions, especially when comparing the simulated to actual performance.</p>
+<p><strong>Collaboration</strong>: If you worked with any classmates, please give their names here. Describe the nature of the collaboration.</p>
+<p><strong>Generative AI</strong>: If you used any Generative AI tools, please elaborate here.</p>
+<p><strong>Reminder:</strong> The written discussions responses must be in your own words. Many of these questions ask about your specific results or are open-ended questions with many reasonable answers. Thus we expect unique responses, analyses, and ideas.</p>
+<p>We may use writing analysis software to check for overly similar written responses. You are responsible for reviewing the colaboration policy outlined in the class syllabus to avoid violations of the honor code.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-controls-py"
+        },
+        kernelOptions: {
+            name: "conda-env-controls-py",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-controls-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lab-2-Model-Identification.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 2: Model Identification</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lab-4-PI-Control.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 4: PI Control</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-0-simulation">Exercise 0. Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-setpoints">Visualize Setpoints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-to-numerically-simulate-relay-controller">Function to Numerically Simulate Relay Controller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-controller-with-a-small-deadband-assuming-no-cross-channel-interaction">Simulate Controller with a Small Deadband Assuming No Cross Channel Interaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-controller-with-a-small-deadband-assuming-small-cross-channel-interaction">Simulate Controller with a Small Deadband Assuming Small Cross Channel Interaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-the-controller-with-a-large-deadband-and-no-cross-channel-interaction">Simulate the Controller with a Large Deadband and No Cross Channel Interaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-the-controller-with-a-large-deadband-and-modest-cross-channel-interaction">Simulate the Controller with a Large Deadband and Modest Cross Channel Interaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-simple-relay-control-for-tc-lab">Exercise 1. Simple Relay Control for TC Lab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debug-your-implementation-with-the-tclab-digital-twin">Debug Your Implementation with the TCLab Digital Twin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-your-device-is-at-ambient-temperature">Verify your Device is at Ambient Temperature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-the-experiment-with-tclab-hardware">Perform the Experiment with TCLab Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-tempering-chocolate">Exercise 2. Tempering Chocolate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-described-temperature-profile">Plot the Described Temperature Profile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-the-chocolate-tempering-experiment">Simulate the Chocolate Tempering Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-tclab-is-at-ambient-temperature">Verify TCLab is at Ambient Temperature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Perform the Experiment with TCLab Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-quantify-tracking-error">Exercise 3. Quantify Tracking Error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-function-to-quantify-controller-performance">Create a Function to Quantify Controller Performance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-of-tclab-device-for-simple-experiment">Performance of TCLab Device for Simple Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-of-the-simulated-controller-for-the-simple-experiment">Performance of the Simulated Controller for the Simple Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-of-tclab-device-for-chocolate-experiment">Performance of TCLab Device for Chocolate Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-of-the-simulated-controller-for-the-chocolate-experiment">Performance of the Simulated Controller for the Chocolate Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concluding-discussion">Concluding Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-exercise-extra-credit">Bonus Exercise (Extra Credit)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations">Declarations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeffrey Kantor, Alexander Dowling, and Jeremiah Zartman
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Jeffrey Kantor, Alexander Dowling, and Jeremiah Zartman.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
