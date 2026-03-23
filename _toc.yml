@@ -103,6 +103,8 @@ parts:
     - file: notebooks/08.00-Projects
       sections:
       - file: notebooks/08.01-Project-Ideas
+      - file: assignments/Lab-5-Open-Loop-Optimization.ipynb
+      - file: assignments/Lab-6-MPC.ipynb
     
     - file: notebooks/09.00-Bibliography
 
