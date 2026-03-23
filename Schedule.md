@@ -19,7 +19,7 @@ Assignments are typically due at 10 PM via Gradescope unless otherwise directed.
 | Friday, February 20, 2026 | **Lab 3:** Relay Control — Lab 3 prelab due |
 | Wednesday, March 4, 2026 | **Lab 3:** Relay Control — Lab 3 due at 10 PM|
 | Thursday, March 19, 2026 | **Project proposals** (team submission) due at 10 PM on gradescope |
-| Tuesday, March 24, 2026 | **Homework 2 Due** / project proposal follow-up |
+| Thursday, March 26, 2026 | **Homework 2 Due (updated)** |
 | Friday, March 27, 2026 | **Lab 4:** PID Control — Lab 4 prelab due |
 | Tuesday, April 7, 2026 | **Midterm Exam** — 8:00 AM start (in class) |
 | Thursday, April 16, 2026 | **Lab 4 due** (upload instructions on Canvas) |
