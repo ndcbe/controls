@@ -81,8 +81,8 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 102 DeBartolo Hall.
 | **Tuesday, March 31, 2026** | **Exam Review** |
 | **Thursday, April 2, 2026** | **No class — Work on group projects** |
 | **Tuesday, April 7, 2026** | **Midterm Exam** — **8:00 AM start time** (in class) |
-| **Thursday, April 9, 2026** | **Advanced Topics** : TBA/Optimization and Model Predictive Control|
-| **Tuesday, April 14, 2026** | **Scheduled Project Consultations** (in class) |
+| **Tuesday, April 9, 2026** | **Scheduled Project Consultations** (in class) |
+| **Thursday, April 14, 2026** | **Advanced Topics** : TBA/Optimization and Model Predictive Control|
 | **Thursday, April 16, 2026** | **Scheduled Project Consultations** — **Lab 4 due** |
 | **Tuesday, April 21, 2026** | **Project Presentations** (in class) |
 | **Thursday, April 23, 2026** | **Project Presentations** — **Homework 3 due** |
