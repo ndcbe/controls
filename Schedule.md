@@ -47,7 +47,8 @@ Fridays from 10:30 am - 11:20 am (session 1) and 11:30 am - 12:20 pm (session 2)
 | Friday, April 3, 2026 | **No lab (Easter)** |
 | Friday, April 10, 2026 | **Lab 4 help** (TA help) |
 | Friday, April 17, 2026 | **Homework 3 office hours** (TA help) |
-| Friday, April 24, 2026 | **Review for Final quiz / office hours** |
+| Friday, April 23, 2026 | **Special office hour, 1:30-2:30 in McCourtney 303: HW#3 and Review for Final quiz / office hours** |
+| Friday, April 24, 2026 | **No lab tutorials** |
 
 > Note: See each lab page for prelab and submission instructions; if your lab session time conflicts with a presentation or exam, contact the TA to arrange a make-up.
 
@@ -85,5 +86,5 @@ Tuesdays and Thursdays from 9:30 - 10:45am in 102 DeBartolo Hall.
 | **Tuesday, April 14, 2026** | **Advanced Topics** : TBA/Optimization and Model Predictive Control|
 | **Thursday, April 16, 2026** | **Scheduled Project Consultations** — **Lab 4 due** |
 | **Tuesday, April 21, 2026** | **Project Presentations** (in class) |
-| **Thursday, April 23, 2026** | **Project Presentations** — **Homework 3 due** |
-| **Tuesday, April 28, 2026** | **Final (short) quiz/exam** — in-class component of final project; **Project reports due** |
+| **Thursday, April 23, 2026** | **Project Presentations** — **Homework 3 due at 10 PM** |
+| **Tuesday, April 28, 2026** | **Final (short) quiz/exam covering optimization and model predictive control** — in-class component of final project; **Project reports due** |
